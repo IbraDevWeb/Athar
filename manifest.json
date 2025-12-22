@@ -1,0 +1,16 @@
+{
+  "name": "Athar Pro",
+  "short_name": "Athar",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1a1c23",
+  "theme_color": "#c5a059",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
