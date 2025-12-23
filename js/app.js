@@ -16,7 +16,11 @@ const app = createApp({
         'reader-view': ReaderView,
         'transmission-view': TransmissionView,
         'atlas-view': AtlasView,
-        'ussul-view': UssulView
+        'ussul-view': UssulView,
+        'prophetic-clock-view': PropheticClockView,
+        'relations-view': RelationsView,
+        'revelation-view': RevelationView,
+        'tool-view': ToolView
     },
     setup() {
         // --- INITIALIZATION ---
@@ -370,6 +374,27 @@ const app = createApp({
         watch([activeCategory, headerSearchQuery, viewFilter], () => { visibleCount.value = 12; if (mainScroll.value) mainScroll.value.scrollTop = 0; });
         watch(tasbihCount, (v) => localStorage.setItem('athar_tasbih', v));
 
+        watch(mobileMenuOpen, (isOpen) => {
+            if (isOpen) {
+                setTimeout(() => {
+                    if (window.lucide) window.lucide.createIcons();
+                }, 50); // Petit délai pour laisser le temps au menu de s'ouvrir
+            }
+        });
+
+        // Liste des clés des nouvelles sections
+const extensionsList = [
+    'constellation', 'eloquence', 'roots', 'scriptorium', 'diwan',
+    'scholars_map', 'mosque', 'history_nights', 'isnad', 'currency', 'astronomy',
+    'brahine', 'faqih', 'balance', 'memory'
+];
+
+// Fonction helper pour le style des boutons (à mettre dans le return)
+const navBtnClass = (mode) => {
+    const base = 'w-full text-left px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200 ';
+    return base + (viewMode.value === mode ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter');
+};
+
         return {
             dataError, viewMode, headerSearchQuery, filteredChapters, displayedChapters, mainScroll, globalTimeline, filteredGlossary,
             filteredHadiths, currentHadith, openHadith,
@@ -387,7 +412,7 @@ const app = createApp({
             openRandomChapter, goHome,
             currentTheme, 
             openScholarFiche, 
-            silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul
+            silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul, extensionsList, navBtnClass
         };
     }
 });
