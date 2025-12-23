@@ -1,8 +1,8 @@
 const STORED_HADITHS = [
     {
-        "id": "3017",
-        "title": "Lorsque l'homme aime son frère, qu’il l’informe de son amour pour lui.",
-        "hadeeth": "Al-Miqdâm ibn Ma'dî Karib (qu'Allah l'agrée) relate que le Prophète (qu'Allah le couvre d'éloges et le préserve) a dit : « Lorsque l'homme aime son frère, qu’il l’informe de son amour pour lui. »",
+        "id": "5124 Sunan Abi Dawood",
+        "title": "Lorsque l'homme aime son frère, qu'il l'informe de son amour pour lui.",
+        "hadeeth": "Al-Miqdâm ibn Ma'dî Karib (qu'Allah l'agrée) relate que le Prophète (qu'Allah le couvre d'éloges et le préserve) a dit : « Lorsque l'homme aime son frère, qu'il l'informe de son amour pour lui. »",
         "attribution": "رواه أبو داود والترمذي والنسائي في الكبرى وأحمد",
         "grade": "Authentique",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) explique l'une des causes renforçant la relation entre les croyants et propageant l'amour entre eux ; il s'agit, lorsque quelqu'un aime son frère, qu'il l'informe de son amour pour lui.",
@@ -102,9 +102,9 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3716",
-        "title": "Qu'Allah fasse miséricorde à un homme bienveillant lorsqu’il vend, conciliant lorsqu’il achète et lorsqu’il réclame son dû !",
-        "hadeeth": "Jâbir (qu'Allah l'agrée) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : \" Qu'Allah fasse miséricorde à un homme bienveillant lorsqu’il vend, conciliant lorsqu’il achète et lorsqu’il réclame son dû !\"",
+        "id": "2076 Sahih al-Bukhari",
+        "title": "Qu'Allah fasse miséricorde à un homme bienveillant lorsqu'il vend, conciliant lorsqu'il achète et lorsqu'il réclame son dû !",
+        "hadeeth": "Jâbir (qu'Allah l'agrée) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : \" Qu'Allah fasse miséricorde à un homme bienveillant lorsqu'il vend, conciliant lorsqu'il achète et lorsqu'il réclame son dû !\"",
         "attribution": "Rapporté par Al-Bûkhârî",
         "grade": "Authentique",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) a invoqué la miséricorde pour toute personne souple, généreuse et conciliante dans sa vente. Ainsi, il n'est pas dur avec l'acheteur quant à son prix et il se comporte avec lui d'un bon comportement. Il est souple, généreux et conciliant lorsqu'il achète de sorte qu'il ne déprécie ni ne diminue la valeur de la marchandise. Il est souple, généreux et conciliant lorsqu'il demande le remboursement de dettes qui lui sont dues. Ainsi, il n'est pas dur à l'égard du pauvre et de l'indigent. Il demande plutôt son dû avec douceur et bienveillance et il accorde un délai à la personne en difficulté.",
@@ -201,7 +201,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3753",
+        "id": "1562 Sahih Muslim",
         "title": "Un homme avait l'habitude de prêter de l'argent aux gens. Il disait à son servant : ' Si tu rencontres une personne en difficulté, sois conciliant ! Peut-être qu’Allah le sera avec nous",
         "hadeeth": "Aboû Hourayrah (qu'Allah l'agrée) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : \"Un homme avait l'habitude de prêter de l'argent aux gens. Il disait à son servant : ' Si tu rencontres une personne en difficulté, sois conciliant ! Peut-être qu’Allah le sera avec nous. ' Et lorsqu’il rencontra Allah, Il fut conciliant avec lui. \"",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -312,7 +312,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4319",
+        "id": "1955 Sahih Muslim",
         "title": "Allah a certes prescrit la bienfaisance en toute chose !",
         "hadeeth": "Chaddâd ibn Aws (qu'Allah l'agrée) relate qu'il a mémorisé deux choses du Messager d'Allah (qu'Allah le couvre d'éloges et le préserve). Il a dit : « Allah a certes prescrit la bienfaisance en toute chose ! Ainsi, lorsque vous tuez, tuez de la meilleure des façons ; et lorsque vous sacrifiez, sacrifiez de la meilleure des façons. Que l’un de vous aiguise sa lame et qu’il tranquillise sa bête de sacrifice ! »",
         "attribution": "Rapporté par Muslim",
@@ -423,7 +423,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4935",
+        "id": "1827 Sahih Muslim",
         "title": "Certes, les personnes équitables seront auprès d’Allah sur des chaires de lumière, à la droite du Tout-Miséricordieux, à Lui la Puissance et la Grandeur, et Ses deux Mains sont droites",
         "hadeeth": "'AbdouLâh ibn 'Amr (qu'Allah l'agrée, lui et son père) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : « Certes, les personnes équitables seront auprès d’Allah sur des chaires de lumière, à la droite du Tout-Miséricordieux, à Lui la Puissance et la Grandeur, et Ses deux Mains sont droites. Il s’agit de ceux qui sont justes dans leur jugement, au sein de leur famille et de ceux dont ils ont la charge. »",
         "attribution": "Rapporté par Muslim",
