@@ -540,7 +540,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5348",
+        "id": "2626 Sahih Muslim",
         "title": "Ne méprise rien du bien, ne serait-ce que de rencontrer ton frère avec un visage souriant. \"",
         "hadeeth": "Aboû Dharr (qu'Allah l'agrée) relate : « Le Prophète (qu'Allah le couvre d'éloges et le préserve) m'a dit : \" Ne méprise rien du bien, ne serait-ce que de rencontrer ton frère avec un visage souriant. \" »",
         "attribution": "Rapporté par Muslim",
@@ -642,7 +642,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5351",
+        "id": "6114 Sahih al-Bukhari",
         "title": "Le fort n'est pas celui qui terrasse autrui, le fort, c'est celui qui maîtrise sa personne au moment de la colère.",
         "hadeeth": "Aboû Hourayrah (qu'Allah l'agrée) relate que le Messager d'Allah  (qu'Allah le couvre d'éloges et le préserve) a dit : « Le fort n'est pas celui qui terrasse autrui, le fort, c'est celui qui maîtrise sa personne au moment de la colère. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -744,7 +744,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5354",
+        "id": "1893 Sahih Muslim",
         "title": "Quiconque indique un bien a la même récompense que celui qui l’accomplit",
         "hadeeth": "Aboû Mas'oûd Al-Anṣârî (qu'Allah l'agrée) relate : Un homme est venu au Prophète (qu'Allah le couvre d'éloges et le préserve) et a dit : « Ma monture est morte, équipe moi donc ! - Il lui a alors répondu (qu'Allah le couvre d'éloges et le préserve) : Je n'ai rien ! - Un homme dit alors : Ô Messager d'Allah ! Moi, je vais lui indiquer quelqu'un qui l'équipera ! - Le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) répondit : \" Quiconque indique un bien a la même récompense que celui qui l’accomplit. »",
         "attribution": "Rapporté par Muslim",
@@ -848,7 +848,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5437",
+        "id": "6018 Sahih al-Bukhari",
         "title": "Celui qui croit en Allah et au Jour dernier, qu'il dise du bien ou qu'il se taise. Celui qui croit en Allah et au Jour dernier, qu'il honore son voisin. Celui qui croit en Allah et au Jour dernier, qu'il honore son invité.",
         "hadeeth": "Abû Hurayrah (qu'Allah l'agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « Celui qui croit en Allah et au Jour dernier, qu'il dise du bien ou qu'il se taise. Celui qui croit en Allah et au Jour dernier, qu'il honore son voisin. Celui qui croit en Allah et au Jour dernier, qu'il honore son invité. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -979,7 +979,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5439",
+        "id": "2319 Sahih Muslim",
         "title": "Celui qui ne fait pas miséricorde aux gens, Allah, à Lui la Puissance et la Grandeur, ne lui fait pas miséricorde.",
         "hadeeth": "Jarîr ibn 'AbdiLlâh (qu'Allah l'agrée) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : « Celui qui ne fait pas miséricorde aux gens, Allah, à Lui la Puissance et la Grandeur, ne lui fait pas miséricorde. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -1079,7 +1079,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5476",
+        "id": "2004 Sunan at-Tirmidhi",
         "title": "On a interrogé le Messager d’Allah (qu'Allah le couvre d'éloges et le préserve) au sujet de ce qui faisait le plus entrer les gens au Paradis, il a dit (qu'Allah le couvre d'éloges et le préserve) : \" Craindre Allah et avoir un bon comportement",
         "hadeeth": "Aboû Hourayrah (qu'Allah l'agrée) relate : « On a interrogé le Messager d’Allah (qu'Allah le couvre d'éloges et le préserve) au sujet de ce qui faisait le plus entrer les gens au Paradis, il a dit (qu'Allah le couvre d'éloges et le préserve) : \" Craindre Allah et avoir un bon comportement. \", et on l'a interrogé au sujet de ce qui faisait le plus entrer les gens en Enfer, il a dit : \" La bouche et le sexe. \"",
         "attribution": "رواه الترمذي وابن ماجه وأحمد",
@@ -1180,7 +1180,7 @@ const STORED_HADITHS = [
         "grade_ar": "حسن صحيح"
     },
     {
-        "id": "5478",
+        "id": "36 Sahih Muslim",
         "title": "La pudeur fait partie de la foi",
         "hadeeth": "'AbdouLlâh Ibn 'Oumar (qu'Allah l'agrée, lui et son père) relate : Le Prophète (qu'Allah le couvre d'éloges et le préserve) a entendu un homme qui exhortait son frère au sujet de la pudeur, il a alors dit : «  La pudeur fait partie de la foi. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -1280,7 +1280,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5514",
+        "id": "1931 Sunan at-Tirmidhi",
         "title": "Quiconque défend l’honneur de son frère en son absence, Allah éloignera le Feu de son visage au Jour de la Résurrection.",
         "hadeeth": "Aboû Ad-Dardâ' (qu'Allah l'agrée) relate que le Prophète (qu'Allah le couvre d'éloges et le préserve) a dit : « Quiconque défend l’honneur de son frère en son absence, Allah éloignera le Feu de son visage au Jour de la Résurrection. »",
         "attribution": "رواه الترمذي وأحمد",
@@ -1386,7 +1386,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5545",
+        "id": "2965 Sahih Muslim",
         "title": "Certes, Allah aime le serviteur pieux, riche et discret",
         "hadeeth": "Sa'd ibn Abî Waqqâṣ (qu'Allah l'agrée) relate : « J'ai entendu le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) dire : \"Certes, Allah aime le serviteur pieux, riche et discret.\"",
         "attribution": "Rapporté par Muslim",
@@ -1477,7 +1477,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5792",
+        "id": "1162 Sunan at-Tirmidhi",
         "title": "Le croyant dont la foi est la plus complète est celui d'entre eux qui a le meilleur comportement, et les meilleurs d’entre vous sont les meilleurs envers leurs femmes !",
         "hadeeth": "Aboû Hourayrah (qu'Allah l'agrée) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : « Le croyant dont la foi est la plus complète est celui d'entre eux qui a le meilleur comportement, et les meilleurs d’entre vous sont les meilleurs envers leurs femmes ! »",
         "attribution": "رواه أبو داود والترمذي وأحمد",
@@ -1573,7 +1573,7 @@ const STORED_HADITHS = [
         "grade_ar": "حسن"
     },
     {
-        "id": "5796",
+        "id": "2594 Sahih Muslim",
         "title": "La douceur n'a jamais accompagné une chose sans l'embellir, et elle n'a jamais été ôtée d'une chose sans l'enlaidir",
         "hadeeth": "'Â`ichah (qu'Allah l'agrée), l'épouse du Prophète (qu'Allah le couvre d'éloges et le préserve) relate qu'il a dit : « La douceur n'a jamais accompagné une chose sans l'embellir, et elle n'a jamais été ôtée d'une chose sans l'enlaidir »",
         "attribution": "Rapporté par Muslim",
@@ -1666,7 +1666,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5799",
+        "id": "4798 Sunan Abu Dawood",
         "title": "Certes, par son bon comportement, le croyant atteint le degré de celui qui jeûne le jour et prie la nuit.\"",
         "hadeeth": "'Â`ichah (qu'Allah l'agrée) relate : « J'ai entendu le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) dire : \"Certes, par son bon comportement, le croyant atteint le degré de celui qui jeûne le jour et prie la nuit.\" »",
         "attribution": "رواه أبو داود وأحمد",
@@ -1761,7 +1761,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح بشواهده"
     },
     {
-        "id": "5803",
+        "id": "3559 Sahih al-Bukhari",
         "title": "Les meilleurs d’entre vous sont certes ceux qui ont les meilleurs comportements.",
         "hadeeth": "'AbdouLlâh ibn 'Amr (qu'Allah l'agrée, lui et son père) relate : Le Messager d’Allah (qu'Allah le couvre d'éloges et le préserve) n’était pas grossier et ne tenait pas non plus de propos déplacés. Il disait : «  Les meilleurs d’entre vous sont certes ceux qui ont les meilleurs comportements. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -1856,7 +1856,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5866",
+        "id": "69 Sahih al-Bukhari",
         "title": "Facilitez et ne rendez pas difficile ! Annoncez de bonnes nouvelles et ne faites pas fuir !",
         "hadeeth": "Anas ibn Mâlik (qu'Allah l'agrée) relate que le Prophète (qu'Allah le couvre d'éloges et le préserve) a dit : « Facilitez et ne rendez pas difficile ! Annoncez de bonnes nouvelles et ne faites pas fuir ! »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -1957,11 +1957,11 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "8289",
+        "id": "1924 Sunan at-Tirmidhi",
         "title": "Les miséricordieux, Le Miséricordieux leur fera miséricorde ! Faites miséricorde à ceux qui sont sur terre, Celui qui est au Ciel vous fera miséricorde.",
         "hadeeth": "‘Abdullah ibn ‘Amr (qu’Allah l'agrée, lui et son père) relate que le Prophète (sur lui la paix et le salut) a dit : « Les miséricordieux, Le Miséricordieux leur fera miséricorde ! Faites miséricorde à ceux qui sont sur terre, Celui qui est au Ciel vous fera miséricorde. »",
         "attribution": "Rapporté par At-Tirmidhî - Rapporté par Abû Dâwud - Rapporté par Aḥmad",
-        "grade": "Authentique",
+        "grade": "Bon",
         "explanation": "« Les miséricordieux », ceux qui font miséricorde à ceux qui sont sur terre, c’est-à-dire : aux humains et aux animaux [tout être qu’il est interdit de tuer sans raison]. Du fait de leur pitié, leur bonté et leur aide, « Le Miséricordieux leur fera miséricorde », Il sera bon envers eux et Il leur accordera Ses bienfaits. En effet, la rétribution est en fonction de l’action [accomplie]. « Faites miséricorde à ceux qui sont sur terre », c’est-à-dire : à toutes les catégories de créatures, aux bons comme aux mauvais, aux bêtes sauvages, aux animaux, etc. « Celui qui est au ciel vous fera miséricorde » : Allah, qui est au ciel, vous fera miséricorde. Il est interdit d’interpréter cela par le fait que Son royaume est au ciel ou par autre chose, car le fait qu’Allah est au-dessus de Ses créatures est avéré dans le Coran, la Tradition et cela fait l’objet du consensus de la communauté. De même, lorsqu’on dit qu’Il est « au ciel », cela ne signifie pas que le ciel Le cerne et qu’Il est à l’intérieur du ciel. La particule arabe : « Fî » (traduit ici par : « au », « dans », etc.) signifie ici : « Alâ », c’est-à-dire : « au-dessus », Il est au-dessus du ciel, au-dessus de toute Sa création.",
         "hints": [],
         "categories": [
@@ -2044,7 +2044,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3777",
+        "id": "2590 Sahih Muslim",
         "title": "Il n'est pas un serviteur qui couvre les faiblesses d'un autre en ce bas monde sans qu'Allah ne couvre les siennes au Jour de la Résurrection.",
         "hadeeth": "Abû Hurayrah (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « Il n'est pas un serviteur qui couvre les faiblesses d'un autre en ce bas monde sans qu'Allah ne couvre les siennes au Jour de la Résurrection ».",
         "attribution": "Rapporté par Muslim",
@@ -2123,7 +2123,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4291",
+        "id": "6000 Sahih al-Bukhari",
         "title": "Allah a réparti la miséricorde en cent parties. Il en conserva quatre-vingt-dix-neuf auprès de Lui et en fit descendre une seule sur terre. C'est grâce à cette partie que les créatures font preuve de miséricorde les unes envers les autres, au point que la bête soulève sa patte de peur d'écraser son petit.",
         "hadeeth": "Abû Hurayrah (qu'Allah l'agrée) relate une parole qu'il a attribuée au Messager d'Allah (sur lui la paix et le salut) et qui dit : « Allah a réparti la miséricorde en cent parties. Il en conserva quatre-vingt-dix-neuf auprès de Lui et en fit descendre une seule sur terre. C'est grâce à cette partie que les créatures font preuve de miséricorde les unes envers les autres, au point que la bête soulève sa patte de peur d'écraser son petit. » Dans une autre version : « Allah détient cent miséricordes. Il a fait descendre une miséricorde parmi les djinns, les humains, les bêtes, les reptiles et les insectes. C'est grâce à elle qu'ils font preuve d'affection et de miséricorde les uns envers les autres. C'est grâce à elle aussi que la bête sauvage éprouve de la compassion pour son petit. Mais Allah a réservé quatre-vingt-dix-neuf miséricordes avec lesquelles Il fera miséricorde à Ses serviteurs au Jour de la Résurrection. » Salmân Al-Fârissî (qu'Allah l'agrée) relate que le Messager d'Allah (sur lui la paix et le salut) a dit : « Certes, Allah possède cent miséricordes. Parmi elles, il y en a une grâce à laquelle les créatures font preuve de miséricorde les unes envers les autres et quatre-vingt-dix-neuf sont réservées pour le Jour de la Résurrection. » Et dans une autre version : « Le jour où Allah créa les cieux et la terre, Il créa cent miséricordes. Chaque miséricorde emplit l'espace entre les cieux et la terre. Il en plaça une sur terre et c'est grâce à elle que la mère éprouve de la tendresse envers son enfant, ainsi que les bêtes sauvages et les oiseaux les uns envers les autres. Quand viendra le Jour de la Résurrection, Il complètera (la centaine) avec cette miséricorde. »",
         "attribution": "Rapporté par Muslim - Rapporté par Al-Bukhârî et Muslim",
@@ -2185,7 +2185,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4302",
+        "id": "1987 Sunan at-Tirmidhi",
         "title": "Crains Allah où que tu sois ! Fais suivre la mauvaise action par une bonne, elle l’effacera ; et comporte-toi bien avec les gens !",
         "hadeeth": "Abû Dharr et Mu’âdh ibn Jabal (qu’Allah les agrée) relatent que le Messager d’Allah (sur lui la paix et le salut) a dit : « Crains Allah où que tu sois ! Fais suivre la mauvaise action par une bonne, elle l’effacera ; et comporte-toi bien avec les gens ! »",
         "attribution": "Rapporté par At-Tirmidhî - Rapporté par Aḥmad - Rapporté par Ad-Dârimî",
@@ -2284,7 +2284,7 @@ const STORED_HADITHS = [
         "grade_ar": "حسن"
     },
     {
-        "id": "4308",
+        "id": "17668 Musnad Ahmad",
         "title": "La bonté, c’est le bon comportement. Quant au péché, c’est ce qui te tourmente l’esprit et que tu répugnerais que les gens apprennent.",
         "hadeeth": "Nawwâs ibn Sam’ân (qu’Allah l’agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « La bonté c'est le bon comportement. Quant au péché, c'est ce qui te tourmente l’esprit et ce que tu répugnerais que les gens apprennent. » Et Wâbiṣah ibn Ma’bad (qu’Allah l’agrée) a dit : « Je suis venu voir le Messager d’Allah (sur lui la paix et le salut) qui m’a demandé : \" Tu es venu interroger sur la bonté ? - Oui, ai-je répondu. Alors, le Prophète (sur lui la paix et le salut) répliqua : Consulte ton cœur. La bonté est ce qui apaise l’âme et le cœur. Le péché est ce qui tourmente l’esprit et sème le doute dans le cœur, quand bien même les gens répondraient à tes questions. \" »",
         "attribution": "Rapporté par Aḥmad.",
@@ -2415,7 +2415,7 @@ const STORED_HADITHS = [
         "grade_ar": "حديث النواس: صحيح.\nحديث وابصة: حسن بشواهده"
     },
     {
-        "id": "4559",
+        "id": "6120 Sahih al-Bukhari",
         "title": "Parmi ce que les gens connaissent encore des paroles prophétiques anciennes, il y a : \" Si tu n’as pas de pudeur, fais ce qui te plaît ! \"",
         "hadeeth": "Abu Mas’ud al-Anṣârî (qu’Allah l’agrée) relate : « Parmi ce que les gens connaissent encore des paroles prophétiques anciennes, il y a : \" Si tu n’as pas de pudeur, fais ce qui te plaît ! \" »",
         "attribution": "Rapporté par Al-Bûkhârî",
@@ -2501,7 +2501,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4706",
+        "id": "6064 Sahih al-Bukhari",
         "title": "Ne vous enviez pas, ne faites pas de collusion, ne vous haïssez pas, ne vous tournez pas le dos et ne surenchérissez pas les uns les autres sur vos offres de vente ! Soyez des serviteurs d’Allah, frères !",
         "hadeeth": "Abû Hurayrah (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « Ne vous enviez pas, ne faites pas de collusion, ne vous haïssez pas, ne vous tournez pas le dos et ne surenchérissez pas les uns les autres sur vos offres de vente ! Soyez des serviteurs d’Allah, frères ! Le musulman est le frère du musulman. Il ne le lèse pas, ne l’abandonne pas, ne le dément pas et ne le méprise pas. La piété se trouve ici ! - et il désigna sa poitrine à trois reprises - Qu’il suffise à l’homme pour être mauvais de mépriser son frère musulman. Tout le musulman est sacré pour un musulman : son sang, ses biens et son honneur ! »",
         "attribution": "Rapporté par Muslim",
@@ -2653,7 +2653,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4717",
+        "id": "13 Sahih al-Bukhari",
         "title": "Aucun d’entre vous ne sera un véritable croyant tant qu’il n’aimera pas pour son frère ce qu’il aime pour lui-même.",
         "hadeeth": "Anas ibn Mâlik (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « Aucun d’entre vous ne sera un véritable croyant tant qu’il n’aimera pas pour son frère ce qu’il aime pour lui-même. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -2756,7 +2756,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4939",
+        "id": "2592 Sahih Muslim",
         "title": "Quiconque est privé de la douceur est privé de tout le bien.",
         "hadeeth": "Jarîr ibn 'Abdillah (qu’Allah l’agrée) a dit : « J’ai entendu le Messager d'Allah (sur lui la paix et le salut) dire : \" Quiconque est privé de la douceur est privé de tout le bien.\" »",
         "attribution": "Rapporté par Muslim",
@@ -2847,7 +2847,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5345",
+        "id": "1844 Sahih Muslim",
         "title": "Celui qui a fait acte d’allégeance à un imam en mettant sa main dans la sienne et en l’assurant de sa sincère loyauté, qu’il lui obéisse autant que possible ! Et si quelqu’un d’autre vient disputer l’autorité de cet imam, tranchez la tête de cet autre !",
         "hadeeth": "Abdallah ibn ‘Amr (qu’Allah l’agrée) a dit : « Nous étions en voyage avec le Messager d’Allah (sur lui la paix et le salut) et nous fîmes halte. Certains d’entre nous montèrent leurs tentes, d’autres s’entraînèrent au tir à l’arc et d’autres encore firent paître leurs bêtes. Soudain, un homme chargé par le Messager d’Allah (sur lui la paix et le salut) d’appeler, proclama à voix haute : « La prière en commun ! » Alors, nous nous rassemblâmes auprès du Messager d’Allah (sur lui la paix et le salut) qui dit : « Il n’y a pas eu de Prophète avant moi sans qu’il n’ait eu le devoir de guider sa communauté vers ce qui était le meilleur pour elle et de l’avertir contre ce qui était mauvais pour elle. Pour ce qui est de votre communauté que voici, sa sécurité a été placée à son début quant à sa fin, celle-ci sera touchée par des épreuves et des choses que vous désapprouverez. Des troubles viendront et ne seront rien comparés aux suivants. C’est alors qu’un trouble se manifestera et le croyant s’exclamera : \"Celui-ci me détruira !\" Puis, il se dissipera et un autre apparaîtra, le croyant s’exclamera de nouveau : \"Celui-ci ! Celui-ci !\" Par conséquent, que celui qui souhaite être éloigné de l’Enfer et entrer au Paradis fasse en sorte que la mort lui vienne alors qu’il croit en Allah et au Jour Dernier et qu’il traite les gens comme il aimerait qu’on le traite ! Quant à celui qui a fait acte d’allégeance à un imam en mettant sa main dans la sienne et en l’assurant de sa sincère loyauté, qu’il lui obéisse autant que possible ! Et si quelqu’un d’autre vient disputer l’autorité de cet imam, tranchez la tête de cet autre ! »",
         "attribution": "Rapporté par Muslim",
@@ -2995,7 +2995,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5371",
+        "id": "2002 Sahih al-Tirmidhi",
         "title": "Le croyant n'insulte pas, ne maudit pas, et il n'est ni vulgaire ni grossier.",
         "hadeeth": "Le premier hadith : 'Abdullah ibn Mas'ûd (qu'Allah l'agrée) relate que le Messager d'Allah (sur lui la paix et le salut) a dit : « Rien n'est plus lourd dans la Balance que le bon comportement. Et, certes, Allah déteste la personne vulgaire et grossière. » Le deuxième hadith : Abû Dardâ' (qu'Allah l'agrée) relate que le Messager d'Allah (sur lui la paix et le salut) a dit : « Le croyant n'insulte pas, ne maudit pas, et il n'est ni vulgaire ni grossier. »",
         "attribution": "Rapporté par At-Tirmidhî - Rapporté par Abû Dâwud - Rapporté par Aḥmad",
@@ -3100,7 +3100,7 @@ const STORED_HADITHS = [
         "grade_ar": "الحديث الأول: صحيح\nالحديث الثاني: صحيح"
     },
     {
-        "id": "5504",
+        "id": "1971 Sahih at-Tirmidhi",
         "title": "Soyez véridiques, car la véracité mène à la piété et la piété mène au Paradis.",
         "hadeeth": "Abdallah ibn Mas’ûd (qu’Allah l’agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « Soyez véridiques, car la véracité mène à la piété et la piété mène au Paradis. L’homme ne cesse d’être véridique jusqu’à ce qu’il soit inscrit, auprès d’Allah, comme un grand véridique. Prenez garde au mensonge, car le mensonge mène au vice et le vice mène en Enfer. L’homme ne cesse de mentir jusqu’à ce qu’il soit inscrit, auprès d’Allah, comme un grand menteur. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -3207,7 +3207,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5773",
+        "id": "2786 Sahih al-Bukhari",
         "title": "Quel est le meilleur des hommes, Ô Messager d’Allah ?",
         "hadeeth": "Abû Saʽîd Al-Khudrî (qu'Allah l'agrée) relate : « Un homme a demandé : \" Quel est le meilleur des hommes, Ô Messager d’Allah ? - Le Messager d’Allah (sur lui la paix et le salut) répondit : Un croyant qui lutte physiquement et avec ses biens dans la voie d’Allah ! - L’homme poursuivit : Et ensuite ? - Ensuite, un homme qui se retire dans l'un des sentiers de la montagne afin d'adorer son Seigneur ! \" » Et dans une autre version : « Pour adorer Allah avec crainte et épargner les gens de son mal. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim, selon la narration de Muslim",
@@ -3256,7 +3256,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "5804",
+        "id": "4800 Sunan Abu Dawud",
         "title": "Je garantis une maison à la périphérie du Paradis à quiconque délaisse la polémique même s’il a raison.",
         "hadeeth": "Abû Umâmah Al-Bâhilî (qu'Allah l'agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « Je garantis une maison à la périphérie du Paradis à quiconque délaisse la polémique, même s’il a raison ; une maison au milieu du Paradis à quiconque délaisse le mensonge, même en plaisantant ; et une maison dans les plus hauts degrés du Paradis à quiconque parfait son comportement. »",
         "attribution": "Rapporté par Abû Dâwud",
@@ -3318,7 +3318,7 @@ const STORED_HADITHS = [
         "grade_ar": "حسن"
     },
     {
-        "id": "5812",
+        "id": "2004 Sahih al-Tirmidhi",
         "title": "On a questionné le Messager d’Allah (sur lui la paix et le salut) au sujet de ce qui faisait le plus entrer les gens au Paradis. Il a répondu : \" La crainte d’Allah et le bon comportement. \" Et on l'a questionné au sujet de ce qui faisait le plus entrer les gens en Enfer. Il a répondu : \" La bouche et le sexe. \"",
         "hadeeth": "Abû Hurayrah (qu’Allah l’agrée) dit : « On a questionné le Messager d’Allah (sur lui la paix et le salut) au sujet de ce qui faisait le plus entrer les gens au Paradis. Il a répondu : \" La crainte d’Allah et le bon comportement. \" Et on l'a questionné au sujet de ce qui faisait le plus entrer les gens en Enfer. Il a répondu : \" La bouche et le sexe. \" »",
         "attribution": "Rapporté par Ibn Mâjah - Rapporté par At-Tirmidhî - Rapporté par Aḥmad",
@@ -3366,7 +3366,7 @@ const STORED_HADITHS = [
         "grade_ar": "إسناده حسن"
     },
     {
-        "id": "10101",
+        "id": "10 Sahih al-Bukhari",
         "title": "Le musulman est celui dont les musulmans sont à l’abri de sa langue et de sa main, et l'émigrant est celui qui fuit ce qu’Allah a interdit.",
         "hadeeth": "Abdallah ibn 'Amr et Jâbir ibn 'Abdillah (qu'Allah les agrée) relatent : « Le musulman est celui dont les musulmans sont à l’abri de sa langue et de sa main, et l'émigrant est celui qui fuit ce qu’Allah a interdit. » Abû Mûsâ (qu’Allah l’agrée) a dit : « J’ai demandé : Ô Messager d’Allah ! Quel est le musulman le plus émérite ? - Il répondit : Celui dont les musulmans sont à l’abri du mal de sa langue et de sa main. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -3461,7 +3461,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3032",
+        "id": "4843 Sunan Abu Dawud",
         "title": "Fait partie de la vénération que l'on doit avoir pour Allah, Exalté soit-Il, le fait d’honorer le musulman aux cheveux blancs, celui qui porte le Coran, sans excès ni laxisme, ainsi que de montrer de la considération et du respect envers le sultan juste.",
         "hadeeth": "Abû Mûsâ Al-Ash’arî (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « Fait partie de la vénération que l'on doit avoir pour Allah, Exalté soit-Il, le fait d’honorer le musulman aux cheveux blancs, celui qui porte le Coran, sans excès ni laxisme, ainsi que de montrer de la considération et du respect envers le sultan juste. »",
         "attribution": "Rapporté par Abû Dâwud",
@@ -3540,7 +3540,7 @@ const STORED_HADITHS = [
         "grade_ar": "حسن"
     },
     {
-        "id": "3042",
+        "id": "48 Sahih Muslim",
         "title": "Quiconque croit en Allah et au Jour Dernier, qu’il soit généreux avec son invité dans ses dons ! Les Compagnons demandèrent : Qu’entends-tu par ses dons, ô Messager d’Allah ? Il répondit : Un jour et une nuit, et l’hospitalité est de trois jours. Au-delà de cela, c’est une aumône qu’il lui fait.",
         "hadeeth": "Abû Shurayḥ Khuwaylid ibn ‘Amr Al-Khuzâ’î relate du Prophète (sur lui la paix et le salut) que celui-ci a dit : « Quiconque croit en Allah et au Jour Dernier, qu’il soit généreux avec son invité dans ses dons ! Les Compagnons demandèrent : Qu’entends-tu par ses dons, ô Messager d’Allah ? Il répondit : Un jour et une nuit, et l’hospitalité est de trois jours. Au-delà de cela, c’est une aumône qu’il lui fait. » Et dans une autre version : « Il est interdit à un musulman de rester chez son frère jusqu’à le pousser à se sentir fautif ! Les Compagnons demandèrent : Comment peut-il le pousser à se sentir fautif ? Il répondit : Il reste chez lui alors que ce dernier n’a plus rien à lui servir. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim dans ses deux versions",
@@ -3604,7 +3604,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3074",
+        "id": "6168 Sahih al-Bukhari",
         "title": "L’homme est avec ceux qu'il a aimés.",
         "hadeeth": "Abû Mûsâ Al-Ash’arî (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « L’homme est avec ceux qu'il a aimés. » Et dans une version : « On demanda au Prophète (sur lui la paix et le salut) : « Qu’en est-il de l’homme qui aime des gens sans être au même niveau qu’eux ? » Il répondit : « L'homme est avec ceux qu'il a aimés. »\n‘Abdullah ibn Mas’ûd (qu’Allah l’agrée) relate qu'un homme vint au Messager d’Allah (sur lui la paix et le salut) et demanda : « Ô Messager d’Allah ! Que dis-tu d’un homme qui aime des gens mais n’a pas atteint leur niveau ? » Le Messager d’Allah (sur lui la paix et le salut) répondit : « L’homme est avec ceux qu'il a aimés. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim dans ses deux versions",
@@ -3659,7 +3659,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيحان"
     },
     {
-        "id": "3125",
+        "id": "1438 Sahih al-Bukhari",
         "title": "Le consignataire musulman intègre, qui exécute ce qui lui a été ordonné, qui verse la somme due dans son entièreté, de bon cœur et à celui à qui il lui a été ordonné de le faire, sera [compté] comme l’un des bienfaiteurs.",
         "hadeeth": "Abû Moussa Al-Ash’arî (qu’Allah l’agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « Le consignataire musulman intègre, qui exécute ce qui lui a été ordonné, qui verse la somme due dans son entièreté, de bon cœur et à celui à qui il lui a été ordonné de le faire, sera [compté] comme l’un des bienfaiteurs. » Dans une version : « Celui qui verse ce qui lui a été ordonné de verser. »",
         "attribution": "Rapporté par Al-Bûkhârî - Rapporté par Al-Bukhârî et Muslim, selon la narration d'Al-Bukhârî",
@@ -3728,7 +3728,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3287",
+        "id": "4777 Sahih Abu Dawud",
         "title": "Celui qui contient sa colère alors qu’il pourrait la laisser éclater, Allah - Gloire et Pureté à Lui et qu'Il soit Exalté - l’appellera au Jour de la Résurrection devant tout le monde afin qu’il puisse choisir la Houri de son choix.",
         "hadeeth": "Mu’âdh ibn Anas (qu’Allah l’agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « Celui qui contient sa colère alors qu’il pourrait la laisser éclater, Allah - Gloire et Pureté à Lui et qu'Il soit Exalté - l’appellera au Jour de la Résurrection devant tout le monde afin qu’il puisse choisir la Houri de son choix. »",
         "attribution": "Rapporté par Ibn Mâjah - Rapporté par At-Tirmidhî - Rapporté par Abû Dâwud - Rapporté par Aḥmad",
@@ -3779,7 +3779,7 @@ const STORED_HADITHS = [
         "grade_ar": "حسن لغيره"
     },
     {
-        "id": "3358",
+        "id": "5995 Sahih al-Bukhari",
         "title": "Quiconque a été éprouvé - d'une manière ou d'une autre - par le biais de ces filles [qu'il a eues] et se montre bon envers elles, elles seront pour lui une protection contre le feu.",
         "hadeeth": "ʽÂ'ishah (qu'Allah l'agréée) a dit : « Une femme est entrée chez moi, accompagnée de ses deux filles. Elle demandait qu'on lui donne quelque chose, mais je n’avais rien d'autre à lui donner qu'une simple datte. Je la lui donnai donc et elle la partagea entre ses deux filles, sans rien en manger. Puis, elle se leva et partit. Quand le Prophète (sur lui la paix et le salut) rentra, je lui racontai ce qui s'était passé. Il dit alors : « Quiconque a été éprouvé - d'une manière ou d'une autre - par le biais de ces filles [qu'il a eues] et se montre bon envers elles, elles seront pour lui une protection contre le feu ».",
         "attribution": "Rapporté par Al-Bukhârî et Muslim, selon la narration d'Al-Bukhârî",
@@ -3859,7 +3859,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3369",
+        "id": "2566 Sahih Muslim",
         "title": "Au Jour de la Résurrection, Allah - Exalté soit-Il - demandera : Où sont ceux qui s’aimaient en Ma Majesté ? Aujourd’hui, Je les ombrage de Mon ombre, en ce Jour où il n’y a d’ombre que la Mienne.",
         "hadeeth": "Abû Hurayrah (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « Au Jour de la Résurrection, Allah - Exalté soit-Il - demandera : Où sont ceux qui s’aimaient en Ma Majesté ? Aujourd’hui, Je les ombrage de Mon ombre, en ce Jour où il n’y a d’ombre que la Mienne. »",
         "attribution": "Rapporté par Muslim",
@@ -3909,7 +3909,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3563",
+        "id": "5132 Sunan Abu Dawud",
         "title": "Intercédez et vous en serez récompensés. Allah décrète ce qu’il aime par la bouche de Son Prophète.",
         "hadeeth": "Abû Mûsâ Al-Ashʽarî (qu’Allah l’agrée) a dit : « Quand une personne venait au Prophète (sur lui la paix et le salut) pour une requête, celui-ci se tournait vers ceux qui étaient assis avec lui et leur disait : « Intercédez et vous en serez récompensés. Allah décrète ce qu’il aime par la bouche de Son prophète. » Et dans une autre version : « Ce qu’Il veut. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -3963,7 +3963,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3709",
+        "id": "1944 Sunan At-Tirmidhi",
         "title": "Le meilleur des compagnons, auprès d’Allah, Exalté soit-Il, est celui qui est le meilleur envers son compagnon ! Et le meilleur des voisins, auprès d’Allah, Exalté soit-Il, est celui qui est le meilleur envers son voisin !",
         "hadeeth": "ʽAbdullah ibn ʽAmr (qu'Allah l'agrée, lui et son père) relate que le Messager d’Allah (sur lui la paix et le salut) a dit : « Le meilleur des compagnons, auprès d’Allah, Exalté soit-Il, est celui qui est le meilleur envers son compagnon ! Et le meilleur des voisins, auprès d’Allah, Exalté soit-Il, est celui qui est le meilleur envers son voisin ! »",
         "attribution": "Rapporté par At-Tirmidhî - Rapporté par Aḥmad - Rapporté par Ad-Dârimî",
@@ -4004,7 +4004,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3728",
+        "id": "2705 Sahih al-Bukhari",
         "title": "Lequel d’entre vous jure par Allah de ne pas faire le bien ?",
         "hadeeth": "ʽÂ'ishah (qu’Allah l’agrée) relate que le Messager d’Allah (sur lui la paix et le salut) entendit une fois deux personnes se disputant à voix haute devant sa porte. Or, voici que l’un deux sollicitait l’autre de renoncer à une partie de sa dette et de lui faire des facilités pour le reste. Mais, l’autre disait : « Par Allah ! Je n’en ferai rien ! » Le Messager d’Allah (sur lui la paix et le salut) sortit alors vers eux et leur dit : « Lequel d’entre vous jure par Allah de ne pas faire le bien ? » La personne concernée répondit alors : « C’est moi, ô Messager d’Allah ! Et maintenant, j’accepte la solution qui lui convient. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -4070,7 +4070,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3852",
+        "id": "6446 Sahih al-Bukhari",
         "title": "Explication de la réalité de la richesse et incitation à se satisfaire de ce qu'Allah a réparti [entre Ses serviteurs].",
         "hadeeth": "Abû Hurayrah (qu’Allah l’agrée) relate que le Prophète (sur lui la paix et le salut) a dit : « La richesse n’est pas l’abondance de biens, la vrai richesse est celle de l’âme. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -4117,7 +4117,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "3853",
+        "id": "2692 Sahih al-Bukhari",
         "title": "Le menteur n'est pas celui qui réconcilie les gens en attribuant des paroles bienveillantes, ou en disant du bien.",
         "hadeeth": "Um Kulthum bint ‘Uqbah ibn Abî Mu’ayṭ (qu’Allah l’agrée) relate qu’elle a entendu le Messager d’Allah (sur lui la paix et le salut) dire : « Le menteur n'est pas celui qui réconcilie les gens en attribuant des paroles bienveillantes, ou en disant du bien. »\nDans la version rapportée par Muslim, il y a un rajout où elle a dit : « Je ne l’ai jamais entendu autoriser le mensonge dans les propos des gens sauf dans trois cas : en temps de guerre ; en vue de réconcilier des gens ; lorsque l’homme parle à sa femme et lorsque la femme parle à son mari. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -4173,7 +4173,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4928",
+        "id": "6133 Sahih al-Bukhari",
         "title": "Le croyant ne se fait pas piquer deux fois depuis le même endroit.",
         "hadeeth": "Abû Hurayrah (qu'Allah l'agrée) relate que le Messager d'Allah (sur lui la paix et le salut) a dit : « Le croyant ne se fait pas piquer deux fois depuis le même endroit. »",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -4226,7 +4226,7 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4940",
+        "id": "Riyad as-Salihin 644",
         "title": "Je marchais avec le Messager d’Allah (sur lui la paix et le salut) qui portait une tunique de Najrân aux bords épais. Un bédouin le rencontra et le tira par sa tunique si violemment que lorsque je regardais le cou du Messager d’Allah (sur lui la paix et le salut), les bords de la tunique y avaient laissé une marque.",
         "hadeeth": "Anas ibn Mâlik (qu’Allah l’agrée) a dit : « Je marchais avec le Messager d’Allah (sur lui la paix et le salut) qui portait une tunique de Najrân aux bords épais. Un bédouin le rencontra et le tira si violemment par sa tunique que lorsque je regardais le cou du Messager d’Allah (sur lui la paix et le salut), les bords de la tunique y avaient laissé une marque. Ensuite, il demanda : \" Ô Muḥammad ! Ordonne que l’on me donne une part de la richesse d’Allah qui est à ta disposition ! \" Le Messager d’Allah (sur lui la paix et le salut) se tourna vers lui et sourit. Puis, il ordonna qu’on lui fasse un don.",
         "attribution": "Rapporté par Al-Bukhârî et Muslim",
@@ -4306,10 +4306,10 @@ const STORED_HADITHS = [
         "grade_ar": "صحيح"
     },
     {
-        "id": "4952",
+        "id": "5209 Sunan Abu Dawud",
         "title": "Ne dis pas : « Sur toi la paix ! » car c’est ainsi que l’on salue les morts. Dis plutôt : « Que la paix soit sur toi ! »",
         "hadeeth": "Abû Jurayy Jâbir ibn Sulaym (qu’Allah l’agrée) a dit : « J’ai vu un homme dont les gens adoptaient tout avis. Il ne disait rien sans qu’ils ne s’y conformassent aussitôt. Je leur ai demandé : \" Qui est cet homme ? - Ils répondirent : C’est le Messager d’Allah (sur lui la paix et le salut) ! - Alors, j’ai dit : Sur toi la paix, ô Messager d’Allah !, deux fois de suite. - Il m’a répondu : Ne dis pas : « Sur toi la paix ! » car c’est ainsi que l’on salue les morts. Dis plutôt : « Que la paix soit sur toi ! » - J’ai demandé : Est-ce bien toi le Messager d’Allah ? - Il m’a dit : Je suis bien le Messager d’Allah ! [Allah est] Celui qui, lorsqu’un mal te touche et que tu L’invoques, te le dissipe aussitôt. Celui qui, lorsque tu connais une année de disette et que tu L’invoques, fait aussitôt repousser tes champs. Celui qui, si tu te trouves dans une région désertique, que tu y égares ta monture et que tu L'invoques, te la ramènera. \" » Jâbir (qu’Allah l’agrée) a dit : « Je lui ai dit : \" Donne-moi un conseil ! - Il m’a dit : N’insulte jamais personne ! \" » Alors, Jâbir (qu’Allah l’agrée) a dit : « Depuis ce jour, je n’ai plus jamais insulté quiconque : ni un homme, qu’il fut libre ou esclave, ni un animal, chameau ou mouton. Il m’a encore dit : \" Ne méprise aucune bonne action, aussi infime soit-elle, et adresse-toi à ton frère avec un visage souriant, car c’est encore une bonne action. Relève aussi le bas de ton vêtement à mi-jambe ou, si tu y tiens absolument, à la hauteur des chevilles. Et surtout, prends garde à ne pas laisser traîner ton vêtement [en dessous des chevilles] car c’est là un signe de vanité et d’orgueil et Allah n’aime pas cela. Enfin, si quelqu’un t’insulte ou te dénigre par un défaut qu’il connaît en toi, alors - toi - ne le dénigre pas de ce que tu sais sur lui. Si tu agis ainsi, tout le mal issu de cela retombera exclusivement sur lui. \" »",
-        "attribution": "Rapporté par At-Tirmidhî - Rapporté par Abû Dâwud - Rapporté par Aḥmad",
+        "attribution": "Rapporté par At-Tirmidhî - Rapporté par Abu Dawud - Rapporté par Aḥmad",
         "grade": "Authentique",
         "explanation": "Jâbir ibn Sulaym (qu’Allah l’agrée) a dit : « J’ai vu un homme dont les gens adoptaient tout avis. Il ne disait rien sans qu’ils ne s’y conformassent aussitôt. Je leur ai demandé : \" Qui est cet homme ? - Ils répondirent : C’est le Messager d’Allah (sur lui la paix et le salut) ! - Alors, j’ai dit : Sur toi la paix, ô Messager d’Allah !, deux fois de suite. - Il m’a répondu : Ne dis pas : « Sur toi la paix ! » car c’est ainsi que l’on salue les morts. Dis plutôt : « Que la paix soit sur toi ! » - J’ai demandé : Est-ce bien toi le Messager d’Allah ? - Il m’a dit : Je suis bien le Messager d’Allah ! » C’est-à-dire : Je suis bien celui qu’Allah a envoyé, Sa parole : « [Allah est] Celui qui, lorsqu’un mal te touche et que tu L’invoques, te le dissipe aussitôt. Celui qui, lorsque tu connais une année de disette et que tu L’invoques, fait aussitôt repousser tes champs. Celui qui, si tu te trouves dans une région désertique, que tu y égares ta monture et que tu L'invoques, te la ramènera. » C’est-à-dire : lorsque la pauvreté et/ou un malheur te touchent, invoques Allah avec humilité et soumission, Il te les dissipera aussitôt. Et lorsque tu es frappé par une année de sécheresse et que les champs ne poussent plus, invoque-Le, Il fera aussitôt repousser tes champs et les fera se développer. Et si tu te trouves dans une région sans eau ni population et que tu y perds ta monture, invoque Allah et II te la ramènera. Jâbir (qu’Allah l’agrée) a dit : « Je lui ai dit : \" Donne-moi un conseil ! \" » C’est-à-dire : un conseil qui me sera bénéfique. « Il m’a dit : \" N’insulte jamais personne ! \" » Alors, Jâbir (qu’Allah l’agrée) a dit : « Depuis ce jour, je n’ai plus jamais insulté quiconque : ni un homme, qu’il fut libre ou esclave, ni un animal, chameau ou mouton. Il m’a encore dit : \" Ne méprise aucune bonne action, aussi infime soit-elle, et adresse-toi à ton frère avec un visage souriant, car c’est encore une bonne action. Relève aussi le bas de ton vêtement à mi-jambe ou, si tu y tiens absolument, à la hauteur des chevilles.\" » C’est-à-dire : il n’y a pas de mal à laisser son habit tant qu’il est entre le mi mollet et la cheville. « Et surtout, prends garde à ne pas laisser traîner ton vêtement [en dessous des chevilles] car c’est là un signe de vanité et d’orgueil et Allah n’aime pas cela. Enfin, si quelqu’un t’insulte ou te dénigre par un défaut qu’il connaît en toi… » : C’est-à-dire : un de tes péchés ou de tes actes détestables. Sa parole : « Alors, ne le dénigre pas de ce que tu sais sur lui. Si tu agis ainsi, tout le mal issu de cela retombera exclusivement sur lui. » C’est-à-dire : Soit une partie de son mal retombera sur lui en ce bas monde, soit au Jour de la Résurrection, tout retombera sur lui.",
         "hints": [],
