@@ -98,7 +98,7 @@ const STORED_HADITHS = [
             "إشاعة المحبة بين المؤمنين يقوّي الأخوة الإيمانية، ويحافظ على المجتمع من التفكُّك والفُرْقة."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه أبو داود والترمذي والنسائي في الكبرى وأحمد",
+        "attribution_ar": "Rapporté par Abu Dawood, At-Tirmidhi, An-Nasa'i Al-Kubra et Ahmad",
         "grade_ar": "صحيح"
     },
     {
@@ -197,7 +197,7 @@ const STORED_HADITHS = [
             "الترغيب في استعمال معالي الأخلاق في المعاملات بين الناس من البيع والشراء ونحو ذلك."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه البخاري",
+        "attribution_ar": "Rapporté par Al-Bûkhârî",
         "grade_ar": "صحيح"
     },
     {
@@ -308,7 +308,7 @@ const STORED_HADITHS = [
                 "meaning": " لمطالبته بما عليه."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -419,7 +419,7 @@ const STORED_HADITHS = [
                 "meaning": " السكين العريضة."
             }
         ],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -536,7 +536,7 @@ const STORED_HADITHS = [
                 "meaning": " الذي كانت لهم عليه ولاية."
             }
         ],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -638,7 +638,7 @@ const STORED_HADITHS = [
             "استحباب إدخال السرور على  المسلمين؛ لما في ذلك من تحقيق الأُلْفَة بينهم."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -740,7 +740,7 @@ const STORED_HADITHS = [
             "الابتعاد عن الغضب؛ لما يسبِّبُه من الأضرار على الأفراد والمجتمع."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -844,7 +844,7 @@ const STORED_HADITHS = [
             "الإنسان إذا لم يتمكَّن مِن تحقيق رغبة السائل، فإنه يَدُلُّه على غيره."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -975,7 +975,7 @@ const STORED_HADITHS = [
                 "meaning": " بالبشر في وجهه، وطيب الحديث معه، وإحضار المتيسر.والضيف: هو القادم على القوم النازل بهم، سواء غنيا أو فقيرا."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -1075,7 +1075,7 @@ const STORED_HADITHS = [
             "الرحمة بالناس تشمل إيصال الخير لهم ودفع الشر عنهم ومعاملتهم بالحسنى."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -1176,7 +1176,7 @@ const STORED_HADITHS = [
             "خطر الشهوات والفواحش على الإنسان، وأنها من أكثر أسباب دخول النار."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه الترمذي وابن ماجه وأحمد",
+        "attribution_ar": "Rapporté par at-Tirmidhi, Ibn Majah et Ahmad",
         "grade_ar": "حسن صحيح"
     },
     {
@@ -1276,7 +1276,7 @@ const STORED_HADITHS = [
             "الحياء مِن الخَلق يكون باحترامهم، وإنزالهم منازلهم، واجتناب ما يقبح عادةً."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -1382,7 +1382,7 @@ const STORED_HADITHS = [
                 "meaning": " العرض هو ما يُمْدَح به الإنسان أو يذم."
             }
         ],
-        "attribution_ar": "رواه الترمذي وأحمد",
+        "attribution_ar": "Rapporté par at-Tirmidhi et Ahmad",
         "grade_ar": "صحيح"
     },
     {
@@ -1473,7 +1473,7 @@ const STORED_HADITHS = [
             "بيان بعض الصفات المُقْتَضِيَة لمحبةِ الله لعباده، وهي التقوى والتواضع والرضى بما قَسَمَ الله."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -1569,7 +1569,7 @@ const STORED_HADITHS = [
             "إكرام الإسلام للمرأة والترغيب في الإحسان إليها."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه أبو داود والترمذي وأحمد",
+        "attribution_ar": "Rapporté par Abu Dawood, at-Tirmidhi et Ahmad",
         "grade_ar": "حسن"
     },
     {
@@ -1662,7 +1662,7 @@ const STORED_HADITHS = [
             "الرِّفقُ يَزينُ المرءَ، وهو سببٌ لكل خير في أمور الدِّين والدنيا."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -1757,7 +1757,7 @@ const STORED_HADITHS = [
             "صيام النهار وقيام الليل عملان عظيمان فيهما مشقة على النفوس، بَلَغَ درجتَهما صاحبُ حُسْنِ الخُلُق لمجاهدتِه نفسَه بحُسْن المعاملة."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه أبو داود وأحمد",
+        "attribution_ar": "Rapporté par Abu Dawood et Ahmad",
         "grade_ar": "صحيح بشواهده"
     },
     {
@@ -1852,7 +1852,7 @@ const STORED_HADITHS = [
             "حسن الخلق مَيْدانٌ للتنافس، فمَن سَبَقَ كان من خيار المؤمنين وأكملِهم إيمانًا."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -1953,7 +1953,7 @@ const STORED_HADITHS = [
             "التيسير المأمور به هو ما جاءت به الشريعة."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -2040,7 +2040,7 @@ const STORED_HADITHS = [
             "إثبات صفة الرحمة لله -تعالى-."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه أبو داود والترمذي وأحمد",
+        "attribution_ar": "Rapporté par Abu Dawood, at-Tirmidhi et Ahmad",
         "grade_ar": "صحيح"
     },
     {
@@ -2119,7 +2119,7 @@ const STORED_HADITHS = [
                 "meaning": " الإخفاء."
             }
         ],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -2181,7 +2181,7 @@ const STORED_HADITHS = [
                 "meaning": " غشاء، والمراد يملأ ذلك ما بين السماء والأرض من كبره وعِظمه."
             }
         ],
-        "attribution_ar": "حديث أبي هريرة -رضي الله عنه-: متفق عليه.\nحديث سلمان -رضي الله عنه-: رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -2280,7 +2280,7 @@ const STORED_HADITHS = [
                 "meaning": " وهو أن تفعل معهم ما تحب أن يفعلوه معك، فبذلك تجتمع القلوب، وتتفق الكلمة، وتنتظم الأحوال."
             }
         ],
-        "attribution_ar": "حديث أبي ذر: رواه الترمذي وأحمد والدارمي.\nحديث معاذ -رضي الله عنه-: رواه الترمذي وأحمد",
+        "attribution_ar": "Rapporté par At-Tirmidhî - Rapporté par Aḥmad - Rapporté par Ad-Dârimî",
         "grade_ar": "حسن"
     },
     {
@@ -2411,7 +2411,7 @@ const STORED_HADITHS = [
                 "meaning": " بخلافه، لأنهم إنما يقولون على ظواهر الأمور دون بواطنها."
             }
         ],
-        "attribution_ar": "حديث النواس بن سمعان -رضي الله عنه-: رواه مسلم.\nحديث وابصة -رضي الله عنه-: رواه أحمد والدارمي",
+        "attribution_ar": "Rapporté par Aḥmad",
         "grade_ar": "حديث النواس: صحيح.\nحديث وابصة: حسن بشواهده"
     },
     {
@@ -2497,7 +2497,7 @@ const STORED_HADITHS = [
                 "meaning": " مما وصل إليهم من مبادئ الأنبياء والمأثور من كلامهم."
             }
         ],
-        "attribution_ar": "رواه البخاري",
+        "attribution_ar": "Rapporté par Al-Bukhârî",
         "grade_ar": "صحيح"
     },
     {
@@ -2649,7 +2649,7 @@ const STORED_HADITHS = [
                 "meaning": " حسبه، وهو مفاخره ومفاخر آبائه، وقد يراد به النفس."
             }
         ],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -2752,7 +2752,7 @@ const STORED_HADITHS = [
                 "meaning": " من الخير، والخير كلمة جامعة تعم الطاعات والمباحات الدينية والدنيوية، وتخرج المنهيات."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -2843,7 +2843,7 @@ const STORED_HADITHS = [
                 "meaning": " يخسر كل الخير الناشئ عن الرفق."
             }
         ],
-        "attribution_ar": "رواه مسلم بدون قوله: (كله) فهي عند أبي داود",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -2991,7 +2991,7 @@ const STORED_HADITHS = [
                 "meaning": " فاقتلوا."
             }
         ],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3096,7 +3096,7 @@ const STORED_HADITHS = [
                 "meaning": " أي الكامل في الإيمان."
             }
         ],
-        "attribution_ar": "الحديث الأول رواه أبو داود والترمذي لكنه عند أبي داود مختصرًا.\nوالحديث الثاني رواه الترمذي وأحمد",
+        "attribution_ar": "Rapporté par At-Tirmidhî - Rapporté par Abû Dâwud - Rapporté par Aḥmad",
         "grade_ar": "الحديث الأول: صحيح\nالحديث الثاني: صحيح"
     },
     {
@@ -3203,7 +3203,7 @@ const STORED_HADITHS = [
                 "meaning": " هو من يتكرر منه الكذب حتى يعرف به ويصير له سجية وخلق."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3252,7 +3252,7 @@ const STORED_HADITHS = [
                 "meaning": " الطريق في الجبل، وما انفرج بين الجبلين."
             }
         ],
-        "attribution_ar": "متفق عليه، والرواية الثانية لفظ البخاري",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3314,7 +3314,7 @@ const STORED_HADITHS = [
                 "meaning": " بضم الميم وتشديد القاف، أي على حق."
             }
         ],
-        "attribution_ar": "رواه أبو داود",
+        "attribution_ar": "Rapporté par Abu Dawood",
         "grade_ar": "حسن"
     },
     {
@@ -3362,7 +3362,7 @@ const STORED_HADITHS = [
                 "meaning": " المعاصي التي تكون بالفم كالكذب والنطق بالزور وأكل الحرام، والتي تكون بالفرج كالزنى واللواط والوطء في الدبر."
             }
         ],
-        "attribution_ar": "رواه الترمذي وابن ماجه وأحمد",
+        "attribution_ar": "Rapporté par Ibn Mâjah - Rapporté par At-Tirmidhî - Rapporté par Aḥmad",
         "grade_ar": "إسناده حسن"
     },
     {
@@ -3457,7 +3457,7 @@ const STORED_HADITHS = [
                 "meaning": " التارك لما نهى الله عنه."
             }
         ],
-        "attribution_ar": "حديث عبد الله بن عمرو رضي الله عنه: متفق عليه.\nحديث جابر رضي الله عنه: رواه مسلم.\nحديث أبي موسى رضي الله عنه: متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3536,7 +3536,7 @@ const STORED_HADITHS = [
                 "meaning": " العادل."
             }
         ],
-        "attribution_ar": "رواه أبو داود",
+        "attribution_ar": "Rapporté par Abu Dawood",
         "grade_ar": "حسن"
     },
     {
@@ -3600,7 +3600,7 @@ const STORED_HADITHS = [
                 "meaning": " يوقعه في الإثم."
             }
         ],
-        "attribution_ar": "الرواية الأولى متفق عليها، والرواية الثانية رواها مسلم",
+        "attribution_ar": "La première version est rapportée par Al-Bukhârî et Muslim, et la deuxième version a été rapportée par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3655,7 +3655,7 @@ const STORED_HADITHS = [
                 "meaning": " لا يستطيع أن يعمل بعملهم، أو ليس في منزلتهم، أو لم يجتمع معهم في الدنيا."
             }
         ],
-        "attribution_ar": "الحديث الأول: متفق عليه.\nالحديث الثاني: متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim dans ses deux versions",
         "grade_ar": "صحيحان"
     },
     {
@@ -3724,7 +3724,7 @@ const STORED_HADITHS = [
                 "meaning": " فيكتب له بتلك الشروط الأربعة ثواب الصدقة، لكنه يقل ويكثر بحسب تعبه وبشاشته ورفقه في الإعطاء."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3775,7 +3775,7 @@ const STORED_HADITHS = [
                 "meaning": " الحور جمع حوراء، وهي شديدة البياض في العين وشديدة السواد.والعِيْن: جمع عيناء، وهي واسعة العين، والمراد هنا الحسان من النساء في الجنة."
             }
         ],
-        "attribution_ar": "رواه أبو داود والترمذي وابن ماجه وأحمد",
+        "attribution_ar": "Rapporté par Abu Dawood - Rapporté par At-Tirmidhî - Rapporté par Ibn Mâjah - Rapporté par Aḥmad",
         "grade_ar": "حسن لغيره"
     },
     {
@@ -3855,7 +3855,7 @@ const STORED_HADITHS = [
                 "meaning": " حِجَابًا ووِقَايَة."
             }
         ],
-        "attribution_ar": "متفق عليه، واللفظ للبخاري",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3905,7 +3905,7 @@ const STORED_HADITHS = [
                 "meaning": " في ظل عرش الله، وإضافته إلى الله إضافة تشريف."
             }
         ],
-        "attribution_ar": "رواه مسلم",
+        "attribution_ar": "Rapporté par Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -3959,7 +3959,7 @@ const STORED_HADITHS = [
                 "meaning": " القضاء الحكم والأداء."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -4000,7 +4000,7 @@ const STORED_HADITHS = [
             "السعي إلى تحصيل الصاحب الصالح والجار الصالح."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "رواه الترمذي، وأحمد، والدارمي",
+        "attribution_ar": "Rapporté par At-Tirmidhî - Rapporté par Aḥmad - Rapporté par Al-Dârirmî",
         "grade_ar": "صحيح"
     },
     {
@@ -4066,7 +4066,7 @@ const STORED_HADITHS = [
                 "meaning": " يطلب أن ينقص عند السداد من دينه."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -4113,7 +4113,7 @@ const STORED_HADITHS = [
                 "meaning": " المال، وهو بفتح العين والراء."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -4169,7 +4169,7 @@ const STORED_HADITHS = [
                 "meaning": " الكلام الذي يديم المحبة بينهما كأن يقول: لا أحبَّ إليَّ منك ، وتقول له ذلك."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -4222,7 +4222,7 @@ const STORED_HADITHS = [
                 "meaning": " من مكان واحد."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -4302,7 +4302,7 @@ const STORED_HADITHS = [
                 "meaning": " بمال."
             }
         ],
-        "attribution_ar": "متفق عليه",
+        "attribution_ar": "Rapporté par Al-Bukhârî et Muslim",
         "grade_ar": "صحيح"
     },
     {
@@ -4419,7 +4419,7 @@ const STORED_HADITHS = [
                 "meaning": " نتيجته الوخيمة."
             }
         ],
-        "attribution_ar": "رواه الترمذي وأبو داود وأحمد",
+        "attribution_ar": "Rapporté par At-Tirmidhî - Rapporté par Abu Dawud - Rapporté par Aḥmad",
         "grade_ar": "صحيح"
     }
 ];
