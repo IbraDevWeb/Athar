@@ -3,7 +3,7 @@ const STORED_HADITHS = [
         "id": "5124 Sunan Abi Dawood",
         "title": "Lorsque l'homme aime son frère, qu'il l'informe de son amour pour lui.",
         "hadeeth": "Al-Miqdâm ibn Ma'dî Karib (qu'Allah l'agrée) relate que le Prophète (qu'Allah le couvre d'éloges et le préserve) a dit : « Lorsque l'homme aime son frère, qu'il l'informe de son amour pour lui. »",
-        "attribution": "رواه أبو داود والترمذي والنسائي في الكبرى وأحمد",
+        "attribution": "Rapporté par Abu Dawood, At-Tirmidhi, An-Nasa'i dans Al-Kubra et Ahmad",
         "grade": "Authentique",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) explique l'une des causes renforçant la relation entre les croyants et propageant l'amour entre eux ; il s'agit, lorsque quelqu'un aime son frère, qu'il l'informe de son amour pour lui.",
         "hints": [
@@ -98,7 +98,7 @@ const STORED_HADITHS = [
             "إشاعة المحبة بين المؤمنين يقوّي الأخوة الإيمانية، ويحافظ على المجتمع من التفكُّك والفُرْقة."
         ],
         "words_meanings_ar": [],
-        "attribution_ar": "Rapporté par Abu Dawood, At-Tirmidhi, An-Nasa'i Al-Kubra et Ahmad",
+        "attribution_ar": "Rapporté par Abu Dawood, At-Tirmidhi, An-Nasa'i dans Al-Kubra et Ahmad",
         "grade_ar": "صحيح"
     },
     {
@@ -1082,7 +1082,7 @@ const STORED_HADITHS = [
         "id": "2004 Sunan at-Tirmidhi",
         "title": "On a interrogé le Messager d’Allah (qu'Allah le couvre d'éloges et le préserve) au sujet de ce qui faisait le plus entrer les gens au Paradis, il a dit (qu'Allah le couvre d'éloges et le préserve) : \" Craindre Allah et avoir un bon comportement",
         "hadeeth": "Aboû Hourayrah (qu'Allah l'agrée) relate : « On a interrogé le Messager d’Allah (qu'Allah le couvre d'éloges et le préserve) au sujet de ce qui faisait le plus entrer les gens au Paradis, il a dit (qu'Allah le couvre d'éloges et le préserve) : \" Craindre Allah et avoir un bon comportement. \", et on l'a interrogé au sujet de ce qui faisait le plus entrer les gens en Enfer, il a dit : \" La bouche et le sexe. \"",
-        "attribution": "رواه الترمذي وابن ماجه وأحمد",
+        "attribution": "Rapporté par at-Tirmidhi, Ibn Majah et Ahmad",
         "grade": "Bon - Authentique",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) explique que les plus grandes des causes qui font entrer au Paradis sont au nombre de deux :\r\n\r\nCraindre Allah et avoir un bon comportement.\r\n\r\n« Craindre Allah » signifie que tu places une protection entre toi et le châtiment d'Allah ; cela s'obtient en accomplissant Ses ordres et en évitant Ses interdits.\r\n\r\nLe « bon comportement » consiste à avoir un visage souriant, œuvrer pour le bien et s'abstenir de causer du tort.\r\n\r\nEt que les plus grandes des causes qui font entrer en Enfer sont au nombre de deux :\r\n\r\nLa langue et le sexe :\r\n\r\nParmi les désobéissances de la langue, il y a : le mensonge, la calomnie, la médisance, etc.\r\n\r\nEt parmi les désobéissances du sexe, il y a : la fornication, l'homosexualité et autre.",
         "hints": [
@@ -1283,7 +1283,7 @@ const STORED_HADITHS = [
         "id": "1931 Sunan at-Tirmidhi",
         "title": "Quiconque défend l’honneur de son frère en son absence, Allah éloignera le Feu de son visage au Jour de la Résurrection.",
         "hadeeth": "Aboû Ad-Dardâ' (qu'Allah l'agrée) relate que le Prophète (qu'Allah le couvre d'éloges et le préserve) a dit : « Quiconque défend l’honneur de son frère en son absence, Allah éloignera le Feu de son visage au Jour de la Résurrection. »",
-        "attribution": "رواه الترمذي وأحمد",
+        "attribution": "Rapporté par at-Tirmidhi et Ahmad",
         "grade": "Authentique",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) informe que quiconque défend l'honneur de son frère musulman en son absence, empêchant ainsi qu'on l'atteigne ou qu'on agisse mal avec lui, Allah repoussera de lui le châtiment au Jour de la Résurrection.",
         "hints": [
@@ -1480,7 +1480,7 @@ const STORED_HADITHS = [
         "id": "1162 Sunan at-Tirmidhi",
         "title": "Le croyant dont la foi est la plus complète est celui d'entre eux qui a le meilleur comportement, et les meilleurs d’entre vous sont les meilleurs envers leurs femmes !",
         "hadeeth": "Aboû Hourayrah (qu'Allah l'agrée) relate que le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) a dit : « Le croyant dont la foi est la plus complète est celui d'entre eux qui a le meilleur comportement, et les meilleurs d’entre vous sont les meilleurs envers leurs femmes ! »",
-        "attribution": "رواه أبو داود والترمذي وأحمد",
+        "attribution": "Rapporté par at-Tirmidhi, Abu Dawood et Ahmad",
         "grade": "Bon",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) informe que la personne dont la foi est la plus complète est celle qui a le meilleur comportement, par le biais d'un visage souriant, la prodigalité du bien, de belles paroles et la retenue de causer du tort.\r\n\r\nEt le meilleur des croyants est celui d'entre eux qui est le meilleur avec ses femmes, qu'il s'agisse de son épouse, de ses filles, ses sœurs et des femmes de sa famille en général ; ceci, parce qu'elles sont les personnes les plus en droit de son bon comportement.",
         "hints": [
@@ -1669,7 +1669,7 @@ const STORED_HADITHS = [
         "id": "4798 Sunan Abu Dawood",
         "title": "Certes, par son bon comportement, le croyant atteint le degré de celui qui jeûne le jour et prie la nuit.\"",
         "hadeeth": "'Â`ichah (qu'Allah l'agrée) relate : « J'ai entendu le Messager d'Allah (qu'Allah le couvre d'éloges et le préserve) dire : \"Certes, par son bon comportement, le croyant atteint le degré de celui qui jeûne le jour et prie la nuit.\" »",
-        "attribution": "رواه أبو داود وأحمد",
+        "attribution": "Rapporté par Abu Dawood et Ahmad",
         "grade": "Authentique d'après ses ḥadiths témoins",
         "explanation": "Le Prophète (qu'Allah le couvre d'éloges et le préserve) explique que par le bon comportement la personne atteint la position de celui qui, de manière continue, jeûne le jour et prie la nuit, le bon comportement se trouve réuni dans le fait d'œuvrer dans le bien, tenir de belles paroles, avoir un visage souriant, s'abstenir de causer du tort et supporter celui des gens.",
         "hints": [

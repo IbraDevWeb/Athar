@@ -176,5 +176,42 @@ const USSUL_LESSONS = [
                 content: "L'auteur conclut l'introduction en annonçant la structure du livre :<br>1. Les questions linguistiques.<br>2. Le Coran ({Al-Kitab}).<br>3. La Sunna.<br>4. Le Consensus ({Ijma}).<br>5. L'Analogie ({Qiyas}).<br>**(Ces 4 sont les preuves convenues)**.<br>6. Les preuves divergentes (Istihsan, Masalih...).<br>7. La résolution des conflits ({Ta'arud}).<br>8. L'Ijtihad et le Taqlid."
             }
         ]
+    },
+    {
+        id: 6,
+        title: "La Vérité (Haqiqa) & La Métaphore (Majaz)",
+        author: "Dr. Muhammad Hasan Hito",
+        videoUrl: "https://youtu.be/8dnA-ZDX9Jo?si=iL7CH3IGU7vw-SkX",
+        intro: "Introduction aux recherches linguistiques (Mabahith al-Alfaz). Analyse de l'usage des mots : quand le sens est-il littéral (Haqiqa) ou figuré (Majaz) ? Étude des sources du langage (Langue, Loi, Coutume) et des règles d'interprétation.",
+        sections: [
+            {
+                title: "1. Introduction aux Recherches Linguistiques",
+                content: "Ce chapitre ouvre la porte des 'Recherches sur les Mots' ({Mabahith al-Alfaz}). L'auteur annonce 8 thèmes majeurs qui s'appliquent aussi bien au Coran qu'à la Sunna, car ces sources reposent sur la langue arabe :<br>1. **{Haqiqa} & {Majaz}** (Vérité & Métaphore).<br>2. **{Mantuq} & {Mafhum}** (Prononcé & Compris).<br>3. **{Amr} & {Nahi}** (Ordre & Interdiction).<br>4. **{Ummum} & {Khusus}** (Général & Spécifique).<br>5. **{Mutlaq} & {Muqayyad}** (Absolu & Restreint).<br>6. **{Mujmal} & {Mubayyin}** (Ambigu & Clarifié).<br>7. **{Zahir} & {Mu'awwal}** (Apparent & Interprété).<br>8. **{Nasikh} & {Mansukh}** (Abrogeant & Abrogé).",
+            },
+            {
+                title: "2. Définition : Haqiqa vs Majaz",
+                content: "Tout repose sur le **{Wad'}** (l'Assignation/Institution originelle du mot) :<br><br>**A. {Al-Haqiqa} (La Vérité/Sens Propre)** :<br>C'est l'utilisation d'un mot dans le sens pour lequel il a été **initialement institué** ({Wudi'a lahu}).<br>Exemple : Les Arabes ont assigné le mot 'Lion' ({Asad}) à l'animal prédateur. Si je dis 'J'ai vu un lion' et que je désigne l'animal, c'est une {Haqiqa}.<br><br>**B. {Al-Majaz} (La Métaphore/Sens Figuré)** :<br>C'est l'utilisation d'un mot dans un sens **différent** de son sens originel, en raison d'une relation ({'Alaqa}) entre les deux sens.<br>*Exemple :* Utiliser le mot 'Lion' pour désigner un homme courageux.<br><br>**Note historique :** Ibn Jinni (auteur d'**Al-Khasa'is**) soutient que la majorité de la langue arabe est constituée de {Majaz}, car il apporte une richesse et une beauté indispensables. "
+            },
+            {
+                title: "3. La Règle d'Or : La Qarina (L'Indice)",
+                content: "Comment savoir si c'est du {Majaz} ?<br>L'usage figuré nécessite obligatoirement une **{Qarina}** (un indice contextuel) qui empêche le sens propre. La {Haqiqa} est l'origine ({Asl}) et n'a pas besoin de preuve. Le {Majaz} est l'exception ({Far'}) et nécessite une preuve.<br><br>Exemple :<br>- 'J'ai vu un lion.' -> Pas d'indice = Sens propre (Animal).<br>- 'J'ai vu un lion **porter une épée**.' -> 'Porter une épée' est la {Qarina} qui interdit le sens animal (les lions ne portent pas d'épée). Donc, on bascule vers le sens figuré (Guerrier courageux)."
+            },
+            {
+                title: "4. Les 3 Sources de la Vérité (Aqsam al-Haqiqa)",
+                content: "Qui décide du sens d'un mot ? Il y a trois 'Instituteurs' ({Wadi'}) possibles :<br><br>**1. {Haqiqa Lughawiyya} (Vérité Linguistique)** :<br>Le sens donné par les fondateurs de la langue.<br>*Ex :* 'Salat' = Invocation/Dua. 'Dabba' = Tout ce qui rampe/marche sur terre (y compris l'homme).<br><br>**2. {Haqiqa Shar'iyya} (Vérité Légale/Religieuse)** :<br>Le sens donné par la Loi Divine, qui prime sur la langue dans les textes religieux.<br>Ex : 'Salat' = Actes spécifiques avec Ruku' et Sujud (et non juste une invocation). Dans le Coran, 'Salat' doit être compris selon cette vérité.<br><br>**3. {Haqiqa Urfiyya} (Vérité Coutumière)** :<br>Le sens donné par l'usage social ou technique.<br>*Ex :* 'Dabba' = Dans la coutume, désigne uniquement les animaux à 4 pattes (cheval, âne), pas l'homme. Si tu traites quelqu'un de 'Dabba', il se vexe, bien que linguistiquement ce soit vrai. ",
+                deepDive: {
+                    title: "Règle de Conflit",
+                    content: "En cas de conflit entre les sens : Dans un contexte religieux, la **Vérité Légale** prime sur la Linguistique. Dans un contexte social ou contractuel, la **Vérité Coutumière** prime sur la Linguistique."
+                }
+            },
+            {
+                title: "5. L'Importance de la Terminologie Scientifique",
+                content: "L'auteur insiste sur un point méthodologique : On ne définit pas un terme technique avec un dictionnaire général, mais avec le dictionnaire de la science concernée ({Istilah Ahl al-Fann}).<br>- **Le Cœur ({Qalb})** : En médecine = muscle pompe. En Soufisme/Tazkiya = siège de la perception spirituelle.<br>- **L'Acteur ({Fa'il})** : En grammaire = celui qui fait l'action. En Aqida = Allah (l'Agent réel).<br>Expliquer un terme de logique avec un sens linguistique courant est une erreur grave."
+            },
+            {
+                title: "6. Classification du Majaz",
+                content: "Le sens figuré se divise selon le type de relation ou de structure :<br><br>**A. {Majaz Mursal} (Métaphore Lâche/Envoyée)** :<br>La relation n'est PAS la ressemblance. Le mot est utilisé à la place d'un autre pour une connexion logique (Cause/Effet, Partie/Tout...).<br>Exemple Coranique : 'Il fait descendre du ciel votre **Subsistance ({Rizq})**'. La subsistance (pain, fruit) ne descend pas du ciel. C'est la **Pluie** (Cause) qui descend. On a nommé la Cause par le nom de l'Effet ({Musabbab}).<br><br>**B. {Majaz 'Aqli} (Métaphore Intellectuelle/Cognitive)** :<br>Le mot reste au sens propre, mais l'attribution de l'action ({Isnad}) est figurée.<br>Exemple : 'Le Prince a construit le barrage'. Le Prince n'a pas posé les pierres (sens propre faux). Ses ouvriers l'ont fait. Mais comme il est la cause ordonnatrice, l'esprit ({'Aql}) valide cette attribution.<br><br>**C. Majaz par Ajout/Omission (Selon Al-Juwayni)** :<br>- **Ajout ({Ziyada})** : 'Rien n'est comme Lui' (Laysa **Ka**-mithlihi shay). La lettre 'Ka' est ajoutée pour l'emphase, sinon cela signifierait 'Rien n'est comme Son semblable' (ce qui impliquerait qu'Il a un semblable).<br>- **Omission ({Nuqsan})** : 'Interroge la ville' (*Was'al al-Qarya*). Sens : Interroge les **gens** de la ville."
+            }
+        ]
     }
 ];
