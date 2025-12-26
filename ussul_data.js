@@ -213,5 +213,34 @@ const USSUL_LESSONS = [
                 content: "Le sens figuré se divise selon le type de relation ou de structure :<br><br>**A. {Majaz Mursal} (Métaphore Lâche/Envoyée)** :<br>La relation n'est PAS la ressemblance. Le mot est utilisé à la place d'un autre pour une connexion logique (Cause/Effet, Partie/Tout...).<br>Exemple Coranique : 'Il fait descendre du ciel votre **Subsistance ({Rizq})**'. La subsistance (pain, fruit) ne descend pas du ciel. C'est la **Pluie** (Cause) qui descend. On a nommé la Cause par le nom de l'Effet ({Musabbab}).<br><br>**B. {Majaz 'Aqli} (Métaphore Intellectuelle/Cognitive)** :<br>Le mot reste au sens propre, mais l'attribution de l'action ({Isnad}) est figurée.<br>Exemple : 'Le Prince a construit le barrage'. Le Prince n'a pas posé les pierres (sens propre faux). Ses ouvriers l'ont fait. Mais comme il est la cause ordonnatrice, l'esprit ({'Aql}) valide cette attribution.<br><br>**C. Majaz par Ajout/Omission (Selon Al-Juwayni)** :<br>- **Ajout ({Ziyada})** : 'Rien n'est comme Lui' (Laysa **Ka**-mithlihi shay). La lettre 'Ka' est ajoutée pour l'emphase, sinon cela signifierait 'Rien n'est comme Son semblable' (ce qui impliquerait qu'Il a un semblable).<br>- **Omission ({Nuqsan})** : 'Interroge la ville' (*Was'al al-Qarya*). Sens : Interroge les **gens** de la ville."
             }
         ]
+    },
+    {
+        id: 7,
+        title: "Le Prononcé (Mantuq) & Le Compris (Mafhum)",
+        author: "Dr. Muhammad Hasan Hito",
+        videoUrl: "https://youtu.be/E7F9bJGeGIE?si=KGVZuRyAxU-x_SlV",
+        intro: "Analyse des modes de signification : Comment extraire le sens d'un texte ? Étude du sens explicite (Mantuq) et implicite (Mafhum), classification selon la clarté (Nass, Zahir, Mujmal) et typologie du raisonnement (Concordance vs Divergence).",
+        sections: [
+            {
+                title: "1. La Distinction Fondamentale",
+                content: "La compréhension d'un texte sacré repose sur deux piliers :<br><br>**A. {Al-Mantuq} (Le Prononcé)** :<br>C'est le sens tiré directement des mots et de la structure linguistique. On comprend le sens par le **Langage ({Wad' Lughawi})**.<br>Exemple : 'Zayd est debout'. Le prononcé indique son action de se tenir debout.<br><br>**B. {Al-Mafhum} (Le Compris)** :<br>C'est le sens tiré de ce qui n'est pas dit, par l'intermédiaire de l'**Intellect ({'Aql})**. Ce sens n'est pas dans les mots, mais derrière eux.<br>Exemple : De la phrase 'Zayd est debout', mon esprit déduit qu'il 'n'est pas assis', même si le mot 'assis' n'a pas été prononcé.",
+            },
+            {
+                title: "2. Étude de Cas : Le Hadith des Deux Jarres (Qullatayn)",
+                content: "Le Prophète ﷺ a dit : 'Si l'eau atteint deux jarres ({Qullatayn}), elle ne porte pas l'impureté.'<br><br>**Analyse :**<br>1. **Le Prononcé ({Mantuq})** : L'eau de 2 jarres est pure.<br>2. **Le Non-Dit ({Maskut 'anhu})** : Quid de l'eau > 2 jarres ? Quid de l'eau < 2 jarres ?<br><br>**Déduction Rationnelle ({Mafhum})** :<br>- **Plus de 2 jarres** : Si 2 jarres repoussent l'impureté, alors une quantité supérieure la repousse a fortiori. C'est un ** مفهوم الموافقة ({Mafhum Muwafaqa})** (Concordance).<br>- **Moins de 2 jarres** : Si la condition (2 jarres) n'est pas remplie, le jugement change. Donc l'eau devient impure au contact de la souillure. C'est un **مفهوم المخالفة ({Mafhum Mukhalafa})** (Divergence). ",
+            },
+            {
+                title: "3. Les 3 Degrés du Prononcé (Aqsam al-Mantuq)",
+                content: "Le sens explicite n'a pas toujours la même force. Il se divise selon sa clarté en trois :<br><br>**1. {Al-Nass} (Le Texte Univoque)** :<br>Indique un sens unique, sans autre probabilité. Il engendre la **Certitude ({Yaqin}/{Qat'})**.<br>Exemple : 'Dis : Il est Allah, Unique ({Ahad})'. Le mot 'Aḥad' ne peut signifier autre chose que l'Unicité. Ou le nom propre 'Zayd' qui désigne une personne précise.<br><br>**2. {Al-Zahir} (L'Apparent)** :<br>Indique un sens prépondérant ({Rajih}), mais accepte une autre possibilité plus faible ({Marjuh}). Il engendre l'**Opinion ({Zann})**.<br>Exemple : 'Ou si vous avez touché (Lamastum) les femmes'. Le sens apparent est le toucher manuel (avis de Shafi'i). Mais il est possible que cela signifie le coït (avis de Abu Hanifa).<br><br>**3. {Al-Mujmal} (L'Ambigu/Global)** :<br>Indique plusieurs sens à égalité, sans qu'aucun ne prévale. Il engendre le **Doute ({Shakk})** tant qu'une preuve externe ne vient pas l'éclaircir.<br>Exemple : Le mot **{Qur'} (Quru')** dans le verset du divorce. Linguistiquement, il signifie aussi bien la période de pureté ({Tuhr}) que les menstrues ({Hayd}) à 50/50."
+            },
+            {
+                title: "4. Les 2 Types de Compréhension (Aqsam al-Mafhum)",
+                content: "Le sens implicite (non-dit) se classe selon sa relation avec le jugement prononcé :<br><br>**A. {Mafhum al-Muwafaqa} (Concept de Concordance)** :<br>Le jugement du non-dit est **identique** (ou supérieur) à celui du prononcé.<br>Exemple : L'eau > 2 jarres est pure, tout comme l'eau = 2 jarres. Le silence ici confirme le prononcé.<br><br>**B. {Mafhum al-Mukhalafa} (Concept de Divergence)** :<br>Le jugement du non-dit est **l'inverse** de celui du prononcé.<br>Exemple : L'eau < 2 jarres devient impure (contrairement à l'eau >= 2 jarres). Le silence ici oppose le prononcé.<br>Note : Ce concept a des conditions strictes pour être valide (détaillées dans les ouvrages avancés)."
+            },
+            {
+                title: "5. Résumé des Correspondances Épistémologiques",
+                content: "L'auteur établit un lien direct entre les types de mots et les niveaux de perception étudiés précédemment :<br>- **{Nass}** correspond au **{Yaqin}** (Certitude/Science).<br>- **{Zahir}** correspond au **{Zann}** (Opinion prépondérante).<br>- **{Mujmal}** correspond au **{Shakk}** (Doute/Équilibre)."
+            }
+        ]
     }
 ];

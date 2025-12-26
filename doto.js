@@ -334,7 +334,29 @@
 "isnad": { origin: "Langue", def: "L'Attribution/Imputation. Dans le Majaz 'Aqli, c'est l'action de lier le verbe à un sujet qui n'est pas l'acteur réel (ex: Le Prince a construit)." },
 "al-isnad": { origin: "Langue", def: "Voir Isnad." },
 "'aql": { origin: "Logique", def: "L'Intellect. Juge qui valide le Majaz 'Aqli en comprenant que l'attribution est figurée et non littérale." },
-"al-'aql": { origin: "Logique", def: "Voir 'Aql." }
+"al-'aql": { origin: "Logique", def: "Voir 'Aql." },
+"mantuq": { origin: "Oussoul", def: "Le Prononcé. Sens tiré directement de l'énoncé du mot et de sa structure linguistique ({Waḍ' Lughawī}). Il s'oppose au Mafhum." },
+"al-mantuq": { origin: "Oussoul", def: "Voir Mantuq." },
+"mafhum": { origin: "Oussoul", def: "Le Compris. Sens déduit par l'intellect ({'Aql}) à partir de ce qui n'est pas dit dans le texte ({Maskut 'anhu})." },
+"al-mafhum": { origin: "Oussoul", def: "Voir Mafhum." },
+"nass": { origin: "Oussoul", def: "Le Texte Univoque. Type de Manṭuq qui n'admet qu'un seul sens possible (ex: noms propres, chiffres). Il engendre la Certitude ({Qaṭ'})." },
+"al-nass": { origin: "Oussoul", def: "Voir Nass." },
+"zahir": { origin: "Oussoul", def: "L'Apparent. Type de Manṭuq qui a un sens prépondérant mais admet une autre probabilité plus faible. Il engendre le Zann." },
+"al-zahir": { origin: "Oussoul", def: "Voir Zahir." },
+"mujmal": { origin: "Oussoul", def: "L'Ambigu. Type de Manṭuq qui a plusieurs sens possibles à égalité (ex: polysémie totale). Il engendre le Shakk jusqu'à clarification." },
+"al-mujmal": { origin: "Oussoul", def: "Voir Mujmal." },
+"mafhum al-muwafaqa": { origin: "Oussoul", def: "Concept de Concordance. Sens implicite où le jugement du non-dit est identique ou supérieur à celui du prononcé (a fortiori)." },
+"mafhum al-mukhalafa": { origin: "Oussoul", def: "Concept de Divergence. Sens implicite où le jugement du non-dit est l'inverse de celui du prononcé (a contrario)." },
+"qullatayn": { origin: "Hadith", def: "Deux Jarres. Mesure de volume d'eau (env. 200L) citée dans un hadith célèbre servant de base à la règle de pureté de l'eau en grande quantité." },
+"maskut 'anhu": { origin: "Oussoul", def: "Le Non-Dit/Le Tu. Ce sur quoi le texte a gardé le silence. C'est le domaine d'extraction du Mafhum." },
+"qur'": { origin: "Coran", def: "Période menstruelle ou de pureté. Terme polysémique ({Mujmal}) par excellence, signifiant linguistiquement à la fois les règles et la pureté, source de divergence entre les écoles." },
+"rajih": { origin: "Logique", def: "Prépondérant. Le sens le plus probable d'un mot (caractéristique du Ẓāhir)." },
+"marjuh": { origin: "Logique", def: "Dominé/Faible. Le sens le moins probable d'un mot, qui est délaissé sauf preuve contraire." },
+"wad' lughawi": { origin: "Oussoul", def: "Assignation Linguistique. Désigne le sens originel 'posé' par la langue arabe pour un mot, avant tout usage technique ou religieux. Base de la Haqiqa Lughawiya." },
+"qat'": { origin: "Oussoul", def: "La Certitude/Le Tranchant. Caractère de ce qui est définitif et ne laisse place à aucune probabilité contraire. S'oppose au Zann (spéculatif)." },
+"al-qat'": { origin: "Oussoul", def: "Voir Qat'." },
+"tuhr": { origin: "Fiqh", def: "La Pureté. État de pureté rituelle. En droit de la famille, désigne spécifiquement la période de pureté (inter-menstruelle) séparant deux cycles de Hayd." },
+"al-tuhr": { origin: "Fiqh", def: "Voir Tuhr." }
         };
 
         const CHAPTERS_DATA = [
@@ -3070,13 +3092,421 @@
                     { q: "Quel fut l'impact direct de son mariage ?", opts: ["Une trêve de 10 ans", "La libération de 100 familles de son clan", "La conversion de la Mecque", "La révélation du Hijab"], c: 1, exp: "Les compagnons ont libéré tous les captifs des Banu Mustaliq par respect pour les nouveaux liens de parenté du Prophète." },
                     { q: "De quelle tribu était-elle issue ?", opts: ["Quraysh", "Banu Mustaliq", "Aws", "Khazraj"], c: 1, exp: "Elle était la fille du chef des Banu Mustaliq, Al-Harith ibn Abi Dirar." }
                 ]
-            },
-
+    },
+    {
+  "id": 102,
+  "name": "Atikah bint Khalid (Umm Ma'bad)",
+  "arabicName": "عاتكة بنت خالد - أم معبد",
+  "subtitle": "L'Hôtesse de la Hijra et la Gardienne du Portrait",
+  "intro": "Issue de la tribu des Khuza'a, elle accueillit le Prophète (ﷺ) et Abu Bakr dans sa tente lors de leur migration clandestine vers Médine. Témoin d'un miracle laitier, elle est célèbre pour avoir formulé la description physique (Hilya) la plus précise et poétique du Messager d'Allah.",
+  "heroQuote": "J'ai vu un homme d'une beauté éclatante, au visage lumineux... Si tu le voyais de loin, il était le plus beau et le plus glorieux ; et de près, il était le plus doux et le plus noble.",
+  "tags": [
+    "Sahabiyat",
+    "Hijra",
+    "Khuza'a"
+  ],
+  "genealogy": "Elle est Atikah bint Khalid ibn Munqidh al-Khuza'iyyah. Elle est plus connue sous sa kunya {Umm Ma'bad}. Son mari était Abu Ma'bad (Aktham ibn Abi al-Jawn). Sa tribu résidait à Qudayd, sur la route entre La Mecque et Médine.",
+  "physicalDesc": "Décrite comme une femme forte, courageuse et très éloquente. Elle était une 'femme assise dans la cour de sa tente' (Barza), habituée à recevoir les voyageurs et à faire preuve d'une hospitalité bédouine franche et généreuse.",
+  "timeline": [
+    {
+      "year": "1 H",
+      "desc": "L'événement majeur : Le Prophète (ﷺ) et Abu Bakr, fuyant La Mecque, s'arrêtent à sa tente à Qudayd. Elle assiste au miracle de la brebis."
+    },
+    {
+      "year": "Conversion",
+      "desc": "Son mari rentre, écoute sa description de l'étranger et déclare qu'il s'agit du 'compagnon des Quraysh'. Ils décident d'embrasser l'Islam."
+    },
+    {
+      "year": "Migration",
+      "desc": "Elle émigre plus tard vers Médine avec son mari et son fils pour rejoindre la communauté musulmane. Le Prophète l'honore lors de ses visites."
+    },
+    {
+      "year": "Post-Prophétique",
+      "desc": "Elle vécut longtemps après la mort du Prophète, jusqu'au califat de Uthman ibn Affan, transmettant fidèlement le récit de sa rencontre."
+    }
+  ],
+  "narratives": [
+    {
+      "id": 1021,
+      "title": "La Brebis Tarie",
+      "content": "Le Prophète et Abu Bakr, épuisés et assoiffés, demandèrent à acheter de la nourriture. Umm Ma'bad n'avait rien, la sécheresse ayant tout décimé. Le Prophète vit une brebis chétive dans un coin et demanda s'il pouvait la traire. Elle répondit : « Elle est trop épuisée pour avoir du lait ». Il posa sa main bénie sur le pis, invoqua Allah, et le lait coula en abondance. Il fit boire Umm Ma'bad jusqu'à satiété, puis ses compagnons, et but en dernier. Il laissa même un récipient plein avant de repartir."
+    },
+    {
+      "id": 1022,
+      "title": "La Hilya (Description)",
+      "content": "Au retour de son mari, Abu Ma'bad, qui s'étonna de trouver du lait, elle décrivit le visiteur avec une éloquence rare : « Il a des yeux noirs très contrastés, des cils longs... Dans sa voix, il y a une raucité (douceur grave)... Son cou est éclatant... Son silence inspire le respect, sa parole la fascination... ». Cette description est devenue la référence pour visualiser le Prophète (ﷺ)."
+    },
+    {
+      "id": 1023,
+      "title": "Le Cadeau de bienvenue",
+      "content": "Lorsqu'elle arriva plus tard à Médine en tant que musulmane, le Prophète (ﷺ) la reconnut immédiatement, l'accueillit chaleureusement et lui offrit des cadeaux, honorant l'hospitalité qu'elle lui avait offerte alors qu'il était un fugitif pourchassé."
+    }
+  ],
+  "hadiths": [
+    {
+      "text": "J'ai vu un homme dont la propreté était évidente, le visage lumineux, de belle constitution... Il n'était ni trop grand ni trop petit... Il était entouré de compagnons qui, s'il parlait, écoutaient, et s'il ordonnait, s'empressaient d'obéir.",
+      "narrator": "Umm Ma'bad décrivant le Prophète",
+      "source": "Mustadrak Al-Hakim (Authentifié)"
+    }
+  ],
+  "quizData": [
+    {
+      "q": "Quel événement célèbre est associé à Umm Ma'bad ?",
+      "opts": [
+        "Elle a soigné les blessés à Uhud",
+        "Elle a accueilli le Prophète lors de la Hijra et a vu le miracle de la brebis",
+        "Elle a épousé le Prophète",
+        "Elle a été la première femme martyre"
+      ],
+      "c": 1,
+      "exp": "Sa tente à Qudayd fut une halte cruciale lors de l'Hégire où le Prophète a trait une brebis qui n'avait plus de lait."
+    },
+    {
+      "q": "Quelle est la particularité de sa description du Prophète (ﷺ) ?",
+      "opts": [
+        "Elle est très brève",
+        "Elle ne décrit que ses vêtements",
+        "C'est l'une des descriptions physiques les plus détaillées et éloquentes",
+        "Elle ne l'a jamais décrit"
+      ],
+      "c": 2,
+      "exp": "Les savants considèrent sa description (Hilya) comme l'une des plus complètes et poétiques, servant de base à la compréhension de l'apparence du Prophète."
+    },
+    {
+      "q": "De quelle tribu était-elle issue ?",
+      "opts": [
+        "Quraysh",
+        "Khuza'a",
+        "Aws",
+        "Thaqif"
+      ],
+      "c": 1,
+      "exp": "Elle appartenait à la tribu des Khuza'a, qui avait des liens historiques avec le Prophète et les Banu Hashim."
+    }
+  ]
+},
+{
+  "id": 103,
+  "name": "Sayyida Nafisa bint Al-Hasan",
+  "arabicName": "نفيسة بنت الحسن",
+  "subtitle": "La Maîtresse des Savants et l'Enseignante de l'Imam Shafi'i",
+  "intro": "Arrière-arrière-petite-fille du Prophète (ﷺ), elle fut une sommité spirituelle et intellectuelle. Figure majeure de la science au Caire, elle était consultée par les plus grands Imams de son temps pour sa connaissance du Hadith et du Fiqh.",
+  "heroQuote": "Comment ne pas désirer la rencontre avec Allah alors que j'ai récité le Coran six mille fois dans cette tombe que j'ai creusée de mes mains ?",
+  "tags": [
+    "Ahl al-Bayt",
+    "Érudition",
+    "Spiritualité"
+  ],
+  "genealogy": "Elle est Nafisa bint Al-Hasan ibn Zayd ibn Al-Hasan ibn Ali ibn Abi Talib. Sa mère venait également de la lignée prophétique. Elle épousa Ishaq al-Mu'tamin, le fils de l'Imam Ja'far al-Sadiq.",
+  "physicalDesc": "Elle était décrite comme une femme à la présence imposante, le visage illuminé par le culte (Ibada). Elle ne cessait de jeûner le jour et de prier la nuit, vivant dans un détachement total des biens matériels.",
+  "timeline": [
+    {
+      "year": "145 H",
+      "desc": "Naissance à La Mecque. Elle grandit à Médine où elle mémorise le Coran et étudie le Fiqh dès son plus jeune âge."
+    },
+    {
+      "year": "Mariage",
+      "desc": "Elle épouse Ishaq al-Mu'tamin (fils de Ja'far al-Sadiq). Ce mariage unit les branches Hassanide et Husseinide des Ahl al-Bayt."
+    },
+    {
+      "year": "193 H",
+      "desc": "Arrivée au Caire (Égypte). Les habitants l'accueillent en masse pour bénéficier de sa Baraka (bénédiction) et de sa science."
+    },
+    {
+      "year": "Enseignement",
+      "desc": "L'Imam Al-Shafi'i, arrivé en Égypte, lui rend visite fréquemment pour écouter ses Hadiths et débattre de questions juridiques."
+    },
+    {
+      "year": "208 H",
+      "desc": "Décès au Caire pendant le Ramadan, alors qu'elle récitait le verset 'Pour eux la maison du Salut auprès de leur Seigneur'. L'Imam Shafi'i étant mort peu avant elle, son corps avait été porté chez elle pour qu'elle prie sur lui."
+    }
+  ],
+  "narratives": [
+    {
+      "id": 1031,
+      "title": "La Professeure de l'Imam Shafi'i",
+      "content": "L'un des plus grands juristes de l'Islam, l'Imam Al-Shafi'i, avait un immense respect pour elle. Lorsqu'il était malade, il envoyait un messager lui demander des invocations. Il s'asseyait dans son assemblée pour entendre les Hadiths. Dans son testament, il demanda à ce que son cercueil passe devant sa maison pour qu'elle effectue la prière mortuaire sur lui, ce qu'elle fit depuis derrière un rideau."
+    },
+    {
+      "id": 1032,
+      "title": "L'Érudition et la Mémoire",
+      "content": "Dès son enfance à Médine, elle assistait aux cercles de science à la Mosquée du Prophète. Elle devint une référence (Hujja) dans la transmission du savoir prophétique. Les gens venaient de loin non seulement pour sa lignée, mais pour la précision de ses avis juridiques et sa connaissance du Coran."
+    },
+    {
+      "id": 1033,
+      "title": "La Tombe et le Coran",
+      "content": "Consciente de l'éphémérité de la vie, elle avait creusé sa propre tombe dans sa maison. Elle y descendait pour prier et y récitait le Coran en entier. On rapporte qu'elle y a complété la lecture du Coran plusieurs milliers de fois avant sa mort, imprégnant le lieu de spiritualité."
+    }
+  ],
+  "hadiths": [
+    {
+      "text": "L'Imam Al-Dhahabi la décrit ainsi : 'Elle était une dame noble, pieuse, une adoratrice dévouée, et une savante digne de confiance dans la transmission divine.'",
+      "narrator": "Al-Dhahabi (Siyar A'lam al-Nubala)",
+      "source": "Siyar A'lam al-Nubala"
+    }
+  ],
+  "quizData": [
+    {
+      "q": "Quel grand Imam fut l'élève et l'admirateur de Sayyida Nafisa ?",
+      "opts": [
+        "Imam Abu Hanifa",
+        "Imam Malik",
+        "Imam Al-Shafi'i",
+        "Imam Ahmad"
+      ],
+      "c": 2,
+      "exp": "L'Imam Al-Shafi'i la visitait régulièrement au Caire pour apprendre le Hadith et lui demander des invocations."
+    },
+    {
+      "q": "Quel est son lien de parenté avec le Prophète (ﷺ) ?",
+      "opts": [
+        "Sa fille",
+        "Sa petite-fille",
+        "Son arrière-arrière-petite-fille",
+        "Sa tante"
+      ],
+      "c": 2,
+      "exp": "Elle est la fille d'Al-Hasan ibn Zayd, qui est le petit-fils de Ali et Fatima. Elle est donc de la 4ème génération après le Prophète."
+    },
+    {
+      "q": "Dans quelle ville a-t-elle passé la fin de sa vie et enseigné ?",
+      "opts": [
+        "Bagdad",
+        "Damas",
+        "Le Caire (Fostat)",
+        "Cordoue"
+      ],
+      "c": 2,
+      "exp": "Elle s'installa en Égypte (au Fostat, le vieux Caire) où elle devint une figure centrale de la communauté jusqu'à sa mort."
+    }
+  ]
+},
+{
+  "id": 104,
+  "name": "Amra bint Abdurrahman",
+  "arabicName": "عمرة بنت عبد الرحمن",
+  "subtitle": "L'Archive Vivante de Aïsha",
+  "intro": "Élevée dans le giron de Aïsha (Mère des Croyants), Amra devint la plus grande spécialiste de ses hadiths. Les califes et les grands juges de Médine ne prenaient aucune décision juridique complexe sans la consulter.",
+  "heroQuote": "Va voir Amra, car elle est celle qui connaît le mieux les hadiths de Aïsha.",
+  "tags": [
+    "Tabi'in",
+    "Fiqh",
+    "Médine"
+  ],
+  "genealogy": "Amra bint Abdurrahman ibn Sa'd al-Ansariyyah. Elle appartient au clan des Banu Najjar. Son grand-père était un Compagnon du Prophète.",
+  "physicalDesc": "Décrite par l'autorité qu'elle dégageait. Elle était une référence incontournable à Médine, respectée par les hommes de pouvoir pour sa rigueur intellectuelle et sa mémoire infaillible.",
+  "timeline": [
+    {
+      "year": "Jeunesse",
+      "desc": "Après la mort de son père, elle est prise en charge et éduquée directement par Aïsha bint Abi Bakr. Elle grandit dans la 'Maison de la Prophétie'."
+    },
+    {
+      "year": "Enseignement",
+      "desc": "Elle devient la professeure principale des juges de Médine. L'Imam Zuhri (père de l'écriture du Hadith) vient étudier auprès d'elle."
+    },
+    {
+      "year": "Intervention",
+      "desc": "Elle intervient par lettre auprès du Calife Umar ibn Abd al-Aziz pour empêcher l'exécution d'une peine (Hudud) mal jugée, prouvant son autorité juridique."
+    },
+    {
+      "year": "98 H",
+      "desc": "Décès à l'âge de 77 ans environ. Elle laisse un héritage immense dans la jurisprudence médinoise."
+    }
+  ],
+  "narratives": [
+    {
+      "id": 1041,
+      "title": "La Mer Inépuisable",
+      "content": "Le grand savant Ibn Shihab Al-Zuhri raconte : « Qasim ibn Muhammad m'a dit : 'Ô garçon, je te vois avide de science. Veux-tu que je te guide vers son récipient ? Va voir Amra'. Je me suis rendu chez elle et j'ai découvert une mer de savoir qui ne tarit jamais »."
+    },
+    {
+      "id": 1042,
+      "title": "L'Annulation du Jugement",
+      "content": "Un juge de Médine voulait couper la main d'un voleur pour un vol de bagues en fer. Amra entendit cela et envoya immédiatement son serviteur dire au juge : « Pas de coupure pour ce qui vaut moins d'un quart de Dinar ». Le juge arrêta l'exécution et relâcha l'homme, se pliant à sa connaissance de la Sunna."
+    }
+  ],
+  "hadiths": [
+    {
+      "text": "Le Prophète (ﷺ) interdisait la vente des fruits tant qu'ils n'étaient pas mûrs et à l'abri des fléaux.",
+      "narrator": "Rapporté par Amra d'après Aïsha",
+      "source": "Sahih Al-Bukhari"
+    }
+  ],
+  "quizData": [
+    {
+      "q": "Qui fut la principale enseignante de Amra ?",
+      "opts": ["Umm Salama", "Hafsa bint Umar", "Aïsha bint Abi Bakr", "Fatima"],
+      "c": 2,
+      "exp": "Amra a grandi dans la maison de Aïsha, ce qui lui a permis d'apprendre directement la pratique prophétique domestique et juridique."
+    },
+    {
+      "q": "Quelle célèbre figure du Hadith a-t-elle formé ?",
+      "opts": ["Imam Bukhari", "Ibn Shihab Al-Zuhri", "Imam Nawawi", "Abu Hurayra"],
+      "c": 1,
+      "exp": "Al-Zuhri, l'un des premiers à compiler les hadiths par écrit, était son élève et la considérait comme une source majeure."
+    }
+  ]
+},
+{
+  "id": 105,
+  "name": "Hafsa bint Sirin",
+  "arabicName": "حفصة بنت سيرين",
+  "subtitle": "La Maîtresse des Ascètes de Bassora",
+  "intro": "Sœur du célèbre interprète des rêves Muhammad ibn Sirin, elle était considérée par ses contemporains comme son égale, voire sa supérieure en savoir coranique. Elle alliait une science pointue des lectures du Coran (Qira'at) à une ascèse (Zuhd) légendaire.",
+  "heroQuote": "Ô jeunes gens ! Profitez de votre jeunesse, car je n'ai vu l'œuvre (le culte parfait) que dans la jeunesse.",
+  "tags": [
+    "Tabi'in",
+    "Qira'at",
+    "Bassora"
+  ],
+  "genealogy": "Hafsa bint Sirin. Son père était un affranchi d'Anas ibn Malik (le serviteur du Prophète). Elle est la sœur de Muhammad, Yahya, et Ma'bad ibn Sirin, une famille bénie par la science.",
+  "physicalDesc": "Elle vécut jusqu'à un âge très avancé (environ 90 ans). Même vieille, elle continuait de se couvrir le visage (Jilbab) par extrême pudeur, bien que la religion permette aux femmes âgées d'alléger leur voile, disant : 'Le Jilbab est plus pur'.",
+  "timeline": [
+    {
+      "year": "Enfance",
+      "desc": "Elle mémorise le Coran intégralement à l'âge de 12 ans avec une maîtrise des sens profonds."
+    },
+    {
+      "year": "Vie Adulte",
+      "desc": "Elle passe 30 ans de sa vie sans sortir de son lieu de prière (Musalla) sauf pour les besoins vitaux ou pour faire la sieste."
+    },
+    {
+      "year": "Enseignement",
+      "desc": "Elle enseigne aux hommes et aux femmes. Iyas ibn Muawiyah (le juge intelligent) la préférait à Hasan al-Basri et à son frère Muhammad."
+    },
+    {
+      "year": "101 H",
+      "desc": "Décès à Bassora. Elle meurt la même année que son célèbre frère Muhammad ibn Sirin, marquant la fin d'une ère pour la ville."
+    }
+  ],
+  "narratives": [
+    {
+      "id": 1051,
+      "title": "La Supériorité sur Muhammad",
+      "content": "Son frère, Muhammad ibn Sirin, pourtant une montagne de science, disait à ses élèves lorsqu'ils avaient un doute sur une lecture coranique : « Allez demander à Hafsa comment elle lit ». On rapporte qu'elle maîtrisait des aspects du Coran que même lui ne connaissait pas."
+    },
+    {
+      "id": 1052,
+      "title": "Le Linceul Prêt",
+      "content": "Elle avait préparé son linceul de ses propres mains. À chaque fois qu'elle partait au Hajj ou en voyage, elle l'emportait avec elle, prête à rencontrer son Seigneur à tout moment. Elle lisait la moitié du Coran chaque nuit dans sa prière."
+    }
+  ],
+  "hadiths": [
+    {
+      "text": "Mahdi ibn Maymun a dit : 'J'ai vu Hafsa bint Sirin, elle portait un Jilbab en laine grossière, et je n'ai vu personne de plus persévérant dans l'adoration qu'elle.'",
+      "narrator": "Témoignage (Athar)",
+      "source": "Siyar A'lam al-Nubala"
+    }
+  ],
+  "quizData": [
+    {
+      "q": "Quelle était la spécialité pour laquelle son frère la consultait ?",
+      "opts": ["L'interprétation des rêves", "Les lectures du Coran (Qira'at)", "La stratégie militaire", "La médecine"],
+      "c": 1,
+      "exp": "Bien que son frère soit connu pour les rêves, c'est pour la lecture précise et l'exégèse du Coran qu'il renvoyait les gens vers Hafsa."
+    },
+    {
+      "q": "Dans quelle ville irakienne a-t-elle vécu et enseigné ?",
+      "opts": ["Koufa", "Bagdad", "Bassora", "Mossoul"],
+      "c": 2,
+      "exp": "Elle était une figure centrale de l'école de Bassora, aux côtés de Hasan Al-Basri."
+    }
+  ]
+},
+{
+  "id": 106,
+  "name": "Fatima as-Samarqandiyya",
+  "arabicName": "فاطمة السمرقندية",
+  "subtitle": "Celle dont la Dot fut un Livre de Droit",
+  "intro": "Fille d'un grand maître de Samarcande, elle devint une juriste Hanafite de premier plan. Elle est célèbre pour avoir éduqué son mari, le grand Imam Al-Kasani, et pour avoir fait de la science juridique la condition de son mariage.",
+  "heroQuote": "Les fatwas sortaient de leur maison ornées de trois signatures : celle du père, celle de la fille, et celle du mari.",
+  "tags": [
+    "Faqiha",
+    "Hanafite",
+    "Alep"
+  ],
+  "genealogy": "Fatima bint Muhammad ibn Ahmad al-Samarqandi. Son père est l'auteur du célèbre ouvrage 'Tuhfat al-Fuqaha' (Le joyau des juristes). Elle épousa Ala' al-Din al-Kasani.",
+  "physicalDesc": "Les sources historiques taisent ses traits physiques par respect, mais insistent sur son 'Haybah' (prestance intellectuelle). Elle enseignait derrière un rideau et son mari la consultait publiquement pour résoudre les cas difficiles.",
+  "timeline": [
+    {
+      "year": "Jeunesse",
+      "desc": "Elle étudie le Fiqh Hanafite sous la tutelle de son père à Samarcande. Elle mémorise son livre 'Tuhfat al-Fuqaha' par cœur."
+    },
+    {
+      "year": "Mariage",
+      "desc": "De nombreux rois et princes demandent sa main. Elle refuse tout prétendant qui ne peut l'égaler en science. Elle accepte Al-Kasani lorsqu'il écrit le commentaire parfait du livre de son père."
+    },
+    {
+      "year": "Migration",
+      "desc": "Elle déménage avec son père et son mari à Alep (Syrie) à la demande du souverain Nur ad-Din Zengi, qui les tenait en haute estime."
+    },
+    {
+      "year": "581 H",
+      "desc": "Décès à Alep. Elle est enterrée dans la mosquée Ibrahim, près de la citadelle. Son mari, inconsolable, demandera à être enterré à ses côtés quelques années plus tard."
+    },
+    {
+      "year": "Héritage",
+      "desc": "Elle laisse derrière elle une tradition de rigueur juridique et un exemple unique de partenariat intellectuel conjugal."
+    }
+  ],
+  "narratives": [
+    {
+      "id": 1061,
+      "title": "La Dot la plus Précieuse",
+      "content": "Son père avait écrit *Tuhfat al-Fuqaha*. Un étudiant brillant, Al-Kasani, écrivit un commentaire magistral de ce livre intitulé *Bada'i' al-Sana'i'*. Impressionné, le père lui offrit la main de Fatima. Elle accepta, considérant ce livre comme sa dot. Les juristes de l'époque disaient avec admiration : « Il a expliqué son Joyau (le livre Tuhfa) et il a épousé sa fille »."
+    },
+    {
+      "id": 1062,
+      "title": "La Correctrice du Maître",
+      "content": "Bien que son mari fut surnommé 'Le Roi des Savants', il lui arrivait d'hésiter ou de se tromper sur une Fatwa. Lorsqu'il rentrait à la maison, Fatima lui indiquait l'erreur et lui donnait la preuve juridique correcte. Il retournait alors sur son avis. Elle était sa référence ultime."
+    },
+    {
+      "id": 1063,
+      "title": "La Conseillère des Rois",
+      "content": "Le sultan Nur ad-Din Zengi, grand dirigeant de l'époque des Croisades, consultait Fatima sur des questions d'État et de droit religieux. Il respectait ses avis et lui accordait une grande influence dans les affaires religieuses d'Alep."
+    }
+  ],
+  "hadiths": [
+    {
+      "text": "L'historien Ibn al-Adim rapporte : 'Elle mémorisait la doctrine Hanafite mieux que quiconque. Son mari la respectait et l'honorait énormément.'",
+      "narrator": "Ibn al-Adim (Historien d'Alep)",
+      "source": "Bugyat al-Talab fi Tarikh Halab"
+    }
+  ],
+  "quizData": [
+    {
+      "q": "Quelle était la dot de Fatima as-Samarqandiyya ?",
+      "opts": [
+        "1000 pièces d'or",
+        "Un livre de jurisprudence (Fiqh)",
+        "Un palais à Alep",
+        "Un troupeau de chameaux"
+      ],
+      "c": 1,
+      "exp": "Sa dot fut le livre 'Bada'i' al-Sana'i'', écrit par son mari. C'est considéré comme l'une des dots les plus nobles de l'histoire islamique."
+    },
+    {
+      "q": "De quelle école juridique (Madhhab) était-elle une experte ?",
+      "opts": [
+        "Malikite",
+        "Shafi'ite",
+        "Hanafite",
+        "Hanbalite"
+      ],
+      "c": 2,
+      "exp": "Elle et sa famille étaient des piliers de l'école Hanafite, originaire de Kufa mais très répandue en Asie Centrale et en Turquie."
+    },
+    {
+      "q": "Quel rôle jouait-elle vis-à-vis de son mari, l'Imam Al-Kasani ?",
+      "opts": [
+        "Elle ne s'occupait que de la maison",
+        "Elle écrivait ses livres à sa place",
+        "Elle corrigeait ses Fatwas et enseignait",
+        "Elle était son élève uniquement"
+      ],
+      "c": 2,
+      "exp": "Elle était son égale intellectuelle et corrigeait souvent ses avis juridiques lorsqu'il commettait une erreur."
+    }
+  ]
+}
 ];
-
-
-
-
-
-
-
