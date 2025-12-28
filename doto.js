@@ -369,18 +369,17 @@
                 heroQuote: "Chaque communauté a un digne de confiance et le digne de confiance de cette communauté est Abou Oubayda !",
 	        heroQuote: "Si je l'avais voulu, j'aurais pu adresser des reproches à chacun d'entre vous... excepté Abou Oubayda !",
                 tags: ["10 Promis", "Muhajirun", "Commandants"],
-                genealogy: "Il est Amir ibn Abd-Allah ibn Al-Jarrah... ibn {Fihr}. Sa lignée rejoint celle du Prophète (ﷺ) en la personne de Fihr. Il est le Qourashite, Al-Fihri, Al-Makki.",
-                physicalDesc: "Un homme grand, très mince, le dos légèrement voûté, au visage émacié et à la barbe légère. Il avait les incisives cassées suite à la bataille d'{Ouhoud}.",
+                genealogy: "Il est Amir ibn Abd-Allah ibn Al-Jarrah ibn Hilal ibn Ouhayb ibn Dabba ibn Al-Harith ibn {Fihr} ibn Malik ibn Nadr ibn Kinana ibn Khouzayma ibn Moudrika ibn Ilyas ibn Moudar ibn Nizar ibn Maad ibn Adnan. Sa lignée rejoint celle du Prophète (ﷺ) en la personne de Fihr. Il est le Qourashite, Al-Fihri, Al-Makki.",
+                physicalDesc: "Un homme grand, très mince, le dos légèrement voûté, au visage émacié et à la barbe légère. Il avait les incisives cassées suite à la bataille d'Ouhoud. Il se teignait les cheveux avec du henné et du katam et avait deux nattes",
                 timeline: [
                     { year: "Avant l'Hégire", desc: "Conversion précoce avec Abou Bakr." },
                     { year: "2 H", desc: "Participe à {Badr} où son père (polythéiste) fut tué." },
                     { year: "3 H", desc: "Retire de ses dents les anneaux du casque enfoncés dans la joue du Prophète (ﷺ) à {Ouhoud}." },
                     { year: "10 H", desc: "Envoyé avec la délégation de {Najran} comme 'Homme de Confiance'." },
                     { year: "13 H", desc: "Commandant des armées pour la conquête du {Sham}." },
-                    { year: "18 H", desc: "Décède lors de la peste d'{Amwas}, refusant de quitter son armée." },
-		    { year: "18 H", desc: "Décède à 58 ans lors de la peste d'Amwas. Il teignait ses cheveux avec du henné et du katam." }
-                ],
+                    { year: "18 H", desc: "Décède lors de la peste d'{Amwas}, refusant de quitter son armée." }                ],
                 narratives: [
+                    { id: 100, title: "L'un des premiers", content: "Ibn Mazhoun, Oubayda ibn Al-Harith, Abder Rahman ibn ‘Aouf, Abou Salama ibn Abdelassad et Abou Oubayda ibn Al-Jarrah se rendirent auprès du messager d’Allah (ﷺ) et ce dernier leur présenta l’Islam. Il leur expliqua ses rites et tous les cinq se convertirent en même temps. Ceci eut lieu avant que le prophète (ﷺ) n’intègre la maison d’Al-Arqam"},
                     { id: 101, title: "L'Extraction Dentaire", content: "À {Ouhoud}, le Prophète (ﷺ) avait des maillons de casque enfoncés dans la joue. Abou Oubayda craignait de le blesser en utilisant ses mains. Il utilisa ses dents pour retirer le métal, les perdant dans l'acte. On disait : « Il n'est pas meilleure extraction que celle d'Abou Oubayda ! »" },
                     { id: 102, title: "L'Ascétisme d'un Général", content: "Oumar ibn al-Khattab visita sa demeure de gouverneur au {Sham}. Il n'y trouva qu'un bol, une épée et une selle. Oumar pleura : « La {Dounia} nous a tous changés, sauf toi, Abou Oubayda. » Ce dernier répondit : « Cela nous suffit pour atteindre notre destination. »" },
                     { id: 103, title: "La Délégation de Najran", content: "Les chrétiens de {Najran} demandèrent un homme de confiance pour juger entre eux. Le Prophète (ﷺ) dit : « Je vais vous envoyer un homme vraiment digne de confiance ». Tout le monde espérait être cet homme. Il choisit Abou Oubayda." },
@@ -389,7 +388,8 @@
                 ],
                 hadiths: [
                     { text: "Il n'est pas un prophète après Nouh qui n'ait mis en garde sa communauté contre le Dajjal...", narrator: "Abou Oubayda", source: "Sahih Mouslim" },
-                    { text: "Le jeûne est une armure tant que celle-ci n'est pas rompue !", narrator: "Abou Oubayda", source: "Rapporté par Iyad ibn Ghoutayf" }
+                    { text: "Le jeûne est une armure tant que celle-ci n'est pas rompue !", narrator: "Abou Oubayda", source: "Rapporté par Iyad ibn Ghoutayf" },
+                    { text: "Abou Oubayda disait : « Ô gens, je suis certes issu de Qouraysh mais il n’est pas une personne – quelle que soit sa couleur de peau, blanche ou noire – qui ne me dépasse en piété sans que je n’aie souhaité être à sa place ! »", narrator: "Thabit Al-Bounani", source: "Siyar A lam al-Nubula" }
                 ],
                 quizData: [
                     { q: "Qui a perdu ses incisives à Ouhoud ?", opts: ["Talha", "Abou Oubayda", "Oumar", "Hamza"], c: 1, exp: "C'est Abou Oubayda, en retirant les maillons du casque du Prophète (ﷺ) avec ses dents." },
@@ -3278,138 +3278,6 @@
       ],
       "c": 2,
       "exp": "Elle s'installa en Égypte (au Fostat, le vieux Caire) où elle devint une figure centrale de la communauté jusqu'à sa mort."
-    }
-  ]
-},
-{
-  "id": 104,
-  "name": "Amra bint Abdurrahman",
-  "arabicName": "عمرة بنت عبد الرحمن",
-  "subtitle": "L'Archive Vivante de Aïsha",
-  "intro": "Élevée dans le giron de Aïsha (Mère des Croyants), Amra devint la plus grande spécialiste de ses hadiths. Les califes et les grands juges de Médine ne prenaient aucune décision juridique complexe sans la consulter.",
-  "heroQuote": "Va voir Amra, car elle est celle qui connaît le mieux les hadiths de Aïsha.",
-  "tags": [
-    "Tabi'in",
-    "Fiqh",
-    "Médine"
-  ],
-  "genealogy": "Amra bint Abdurrahman ibn Sa'd al-Ansariyyah. Elle appartient au clan des Banu Najjar. Son grand-père était un Compagnon du Prophète.",
-  "physicalDesc": "Décrite par l'autorité qu'elle dégageait. Elle était une référence incontournable à Médine, respectée par les hommes de pouvoir pour sa rigueur intellectuelle et sa mémoire infaillible.",
-  "timeline": [
-    {
-      "year": "Jeunesse",
-      "desc": "Après la mort de son père, elle est prise en charge et éduquée directement par Aïsha bint Abi Bakr. Elle grandit dans la 'Maison de la Prophétie'."
-    },
-    {
-      "year": "Enseignement",
-      "desc": "Elle devient la professeure principale des juges de Médine. L'Imam Zuhri (père de l'écriture du Hadith) vient étudier auprès d'elle."
-    },
-    {
-      "year": "Intervention",
-      "desc": "Elle intervient par lettre auprès du Calife Umar ibn Abd al-Aziz pour empêcher l'exécution d'une peine (Hudud) mal jugée, prouvant son autorité juridique."
-    },
-    {
-      "year": "98 H",
-      "desc": "Décès à l'âge de 77 ans environ. Elle laisse un héritage immense dans la jurisprudence médinoise."
-    }
-  ],
-  "narratives": [
-    {
-      "id": 1041,
-      "title": "La Mer Inépuisable",
-      "content": "Le grand savant Ibn Shihab Al-Zuhri raconte : « Qasim ibn Muhammad m'a dit : 'Ô garçon, je te vois avide de science. Veux-tu que je te guide vers son récipient ? Va voir Amra'. Je me suis rendu chez elle et j'ai découvert une mer de savoir qui ne tarit jamais »."
-    },
-    {
-      "id": 1042,
-      "title": "L'Annulation du Jugement",
-      "content": "Un juge de Médine voulait couper la main d'un voleur pour un vol de bagues en fer. Amra entendit cela et envoya immédiatement son serviteur dire au juge : « Pas de coupure pour ce qui vaut moins d'un quart de Dinar ». Le juge arrêta l'exécution et relâcha l'homme, se pliant à sa connaissance de la Sunna."
-    }
-  ],
-  "hadiths": [
-    {
-      "text": "Le Prophète (ﷺ) interdisait la vente des fruits tant qu'ils n'étaient pas mûrs et à l'abri des fléaux.",
-      "narrator": "Rapporté par Amra d'après Aïsha",
-      "source": "Sahih Al-Bukhari"
-    }
-  ],
-  "quizData": [
-    {
-      "q": "Qui fut la principale enseignante de Amra ?",
-      "opts": ["Umm Salama", "Hafsa bint Umar", "Aïsha bint Abi Bakr", "Fatima"],
-      "c": 2,
-      "exp": "Amra a grandi dans la maison de Aïsha, ce qui lui a permis d'apprendre directement la pratique prophétique domestique et juridique."
-    },
-    {
-      "q": "Quelle célèbre figure du Hadith a-t-elle formé ?",
-      "opts": ["Imam Bukhari", "Ibn Shihab Al-Zuhri", "Imam Nawawi", "Abu Hurayra"],
-      "c": 1,
-      "exp": "Al-Zuhri, l'un des premiers à compiler les hadiths par écrit, était son élève et la considérait comme une source majeure."
-    }
-  ]
-},
-{
-  "id": 105,
-  "name": "Hafsa bint Sirin",
-  "arabicName": "حفصة بنت سيرين",
-  "subtitle": "La Maîtresse des Ascètes de Bassora",
-  "intro": "Sœur du célèbre interprète des rêves Muhammad ibn Sirin, elle était considérée par ses contemporains comme son égale, voire sa supérieure en savoir coranique. Elle alliait une science pointue des lectures du Coran (Qira'at) à une ascèse (Zuhd) légendaire.",
-  "heroQuote": "Ô jeunes gens ! Profitez de votre jeunesse, car je n'ai vu l'œuvre (le culte parfait) que dans la jeunesse.",
-  "tags": [
-    "Tabi'in",
-    "Qira'at",
-    "Bassora"
-  ],
-  "genealogy": "Hafsa bint Sirin. Son père était un affranchi d'Anas ibn Malik (le serviteur du Prophète). Elle est la sœur de Muhammad, Yahya, et Ma'bad ibn Sirin, une famille bénie par la science.",
-  "physicalDesc": "Elle vécut jusqu'à un âge très avancé (environ 90 ans). Même vieille, elle continuait de se couvrir le visage (Jilbab) par extrême pudeur, bien que la religion permette aux femmes âgées d'alléger leur voile, disant : 'Le Jilbab est plus pur'.",
-  "timeline": [
-    {
-      "year": "Enfance",
-      "desc": "Elle mémorise le Coran intégralement à l'âge de 12 ans avec une maîtrise des sens profonds."
-    },
-    {
-      "year": "Vie Adulte",
-      "desc": "Elle passe 30 ans de sa vie sans sortir de son lieu de prière (Musalla) sauf pour les besoins vitaux ou pour faire la sieste."
-    },
-    {
-      "year": "Enseignement",
-      "desc": "Elle enseigne aux hommes et aux femmes. Iyas ibn Muawiyah (le juge intelligent) la préférait à Hasan al-Basri et à son frère Muhammad."
-    },
-    {
-      "year": "101 H",
-      "desc": "Décès à Bassora. Elle meurt la même année que son célèbre frère Muhammad ibn Sirin, marquant la fin d'une ère pour la ville."
-    }
-  ],
-  "narratives": [
-    {
-      "id": 1051,
-      "title": "La Supériorité sur Muhammad",
-      "content": "Son frère, Muhammad ibn Sirin, pourtant une montagne de science, disait à ses élèves lorsqu'ils avaient un doute sur une lecture coranique : « Allez demander à Hafsa comment elle lit ». On rapporte qu'elle maîtrisait des aspects du Coran que même lui ne connaissait pas."
-    },
-    {
-      "id": 1052,
-      "title": "Le Linceul Prêt",
-      "content": "Elle avait préparé son linceul de ses propres mains. À chaque fois qu'elle partait au Hajj ou en voyage, elle l'emportait avec elle, prête à rencontrer son Seigneur à tout moment. Elle lisait la moitié du Coran chaque nuit dans sa prière."
-    }
-  ],
-  "hadiths": [
-    {
-      "text": "Mahdi ibn Maymun a dit : 'J'ai vu Hafsa bint Sirin, elle portait un Jilbab en laine grossière, et je n'ai vu personne de plus persévérant dans l'adoration qu'elle.'",
-      "narrator": "Témoignage (Athar)",
-      "source": "Siyar A'lam al-Nubala"
-    }
-  ],
-  "quizData": [
-    {
-      "q": "Quelle était la spécialité pour laquelle son frère la consultait ?",
-      "opts": ["L'interprétation des rêves", "Les lectures du Coran (Qira'at)", "La stratégie militaire", "La médecine"],
-      "c": 1,
-      "exp": "Bien que son frère soit connu pour les rêves, c'est pour la lecture précise et l'exégèse du Coran qu'il renvoyait les gens vers Hafsa."
-    },
-    {
-      "q": "Dans quelle ville irakienne a-t-elle vécu et enseigné ?",
-      "opts": ["Koufa", "Bagdad", "Bassora", "Mossoul"],
-      "c": 2,
-      "exp": "Elle était une figure centrale de l'école de Bassora, aux côtés de Hasan Al-Basri."
     }
   ]
 },
