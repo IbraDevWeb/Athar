@@ -172,9 +172,10 @@
                     <span class="text-[9px] font-mono text-gray-300 dark:text-gray-600 w-5 text-right shrink-0 group-hover:text-brand-gold transition-colors">
                         {{ String(i + 1).padStart(2, '0') }}
                     </span>
-                    <span class="truncate font-semibold tracking-wide transition-colors"
+                    <span class="truncate font-semibold tracking-wide transition-colors flex items-center gap-1.5"
                           :class="currentChapter?.id === chap.id ? 'text-brand-gold' : 'text-gray-600 dark:text-gray-400 group-hover:text-brand-dark dark:group-hover:text-gray-200'">
                         {{ chap.name }}
+                        <i v-if="chap.verified" data-lucide="badge-check" class="w-3.5 h-3.5 text-brand-gold fill-brand-gold/10" title="Authentifié avec Siyar A'lam al-Nubula"></i>
                     </span>
                 </div>
 

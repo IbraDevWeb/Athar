@@ -40,6 +40,12 @@ const ReaderView = {
         }
     },
     computed: {
+        // --- CORRECTION DU BUG D'AFFICHAGE ---
+        safeNarratives() {
+            // Filtre les éléments vides ou nuls pour éviter l'erreur "reading 'id'"
+            return (this.chapter.narratives || []).filter(n => n && n.id);
+        },
+
         safeQuiz() {
             const rawData = this.chapter.quiz || this.chapter.quizData || [];
             return rawData.map(item => ({
@@ -47,7 +53,7 @@ const ReaderView = {
                 options: item.options || item.opts,
                 correct: item.correct !== undefined ? item.correct : item.c,
                 explanation: item.explanation || item.exp || "Réponse validée."
-            }));
+            })).filter(q => q.question); // Sécurité supplémentaire
         },
         
         safeHadiths() {
@@ -71,9 +77,7 @@ const ReaderView = {
 
         estimatedReadingTime() {
             let text = (this.chapter.intro || '') + (this.chapter.physicalDesc || '') + (this.chapter.genealogy || '');
-            if (this.chapter.narratives) {
-                this.chapter.narratives.forEach(n => text += (n.content || ''));
-            }
+            this.safeNarratives.forEach(n => text += (n.content || ''));
             const words = text.split(/\s+/).length;
             const min = Math.ceil(words / 200);
             return min + " min";
@@ -142,7 +146,10 @@ const ReaderView = {
             <button @click="closeReader" class="w-10 h-10 -ml-2 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
             <div class="flex flex-col items-center max-w-[50%]">
                 <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Biographie</span>
-                <span class="font-display font-bold text-sm truncate text-brand-dark dark:text-white">{{ chapter.name }}</span>
+                <span class="font-display font-bold text-sm truncate text-brand-dark dark:text-white flex items-center gap-1">
+                    {{ chapter.name }}
+                    <i v-if="chapter.verified" data-lucide="badge-check" class="w-3 h-3 text-brand-gold fill-brand-gold/20"></i>
+                </span>
             </div>
             <div class="flex gap-1">
                 <button @click="adjustFontSize" class="w-10 h-10 flex items-center justify-center text-gray-500 active:scale-90"><i data-lucide="type" class="w-5 h-5"></i></button>
@@ -167,7 +174,11 @@ const ReaderView = {
             </div>
 
             <div class="relative z-10 animate-fade-in max-w-4xl mx-auto">
-                <div class="flex items-center justify-center gap-3 mb-6">
+                <div v-if="chapter.verified" class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                    <i data-lucide="badge-check" class="w-3.5 h-3.5 fill-brand-gold/20"></i>
+                    <span>Authentifié (Tahqiq)</span>
+                </div>
+                <div v-else class="flex items-center justify-center gap-3 mb-6">
                     <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-[10px] font-bold uppercase tracking-widest">
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
                         {{ chapter.tags ? chapter.tags[0] : 'Biographie' }}
@@ -185,6 +196,10 @@ const ReaderView = {
                     <p class="font-serif italic text-gray-500 dark:text-gray-400 text-lg md:text-xl">« {{ chapter.subtitle }} »</p>
                     <div class="h-px w-16 bg-gradient-to-l from-transparent to-brand-gold/40"></div>
                 </div>
+
+                <p v-if="chapter.source" class="text-[10px] uppercase tracking-widest text-gray-400 mb-6">
+                    Source : <span class="text-brand-gold font-bold">{{ chapter.source }}</span>
+                </p>
 
                 <div v-if="chapter.audioUrl" class="max-w-md mx-auto bg-white dark:bg-brand-dark shadow-xl rounded-2xl p-2 pr-6 flex items-center gap-4 border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:border-brand-gold/30 transition-colors">
                     <button @click="toggleAudio" class="w-12 h-12 rounded-xl bg-brand-gold text-white flex items-center justify-center shadow-lg shadow-brand-gold/30 hover:scale-105 active:scale-95 transition-all z-10 relative">
@@ -258,7 +273,7 @@ const ReaderView = {
                 </div>
 
                 <div class="space-y-6">
-                    <div v-for="(story, index) in chapter.narratives" :key="story.id" 
+                    <div v-for="(story, index) in safeNarratives" :key="story.id" 
                          class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300"
                          :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
                         
