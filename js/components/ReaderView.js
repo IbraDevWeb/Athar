@@ -13,11 +13,11 @@ const ReaderView = {
         'handleQuizAnswer', 
         'goHome', 
         'formatText',
-        'filteredChapters' // Indispensable pour la navigation Précédent/Suivant
+        'filteredChapters' 
     ],
     data() {
         return {
-            activeTab: 'narrative', // narrative | timeline | hadiths | quiz
+            activeTab: 'narrative', 
             audioPlaying: false,
             audioInstance: null,
             audioProgress: 0,
@@ -26,7 +26,6 @@ const ReaderView = {
         }
     },
     watch: {
-        // Si on change de chapitre via "Suivant", on remet tout à zéro
         'chapter.id': function() {
             this.activeTab = 'narrative';
             this.showScore = false;
@@ -41,8 +40,16 @@ const ReaderView = {
         }
     },
     computed: {
-        // --- 1. SÉCURITÉ DES DONNÉES ---
-        // Unifie les formats de données (quiz vs quizData, narratives vs stories)
+        // --- 1. SÉCURITÉ DES DONNÉES (CORRECTION BUG ID) ---
+        safeNarratives() {
+            // Si pas de narratives, retourne tableau vide
+            if (!this.chapter.narratives || !Array.isArray(this.chapter.narratives)) return [];
+            
+            // FILTRE CRUCIAL : On ne garde que les histoires qui existent et qui ont un ID
+            // Cela élimine les bugs causés par les doubles virgules (,,) dans doto.js
+            return this.chapter.narratives.filter(story => story && story.id);
+        },
+
         safeQuiz() {
             const rawData = this.chapter.quiz || this.chapter.quizData || [];
             return rawData.map(item => ({
@@ -75,32 +82,26 @@ const ReaderView = {
         },
 
         estimatedReadingTime() {
-            // Calcul approximatif : 200 mots par minute
             let text = (this.chapter.intro || '') + (this.chapter.physicalDesc || '') + (this.chapter.genealogy || '');
-            if (this.chapter.narratives) {
-                this.chapter.narratives.forEach(n => text += (n.content || ''));
-            }
+            // On utilise safeNarratives ici aussi pour éviter les erreurs de calcul
+            this.safeNarratives.forEach(n => text += (n.content || ''));
+            
             const words = text.split(/\s+/).length;
             const min = Math.ceil(words / 200);
             return min + " min";
         }
     },
     methods: {
-        // --- GESTION AUDIO AVANCÉE ---
         toggleAudio() {
             if (!this.chapter.audioUrl) return;
 
             if (!this.audioInstance) {
                 this.audioInstance = new Audio(this.chapter.audioUrl);
-                
-                // Mise à jour de la barre de progression
                 this.audioInstance.ontimeupdate = () => {
                     if(this.audioInstance.duration) {
                         this.audioProgress = (this.audioInstance.currentTime / this.audioInstance.duration) * 100;
                     }
                 };
-                
-                // Reset à la fin
                 this.audioInstance.onended = () => {
                     this.audioPlaying = false;
                     this.audioProgress = 0;
@@ -116,23 +117,11 @@ const ReaderView = {
             }
         },
 
-        // --- STYLES DU QUIZ ---
         getQuizClass(qIdx, optIdx, correctIdx) {
             const userAnswer = this.quizAnswers[qIdx];
-            
-            // État neutre (pas encore répondu)
-            if (userAnswer === undefined) {
-                return 'bg-white dark:bg-brand-dark-lighter border-gray-200 dark:border-gray-700 hover:border-brand-gold hover:bg-brand-gold/5 text-gray-700 dark:text-gray-300';
-            }
-            // La bonne réponse (s'affiche toujours en vert)
-            if (optIdx === correctIdx) {
-                return 'bg-emerald-100 border-emerald-500 text-emerald-800 dark:bg-emerald-900/30 dark:border-emerald-500 dark:text-emerald-400 font-bold shadow-inner transform scale-[1.01]';
-            }
-            // La mauvaise réponse sélectionnée (en rouge)
-            if (userAnswer === optIdx && optIdx !== correctIdx) {
-                return 'bg-red-100 border-red-500 text-red-800 dark:bg-red-900/30 dark:border-red-500 dark:text-red-400 opacity-75';
-            }
-            // Les autres options (grisées)
+            if (userAnswer === undefined) return 'bg-white dark:bg-brand-dark-lighter border-gray-200 dark:border-gray-700 hover:border-brand-gold hover:bg-brand-gold/5 text-gray-700 dark:text-gray-300';
+            if (optIdx === correctIdx) return 'bg-emerald-100 border-emerald-500 text-emerald-800 dark:bg-emerald-900/30 dark:border-emerald-500 dark:text-emerald-400 font-bold shadow-inner transform scale-[1.01]';
+            if (userAnswer === optIdx && optIdx !== correctIdx) return 'bg-red-100 border-red-500 text-red-800 dark:bg-red-900/30 dark:border-red-500 dark:text-red-400 opacity-75';
             return 'bg-gray-50 dark:bg-brand-dark/50 border-transparent text-gray-400 opacity-40 cursor-not-allowed';
         },
 
@@ -144,7 +133,6 @@ const ReaderView = {
             });
             this.score = correct;
             this.showScore = true;
-            // Scroll vers le score pour être sûr qu'il est vu
             setTimeout(() => {
                 const scoreEl = document.getElementById('score-result');
                 if(scoreEl) scoreEl.scrollIntoView({ behavior: 'smooth' });
@@ -284,7 +272,7 @@ const ReaderView = {
                 </div>
 
                 <div class="space-y-6">
-                    <div v-for="(story, index) in chapter.narratives" :key="story.id" 
+                    <div v-for="(story, index) in safeNarratives" :key="story.id" 
                          class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300"
                          :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
                         
@@ -340,6 +328,7 @@ const ReaderView = {
                         </div>
                     </div>
                 </div>
+                
                 <div v-else class="text-center py-20 bg-gray-50 dark:bg-brand-dark-lighter rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
                     <div class="mb-4 opacity-30">
                         <i data-lucide="feather" class="w-12 h-12 mx-auto"></i>
