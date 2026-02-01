@@ -403,106 +403,111 @@
             },
             {
                 id: 2, 
+                verified: true,
+                source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Talha ibn Oubayd-Allah", 
                 arabicName: "طلحة", 
                 subtitle: "Le Martyr Vivant",
-                intro: "Le Faucon d'Ouhoud. Celui qui fit de son corps un bouclier pour le Messager d'Allah (ﷺ) lorsque le danger fut immense. L'un des dix promis au Paradis.",
+                intro: "Le Faucon d'Ouhoud. Celui qui fit de son corps un bouclier pour le Messager d'Allah (ﷺ). Surnommé « Le Bon », « Le Brave » et « Le Généreux » par le Prophète lui-même.",
                 heroQuote: "Quiconque désire voir un martyr marchant sur Terre, qu'il regarde Talha ibn Oubayd-Allah !",
                 tags: ["10 Promis", "Muhajirun", "Martyrs"],
-                genealogy: "Du clan des {Taym}, cousin éloigné d'Abou Bakr as-Siddiq. Il est surnommé Abou Mouhammad, le {Qourashite}, At-Taïmi.",
-                physicalDesc: "Un homme imposant au torse large. Selon certains, il était très brun à la chevelure dense ; selon d'autres (son fils), il avait le teint rosé. Il avait de grands pieds et marchait d'un pas vif.",
+                genealogy: "Talha ibn Oubayd-Allah... ibn Kaab ibn Saad. Du clan des {Taym}, cousin éloigné d'Abou Bakr. Surnommé Abou Mouhammad.",
+                physicalDesc: "Selon Moussa ibn Talha : Un homme à la peau blanche avec un teint rosé (d'autres disent très brun), de taille moyenne (plutôt petit), le torse et les épaules larges. Il avait des pieds imposants. Il ne teignait pas ses cheveux. Il marchait d'un pas vif et son allure traduisait la dignité.",
                 timeline: [
-                    { year: "Débuts", desc: "Conversion précoce, persécuté à La Mecque." },
-                    { year: "2 H", desc: "Absent de {Badr} (en mission au Sham) mais considéré présent par le Prophète (ﷺ)." },
-                    { year: "3 H", desc: "Reçoit 24 blessures à {Ouhoud}. Sa main est paralysée en protégeant le Prophète." },
-                    { year: "Expéditions", desc: "Surnommé Talha {Al-Fayyad} (Le Généreux) et Talha le Bon." },
-                    { year: "36 H", desc: "Meurt lors de la bataille du Chameau ({Al-Jamal}) d'une flèche au genou." }
+                    { year: "Débuts", desc: "L'un des premiers convertis, persécuté à La Mecque." },
+                    { year: "2 H", desc: "Absent de {Badr} (en mission commerciale au Sham) mais le Prophète lui attribua sa part de butin et de récompense." },
+                    { year: "3 H", desc: "Le jour d'{Ouhoud}, il reçut 24 blessures. Sa main fut paralysée (doigts tranchés) en protégeant le visage du Prophète." },
+                    { year: "Surnoms", desc: "Nommé Talha le Bon (Ouhoud), Talha le Brave (Al-Ashira) et Talha le Généreux (Khaybar)." },
+                    { year: "36 H", desc: "Meurt lors de la bataille du Chameau ({Al-Jamal}) à 62 ans, tué par une flèche de Marwan ibn Al-Hakam." }
                 ],
                 narratives: [
-                    { id: 201, title: "Le Bouclier Humain", content: "Isolé avec le Prophète (ﷺ) à {Ouhoud}, il intercepta les flèches ennemies avec sa main nue. Les tendons furent tranchés et sa main resta inerte (paralysée) jusqu'à sa mort. Le Prophète dit : « Le Paradis est dû à Talha »." },
-                    { id: 202, title: "L'Inquiétude du Riche", content: "Ayant reçu 700 000 dirhams du Hadramaout, il fut pris d'angoisse spirituelle. Sa femme Oum Koulthoum lui conseilla de les donner. Il distribua tout aux {Mouhajirounes} et Ansars dès le lendemain matin." },
-                    { id: 203, title: "La Tristesse d'Ali", content: "Après la bataille du Chameau, Ali ibn Abi Talib vit le corps de Talha. Il essuya la poussière de son visage en pleurant et dit : « Si seulement j'avais pu mourir vingt ans avant ce jour ! »" },
-		    { id: 204, title: "Le Miracle de la Tombe", content: "Trente ans après sa mort, sa fille Aïsha le vit en rêve lui disant : 'L'humidité m'importune, changez-moi de place !'. Lorsqu'ils ouvrirent sa tombe pour le déplacer, ils trouvèrent son corps intact, comme s'il venait d'être enterré, à l'exception de quelques poils de barbe." }
+                    { id: 201, title: "Le Bouclier Humain", content: "À {Ouhoud}, alors que tous avaient fui, il resta avec le Prophète (ﷺ). Il interceptait les flèches avec sa main nue jusqu'à ce que ses doigts soient tranchés. Il poussa un cri de douleur (« Hassi ! »). Le Prophète lui dit : « Si tu avais dit Bismillah, les anges t'auraient élevé sous les yeux de tous »." },
+                    { id: 202, title: "L'Angoisse du Riche", content: "Il reçut une somme colossale (700 000) de l'Hadramaout qui l'empêcha de dormir. Sa femme Oum Koulthoum (fille d'Abou Bakr) lui conseilla de la partager. Au matin, il ne lui restait plus un dirham." },
+                    { id: 203, title: "Les Regrets d'Ali", content: "Après le combat du Chameau, Ali vit le corps de Talha dans un fossé. Il descendit, essuya la poussière de son visage et pleura en disant : « Si seulement j'étais mort vingt ans avant ce jour ! ». Il témoigna que le Prophète avait dit : « Talha et Zoubayr sont mes voisins au Paradis »." },
+                    { id: 204, title: "Le Miracle de la Tombe", content: "Trente ans après sa mort, sa fille Aïsha le vit en rêve se plaignant de l'humidité. En ouvrant sa tombe, ils trouvèrent son corps intact, comme s'il venait de mourir, à l'exception de quelques poils de barbe. Ils le déplacèrent dans une autre tombe." }
                 ],
                 hadiths: [
                     { text: "Talha et Zoubayr sont mes deux voisins au Paradis !", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" },
-                    { text: "À Allah je me plains de mes fautes apparentes et cachées !", narrator: "Talha (Parole personnelle)", source: "Siyar A'lam al-Nubula" },
-		    { text: "Tu étais bien plus cher à mes yeux, Abou Mouhammad, pour que je te retrouve ainsi, jeté à l'air libre au fond d'une rivière.", narrator: "Ali ibn Abi Talib", source: "Siyar A'lam al-Nubula" }
+                    { text: "Le Paradis est obligatoire pour Talha (suite à son action à Ouhoud).", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" }
                 ],
                 quizData: [
                     { q: "Quelle blessure Talha a-t-il gardée d'Ouhoud ?", opts: ["Œil crevé", "Main paralysée", "Jambe coupée", "Aucune"], c: 1, exp: "Sa main fut paralysée après avoir stoppé des flèches destinées au Prophète (ﷺ)." },
-                    { q: "Quel surnom signifie 'Celui qui inonde de générosité' ?", opts: ["Al-Fayyad", "Al-Farouq", "As-Siddiq", "Al-Amin"], c: 0, exp: "C'est Talha Al-Fayyad. Al-Farouq est Oumar, As-Siddiq est Abou Bakr, Al-Amin est Abou Oubayda." },
-                    { q: "Pourquoi était-il absent à Badr ?", opts: ["Malade", "En mission", "Peur", "Pas converti"], c: 1, exp: "Il était en mission de renseignement au Sham, mais fut compté comme participant." }
+                    { q: "Quels sont les trois surnoms donnés par le Prophète ?", opts: ["Le Bon, Le Brave, Le Généreux", "Le Lion, L'Épée, Le Sage", "Le Véridique, Le Farouq, Le Riche"], c: 0, exp: "Talha Al-Khayr (Le Bon), Talha Al-Fayyad (Le Brave/Généreux torrentiel), Talha Al-Jud (Le Généreux)." },
+                    { q: "Pourquoi était-il absent physiquement à Badr ?", opts: ["Malade", "En voyage au Sham", "Peur", "Pas converti"], c: 1, exp: "Il était en voyage d'affaires (ou d'espionnage selon les versions) au Sham, mais fut compté comme présent." }
                 ]
             },
             {
                 id: 3,
+                verified: true,
+                source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Zoubayr ibn Al-'Awam",
                 arabicName: "الزبير بن العوام",
                 subtitle: "Le Hawari du Prophète",
-                intro: "Cousin du Prophète (ﷺ) et l'un des dix promis au Paradis. Il est le premier à avoir dégainé une épée pour la cause de l'Islam. Une fidélité sans faille qui lui valut le titre unique d'Apôtre.",
-                heroQuote: "À chaque prophète son apôtre (Hawari) et mon apôtre à moi est Zoubayr !",
+                intro: "Cousin du Prophète (ﷺ) et l'un des dix promis au Paradis. Il est le premier à avoir dégainé une épée pour la cause de l'Islam. Une fidélité sans faille qui lui valut le titre unique d'Apôtre (Hawari).",
+                heroQuote: "Chaque prophète a un apôtre (Hawari) et mon apôtre à moi est Zoubayr !",
                 tags: ["10 Promis", "Muhajirun", "Martyrs", "Ahl al-Bayt"],
-                genealogy: "Il est Zoubayr ibn Al-'Awam. Cousin du Prophète (ﷺ) par sa tante paternelle {Safiya} bint Abdelmoutalib. Il fait partie de la noble lignée de Quraysh.",
-                physicalDesc: "Il était si grand que ses pieds touchaient le sol lorsqu'il montait à cheval. Il avait une barbe peu fournie, était très velu et portait des cicatrices profondes (dans lesquelles on pouvait mettre les doigts).",
+                genealogy: "Il est Zoubayr ibn Al-'Awam ibn Khouwaylid. Cousin du Prophète (ﷺ) par sa tante paternelle {Safiya} bint Abdelmoutalib. Neveu de Khadija.",
+                physicalDesc: "Il était très grand (ses pieds touchaient le sol lorsqu'il montait à cheval), très velu, et avait une barbe peu fournie. Il portait sur son corps les cicatrices profondes de coups d'épée (notamment à l'épaule) reçus à Badr et Yarmouk.",
                 timeline: [
-                    { year: "Jeunesse", desc: "Premier à avoir tiré son épée pour la cause de l'Islam suite à une rumeur sur la mort du Prophète." },
-                    { year: "2 H", desc: "À {Badr}, les anges descendirent portant des turbans jaunes pour honorer son apparence." },
+                    { year: "12-16 ans", desc: "Conversion. Premier homme à dégainer une épée pour l'Islam suite à une rumeur." },
+                    { year: "2 H", desc: "À {Badr}, il porte un turban jaune. Les anges descendent vêtus de la même façon." },
                     { year: "5 H", desc: "À Khandaq, le Prophète réunit ses parents en sacrifice verbal pour lui : « Tire, pour toi mon père et ma mère ! »." },
-                    { year: "15 H", desc: "À Yarmouk, il chargea seul à travers les rangs ennemis, les perçant de part en part." },
-                    { year: "36 H", desc: "Assassiné traîtreusement par Ibn Jourmouz pendant sa prière à la Vallée des Fauves, après avoir quitté le combat durant la {Fitna}." }
+                    { year: "15 H", desc: "À Yarmouk, il charge seul et perce les rangs ennemis à deux reprises." },
+                    { year: "36 H", desc: "Quitte le champ de bataille (Al-Jamal) après un rappel d'Ali. Assassiné traîtreusement par Ibn Jourmouz pendant sa prière." }
                 ],
                 narratives: [
-                    { id: 301, title: "Le Premier Glaive", content: "Une rumeur circula à La Mecque disant que le Prophète (ﷺ) avait été tué. Zoubayr, encore enfant, sortit l'épée à la main fendant la foule. Le Prophète lui demanda : « Qu'as-tu ? ». Il répondit : « J'ai cru que tu avais été tué... Je suis venu trancher tes assaillants ! »." },
-                    { id: 302, title: "Le Titre de Hawari", content: "Lors de la bataille du Fossé, le Prophète demanda à trois reprises qui irait espionner l'ennemi. Trois fois, Zoubayr se leva. Le Prophète dit alors : « À chaque prophète son apôtre ({Hawari}) et mon apôtre à moi est Zoubayr ! »." },
-                    { id: 303, title: "L'Allié contre les Dettes", content: "Avant sa mort, il confia ses dettes massives à son fils en lui disant : « Si tu rencontres une difficulté, demande l'aide de mon Allié (Allah) ». Son fils raconte qu'il ne cessa d'invoquer « Ô Allié de Zoubayr, éponge sa dette » et elle fut miraculeusement réglée." },
-		    { id: 304, title: "Les Anges au Turban Jaune", content: "Le jour de Badr, Zoubayr portait un turban jaune distinctif. Le Prophète (ﷺ) vit alors les anges descendre pour aider les musulmans, et ils portaient tous des turbans jaunes à l'image de Zoubayr ce jour-là." }
+                    { id: 301, title: "Le Premier Glaive", content: "Enfant, il entendit une rumeur que le Prophète était tué. Il sortit l'épée à la main fendant la foule à la Mecque. Le Prophète lui dit : « Qu'as-tu ? ». Il répondit : « Je suis venu trancher tes assaillants ! ». Le Prophète invoqua pour lui et son épée." },
+                    { id: 302, title: "Le Turban Jaune", content: "Le jour de Badr, Zoubayr portait un turban jaune distinctif. Le Prophète (ﷺ) vit alors les anges descendre pour aider les musulmans, et ils portaient tous des turbans jaunes à l'image de Zoubayr ce jour-là." },
+                    { id: 303, title: "L'Allié contre les Dettes", content: "Avant sa mort, il confia ses dettes massives (2,2 millions) à son fils Abd-Allah en lui disant : « Si tu rencontres une difficulté, appelle mon Maître (Mawla) ». Son fils demanda « Qui est-ce ? ». Il dit : « Allah ». Son fils raconte qu'à chaque difficulté, il invoquait le Maître de Zoubayr et la dette se réglait." },
+                    { id: 304, title: "Le Duel de l'Œil", content: "À Badr, il affronta Oubayda ibn Saïd, un guerrier en armure intégrale dont on ne voyait que les yeux. Zoubayr visa l'œil avec son épieu et le tua. Il dut mettre son pied sur le cadavre pour réussir à retirer son arme tant le coup fut violent." }
                 ],
                 hadiths: [
-                    { text: "Talha et Zoubayr font partie de mon voisinage au Paradis !", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" },
-                    { text: "Le messager d'Allah m'a informé que celui qui tuerait Zoubayr est destiné à l'Enfer !", narrator: "Ali ibn Abi Talib", source: "Siyar A'lam al-Nubula" }
+                    { text: "Zoubayr est le fils de ma tante et l'apôtre de ma communauté !", narrator: "Le Prophète (ﷺ)", source: "Mousnad Ahmad" },
+                    { text: "Annoncez le feu de l'Enfer au meurtrier du fils de Safiya (Zoubayr) !", narrator: "Ali ibn Abi Talib", source: "Siyar A'lam al-Nubula" }
                 ],
                 quizData: [
-                    { q: "Quel est le titre unique donné par le Prophète à Zoubayr ?", opts: ["Saifullah", "Al-Hawari", "Al-Farouq", "As-Siddiq"], c: 1, exp: "C'est Al-Hawari (l'Apôtre/Disciple pur). Saifullah est Khalid ibn Walid." },
-                    { q: "Quel lien de parenté avait-il avec le Prophète ?", opts: ["Son oncle", "Son cousin", "Son frère de lait", "Son beau-père"], c: 1, exp: "Il était le fils de Safiya, la tante paternelle du Prophète." },
-                    { q: "Quelle particularité avaient les anges à Badr ?", opts: ["Chevaux blancs", "Turbans jaunes", "Épées de lumière", "Voix de tonnerre"], c: 1, exp: "Ils ont imité l'apparence de Zoubayr qui portait ce jour-là un turban jaune." },
-                    { q: "Comment est-il mort ?", opts: ["Assassiné en priant", "Au combat", "De maladie", "De vieillesse"], c: 0, exp: "Il a quitté le champ de bataille, mais a été suivi et tué par traîtrise pendant qu'il priait." }
+                    { q: "Quel est le titre unique donné par le Prophète à Zoubayr ?", opts: ["Saifullah", "Al-Hawari", "Al-Farouq", "As-Siddiq"], c: 1, exp: "C'est Al-Hawari (l'Apôtre/Disciple pur/Allié). Saifullah est Khalid." },
+                    { q: "Quel lien de parenté avait-il avec le Prophète ?", opts: ["Son oncle", "Son cousin (fils de tante)", "Son frère de lait", "Son beau-père"], c: 1, exp: "Il était le fils de Safiya, la tante paternelle du Prophète." },
+                    { q: "Comment les anges étaient-ils habillés à Badr ?", opts: ["En blanc", "Avec des turbans jaunes", "En vert", "En armure noire"], c: 1, exp: "Ils ont imité l'apparence de Zoubayr qui portait ce jour-là un turban jaune." },
+                    { q: "Pourquoi a-t-il quitté la bataille du Chameau ?", opts: ["Par peur", "Ali lui a rappelé un hadith", "Il était blessé", "Son fils l'a appelé"], c: 1, exp: "Ali lui a rappelé que le Prophète avait prédit qu'il le combattrait injustement. Zoubayr s'est souvenu et est parti." }
                 ]
             },
             {
                 id: 4,
+                verified: true,
+                source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abderrahman ibn 'Aouf",
                 arabicName: "عبد الرحمن بن عوف",
                 subtitle: "Le Riche Reconnaissant",
-                intro: "Il fait partie des dix promis au Paradis et des six membres de la Shura. Un génie du commerce dont la fortune n'avait d'égal que la générosité. Le Prophète (ﷺ) a dit qu'il est digne de confiance pour les gens du Ciel et de la Terre.",
+                intro: "Il fait partie des dix promis au Paradis et des six membres de la Shura. Un génie du commerce dont la fortune n'avait d'égal que la générosité. Le Prophète (ﷺ) a prié derrière lui, un honneur rare.",
                 heroQuote: "Indique-moi plutôt où se trouve le marché !",
-                tags: ["10 Promis", "Muhajirun"],
-                genealogy: "Il est Abderrahman ibn 'Aouf... ibn Abd-'Aouf. C'est un {Qourashite} du clan {Zouhri}. Sa mère est As-Shifa bint 'Aouf. Il se nommait Abd-'Amr avant l'Islam.",
-                physicalDesc: "Il avait la peau blanche, le teint rosé, de grands yeux noirs avec de longs cils, le nez busqué. Il avait de grandes canines supérieures et il lui manquait des incisives (perdues au combat). Il avait un long cou et ne teignait pas ses cheveux blancs.",
+                tags: ["10 Promis", "Muhajirun", "Shura"],
+                genealogy: "Il est Abderrahman ibn 'Aouf... du clan {Zouhri} (comme la mère du Prophète). Sa mère est As-Shifa. Il se nommait Abd-'Amr avant l'Islam.",
+                physicalDesc: "Peau blanche, teint rosé, grands yeux noirs avec de longs cils, nez busqué. Il avait de grandes canines supérieures qui blessaient sa lèvre. Il boitait d'une jambe (blessure d'Ouhoud) et il lui manquait des incisives. Il ne teignait pas ses cheveux.",
                 timeline: [
-                    { year: "Avant l'Hégire", desc: "Conversion précoce (parmi les 8 premiers). Change son nom d'Abd-'Amr pour Abderrahman." },
-                    { year: "1 H", desc: "Arrive pauvre à Médine. Refuse la moitié de la fortune de son frère en Dieu et demande : « Indique-moi le marché »." },
-                    { year: "3 H", desc: "Reçoit une vingtaine de blessures à {Ouhoud}, perd ses incisives et devient boiteux permanent." },
-                    { year: "9 H", desc: "Honneur immense sur la route de {Tabouk} : Le Prophète (ﷺ) prie derrière lui." },
-                    { year: "23 H", desc: "Lors de la {Shura}, il refuse le Califat pour arbitrer et choisir le successeur d'Oumar (Outhman)." },
-                    { year: "32 H", desc: "Meurt à 75 ans en laissant une fortune colossale distribuée aux pauvres et aux épouses." }
+                    { year: "Avant l'Hégire", desc: "L'un des 8 premiers convertis. Change son nom d'Abd-'Amr pour Abderrahman." },
+                    { year: "1 H", desc: "Arrive pauvre à Médine. Refuse la moitié de la fortune de Saad ibn Rabi' et demande le marché." },
+                    { year: "3 H", desc: "Reçoit une vingtaine de blessures à {Ouhoud} et devient boiteux permanent." },
+                    { year: "9 H", desc: "Honneur immense à {Tabouk} : Le Prophète (ﷺ) prie une raka derrière lui." },
+                    { year: "23 H", desc: "Préside la {Shura} (conseil) et se désiste pour choisir Outhman comme Calife." },
+                    { year: "32 H", desc: "Meurt à 75 ans. Laisse une fortune colossale (or coupé à la hache)." }
                 ],
                 narratives: [
-                    { id: 401, title: "Le Convoi qui ébranla Médine", content: "Un jour, 700 montures chargées de blé et de vivres arrivèrent à Médine, provoquant un bruit sourd. Aïsha rapporta alors un hadith sur le fait qu'il entrerait au paradis « à quatre pattes » (lentement) à cause de sa richesse. En entendant cela, Abderrahman fit don de tout le convoi pour espérer y entrer debout !" },
-                    { id: 402, title: "L'Arbitrage de la Shura", content: "Après la mort d'Oumar, six hommes furent désignés pour élire le Calife. Abderrahman se désista volontairement de la course pour arbitrer. Ali lui dit alors : « Tu es un digne de confiance pour les gens du ciel et ceux de la Terre ». Il choisit Outhman pour préserver l'unité." },
-                    { id: 403, title: "La Fortune Bénie", content: "Sa générosité était légendaire : il affranchit 30 000 esclaves et donna 400 dinars à chaque vétéran de {Badr} survivant. À sa mort, chacune de ses 4 épouses hérita de 80 000 dinars (ce qui ne représentait que 1/32ème de sa fortune totale)." },
-		    {id: 404, title: "L'Imam du Prophète", content: "Il possède un honneur quasi unique : lors de l'expédition de Tabouk, le Prophète (ﷺ) arriva en retard pour la prière de l'aube. Abderrahman avait déjà commencé à diriger la prière. Le Prophète pria alors derrière lui. Il est l'un des deux seuls compagnons (avec Abou Bakr) derrière qui le Messager d'Allah a prié." },
-		    {id: 405, title: "La Jurisprudence des Mazdéens", content: "C'est grâce au témoignage d'Abderrahman ibn 'Aouf que le Calife Oumar accepta de prélever la Jizya (impôt) sur les Mazdéens (Zoroastriens), car Abderrahman attesta avoir vu le Prophète le faire." }
+                    { id: 401, title: "Le Convoi de Médine", content: "Un jour, 700 montures chargées de vivres arrivèrent à Médine, faisant trembler le sol. Aïsha dit : « J'ai entendu que Abderrahman entrerait au Paradis en rampant (à cause de sa richesse) ». Apprenant cela, il donna tout le convoi en aumône pour espérer y entrer debout !" },
+                    { id: 402, title: "L'Imam du Prophète", content: "Lors de l'expédition de Tabouk, le Prophète (ﷺ) arriva en retard pour la prière de l'aube. Abderrahman avait déjà commencé. Le Prophète pria alors une unité de prière derrière lui. C'est un honneur qu'il ne partage qu'avec Abou Bakr." },
+                    { id: 403, title: "L'Héritage en Or", content: "Sa fortune était telle qu'à sa mort, on dut utiliser des haches pour partager son or, au point que les mains des hommes en eurent des ampoules. Chacune de ses 4 veuves reçut 80 000 dinars." },
+                    { id: 404, title: "Le Refus du Pouvoir", content: "Lors de la Shura pour succéder à Omar, il dit : « Lequel d'entre vous accepterait de se désister pour choisir le meilleur ? ». Personne ne répondit. Il dit : « Moi je me désiste ». Il passa 3 jours sans dormir à consulter les gens pour finalement choisir Outhman." },
+                    { id: 405, title: "La Jizya des Mages", content: "C'est grâce à son témoignage unique que le Calife Omar accepta de prélever la Jizya (impôt) sur les Mazdéens (Mages) de Hajar, car Abderrahman attesta avoir vu le Prophète le faire." }
                 ],
                 hadiths: [
-                    { text: "Laissez mes compagnons ! Si l'un de vous dépensait l'équivalent d'Ouhoud en or, cela n'égalerait pas une poignée donnée par eux.", narrator: "Abou Said Al-Khoudri", source: "Sahih Muslim" },
-                    { text: "Le Prophète a prié une raka derrière Abderrahman (l'un des rares cas où le Messager a prié derrière un compagnon).", narrator: "Al-Moughira", source: "Ahmad / Muslim" }
+                    { text: "Laissez mes compagnons ! Si l'un de vous dépensait l'équivalent d'Ouhoud en or, cela n'égalerait pas une poignée donnée par eux.", narrator: "Le Prophète (à Khalid)", source: "Sahih Muslim" },
+                    { text: "Tu es un digne de confiance pour les gens du ciel et ceux de la Terre !", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam al-Nubula" }
                 ],
                 quizData: [
-                    { q: "Quel était son nom avant l'Islam ?", opts: ["Abd-Shams", "Abd-'Amr", "Abou-Hakam", "Abd-Allah"], c: 1, exp: "Il s'appelait Abd-'Amr (ou Abd Al-Kaaba). Le Prophète l'a renommé Abderrahman." },
-                    { q: "Quelle fut sa réponse lorsqu'on lui proposa la moitié d'une fortune ?", opts: ["J'accepte avec joie", "Indique-moi le marché", "Donne-la aux pauvres", "Je te rembourserai"], c: 1, exp: "Il refusa poliment l'offre de son frère Ansari et demanda simplement où faire du commerce." },
-                    { q: "Quelle infirmité garda-t-il de la bataille d'Ouhoud ?", opts: ["Il est devenu aveugle", "Il a perdu un bras", "Il boitait", "Il devint sourd"], c: 2, exp: "Il reçut des coups au pied qui le firent boiter pour le reste de sa vie." },
-                    { q: "Quel rôle joua-t-il après la mort d'Oumar ?", opts: ["Il devint Calife", "Il refusa d'intervenir", "Il fut l'arbitre de l'élection", "Il quitta Médine"], c: 2, exp: "Il se désista de la candidature pour devenir l'arbitre impartial qui désigna Outhman." }
+                    { q: "Quel était son nom avant l'Islam ?", opts: ["Abd-Shams", "Abd-'Amr", "Abou-Hakam", "Abd-Allah"], c: 1, exp: "Il s'appelait Abd-'Amr. Le Prophète l'a renommé Abderrahman (Serviteur du Tout-Miséricordieux)." },
+                    { q: "Quelle fut sa réponse lorsqu'on lui proposa la moitié d'une fortune ?", opts: ["J'accepte", "Indique-moi le marché", "Donne-la aux pauvres", "Prête-la moi"], c: 1, exp: "Il refusa poliment l'offre de son frère Ansari et demanda simplement où faire du commerce." },
+                    { q: "Quelle infirmité garda-t-il d'Ouhoud ?", opts: ["Aveugle", "Manchot", "Boiteux", "Sourd"], c: 2, exp: "Il reçut des coups au pied qui le firent boiter pour le reste de sa vie." },
+                    { q: "Quel honneur unique a-t-il eu lors de la prière ?", opts: ["Prier dans la Kaaba", "Le Prophète a prié derrière lui", "Faire l'Adhan", "Diriger Jibril"], c: 1, exp: "À Tabouk, le Prophète a prié une raka derrière lui." }
                 ]
             },
             {
