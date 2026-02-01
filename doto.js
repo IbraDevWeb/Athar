@@ -362,38 +362,43 @@
         const CHAPTERS_DATA = [
             {
                 id: 1, 
+                verified: true, // NOUVEAU : Badge de certification
+                source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Oubayda ibn Al-Jarrah", 
                 arabicName: "أبو عبيدة", 
                 subtitle: "L'Amin de la Communauté",
                 intro: "L'un des dix promis au Paradis. Le confident, le chef respecté. Celui dont le Prophète (ﷺ) a dit : « Chaque communauté a un homme de confiance, et le mien est Abou Oubayda. »",
-                heroQuote: "Chaque communauté a un digne de confiance et le digne de confiance de cette communauté est Abou Oubayda !",
-	        heroQuote: "Si je l'avais voulu, j'aurais pu adresser des reproches à chacun d'entre vous... excepté Abou Oubayda !",
+                heroQuote: "Si je l'avais voulu, j'aurais pu adresser des reproches à chacun d'entre vous... excepté Abou Oubayda !",
                 tags: ["10 Promis", "Muhajirun", "Commandants"],
-                genealogy: "Il est Amir ibn Abd-Allah ibn Al-Jarrah ibn Hilal ibn Ouhayb ibn Dabba ibn Al-Harith ibn {Fihr} ibn Malik ibn Nadr ibn Kinana ibn Khouzayma ibn Moudrika ibn Ilyas ibn Moudar ibn Nizar ibn Maad ibn Adnan. Sa lignée rejoint celle du Prophète (ﷺ) en la personne de Fihr. Il est le Qourashite, Al-Fihri, Al-Makki.",
-                physicalDesc: "Un homme grand, très mince, le dos légèrement voûté, au visage émacié et à la barbe légère. Il avait les incisives cassées suite à la bataille d'Ouhoud. Il se teignait les cheveux avec du henné et du katam et avait deux nattes",
+                genealogy: "Il est Amir ibn Abd-Allah ibn Al-Jarrah ibn Hilal... ibn {Fihr}. Sa lignée rejoint celle du Prophète (ﷺ) en la personne de Fihr. Il est le Qourashite, Al-Fihri, Al-Makki.",
+                physicalDesc: "Selon Malik ibn Yakhamir : Un homme grand, très mince, le dos légèrement voûté, au visage émacié et à la barbe légère. Il avait les incisives cassées suite à la bataille d'Ouhoud. Il se teignait les cheveux avec du henné et du katam et portait deux nattes.",
                 timeline: [
-                    { year: "Avant l'Hégire", desc: "Conversion précoce avec Abou Bakr." },
-                    { year: "2 H", desc: "Participe à {Badr} où son père (polythéiste) fut tué." },
-                    { year: "3 H", desc: "Retire de ses dents les anneaux du casque enfoncés dans la joue du Prophète (ﷺ) à {Ouhoud}." },
-                    { year: "10 H", desc: "Envoyé avec la délégation de {Najran} comme 'Homme de Confiance'." },
-                    { year: "13 H", desc: "Commandant des armées pour la conquête du {Sham}." },
-                    { year: "18 H", desc: "Décède lors de la peste d'{Amwas}, refusant de quitter son armée." }                ],
+                    { year: "Avant l'Hégire", desc: "Conversion précoce avec Abou Bakr avant Dar Al-Arqam." },
+                    { year: "2 H", desc: "Participe à {Badr}." },
+                    { year: "3 H", desc: "Arrache avec ses dents les maillons du casque enfoncés dans la joue du Prophète (ﷺ) à {Ouhoud}." },
+                    { year: "10 H", desc: "Envoyé avec la délégation de {Najran} comme 'Homme de Confiance' (Al-Amin)." },
+                    { year: "13 H", desc: "Commandant des armées au Sham. Conquête pacifique de {Damas}." },
+                    { year: "15 H", desc: "Dirige les armées lors de la bataille décisive de {Yarmouk}." },
+                    { year: "18 H", desc: "Décède lors de la peste d'{Amwas} à 58 ans." }
+                ],
                 narratives: [
-                    { id: 100, title: "L'un des premiers", content: "Ibn Mazhoun, Oubayda ibn Al-Harith, Abder Rahman ibn ‘Aouf, Abou Salama ibn Abdelassad et Abou Oubayda ibn Al-Jarrah se rendirent auprès du messager d’Allah (ﷺ) et ce dernier leur présenta l’Islam. Il leur expliqua ses rites et tous les cinq se convertirent en même temps. Ceci eut lieu avant que le prophète (ﷺ) n’intègre la maison d’Al-Arqam"},
-                    { id: 101, title: "L'Extraction Dentaire", content: "À {Ouhoud}, le Prophète (ﷺ) avait des maillons de casque enfoncés dans la joue. Abou Oubayda craignait de le blesser en utilisant ses mains. Il utilisa ses dents pour retirer le métal, les perdant dans l'acte. On disait : « Il n'est pas meilleure extraction que celle d'Abou Oubayda ! »" },
-                    { id: 102, title: "L'Ascétisme d'un Général", content: "Oumar ibn al-Khattab visita sa demeure de gouverneur au {Sham}. Il n'y trouva qu'un bol, une épée et une selle. Oumar pleura : « La {Dounia} nous a tous changés, sauf toi, Abou Oubayda. » Ce dernier répondit : « Cela nous suffit pour atteindre notre destination. »" },
-                    { id: 103, title: "La Délégation de Najran", content: "Les chrétiens de {Najran} demandèrent un homme de confiance pour juger entre eux. Le Prophète (ﷺ) dit : « Je vais vous envoyer un homme vraiment digne de confiance ». Tout le monde espérait être cet homme. Il choisit Abou Oubayda." },
-                    { id: 104, title: "Face à la Peste", content: "Lors de la peste d'{Amwas}, Oumar lui écrivit pour le rappeler à Médine afin de le sauver. Abou Oubayda comprit et répondit : « Je suis à la tête d'une armée musulmane et mon sort ne vaut pas mieux que le leur ». Il mourut avec ses hommes." },
-		    { id: 105, title: "L'Expédition du Cachalot", content: "Lors d'une expédition où ses troupes (300 hommes) souffraient d'une famine extrême, la mer rejeta un immense cachalot (ambre). Abou Oubayda déclara d'abord 'C'est une bête morte', puis se ravisa : 'Non, nous sommes les envoyés du Messager d'Allah... mangez !'. L'armée s'en nourrit pendant un mois."}
+                    { id: 100, title: "L'un des cinq premiers", content: "Il se convertit en même temps qu'Ibn Mazhoun, Oubayda ibn Al-Harith, Abderrahman ibn 'Aouf et Abou Salama, juste après Abou Bakr et avant l'entrée à Dar Al-Arqam." },
+                    { id: 101, title: "Le Meilleur Dentiste", content: "À {Ouhoud}, deux maillons du casque du Prophète (ﷺ) s'étaient enfoncés dans sa joue bénie. Craignant de le blesser avec ses mains, Abou Oubayda tira dessus avec ses dents. Il perdit une incisive pour chaque maillon retiré. On disait : « Il n'est pas de plus belle brèche (dentaire) que celle d'Abou Oubayda »." },
+                    { id: 102, title: "L'Ascétisme Radical", content: "Oumar (Calife) visita sa demeure de gouverneur au {Sham}. Il n'y vit qu'un bol, une épée et une selle. Oumar pleura : « La {Dounia} nous a tous changés, sauf toi, Abou Oubayda ». Ce dernier répondit : « Ô Prince des croyants, cela nous suffit pour atteindre le lieu de la sieste (la mort). »" },
+                    { id: 103, title: "Le Conflit Évité", content: "Envoyé en renfort à l'expédition 'As-Salassil' dirigée par 'Amr ibn Al-'Ass, ce dernier refusa de céder le commandement. Bien qu'étant plus méritant, Abou Oubayda dit : « Le Prophète m'a ordonné de ne pas diverger. Tu es l'émir et je t'obéis ». Il sauva l'unité de l'armée par son humilité." },
+                    { id: 104, title: "Face à la Peste", content: "Lors de la peste d'{Amwas}, Oumar lui écrivit : « J'ai besoin de toi, viens tout de suite ». Abou Oubayda comprit qu'Oumar voulait le sauver de la mort. Il répondit : « Je suis au milieu d'une armée musulmane et je ne souhaite pas me sauver moi-même en les laissant. Laisse-moi jusqu'à ce qu'Allah décide de mon sort ». Oumar pleura en lisant la lettre." },
+                    { id: 105, title: "L'Or Distribué", content: "Oumar lui envoya 4000 dinars (ou 400). Il distribua tout immédiatement aux soldats et aux pauvres. Sa femme dit : « Nous en avions pourtant besoin ! ». Il ne garda rien pour lui." },
+                    { id: 106, title: "L'Expédition du Cachalot", content: "Lors d'une expédition (Habat) où la famine frappa ses 300 hommes, la mer rejeta un immense cachalot (Ambre). Abou Oubayda dit d'abord 'C'est une bête morte (interdit)', puis se ravisa par ijtihad : 'Non, nous sommes les envoyés du Messager d'Allah et nous sommes contraints... Mangez !'. Ils s'en nourrirent un mois." }
                 ],
                 hadiths: [
-                    { text: "Il n'est pas un prophète après Nouh qui n'ait mis en garde sa communauté contre le Dajjal...", narrator: "Abou Oubayda", source: "Sahih Mouslim" },
-                    { text: "Le jeûne est une armure tant que celle-ci n'est pas rompue !", narrator: "Abou Oubayda", source: "Rapporté par Iyad ibn Ghoutayf" },
-                    { text: "Abou Oubayda disait : « Ô gens, je suis certes issu de Qouraysh mais il n’est pas une personne – quelle que soit sa couleur de peau, blanche ou noire – qui ne me dépasse en piété sans que je n’aie souhaité être à sa place ! »", narrator: "Thabit Al-Bounani", source: "Siyar A lam al-Nubula" }
+                    { text: "Chaque communauté a un digne de confiance (Amin) et le digne de confiance de cette communauté est Abou Oubayda !", narrator: "Le Prophète (ﷺ)", source: "Bukhari / Muslim" },
+                    { text: "J'aurais aimé être un bélier que ma famille égorge, dont ils mangent la chair et boivent le bouillon, et ainsi je ne serais plus rien !", narrator: "Abou Oubayda", source: "Siyar A'lam al-Nubula" },
+                    { text: "Le jeûne est une armure tant que celle-ci n'est pas rompue (par la médisance) !", narrator: "Abou Oubayda", source: "Rapporté par Iyad ibn Ghoutayf" }
                 ],
                 quizData: [
-                    { q: "Qui a perdu ses incisives à Ouhoud ?", opts: ["Talha", "Abou Oubayda", "Oumar", "Hamza"], c: 1, exp: "C'est Abou Oubayda, en retirant les maillons du casque du Prophète (ﷺ) avec ses dents." },
-                    { q: "Pourquoi Oumar a-t-il pleuré en visitant Abou Oubayda ?", opts: ["Il était mort", "Il était blessé", "Sa maison était vide", "Il avait désobéi"], c: 2, exp: "Il a pleuré devant son extrême pauvreté malgré son poste de gouverneur." }
+                    { q: "Quel surnom unique le Prophète a-t-il donné à Abou Oubayda ?", opts: ["Le Véridique", "L'Amin (Digne de Confiance)", "Le Sabre d'Allah", "Le Sage"], c: 1, exp: "Il est Amin al-Oumma (Le digne de confiance de la communauté)." },
+                    { q: "Pourquoi a-t-il perdu ses dents de devant ?", opts: ["Au combat à l'épée", "En retirant des maillons du visage du Prophète", "De vieillesse", "Par maladie"], c: 1, exp: "Il les a utilisées comme pinces pour retirer le métal enfoncé dans la joue du Prophète à Ouhoud." },
+                    { q: "Comment a-t-il réagi quand Oumar a voulu le rappeler pour le sauver de la peste ?", opts: ["Il est parti immédiatement", "Il a refusé de quitter son armée", "Il a envoyé sa famille", "Il a démissionné"], c: 1, exp: "Il a répondu qu'il ne valait pas mieux que ses soldats et qu'il resterait avec eux jusqu'à la fin." }
                 ]
             },
             {
