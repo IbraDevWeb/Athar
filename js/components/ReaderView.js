@@ -323,23 +323,30 @@ const ReaderView = {
             </div>
 
             <div v-show="activeTab === 'hadiths'" class="space-y-8">
-                <div v-if="safeHadiths.length > 0" v-for="(h, index) in safeHadiths" :key="index" class="bg-white dark:bg-brand-dark-lighter p-8 md:p-12 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm text-center relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50"></div>
-                    <div class="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="scroll" class="w-24 h-24"></i>
-                    </div>
-                    
-                    <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
-                    <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
-                    
-                    <div class="inline-flex flex-col items-center">
-                        <div class="w-10 h-1 bg-brand-gold/20 mb-3"></div>
-                        <p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.narrator }}</p>
-                        <p class="text-xs text-brand-gold mt-1">{{ h.source }}</p>
+                <div v-if="safeHadiths.length > 0">
+                    <div v-for="(h, index) in safeHadiths" :key="index" class="bg-white dark:bg-brand-dark-lighter p-8 md:p-12 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm text-center relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50"></div>
+                        <div class="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i data-lucide="scroll" class="w-24 h-24"></i>
+                        </div>
+                        
+                        <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
+                        <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
+                        
+                        <div class="inline-flex flex-col items-center">
+                            <div class="w-10 h-1 bg-brand-gold/20 mb-3"></div>
+                            <p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.narrator }}</p>
+                            <p class="text-xs text-brand-gold mt-1">{{ h.source }}</p>
+                        </div>
                     </div>
                 </div>
                 <div v-else class="text-center py-20 bg-gray-50 dark:bg-brand-dark-lighter rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
-                    <p class="text-gray-500 italic font-serif leading-loose px-8" v-html="formatText(chapter.hadiths)"></p>
+                    <div class="mb-4 opacity-30">
+                        <i data-lucide="feather" class="w-12 h-12 mx-auto"></i>
+                    </div>
+                    <p class="text-gray-500 italic font-serif leading-loose px-8">
+                        Aucun récit authentique n'a été répertorié pour ce compagnon dans cette section.
+                    </p>
                 </div>
             </div>
 

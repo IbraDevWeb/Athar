@@ -334,8 +334,11 @@ const app = createApp({
         };
 
         const tooltip = ref({ show: false, x: 0, y: 0, data: {} });
+        
+        // --- CORRECTION ICI : SÉCURISATION DU FORMATTEXT ---
         const formatText = (text) => {
-            if (!text) return '';
+            if (!text || typeof text !== 'string') return ''; // Sécurité : renvoie vide si pas de texte ou si c'est un tableau
+            
             let f = text.replace(/\\'/g, "'"); 
             f = f.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             f = f.replace(/@\{([^}]+)\}/g, (match, term) => `<span class="link-highlight" onclick="event.stopPropagation(); window.appOpenLink('${term.replace(/'/g, "\\'")}')" onmouseenter="window.appProfileHover(event, '${term.replace(/'/g, "\\'")}')" onmouseleave="window.appHideTooltip()">${term}</span>`);
@@ -383,17 +386,17 @@ const app = createApp({
         });
 
         // Liste des clés des nouvelles sections
-const extensionsList = [
-    'constellation', 'eloquence', 'roots', 'scriptorium', 'diwan',
-    'scholars_map', 'mosque', 'history_nights', 'isnad', 'currency', 'astronomy',
-    'brahine', 'faqih', 'balance', 'memory'
-];
+        const extensionsList = [
+            'constellation', 'eloquence', 'roots', 'scriptorium', 'diwan',
+            'scholars_map', 'mosque', 'history_nights', 'isnad', 'currency', 'astronomy',
+            'brahine', 'faqih', 'balance', 'memory'
+        ];
 
-// Fonction helper pour le style des boutons (à mettre dans le return)
-const navBtnClass = (mode) => {
-    const base = 'w-full text-left px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200 ';
-    return base + (viewMode.value === mode ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter');
-};
+        // Fonction helper pour le style des boutons (à mettre dans le return)
+        const navBtnClass = (mode) => {
+            const base = 'w-full text-left px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200 ';
+            return base + (viewMode.value === mode ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter');
+        };
 
         return {
             dataError, viewMode, headerSearchQuery, filteredChapters, displayedChapters, mainScroll, globalTimeline, filteredGlossary,
