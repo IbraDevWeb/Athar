@@ -17,7 +17,7 @@ const ReaderView = {
     ],
     data() {
         return {
-            activeTab: 'narrative', 
+            activeTab: 'narrative',
             audioPlaying: false,
             audioInstance: null,
             audioProgress: 0,
@@ -40,16 +40,6 @@ const ReaderView = {
         }
     },
     computed: {
-        // --- 1. SÉCURITÉ DES DONNÉES (CORRECTION BUG ID) ---
-        safeNarratives() {
-            // Si pas de narratives, retourne tableau vide
-            if (!this.chapter.narratives || !Array.isArray(this.chapter.narratives)) return [];
-            
-            // FILTRE CRUCIAL : On ne garde que les histoires qui existent et qui ont un ID
-            // Cela élimine les bugs causés par les doubles virgules (,,) dans doto.js
-            return this.chapter.narratives.filter(story => story && story.id);
-        },
-
         safeQuiz() {
             const rawData = this.chapter.quiz || this.chapter.quizData || [];
             return rawData.map(item => ({
@@ -64,7 +54,6 @@ const ReaderView = {
             return Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths : [];
         },
 
-        // --- 2. LOGIQUE DE NAVIGATION ---
         neighbors() {
             if (!this.filteredChapters || this.filteredChapters.length === 0) return { prev: null, next: null };
             const idx = this.filteredChapters.findIndex(c => c.id === this.chapter.id);
@@ -74,7 +63,6 @@ const ReaderView = {
             };
         },
 
-        // --- 3. UTILITAIRES ---
         quizProgress() {
             if (this.safeQuiz.length === 0) return 0;
             const answered = Object.keys(this.quizAnswers).filter(k => this.quizAnswers[k] !== undefined).length;
@@ -83,9 +71,9 @@ const ReaderView = {
 
         estimatedReadingTime() {
             let text = (this.chapter.intro || '') + (this.chapter.physicalDesc || '') + (this.chapter.genealogy || '');
-            // On utilise safeNarratives ici aussi pour éviter les erreurs de calcul
-            this.safeNarratives.forEach(n => text += (n.content || ''));
-            
+            if (this.chapter.narratives) {
+                this.chapter.narratives.forEach(n => text += (n.content || ''));
+            }
             const words = text.split(/\s+/).length;
             const min = Math.ceil(words / 200);
             return min + " min";
@@ -94,7 +82,6 @@ const ReaderView = {
     methods: {
         toggleAudio() {
             if (!this.chapter.audioUrl) return;
-
             if (!this.audioInstance) {
                 this.audioInstance = new Audio(this.chapter.audioUrl);
                 this.audioInstance.ontimeupdate = () => {
@@ -107,7 +94,6 @@ const ReaderView = {
                     this.audioProgress = 0;
                 };
             }
-
             if (this.audioPlaying) {
                 this.audioInstance.pause();
                 this.audioPlaying = false;
@@ -272,7 +258,7 @@ const ReaderView = {
                 </div>
 
                 <div class="space-y-6">
-                    <div v-for="(story, index) in safeNarratives" :key="story.id" 
+                    <div v-for="(story, index) in chapter.narratives" :key="story.id" 
                          class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300"
                          :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
                         

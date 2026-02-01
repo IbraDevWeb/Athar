@@ -1,4 +1,4 @@
-// Fichier: js/app.js (Version corrigée et complète)
+// Fichier: js/app.js
 const { createApp, ref, computed, onMounted, onUnmounted, watch } = Vue;
 
 const app = createApp({
@@ -23,7 +23,7 @@ const app = createApp({
         'tool-view': ToolView
     },
     setup() {
-        // --- INITIALIZATION ---
+        // --- 1. INITIALISATION ET NETTOYAGE DES DONNÉES (CRUCIAL) ---
         const dataError = ref(false);
         let safeChapters = [];
         let safeGlossary = {};
@@ -33,21 +33,32 @@ const app = createApp({
         let safeSilsilaThemes = {};
 
         try {
-            // Vérification des variables globales
             if (typeof CHAPTERS_DATA === 'undefined') throw new Error("Les données biographies sont introuvables.");
-            safeChapters = CHAPTERS_DATA;
+            
+            // --- NETTOYAGE GLOBAL DES DONNÉES ---
+            // On filtre les éléments 'undefined' causés par les doubles virgules (,,) dans doto.js
+            safeChapters = CHAPTERS_DATA.filter(c => c).map(chap => {
+                // On nettoie les sous-tableaux pour chaque chapitre
+                if (Array.isArray(chap.narratives)) chap.narratives = chap.narratives.filter(n => n);
+                if (Array.isArray(chap.timeline)) chap.timeline = chap.timeline.filter(t => t);
+                if (Array.isArray(chap.quizData)) chap.quizData = chap.quizData.filter(q => q);
+                if (Array.isArray(chap.hadiths)) chap.hadiths = chap.hadiths.filter(h => h);
+                return chap;
+            });
+
             safeGlossary = (typeof GLOSSARY_DATA !== 'undefined') ? GLOSSARY_DATA : {};
             safeHadiths = (typeof STORED_HADITHS !== 'undefined') ? STORED_HADITHS : [];
             safeUssul = (typeof USSUL_LESSONS !== 'undefined') ? USSUL_LESSONS : [];
             safeSilsila = (typeof SILSILA_DATA !== 'undefined') ? SILSILA_DATA : [];
             safeSilsilaThemes = (typeof SILSILA_THEMES !== 'undefined') ? SILSILA_THEMES : {};
+
         } catch (e) {
-            console.error("Critical Data Error:", e);
+            console.error("Erreur critique de données:", e);
             dataError.value = true;
         }
 
-        // --- REACTIVE STATE ---
-        const viewMode = ref('home'); // Vue par défaut : Accueil
+        // --- ÉTATS RÉACTIFS ---
+        const viewMode = ref('home');
         const headerSearchQuery = ref('');
         const currentChapter = ref(null);
         const currentHadith = ref(null);
@@ -63,7 +74,7 @@ const app = createApp({
         const quizAnswers = ref({});
         const toasts = ref([]);
         
-        // États pour Tabib
+        // États Tabib / Respiration
         const currentRemedy = ref(null);
         const tabibFilter = ref('Tous');
         const tabibCategories = ['Tous', 'Tristesse', 'Anxiété', 'Colère', 'Famille', 'Protection', 'Foi'];
@@ -71,11 +82,11 @@ const app = createApp({
         const breathState = ref('inhale');
         const breathText = ref('Inspirez');
 
-        // --- SETTINGS ---
+        // Configuration
         const settings = ref({ darkMode: false, fontSize: 18, favorites: [], lastReadId: null });
         const categories = ref(['Tous', 'Califes', '10 Promis', 'Ahl al-Bayt', 'Muhajirun', 'Ansar', 'Commandants', 'Savants', 'Martyrs', 'Mères des Croyants', 'Badr', 'Ouhoud']);
 
-        // --- COMPUTED: Unified Global Timeline ---
+        // --- COMPUTED PROPS ---
         const globalTimeline = computed(() => {
              let events = [];
              Object.entries(safeGlossary).forEach(([key, val]) => {
@@ -94,7 +105,6 @@ const app = createApp({
              return events.sort((a, b) => a.year - b.year);
         });
 
-        // --- COMPUTED: Filtered Glossary ---
         const filteredGlossary = computed(() => {
             let list = Object.entries(safeGlossary).map(([key, val]) => ({ term: key, ...val }));
             if (headerSearchQuery.value && viewMode.value === 'glossary') {
@@ -104,7 +114,6 @@ const app = createApp({
             return list.sort((a, b) => a.term.localeCompare(b.term));
         });
 
-        // --- COMPUTED: Filtered Hadiths ---
         const filteredHadiths = computed(() => {
             let list = safeHadiths;
             if (headerSearchQuery.value && viewMode.value === 'hadiths') {
@@ -118,64 +127,23 @@ const app = createApp({
             return list;
         });
 
-        // --- COMPUTED: Filtered Adhkar ---
         const adhkarCategories = ref(['Tous', 'Matin', 'Soir', 'Sommeil', 'Prière', 'Maison']);
         const activeAdhkarCategory = ref('Tous');
 
         const filteredAdhkar = computed(() => {
             let data = (typeof ADHKAR_DATA !== 'undefined') ? ADHKAR_DATA : [];
-            
             if (activeAdhkarCategory.value !== 'Tous') {
                 data = data.filter(a => a.category === activeAdhkarCategory.value);
             }
-
             if (headerSearchQuery.value && viewMode.value === 'adhkar') {
                 const q = headerSearchQuery.value.toLowerCase();
-                data = data.filter(a => 
-                    a.title.toLowerCase().includes(q) || 
-                    a.translation.toLowerCase().includes(q) ||
-                    a.category.toLowerCase().includes(q)
-                );
+                data = data.filter(a => a.title.toLowerCase().includes(q) || a.translation.toLowerCase().includes(q));
             }
             return data;
         });
 
-        // --- LOGIQUE COMPTEUR ADHKAR ---
-        const adhkarCounts = ref({});
-
-        const handleDhikrClick = (id, target) => {
-            if (adhkarCounts.value[id] === undefined) {
-                adhkarCounts.value[id] = 0;
-            }
-
-            if (adhkarCounts.value[id] < target) {
-                adhkarCounts.value[id]++;
-                if (navigator.vibrate) navigator.vibrate(10);
-
-                if (adhkarCounts.value[id] === target) {
-                    if (navigator.vibrate) navigator.vibrate([50, 50, 50]); 
-                    showToast("Dhikr terminé !", "check-circle");
-                }
-            } else {
-                adhkarCounts.value[id] = 0;
-                if (navigator.vibrate) navigator.vibrate(20);
-            }
-        };
-
-        const getProgress = (id, target) => {
-            const current = adhkarCounts.value[id] || 0;
-            return Math.min((current / target) * 100, 100);
-        };
-
-        const copyText = (text) => {
-            navigator.clipboard.writeText(text);
-            showToast("Texte copié !", "copy");
-        };
-
-        // --- COMPUTED: Filtered Remedies (Tabib) ---
         const filteredRemedies = computed(() => {
             let data = (typeof TABIB_DATA !== 'undefined') ? TABIB_DATA : [];
-            
             if (tabibFilter.value !== 'Tous') {
                 const map = {
                     'Tristesse': ['Tristesse', 'Peine', 'Dépression', 'Solitude', 'Deuil'],
@@ -188,7 +156,6 @@ const app = createApp({
                 const targetTags = map[tabibFilter.value] || [tabibFilter.value];
                 data = data.filter(r => r.tags.some(t => targetTags.includes(t)));
             }
-
             if (headerSearchQuery.value && viewMode.value === 'tabib') {
                 const q = headerSearchQuery.value.toLowerCase();
                 if (window.Fuse) {
@@ -201,8 +168,8 @@ const app = createApp({
             return data;
         });
 
-        // --- COMPUTED: Filtered Chapters ---
         const filteredChapters = computed(() => {
+            // safeChapters est déjà nettoyé, donc plus de risque de crash ici
             let data = safeChapters;
             if (activeCategory.value !== 'Tous') data = data.filter(c => c.tags.includes(activeCategory.value));
             if (viewFilter.value === 'favorites') data = data.filter(c => settings.value.favorites.includes(c.id));
@@ -234,27 +201,14 @@ const app = createApp({
         const displayedChapters = computed(() => filteredChapters.value.slice(0, visibleCount.value));
         const lastReadChapter = computed(() => (!settings.value.lastReadId) ? null : safeChapters.find(c => c.id === settings.value.lastReadId));
 
-        // --- NAVIGATION METHODS ---
-        
-        const openRemedy = (item) => {
-            currentRemedy.value = item;
-            setView('tabib-detail');
-        };
-
-        const closeRemedy = () => {
-            setView('tabib');
-            currentRemedy.value = null;
-        };
+        // --- ACTIONS & MÉTHODES ---
+        const openRemedy = (item) => { currentRemedy.value = item; setView('tabib-detail'); };
+        const closeRemedy = () => { setView('tabib'); currentRemedy.value = null; };
 
         setInterval(() => {
             if(showBreathing.value) {
-                if(breathState.value === 'inhale') {
-                    breathState.value = 'exhale';
-                    breathText.value = 'Expirez';
-                } else {
-                    breathState.value = 'inhale';
-                    breathText.value = 'Inspirez';
-                }
+                if(breathState.value === 'inhale') { breathState.value = 'exhale'; breathText.value = 'Expirez'; } 
+                else { breathState.value = 'inhale'; breathText.value = 'Inspirez'; }
             }
         }, 4000);
 
@@ -274,20 +228,9 @@ const app = createApp({
             readingProgress.value = 0;
         };
 
-        const openHadith = (hadith) => {
-            currentHadith.value = hadith;
-            setView('hadith-reader');
-            window.scrollTo(0, 0);
-        };
-
+        const openHadith = (hadith) => { currentHadith.value = hadith; setView('hadith-reader'); window.scrollTo(0, 0); };
         const currentDhikr = ref(null);
-
-        const openDhikr = (item) => {
-            currentDhikr.value = item;
-            setView('adhkar-reader');
-            window.scrollTo(0, 0);
-        };
-
+        const openDhikr = (item) => { currentDhikr.value = item; setView('adhkar-reader'); window.scrollTo(0, 0); };
         const closeReader = () => {
             if (viewMode.value === 'hadith-reader') setView('hadiths');
             else if (viewMode.value === 'adhkar-reader') setView('adhkar');
@@ -296,27 +239,34 @@ const app = createApp({
         };
         const goHome = closeReader;
 
-        // --- SILSILA (TRANSMISSION) LOGIC ---
-        const silsilaTab = ref('hadith'); 
-        const silsilaRootId = ref({ hadith: 'bukhari', fiqh: 'shafi', quran: 'nafi' }); 
-
-        const focusedScholar = computed(() => {
-            const currentId = silsilaRootId.value[silsilaTab.value];
-            return safeSilsila.find(s => s.id === currentId) || null;
-        });
-
-        const currentTheme = computed(() => safeSilsilaThemes[silsilaTab.value] || safeSilsilaThemes.hadith);
-
-        const openScholarFiche = (scholar) => {
-            const match = safeChapters.find(c => c.name.includes(scholar.name) || scholar.name.includes(c.name));
-            if (match) {
-                openChapter(match);
+        // Logic Dhikr
+        const adhkarCounts = ref({});
+        const handleDhikrClick = (id, target) => {
+            if (adhkarCounts.value[id] === undefined) adhkarCounts.value[id] = 0;
+            if (adhkarCounts.value[id] < target) {
+                adhkarCounts.value[id]++;
+                if (navigator.vibrate) navigator.vibrate(10);
+                if (adhkarCounts.value[id] === target) { if (navigator.vibrate) navigator.vibrate([50, 50, 50]); showToast("Dhikr terminé !", "check-circle"); }
             } else {
-                showToast("Biographie détaillée bientôt disponible", "clock");
+                adhkarCounts.value[id] = 0;
+                if (navigator.vibrate) navigator.vibrate(20);
             }
         };
+        const getProgress = (id, target) => { const current = adhkarCounts.value[id] || 0; return Math.min((current / target) * 100, 100); };
+        const copyText = (text) => { navigator.clipboard.writeText(text); showToast("Texte copié !", "copy"); };
 
-        // --- UTILS & INTERACTIONS ---
+        // Logic Silsila
+        const silsilaTab = ref('hadith'); 
+        const silsilaRootId = ref({ hadith: 'bukhari', fiqh: 'shafi', quran: 'nafi' }); 
+        const focusedScholar = computed(() => { const currentId = silsilaRootId.value[silsilaTab.value]; return safeSilsila.find(s => s.id === currentId) || null; });
+        const currentTheme = computed(() => safeSilsilaThemes[silsilaTab.value] || safeSilsilaThemes.hadith);
+        const openScholarFiche = (scholar) => {
+            const match = safeChapters.find(c => c.name.includes(scholar.name) || scholar.name.includes(c.name));
+            if (match) openChapter(match);
+            else showToast("Biographie détaillée bientôt disponible", "clock");
+        };
+
+        // Helper functions
         const openChapterById = (id) => { const ch = safeChapters.find(c => c.id === id); if (ch) openChapter(ch); };
         const openRandomChapter = () => { if (safeChapters.length === 0) return; openChapter(safeChapters[Math.floor(Math.random() * safeChapters.length)]); };
         const showToast = (msg, icon = 'check-circle') => { const id = Date.now(); toasts.value.push({ id, msg, icon }); setTimeout(() => toasts.value = toasts.value.filter(t => t.id !== id), 3500); };
@@ -335,10 +285,9 @@ const app = createApp({
 
         const tooltip = ref({ show: false, x: 0, y: 0, data: {} });
         
-        // --- CORRECTION ICI : SÉCURISATION DU FORMATTEXT ---
+        // Fonction formatText sécurisée
         const formatText = (text) => {
-            if (!text || typeof text !== 'string') return ''; // Sécurité : renvoie vide si pas de texte ou si c'est un tableau
-            
+            if (!text || typeof text !== 'string') return '';
             let f = text.replace(/\\'/g, "'"); 
             f = f.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             f = f.replace(/@\{([^}]+)\}/g, (match, term) => `<span class="link-highlight" onclick="event.stopPropagation(); window.appOpenLink('${term.replace(/'/g, "\\'")}')" onmouseenter="window.appProfileHover(event, '${term.replace(/'/g, "\\'")}')" onmouseleave="window.appHideTooltip()">${term}</span>`);
@@ -378,21 +327,15 @@ const app = createApp({
         watch(tasbihCount, (v) => localStorage.setItem('athar_tasbih', v));
 
         watch(mobileMenuOpen, (isOpen) => {
-            if (isOpen) {
-                setTimeout(() => {
-                    if (window.lucide) window.lucide.createIcons();
-                }, 50); // Petit délai pour laisser le temps au menu de s'ouvrir
-            }
+            if (isOpen) setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 50);
         });
 
-        // Liste des clés des nouvelles sections
         const extensionsList = [
             'constellation', 'eloquence', 'roots', 'scriptorium', 'diwan',
             'scholars_map', 'mosque', 'history_nights', 'isnad', 'currency', 'astronomy',
             'brahine', 'faqih', 'balance', 'memory'
         ];
 
-        // Fonction helper pour le style des boutons (à mettre dans le return)
         const navBtnClass = (mode) => {
             const base = 'w-full text-left px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200 ';
             return base + (viewMode.value === mode ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter');
