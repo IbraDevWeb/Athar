@@ -355,11 +355,13 @@
                         
                         <div v-if="viewMode === 'home'" class="h-full" key="home">
                             <home-view 
-                                :set-view="setView"
-                                :open-random-chapter="openRandomChapter"
-                                :companion-count="filteredChapters.length"
-                                :hadith-count="filteredHadiths.length"
-                            ></home-view>
+    :set-view="setView"
+    :open-random-chapter="openRandomChapter"
+    :companion-count="filteredChapters.length"
+    :hadith-count="filteredHadiths.length"
+    :hadiths="filteredHadiths" 
+    :open-hadith="openHadith"
+></home-view>
                         </div>
 
                         <div v-else-if="viewMode === 'library'" class="h-full" key="library">
@@ -377,7 +379,7 @@
 
                         <div v-else-if="viewMode === 'timeline'" class="h-full" key="timeline">
                             <timeline-view 
-                                :timeline="globalTimeline" 
+                                :chapters="allChapters" 
                                 :open-chapter-by-id="openChapterById"
                                 :format-text="formatText">
                             </timeline-view>
@@ -546,29 +548,58 @@
         </transition>
 
         <transition name="fade">
-            <div v-if="showTasbih" class="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md" @click.self="showTasbih = false">
-                <div class="bg-white dark:bg-brand-dark-lighter p-8 md:p-10 rounded-[2rem] shadow-2xl text-center w-full max-w-sm relative border border-white/10 animate-slide-up">
-                    <button @click="showTasbih = false" class="absolute top-6 right-6 text-gray-400 hover:text-red-500 transition-colors p-2 bg-gray-50 dark:bg-brand-dark rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
-                    
-                    <h3 class="font-display text-xl font-bold mb-10 dark:text-white flex items-center justify-center gap-2"><i data-lucide="layout-grid" class="w-5 h-5 text-brand-gold"></i> Compteur de Dhikr</h3>
-                    
-                    <div @click="incrementTasbih" class="w-56 h-56 mx-auto rounded-full border-[6px] border-gray-100 dark:border-gray-800 flex items-center justify-center cursor-pointer select-none active:scale-95 transition-transform bg-brand-paper dark:bg-brand-dark relative overflow-hidden group shadow-inner">
-                        <div class="absolute inset-0 rounded-full border-[6px] border-brand-gold transition-all duration-300 ease-out" :style="`clip-path: inset(${100 - (tasbihCount % 33) * 3.33}% 0 0 0)`"></div>
-                        <div class="absolute inset-0 bg-brand-gold/5 rounded-full scale-0 group-active:scale-100 transition-transform duration-300"></div>
-                        
-                        <div class="relative z-10 flex flex-col items-center">
-                            <span class="font-arabic text-7xl font-bold text-brand-dark dark:text-brand-gold mb-2 tabular-nums">{{ tasbihCount }}</span>
-                            <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 group-hover:text-brand-gold transition-colors">Appuyer</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-10 flex justify-between items-center px-4 bg-gray-50 dark:bg-brand-dark/50 p-4 rounded-xl">
-                        <div class="text-xs text-gray-500 font-bold uppercase tracking-wider">Total: {{ Math.floor(tasbihCount / 33) }} cycles</div>
-                        <button @click="tasbihCount = 0" class="text-xs font-bold text-gray-400 hover:text-red-500 flex items-center gap-1 uppercase tracking-widest transition-colors"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset</button>
-                    </div>
+    <div v-if="showTasbih" class="fixed inset-0 z-[120] flex items-center justify-center p-4" style="background-color: rgba(0,0,0,0.85); backdrop-filter: blur(8px);">
+        
+        <div class="p-8 rounded-[2.5rem] shadow-2xl text-center w-full max-w-sm relative border border-white/10 animate-slide-up bg-brand-paper dark:bg-brand-dark-lighter">
+            
+            <button @click="showTasbih = false" class="absolute top-6 right-6 text-gray-400 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-brand-dark">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <h3 class="font-display text-2xl font-bold mb-10 text-brand-dark dark:text-white flex items-center justify-center gap-3">
+                <i data-lucide="layout-grid" class="w-6 h-6 text-brand-gold"></i> 
+                <span>Adhkar</span>
+            </h3>
+            
+            <div @click="incrementTasbih" 
+                 class="w-64 h-64 mx-auto rounded-full flex items-center justify-center cursor-pointer select-none active:scale-95 transition-transform relative shadow-[0_0_40px_rgba(197,160,89,0.15)] group bg-brand-dark">
+                
+                <div class="absolute inset-0 rounded-full border-[12px] border-gray-100 dark:border-[#252830]"></div>
+
+                <div class="absolute inset-0 rounded-full transition-all duration-300 ease-out"
+                     :style="{ 
+                        background: `conic-gradient(#c5a059 ${(tasbihCount % 33) / 33 * 100}%, transparent 0)`,
+                        maskImage: 'radial-gradient(closest-side, transparent 78%, black 0)',
+                        '-webkit-mask-image': 'radial-gradient(closest-side, transparent 78%, black 0)'
+                     }">
+                </div>
+
+                <div class="absolute inset-0 bg-brand-gold/10 rounded-full scale-0 group-active:scale-100 transition-transform duration-100"></div>
+                
+                <div class="relative z-10 flex flex-col items-center">
+                    <span class="font-arabic text-8xl font-bold text-white mb-2 tabular-nums tracking-tighter leading-none drop-shadow-md">
+                        {{ tasbihCount % 33 === 0 && tasbihCount > 0 ? 33 : tasbihCount % 33 }}
+                    </span>
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-brand-gold font-bold mt-2">
+                        Cycle {{ Math.floor((tasbihCount - 1) / 33) + 1 }}
+                    </span>
                 </div>
             </div>
-        </transition>
+            
+            <div class="mt-12 flex justify-between items-center px-6 py-4 bg-gray-50 dark:bg-[#1a1c23] rounded-2xl border border-gray-200 dark:border-white/5">
+                <div class="text-left">
+                    <div class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Total cumulé</div>
+                    <div class="text-xl font-display font-bold text-brand-dark dark:text-brand-gold">{{ tasbihCount }}</div>
+                </div>
+                
+                <button @click.stop="tasbihCount = 0" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 text-gray-400 hover:text-red-500 hover:border-red-500 transition-all shadow-sm" title="Réinitialiser">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</transition>
 
         <div class="fixed bottom-6 right-6 z-[130] flex flex-col gap-3 pointer-events-none">
             <transition-group name="toast">

@@ -273,7 +273,20 @@ const app = createApp({
         const toggleFavorite = (id) => { const idx = settings.value.favorites.indexOf(id); if (idx === -1) { settings.value.favorites.push(id); showToast("Ajouté aux favoris", "heart"); } else { settings.value.favorites.splice(idx, 1); showToast("Retiré des favoris", "minus-circle"); } };
         const isFavorite = (id) => settings.value.favorites.includes(id);
         const toggleFilterFavorite = () => { viewFilter.value = viewFilter.value === 'favorites' ? 'all' : 'favorites'; };
-        const incrementTasbih = () => { tasbihCount.value++; if (navigator.vibrate) navigator.vibrate(5); };
+        const incrementTasbih = () => { 
+    tasbihCount.value++; 
+    
+    // Gestion intelligente des vibrations (Haptique)
+    if (navigator.vibrate) {
+        if (tasbihCount.value % 33 === 0) {
+            // Vibration plus longue pour marquer la fin d'un cycle (33, 66, 99...)
+            navigator.vibrate([30, 50, 30]); 
+        } else {
+            // Clic court et net pour le comptage normal
+            navigator.vibrate(10); 
+        }
+    }
+};
         const handleQuizAnswer = (qIdx, optIdx, correctIdx) => { if (quizAnswers.value[qIdx] !== undefined) return; quizAnswers.value[qIdx] = optIdx; if (navigator.vibrate) { if (optIdx === correctIdx) navigator.vibrate([50, 50, 50]); else navigator.vibrate(200); } };
         
         const shareContent = async (title, text) => {
@@ -342,7 +355,9 @@ const app = createApp({
         };
 
         return {
-            dataError, viewMode, headerSearchQuery, filteredChapters, displayedChapters, mainScroll, globalTimeline, filteredGlossary,
+            dataError, viewMode, headerSearchQuery, 
+            allChapters: safeChapters, // <--- LA CLÉ DU SUCCÈS : On expose les données ici !
+            filteredChapters, displayedChapters, mainScroll, globalTimeline, filteredGlossary,
             filteredHadiths, currentHadith, openHadith,
             currentChapter, filteredAdhkar, adhkarCategories, activeAdhkarCategory, copyText, activeStoryId, mobileMenuOpen, activeCategory, adhkarCounts, handleDhikrClick, currentDhikr, openDhikr, getProgress, categories, readingProgress, tabibCategories, tabibFilter, filteredRemedies, currentRemedy, 
             openRemedy, closeRemedy, showBreathing, breathState, breathText,
@@ -367,8 +382,13 @@ app.mount('#app');
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('App prête (SW registered)', reg))
-            .catch(err => console.log('Erreur SW:', err));
+        // Détection simplifiée pour éviter l'erreur sur file://
+        if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('App prête (SW registered)', reg))
+                .catch(err => console.log('Erreur SW:', err));
+        } else {
+            console.warn("Service Worker désactivé en mode local (file://). Utilisez un serveur local.");
+        }
     });
 }

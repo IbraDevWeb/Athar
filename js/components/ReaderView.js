@@ -22,10 +22,7 @@ const ReaderView = {
             audioInstance: null,
             audioProgress: 0,
             showScore: false,
-            score: 0,
-            readingProgress: 0,
-            // Gestion du Glossaire Interactif
-            activeTooltip: null, // { term, def, x, y }
+            score: 0
         }
     },
     watch: {
@@ -33,8 +30,6 @@ const ReaderView = {
             this.activeTab = 'narrative';
             this.showScore = false;
             this.score = 0;
-            this.readingProgress = 0;
-            this.activeTooltip = null;
             if (this.audioInstance) {
                 this.audioInstance.pause();
                 this.audioInstance = null;
@@ -45,10 +40,12 @@ const ReaderView = {
         }
     },
     computed: {
-        // Sécurisation des données (Anti-Crash)
+        // --- CORRECTION DU BUG D'AFFICHAGE ---
         safeNarratives() {
+            // Filtre les éléments vides ou nuls pour éviter l'erreur "reading 'id'"
             return (this.chapter.narratives || []).filter(n => n && n.id);
         },
+
         safeQuiz() {
             const rawData = this.chapter.quiz || this.chapter.quizData || [];
             return rawData.map(item => ({
@@ -56,11 +53,13 @@ const ReaderView = {
                 options: item.options || item.opts,
                 correct: item.correct !== undefined ? item.correct : item.c,
                 explanation: item.explanation || item.exp || "Réponse validée."
-            })).filter(q => q.question);
+            })).filter(q => q.question); // Sécurité supplémentaire
         },
+        
         safeHadiths() {
             return Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths : [];
         },
+
         neighbors() {
             if (!this.filteredChapters || this.filteredChapters.length === 0) return { prev: null, next: null };
             const idx = this.filteredChapters.findIndex(c => c.id === this.chapter.id);
@@ -69,11 +68,13 @@ const ReaderView = {
                 next: idx < this.filteredChapters.length - 1 ? this.filteredChapters[idx + 1] : null
             };
         },
+
         quizProgress() {
             if (this.safeQuiz.length === 0) return 0;
             const answered = Object.keys(this.quizAnswers).filter(k => this.quizAnswers[k] !== undefined).length;
             return Math.round((answered / this.safeQuiz.length) * 100);
         },
+
         estimatedReadingTime() {
             let text = (this.chapter.intro || '') + (this.chapter.physicalDesc || '') + (this.chapter.genealogy || '');
             this.safeNarratives.forEach(n => text += (n.content || ''));
@@ -82,84 +83,7 @@ const ReaderView = {
             return min + " min";
         }
     },
-    mounted() {
-        window.addEventListener('scroll', this.handleScroll);
-        // Fermer le tooltip si on clique ailleurs
-        document.addEventListener('click', this.closeTooltip);
-    },
-    beforeUnmount() {
-        if (this.audioInstance) {
-            this.audioInstance.pause();
-            this.audioInstance = null;
-        }
-        window.removeEventListener('scroll', this.handleScroll);
-        document.removeEventListener('click', this.closeTooltip);
-    },
     methods: {
-        // --- GESTION DU SCROLL & PROGRESSION ---
-        handleScroll() {
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (window.scrollY / totalHeight) * 100;
-            this.readingProgress = Math.min(100, Math.max(0, progress));
-        },
-        scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        },
-
-        // --- PARSING INTELLIGENT DU TEXTE (GLOSSAIRE) ---
-        parseContent(text) {
-            if (!text) return '';
-            
-            // 1. Appliquer le formatage de base (gras, italique...) via la prop formatText si elle existe
-            let processed = typeof this.formatText === 'function' ? this.formatText(text) : text;
-
-            // 2. Transformer les {Termes} en spans interactifs
-            // On cherche les accolades {} et on vérifie si le terme existe dans GLOSSARY_DATA
-            return processed.replace(/\{([^}]+)\}/g, (match, term) => {
-                const cleanKey = term.toLowerCase().trim();
-                const hasDef = typeof GLOSSARY_DATA !== 'undefined' && GLOSSARY_DATA[cleanKey];
-                
-                if (hasDef) {
-                    // On ajoute une classe spéciale 'glossary-term' et un attribut data-term
-                    return `<span class="glossary-term text-brand-gold font-bold border-b-2 border-brand-gold/30 hover:border-brand-gold cursor-help transition-colors duration-200" data-term="${cleanKey}">${term}</span>`;
-                } else {
-                    // Si pas de définition, juste une mise en valeur
-                    return `<span class="text-brand-gold font-medium">${term}</span>`;
-                }
-            });
-        },
-
-        // --- GESTION DES CLICS SUR LE TEXTE (DELEGATION) ---
-        handleContentClick(event) {
-            // Vérifie si on a cliqué sur un terme du glossaire
-            const target = event.target.closest('.glossary-term');
-            if (target) {
-                event.stopPropagation(); // Empêche la fermeture immédiate
-                const termKey = target.dataset.term;
-                const defData = GLOSSARY_DATA[termKey];
-                
-                if (defData) {
-                    // Calcul de la position pour le tooltip
-                    const rect = target.getBoundingClientRect();
-                    
-                    // On centre le tooltip au-dessus du mot
-                    this.activeTooltip = {
-                        term: target.innerText, // Le mot tel qu'affiché
-                        def: defData.def,
-                        origin: defData.origin,
-                        // Position relative à la fenêtre
-                        x: rect.left + (rect.width / 2),
-                        y: rect.top
-                    };
-                }
-            }
-        },
-
-        closeTooltip() {
-            this.activeTooltip = null;
-        },
-
-        // --- AUDIO ---
         toggleAudio() {
             if (!this.chapter.audioUrl) return;
             if (!this.audioInstance) {
@@ -183,7 +107,6 @@ const ReaderView = {
             }
         },
 
-        // --- QUIZ ---
         getQuizClass(qIdx, optIdx, correctIdx) {
             const userAnswer = this.quizAnswers[qIdx];
             if (userAnswer === undefined) return 'bg-white dark:bg-brand-dark-lighter border-gray-200 dark:border-gray-700 hover:border-brand-gold hover:bg-brand-gold/5 text-gray-700 dark:text-gray-300';
@@ -204,27 +127,22 @@ const ReaderView = {
                 const scoreEl = document.getElementById('score-result');
                 if(scoreEl) scoreEl.scrollIntoView({ behavior: 'smooth' });
             }, 100);
+        },
+
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    },
+    beforeUnmount() {
+        if (this.audioInstance) {
+            this.audioInstance.pause();
+            this.audioInstance = null;
         }
     },
     template: `
-    <div class="min-h-full bg-brand-paper dark:bg-brand-dark pb-32 relative selection:bg-brand-gold selection:text-white">
+    <div class="min-h-full bg-brand-paper dark:bg-brand-dark pb-20 relative selection:bg-brand-gold selection:text-white">
         
-        <transition name="fade">
-            <div v-if="activeTooltip" 
-                 class="fixed z-[100] w-72 p-4 bg-brand-dark/95 backdrop-blur-md text-white rounded-xl shadow-2xl border border-brand-gold/30 animate-scale-in text-center transform -translate-x-1/2 -translate-y-full mt-[-10px] pointer-events-none"
-                 :style="{ top: activeTooltip.y + 'px', left: activeTooltip.x + 'px' }">
-                
-                <div class="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-brand-dark/95 rotate-45 border-b border-r border-brand-gold/30"></div>
-                
-                <div class="flex flex-col items-center gap-1 mb-2">
-                    <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">{{ activeTooltip.origin || 'Définition' }}</span>
-                    <h4 class="font-display font-bold text-lg capitalize">{{ activeTooltip.term }}</h4>
-                </div>
-                <p class="text-xs text-gray-300 leading-relaxed font-sans border-t border-white/10 pt-2">{{ activeTooltip.def }}</p>
-            </div>
-        </transition>
-
-        <div class="md:hidden sticky top-0 z-40 bg-white/95 dark:bg-brand-dark-lighter/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 px-4 h-16 flex items-center justify-between shadow-sm transition-all duration-300">
+        <div class="md:hidden sticky top-0 z-50 bg-white/95 dark:bg-brand-dark-lighter/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 px-4 h-16 flex items-center justify-between shadow-sm transition-all duration-300">
             <button @click="closeReader" class="w-10 h-10 -ml-2 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
             <div class="flex flex-col items-center max-w-[50%]">
                 <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Biographie</span>
@@ -256,7 +174,6 @@ const ReaderView = {
             </div>
 
             <div class="relative z-10 animate-fade-in max-w-4xl mx-auto">
-                
                 <div v-if="chapter.verified" class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-[10px] font-bold uppercase tracking-widest shadow-sm">
                     <i data-lucide="badge-check" class="w-3.5 h-3.5 fill-brand-gold/20"></i>
                     <span>Authentifié (Tahqiq)</span>
@@ -266,10 +183,9 @@ const ReaderView = {
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
                         {{ chapter.tags ? chapter.tags[0] : 'Biographie' }}
                     </span>
-                </div>
-                
-                <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center justify-center gap-2">
-                    <i data-lucide="clock" class="w-3 h-3"></i> Lecture : {{ estimatedReadingTime }}
+                    <span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                        <i data-lucide="clock" class="w-3 h-3"></i> {{ estimatedReadingTime }}
+                    </span>
                 </div>
 
                 <h1 class="font-display text-4xl md:text-7xl text-brand-dark dark:text-white mb-4 font-bold tracking-tight leading-tight drop-shadow-sm">{{ chapter.name }}</h1>
@@ -281,7 +197,7 @@ const ReaderView = {
                     <div class="h-px w-16 bg-gradient-to-l from-transparent to-brand-gold/40"></div>
                 </div>
 
-                <p v-if="chapter.source" class="text-[10px] uppercase tracking-widest text-gray-400 mb-6 opacity-70">
+                <p v-if="chapter.source" class="text-[10px] uppercase tracking-widest text-gray-400 mb-6">
                     Source : <span class="text-brand-gold font-bold">{{ chapter.source }}</span>
                 </p>
 
@@ -306,7 +222,7 @@ const ReaderView = {
             </div>
         </div>
 
-        <div class="sticky top-16 md:top-0 z-30 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm overflow-x-auto no-scrollbar transition-all duration-300">
+        <div class="sticky top-0 md:relative z-40 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm overflow-x-auto no-scrollbar">
             <div class="max-w-4xl mx-auto flex justify-center min-w-max px-4">
                 <button @click="activeTab = 'narrative'" class="relative py-4 px-6 md:px-8 text-xs font-bold uppercase tracking-widest transition-colors" :class="activeTab === 'narrative' ? 'text-brand-gold' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'">
                     Récit
@@ -333,17 +249,18 @@ const ReaderView = {
                 
                 <div class="bg-white dark:bg-brand-dark-lighter rounded-2xl p-8 shadow-card border border-gray-100 dark:border-gray-700 relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 rounded-bl-[100px] transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10" @click="handleContentClick"> <h3 class="font-display font-bold text-lg text-brand-dark dark:text-white mb-6 flex items-center gap-2">
+                    <div class="relative z-10">
+                        <h3 class="font-display font-bold text-lg text-brand-dark dark:text-white mb-6 flex items-center gap-2">
                             <i data-lucide="fingerprint" class="w-5 h-5 text-brand-gold"></i> Identité & Profil
                         </h3>
                         <div class="grid md:grid-cols-2 gap-10 text-base leading-relaxed">
                             <div>
                                 <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-2 block">Généalogie</span>
-                                <p class="text-gray-700 dark:text-gray-300 font-serif" v-html="parseContent(chapter.genealogy)"></p>
+                                <p class="text-gray-700 dark:text-gray-300 font-serif" v-html="formatText(chapter.genealogy)"></p>
                             </div>
                             <div>
                                 <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-2 block">Physionomie</span>
-                                <p class="text-gray-600 dark:text-gray-400 italic font-serif" v-html="parseContent(chapter.physicalDesc)"></p>
+                                <p class="text-gray-600 dark:text-gray-400 italic font-serif">{{ chapter.physicalDesc }}</p>
                             </div>
                         </div>
                     </div>
@@ -370,9 +287,9 @@ const ReaderView = {
                             </div>
                         </button>
 
-                        <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter" @click="handleContentClick">
-                            <div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300 first-letter:text-5xl first-letter:font-display first-letter:text-brand-gold first-letter:float-left first-letter:mr-2 first-letter:mt-[-5px]">
-                                <p v-html="parseContent(story.content)"></p>
+                        <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter">
+                            <div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300">
+                                <p v-html="formatText(story.content)"></p>
                             </div>
                         </div>
                     </div>
@@ -381,14 +298,14 @@ const ReaderView = {
 
             <div v-show="activeTab === 'timeline'" class="max-w-2xl mx-auto py-8">
                 <div class="relative pl-8 border-l-2 border-brand-gold/20 space-y-12">
-                    <div v-for="(evt, i) in chapter.timeline" :key="i" class="relative group" @click="handleContentClick">
+                    <div v-for="(evt, i) in chapter.timeline" :key="i" class="relative group">
                         <div class="absolute -left-[41px] top-1 flex items-center justify-center w-6 h-6 bg-brand-paper dark:bg-brand-dark border-4 border-brand-gold rounded-full z-10 group-hover:scale-125 transition-transform shadow-[0_0_0_4px_rgba(255,255,255,1)] dark:shadow-[0_0_0_4px_rgba(26,28,35,1)]"></div>
                         
                         <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative">
                             <span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">
                                 {{ evt.year }}
                             </span>
-                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="parseContent(evt.desc)"></p>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.desc)"></p>
                         </div>
                     </div>
                 </div>
@@ -403,7 +320,7 @@ const ReaderView = {
                         </div>
                         
                         <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
-                        <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10" @click="handleContentClick" v-html="parseContent(h.text)"></p>
+                        <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
                         
                         <div class="inline-flex flex-col items-center">
                             <div class="w-10 h-1 bg-brand-gold/20 mb-3"></div>
@@ -456,7 +373,7 @@ const ReaderView = {
                             <i data-lucide="info" class="w-5 h-5 shrink-0 mt-0.5"></i>
                             <div class="text-sm leading-relaxed">
                                 <strong class="block mb-1 font-bold uppercase tracking-wider text-xs">Le Saviez-vous ?</strong>
-                                <span v-html="parseContent(q.explanation)"></span>
+                                {{ q.explanation }}
                             </div>
                         </div>
                     </div>
@@ -468,11 +385,6 @@ const ReaderView = {
                     </button>
                     <div v-else class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl inline-block relative overflow-hidden min-w-[300px]">
                         <div class="absolute inset-0 bg-islamic opacity-10"></div>
-                        
-                        <div v-if="score === safeQuiz.length" class="absolute inset-0 pointer-events-none overflow-hidden">
-                            <div v-for="n in 20" :key="n" class="absolute w-2 h-2 bg-brand-gold rounded-full animate-float" :style="{ left: Math.random()*100 + '%', top: Math.random()*100 + '%', animationDelay: Math.random() + 's' }"></div>
-                        </div>
-
                         <div class="relative z-10">
                             <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Score Final</div>
                             <div class="font-display text-6xl font-bold text-brand-gold mb-2">{{ score }} / {{ safeQuiz.length }}</div>
@@ -511,20 +423,6 @@ const ReaderView = {
                 </div>
                 <div v-else class="w-1/3"></div>
 
-            </div>
-        </div>
-
-        <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-center animate-fade-in" v-show="readingProgress > 5">
-            <div class="relative w-12 h-12 bg-white dark:bg-brand-dark rounded-full shadow-lg border border-gray-100 dark:border-gray-700 flex items-center justify-center group cursor-pointer" @click="scrollToTop">
-                <svg class="w-full h-full -rotate-90 p-0.5" viewBox="0 0 36 36">
-                    <path class="text-gray-100 dark:text-gray-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3" />
-                    <path class="text-brand-gold transition-all duration-300 ease-out" 
-                          :stroke-dasharray="readingProgress + ', 100'" 
-                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
-                          fill="none" stroke="currentColor" stroke-width="3" />
-                </svg>
-                <i data-lucide="arrow-up" class="w-5 h-5 text-brand-dark dark:text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                <span class="text-[9px] font-bold text-gray-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-0 transition-opacity select-none">{{ Math.round(readingProgress) }}%</span>
             </div>
         </div>
 

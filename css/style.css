@@ -22,40 +22,63 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
     border: 3px solid rgba(197, 160, 89, 0.1);
     border-radius: 50%;
     border-top-color: #c5a059;
-    animation: spin 1s ease-in-out infinite;
+    animation: spin 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* --- ANIMATIONS GLOBALES --- */
-.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
-.animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
-.animate-scale-in { animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-/* --- TYPOGRAPHIE & MOTIFS --- */
-/* Motif Islamique Subtil (SVG en Background) */
-.bg-islamic {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/* Text Highlights & Interaction */
+.term-highlight { 
+    border-bottom: 2px dotted #c5a059; 
+    color: #9a7b3b; 
+    cursor: help; 
+    font-weight: 600; 
+    transition: all 0.2s ease;
+    position: relative;
+}
+.term-highlight:hover { 
+    color: #c5a059; 
+    border-bottom-style: solid; 
+    background-color: rgba(197, 160, 89, 0.1);
+    border-radius: 2px;
 }
 
-/* Effet Verre Dépoli (Glassmorphism) */
-.glass-effect {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.link-highlight { 
+    color: #c5a059; 
+    text-decoration: underline; 
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    cursor: pointer; 
+    font-weight: 700; 
+    transition: all 0.2s ease; 
 }
-.dark .glass-effect {
-    background: rgba(26, 28, 35, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+.link-highlight:hover { 
+    opacity: 0.8; 
+    text-decoration-thickness: 2px;
 }
 
-/* --- LEAFLET MAP CUSTOMIZATION (Atlas) --- */
-/* Carte Vintage par défaut */
-#map { transition: background 0.3s ease; height: 100%; width: 100%; }
+/* Vue Transitions */
+.page-enter-active, .page-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
+.page-enter-from { opacity: 0; transform: translateY(10px); }
+.page-leave-to { opacity: 0; transform: translateY(-10px); }
+
+.toast-enter-active, .toast-leave-active { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.toast-enter-from, .toast-leave-to { opacity: 0; transform: translateY(20px) scale(0.9); }
+
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+.slide-right-enter-active, .slide-right-leave-active { transition: transform 0.3s ease; }
+.slide-right-enter-from, .slide-right-leave-to { transform: translateX(100%); }
+
+/* Print styles */
+@media print { 
+    header, aside, .no-print, .fixed-ui { display: none !important; } 
+    body { background: white !important; color: black !important; height: auto !important; overflow: visible !important; }
+    .print-break { page-break-inside: avoid; }
+}
+
+/* --- MAP & ATLAS STYLES --- */
+#map { z-index: 0; background: #eaddcf; transition: filter 0.5s ease; height: 100%; width: 100%; }
 
 /* Mode Vintage (Light) */
 .map-tiles { filter: sepia(0.2) contrast(1.05) brightness(0.95) saturate(0.6); }
@@ -75,57 +98,52 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
 
 /* Slider */
 input[type=range] { -webkit-appearance: none; background: transparent; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #c5a059; cursor: pointer; margin-top: -8px; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #c5a059; cursor: pointer; margin-top: -6px; box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.2); transition: transform 0.1s;
+}
+input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #e5e7eb; border-radius: 2px; }
-.dark input[type=range]::-webkit-slider-runnable-track { background: #4b5563; }
+.dark input[type=range]::-webkit-slider-runnable-track { background: #374151; }
 
-/* --- STYLES DU LECTEUR AMÉLIORÉ (NOUVEAU) --- */
+/* --- NOUVEAUX STYLES POUR L'ACCUEIL --- */
 
-/* 1. Glossaire Interactif (Mots cliquables) */
-.glossary-term {
-    text-decoration: underline;
-    text-decoration-style: dotted; /* Pointillés */
-    text-decoration-color: rgba(197, 160, 89, 0.5); /* Couleur Or pâle */
-    text-underline-offset: 4px; /* Espacement */
-    cursor: help; /* Curseur '?' au survol */
+/* Ombre dorée douce pour le survol */
+.hover\:shadow-glow:hover {
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
 }
 
-.glossary-term:hover {
-    color: #c5a059; /* Devient Or au survol */
-    text-decoration-color: #c5a059;
-    background-color: rgba(197, 160, 89, 0.1); /* Surlignage léger */
-    border-radius: 4px;
+/* Grille Bento responsive */
+@media (min-width: 768px) {
+    .md\:auto-rows-\[180px\] {
+        grid-auto-rows: 180px;
+    }
 }
 
-/* 2. Animations spécifiques aux Tooltips (Info-bulles) */
-@keyframes scaleInTooltip {
-    from { opacity: 0; transform: translate(-50%, -90%) scale(0.9); }
-    to { opacity: 1; transform: translate(-50%, -100%) scale(1); }
+/* Animation de fond subtile */
+.bg-islamic {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-.animate-scale-in {
-    animation: scaleInTooltip 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Typographie Héro */
+.font-display {
+    font-family: 'Cinzel', serif;
+    letter-spacing: -0.02em;
 }
 
-/* 3. Animation des Confettis (Pour le Quiz) */
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+/* Animation fluide pour le changement de texte */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
 }
-
-.animate-float {
-    animation: floatUp 2s ease-out forwards;
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
+/* Dans css/style.css */
 
-/* 4. Lettrine (Première lettre du récit en grand) */
-/* Cible le premier paragraphe du conteneur .prose */
-.prose > p:first-of-type::first-letter {
-    font-family: serif; /* Police Serif élégante */
-    font-size: 3.5rem; /* Très grand */
-    line-height: 0.8;
-    float: left; /* Flottant à gauche */
-    margin-right: 0.5rem; /* Marge à droite */
-    margin-top: 0.1rem; /* Ajustement vertical */
-    color: #c5a059; /* Couleur Or */
-    font-weight: bold;
+.font-arabic {
+    font-family: 'Amiri', serif;
+    /* On passe de 1.6 à 2.8 pour laisser la place aux voyelles */
+    line-height: 2.8 !important; 
+    /* Un peu d'espace vertical pour éviter que les accents du haut/bas soient coupés */
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }
