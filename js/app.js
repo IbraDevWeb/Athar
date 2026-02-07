@@ -29,16 +29,18 @@ const app = createApp({
         let safeGlossary = {};
         let safeHadiths = [];
         let safeUssul = [];
-        let safeSilsila = [];
+        let safeSilsila = []; // Sera rempli par la transformation ci-dessous
         let safeSilsilaThemes = {};
+
+        // Configuration des racines pour la Transmission (IDs numériques correspondants à transmission_data.js)
+        // 41 = Bukhari (Hadith), 10 = Abu Hanifa (Fiqh), 2 = Nafi (Quran/Malik)
+        const silsilaRootId = ref({ hadith: 41, fiqh: 10, quran: 2 }); 
 
         try {
             if (typeof CHAPTERS_DATA === 'undefined') throw new Error("Les données biographies sont introuvables.");
             
             // --- NETTOYAGE GLOBAL DES DONNÉES ---
-            // On filtre les éléments 'undefined' causés par les doubles virgules (,,) dans doto.js
             safeChapters = CHAPTERS_DATA.filter(c => c).map(chap => {
-                // On nettoie les sous-tableaux pour chaque chapitre
                 if (Array.isArray(chap.narratives)) chap.narratives = chap.narratives.filter(n => n);
                 if (Array.isArray(chap.timeline)) chap.timeline = chap.timeline.filter(t => t);
                 if (Array.isArray(chap.quizData)) chap.quizData = chap.quizData.filter(q => q);
@@ -49,8 +51,45 @@ const app = createApp({
             safeGlossary = (typeof GLOSSARY_DATA !== 'undefined') ? GLOSSARY_DATA : {};
             safeHadiths = (typeof STORED_HADITHS !== 'undefined') ? STORED_HADITHS : [];
             safeUssul = (typeof USSUL_LESSONS !== 'undefined') ? USSUL_LESSONS : [];
-            safeSilsila = (typeof SILSILA_DATA !== 'undefined') ? SILSILA_DATA : [];
             safeSilsilaThemes = (typeof SILSILA_THEMES !== 'undefined') ? SILSILA_THEMES : {};
+
+            // --- TRAITEMENT SILSILA (Graphe -> Liste enrichie pour la vue Carte) ---
+            // On récupère les données brutes (nodes/edges) peu importe le nom de variable
+            let rawSilsilaData = (typeof SILSILA_DATA !== 'undefined') ? SILSILA_DATA : 
+                                 (typeof scholarsData !== 'undefined') ? scholarsData : { nodes: [], edges: [] };
+
+            if (rawSilsilaData.nodes && rawSilsilaData.edges) {
+                // Si c'est un graphe, on le convertit pour votre vue
+                const nodeMap = new Map();
+                
+                // 1. Créer les objets savants
+                rawSilsilaData.nodes.forEach(n => {
+                    let displayObj = {
+                        ...n,
+                        name: n.label ? n.label.replace('\n', ' ') : n.name, // Nettoyage du nom
+                        teachers: [],
+                        students: []
+                    };
+                    nodeMap.set(n.id, displayObj);
+                });
+
+                // 2. Tisser les liens (Maîtres <-> Élèves)
+                rawSilsilaData.edges.forEach(edge => {
+                    const teacher = nodeMap.get(edge.from);
+                    const student = nodeMap.get(edge.to);
+                    
+                    if (teacher && student) {
+                        student.teachers.push(teacher.id); // L'élève a ce maître
+                        teacher.students.push(student.id); // Le maître a cet élève
+                    }
+                });
+
+                // 3. Finaliser la liste
+                safeSilsila = Array.from(nodeMap.values());
+            } else if (Array.isArray(rawSilsilaData)) {
+                // Si c'est déjà une liste simple (ancienne version)
+                safeSilsila = rawSilsilaData;
+            }
 
         } catch (e) {
             console.error("Erreur critique de données:", e);
@@ -169,7 +208,6 @@ const app = createApp({
         });
 
         const filteredChapters = computed(() => {
-            // safeChapters est déjà nettoyé, donc plus de risque de crash ici
             let data = safeChapters;
             if (activeCategory.value !== 'Tous') data = data.filter(c => c.tags.includes(activeCategory.value));
             if (viewFilter.value === 'favorites') data = data.filter(c => settings.value.favorites.includes(c.id));
@@ -255,11 +293,11 @@ const app = createApp({
         const getProgress = (id, target) => { const current = adhkarCounts.value[id] || 0; return Math.min((current / target) * 100, 100); };
         const copyText = (text) => { navigator.clipboard.writeText(text); showToast("Texte copié !", "copy"); };
 
-        // Logic Silsila
+        // Logic Silsila (Transmission)
         const silsilaTab = ref('hadith'); 
-        const silsilaRootId = ref({ hadith: 'bukhari', fiqh: 'shafi', quran: 'nafi' }); 
         const focusedScholar = computed(() => { const currentId = silsilaRootId.value[silsilaTab.value]; return safeSilsila.find(s => s.id === currentId) || null; });
         const currentTheme = computed(() => safeSilsilaThemes[silsilaTab.value] || safeSilsilaThemes.hadith);
+        
         const openScholarFiche = (scholar) => {
             const match = safeChapters.find(c => c.name.includes(scholar.name) || scholar.name.includes(c.name));
             if (match) openChapter(match);
@@ -273,20 +311,16 @@ const app = createApp({
         const toggleFavorite = (id) => { const idx = settings.value.favorites.indexOf(id); if (idx === -1) { settings.value.favorites.push(id); showToast("Ajouté aux favoris", "heart"); } else { settings.value.favorites.splice(idx, 1); showToast("Retiré des favoris", "minus-circle"); } };
         const isFavorite = (id) => settings.value.favorites.includes(id);
         const toggleFilterFavorite = () => { viewFilter.value = viewFilter.value === 'favorites' ? 'all' : 'favorites'; };
+        
+        // Tasbih amélioré
         const incrementTasbih = () => { 
-    tasbihCount.value++; 
-    
-    // Gestion intelligente des vibrations (Haptique)
-    if (navigator.vibrate) {
-        if (tasbihCount.value % 33 === 0) {
-            // Vibration plus longue pour marquer la fin d'un cycle (33, 66, 99...)
-            navigator.vibrate([30, 50, 30]); 
-        } else {
-            // Clic court et net pour le comptage normal
-            navigator.vibrate(10); 
-        }
-    }
-};
+            tasbihCount.value++; 
+            if (navigator.vibrate) {
+                if (tasbihCount.value % 33 === 0) navigator.vibrate([30, 50, 30]); 
+                else navigator.vibrate(10); 
+            }
+        };
+
         const handleQuizAnswer = (qIdx, optIdx, correctIdx) => { if (quizAnswers.value[qIdx] !== undefined) return; quizAnswers.value[qIdx] = optIdx; if (navigator.vibrate) { if (optIdx === correctIdx) navigator.vibrate([50, 50, 50]); else navigator.vibrate(200); } };
         
         const shareContent = async (title, text) => {
@@ -298,7 +332,7 @@ const app = createApp({
 
         const tooltip = ref({ show: false, x: 0, y: 0, data: {} });
         
-        // Fonction formatText sécurisée
+        // Fonction formatText
         const formatText = (text) => {
             if (!text || typeof text !== 'string') return '';
             let f = text.replace(/\\'/g, "'"); 
@@ -356,7 +390,7 @@ const app = createApp({
 
         return {
             dataError, viewMode, headerSearchQuery, 
-            allChapters: safeChapters, // <--- LA CLÉ DU SUCCÈS : On expose les données ici !
+            allChapters: safeChapters, 
             filteredChapters, displayedChapters, mainScroll, globalTimeline, filteredGlossary,
             filteredHadiths, currentHadith, openHadith,
             currentChapter, filteredAdhkar, adhkarCategories, activeAdhkarCategory, copyText, activeStoryId, mobileMenuOpen, activeCategory, adhkarCounts, handleDhikrClick, currentDhikr, openDhikr, getProgress, categories, readingProgress, tabibCategories, tabibFilter, filteredRemedies, currentRemedy, 
@@ -382,13 +416,12 @@ app.mount('#app');
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        // Détection simplifiée pour éviter l'erreur sur file://
         if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
             navigator.serviceWorker.register('./sw.js')
                 .then(reg => console.log('App prête (SW registered)', reg))
                 .catch(err => console.log('Erreur SW:', err));
         } else {
-            console.warn("Service Worker désactivé en mode local (file://). Utilisez un serveur local.");
+            console.warn("Service Worker désactivé en mode local (file://).");
         }
     });
 }
