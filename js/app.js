@@ -34,7 +34,7 @@ const app = createApp({
 
         // Configuration des racines pour la Transmission (IDs numériques correspondants à transmission_data.js)
         // 41 = Bukhari (Hadith), 10 = Abu Hanifa (Fiqh), 2 = Nafi (Quran/Malik)
-        const silsilaRootId = ref({ hadith: 41, fiqh: 10, quran: 2 }); 
+        const silsilaRootId = ref({ hadith: 41, fiqh: 10, quran: 60 }); 
 
         try {
             if (typeof CHAPTERS_DATA === 'undefined') throw new Error("Les données biographies sont introuvables.");
