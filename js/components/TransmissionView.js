@@ -1,150 +1,169 @@
 const TransmissionView = {
-    props: ['silsila', 'themes'], // On reçoit SILSILA_DATA (qui contient nodes/edges)
+    props: ['silsila', 'themes', 'rootIds', 'openScholarFiche'],
     
     setup(props) {
-        const networkContainer = Vue.ref(null);
-        const selectedNode = Vue.ref(null);
-        const network = Vue.ref(null);
+        const { ref, computed, onMounted, watch } = Vue;
 
-        // Options de configuration pour Vis.js (Style Athar)
-        const options = {
-            nodes: {
-                shape: 'dot',
-                size: 20,
-                font: {
-                    size: 14,
-                    face: 'Cinzel',
-                    color: '#666' // Par défaut (changé dynamiquement)
-                },
-                borderWidth: 2,
-                shadow: true
-            },
-            edges: {
-                width: 1,
-                color: { color: '#ccc', highlight: '#c5a059' },
-                smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
-                arrows: { to: { enabled: true, scaleFactor: 0.5 } }
-            },
-            layout: {
-                hierarchical: {
-                    direction: 'UD', // Haut vers Bas
-                    sortMethod: 'directed',
-                    levelSeparation: 120,
-                    nodeSpacing: 150
-                }
-            },
-            interaction: {
-                hover: true,
-                tooltipDelay: 200,
-                zoomView: true
-            },
-            physics: false // Statique pour plus de propreté
+        const currentTab = ref('hadith');
+        const focusId = ref(props.rootIds ? props.rootIds.hadith : null);
+
+        // --- Données pour la navigation rapide (le bas de page) ---
+        const rootScholarsLists = {
+            hadith: ['bukhari', 'muslim', 'abu_dawud', 'tirmidhi', 'nasai', 'ibn_majah', 'zuhri', 'malik'],
+            fiqh: ['abu_hanifa', 'malik', 'shafi', 'ahmad', 'awzai', 'layth_sad'],
+            quran: ['nafi', 'ibn_kathir_qari', 'abu_amr', 'ibn_amir', 'asim', 'hamzah', 'kisai', 'abu_jafar', 'yaqub', 'khalaf_bazzar']
         };
 
-        const initNetwork = () => {
-            if (!networkContainer.value || !props.silsila) return;
+        const currentRootScholars = computed(() => rootScholarsLists[currentTab.value] || []);
 
-            // Préparation des données avec couleurs
-            const nodes = new vis.DataSet(props.silsila.nodes.map(n => {
-                const theme = props.themes && props.themes[n.group] ? props.themes[n.group] : { color: '#999' };
-                // On détecte le mode sombre via la classe html
-                const isDark = document.documentElement.classList.contains('dark');
-                
-                return {
-                    ...n,
-                    color: {
-                        background: isDark ? '#1a1c23' : '#fff',
-                        border: theme.color,
-                        highlight: { background: theme.color, border: theme.color }
-                    },
-                    font: { color: isDark ? '#eee' : '#333' }
-                };
-            }));
+        const getScholarName = (id) => {
+            const s = props.silsila.find(x => x.id === id);
+            return s ? s.name : id;
+        };
+        // -----------------------------------------------------------
 
-            const edges = new vis.DataSet(props.silsila.edges);
+        const currentTheme = computed(() => props.themes[currentTab.value] || props.themes.hadith);
 
-            const data = { nodes, edges };
+        const focusedScholar = computed(() => props.silsila.find(s => s.id === focusId.value));
 
-            network.value = new vis.Network(networkContainer.value, data, options);
+        const masters = computed(() => {
+            if (!focusedScholar.value || !focusedScholar.value.teachers) return [];
+            return focusedScholar.value.teachers
+                .map(tid => props.silsila.find(s => s.id === tid))
+                .filter(Boolean);
+        });
 
-            // Événement Clic
-            network.value.on("click", (params) => {
-                if (params.nodes.length > 0) {
-                    const nodeId = params.nodes[0];
-                    selectedNode.value = props.silsila.nodes.find(n => n.id === nodeId);
-                } else {
-                    selectedNode.value = null;
-                }
-            });
+        const students = computed(() => {
+            if (!focusedScholar.value || !focusedScholar.value.students) return [];
+            return focusedScholar.value.students
+                .map(sid => props.silsila.find(s => s.id === sid))
+                .filter(Boolean);
+        });
+
+        const setFocus = (id) => {
+            focusId.value = id;
+            if(window.navigator.vibrate) window.navigator.vibrate(5);
         };
 
-        Vue.onMounted(() => {
-            // Petit délai pour s'assurer que le DOM est prêt
-            setTimeout(initNetwork, 100);
+        const switchTab = (tab) => {
+            currentTab.value = tab;
+            focusId.value = props.rootIds[tab];
+        };
+
+        watch(focusedScholar, () => {
+            setTimeout(() => { if(window.lucide) window.lucide.createIcons(); }, 100);
         });
 
-        // Réagir au changement de mode sombre
-        Vue.watch(() => document.documentElement.classList.contains('dark'), () => {
-            initNetwork();
+        onMounted(() => {
+            if(window.lucide) window.lucide.createIcons();
         });
 
-        return { networkContainer, selectedNode };
+        return { 
+            currentTab, focusId, currentTheme, focusedScholar, masters, students, 
+            setFocus, switchTab, 
+            currentRootScholars, getScholarName // On exporte ces nouvelles variables
+        };
     },
 
     template: `
-    <div class="relative w-full h-full min-h-screen bg-brand-paper dark:bg-brand-dark flex flex-col md:flex-row overflow-hidden">
+    <div class="max-w-4xl mx-auto p-6 md:p-12 min-h-full flex flex-col items-center">
         
-        <div class="flex-1 relative h-[60vh] md:h-full bg-grain">
-            
-            <div class="absolute top-4 left-4 z-10 bg-white/80 dark:bg-black/50 backdrop-blur p-4 rounded-xl border border-brand-gold/20 shadow-sm text-xs">
-                <h3 class="font-bold text-brand-gold uppercase tracking-widest mb-2">Légende</h3>
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-green-500"></span> Hanafite</div>
-                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-yellow-500"></span> Malikite</div>
-                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500"></span> Shafi'ite</div>
-                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-500"></span> Hanbalite</div>
-                    <div class="flex items-center gap-2"><span class="w-3 h-3 rotate-45 bg-purple-500"></span> Hadith</div>
-                </div>
-            </div>
-
-            <div ref="networkContainer" class="w-full h-full cursor-grab active:cursor-grabbing"></div>
-            
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-gray-400 uppercase tracking-widest pointer-events-none">
-                Pincez ou scrollez pour zoomer
+        <div class="w-full max-w-md mb-12 relative z-20 animate-fade-in">
+            <div class="bg-white dark:bg-brand-dark-lighter p-1.5 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between gap-1">
+                <button v-for="(theme, key) in themes" :key="key" 
+                        @click="switchTab(key)" 
+                        class="flex-1 py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
+                        :class="currentTab === key ? theme.btn + ' shadow-md transform scale-105 text-white' : 'text-gray-400 hover:bg-gray-50 dark:hover:bg-brand-dark'">
+                    <i :data-lucide="theme.icon" class="w-3.5 h-3.5"></i>
+                    <span class="hidden md:inline">{{ key }}</span>
+                </button>
             </div>
         </div>
 
-        <transition name="slide-right">
-            <div v-if="selectedNode" class="w-full md:w-96 bg-white dark:bg-brand-dark-lighter border-l border-brand-gold/10 shadow-2xl p-8 overflow-y-auto relative z-20 h-[40vh] md:h-full">
-                
-                <button @click="selectedNode = null" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-red-500 transition-colors">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-
-                <div class="mt-4">
-                    <span class="inline-block px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest mb-4">
-                        Génération {{ selectedNode.level }}
-                    </span>
-                    
-                    <h2 class="font-display font-bold text-3xl text-brand-dark dark:text-white mb-2 leading-tight">
-                        {{ selectedNode.label.replace('\\n', ' ') }}
-                    </h2>
-                    
-                    <div class="w-12 h-1 bg-brand-gold rounded-full mb-6"></div>
-
-                    <div class="prose prose-sm dark:prose-invert font-serif text-gray-600 dark:text-gray-300 leading-relaxed" 
-                         v-html="selectedNode.bio">
-                    </div>
-                </div>
-            </div>
+        <div v-if="focusedScholar" class="relative w-full flex flex-col items-center animate-slide-up flex-1">
             
-            <div v-else class="hidden md:flex w-96 bg-white/50 dark:bg-brand-dark-lighter/50 border-l border-brand-gold/5 p-8 flex-col justify-center items-center text-center text-gray-400">
-                <div class="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mb-4">
-                    <i data-lucide="git-fork" class="w-8 h-8 text-brand-gold"></i>
+            <div class="flex flex-wrap justify-center gap-6 pb-2 relative z-10 w-full">
+                <transition-group name="list">
+                    <div v-for="m in masters" :key="m.id" @click="setFocus(m.id)" class="flex flex-col items-center group cursor-pointer relative w-28 md:w-32">
+                        <div class="w-full bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 p-3 rounded-xl text-center shadow-sm relative z-20 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md hover:border-brand-gold/50">
+                            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Maître</span>
+                            <h4 class="font-bold text-xs truncate text-brand-dark dark:text-gray-200">{{ m.name }}</h4>
+                        </div>
+                        <div class="h-10 w-px bg-gray-300 dark:bg-gray-600 -mt-2 relative z-0 group-hover:bg-brand-gold transition-colors"></div>
+                        <div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 -mt-1 group-hover:bg-brand-gold transition-colors"></div>
+                    </div>
+                </transition-group>
+                <div v-if="masters.length === 0" class="text-gray-300 text-[10px] uppercase tracking-widest py-8 border-b border-dashed border-gray-200 dark:border-gray-700 w-full text-center">
+                    Début de la chaîne
                 </div>
-                <p class="text-sm font-sans uppercase tracking-widest">Sélectionnez un savant<br>pour voir sa biographie</p>
             </div>
-        </transition>
+
+            <div class="relative z-20 my-2 w-full max-w-lg">
+                 <div v-if="masters.length > 0" class="absolute -top-6 left-1/2 -translate-x-1/2 w-px h-8 bg-gradient-to-b from-gray-300 via-brand-gold to-brand-gold z-0"></div>
+
+                <div class="relative bg-white dark:bg-brand-dark-lighter border-2 p-8 md:p-10 rounded-[2rem] text-center shadow-2xl w-full z-10 transform transition-all duration-500" :class="currentTheme.border">
+                    <div class="absolute inset-0 rounded-[2rem] blur-xl opacity-20 -z-10" :class="currentTheme.bg.replace('bg-', 'bg-')"></div>
+
+                    <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-4 shadow-sm" :class="currentTheme.btn">
+                        {{ focusedScholar.role }}
+                    </span>
+
+                    <h1 class="font-display font-bold text-2xl md:text-4xl text-brand-dark dark:text-white mb-2 leading-tight">
+                        {{ focusedScholar.name }}
+                    </h1>
+                    <p class="font-arabic text-xl md:text-2xl mb-6 opacity-80" :class="currentTheme.color">{{ focusedScholar.arabicName }}</p>
+                    <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-serif italic mb-8">"{{ focusedScholar.desc }}"</p>
+
+                    <button @click="openScholarFiche(focusedScholar)" class="w-full py-3 rounded-xl font-bold uppercase tracking-widest text-xs text-white shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2" :class="currentTheme.btn">
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                        Voir la Biographie
+                    </button>
+                </div>
+
+                <div v-if="students.length > 0" class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-8 bg-gradient-to-b from-brand-gold to-gray-300 z-0"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 pt-2 relative z-10 w-full">
+                <transition-group name="list">
+                    <div v-for="s in students" :key="s.id" @click="setFocus(s.id)" class="flex flex-col items-center group cursor-pointer w-28 md:w-32">
+                        <div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 -mb-1 relative z-10 group-hover:bg-brand-gold transition-colors"></div>
+                        <div class="h-10 w-px bg-gray-300 dark:bg-gray-600 -mb-2 relative z-0 group-hover:bg-brand-gold transition-colors"></div>
+                        <div class="w-full bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 p-3 rounded-xl text-center shadow-sm relative z-20 bg-gray-50/50 hover:bg-white dark:hover:bg-brand-dark-lighter transition-all duration-300 hover:translate-y-1 hover:shadow-md hover:border-brand-gold/50">
+                            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Élève</span>
+                            <h4 class="font-bold text-xs truncate text-brand-dark dark:text-gray-200">{{ s.name }}</h4>
+                        </div>
+                    </div>
+                </transition-group>
+                <div v-if="students.length === 0" class="text-gray-300 text-[10px] uppercase tracking-widest py-8 border-t border-dashed border-gray-200 dark:border-gray-700 w-full text-center mt-4">
+                    Fin de la branche connue
+                </div>
+            </div>
+        </div>
+
+        <div v-else class="flex flex-col items-center justify-center py-20 text-center animate-fade-in flex-1">
+            <div class="w-16 h-16 bg-gray-100 dark:bg-brand-dark-lighter rounded-full flex items-center justify-center mb-4 text-gray-400">
+                <i data-lucide="help-circle" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-display font-bold text-xl text-brand-dark dark:text-white mb-2">Données manquantes</h3>
+            <p class="text-sm text-gray-500 max-w-xs">Le savant (ID: {{ focusId }}) n'a pas été trouvé dans le fichier <code>silsila.js</code>.</p>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 w-full text-center relative z-10">
+            <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">
+                Explorer les autres chaînes
+            </h3>
+            
+            <div class="flex flex-wrap justify-center gap-2">
+                <button v-for="id in currentRootScholars" :key="id" 
+                        @click="setFocus(id)"
+                        :class="['px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider border transition-all', 
+                        focusId === id 
+                        ? currentTheme.btn + ' text-white border-transparent shadow-md' 
+                        : 'bg-white dark:bg-brand-dark-lighter border-gray-200 dark:border-gray-700 text-gray-500 hover:border-brand-gold']">
+                    {{ getScholarName(id) }}
+                </button>
+            </div>
+        </div>
 
     </div>
     `
