@@ -4,46 +4,39 @@ const TransmissionView = {
     setup(props) {
         const { ref, computed, watch } = Vue;
 
-        // Onglet actif par défaut
         const currentTab = ref('hadith');
-        
-        // ID du savant affiché au centre
+        // Initialisation sécurisée
         const focusId = ref(props.rootIds ? props.rootIds.hadith : null);
 
-        // --- 1. SÉCURISATION DES THÈMES ---
-        // On s'assure que les couleurs existent toujours même si les données tardent à charger
+        // --- 1. CONFIGURATION DES THÈMES & STYLES ---
         const activeThemes = computed(() => {
-            return props.themes || {
-                hadith: { label: 'Hadith', btn: 'bg-purple-600', border: 'border-purple-200', bg: 'bg-purple-50', color: 'text-purple-600' },
-                fiqh: { label: 'Fiqh', btn: 'bg-emerald-600', border: 'border-emerald-200', bg: 'bg-emerald-50', color: 'text-emerald-600' },
-                quran: { label: 'Coran', btn: 'bg-amber-600', border: 'border-amber-200', bg: 'bg-amber-50', color: 'text-amber-600' },
-                pre: { label: 'Ancien', btn: 'bg-gray-500', border: 'border-gray-200', bg: 'bg-gray-50', color: 'text-gray-600' }
+            const defaults = {
+                hadith: { label: "Hadiths", color: "text-purple-700", bg: "bg-purple-50", border: "border-purple-200", btn: "bg-purple-600", accent: "from-purple-500 to-indigo-600" },
+                fiqh: { label: "Fiqh", color: "text-emerald-700", bg: "bg-emerald-50", border: "border-emerald-200", btn: "bg-emerald-600", accent: "from-emerald-500 to-teal-600" },
+                quran: { label: "Lectures", color: "text-amber-700", bg: "bg-amber-50", border: "border-amber-200", btn: "bg-amber-600", accent: "from-amber-500 to-orange-600" },
+                pre: { label: "Ancien", color: "text-slate-600", bg: "bg-slate-50", border: "border-slate-200", btn: "bg-slate-500", accent: "from-slate-400 to-slate-500" }
             };
+            return props.themes ? { ...defaults, ...props.themes } : defaults;
         });
 
-        // --- 2. RÉCUPÉRATION DU SAVANT ---
+        // --- 2. LOGIQUE CŒUR ---
         const focusedScholar = computed(() => {
             if (!props.silsila) return null;
             return props.silsila.find(s => s.id === focusId.value);
         });
 
-        // --- 3. LOGIQUE INTELLIGENTE (AUTO-SWITCH) ---
-        // Si on clique sur un savant d'une autre matière (ex: Nafi), on change l'onglet automatiquement
+        // Détection automatique du thème selon le savant affiché
         watch(focusedScholar, (newVal) => {
-            if (newVal && ['hadith', 'fiqh', 'quran'].includes(newVal.group)) {
+            if (newVal && activeThemes.value[newVal.group]) {
                 if (currentTab.value !== newVal.group) {
                     currentTab.value = newVal.group;
                 }
             }
         });
 
-        // Récupère le style du savant affiché (pour colorer la carte)
-        const currentScholarTheme = computed(() => {
-            if (!focusedScholar.value) return activeThemes.value.hadith;
-            return activeThemes.value[focusedScholar.value.group] || activeThemes.value.pre;
-        });
+        const currentTheme = computed(() => activeThemes.value[currentTab.value] || activeThemes.value.hadith);
 
-        // --- 4. MAÎTRES ET ÉLÈVES ---
+        // --- 3. RÉSEAU (MAÎTRES / ÉLÈVES) ---
         const getScholar = (id) => props.silsila.find(s => s.id === id);
 
         const masters = computed(() => {
@@ -56,24 +49,25 @@ const TransmissionView = {
             return focusedScholar.value.students.map(getScholar).filter(Boolean);
         });
 
-        // --- 5. NAVIGATION ---
+        // --- 4. NAVIGATION & UTILITAIRES ---
         const setFocus = (id) => {
             focusId.value = id;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             if(window.navigator.vibrate) window.navigator.vibrate(5);
         };
 
         const switchTab = (tab) => {
             currentTab.value = tab;
-            // Retour à la racine de la matière quand on change d'onglet manuellement
             if (props.rootIds && props.rootIds[tab]) {
                 focusId.value = props.rootIds[tab];
             }
         };
 
         const quickNav = computed(() => {
-            if (currentTab.value === 'hadith') return [41, 42, 43, 44]; // Bukhari, Muslim...
-            if (currentTab.value === 'fiqh') return [10, 11, 12, 13]; // 4 Imams
-            if (currentTab.value === 'quran') return [60, 63]; // Nafi, Asim
+            // Piliers par défaut si non définis
+            if (currentTab.value === 'hadith') return [41, 42, 43, 44, 45, 46]; 
+            if (currentTab.value === 'fiqh') return [10, 11, 12, 13]; 
+            if (currentTab.value === 'quran') return [60, 63]; 
             return [];
         });
 
@@ -82,119 +76,154 @@ const TransmissionView = {
             return s ? s.name || s.label : '';
         };
 
-        // Fonction pour obtenir la couleur d'un petit badge (Maître/Élève)
-        const getBadgeColor = (group) => {
-            const t = activeThemes.value[group];
-            return t ? t.color : 'text-gray-400';
+        // Extraction d'une courte bio (première phrase)
+        const getShortBio = (bio) => {
+            if (!bio) return "Un grand savant de cette communauté.";
+            const div = document.createElement("div");
+            div.innerHTML = bio;
+            const text = div.textContent || div.innerText || "";
+            return text.split('.')[0] + '.';
         };
 
         return { 
-            currentTab, focusId, activeThemes, currentScholarTheme,
+            currentTab, focusId, activeThemes, currentTheme,
             focusedScholar, masters, students, 
-            setFocus, switchTab, quickNav, getScholarName, getBadgeColor
+            setFocus, switchTab, quickNav, getScholarName, getShortBio
         };
     },
 
     template: `
-    <div class="max-w-5xl mx-auto p-4 md:p-12 min-h-full flex flex-col items-center">
+    <div class="min-h-full bg-[#fcfbf9] dark:bg-brand-dark transition-colors duration-500 font-serif relative overflow-hidden">
         
-        <div class="w-full max-w-lg mb-12 relative z-20 animate-fade-in">
-            <div class="bg-white dark:bg-brand-dark-lighter p-1.5 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between gap-1">
-                <button v-for="(theme, key) in activeThemes" :key="key" 
-                        v-show="key !== 'pre'"
-                        @click="switchTab(key)" 
-                        class="flex-1 py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
-                        :class="currentTab === key ? theme.btn + ' shadow-md transform scale-105 text-white' : 'text-gray-400 hover:bg-gray-50 dark:hover:bg-brand-dark'">
-                    <i v-if="theme.icon" :data-lucide="theme.icon" class="w-3.5 h-3.5 hidden md:block"></i>
-                    <span>{{ theme.label || key }}</span>
-                </button>
-            </div>
+        <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none" 
+             style="background-image: url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23000000\\' fill-opacity=\\'1\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
         </div>
 
-        <div v-if="focusedScholar" class="relative w-full flex flex-col items-center animate-slide-up flex-1">
-            
-            <div class="flex flex-wrap justify-center gap-6 pb-6 relative z-10 w-full">
-                <div v-for="m in masters" :key="m.id" @click="setFocus(m.id)" class="flex flex-col items-center group cursor-pointer w-28 md:w-32">
-                    <div class="w-full bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 p-3 rounded-xl text-center shadow-sm relative z-20 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md hover:border-brand-gold/50">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider">Maître</span>
-                            <span class="w-2 h-2 rounded-full" :class="activeThemes[m.group]?.btn || 'bg-gray-300'"></span>
-                        </div>
-                        <h4 class="font-bold text-xs truncate text-brand-dark dark:text-gray-200">{{ m.label || m.name }}</h4>
-                    </div>
-                    <div class="h-8 w-px bg-gray-300 dark:bg-gray-600 -mt-1 relative z-0 group-hover:bg-brand-gold transition-colors"></div>
-                </div>
-                
-                <div v-if="masters.length === 0" class="text-gray-300 text-[10px] uppercase tracking-widest py-4">
-                    Début de la chaîne
-                </div>
-            </div>
+        <div class="max-w-6xl mx-auto p-4 md:p-8 relative z-10 flex flex-col items-center min-h-[90vh]">
 
-            <div class="relative z-20 my-2 w-full max-w-lg">
-                <div v-if="masters.length > 0" class="absolute -top-6 left-1/2 -translate-x-1/2 w-px h-6 bg-gray-300 dark:bg-gray-600 z-0"></div>
-
-                <div class="relative bg-white dark:bg-brand-dark-lighter border-2 p-8 rounded-[2rem] text-center shadow-2xl w-full z-10 transform transition-all duration-300" 
-                     :class="currentScholarTheme.border">
-                    
-                    <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-4 shadow-sm" 
-                          :class="currentScholarTheme.btn">
-                        {{ focusedScholar.role || 'Savant' }}
-                    </span>
-
-                    <h1 class="font-display font-bold text-2xl md:text-3xl text-brand-dark dark:text-white mb-4 leading-tight">
-                        {{ focusedScholar.label || focusedScholar.name }}
-                    </h1>
-                    
-                    <div class="prose prose-sm dark:prose-invert mx-auto mb-8 text-sm text-gray-500 leading-relaxed font-serif italic" 
-                         v-html="focusedScholar.bio"></div>
-
-                    <button v-if="openScholarFiche" @click="openScholarFiche(focusedScholar)" 
-                            class="w-full py-3 rounded-xl font-bold uppercase tracking-widest text-xs text-white shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2" 
-                            :class="currentScholarTheme.btn">
-                        <i data-lucide="book-open" class="w-4 h-4"></i>
-                        Voir la Biographie
+            <nav class="w-full max-w-lg mb-12 animate-fade-in">
+                <div class="bg-white dark:bg-brand-dark-lighter p-1.5 rounded-full shadow-lg border border-brand-gold/10 flex justify-between relative overflow-hidden">
+                    <button v-for="(theme, key) in activeThemes" :key="key" 
+                            v-show="key !== 'pre'"
+                            @click="switchTab(key)" 
+                            class="relative flex-1 py-3 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 z-10"
+                            :class="currentTab === key ? theme.btn + ' text-white shadow-md transform scale-[1.02]' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'">
+                        <span class="truncate">{{ theme.label || key }}</span>
                     </button>
                 </div>
+            </nav>
 
-                <div v-if="students.length > 0" class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-px h-6 bg-gray-300 dark:bg-gray-600 z-0"></div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-6 pt-6 relative z-10 w-full">
-                <div v-for="s in students" :key="s.id" @click="setFocus(s.id)" class="flex flex-col items-center group cursor-pointer w-28 md:w-32">
-                    <div class="h-8 w-px bg-gray-300 dark:bg-gray-600 -mb-1 relative z-0 group-hover:bg-brand-gold transition-colors"></div>
-                    
-                    <div class="w-full bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 p-3 rounded-xl text-center shadow-sm relative z-20 bg-gray-50/50 hover:bg-white dark:hover:bg-brand-dark-lighter transition-all duration-300 hover:translate-y-1 hover:shadow-md hover:border-brand-gold/50">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-[8px] font-bold text-gray-400 uppercase tracking-wider">Élève</span>
-                            <span class="w-2 h-2 rounded-full" :class="activeThemes[s.group]?.btn || 'bg-gray-300'"></span>
+            <div v-if="focusedScholar" class="w-full flex flex-col items-center flex-1 max-w-2xl">
+                
+                <div class="flex flex-col items-center w-full mb-2 group/masters">
+                    <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                        <div v-for="m in masters" :key="m.id" @click="setFocus(m.id)" 
+                             class="flex flex-col items-center cursor-pointer transition-all duration-300 hover:-translate-y-1 opacity-70 hover:opacity-100">
+                            
+                            <div class="px-5 py-3 rounded-xl bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 shadow-sm text-center min-w-[120px] hover:border-brand-gold/50 transition-colors">
+                                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wider block mb-1">A pris de</span>
+                                <h4 class="font-bold text-xs text-brand-dark dark:text-gray-200 line-clamp-1">{{ m.name || m.label }}</h4>
+                            </div>
+                            
+                            <div class="h-8 w-px bg-gradient-to-b from-gray-300 to-brand-gold/50 dark:from-gray-700 dark:to-brand-gold/50"></div>
                         </div>
-                        <h4 class="font-bold text-xs truncate text-brand-dark dark:text-gray-200">{{ s.label || s.name }}</h4>
+                    </div>
+
+                    <div v-if="masters.length === 0" class="text-center py-4 opacity-40">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 border-b border-dashed border-gray-300 pb-1">Début de la chaîne documentée</span>
+                        <div class="h-8 w-px bg-gradient-to-b from-transparent to-brand-gold/30 mx-auto mt-1"></div>
                     </div>
                 </div>
+
+                <div class="relative w-full z-20 animate-scale-up">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent blur-2xl -z-10 rounded-full"></div>
+
+                    <div class="bg-white dark:bg-brand-dark-lighter rounded-[2rem] shadow-2xl border-t-4 p-8 md:p-12 text-center relative overflow-hidden transition-all duration-300"
+                         :class="[currentTheme.border.replace('border-', 'border-t-')]">
+                        
+                        <span class="inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-6 shadow-md transform -translate-y-1" 
+                              :class="currentTheme.btn">
+                            {{ focusedScholar.role || 'Savant' }}
+                        </span>
+
+                        <h1 class="font-display font-bold text-3xl md:text-5xl text-brand-dark dark:text-white mb-3 leading-tight">
+                            {{ focusedScholar.name || focusedScholar.label }}
+                        </h1>
+                        
+                        <p class="font-arabic text-2xl text-brand-gold mb-6 dir-rtl opacity-90">
+                            {{ focusedScholar.arabicName || '' }}
+                        </p>
+
+                        <div class="flex items-center justify-center gap-4 mb-6 opacity-30">
+                            <div class="h-px w-16 bg-brand-dark dark:bg-white"></div>
+                            <div class="w-2 h-2 rotate-45 border border-brand-dark dark:border-white"></div>
+                            <div class="h-px w-16 bg-brand-dark dark:bg-white"></div>
+                        </div>
+                        
+                        <p class="text-sm md:text-base text-gray-500 dark:text-gray-400 font-serif italic leading-relaxed max-w-lg mx-auto mb-8">
+                            {{ getShortBio(focusedScholar.bio) }}
+                        </p>
+
+                        <div class="flex justify-center gap-4">
+                            <button v-if="openScholarFiche" @click="openScholarFiche(focusedScholar)" 
+                                    class="px-8 py-3 rounded-xl font-bold uppercase tracking-widest text-xs text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2" 
+                                    :class="currentTheme.btn">
+                                <i data-lucide="book-open" class="w-4 h-4"></i>
+                                Biographie Complète
+                            </button>
+                        </div>
+                        
+                        <i data-lucide="feather" class="absolute -bottom-6 -right-6 w-32 h-32 text-gray-50 dark:text-white/5 rotate-[-20deg]"></i>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center w-full mt-2 group/students">
+                    
+                    <div v-if="students.length > 0" class="h-8 w-px bg-gradient-to-b from-brand-gold/50 to-gray-300 dark:from-brand-gold/50 dark:to-gray-700"></div>
+                    <div v-else class="h-8 w-px bg-gradient-to-b from-brand-gold/30 to-transparent"></div>
+
+                    <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                        <div v-for="s in students" :key="s.id" @click="setFocus(s.id)" 
+                             class="flex flex-col items-center cursor-pointer transition-all duration-300 hover:translate-y-1 opacity-70 hover:opacity-100">
+                            
+                            <div class="h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
+
+                            <div class="px-5 py-3 rounded-xl bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 shadow-sm text-center min-w-[120px] hover:border-brand-gold/50 transition-colors bg-gray-50/50 dark:bg-white/5">
+                                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wider block mb-1">A enseigné à</span>
+                                <h4 class="font-bold text-xs text-brand-dark dark:text-gray-200 line-clamp-1">{{ s.name || s.label }}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="students.length === 0" class="text-center py-4 opacity-40">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 border-t border-dashed border-gray-300 pt-1">Fin de la transmission directe</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-full max-w-4xl mt-20 pt-10 border-t border-brand-gold/10 text-center animate-fade-in">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6 flex items-center justify-center gap-2">
+                    <span class="w-8 h-px bg-gray-300 dark:bg-gray-700"></span>
+                    Piliers de la Science
+                    <span class="w-8 h-px bg-gray-300 dark:bg-gray-700"></span>
+                </h3>
                 
-                <div v-if="students.length === 0" class="text-gray-300 text-[10px] uppercase tracking-widest py-4">
-                    Fin de la chaîne connue
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button v-for="id in quickNav" :key="id" 
+                            @click="setFocus(id)"
+                            class="group px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider border transition-all duration-300 flex items-center gap-2"
+                            :class="focusId === id 
+                            ? currentTheme.btn + ' text-white border-transparent shadow-md' 
+                            : 'bg-white dark:bg-brand-dark-lighter border-gray-200 dark:border-gray-700 text-gray-500 hover:border-brand-gold hover:text-brand-dark dark:hover:text-white'">
+                        <span class="w-1.5 h-1.5 rounded-full" :class="focusId === id ? 'bg-white' : currentTheme.bg.replace('bg-', 'bg-')"></span>
+                        {{ getScholarName(id) }}
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 w-full text-center relative z-10">
-            <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">
-                Piliers de cette branche
-            </h3>
-            
-            <div class="flex flex-wrap justify-center gap-2">
-                <button v-for="id in quickNav" :key="id" 
-                        @click="setFocus(id)"
-                        class="px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider border transition-all"
-                        :class="focusId === id 
-                        ? activeThemes[currentTab].btn + ' text-white border-transparent shadow-md' 
-                        : 'bg-white dark:bg-brand-dark-lighter border-gray-200 dark:border-gray-700 text-gray-500 hover:border-brand-gold'">
-                    {{ getScholarName(id) }}
-                </button>
-            </div>
         </div>
-
     </div>
     `
 };
