@@ -125,6 +125,9 @@ const app = createApp({
         const settings = ref({ darkMode: false, fontSize: 18, favorites: [], lastReadId: null });
         const categories = ref(['Tous', 'Califes', '10 Promis', 'Ahl al-Bayt', 'Muhajirun', 'Ansar', 'Commandants', 'Savants', 'Martyrs', 'Mères des Croyants', 'Badr', 'Ouhoud']);
 
+        // --- COMPOSABLES ---
+        const { viewFilter, isFavorite, toggleFavorite: baseToggleFavorite, toggleFilterFavorite } = useFavorites(settings);
+
         // --- COMPUTED PROPS ---
         const globalTimeline = computed(() => {
              let events = [];
@@ -210,7 +213,7 @@ const app = createApp({
         const filteredChapters = computed(() => {
             let data = safeChapters;
             if (activeCategory.value !== 'Tous') data = data.filter(c => c.tags.includes(activeCategory.value));
-            if (viewFilter.value === 'favorites') data = data.filter(c => settings.value.favorites.includes(c.id));
+            if (viewFilter.value === 'favorites') data = data.filter(c => isFavorite(c.id));
             
             if (headerSearchQuery.value && viewMode.value === 'library') {
                 if (window.Fuse) {
@@ -308,10 +311,16 @@ const app = createApp({
         const openChapterById = (id) => { const ch = safeChapters.find(c => c.id === id); if (ch) openChapter(ch); };
         const openRandomChapter = () => { if (safeChapters.length === 0) return; openChapter(safeChapters[Math.floor(Math.random() * safeChapters.length)]); };
         const showToast = (msg, icon = 'check-circle') => { const id = Date.now(); toasts.value.push({ id, msg, icon }); setTimeout(() => toasts.value = toasts.value.filter(t => t.id !== id), 3500); };
-        const toggleFavorite = (id) => { const idx = settings.value.favorites.indexOf(id); if (idx === -1) { settings.value.favorites.push(id); showToast("Ajouté aux favoris", "heart"); } else { settings.value.favorites.splice(idx, 1); showToast("Retiré des favoris", "minus-circle"); } };
-        const isFavorite = (id) => settings.value.favorites.includes(id);
-        const toggleFilterFavorite = () => { viewFilter.value = viewFilter.value === 'favorites' ? 'all' : 'favorites'; };
         
+        const toggleFavorite = (id) => {
+            const status = baseToggleFavorite(id);
+            if (status === 'added') {
+                showToast("Ajouté aux favoris", "heart");
+            } else if (status === 'removed') {
+                showToast("Retiré des favoris", "minus-circle");
+            }
+        };
+
         // Tasbih amélioré
         const incrementTasbih = () => { 
             tasbihCount.value++; 
@@ -395,19 +404,25 @@ const app = createApp({
             filteredHadiths, currentHadith, openHadith,
             currentChapter, filteredAdhkar, adhkarCategories, activeAdhkarCategory, copyText, activeStoryId, mobileMenuOpen, activeCategory, adhkarCounts, handleDhikrClick, currentDhikr, openDhikr, getProgress, categories, readingProgress, tabibCategories, tabibFilter, filteredRemedies, currentRemedy, 
             openRemedy, closeRemedy, showBreathing, breathState, breathText,
-            settings, tooltip, toasts, showTasbih, tasbihCount, lastReadChapter, viewFilter, quizAnswers, handleQuizAnswer,
-            setView, openChapter, openChapterById, closeReader, toggleFavorite, isFavorite, formatText, handleScroll,
+            settings, tooltip, toasts, showTasbih, tasbihCount, lastReadChapter, quizAnswers, handleQuizAnswer,
+            setView, openChapter, openChapterById, closeReader, formatText, handleScroll,
             adjustFontSize: () => settings.value.fontSize = settings.value.fontSize >= 24 ? 16 : settings.value.fontSize + 2,
             toggleDarkMode: () => settings.value.darkMode = !settings.value.darkMode,
             toggleStory: (id) => activeStoryId.value = activeStoryId.value === id ? null : id,
             toggleTasbih: () => showTasbih.value = !showTasbih.value,
-            incrementTasbih, toggleFilterFavorite, 
+            incrementTasbih, 
             shareChapter: () => shareContent(currentChapter.value.name, currentChapter.value.intro),
             shareHadith: () => shareContent(currentHadith.value.title, currentHadith.value.hadeeth),
             openRandomChapter, goHome,
             currentTheme, 
             openScholarFiche, 
-            silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul, extensionsList, navBtnClass
+            silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul, extensionsList, navBtnClass,
+            
+            // From useFavorites composable
+            viewFilter,
+            toggleFavorite,
+            isFavorite,
+            toggleFilterFavorite
         };
     }
 });
