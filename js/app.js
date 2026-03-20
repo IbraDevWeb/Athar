@@ -20,7 +20,8 @@ const app = createApp({
         'prophetic-clock-view': PropheticClockView,
         'relations-view': RelationsView,
         'revelation-view': RevelationView,
-        'tool-view': ToolView
+        'tool-view': ToolView,
+        'tasbih-view': TasbihView
     },
     setup() {
         // --- 1. INITIALISATION ET NETTOYAGE DES DONNÉES (CRUCIAL) ---
@@ -103,8 +104,6 @@ const app = createApp({
         const currentHadith = ref(null);
         const activeStoryId = ref(null);
         const mobileMenuOpen = ref(false);
-        const showTasbih = ref(false);
-        const tasbihCount = ref(0);
         const activeCategory = ref('Tous');
         const readingProgress = ref(0);
         const visibleCount = ref(12);
@@ -322,15 +321,6 @@ const app = createApp({
             }
         };
 
-        // Tasbih amélioré
-        const incrementTasbih = () => { 
-            tasbihCount.value++; 
-            if (navigator.vibrate) {
-                if (tasbihCount.value % 33 === 0) navigator.vibrate([30, 50, 30]); 
-                else navigator.vibrate(10); 
-            }
-        };
-
         const handleQuizAnswer = (qIdx, optIdx, correctIdx) => { if (quizAnswers.value[qIdx] !== undefined) return; quizAnswers.value[qIdx] = optIdx; if (navigator.vibrate) { if (optIdx === correctIdx) navigator.vibrate([50, 50, 50]); else navigator.vibrate(200); } };
         
         const shareContent = async (title, text) => {
@@ -367,7 +357,6 @@ const app = createApp({
         onMounted(() => {
             const loader = document.getElementById('app-loader'); if (loader) loader.style.display = 'none';
             const saved = localStorage.getItem('athar_settings'); if (saved) settings.value = { ...settings.value, ...JSON.parse(saved) };
-            const savedTasbih = localStorage.getItem('athar_tasbih'); if (savedTasbih) tasbihCount.value = parseInt(savedTasbih);
             if (settings.value.darkMode) document.documentElement.classList.add('dark');
             
             window.appOpenLink = (name) => { const target = safeChapters.find(c => c.name.toLowerCase().includes(name.toLowerCase())); if (target) openChapter(target); else showToast(`Chapitre "${name}" introuvable`, 'alert-circle'); };
@@ -375,13 +364,12 @@ const app = createApp({
             window.appProfileHover = (e, name) => { const target = safeChapters.find(c => c.name.toLowerCase().includes(name.toLowerCase())); if (target) tooltip.value = { show: true, x: e.target.getBoundingClientRect().left + e.target.getBoundingClientRect().width / 2, y: e.target.getBoundingClientRect().top, data: { origin: target.tags[0], term: target.name, def: target.intro.substring(0, 80) + '...' } }; };
             window.appHideTooltip = () => tooltip.value.show = false;
             
-            window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (showTasbih.value) showTasbih.value = false; else if (mobileMenuOpen.value) mobileMenuOpen.value = false; else if (viewMode.value === 'reader' || viewMode.value === 'hadith-reader') closeReader(); } });
+            window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (mobileMenuOpen.value) mobileMenuOpen.value = false; else if (viewMode.value === 'reader' || viewMode.value === 'hadith-reader') closeReader(); } });
             refreshIcons();
         });
 
         watch(settings, (v) => { localStorage.setItem('athar_settings', JSON.stringify(v)); v.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark'); }, { deep: true });
         watch([activeCategory, headerSearchQuery, viewFilter], () => { visibleCount.value = 12; if (mainScroll.value) mainScroll.value.scrollTop = 0; });
-        watch(tasbihCount, (v) => localStorage.setItem('athar_tasbih', v));
 
         watch(mobileMenuOpen, (isOpen) => {
             if (isOpen) setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 50);
@@ -405,7 +393,7 @@ const app = createApp({
             filteredHadiths, currentHadith, openHadith,
             currentChapter, filteredAdhkar, adhkarCategories, activeAdhkarCategory, copyText, activeStoryId, mobileMenuOpen, activeCategory, adhkarCounts, handleDhikrClick, currentDhikr, openDhikr, getProgress, categories, readingProgress, tabibCategories, tabibFilter, filteredRemedies, currentRemedy, 
             openRemedy, closeRemedy, showBreathing, breathState, breathText,
-            settings, tooltip, toasts, showTasbih, tasbihCount, lastReadChapter, quizAnswers, handleQuizAnswer,
+            settings, tooltip, toasts, lastReadChapter, quizAnswers, handleQuizAnswer,
             setView, openChapter, openChapterById, closeReader, formatText, handleScroll,
             
             // Du composable useSettings
@@ -413,8 +401,6 @@ const app = createApp({
             toggleDarkMode, adjustFontSize, setLangue,
 
             toggleStory: (id) => activeStoryId.value = activeStoryId.value === id ? null : id,
-            toggleTasbih: () => showTasbih.value = !showTasbih.value,
-            incrementTasbih, 
             shareChapter: () => shareContent(currentChapter.value.name, currentChapter.value.intro),
             shareHadith: () => shareContent(currentHadith.value.title, currentHadith.value.hadeeth),
             openRandomChapter, goHome,
@@ -428,19 +414,3 @@ const app = createApp({
             isFavorite,
             toggleFilterFavorite
         };
-    }
-});
-
-app.mount('#app');
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
-            navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('App prête (SW registered)', reg))
-                .catch(err => console.log('Erreur SW:', err));
-        } else {
-            console.warn("Service Worker désactivé en mode local (file://).");
-        }
-    });
-}
