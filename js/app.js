@@ -1,5 +1,5 @@
 // Fichier: js/app.js
-const { createApp, ref, computed, onMounted, onUnmounted, watch } = Vue;
+const { createApp, ref, onMounted, onUnmounted, watch } = Vue;
 
 const app = createApp({
     components: {
@@ -105,7 +105,6 @@ const app = createApp({
         const mobileMenuOpen = ref(false);
         const showTasbih = ref(false);
         const tasbihCount = ref(0);
-        const viewFilter = ref('all');
         const activeCategory = ref('Tous');
         const readingProgress = ref(0);
         const visibleCount = ref(12);
@@ -121,12 +120,14 @@ const app = createApp({
         const breathState = ref('inhale');
         const breathText = ref('Inspirez');
 
-        // Configuration
-        const settings = ref({ darkMode: false, fontSize: 18, favorites: [], lastReadId: null });
+        // Configuration - L'objet 'settings' est la source de vérité unique
+        const settings = ref({ darkMode: false, fontSize: 18, langue: 'fr', favorites: [], lastReadId: null });
         const categories = ref(['Tous', 'Califes', '10 Promis', 'Ahl al-Bayt', 'Muhajirun', 'Ansar', 'Commandants', 'Savants', 'Martyrs', 'Mères des Croyants', 'Badr', 'Ouhoud']);
 
         // --- COMPOSABLES ---
+        // Les composables reçoivent le 'ref' des settings pour le manipuler.
         const { viewFilter, isFavorite, toggleFavorite: baseToggleFavorite, toggleFilterFavorite } = useFavorites(settings);
+        const { darkMode, fontSize, langue, toggleDarkMode, adjustFontSize, setLangue } = useSettings(settings);
 
         // --- COMPUTED PROPS ---
         const globalTimeline = computed(() => {
@@ -406,8 +407,11 @@ const app = createApp({
             openRemedy, closeRemedy, showBreathing, breathState, breathText,
             settings, tooltip, toasts, showTasbih, tasbihCount, lastReadChapter, quizAnswers, handleQuizAnswer,
             setView, openChapter, openChapterById, closeReader, formatText, handleScroll,
-            adjustFontSize: () => settings.value.fontSize = settings.value.fontSize >= 24 ? 16 : settings.value.fontSize + 2,
-            toggleDarkMode: () => settings.value.darkMode = !settings.value.darkMode,
+            
+            // Du composable useSettings
+            darkMode, fontSize, langue,
+            toggleDarkMode, adjustFontSize, setLangue,
+
             toggleStory: (id) => activeStoryId.value = activeStoryId.value === id ? null : id,
             toggleTasbih: () => showTasbih.value = !showTasbih.value,
             incrementTasbih, 
@@ -418,7 +422,7 @@ const app = createApp({
             openScholarFiche, 
             silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul, extensionsList, navBtnClass,
             
-            // From useFavorites composable
+            // Du composable useFavorites
             viewFilter,
             toggleFavorite,
             isFavorite,
