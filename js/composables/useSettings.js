@@ -1,6 +1,3 @@
-// Fichier: js/composables/useSettings.js
-const { computed } = Vue;
-
 /**
  * Gère la logique des paramètres d'affichage (thème, taille de police, langue).
  * @param {import('vue').Ref<object>} settingsRef - Le ref contenant l'objet de paramètres global de l'application.
@@ -8,10 +5,10 @@ const { computed } = Vue;
  */
 function useSettings(settingsRef) {
     // --- COMPUTED PROPS (Lecture seule) ---
-    const darkMode = computed(() => settingsRef.value.darkMode);
-    const fontSize = computed(() => settingsRef.value.fontSize);
+    const darkMode = Vue.computed(() => settingsRef.value.darkMode);
+    const fontSize = Vue.computed(() => settingsRef.value.fontSize);
     // Ajout de la langue comme demandé, avec une valeur par défaut.
-    const langue = computed(() => settingsRef.value.langue || 'fr');
+    const langue = Vue.computed(() => settingsRef.value.langue || 'fr');
 
     // --- ACTIONS ---
     const toggleDarkMode = () => {

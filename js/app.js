@@ -1,5 +1,5 @@
 // Fichier: js/app.js
-const { createApp, ref, onMounted, onUnmounted, watch } = Vue;
+const { createApp, ref, computed, onMounted, onUnmounted, watch } = Vue;
 
 const app = createApp({
     components: {
@@ -414,3 +414,5 @@ const app = createApp({
             isFavorite,
             toggleFilterFavorite
         };
+    }
+}).mount('#app');

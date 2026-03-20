@@ -7,10 +7,9 @@
  * @returns {object} - Un objet contenant l'état et les fonctions liés aux favoris.
  */
 function useFavorites(settings) {
-    const { ref, computed } = Vue;
 
     // Le filtre pour la vue (afficher tout ou juste les favoris)
-    const viewFilter = ref('all'); // 'all' ou 'favorites'
+    const viewFilter = Vue.ref('all'); // 'all' ou 'favorites'
 
     /**
      * Vérifie si un chapitre est dans les favoris.

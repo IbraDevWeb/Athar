@@ -36,7 +36,7 @@ const TasbihView = {
                 </svg>
 
                 <div @click="increment" id="tasbih-button"
-                     class="w-full h-full rounded-full flex flex-col items-center justify-center cursor-pointer select-none active:scale-95 transition-transform bg-white dark:bg-brand-dark-lighter shadow-lg hover:shadow-xl">
+                     class="relative z-10 w-full h-full rounded-full flex flex-col items-center justify-center cursor-pointer select-none active:scale-95 transition-transform bg-white dark:bg-brand-dark-lighter shadow-lg hover:shadow-xl">
                     <span class="font-display text-7xl md:text-8xl font-bold text-brand-dark dark:text-white tabular-nums tracking-tighter leading-none">
                         {{ count }}
                     </span>
@@ -70,10 +70,9 @@ const TasbihView = {
     `,
     emits: ['close-view'],
     setup() {
-        const { ref, reactive, computed, onMounted, watch } = Vue;
 
         const circumference = 45 * 2 * Math.PI;
-        const dhikrOptions = reactive([
+        const dhikrOptions = Vue.reactive([
             { name: 'Tasbih', arabic: 'سُبْحَانَ ٱللَّٰهِ', count: 0 },
             { name: 'Tahmid', arabic: 'ٱلْحَمْدُ لِلَّٰهِ', count: 0 },
             { name: 'Takbir', arabic: 'ٱللَّٰهُ أَكْبَرُ', count: 0 },
@@ -81,14 +80,14 @@ const TasbihView = {
             { name: 'Tahlil', arabic: 'لَا إِلَٰهَ إِلَّا ٱللَّٰهُ', count: 0 }
         ]);
         const goals = [33, 99, 100];
-        let currentGoalIndex = ref(0);
+        let currentGoalIndex = Vue.ref(0);
 
-        const selectedDhikr = ref(dhikrOptions[0]);
-        const count = ref(0);
-        const goal = ref(goals[currentGoalIndex.value]);
-        const cycles = ref(0);
+        const selectedDhikr = Vue.ref(dhikrOptions[0]);
+        const count = Vue.ref(0);
+        const goal = Vue.ref(goals[currentGoalIndex.value]);
+        const cycles = Vue.ref(0);
 
-        const progressOffset = computed(() => {
+        const progressOffset = Vue.computed(() => {
             return circumference - (count.value / goal.value) * circumference;
         });
 
@@ -143,7 +142,7 @@ const TasbihView = {
             localStorage.setItem('athar_tasbih_data', JSON.stringify(dataToSave));
         };
 
-        onMounted(() => {
+        Vue.onMounted(() => {
             const savedData = JSON.parse(localStorage.getItem('athar_tasbih_data'));
             if (savedData) {
                 savedData.dhikrCounts.forEach(savedDhikr => {
@@ -161,13 +160,13 @@ const TasbihView = {
             cycles.value = Math.floor(selectedDhikr.value.totalCount / goal.value);
         });
         
-        watch([count, cycles], () => {
+        Vue.watch([count, cycles], () => {
             selectedDhikr.value.count = count.value;
             selectedDhikr.value.totalCount = (cycles.value * goal.value) + count.value;
             saveData();
         });
         
-        watch(goal, () => {
+        Vue.watch(goal, () => {
              // Recalculer les cycles et le compteur quand l'objectif change
             cycles.value = Math.floor(selectedDhikr.value.totalCount / goal.value);
             count.value = selectedDhikr.value.totalCount % goal.value;
