@@ -39,3 +39,6 @@ jobs:
 
       - name: Validate Transmission data
         run: node scripts/validate-transmission.js
+
+      - name: Validate Atlas data
+        run: node scripts/validate-atlas.js
