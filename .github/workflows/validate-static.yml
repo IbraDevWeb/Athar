@@ -1,0 +1,41 @@
+name: Validate static application
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Reject unresolved merge conflicts
+        shell: bash
+        run: |
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' . \
+            --exclude-dir=.git \
+            --exclude='*.md'; then
+            echo 'Unresolved Git conflict marker found.'
+            exit 1
+          fi
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          find . -type f -name '*.js' -not -path './.git/*' -print0 \
+            | xargs -0 -n1 node --check
+
+      - name: Validate Transmission data
+        run: node scripts/validate-transmission.js
