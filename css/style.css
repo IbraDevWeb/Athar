@@ -147,3 +147,514 @@ input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cur
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
+/* --- ACCUEIL — version harmonisée avec la sidebar --- */
+.ap-home {
+    background:
+        radial-gradient(circle at 12% 0%, rgba(197,160,89,0.08), transparent 28rem),
+        transparent;
+}
+.ap-home-wrap {
+    isolation: isolate;
+}
+.ap-home-card {
+    border: 1px solid rgba(197, 160, 89, 0.12);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 14px 38px -34px rgba(26, 28, 35, 0.45), inset 0 1px 0 rgba(255,255,255,0.75);
+    backdrop-filter: blur(14px);
+}
+.dark .ap-home-card {
+    background: rgba(26, 28, 35, 0.72);
+    border-color: rgba(197, 160, 89, 0.13);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.045);
+}
+.ap-home-top-action,
+.ap-home-secondary-btn {
+    color: #9a7b3b;
+    border: 1px solid rgba(197, 160, 89, 0.18);
+    background: rgba(255,255,255,0.70);
+    box-shadow: 0 8px 20px -18px rgba(26, 28, 35, 0.5);
+}
+.ap-home-top-action:hover,
+.ap-home-secondary-btn:hover {
+    border-color: rgba(197,160,89,0.35);
+    background: #ffffff;
+    color: #1a1c23;
+}
+.dark .ap-home-top-action,
+.dark .ap-home-secondary-btn {
+    color: #e6c88a;
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(230,200,138,0.14);
+}
+.dark .ap-home-top-action:hover,
+.dark .ap-home-secondary-btn:hover {
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+}
+.ap-home-hero {
+    position: relative;
+    overflow: hidden;
+}
+.ap-home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.42), transparent 55%),
+        radial-gradient(circle at 86% 18%, rgba(197,160,89,0.09), transparent 20rem);
+    opacity: 0.9;
+}
+.dark .ap-home-hero::before {
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.035), transparent 55%),
+        radial-gradient(circle at 86% 18%, rgba(230,200,138,0.06), transparent 20rem);
+}
+.ap-home-hero > * {
+    position: relative;
+    z-index: 1;
+}
+.ap-home-seal {
+    width: 3.15rem;
+    height: 3.15rem;
+    border-radius: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Amiri', serif;
+    font-size: 1.65rem;
+    line-height: 1;
+    color: #c5a059;
+    background: #1a1c23;
+    border: 1px solid rgba(197,160,89,0.32);
+    box-shadow: 0 14px 30px -22px rgba(0,0,0,0.65);
+}
+.dark .ap-home-seal {
+    color: #1a1c23;
+    background: #c5a059;
+}
+.ap-home-mini-stat {
+    border: 1px solid rgba(197,160,89,0.10);
+    background: rgba(249,247,242,0.58);
+}
+.dark .ap-home-mini-stat {
+    border-color: rgba(230,200,138,0.11);
+    background: rgba(255,255,255,0.035);
+}
+.ap-home-mini-stat span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #1a1c23;
+}
+.dark .ap-home-mini-stat span { color: #fff; }
+.ap-home-mini-stat small {
+    display: block;
+    margin-top: 0.4rem;
+    color: #8a857a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+.dark .ap-home-mini-stat small { color: #a8a8a8; }
+.ap-home-arabic {
+    font-size: clamp(1.45rem, 2.1vw, 2rem);
+    letter-spacing: 0.02em;
+    line-height: 1.7 !important;
+}
+.ap-home-title {
+    font-size: clamp(2.55rem, 4.8vw, 4.95rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    max-width: 790px;
+}
+.ap-home-title span {
+    color: #b9903f;
+}
+.dark .ap-home-title span {
+    color: #e6c88a;
+}
+.ap-home-lead {
+    font-size: clamp(0.98rem, 1.16vw, 1.12rem);
+    line-height: 1.85;
+}
+.ap-home-primary-btn {
+    color: #c5a059;
+    background: #1a1c23;
+    box-shadow: 0 18px 36px -25px rgba(26,28,35,0.72);
+}
+.ap-home-primary-btn:hover {
+    transform: translateY(-1px);
+    color: #e6c88a;
+    box-shadow: 0 22px 40px -25px rgba(26,28,35,0.82);
+}
+.dark .ap-home-primary-btn {
+    background: #ffffff;
+    color: #1a1c23;
+}
+.dark .ap-home-primary-btn:hover {
+    color: #9a7331;
+}
+.ap-home-inline-card {
+    border: 1px solid rgba(197,160,89,0.10);
+    background: rgba(255,255,255,0.54);
+    transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+.ap-home-inline-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(197,160,89,0.28);
+    background: rgba(255,255,255,0.82);
+}
+.dark .ap-home-inline-card {
+    border-color: rgba(230,200,138,0.10);
+    background: rgba(255,255,255,0.035);
+}
+.dark .ap-home-inline-card:hover {
+    border-color: rgba(230,200,138,0.22);
+    background: rgba(255,255,255,0.055);
+}
+.ap-home-inline-card span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: #b9903f;
+    margin-bottom: 0.55rem;
+}
+.ap-home-inline-card strong {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #1a1c23;
+}
+.dark .ap-home-inline-card strong { color: #fff; }
+.ap-home-inline-card small {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: 'Inter', sans-serif;
+    color: #777b86;
+    font-size: 0.76rem;
+}
+.dark .ap-home-inline-card small { color: #a1a1aa; }
+.ap-home-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9a7b3b;
+}
+.dark .ap-home-eyebrow { color: #e6c88a; }
+.ap-home-icon-btn {
+    width: 2.55rem;
+    height: 2.55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #9a7b3b;
+    border: 1px solid rgba(197,160,89,0.18);
+    background: rgba(255,255,255,0.55);
+    border-radius: 0.9rem;
+    transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+.ap-home-icon-btn:hover {
+    transform: rotate(12deg);
+    border-color: rgba(197,160,89,0.35);
+    background: #fff;
+}
+.dark .ap-home-icon-btn {
+    color: #e6c88a;
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(230,200,138,0.13);
+}
+.ap-home-quote {
+    border: 1px solid rgba(197,160,89,0.11);
+    background: rgba(249,247,242,0.50);
+}
+.ap-home-quote:hover {
+    border-color: rgba(197,160,89,0.28);
+    background: rgba(255,255,255,0.78);
+}
+.dark .ap-home-quote {
+    border-color: rgba(230,200,138,0.10);
+    background: rgba(255,255,255,0.035);
+}
+.dark .ap-home-quote:hover {
+    border-color: rgba(230,200,138,0.22);
+    background: rgba(255,255,255,0.055);
+}
+.ap-home-source {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a7b3b;
+}
+.dark .ap-home-source { color: #e6c88a; }
+.ap-home-read-chip {
+    border: 1px solid rgba(197,160,89,0.18);
+    color: #9a7b3b;
+    border-radius: 999px;
+    padding: 0.42rem 0.64rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.42);
+}
+.dark .ap-home-read-chip {
+    color: #e6c88a;
+    border-color: rgba(230,200,138,0.16);
+    background: rgba(255,255,255,0.035);
+}
+.ap-home-progress {
+    height: 3px;
+    background: rgba(197,160,89,0.12);
+}
+.ap-home-progress > div {
+    height: 100%;
+    background: #c5a059;
+    transition: width .1s linear;
+}
+.ap-home-nav-card {
+    min-height: 178px;
+}
+.ap-home-nav-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(197,160,89,0.30);
+    background: rgba(255,255,255,0.86);
+}
+.dark .ap-home-nav-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(230,200,138,0.22);
+}
+.ap-home-nav-icon {
+    width: 2.45rem;
+    height: 2.45rem;
+    border-radius: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #7b8190;
+    background: rgba(249,247,242,0.66);
+    border: 1px solid rgba(197,160,89,0.10);
+    transition: all .22s ease;
+}
+.ap-home-nav-card:hover .ap-home-nav-icon {
+    color: #c5a059;
+    background: #1a1c23;
+    border-color: #1a1c23;
+}
+.dark .ap-home-nav-icon {
+    color: #a8a8a8;
+    background: rgba(255,255,255,0.035);
+    border-color: rgba(230,200,138,0.10);
+}
+.dark .ap-home-nav-card:hover .ap-home-nav-icon {
+    color: #1a1c23;
+    background: #e6c88a;
+    border-color: #e6c88a;
+}
+.ap-home-tool {
+    border: 1px solid rgba(197,160,89,0.10);
+    background: rgba(249,247,242,0.50);
+    color: #6b7280;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+.ap-home-tool:hover {
+    color: #c5a059;
+    border-color: rgba(197,160,89,0.28);
+    background: #1a1c23;
+}
+.dark .ap-home-tool {
+    color: #a1a1aa;
+    border-color: rgba(230,200,138,0.10);
+    background: rgba(255,255,255,0.035);
+}
+.dark .ap-home-tool:hover {
+    color: #1a1c23;
+    border-color: #e6c88a;
+    background: #e6c88a;
+}
+.ap-home-tool span {
+    display: block;
+}
+@media (max-width: 1279px) {
+    .ap-home-wisdom {
+        min-height: 360px;
+    }
+}
+@media (max-width: 767px) {
+    .ap-home-title {
+        font-size: clamp(2.35rem, 13vw, 3.8rem);
+    }
+    .ap-home-card {
+        border-radius: 1.25rem !important;
+    }
+    .ap-home-hero,
+    .ap-home-wisdom {
+        min-height: auto;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .ap-home-primary-btn,
+    .ap-home-secondary-btn,
+    .ap-home-nav-card,
+    .ap-home-inline-card,
+    .ap-home-tool,
+    .ap-home-icon-btn {
+        transition: none !important;
+    }
+}
+
+
+/* --- MODE SOMBRE TRUE BLACK ---
+   Objectif : supprimer le gris bleuté du thème sombre et conserver
+   uniquement du noir profond avec des surfaces très discrètes. */
+html.dark,
+html.dark body,
+html.dark #app,
+html.dark main {
+    background-color: #000000 !important;
+}
+
+/* Le fond papier/grain reste en clair, mais il est retiré en sombre
+   pour obtenir un noir vraiment net. */
+html.dark .bg-grain,
+html.dark.bg-grain,
+html.dark body.bg-grain {
+    background-image: none !important;
+}
+
+.dark #app-loader,
+.dark #map {
+    background-color: #000000 !important;
+}
+
+.dark header {
+    background-color: rgba(0, 0, 0, 0.92) !important;
+    border-color: rgba(197, 160, 89, 0.13) !important;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) !important;
+}
+
+.dark aside {
+    background-color: rgba(0, 0, 0, 0.88) !important;
+    border-color: rgba(197, 160, 89, 0.12) !important;
+    box-shadow: 4px 0 26px -18px rgba(0,0,0,0.9) !important;
+}
+
+/* Normalisation des surfaces Tailwind utilisées dans plusieurs vues. */
+.dark .dark\:bg-brand-dark,
+.dark .dark\:bg-gray-900 {
+    background-color: #000000 !important;
+}
+.dark .dark\:bg-brand-dark-lighter,
+.dark .dark\:bg-gray-800 {
+    background-color: #070707 !important;
+}
+.dark .dark\:bg-brand-dark-accent,
+.dark .dark\:bg-gray-700 {
+    background-color: #111111 !important;
+}
+.dark .dark\:border-gray-700,
+.dark .dark\:border-gray-800 {
+    border-color: rgba(255,255,255,0.075) !important;
+}
+
+/* Dans l'ancien thème, certains boutons actifs devenaient blancs en dark mode.
+   Ici ils restent noirs/or pour ne pas casser le mode sombre complet. */
+.dark aside button.dark\:bg-white,
+.dark [class*="dark:bg-white"].ap-home-primary-btn {
+    background-color: #050505 !important;
+    color: #c5a059 !important;
+    border: 1px solid rgba(197,160,89,0.22) !important;
+}
+.dark aside button.dark\:text-brand-dark {
+    color: #c5a059 !important;
+}
+.dark aside button.dark\:bg-white:hover,
+.dark [class*="dark:bg-white"].ap-home-primary-btn:hover {
+    background-color: #0b0b0b !important;
+    color: #e6c88a !important;
+}
+
+/* Accueil : mêmes proportions, mais rendu noir profond. */
+.dark .ap-home {
+    background: radial-gradient(circle at 12% 0%, rgba(197,160,89,0.055), transparent 28rem), #000000 !important;
+}
+.dark .ap-home-card {
+    background: rgba(3, 3, 3, 0.82) !important;
+    border-color: rgba(197,160,89,0.14) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.035), 0 18px 48px -42px rgba(0,0,0,1) !important;
+}
+.dark .ap-home-hero::before {
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.025), transparent 58%),
+        radial-gradient(circle at 86% 18%, rgba(197,160,89,0.05), transparent 20rem) !important;
+}
+.dark .ap-home-top-action,
+.dark .ap-home-secondary-btn,
+.dark .ap-home-icon-btn,
+.dark .ap-home-inline-card,
+.dark .ap-home-quote,
+.dark .ap-home-read-chip,
+.dark .ap-home-nav-icon,
+.dark .ap-home-tool,
+.dark .ap-home-mini-stat {
+    background-color: rgba(255,255,255,0.032) !important;
+    border-color: rgba(197,160,89,0.12) !important;
+}
+.dark .ap-home-top-action:hover,
+.dark .ap-home-secondary-btn:hover,
+.dark .ap-home-icon-btn:hover,
+.dark .ap-home-inline-card:hover,
+.dark .ap-home-quote:hover,
+.dark .ap-home-nav-card:hover {
+    background-color: rgba(255,255,255,0.055) !important;
+    border-color: rgba(197,160,89,0.24) !important;
+}
+.dark .ap-home-primary-btn {
+    background-color: #050505 !important;
+    color: #c5a059 !important;
+    border: 1px solid rgba(197,160,89,0.22) !important;
+    box-shadow: 0 14px 32px -24px rgba(0,0,0,1) !important;
+}
+.dark .ap-home-primary-btn:hover {
+    background-color: #0b0b0b !important;
+    color: #e6c88a !important;
+}
+.dark .ap-home-nav-card:hover .ap-home-nav-icon,
+.dark .ap-home-tool:hover {
+    color: #000000 !important;
+    background-color: #c5a059 !important;
+    border-color: #c5a059 !important;
+}
+
+/* Divers composants globaux. */
+.dark ::-webkit-scrollbar-thumb {
+    background: #242424 !important;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #c5a059 !important;
+}
+.dark input[type=range]::-webkit-slider-runnable-track {
+    background: #171717 !important;
+}
+.dark .marker-cluster div {
+    background-color: #c5a059 !important;
+    color: #000000 !important;
+}
+.dark #tooltip {
+    background-color: rgba(0,0,0,0.96) !important;
+}

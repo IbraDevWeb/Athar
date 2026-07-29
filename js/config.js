@@ -6,9 +6,9 @@ tailwind.config = {
                 brand: { 
                     gold: '#c5a059', 
                     'gold-light': '#e6c88a',
-                    dark: '#1a1c23', 
-                    'dark-lighter': '#252830', 
-                    'dark-accent': '#2d313a',
+                    dark: '#000000', 
+                    'dark-lighter': '#070707', 
+                    'dark-accent': '#111111',
                     paper: '#f9f7f2', 
                     'paper-dark': '#f0ede6',
                     dim: 'rgba(0,0,0,0.5)'

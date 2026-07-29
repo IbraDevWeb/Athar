@@ -19,11 +19,16 @@ const AtlasView = {
         const showPanel = ref(false);
         const selectedLoc = ref(null);
         const storyProgress = ref("");
+        const imageHasError = ref(false);
 
         // Config Cartes
         const mapConfig = {
             lightTiles: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
             darkTiles: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        };
+
+        const onImageError = () => {
+            imageHasError.value = true;
         };
 
         // Création des icônes
@@ -150,11 +155,14 @@ const AtlasView = {
 
         // Lifecycle
         watch(() => props.settings.darkMode, (isDark) => { if (tileLayer) tileLayer.setUrl(isDark ? mapConfig.darkTiles : mapConfig.lightTiles); });
+        watch(selectedLoc, () => {
+            imageHasError.value = false;
+        });
         
         onMounted(() => setTimeout(initMap, 100));
         onUnmounted(() => { if (map) { map.remove(); map = null; } });
 
-        return { state, setFilter, handleSearch, handleTimeline, showPanel, selectedLoc, openDetails, closeDetails, startStoryMode, stopStoryMode, storyNext, storyPrev, storyProgress };
+        return { state, setFilter, handleSearch, handleTimeline, showPanel, selectedLoc, openDetails, closeDetails, startStoryMode, stopStoryMode, storyNext, storyPrev, storyProgress, onImageError, imageHasError };
     },
     template: `
     <div class="relative w-full h-full overflow-hidden flex flex-col">
@@ -175,7 +183,10 @@ const AtlasView = {
         <transition name="slide-up">
             <aside v-if="showPanel && selectedLoc" class="absolute top-20 left-4 bottom-24 md:bottom-8 z-[500] w-96 max-w-[90%] bg-white/95 dark:bg-brand-dark/95 backdrop-blur-lg shadow-2xl rounded-3xl border border-brand-gold/20 flex flex-col overflow-hidden">
                 <div class="h-40 relative shrink-0 bg-gray-200">
-                    <img :src="selectedLoc.image" class="w-full h-full object-cover">
+                    <img v-if="!imageHasError" :src="selectedLoc.image" @error="onImageError" class="w-full h-full object-cover">
+                    <div v-else class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-700 text-white p-4">
+                        <i class="fa-solid fa-mosque text-3xl text-white/30"></i>
+                    </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     <button @click="closeDetails" class="absolute top-3 right-3 w-8 h-8 bg-black/40 hover:bg-red-500 rounded-full flex items-center justify-center text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
                     <div class="absolute bottom-4 left-6 text-white">
