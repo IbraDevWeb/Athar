@@ -1,11 +1,14 @@
-const CACHE_VERSION = 'athar-pro-v2';
+const CACHE_VERSION = 'athar-pro-v3';
 const APP_SHELL = [
     './',
     './index.html',
     './manifest.json',
     './css/style.css',
+    './css/transmission.css',
     './js/config.js',
-    './js/app.js'
+    './js/app.js',
+    './js/components/TransmissionView.js',
+    './transmission_data.js'
 ];
 
 self.addEventListener('install', (event) => {
