@@ -1,16 +1,23 @@
 {
-  "name": "Athar Pro",
+  "id": "./",
+  "name": "Athar Pro — Bibliothèque numérique",
   "short_name": "Athar",
+  "description": "Biographies documentées, hadiths référencés et outils d'étude de l'histoire islamique.",
+  "lang": "fr",
+  "dir": "ltr",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#1a1c23",
   "theme_color": "#c5a059",
-  "orientation": "portrait-primary",
+  "orientation": "any",
+  "categories": ["education", "books", "reference"],
   "icons": [
     {
       "src": "icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
