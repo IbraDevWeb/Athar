@@ -1,14 +1,14 @@
-const CACHE_VERSION = 'athar-pro-v3';
+const CACHE_VERSION = 'athar-pro-v4';
 const APP_SHELL = [
     './',
     './index.html',
     './manifest.json',
     './css/style.css',
-    './css/transmission.css',
+    './css/transmission.css?v=athar-pro-v4',
     './js/config.js',
     './js/app.js',
-    './js/components/TransmissionView.js',
-    './transmission_data.js'
+    './js/components/TransmissionView.js?v=athar-pro-v4',
+    './transmission_data.js?v=athar-pro-v4'
 ];
 
 self.addEventListener('install', (event) => {
@@ -43,7 +43,7 @@ self.addEventListener('fetch', (event) => {
 
     if (isPage || isCodeAsset) {
         event.respondWith(
-            fetch(request)
+            fetch(request, { cache: 'no-store' })
                 .then((response) => {
                     if (response.ok) {
                         const copy = response.clone();
