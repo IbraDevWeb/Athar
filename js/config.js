@@ -3,31 +3,31 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                brand: { 
-                    gold: '#c5a059', 
+                brand: {
+                    gold: '#c5a059',
                     'gold-light': '#e6c88a',
-                    dark: '#000000', 
-                    'dark-lighter': '#070707', 
+                    dark: '#000000',
+                    'dark-lighter': '#070707',
                     'dark-accent': '#111111',
-                    paper: '#f9f7f2', 
+                    paper: '#f9f7f2',
                     'paper-dark': '#f0ede6',
                     dim: 'rgba(0,0,0,0.5)'
                 }
             },
             fontFamily: {
-                'serif': ['"Libre Baskerville"', 'serif'],
-                'display': ['"Cinzel"', 'serif'],
-                'arabic': ['"Amiri"', 'serif'],
-                'sans': ['"Inter"', 'sans-serif']
+                serif: ['"Libre Baskerville"', 'serif'],
+                display: ['"Cinzel"', 'serif'],
+                arabic: ['"Amiri"', 'serif'],
+                sans: ['"Inter"', 'sans-serif']
             },
             backgroundImage: {
-                'grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
-                'islamic': "url('https://www.transparenttextures.com/patterns/arabesque.png')",
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                grain: "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                islamic: "url('https://www.transparenttextures.com/patterns/arabesque.png')",
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
             },
             boxShadow: {
-                'glow': '0 0 15px rgba(197, 160, 89, 0.3)',
-                'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+                glow: '0 0 15px rgba(197, 160, 89, 0.3)',
+                card: '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
                 'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)'
             },
             animation: {
@@ -35,7 +35,7 @@ tailwind.config = {
                 'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
                 'slide-in-right': 'slideInRight 0.4s ease-out',
                 'pulse-slow': 'pulse 3s infinite',
-                'float': 'float 6s ease-in-out infinite'
+                float: 'float 6s ease-in-out infinite'
             },
             keyframes: {
                 fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
@@ -45,4 +45,27 @@ tailwind.config = {
             }
         }
     }
-}
+};
+
+(() => {
+    const setMeta = (selector, content) => {
+        const element = document.querySelector(selector);
+        if (element) element.setAttribute('content', content);
+    };
+
+    document.title = "Athar Pro — Bibliothèque numérique d'histoire islamique";
+    setMeta('meta[name="description"]', "Biographies documentées, hadiths référencés et outils d'étude de l'histoire islamique.");
+    setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque numérique d'histoire islamique");
+    setMeta('meta[property="og:description"]', "Explorez des notices historiques, des hadiths référencés et des outils d'étude, avec une méthodologie éditoriale transparente.");
+
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1');
+
+    window.addEventListener('load', () => {
+        if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+            navigator.serviceWorker.register('./service-worker.js').catch((error) => {
+                console.warn('Service worker non enregistré :', error);
+            });
+        }
+    });
+})();
