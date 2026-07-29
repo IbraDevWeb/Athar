@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c5a059">
+    <title>Méthodologie éditoriale — Athar Pro</title>
+    <meta name="description" content="Méthodologie de sélection, de référencement et de correction des contenus d'Athar Pro.">
+    <style>
+        :root { color-scheme: light dark; --gold:#a98236; --ink:#1a1c23; --paper:#f9f7f2; }
+        * { box-sizing: border-box; }
+        body { margin:0; font-family:Inter,system-ui,-apple-system,sans-serif; line-height:1.75; background:var(--paper); color:var(--ink); }
+        main { width:min(860px,calc(100% - 32px)); margin:40px auto 80px; }
+        header { padding:40px; border:1px solid rgba(169,130,54,.25); border-radius:24px; background:#fff; box-shadow:0 18px 50px rgba(26,28,35,.08); }
+        h1,h2 { font-family:Georgia,serif; line-height:1.2; }
+        h1 { margin:0 0 12px; font-size:clamp(2rem,6vw,3.5rem); }
+        h2 { margin-top:42px; font-size:1.5rem; }
+        a { color:var(--gold); font-weight:700; }
+        .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; font-weight:800; }
+        .note { padding:18px 20px; border-left:4px solid var(--gold); background:rgba(169,130,54,.08); border-radius:0 12px 12px 0; }
+        dl { display:grid; gap:14px; }
+        dt { font-weight:800; }
+        dd { margin:3px 0 0; color:#4b5563; }
+        footer { margin-top:48px; padding-top:24px; border-top:1px solid rgba(26,28,35,.12); font-size:.9rem; color:#6b7280; }
+        @media (prefers-color-scheme:dark) {
+            body { background:#1a1c23; color:#e5e7eb; }
+            header { background:#252830; }
+            dd, footer { color:#9ca3af; }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <div class="eyebrow">Athar Pro</div>
+        <h1>Méthodologie éditoriale</h1>
+        <p>Cette page explique comment lire les contenus, ce que signifient les références affichées et comment les corrections doivent être apportées.</p>
+        <a href="index.html">← Retour à l'application</a>
+    </header>
+
+    <h2>1. Portée du projet</h2>
+    <p>Athar Pro est un outil pédagogique et documentaire. Il ne remplace ni l'étude directe des ouvrages, ni l'avis d'un enseignant qualifié, ni une consultation religieuse, médicale ou juridique adaptée à une situation personnelle.</p>
+
+    <h2>2. Référence ne signifie pas certification</h2>
+    <div class="note">La présence d'une source principale indique l'ouvrage utilisé pour construire une notice. Elle ne garantit pas que chaque phrase, date ou détail soit unanimement établi.</div>
+    <p>Les chroniques et biographies anciennes peuvent rapporter plusieurs versions. Lorsqu'une attribution est discutée, le contenu doit employer des formulations prudentes telles que « selon certains récits », « il est rapporté » ou « les sources divergent ».</p>
+
+    <h2 id="hadiths">3. Hadiths et degrés</h2>
+    <p>Le degré affiché doit être compris comme celui fourni par la donnée source pour la transmission citée. Il ne s'étend pas automatiquement aux commentaires, aux traductions ou aux conclusions ajoutées autour du texte.</p>
+    <dl>
+        <div><dt>Référence</dt><dd>Recueil et numéro lorsqu'ils sont disponibles.</dd></div>
+        <div><dt>Attribution</dt><dd>Compagnon rapporteur et source de transmission indiqués dans la donnée.</dd></div>
+        <div><dt>Degré</dt><dd>Qualification affichée par la source utilisée ; les divergences entre spécialistes doivent être mentionnées lorsqu'elles sont connues.</dd></div>
+    </dl>
+
+    <h2>4. Hiérarchie de confiance</h2>
+    <p>Les contenus doivent privilégier les textes primaires identifiables, puis les éditions critiques et travaux académiques reconnus. Les récits populaires, citations sans référence précise et formulations sensationnalistes doivent être supprimés ou clairement signalés.</p>
+
+    <h2>5. Corrections</h2>
+    <p>Toute correction doit préciser le passage concerné, la référence exacte et la nature du problème : erreur factuelle, divergence non signalée, traduction imprécise, anachronisme ou formulation trop affirmative.</p>
+
+    <h2>6. Principe de rédaction</h2>
+    <p>Le texte distingue autant que possible les faits solidement établis, les opinions savantes, les récits historiographiques et les éléments incertains. Le ton doit rester respectueux, sobre et exempt de promesses de certification non démontrées.</p>
+
+    <footer>Version éditoriale du 29 juillet 2026. Cette méthodologie a vocation à évoluer avec l'ajout de références plus précises.</footer>
+</main>
+</body>
+</html>
