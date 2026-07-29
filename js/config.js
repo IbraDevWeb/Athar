@@ -48,9 +48,20 @@ tailwind.config = {
 };
 
 (() => {
+    const APP_VERSION = 'athar-pro-v4';
+
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
         if (element) element.setAttribute('content', content);
+    };
+
+    const ensureStylesheet = (href, id) => {
+        if (document.getElementById(id)) return;
+        const link = document.createElement('link');
+        link.id = id;
+        link.rel = 'stylesheet';
+        link.href = href;
+        document.head.appendChild(link);
     };
 
     document.title = "Athar Pro — Bibliothèque numérique d'histoire islamique";
@@ -61,11 +72,26 @@ tailwind.config = {
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1');
 
-    window.addEventListener('load', () => {
-        if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-            navigator.serviceWorker.register('./service-worker.js').catch((error) => {
-                console.warn('Service worker non enregistré :', error);
-            });
+    ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
+
+    window.addEventListener('load', async () => {
+        if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
+
+        try {
+            const previousVersion = localStorage.getItem('athar_app_version');
+            if (previousVersion !== APP_VERSION) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                await Promise.all(registrations.map((registration) => registration.unregister()));
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(cacheNames.filter((name) => name.startsWith('athar-pro-')).map((name) => caches.delete(name)));
+                }
+                localStorage.setItem('athar_app_version', APP_VERSION);
+            }
+
+            await navigator.serviceWorker.register(`./service-worker.js?v=${APP_VERSION}`);
+        } catch (error) {
+            console.warn('Mise à jour du cache non terminée :', error);
         }
     });
 })();
