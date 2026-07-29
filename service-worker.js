@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'athar-pro-v1';
+const CACHE_VERSION = 'athar-pro-v2';
 const APP_SHELL = [
     './',
     './index.html',
@@ -19,7 +19,11 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys()
-            .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_VERSION).map((key) => caches.delete(key))))
+            .then((keys) => Promise.all(
+                keys
+                    .filter((key) => key.startsWith('athar-pro-') && key !== CACHE_VERSION)
+                    .map((key) => caches.delete(key))
+            ))
             .then(() => self.clients.claim())
     );
 });
@@ -31,22 +35,12 @@ self.addEventListener('fetch', (event) => {
     const url = new URL(request.url);
     if (url.origin !== self.location.origin) return;
 
-    if (request.mode === 'navigate') {
+    const isPage = request.mode === 'navigate';
+    const isCodeAsset = /\.(?:js|css)$/.test(url.pathname);
+
+    if (isPage || isCodeAsset) {
         event.respondWith(
             fetch(request)
-                .then((response) => {
-                    const copy = response.clone();
-                    caches.open(CACHE_VERSION).then((cache) => cache.put('./index.html', copy));
-                    return response;
-                })
-                .catch(() => caches.match('./index.html'))
-        );
-        return;
-    }
-
-    event.respondWith(
-        caches.match(request).then((cached) => {
-            const network = fetch(request)
                 .then((response) => {
                     if (response.ok) {
                         const copy = response.clone();
@@ -54,8 +48,18 @@ self.addEventListener('fetch', (event) => {
                     }
                     return response;
                 })
-                .catch(() => cached);
-            return cached || network;
-        })
+                .catch(() => caches.match(request).then((cached) => cached || caches.match('./index.html')))
+        );
+        return;
+    }
+
+    event.respondWith(
+        caches.match(request).then((cached) => cached || fetch(request).then((response) => {
+            if (response.ok) {
+                const copy = response.clone();
+                caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
+            }
+            return response;
+        }))
     );
 });
