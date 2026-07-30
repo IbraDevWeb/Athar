@@ -2,6 +2,7 @@
 (() => {
     const ROOT_CLASS = 'athar-app-fullscreen';
     const STORAGE_KEY = 'athar_immersive_last_view';
+    const SAFE_MODE = new URLSearchParams(window.location.search).get('immersive') === 'off';
     const NAV_GROUPS = [
         {
             label: 'Essentiel',
@@ -43,6 +44,7 @@
     let drawer = null;
     let backdrop = null;
     let currentView = localStorage.getItem(STORAGE_KEY) || 'home';
+    let retryTimer = null;
 
     const refreshIcons = () => setTimeout(() => window.lucide?.createIcons(), 20);
     const isActive = () => Boolean(document.fullscreenElement) || fallbackActive;
@@ -51,13 +53,14 @@
 
     const markLayout = () => {
         const app = document.getElementById('app');
-        if (!app) return;
+        if (!app) return false;
         const header = app.querySelector(':scope > header');
         const frame = header?.nextElementSibling;
         const sidebar = frame?.querySelector(':scope > aside');
         header?.classList.add('athar-global-header');
         frame?.classList.add('athar-global-mainframe');
         sidebar?.classList.add('athar-global-sidebar');
+        return Boolean(header && frame);
     };
 
     const setCurrentView = (view, label) => {
@@ -65,7 +68,7 @@
         localStorage.setItem(STORAGE_KEY, currentView);
         const item = allItems.find(entry => entry.view === currentView);
         const title = label || item?.label || 'Athar Pro';
-        if (currentBadge) currentBadge.querySelector('span').textContent = title;
+        currentBadge?.querySelector('span') && (currentBadge.querySelector('span').textContent = title);
         drawer?.querySelectorAll('[data-athar-view]').forEach(node => {
             const active = node.dataset.atharView === currentView;
             node.classList.toggle('is-active', active);
@@ -82,6 +85,7 @@
 
     const openDrawer = () => {
         if (!isActive()) return;
+        syncCurrentFromApp();
         drawer?.classList.add('is-open');
         backdrop?.classList.add('is-open');
         menuButton?.setAttribute('aria-expanded', 'true');
@@ -100,24 +104,25 @@
 
     const navigate = (view, label) => {
         closeDrawer();
-        setCurrentView(view, label);
         const target = findVueNavigationButton(label);
         if (target) {
             target.click();
+            setCurrentView(view, label);
         } else {
             window.dispatchEvent(new CustomEvent('athar:navigate', { detail: { view, label, immersive: true } }));
+            setCurrentView(view, label);
         }
         setTimeout(() => {
             markLayout();
             setCurrentView(view, label);
             refreshIcons();
-        }, 80);
+        }, 100);
     };
 
     const syncCurrentFromApp = () => {
         const buttons = [...document.querySelectorAll('#app aside button')];
         const activeButton = buttons.find(node => {
-            const classes = node.className || '';
+            const classes = String(node.className || '');
             return classes.includes('bg-brand-dark') || classes.includes('bg-brand-gold') || classes.includes('dark:bg-white');
         });
         if (!activeButton) return;
@@ -136,7 +141,7 @@
         }
         [exitButton, menuButton, currentBadge].forEach(node => { if (node) node.hidden = !active; });
         if (!active) closeDrawer();
-        syncCurrentFromApp();
+        else syncCurrentFromApp();
         refreshIcons();
     };
 
@@ -168,7 +173,12 @@
     const toggle = () => isActive() ? exit() : enter();
 
     const buildDrawer = () => {
-        if (document.getElementById('athar-immersive-drawer')) return;
+        if (document.getElementById('athar-immersive-drawer')) {
+            drawer = document.getElementById('athar-immersive-drawer');
+            backdrop = document.getElementById('athar-immersive-backdrop');
+            return;
+        }
+
         backdrop = document.createElement('button');
         backdrop.id = 'athar-immersive-backdrop';
         backdrop.className = 'athar-immersive-backdrop';
@@ -193,7 +203,7 @@
                 </section>`).join('')}
             </nav>
             <div class="athar-immersive-drawer-foot"><span>Ctrl + Maj + F</span><small>Activer ou quitter</small></div>`;
-        drawer.querySelector('[data-close-drawer]').addEventListener('click', closeDrawer);
+        drawer.querySelector('[data-close-drawer]')?.addEventListener('click', closeDrawer);
         drawer.querySelectorAll('[data-athar-view]').forEach(node => {
             node.addEventListener('click', () => navigate(node.dataset.atharView, node.dataset.label));
         });
@@ -201,10 +211,12 @@
     };
 
     const inject = () => {
-        markLayout();
+        if (!markLayout()) return false;
         const header = document.querySelector('#app > header');
         const actions = header?.querySelector('.flex.items-center.gap-1, .flex.items-center.gap-3');
-        if (actions && !document.getElementById('athar-fullscreen-toggle')) {
+        if (!actions) return false;
+
+        if (!document.getElementById('athar-fullscreen-toggle')) {
             button = document.createElement('button');
             button.id = 'athar-fullscreen-toggle';
             button.type = 'button';
@@ -244,6 +256,7 @@
 
         buildDrawer();
         renderState();
+        return true;
     };
 
     document.addEventListener('fullscreenchange', () => {
@@ -268,19 +281,17 @@
         }
     });
 
-    const observer = new MutationObserver(() => {
-        if (!button?.isConnected) inject();
-        else {
-            markLayout();
-            syncCurrentFromApp();
+    const start = (attempt = 0) => {
+        if (SAFE_MODE) {
+            document.documentElement.classList.remove(ROOT_CLASS, 'athar-immersive-menu-open');
+            return;
         }
-    });
-
-    const start = () => {
-        inject();
-        observer.observe(document.getElementById('app') || document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+        if (inject()) return;
+        if (attempt < 30) retryTimer = setTimeout(() => start(attempt + 1), 100);
     };
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+
+    window.addEventListener('beforeunload', () => clearTimeout(retryTimer), { once: true });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => start(), { once: true });
     else start();
 
     window.AtharFullscreen = { toggle, enter, exit, isActive, openMenu: openDrawer, navigate };
