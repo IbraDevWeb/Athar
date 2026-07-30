@@ -1,112 +1,174 @@
 const HadithReaderView = {
     props: ['hadith', 'settings', 'closeReader', 'shareHadith', 'adjustFontSize'],
+    setup(props) {
+        const STORAGE_KEY = 'athar_hadith_v2';
+        const activeTab = Vue.ref('text');
+        const languageMode = Vue.ref('bilingual');
+        const note = Vue.ref('');
+        const state = Vue.reactive({ favorites: [], read: {}, recent: [], notes: {} });
+        const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
+        const clean = value => String(value || '').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
+        const normalize = value => String(value || '').toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
+        const collection = Vue.computed(() => {
+            const text = normalize(`${props.hadith?.id || ''} ${props.hadith?.attribution || ''}`);
+            const matches = [];
+            if (/bukhari|bukhârî/.test(text)) matches.push('Al-Bukhārī');
+            if (/muslim/.test(text)) matches.push('Muslim');
+            if (/abu daw|abû daw|abi daw/.test(text)) matches.push('Abū Dāwūd');
+            if (/tirmidhi|tirmidhî/.test(text)) matches.push('Al-Tirmidhī');
+            if (/nasa|nasâ/.test(text)) matches.push('Al-Nasāʾī');
+            if (/ibn majah|ibn mâjah/.test(text)) matches.push('Ibn Mājah');
+            if (/ahmad|aḥmad/.test(text)) matches.push('Aḥmad');
+            return matches.length > 1 ? 'Sources multiples' : (matches[0] || 'Autres recueils');
+        });
+
+        const narrator = Vue.computed(() => {
+            const intro = clean(props.hadith?.hadeeth_intro || props.hadith?.hadeeth || '');
+            const cut = intro.split(/ relate | rapporte | a relaté | رضي الله عنه| رضي الله عنها/i)[0];
+            return cut.replace(/^(d'après|selon)\s+/i, '').replace(/[,:؛]+$/g, '').trim() || 'Transmetteur non précisé';
+        });
+
+        const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
+        const isFavorite = Vue.computed(() => state.favorites.includes(uid.value));
+        const isRead = Vue.computed(() => Boolean(state.read[uid.value]));
+        const words = Vue.computed(() => clean(`${props.hadith?.hadeeth || ''} ${props.hadith?.explanation || ''}`).split(/\s+/).filter(Boolean).length);
+        const readingTime = Vue.computed(() => Math.max(2, Math.ceil(words.value / 180)));
+        const hints = Vue.computed(() => Array.isArray(props.hadith?.hints) ? props.hadith.hints.map(clean).filter(Boolean) : []);
+        const hintsAr = Vue.computed(() => Array.isArray(props.hadith?.hints_ar) ? props.hadith.hints_ar.map(clean).filter(Boolean) : []);
+        const wordMeanings = Vue.computed(() => Array.isArray(props.hadith?.words_meanings_ar) ? props.hadith.words_meanings_ar : []);
+        const studyQuestions = Vue.computed(() => {
+            const first = hints.value[0] || 'Quel principe central ce hadith établit-il ?';
+            return [
+                `Comment reformuler avec tes propres mots l'enseignement suivant : « ${first} » ?`,
+                'Dans quelle situation concrète de ta semaine cet enseignement pourrait-il modifier une décision ou un comportement ?',
+                'Quelle distinction faut-il conserver entre le texte transmis, son degré indiqué et l’explication pédagogique proposée ?'
+            ];
+        });
+
+        const load = () => {
+            try {
+                const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+                state.favorites = Array.isArray(saved.favorites) ? saved.favorites : [];
+                state.read = saved.read && typeof saved.read === 'object' ? saved.read : {};
+                state.recent = Array.isArray(saved.recent) ? saved.recent : [];
+                state.notes = saved.notes && typeof saved.notes === 'object' ? saved.notes : {};
+                note.value = state.notes[uid.value] || '';
+            } catch (_) {}
+        };
+        const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify({ favorites: state.favorites, read: state.read, recent: state.recent, notes: state.notes }));
+        const markRead = () => {
+            state.read[uid.value] = new Date().toISOString();
+            state.recent = [uid.value, ...state.recent.filter(id => id !== uid.value)].slice(0, 30);
+            save();
+        };
+        const toggleFavorite = () => {
+            state.favorites = isFavorite.value ? state.favorites.filter(id => id !== uid.value) : [...state.favorites, uid.value];
+            save();
+        };
+        const saveNote = () => {
+            state.notes[uid.value] = note.value.trim();
+            save();
+        };
+        const copyText = async () => {
+            const text = [props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution].filter(Boolean).join('\n\n');
+            try { await navigator.clipboard.writeText(text); } catch (_) {}
+        };
+        const setTab = value => { activeTab.value = value; setTimeout(() => window.lucide?.createIcons(), 20); };
+        const formatMeaning = item => {
+            if (typeof item === 'string') return { word: item, meaning: '' };
+            return { word: item?.word || item?.term || item?.arabic || '', meaning: item?.meaning || item?.explanation || item?.translation || '' };
+        };
+        const handleKey = event => {
+            if (event.key === 'Escape') props.closeReader();
+            if (event.key.toLocaleLowerCase() === 'f' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); toggleFavorite(); }
+        };
+
+        Vue.onMounted(() => {
+            load(); markRead();
+            window.addEventListener('keydown', handleKey);
+            setTimeout(() => window.lucide?.createIcons(), 30);
+        });
+        Vue.onUnmounted(() => window.removeEventListener('keydown', handleKey));
+        Vue.watch(note, () => {
+            clearTimeout(window.__atharHadithNoteTimer);
+            window.__atharHadithNoteTimer = setTimeout(saveNote, 450);
+        });
+
+        return {
+            activeTab, languageMode, note, collection, narrator, reference, isFavorite, isRead, readingTime,
+            hints, hintsAr, wordMeanings, studyQuestions, clean, toggleFavorite, saveNote, copyText, setTab, formatMeaning
+        };
+    },
     template: `
-    <div class="min-h-full bg-brand-paper dark:bg-brand-dark relative">
-        
-        <div class="sticky top-0 z-40 bg-white/90 dark:bg-brand-dark-lighter/90 backdrop-blur-md border-b border-brand-gold/10 py-3 px-4 flex justify-between items-center md:hidden transition-all duration-300">
-            <button @click="closeReader" class="text-gray-500 dark:text-gray-400 p-2 -ml-2 active:scale-95"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
-            <span class="font-bold text-xs font-display uppercase tracking-widest text-brand-gold">Hadith</span>
-            <button @click="shareHadith" class="text-gray-500 dark:text-gray-400 p-2 -mr-2"><i data-lucide="share-2" class="w-4 h-4"></i></button>
-        </div>
+    <div class="hadith-reader-pro">
+        <header class="hadith-reader-toolbar">
+            <button @click="closeReader" class="hadith-reader-back"><i data-lucide="arrow-left"></i><span>Bibliothèque</span></button>
+            <div class="hadith-reader-toolbar-title"><span>Étude du hadith</span><b>{{ reference }}</b></div>
+            <div class="hadith-reader-actions">
+                <button @click="adjustFontSize" title="Taille du texte"><i data-lucide="type"></i></button>
+                <button @click="copyText" title="Copier"><i data-lucide="copy"></i></button>
+                <button @click="shareHadith" title="Partager"><i data-lucide="share-2"></i></button>
+                <button @click="toggleFavorite" :class="{active:isFavorite}" title="Favori"><i data-lucide="heart"></i></button>
+            </div>
+        </header>
 
-        <div class="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-16 animate-fade-in">
-            
-            <div class="hidden md:flex justify-between items-center mb-12">
-                <button @click="closeReader" class="group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand-dark dark:hover:text-white transition-colors pl-2">
-                    <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Retour
-                </button>
-                <div class="flex items-center gap-2 bg-white dark:bg-brand-dark-lighter p-1 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <button @click="adjustFontSize" class="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-brand-dark transition-colors" title="Agrandir le texte">
-                        <i data-lucide="type" class="w-4 h-4"></i>
-                    </button>
-                    <div class="w-px h-4 bg-gray-200 dark:bg-gray-700"></div>
-                    <button @click="shareHadith" class="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-brand-gold transition-colors" title="Partager">
-                        <i data-lucide="share-2" class="w-4 h-4"></i>
-                    </button>
+        <main class="hadith-reader-shell">
+            <section class="hadith-reader-hero">
+                <div class="hadith-reader-badges"><span>{{ collection }}</span><span>{{ hadith.grade || 'Degré non indiqué' }}</span><span>{{ readingTime }} min</span><span v-if="isRead"><i data-lucide="check"></i> Consulté</span></div>
+                <p class="hadith-reader-label" lang="ar" dir="rtl">حديث نبوي</p>
+                <h1>{{ hadith.title }}</h1>
+                <p class="hadith-reader-narrator"><i data-lucide="user-round"></i><span>Transmis ici par <b>{{ narrator }}</b></span></p>
+            </section>
+
+            <nav class="hadith-reader-tabs">
+                <button v-for="tab in [{id:'text',label:'Texte',icon:'languages'},{id:'explanation',label:'Explication',icon:'book-open'},{id:'lessons',label:'Enseignements',icon:'lightbulb'},{id:'source',label:'Transmission',icon:'git-branch'},{id:'study',label:'Étudier',icon:'pencil-line'}]" :key="tab.id" @click="setTab(tab.id)" :class="{active:activeTab===tab.id}"><i :data-lucide="tab.icon"></i><span>{{ tab.label }}</span></button>
+            </nav>
+
+            <section v-if="activeTab==='text'" class="hadith-reader-text-view">
+                <div class="hadith-reader-language-switch"><button @click="languageMode='bilingual'" :class="{active:languageMode==='bilingual'}">Bilingue</button><button @click="languageMode='arabic'" :class="{active:languageMode==='arabic'}">العربية</button><button @click="languageMode='french'" :class="{active:languageMode==='french'}">Français</button></div>
+                <article v-if="languageMode!=='french'" class="hadith-reader-arabic" lang="ar" dir="rtl">
+                    <p v-if="hadith.hadeeth_intro_ar" class="hadith-reader-intro-ar">{{ clean(hadith.hadeeth_intro_ar) }}</p>
+                    <blockquote :style="{fontSize:(settings.fontSize+14)+'px'}">{{ clean(hadith.hadeeth_ar) }}</blockquote>
+                </article>
+                <article v-if="languageMode!=='arabic'" class="hadith-reader-french">
+                    <span>Rendu français fourni dans la base</span>
+                    <p :style="{fontSize:settings.fontSize+'px'}">{{ clean(hadith.hadeeth) }}</p>
+                </article>
+                <div class="hadith-reader-source-line"><i data-lucide="bookmark"></i><span>{{ hadith.attribution }}</span></div>
+            </section>
+
+            <section v-else-if="activeTab==='explanation'" class="hadith-reader-explanation-view">
+                <article><header><i data-lucide="book-open-check"></i><div><span>Explication française</span><h2>Comprendre le sens général</h2></div></header><div class="hadith-reader-prose" :style="{fontSize:settings.fontSize+'px'}"><p v-for="(paragraph,index) in clean(hadith.explanation).split(/\n\n+/)" :key="index">{{ paragraph }}</p></div></article>
+                <article v-if="hadith.explanation_ar" class="hadith-reader-ar-explanation" lang="ar" dir="rtl"><header><i data-lucide="languages"></i><div><span>الشرح العربي</span><h2>شرح الحديث</h2></div></header><div class="hadith-reader-prose-ar"><p v-for="(paragraph,index) in clean(hadith.explanation_ar).split(/\n\n+/)" :key="index">{{ paragraph }}</p></div></article>
+            </section>
+
+            <section v-else-if="activeTab==='lessons'" class="hadith-reader-lessons-view">
+                <div class="hadith-reader-section-title"><span>Extraction pédagogique</span><h2>Enseignements à retenir</h2><p>Ces points synthétisent l’explication fournie avec le texte.</p></div>
+                <ol><li v-for="(hint,index) in hints" :key="index"><b>{{ String(index+1).padStart(2,'0') }}</b><p>{{ hint }}</p></li></ol>
+                <article v-if="hintsAr.length" lang="ar" dir="rtl"><h3>الفوائد المستنبطة</h3><ul><li v-for="(hint,index) in hintsAr" :key="index">{{ hint }}</li></ul></article>
+                <div v-if="!hints.length" class="hadith-reader-empty-note"><i data-lucide="info"></i><span>Aucun enseignement synthétique distinct n’est fourni pour ce texte. Consulte l’explication complète.</span></div>
+            </section>
+
+            <section v-else-if="activeTab==='source'" class="hadith-reader-source-view">
+                <div class="hadith-reader-source-grid">
+                    <article><i data-lucide="user-round"></i><span>Transmetteur présenté</span><b>{{ narrator }}</b><p>{{ clean(hadith.hadeeth_intro || '') }}</p></article>
+                    <article><i data-lucide="library"></i><span>Collection repérée</span><b>{{ collection }}</b><p>{{ hadith.attribution }}</p></article>
+                    <article><i data-lucide="badge-check"></i><span>Degré indiqué</span><b>{{ hadith.grade || 'Non indiqué' }}</b><p v-if="hadith.grade_ar" lang="ar" dir="rtl">{{ hadith.grade_ar }}</p></article>
+                    <article><i data-lucide="hash"></i><span>Référence interne</span><b>{{ reference }}</b><p>{{ Array.isArray(hadith.translations) ? hadith.translations.length+' langues disponibles dans la source de données' : 'Informations de traduction non indiquées' }}</p></article>
                 </div>
-            </div>
+                <article v-if="wordMeanings.length" class="hadith-reader-vocabulary"><header><i data-lucide="book-a"></i><h2>Vocabulaire arabe fourni</h2></header><div><span v-for="(entry,index) in wordMeanings" :key="index"><b lang="ar" dir="rtl">{{ formatMeaning(entry).word }}</b><small>{{ formatMeaning(entry).meaning }}</small></span></div></article>
+                <div class="hadith-reader-methodology"><i data-lucide="shield-alert"></i><div><b>Précaution méthodologique</b><p>Cette fiche organise les informations présentes dans la base. Pour un travail de takhrīj complet, il faut revenir aux éditions des recueils, aux différentes voies de transmission et aux jugements détaillés des spécialistes.</p></div></div>
+            </section>
 
-            <div class="bg-white dark:bg-brand-dark-lighter rounded-[2rem] shadow-xl border border-brand-gold/20 overflow-hidden relative mb-12">
-                
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-gold/40 via-brand-gold to-brand-gold/40"></div>
-                <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="p-8 md:p-16 text-center">
-                    
-                    <div class="flex flex-col items-center gap-4 mb-10">
-                        <span class="px-3 py-1 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-full text-[10px] font-bold uppercase tracking-widest border border-green-100 dark:border-green-900/30">
-                            {{ hadith.grade }}
-                        </span>
-                        <h1 class="font-display font-bold text-2xl md:text-4xl text-brand-dark dark:text-white leading-tight">
-                            {{ hadith.title }}
-                        </h1>
-                    </div>
-
-                    <div class="mb-12 relative">
-                        <i class="absolute -top-6 left-0 text-6xl text-brand-gold/10 font-serif opacity-50 select-none">“</i>
-                        
-                        <p class="font-arabic text-3xl md:text-5xl text-brand-dark dark:text-gray-100 text-center px-2 md:px-10 py-6" 
-                           dir="rtl" 
-                           style="line-height: 2.8;">
-                            {{ hadith.hadeeth_ar }}
-                        </p>
-                        
-                        <i class="absolute -bottom-10 right-0 text-6xl text-brand-gold/10 font-serif opacity-50 select-none transform rotate-180">“</i>
-                    </div>
-
-                    <div class="flex items-center justify-center gap-4 mb-10 opacity-30">
-                        <div class="h-px w-24 bg-brand-gold"></div>
-                        <div class="w-2 h-2 rotate-45 border border-brand-gold"></div>
-                        <div class="h-px w-24 bg-brand-gold"></div>
-                    </div>
-
-                    <div class="font-serif text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed italic" 
-                         :style="{ fontSize: settings.fontSize + 'px' }">
-                        {{ hadith.hadeeth }}
-                    </div>
-
-                    <div class="mt-10 pt-6 border-t border-gray-100 dark:border-gray-700">
-                        <p class="text-xs text-brand-gold font-bold uppercase tracking-widest">
-                            Source : {{ hadith.attribution }}
-                        </p>
-                    </div>
+            <section v-else class="hadith-reader-study-view">
+                <div class="hadith-reader-study-grid">
+                    <article><header><i data-lucide="circle-help"></i><div><span>Tadabbur et compréhension</span><h2>Questions d’étude</h2></div></header><ol><li v-for="(question,index) in studyQuestions" :key="index"><b>{{ index+1 }}</b><p>{{ question }}</p></li></ol></article>
+                    <article><header><i data-lucide="notebook-pen"></i><div><span>Espace personnel</span><h2>Mes notes</h2></div></header><textarea v-model="note" @blur="saveNote" placeholder="Écris ici une reformulation, une question à vérifier ou une application concrète…"></textarea><small>Enregistrement local automatique sur cet appareil.</small></article>
                 </div>
-            </div>
-
-            <div class="bg-brand-paper dark:bg-brand-dark border-l-4 border-brand-gold/30 pl-6 md:pl-10 py-4 mb-12">
-                <h3 class="font-display text-xl font-bold text-brand-dark dark:text-white mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-gold"><i data-lucide="book-open" class="w-4 h-4"></i></span>
-                    Explication & Contexte
-                </h3>
-                <div class="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 leading-loose font-serif text-justify"
-                     :style="{ fontSize: settings.fontSize + 'px' }">
-                    {{ hadith.explanation }}
-                </div>
-            </div>
-
-            <div v-if="hadith.hints && hadith.hints.length" class="bg-white dark:bg-brand-dark-lighter rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 dark:border-gray-700">
-                <h3 class="font-display text-lg font-bold text-brand-dark dark:text-white mb-8 flex items-center gap-3">
-                    <i data-lucide="lightbulb" class="w-5 h-5 text-brand-gold"></i>
-                    Ce qu'il faut retenir
-                </h3>
-                <ul class="space-y-4">
-                    <li v-for="(hint, i) in hadith.hints" :key="i" class="flex gap-4 group">
-                        <div class="flex flex-col items-center gap-1">
-                            <span class="w-6 h-6 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xs font-bold shrink-0 group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300">{{ i + 1 }}</span>
-                            <div v-if="i !== hadith.hints.length - 1" class="w-px h-full bg-gray-100 dark:bg-gray-700 group-hover:bg-brand-gold/30 transition-colors"></div>
-                        </div>
-                        <span class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base pb-4">{{ hint }}</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="text-center mt-16 pb-12 opacity-50 hover:opacity-100 transition-opacity">
-                <button @click="closeReader" class="text-xs font-bold text-gray-400 uppercase tracking-widest hover:text-brand-gold transition-colors flex items-center justify-center gap-2 mx-auto">
-                    <i data-lucide="x-circle" class="w-4 h-4"></i> Fermer la lecture
-                </button>
-            </div>
-
-        </div>
+                <div class="hadith-reader-study-actions"><button @click="toggleFavorite" :class="{active:isFavorite}"><i data-lucide="heart"></i>{{ isFavorite?'Retirer des favoris':'Conserver pour révision' }}</button><button @click="shareHadith"><i data-lucide="share-2"></i>Partager la référence</button></div>
+            </section>
+        </main>
     </div>
     `
 };
