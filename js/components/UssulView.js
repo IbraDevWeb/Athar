@@ -32,7 +32,7 @@ const UssulView = {
             });
         },
         currentIndex() {
-            return this.lessons.findIndex(lesson => lesson.id === this.activeLesson?.id);
+            return this.activeLesson ? this.lessons.indexOf(this.activeLesson) : -1;
         },
         prevLesson() {
             return this.currentIndex > 0 ? this.lessons[this.currentIndex - 1] : null;
@@ -47,10 +47,10 @@ const UssulView = {
             return this.lessons.length ? Math.round((this.completedLessons.length / this.lessons.length) * 100) : 0;
         },
         lastLesson() {
-            return this.lessons.find(lesson => String(lesson.id) === String(this.lastLessonId)) || null;
+            return this.lessons.find(lesson => this.lessonKey(lesson) === String(this.lastLessonId)) || this.lessons.find(lesson => String(lesson.id) === String(this.lastLessonId)) || null;
         },
         isCurrentCompleted() {
-            return this.activeLesson ? this.completedLessons.includes(String(this.activeLesson.id)) : false;
+            return this.activeLesson ? this.completedLessons.includes(this.lessonKey(this.activeLesson)) : false;
         },
         videoId() {
             return this.extractYouTubeId(this.activeLesson?.videoUrl || '');
@@ -95,6 +95,10 @@ const UssulView = {
         window.removeEventListener('resize', this.keepPlayerVisible);
     },
     methods: {
+        lessonKey(lesson) {
+            const index = this.lessons.indexOf(lesson);
+            return `${index}:${lesson?.id ?? 'lesson'}:${lesson?.title || ''}`;
+        },
         cleanSectionTitle(value) {
             return String(value || '').replace(/^[0-9]+\.\s*/, '').trim();
         },
@@ -126,7 +130,7 @@ const UssulView = {
         selectLesson(lesson) {
             if (!lesson) return;
             this.activeLesson = lesson;
-            this.lastLessonId = lesson.id;
+            this.lastLessonId = this.lessonKey(lesson);
             this.activeSection = 0;
             this.scrollProgress = 0;
             this.showMobileToc = false;
@@ -155,7 +159,7 @@ const UssulView = {
         },
         toggleComplete() {
             if (!this.activeLesson) return;
-            const id = String(this.activeLesson.id);
+            const id = this.lessonKey(this.activeLesson);
             this.completedLessons = this.completedLessons.includes(id)
                 ? this.completedLessons.filter(item => item !== id)
                 : [...this.completedLessons, id];
@@ -163,7 +167,7 @@ const UssulView = {
             this.refreshIcons();
         },
         isCompleted(lesson) {
-            return this.completedLessons.includes(String(lesson.id));
+            return this.completedLessons.includes(this.lessonKey(lesson));
         },
         onReaderScroll(event) {
             const container = event.currentTarget;
@@ -329,7 +333,7 @@ const UssulView = {
             </section>
 
             <section v-if="filteredLessons.length" class="ussul-pro-course-grid">
-                <article v-for="(lesson,index) in filteredLessons" :key="lesson.id" class="ussul-pro-course-card" :class="{completed:isCompleted(lesson)}">
+                <article v-for="(lesson,index) in filteredLessons" :key="lessonKey(lesson)" class="ussul-pro-course-card" :class="{completed:isCompleted(lesson)}">
                     <button class="ussul-pro-course-main" @click="selectLesson(lesson)">
                         <div class="ussul-pro-course-number"><span>{{ String(index+1).padStart(2,'0') }}</span><i v-if="isCompleted(lesson)" data-lucide="check"></i></div>
                         <p class="ussul-pro-course-author">{{ lesson.author }}</p>
@@ -347,7 +351,7 @@ const UssulView = {
             <aside class="ussul-pro-sidebar" :class="{open:showMobileToc}">
                 <div class="ussul-pro-sidebar-head"><span>Parcours</span><button @click="showMobileToc=false"><i data-lucide="x"></i></button></div>
                 <nav class="ussul-pro-lesson-nav">
-                    <button v-for="lesson in lessons" :key="lesson.id" @click="selectLesson(lesson)" :class="{active:lesson.id===activeLesson.id,completed:isCompleted(lesson)}">
+                    <button v-for="lesson in lessons" :key="lessonKey(lesson)" @click="selectLesson(lesson)" :class="{active:lesson===activeLesson,completed:isCompleted(lesson)}">
                         <span>{{ String(lesson.id).padStart(2,'0') }}</span><b>{{ lesson.title }}</b><i v-if="isCompleted(lesson)" data-lucide="check"></i>
                     </button>
                 </nav>
