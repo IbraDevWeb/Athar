@@ -62,9 +62,17 @@ for (const token of libraryTokens) if (!library.includes(token)) throw new Error
 const readerTokens = [
     "activeTab = Vue.ref('text')", "activeTab==='explanation'", "activeTab==='lessons'",
     "activeTab==='source'", 'hadith-reader-study-view', 'hadeeth_intro_ar', 'explanation_ar',
-    'words_meanings_ar', 'studyQuestions', 'lang="ar"', 'athar_hadith_v2'
+    'words_meanings_ar', 'studyQuestions', 'lang="ar"', 'athar_hadith_v2',
+    'const paragraphs = value', 'explanationParagraphs', 'explanationArabicParagraphs'
 ];
 for (const token of readerTokens) if (!reader.includes(token)) throw new Error(`Fonction du lecteur absente : ${token}`);
+
+const templateStart = reader.indexOf('template: `');
+if (templateStart < 0) throw new Error('Template du lecteur Hadith introuvable.');
+const templateSource = reader.slice(templateStart);
+if (templateSource.includes('.split(/\\n')) {
+    throw new Error('Expression régulière contenant \\n détectée dans le template Vue : elle serait transformée en saut de ligne à l’exécution.');
+}
 
 for (const selector of ['.hadith-pro-root', '.hadith-pro-grid', '.hadith-reader-pro', '.hadith-reader-tabs', '.hadith-reader-source-grid']) {
     if (!css.includes(selector)) throw new Error(`Style Hadith manquant : ${selector}`);
@@ -76,6 +84,8 @@ for (const asset of ['css/hadith-pro.css', 'js/components/HadithsView.js', 'js/c
     if (!worker.includes(asset)) throw new Error(`Ressource Hadith absente du cache : ${asset}`);
 }
 if (!config.includes('css/hadith-pro.css?v=${APP_VERSION}')) throw new Error('Feuille Hadith non chargée par config.js.');
-if (!config.includes('athar-pro-v16') || !worker.includes('athar-pro-v16')) throw new Error('Migration du cache Hadith v16 absente.');
+const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
+const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
+if (configVersion < 17 || configVersion !== workerVersion) throw new Error('Migration du cache Hadith incohérente.');
 
-console.log(`Hadiths validés : ${hadiths.length} textes, ${arabicCount} en arabe, ${explanationCount} explications et ${hintsCount} listes d’enseignements.`);
+console.log(`Hadiths validés : ${hadiths.length} textes, ${arabicCount} en arabe, ${explanationCount} explications, lecteur Vue sûr et cache v${configVersion}.`);
