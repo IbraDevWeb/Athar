@@ -5,6 +5,7 @@ const paths = {
     data: 'biographies_data.js',
     component: 'js/components/LibraryView.js',
     css: 'css/library-pro.css',
+    immersive: 'css/library-immersive-fix.css',
     config: 'js/config.js',
     worker: 'service-worker.js'
 };
@@ -16,6 +17,7 @@ for (const path of Object.values(paths)) {
 const dataSource = fs.readFileSync(paths.data, 'utf8');
 const componentSource = fs.readFileSync(paths.component, 'utf8');
 const css = fs.readFileSync(paths.css, 'utf8');
+const immersiveCss = fs.readFileSync(paths.immersive, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
 
@@ -66,7 +68,7 @@ for (const token of [
     "'personal'",
     'athar_library_v2',
     'catalogItems',
-    'collectionDefinitions',
+    'collections()',
     'selectedCollection',
     'favoriteItems',
     'recentItems',
@@ -108,14 +110,16 @@ for (const selector of [
     if (!css.includes(selector)) throw new Error(`Style de bibliothèque absent : ${selector}`);
 }
 
-if (!css.includes('html.athar-app-fullscreen .library-pro-root')) {
+if (!immersiveCss.includes('html.athar-app-fullscreen .library-pro-root') || !immersiveCss.includes('padding-top: 68px')) {
     throw new Error('Compatibilité immersive de la bibliothèque absente.');
 }
 if (!css.includes('@media (max-width: 820px)') || !css.includes('@media (prefers-reduced-motion: reduce)')) {
     throw new Error('Responsive ou accessibilité de la bibliothèque incomplet.');
 }
-if (!config.includes('css/library-pro.css?v=${APP_VERSION}')) throw new Error('Feuille de bibliothèque non chargée par config.js.');
-for (const asset of ['css/library-pro.css', 'js/components/LibraryView.js', 'biographies_data.js']) {
+if (!config.includes('css/library-pro.css?v=${APP_VERSION}') || !config.includes('css/library-immersive-fix.css?v=${APP_VERSION}')) {
+    throw new Error('Feuilles de bibliothèque non chargées par config.js.');
+}
+for (const asset of ['css/library-pro.css', 'css/library-immersive-fix.css', 'js/components/LibraryView.js', 'biographies_data.js']) {
     if (!worker.includes(asset)) throw new Error(`Ressource de bibliothèque absente du cache : ${asset}`);
 }
 
