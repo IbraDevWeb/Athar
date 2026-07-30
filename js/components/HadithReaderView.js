@@ -8,6 +8,10 @@ const HadithReaderView = {
         const state = Vue.reactive({ favorites: [], read: {}, recent: [], notes: {} });
         const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
         const clean = value => String(value || '').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
+        const paragraphs = value => {
+            const text = clean(value);
+            return text ? text.split(/\n{2,}/).map(part => part.trim()).filter(Boolean) : [];
+        };
         const normalize = value => String(value || '').toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
 
         const collection = Vue.computed(() => {
@@ -37,6 +41,8 @@ const HadithReaderView = {
         const hints = Vue.computed(() => Array.isArray(props.hadith?.hints) ? props.hadith.hints.map(clean).filter(Boolean) : []);
         const hintsAr = Vue.computed(() => Array.isArray(props.hadith?.hints_ar) ? props.hadith.hints_ar.map(clean).filter(Boolean) : []);
         const wordMeanings = Vue.computed(() => Array.isArray(props.hadith?.words_meanings_ar) ? props.hadith.words_meanings_ar : []);
+        const explanationParagraphs = Vue.computed(() => paragraphs(props.hadith?.explanation));
+        const explanationArabicParagraphs = Vue.computed(() => paragraphs(props.hadith?.explanation_ar));
         const studyQuestions = Vue.computed(() => {
             const first = hints.value[0] || 'Quel principe central ce hadith établit-il ?';
             return [
@@ -74,18 +80,25 @@ const HadithReaderView = {
             const text = [props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution].filter(Boolean).join('\n\n');
             try { await navigator.clipboard.writeText(text); } catch (_) {}
         };
-        const setTab = value => { activeTab.value = value; setTimeout(() => window.lucide?.createIcons(), 20); };
+        const setTab = value => {
+            activeTab.value = value;
+            setTimeout(() => window.lucide?.createIcons(), 20);
+        };
         const formatMeaning = item => {
             if (typeof item === 'string') return { word: item, meaning: '' };
             return { word: item?.word || item?.term || item?.arabic || '', meaning: item?.meaning || item?.explanation || item?.translation || '' };
         };
         const handleKey = event => {
             if (event.key === 'Escape') props.closeReader();
-            if (event.key.toLocaleLowerCase() === 'f' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); toggleFavorite(); }
+            if (event.key.toLocaleLowerCase() === 'f' && (event.ctrlKey || event.metaKey)) {
+                event.preventDefault();
+                toggleFavorite();
+            }
         };
 
         Vue.onMounted(() => {
-            load(); markRead();
+            load();
+            markRead();
             window.addEventListener('keydown', handleKey);
             setTimeout(() => window.lucide?.createIcons(), 30);
         });
@@ -97,7 +110,8 @@ const HadithReaderView = {
 
         return {
             activeTab, languageMode, note, collection, narrator, reference, isFavorite, isRead, readingTime,
-            hints, hintsAr, wordMeanings, studyQuestions, clean, toggleFavorite, saveNote, copyText, setTab, formatMeaning
+            hints, hintsAr, wordMeanings, explanationParagraphs, explanationArabicParagraphs, studyQuestions,
+            clean, toggleFavorite, saveNote, copyText, setTab, formatMeaning
         };
     },
     template: `
@@ -139,8 +153,8 @@ const HadithReaderView = {
             </section>
 
             <section v-else-if="activeTab==='explanation'" class="hadith-reader-explanation-view">
-                <article><header><i data-lucide="book-open-check"></i><div><span>Explication française</span><h2>Comprendre le sens général</h2></div></header><div class="hadith-reader-prose" :style="{fontSize:settings.fontSize+'px'}"><p v-for="(paragraph,index) in clean(hadith.explanation).split(/\n\n+/)" :key="index">{{ paragraph }}</p></div></article>
-                <article v-if="hadith.explanation_ar" class="hadith-reader-ar-explanation" lang="ar" dir="rtl"><header><i data-lucide="languages"></i><div><span>الشرح العربي</span><h2>شرح الحديث</h2></div></header><div class="hadith-reader-prose-ar"><p v-for="(paragraph,index) in clean(hadith.explanation_ar).split(/\n\n+/)" :key="index">{{ paragraph }}</p></div></article>
+                <article><header><i data-lucide="book-open-check"></i><div><span>Explication française</span><h2>Comprendre le sens général</h2></div></header><div class="hadith-reader-prose" :style="{fontSize:settings.fontSize+'px'}"><p v-for="(paragraph,index) in explanationParagraphs" :key="index">{{ paragraph }}</p></div></article>
+                <article v-if="hadith.explanation_ar" class="hadith-reader-ar-explanation" lang="ar" dir="rtl"><header><i data-lucide="languages"></i><div><span>الشرح العربي</span><h2>شرح الحديث</h2></div></header><div class="hadith-reader-prose-ar"><p v-for="(paragraph,index) in explanationArabicParagraphs" :key="index">{{ paragraph }}</p></div></article>
             </section>
 
             <section v-else-if="activeTab==='lessons'" class="hadith-reader-lessons-view">
