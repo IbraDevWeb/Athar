@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v15';
+    const APP_VERSION = 'athar-pro-v16';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -123,6 +123,7 @@ tailwind.config = {
     ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
     ensureStylesheet(`css/fullscreen-global.css?v=${APP_VERSION}`, 'athar-fullscreen-global');
     ensureStylesheet(`css/adhkar-pro.css?v=${APP_VERSION}`, 'athar-adhkar-pro');
+    ensureStylesheet(`css/hadith-pro.css?v=${APP_VERSION}`, 'athar-hadith-pro');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
