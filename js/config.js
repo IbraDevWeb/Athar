@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v6';
+    const APP_VERSION = 'athar-pro-v7';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -98,6 +98,7 @@ tailwind.config = {
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
+    ensureStylesheet(`css/atlas-layout-fix.css?v=${APP_VERSION}`, 'athar-atlas-layout-fix');
 
     window.addEventListener('load', async () => {
         if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
