@@ -1,0 +1,462 @@
+/* Athar Pro — fondation mobile, tactile et immersive */
+:root {
+    --athar-viewport-height: 100vh;
+    --athar-safe-top: env(safe-area-inset-top, 0px);
+    --athar-safe-right: env(safe-area-inset-right, 0px);
+    --athar-safe-bottom: env(safe-area-inset-bottom, 0px);
+    --athar-safe-left: env(safe-area-inset-left, 0px);
+    --athar-mobile-header: 58px;
+    --athar-mobile-dock: 68px;
+    --athar-immersive-bar: 60px;
+}
+
+@supports (height: 100dvh) {
+    :root { --athar-viewport-height: 100dvh; }
+}
+
+html,
+body,
+#app {
+    max-width: 100%;
+}
+
+html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    touch-action: manipulation;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video,
+iframe,
+canvas {
+    max-width: 100%;
+}
+
+.athar-global-mainframe > main {
+    min-width: 0;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+/* Navigation mobile au pouce */
+.athar-mobile-dock {
+    position: fixed;
+    left: max(10px, var(--athar-safe-left));
+    right: max(10px, var(--athar-safe-right));
+    bottom: max(8px, var(--athar-safe-bottom));
+    z-index: 315;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: var(--athar-mobile-dock);
+    padding: 6px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+    transform: translateZ(0);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.dark .athar-mobile-dock {
+    background: rgba(7, 7, 7, 0.9);
+    border-color: rgba(230, 200, 138, 0.18);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.athar-mobile-dock[hidden],
+html.athar-app-fullscreen .athar-mobile-dock,
+html.athar-mobile-detail .athar-mobile-dock,
+html.athar-keyboard-open .athar-mobile-dock {
+    display: none !important;
+}
+
+.athar-mobile-dock button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 3px;
+    min-width: 0;
+    min-height: 54px;
+    padding: 4px 2px;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    color: #7b8493;
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.athar-mobile-dock button::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    width: 20px;
+    height: 3px;
+    border-radius: 999px;
+    background: transparent;
+    transition: width 0.18s ease, background 0.18s ease;
+}
+
+.athar-mobile-dock button svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.9;
+}
+
+.athar-mobile-dock button:active {
+    transform: scale(0.94);
+}
+
+.athar-mobile-dock button.is-active {
+    color: #9a742d;
+    background: rgba(197, 160, 89, 0.11);
+}
+
+.dark .athar-mobile-dock button.is-active {
+    color: #e6c88a;
+    background: rgba(230, 200, 138, 0.1);
+}
+
+.athar-mobile-dock button.is-active::before {
+    width: 28px;
+    background: #c5a059;
+}
+
+/* Mode immersif : une seule barre compacte et aucune superposition */
+html.athar-app-fullscreen,
+html.athar-app-fullscreen body,
+html.athar-app-fullscreen #app,
+html.athar-app-fullscreen .athar-global-mainframe {
+    height: var(--athar-viewport-height) !important;
+    min-height: 0 !important;
+}
+
+html.athar-app-fullscreen .athar-global-mainframe > main {
+    box-sizing: border-box;
+    height: 100% !important;
+    min-height: 0 !important;
+    padding-top: calc(var(--athar-immersive-bar) + var(--athar-safe-top)) !important;
+    padding-bottom: 0 !important;
+    overflow: auto;
+}
+
+html.athar-app-fullscreen .library-pro-root,
+html.athar-app-fullscreen .ussul-pro-root {
+    box-sizing: border-box;
+    height: 100% !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+}
+
+html.athar-app-fullscreen .athar-immersive-menu,
+html.athar-app-fullscreen .athar-fullscreen-exit,
+html.athar-app-fullscreen .athar-immersive-current {
+    top: calc(8px + var(--athar-safe-top));
+    min-height: 44px;
+}
+
+html.athar-app-fullscreen .athar-immersive-menu {
+    left: max(8px, var(--athar-safe-left));
+}
+
+html.athar-app-fullscreen .athar-fullscreen-exit {
+    right: max(8px, var(--athar-safe-right));
+}
+
+html.athar-app-fullscreen .athar-immersive-current {
+    left: calc(60px + var(--athar-safe-left));
+    right: calc(60px + var(--athar-safe-right));
+    width: auto;
+    max-width: none;
+    transform: none;
+    justify-content: center;
+}
+
+html.athar-app-fullscreen .athar-immersive-drawer {
+    height: var(--athar-viewport-height);
+    padding-top: var(--athar-safe-top);
+    padding-bottom: var(--athar-safe-bottom);
+}
+
+html.athar-app-fullscreen .athar-immersive-drawer nav {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Éléments interactifs et accessibilité */
+:where(button, a, input, select, textarea):focus-visible {
+    outline: 3px solid rgba(197, 160, 89, 0.45);
+    outline-offset: 2px;
+}
+
+@media (hover: none) {
+    .group:hover,
+    button:hover,
+    a:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 767px) {
+    html.athar-mobile-shell,
+    html.athar-mobile-shell body,
+    html.athar-mobile-shell #app {
+        width: 100%;
+        height: var(--athar-viewport-height) !important;
+        min-height: 0 !important;
+        overflow: hidden;
+    }
+
+    html.athar-mobile-shell #app > header {
+        box-sizing: border-box;
+        height: calc(var(--athar-mobile-header) + var(--athar-safe-top)) !important;
+        min-height: calc(var(--athar-mobile-header) + var(--athar-safe-top));
+        padding-top: var(--athar-safe-top);
+        padding-left: max(14px, var(--athar-safe-left));
+        padding-right: max(10px, var(--athar-safe-right));
+        backdrop-filter: blur(18px) saturate(145%);
+        -webkit-backdrop-filter: blur(18px) saturate(145%);
+    }
+
+    html.athar-mobile-shell #app > header button {
+        display: inline-grid;
+        place-items: center;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0;
+    }
+
+    html.athar-mobile-shell #app > header > div:first-of-type {
+        min-width: 0;
+    }
+
+    html.athar-mobile-shell #app > header h1 {
+        font-size: 13px;
+    }
+
+    html.athar-mobile-shell .athar-global-mainframe {
+        min-height: 0;
+        height: calc(var(--athar-viewport-height) - var(--athar-mobile-header) - var(--athar-safe-top));
+    }
+
+    html.athar-mobile-shell .athar-global-mainframe > main {
+        box-sizing: border-box;
+        height: 100%;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-padding-top: 16px;
+        scroll-padding-bottom: calc(var(--athar-mobile-dock) + var(--athar-safe-bottom) + 18px);
+    }
+
+    html.athar-mobile-shell:not(.athar-mobile-detail):not(.athar-app-fullscreen):not(.athar-keyboard-open) .athar-global-mainframe > main {
+        padding-bottom: calc(var(--athar-mobile-dock) + var(--athar-safe-bottom) + 14px);
+    }
+
+    html.athar-mobile-detail .athar-global-mainframe > main,
+    html.athar-keyboard-open .athar-global-mainframe > main {
+        padding-bottom: 0;
+    }
+
+    html.athar-mobile-shell .athar-global-mainframe > main > div {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    html.athar-mobile-shell input,
+    html.athar-mobile-shell select,
+    html.athar-mobile-shell textarea {
+        font-size: 16px !important;
+    }
+
+    html.athar-mobile-shell .athar-native-mobile-menu {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 500 !important;
+        box-sizing: border-box;
+        width: 100vw;
+        height: var(--athar-viewport-height);
+        padding-top: var(--athar-safe-top);
+        padding-bottom: var(--athar-safe-bottom);
+        overflow: hidden;
+    }
+
+    html.athar-mobile-shell .athar-native-mobile-menu > div:first-child {
+        min-height: 62px;
+        padding-left: max(16px, var(--athar-safe-left));
+        padding-right: max(10px, var(--athar-safe-right));
+        background: rgba(255, 255, 255, 0.93);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .dark html.athar-mobile-shell .athar-native-mobile-menu > div:first-child,
+    html.dark.athar-mobile-shell .athar-native-mobile-menu > div:first-child {
+        background: rgba(7, 7, 7, 0.94);
+    }
+
+    html.athar-mobile-shell .athar-native-mobile-menu > div:nth-child(2) {
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        padding: 16px max(14px, var(--athar-safe-right)) calc(28px + var(--athar-safe-bottom)) max(14px, var(--athar-safe-left));
+    }
+
+    html.athar-mobile-shell .athar-native-mobile-menu button {
+        min-height: 46px;
+    }
+
+    html.athar-mobile-shell .athar-native-mobile-menu input {
+        min-height: 48px;
+        border-radius: 14px;
+    }
+
+    #tooltip {
+        left: 12px !important;
+        right: 12px !important;
+        top: auto !important;
+        bottom: calc(var(--athar-mobile-dock) + var(--athar-safe-bottom) + 16px) !important;
+        width: auto !important;
+        max-width: none !important;
+        transform: none !important;
+    }
+
+    #tooltip > div:first-child {
+        display: none;
+    }
+
+    #app > .fixed.bottom-6.right-6 {
+        left: 12px;
+        right: 12px;
+        bottom: calc(var(--athar-mobile-dock) + var(--athar-safe-bottom) + 16px);
+        align-items: stretch;
+    }
+
+    html.athar-mobile-detail #app > .fixed.bottom-6.right-6,
+    html.athar-app-fullscreen #app > .fixed.bottom-6.right-6 {
+        bottom: calc(12px + var(--athar-safe-bottom));
+    }
+
+    #app > .fixed.bottom-6.right-6 > div {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .font-arabic {
+        line-height: 2.15 !important;
+    }
+
+    .library-pro-card,
+    .ussul-pro-course-card,
+    .ap-home-card {
+        content-visibility: auto;
+        contain-intrinsic-size: 300px;
+    }
+
+    html.athar-app-fullscreen .library-pro-nav {
+        min-height: 102px;
+        padding: 10px 12px;
+    }
+
+    html.athar-app-fullscreen .library-pro-scroll {
+        height: calc(100% - 102px);
+    }
+
+    html.athar-app-fullscreen .ussul-pro-root {
+        overflow: hidden;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-menu,
+    html.athar-app-fullscreen .athar-fullscreen-exit {
+        width: 44px;
+        min-width: 44px;
+        padding: 0;
+        border-radius: 14px;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-menu span,
+    html.athar-app-fullscreen .athar-fullscreen-exit span {
+        display: none;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-current {
+        min-width: 0;
+        padding: 0 10px;
+        border-radius: 14px;
+        font-size: 10px;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-current span {
+        min-width: 0;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-drawer {
+        width: min(360px, calc(100vw - 16px));
+        max-width: 96vw;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-drawer-head {
+        min-height: 68px;
+        padding: 14px 16px;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-drawer [data-athar-view] {
+        min-height: 46px;
+        padding: 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .athar-mobile-dock {
+        left: 6px;
+        right: 6px;
+        bottom: max(5px, var(--athar-safe-bottom));
+        border-radius: 19px;
+    }
+
+    .athar-mobile-dock button {
+        font-size: 8px;
+    }
+
+    html.athar-app-fullscreen .athar-immersive-current {
+        left: calc(56px + var(--athar-safe-left));
+        right: calc(56px + var(--athar-safe-right));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+
+    .athar-mobile-dock,
+    .athar-mobile-dock button,
+    .athar-mobile-dock button::before {
+        transition: none !important;
+        animation: none !important;
+    }
+}
