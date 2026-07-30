@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v12';
+    const APP_VERSION = 'athar-pro-v13';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -120,6 +120,8 @@ tailwind.config = {
     ensureStylesheet(`css/constellation-overlays.css?v=${APP_VERSION}`, 'athar-constellation-overlays');
     ensureStylesheet(`css/constellation-study.css?v=${APP_VERSION}`, 'athar-constellation-study');
     ensureStylesheet(`css/tasbih-pro.css?v=${APP_VERSION}`, 'athar-tasbih-pro');
+    ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
+    ensureStylesheet(`css/fullscreen-global.css?v=${APP_VERSION}`, 'athar-fullscreen-global');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
@@ -139,22 +141,21 @@ tailwind.config = {
 
     ensureScript(`js/components/ScholarAtlasExpansionPatch.js?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion-patch');
     ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
+    ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
 
     window.addEventListener('load', async () => {
         if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
-
         try {
             const previousVersion = localStorage.getItem('athar_app_version');
             if (previousVersion !== APP_VERSION) {
                 const registrations = await navigator.serviceWorker.getRegistrations();
-                await Promise.all(registrations.map((registration) => registration.unregister()));
+                await Promise.all(registrations.map(registration => registration.unregister()));
                 if ('caches' in window) {
                     const cacheNames = await caches.keys();
-                    await Promise.all(cacheNames.filter((name) => name.startsWith('athar-pro-')).map((name) => caches.delete(name)));
+                    await Promise.all(cacheNames.filter(name => name.startsWith('athar-pro-')).map(name => caches.delete(name)));
                 }
                 localStorage.setItem('athar_app_version', APP_VERSION);
             }
-
             await navigator.serviceWorker.register(`./service-worker.js?v=${APP_VERSION}`);
         } catch (error) {
             console.warn('Mise à jour du cache non terminée :', error);
