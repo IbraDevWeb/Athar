@@ -66,3 +66,6 @@ jobs:
 
       - name: Validate Hadith library and reader
         run: node scripts/validate-hadith.js
+
+      - name: Validate Oussoul al-Fiqh and video PiP
+        run: node scripts/validate-ussul.js
