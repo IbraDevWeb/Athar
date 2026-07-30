@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v23';
+    const APP_VERSION = 'athar-pro-v24';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -97,6 +97,11 @@ tailwind.config = {
         document.head.appendChild(script);
     };
 
+    const writeEarlyScript = (src, id) => {
+        if (document.readyState !== 'loading' || document.getElementById(id)) return;
+        document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
+    };
+
     const writeScholarAtlasScript = (src, id) => {
         if (document.readyState !== 'loading' || document.getElementById(id)) return;
         document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
@@ -109,6 +114,9 @@ tailwind.config = {
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
+
+    // Ce pont doit être présent avant js/app.js afin d’enrichir le composant avant son montage Vue.
+    writeEarlyScript('js/components/TransmissionFocusPatch.js', 'athar-transmission-focus-patch');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
