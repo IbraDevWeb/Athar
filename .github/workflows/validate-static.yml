@@ -42,3 +42,6 @@ jobs:
 
       - name: Validate Atlas data
         run: node scripts/validate-atlas.js
+
+      - name: Validate Scholar Atlas data
+        run: node scripts/validate-scholar-atlas.js
