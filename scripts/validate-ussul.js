@@ -5,6 +5,7 @@ const paths = {
     data: 'ussul_data.js',
     component: 'js/components/UssulView.js',
     css: 'css/ussul-pro.css',
+    immersiveCss: 'css/ussul-immersive-fix.css',
     config: 'js/config.js',
     worker: 'service-worker.js'
 };
@@ -16,6 +17,7 @@ for (const path of Object.values(paths)) {
 const dataSource = fs.readFileSync(paths.data, 'utf8');
 const componentSource = fs.readFileSync(paths.component, 'utf8');
 const css = fs.readFileSync(paths.css, 'utf8');
+const immersiveCss = fs.readFileSync(paths.immersiveCss, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
 
@@ -125,12 +127,26 @@ if (!css.includes('@media(max-width:820px)') || !css.includes('prefers-reduced-m
     throw new Error('Responsive ou accessibilité Oussoul incomplet.');
 }
 
-for (const asset of ['css/ussul-pro.css', 'js/components/UssulView.js', 'ussul_data.js']) {
+const immersiveTokens = [
+    'html.athar-app-fullscreen .ussul-pro-root',
+    '.ussul-pro-root [class*="ussul"]',
+    'min-height: 0 !important',
+    'padding-top: 70px',
+    'height: calc(100% - 68px) !important',
+    '@media (max-width: 700px)',
+    'padding-top: 112px'
+];
+for (const token of immersiveTokens) {
+    if (!immersiveCss.includes(token)) throw new Error(`Correctif immersif Oussoul incomplet : ${token}`);
+}
+
+for (const asset of ['css/ussul-pro.css', 'css/ussul-immersive-fix.css', 'js/components/UssulView.js', 'ussul_data.js']) {
     if (!worker.includes(asset)) throw new Error(`Ressource Oussoul absente du cache : ${asset}`);
 }
 if (!config.includes('css/ussul-pro.css?v=${APP_VERSION}')) throw new Error('Feuille Oussoul non chargée par config.js.');
+if (!config.includes('css/ussul-immersive-fix.css?v=${APP_VERSION}')) throw new Error('Correctif immersif Oussoul non chargé par config.js.');
 const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
 const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
-if (configVersion < 18 || configVersion !== workerVersion) throw new Error('Versions du cache Oussoul incohérentes.');
+if (configVersion < 19 || configVersion !== workerVersion) throw new Error('Versions du cache Oussoul incohérentes.');
 
-console.log(`Oussoul al-Fiqh validé : ${lessons.length} leçons, ${lessons.reduce((n, lesson) => n + lesson.sections.length, 0)} sections, clés internes stables, URLs YouTube intégrables, PiP interne et cache v${configVersion}.`);
+console.log(`Oussoul al-Fiqh validé : ${lessons.length} leçons, ${lessons.reduce((n, lesson) => n + lesson.sections.length, 0)} sections, clés internes stables, URLs YouTube intégrables, PiP interne, correctif immersif et cache v${configVersion}.`);
