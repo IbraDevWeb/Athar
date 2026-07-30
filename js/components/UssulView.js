@@ -3,269 +3,408 @@ const UssulView = {
     data() {
         return {
             activeLesson: null,
+            query: '',
             scrollProgress: 0,
-            showTOC: false // Pour le mobile éventuellement
-        }
+            activeSection: 0,
+            showMobileToc: false,
+            completedLessons: [],
+            lastLessonId: null,
+            videoOpen: false,
+            videoMode: 'theater',
+            videoError: false,
+            dragPosition: { x: null, y: null },
+            dragState: null
+        };
     },
     computed: {
-        // Trouve l'index de la leçon actuelle pour gérer Précédent/Suivant
+        filteredLessons() {
+            const q = this.normalize(this.query);
+            if (!q) return this.lessons;
+            return this.lessons.filter(lesson => {
+                const sections = Array.isArray(lesson.sections) ? lesson.sections : [];
+                const text = [
+                    lesson.title,
+                    lesson.author,
+                    lesson.intro,
+                    ...sections.map(section => `${section.title || ''} ${section.content || ''} ${section.deepDive?.title || ''} ${section.deepDive?.content || ''}`)
+                ].join(' ');
+                return this.normalize(text).includes(q);
+            });
+        },
         currentIndex() {
-            return this.lessons.findIndex(l => l.id === this.activeLesson?.id);
+            return this.lessons.findIndex(lesson => lesson.id === this.activeLesson?.id);
         },
         prevLesson() {
             return this.currentIndex > 0 ? this.lessons[this.currentIndex - 1] : null;
         },
         nextLesson() {
-            return this.currentIndex < this.lessons.length - 1 ? this.lessons[this.currentIndex + 1] : null;
+            return this.currentIndex >= 0 && this.currentIndex < this.lessons.length - 1 ? this.lessons[this.currentIndex + 1] : null;
+        },
+        totalSections() {
+            return this.lessons.reduce((total, lesson) => total + (Array.isArray(lesson.sections) ? lesson.sections.length : 0), 0);
+        },
+        completionPercent() {
+            return this.lessons.length ? Math.round((this.completedLessons.length / this.lessons.length) * 100) : 0;
+        },
+        lastLesson() {
+            return this.lessons.find(lesson => String(lesson.id) === String(this.lastLessonId)) || null;
+        },
+        isCurrentCompleted() {
+            return this.activeLesson ? this.completedLessons.includes(String(this.activeLesson.id)) : false;
+        },
+        videoId() {
+            return this.extractYouTubeId(this.activeLesson?.videoUrl || '');
+        },
+        videoEmbedUrl() {
+            if (!this.videoId) return '';
+            const params = new URLSearchParams({
+                rel: '0',
+                modestbranding: '1',
+                playsinline: '1',
+                enablejsapi: '1',
+                iv_load_policy: '3'
+            });
+            if (typeof window !== 'undefined' && /^https?:$/.test(window.location.protocol)) {
+                params.set('origin', window.location.origin);
+            }
+            return `https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}`;
+        },
+        playerStyle() {
+            if (this.videoMode !== 'floating' || this.dragPosition.x === null || this.dragPosition.y === null) return {};
+            return {
+                left: `${this.dragPosition.x}px`,
+                top: `${this.dragPosition.y}px`,
+                right: 'auto',
+                bottom: 'auto'
+            };
+        },
+        readingTime() {
+            if (!this.activeLesson) return 0;
+            const text = (this.activeLesson.sections || []).map(section => `${section.content || ''} ${section.deepDive?.content || ''}`).join(' ');
+            const plain = text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            return Math.max(5, Math.ceil(plain.split(' ').filter(Boolean).length / 180));
         }
     },
     mounted() {
-        window.addEventListener('scroll', this.updateProgress);
+        this.loadState();
+        window.addEventListener('resize', this.keepPlayerVisible);
+        this.refreshIcons();
     },
     beforeUnmount() {
-        window.removeEventListener('scroll', this.updateProgress);
+        this.removeDragListeners();
+        window.removeEventListener('resize', this.keepPlayerVisible);
     },
     methods: {
+        cleanSectionTitle(value) {
+            return String(value || '').replace(/^[0-9]+\.\s*/, '').trim();
+        },
+        normalize(value) {
+            return String(value || '')
+                .toLocaleLowerCase('fr')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/<[^>]+>/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        },
+        loadState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem('athar_ussul_v2') || '{}');
+                this.completedLessons = Array.isArray(saved.completedLessons) ? saved.completedLessons.map(String) : [];
+                this.lastLessonId = saved.lastLessonId ?? null;
+            } catch (_) {
+                this.completedLessons = [];
+                this.lastLessonId = null;
+            }
+        },
+        saveState() {
+            localStorage.setItem('athar_ussul_v2', JSON.stringify({
+                completedLessons: this.completedLessons,
+                lastLessonId: this.lastLessonId
+            }));
+        },
         selectLesson(lesson) {
+            if (!lesson) return;
             this.activeLesson = lesson;
+            this.lastLessonId = lesson.id;
+            this.activeSection = 0;
             this.scrollProgress = 0;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            this.showMobileToc = false;
+            this.closeVideo();
+            this.saveState();
+            this.$nextTick(() => {
+                const reader = this.$refs.readerScroll;
+                if (reader) reader.scrollTop = 0;
+                this.refreshIcons();
+            });
+        },
+        selectLessonAndVideo(lesson) {
+            this.selectLesson(lesson);
+            this.$nextTick(() => this.openVideo('theater'));
         },
         handleBack() {
             if (this.activeLesson) {
+                this.closeVideo();
                 this.activeLesson = null;
                 this.scrollProgress = 0;
-            } else {
-                this.goHome();
+                this.activeSection = 0;
+                this.$nextTick(this.refreshIcons);
+                return;
             }
+            this.goHome();
         },
-        updateProgress() {
+        toggleComplete() {
             if (!this.activeLesson) return;
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            this.scrollProgress = (scrollTop / docHeight) * 100;
+            const id = String(this.activeLesson.id);
+            this.completedLessons = this.completedLessons.includes(id)
+                ? this.completedLessons.filter(item => item !== id)
+                : [...this.completedLessons, id];
+            this.saveState();
+            this.refreshIcons();
+        },
+        isCompleted(lesson) {
+            return this.completedLessons.includes(String(lesson.id));
+        },
+        onReaderScroll(event) {
+            const container = event.currentTarget;
+            const max = container.scrollHeight - container.clientHeight;
+            this.scrollProgress = max > 0 ? Math.min(100, Math.max(0, (container.scrollTop / max) * 100)) : 0;
+            const sections = Array.from(container.querySelectorAll('[data-ussul-section]'));
+            const marker = container.scrollTop + 190;
+            let current = 0;
+            sections.forEach((section, index) => {
+                if (section.offsetTop <= marker) current = index;
+            });
+            this.activeSection = current;
         },
         scrollToSection(index) {
-            const element = document.getElementById(`section-${index}`);
-            if (element) {
-                const headerOffset = 100;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            const container = this.$refs.readerScroll;
+            const target = this.$refs.readerRoot?.querySelector(`#ussul-section-${index}`);
+            if (!container || !target) return;
+            container.scrollTo({ top: Math.max(0, target.offsetTop - 105), behavior: 'smooth' });
+            this.activeSection = index;
+            this.showMobileToc = false;
+        },
+        extractYouTubeId(value) {
+            const raw = String(value || '').trim();
+            if (!raw) return '';
+            try {
+                const url = new URL(raw, window.location.href);
+                const host = url.hostname.replace(/^www\./, '');
+                if (host === 'youtu.be') return url.pathname.split('/').filter(Boolean)[0] || '';
+                if (host.endsWith('youtube.com') || host.endsWith('youtube-nocookie.com')) {
+                    if (url.searchParams.get('v')) return url.searchParams.get('v');
+                    const parts = url.pathname.split('/').filter(Boolean);
+                    const markerIndex = parts.findIndex(part => ['embed', 'shorts', 'live'].includes(part));
+                    if (markerIndex >= 0 && parts[markerIndex + 1]) return parts[markerIndex + 1];
+                }
+            } catch (_) {}
+            const match = raw.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/|shorts\/|live\/))([A-Za-z0-9_-]{11})/);
+            return match ? match[1] : '';
+        },
+        openVideo(mode = 'theater') {
+            if (!this.videoId) {
+                this.openExternalVideo();
+                return;
             }
+            this.videoError = false;
+            this.videoMode = mode;
+            this.videoOpen = true;
+            if (mode === 'theater') this.dragPosition = { x: null, y: null };
+            this.$nextTick(this.refreshIcons);
+        },
+        minimizeVideo() {
+            this.videoMode = 'floating';
+            this.videoError = false;
+            this.$nextTick(() => {
+                this.keepPlayerVisible();
+                this.refreshIcons();
+            });
+        },
+        expandVideo() {
+            this.videoMode = 'theater';
+            this.dragPosition = { x: null, y: null };
+            this.refreshIcons();
+        },
+        closeVideo() {
+            this.videoOpen = false;
+            this.videoError = false;
+            this.dragState = null;
+            this.dragPosition = { x: null, y: null };
+            this.removeDragListeners();
+        },
+        openExternalVideo() {
+            if (!this.activeLesson?.videoUrl) return;
+            window.open(this.activeLesson.videoUrl, '_blank', 'noopener,noreferrer');
+        },
+        startDrag(event) {
+            if (this.videoMode !== 'floating' || event.button !== 0) return;
+            const player = this.$refs.videoPlayer;
+            if (!player) return;
+            const rect = player.getBoundingClientRect();
+            this.dragState = {
+                startX: event.clientX,
+                startY: event.clientY,
+                originX: rect.left,
+                originY: rect.top,
+                width: rect.width,
+                height: rect.height
+            };
+            window.addEventListener('pointermove', this.onDrag);
+            window.addEventListener('pointerup', this.endDrag, { once: true });
+            event.preventDefault();
+        },
+        onDrag(event) {
+            if (!this.dragState) return;
+            const nextX = this.dragState.originX + event.clientX - this.dragState.startX;
+            const nextY = this.dragState.originY + event.clientY - this.dragState.startY;
+            this.dragPosition = {
+                x: Math.min(Math.max(12, nextX), Math.max(12, window.innerWidth - this.dragState.width - 12)),
+                y: Math.min(Math.max(72, nextY), Math.max(72, window.innerHeight - this.dragState.height - 12))
+            };
+        },
+        endDrag() {
+            this.dragState = null;
+            this.removeDragListeners();
+        },
+        removeDragListeners() {
+            window.removeEventListener('pointermove', this.onDrag);
+            window.removeEventListener('pointerup', this.endDrag);
+        },
+        keepPlayerVisible() {
+            if (!this.videoOpen || this.videoMode !== 'floating' || this.dragPosition.x === null) return;
+            const player = this.$refs.videoPlayer;
+            if (!player) return;
+            const rect = player.getBoundingClientRect();
+            this.dragPosition = {
+                x: Math.min(Math.max(12, this.dragPosition.x), Math.max(12, window.innerWidth - rect.width - 12)),
+                y: Math.min(Math.max(72, this.dragPosition.y), Math.max(72, window.innerHeight - rect.height - 12))
+            };
+        },
+        refreshIcons() {
+            setTimeout(() => window.lucide?.createIcons(), 30);
         }
     },
     template: `
-    <div class="min-h-full bg-[#FAFAFA] dark:bg-[#0F1115] relative transition-colors duration-500 font-sans selection:bg-brand-gold/30 selection:text-brand-dark">
-        
-        <div v-if="activeLesson" class="fixed top-0 left-0 h-1 bg-brand-gold z-50 transition-all duration-100 ease-out shadow-[0_0_10px_rgba(212,175,55,0.5)]" :style="{ width: scrollProgress + '%' }"></div>
+    <div ref="readerRoot" class="ussul-pro-root">
+        <div class="ussul-pro-progress-line" :style="{width:scrollProgress+'%'}"></div>
 
-        <header class="sticky top-0 z-40 h-16 bg-white/90 dark:bg-[#0F1115]/90 backdrop-blur-xl border-b border-gray-200/50 dark:border-white/5 flex items-center justify-between px-4 md:px-8 transition-all">
-            <div class="flex items-center gap-4">
-                <button @click="handleBack" 
-                        class="group flex items-center gap-3 text-sm font-medium text-gray-500 hover:text-brand-dark dark:text-gray-400 dark:hover:text-white transition-colors">
-                    <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center group-hover:bg-brand-gold group-hover:text-white transition-all">
-                        <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-0.5"></i>
-                    </div>
-                    <span class="hidden md:inline font-bold tracking-wide uppercase text-xs">
-                        {{ activeLesson ? 'Retour au sommaire' : 'Accueil' }}
-                    </span>
-                </button>
+        <header class="ussul-pro-header">
+            <button @click="handleBack" class="ussul-pro-back">
+                <i data-lucide="arrow-left"></i>
+                <span>{{ activeLesson ? 'Sommaire' : 'Accueil' }}</span>
+            </button>
+            <div class="ussul-pro-brand">
+                <span lang="ar" dir="rtl">أصول الفقه</span>
+                <b>{{ activeLesson ? activeLesson.title : 'Oussoul al-Fiqh' }}</b>
             </div>
-            
-            <div class="absolute left-1/2 -translate-x-1/2 opacity-0 md:opacity-100 transition-opacity duration-300 pointer-events-none" :class="{'opacity-0': scrollProgress < 5, 'opacity-100': scrollProgress > 5}">
-                <span v-if="activeLesson" class="font-display font-bold text-gray-900 dark:text-white text-sm tracking-wide">
-                    {{ activeLesson.title }}
-                </span>
-            </div>
-
-            <div class="flex items-center gap-3">
-                 <span v-if="activeLesson" class="px-3 py-1 rounded-full bg-gray-100 dark:bg-white/5 text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hidden md:block">
-                    Cours N°{{ activeLesson.id }}
-                </span>
-                <a v-if="activeLesson" :href="activeLesson.videoUrl" target="_blank" 
-                   class="px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white rounded-full flex items-center gap-2 transition-all shadow-lg shadow-red-600/20 hover:shadow-red-600/40 text-[10px] font-bold uppercase tracking-wide transform hover:-translate-y-0.5">
-                    <i data-lucide="play-circle" class="w-3.5 h-3.5 fill-current"></i> 
-                    <span class="hidden sm:inline">Vidéo</span>
-                </a>
+            <div class="ussul-pro-header-actions">
+                <button v-if="activeLesson" @click="showMobileToc=!showMobileToc" class="ussul-mobile-toc-button"><i data-lucide="list"></i></button>
+                <button v-if="activeLesson" @click="openVideo('theater')" class="ussul-video-launch"><i data-lucide="play"></i><span>Voir le cours</span></button>
             </div>
         </header>
 
-        <div v-if="!activeLesson" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 animate-fade-in">
-            
-            <div class="text-center mb-20 space-y-6 relative">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl -z-10"></div>
-                
-                <span class="inline-block px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/5 text-brand-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-                    Parcours Académique
-                </span>
-                <h1 class="font-display font-bold text-5xl md:text-6xl text-brand-dark dark:text-white tracking-tight">
-                    Usul al-Fiqh
-                </h1>
-                <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-serif leading-relaxed">
-                    Maîtrisez les fondements de la jurisprudence islamique à travers une série de cours structurés, du concept de la Preuve à l'Ijtihad.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                <div v-for="(lesson, index) in lessons" :key="lesson.id" 
-                     @click="selectLesson(lesson)"
-                     class="group relative bg-white dark:bg-[#18181B] rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-gold/10 border border-gray-100 dark:border-white/5 flex flex-col h-full overflow-hidden">
-                    
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-gold/10 to-transparent rounded-bl-full -mr-16 -mt-16 transition-all group-hover:scale-150 duration-500 ease-out"></div>
-
-                    <div class="relative z-10 flex justify-between items-start mb-6">
-                        <span class="font-mono text-4xl font-bold text-gray-100 dark:text-white/5 group-hover:text-brand-gold/20 transition-colors">
-                            {{ String(index + 1).padStart(2, '0') }}
-                        </span>
-                        <div class="w-8 h-8 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300">
-                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="relative z-10 flex-grow">
-                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-gold transition-colors leading-snug">
-                            {{ lesson.title }}
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 font-serif leading-relaxed line-clamp-3">
-                            {{ lesson.intro }}
-                        </p>
-                    </div>
-
-                    <div class="relative z-10 mt-8 pt-6 border-t border-gray-100 dark:border-white/5 flex items-center gap-3">
-                        <div class="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-[10px] font-bold">
-                            <i data-lucide="user" class="w-3 h-3"></i>
-                        </div>
-                        <span class="text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider">
-                            {{ lesson.author.split(' ').slice(-1)[0] }} </span>
+        <main v-if="!activeLesson" class="ussul-pro-index">
+            <section class="ussul-pro-hero">
+                <div class="ussul-pro-hero-copy">
+                    <span class="ussul-pro-kicker">Parcours académique</span>
+                    <p class="ussul-pro-arabic" lang="ar" dir="rtl">أصول الفقه</p>
+                    <h1>Oussoul al-Fiqh</h1>
+                    <p>Maîtrisez les fondements de la jurisprudence islamique à travers les cours déjà présents dans Athar.</p>
+                    <div class="ussul-pro-stats">
+                        <span><b>{{ lessons.length }}</b> cours</span>
+                        <span><b>{{ totalSections }}</b> chapitres</span>
+                        <span><b>{{ completionPercent }}%</b> terminé</span>
                     </div>
                 </div>
+                <div class="ussul-pro-progress-card">
+                    <div class="ussul-pro-progress-ring" :style="{'--progress':completionPercent+'%'}"><strong>{{ completionPercent }}%</strong></div>
+                    <div><span>Progression locale</span><b>{{ completedLessons.length }} leçon{{ completedLessons.length>1?'s':'' }} terminée{{ completedLessons.length>1?'s':'' }}</b><p>Les données restent sur cet appareil.</p></div>
+                </div>
+            </section>
+
+            <section class="ussul-pro-tools">
+                <label><i data-lucide="search"></i><input v-model="query" type="search" placeholder="Rechercher un cours, une notion ou un auteur…"></label>
+                <button v-if="lastLesson" @click="selectLesson(lastLesson)"><i data-lucide="history"></i><span>Reprendre : {{ lastLesson.title }}</span></button>
+            </section>
+
+            <section v-if="filteredLessons.length" class="ussul-pro-course-grid">
+                <article v-for="(lesson,index) in filteredLessons" :key="lesson.id" class="ussul-pro-course-card" :class="{completed:isCompleted(lesson)}">
+                    <button class="ussul-pro-course-main" @click="selectLesson(lesson)">
+                        <div class="ussul-pro-course-number"><span>{{ String(index+1).padStart(2,'0') }}</span><i v-if="isCompleted(lesson)" data-lucide="check"></i></div>
+                        <p class="ussul-pro-course-author">{{ lesson.author }}</p>
+                        <h2>{{ lesson.title }}</h2>
+                        <p>{{ lesson.intro }}</p>
+                        <footer><span><i data-lucide="layers-3"></i>{{ lesson.sections.length }} parties</span><b>Étudier <i data-lucide="arrow-right"></i></b></footer>
+                    </button>
+                    <button class="ussul-pro-course-video" @click="selectLessonAndVideo(lesson)" title="Lire la vidéo dans Athar"><i data-lucide="picture-in-picture-2"></i><span>Vidéo intégrée</span></button>
+                </article>
+            </section>
+            <div v-else class="ussul-pro-empty"><i data-lucide="search-x"></i><p>Aucun cours ne correspond à cette recherche.</p></div>
+        </main>
+
+        <div v-else class="ussul-pro-study">
+            <aside class="ussul-pro-sidebar" :class="{open:showMobileToc}">
+                <div class="ussul-pro-sidebar-head"><span>Parcours</span><button @click="showMobileToc=false"><i data-lucide="x"></i></button></div>
+                <nav class="ussul-pro-lesson-nav">
+                    <button v-for="lesson in lessons" :key="lesson.id" @click="selectLesson(lesson)" :class="{active:lesson.id===activeLesson.id,completed:isCompleted(lesson)}">
+                        <span>{{ String(lesson.id).padStart(2,'0') }}</span><b>{{ lesson.title }}</b><i v-if="isCompleted(lesson)" data-lucide="check"></i>
+                    </button>
+                </nav>
+                <div class="ussul-pro-section-nav">
+                    <span>Dans cette leçon</span>
+                    <button v-for="(section,index) in activeLesson.sections" :key="index" @click="scrollToSection(index)" :class="{active:activeSection===index}">
+                        <small>{{ index+1 }}</small><b>{{ cleanSectionTitle(section.title) }}</b>
+                    </button>
+                </div>
+            </aside>
+            <button v-if="showMobileToc" class="ussul-pro-sidebar-backdrop" @click="showMobileToc=false" aria-label="Fermer le sommaire"></button>
+
+            <div ref="readerScroll" class="ussul-pro-reader-scroll" @scroll="onReaderScroll">
+                <article class="ussul-pro-reader">
+                    <header class="ussul-pro-lesson-hero">
+                        <div class="ussul-pro-lesson-meta"><span>Leçon {{ String(activeLesson.id).padStart(2,'0') }}</span><span>{{ activeLesson.sections.length }} parties</span><span>≈ {{ readingTime }} min</span></div>
+                        <h1>{{ activeLesson.title }}</h1>
+                        <p>{{ activeLesson.intro }}</p>
+                        <div class="ussul-pro-lesson-author"><i data-lucide="graduation-cap"></i><span>{{ activeLesson.author }}</span></div>
+                        <div class="ussul-pro-lesson-actions">
+                            <button @click="openVideo('theater')" class="primary"><i data-lucide="play-circle"></i>Regarder dans Athar</button>
+                            <button @click="toggleComplete" :class="{completed:isCurrentCompleted}"><i :data-lucide="isCurrentCompleted?'check-circle-2':'circle'"></i>{{ isCurrentCompleted?'Leçon terminée':'Marquer comme terminée' }}</button>
+                        </div>
+                    </header>
+
+                    <section v-for="(section,index) in activeLesson.sections" :key="index" :id="'ussul-section-'+index" data-ussul-section class="ussul-pro-content-section">
+                        <div class="ussul-pro-section-title"><span>{{ String(index+1).padStart(2,'0') }}</span><h2>{{ cleanSectionTitle(section.title) }}</h2></div>
+                        <div class="ussul-pro-prose" v-html="formatText(section.content)"></div>
+                        <aside v-if="section.deepDive" class="ussul-pro-deep-dive"><i data-lucide="lightbulb"></i><div><span>Approfondissement</span><h3>{{ section.deepDive.title }}</h3><div v-html="formatText(section.deepDive.content)"></div></div></aside>
+                    </section>
+
+                    <footer class="ussul-pro-reader-footer">
+                        <button v-if="prevLesson" @click="selectLesson(prevLesson)"><i data-lucide="arrow-left"></i><span><small>Précédent</small><b>{{ prevLesson.title }}</b></span></button>
+                        <button @click="toggleComplete" class="complete" :class="{active:isCurrentCompleted}"><i :data-lucide="isCurrentCompleted?'check-circle-2':'circle'"></i>{{ isCurrentCompleted?'Terminée':'Terminer la leçon' }}</button>
+                        <button v-if="nextLesson" @click="selectLesson(nextLesson)"><span><small>Suivant</small><b>{{ nextLesson.title }}</b></span><i data-lucide="arrow-right"></i></button>
+                    </footer>
+                </article>
             </div>
         </div>
 
-        <div v-else class="flex justify-center animate-slide-up">
-            
-            <aside class="hidden xl:block w-64 fixed left-8 top-32 bottom-8 overflow-y-auto pr-4 scrollbar-hide">
-                <nav class="space-y-1">
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-3">Dans ce cours</p>
-                    <a v-for="(section, index) in activeLesson.sections" 
-                       :key="index"
-                       @click.prevent="scrollToSection(index)"
-                       class="block px-3 py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors cursor-pointer leading-tight">
-                       {{ section.title.replace(/^[0-9]+\.\s*/, '') }}
-                    </a>
-                </nav>
-            </aside>
-
-            <main class="w-full max-w-3xl px-6 py-12 md:py-20 bg-white dark:bg-[#0F1115] md:bg-transparent shadow-sm md:shadow-none">
-                
-                <div class="text-center mb-16 border-b border-gray-100 dark:border-white/10 pb-12">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest mb-6">
-                        <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
-                        Leçon {{ String(activeLesson.id).padStart(2, '0') }}
-                    </div>
-                    
-                    <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-8 leading-[1.1]">
-                        {{ activeLesson.title }}
-                    </h1>
-                    
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="user" class="w-4 h-4 text-brand-gold"></i>
-                            {{ activeLesson.author }}
-                        </span>
-                        <span class="hidden md:inline w-1 h-1 bg-gray-300 rounded-full"></span>
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="clock" class="w-4 h-4 text-brand-gold"></i>
-                            Lecture : ~15 min
-                        </span>
-                    </div>
+        <div v-if="videoOpen" class="ussul-video-layer" :class="'mode-'+videoMode" @click.self="videoMode==='theater' && minimizeVideo()">
+            <section ref="videoPlayer" class="ussul-video-player" :class="'is-'+videoMode" :style="playerStyle">
+                <header @pointerdown="startDrag">
+                    <div><i data-lucide="youtube"></i><span><small>Vidéo du cours</small><b>{{ activeLesson.title }}</b></span></div>
+                    <nav>
+                        <button v-if="videoMode==='theater'" @click.stop="minimizeVideo" title="Réduire en PiP"><i data-lucide="picture-in-picture-2"></i></button>
+                        <button v-else @click.stop="expandVideo" title="Agrandir"><i data-lucide="maximize-2"></i></button>
+                        <button @click.stop="openExternalVideo" title="Ouvrir sur YouTube"><i data-lucide="external-link"></i></button>
+                        <button @click.stop="closeVideo" title="Fermer"><i data-lucide="x"></i></button>
+                    </nav>
+                </header>
+                <div class="ussul-video-frame">
+                    <iframe v-if="videoEmbedUrl" :src="videoEmbedUrl" :title="'Cours vidéo : '+activeLesson.title" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+                    <div v-else class="ussul-video-fallback"><i data-lucide="video-off"></i><p>Cette adresse vidéo ne peut pas être intégrée.</p><button @click="openExternalVideo">Ouvrir sur YouTube</button></div>
                 </div>
-
-                <div class="flex justify-center mb-16 opacity-60 dark:opacity-40">
-                     <svg width="200" height="40" viewBox="0 0 200 40" fill="currentColor" class="text-brand-dark dark:text-white">
-                        <path d="M100,20 Q120,5 140,20 T180,20" fill="none" stroke="currentColor" stroke-width="1" />
-                        <path d="M100,20 Q80,35 60,20 T20,20" fill="none" stroke="currentColor" stroke-width="1" />
-                        <circle cx="100" cy="15" r="3" />
-                     </svg>
-                </div>
-
-                <div class="space-y-16">
-                    <div v-for="(section, index) in activeLesson.sections" :key="index" 
-                         :id="'section-' + index"
-                         class="group scroll-mt-32">
-                        
-                        <div class="flex items-center gap-4 mb-6">
-                            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-brand-gold font-bold font-mono text-lg shadow-sm">
-                                {{ index + 1 }}
-                            </span>
-                            <h2 class="font-display text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                                {{ section.title.replace(/^[0-9]+\.\s*/, '') }}
-                            </h2>
-                        </div>
-
-                        <div class="prose prose-lg prose-slate dark:prose-invert max-w-none 
-                                    font-serif leading-[2] text-gray-700 dark:text-gray-300 text-justify tracking-wide">
-                            <p v-html="formatText(section.content)"></p>
-                        </div>
-
-                        <div v-if="section.deepDive" class="mt-10 mx-auto transform hover:scale-[1.01] transition-transform duration-300">
-                            <div class="relative overflow-hidden rounded-2xl bg-[#F8F5F2] dark:bg-[#1a1a1a] border border-[#E8E1D9] dark:border-gray-800 p-8">
-                                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-16 h-16 bg-brand-gold/10 rounded-full blur-xl"></div>
-                                
-                                <h3 class="relative font-bold text-brand-dark dark:text-brand-gold uppercase text-xs tracking-widest mb-4 flex items-center gap-3">
-                                    <span class="flex items-center justify-center w-6 h-6 rounded bg-brand-gold text-white shadow-sm">
-                                        <i data-lucide="lightbulb" class="w-3 h-3"></i>
-                                    </span>
-                                    {{ section.deepDive.title }}
-                                </h3>
-                                
-                                <div class="relative text-base text-gray-700 dark:text-gray-400 font-serif italic leading-relaxed border-l-2 border-brand-gold/30 pl-4" 
-                                     v-html="formatText(section.deepDive.content)">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="mt-24 pt-12 border-t border-gray-200 dark:border-gray-800">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                        
-                        <button v-if="prevLesson" @click="selectLesson(prevLesson)" 
-                                class="w-full md:w-auto flex items-center gap-4 px-6 py-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-gold/50 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group text-left">
-                            <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-400 group-hover:text-brand-gold transition-colors">
-                                <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Précédent</span>
-                                <span class="block font-display font-bold text-gray-900 dark:text-white group-hover:text-brand-gold transition-colors text-sm line-clamp-1 max-w-[150px]">
-                                    {{ prevLesson.title }}
-                                </span>
-                            </div>
-                        </button>
-                        <div v-else class="hidden md:block w-1/3"></div> <button v-if="nextLesson" @click="selectLesson(nextLesson)" 
-                                class="w-full md:w-auto flex items-center justify-end gap-4 px-6 py-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-gold/50 hover:bg-gray-50 dark:hover:bg-white/5 transition-all group text-right">
-                            <div>
-                                <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Suivant</span>
-                                <span class="block font-display font-bold text-gray-900 dark:text-white group-hover:text-brand-gold transition-colors text-sm line-clamp-1 max-w-[150px]">
-                                    {{ nextLesson.title }}
-                                </span>
-                            </div>
-                            <div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center text-white shadow-lg shadow-brand-dark/20 group-hover:bg-brand-gold transition-colors">
-                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                            </div>
-                        </button>
-                    </div>
-                    
-                    <div class="mt-12 text-center">
-                        <button @click="handleBack" class="text-xs font-bold text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 uppercase tracking-widest transition-colors pb-1 border-b border-transparent hover:border-gray-400">
-                            Retourner au menu principal
-                        </button>
-                    </div>
-                </div>
-                
-            </main>
+                <footer><span><i data-lucide="shield-check"></i>Lecteur YouTube en mode confidentialité renforcée, chargé après ton clic.</span><button @click="openExternalVideo">Lien direct</button></footer>
+            </section>
         </div>
     </div>
     `
