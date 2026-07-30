@@ -3,35 +3,62 @@ const vm = require('node:vm');
 
 const paths = {
     fullscreen: 'js/components/GlobalFullscreen.js',
+    bridge: 'js/components/ThemeBridge.js',
+    settings: 'js/composables/useSettings.js',
     css: 'css/fullscreen-global.css',
     config: 'js/config.js',
     worker: 'service-worker.js'
 };
 
 for (const path of Object.values(paths)) {
-    if (!fs.existsSync(path)) throw new Error(`Fichier immersif manquant : ${path}`);
+    if (!fs.existsSync(path)) throw new Error(`Fichier de thème manquant : ${path}`);
 }
 
 const fullscreen = fs.readFileSync(paths.fullscreen, 'utf8');
+const bridge = fs.readFileSync(paths.bridge, 'utf8');
+const settings = fs.readFileSync(paths.settings, 'utf8');
 const css = fs.readFileSync(paths.css, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
 
 new vm.Script(fullscreen, { filename: paths.fullscreen });
+new vm.Script(bridge, { filename: paths.bridge });
+new vm.Script(settings, { filename: paths.settings });
 
 for (const token of [
-    "SETTINGS_KEY = 'athar_settings'",
     'athar-immersive-theme',
     'toggleTheme',
-    'findNativeThemeButton',
     "document.documentElement.classList.contains('dark')",
-    "nativeButton.click()",
     'MutationObserver',
     "attributeFilter: ['class']",
-    "athar:theme-changed",
-    "toggleTheme }"
+    'athar:theme-changed'
 ]) {
-    if (!fullscreen.includes(token)) throw new Error(`Synchronisation du thème immersif absente : ${token}`);
+    if (!fullscreen.includes(token)) throw new Error(`Interface du thème immersif absente : ${token}`);
+}
+
+for (const token of [
+    "const SETTINGS_KEY = 'athar_settings'",
+    'const setDarkMode =',
+    "document.documentElement.classList.toggle('dark', next)",
+    'persistSettings()',
+    "window.dispatchEvent(new CustomEvent('athar:theme-changed'",
+    'window.AtharTheme =',
+    "toggle: (source = 'external')",
+    'setDarkMode,'
+]) {
+    if (!settings.includes(token)) throw new Error(`Contrôleur central du thème absent : ${token}`);
+}
+
+for (const token of [
+    "document.addEventListener('click', handleImmersiveTheme, true)",
+    'event.stopImmediatePropagation()',
+    "api.toggle('immersive')",
+    "api.toggle('immersive-shortcut')",
+    "window.addEventListener('athar:theme-changed', updateButton)",
+    'window.AtharFullscreen.toggleTheme =',
+    'MutationObserver'
+]) {
+    if (!bridge.includes(token)) throw new Error(`Pont du thème immersif absent : ${token}`);
 }
 
 for (const token of [
@@ -53,12 +80,23 @@ if (!css.includes('@media (max-width: 700px)')) {
 
 const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
 const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
-if (configVersion !== 22 || workerVersion !== 22) {
-    throw new Error(`Cache immersif incohérent : config v${configVersion}, worker v${workerVersion}.`);
+if (configVersion < 23 || configVersion !== workerVersion) {
+    throw new Error(`Cache du thème incohérent : config v${configVersion}, worker v${workerVersion}.`);
 }
 
-for (const asset of ['css/fullscreen-global.css?v=athar-pro-v22', 'js/components/GlobalFullscreen.js?v=athar-pro-v22']) {
-    if (!worker.includes(asset)) throw new Error(`Ressource sombre absente du cache : ${asset}`);
+const configBridge = 'js/components/ThemeBridge.js?v=${APP_VERSION}';
+if (!config.includes(configBridge)) throw new Error('ThemeBridge.js n’est pas chargé par config.js.');
+if (config.indexOf(configBridge) < config.indexOf('js/components/GlobalFullscreen.js?v=${APP_VERSION}')) {
+    throw new Error('ThemeBridge.js doit être chargé après le contrôleur immersif.');
 }
 
-console.log('Thème immersif validé : commande dédiée, synchronisation Vue, styles sombres, barre mobile sans superposition et cache v22.');
+for (const asset of [
+    `css/fullscreen-global.css?v=athar-pro-v${workerVersion}`,
+    `js/components/GlobalFullscreen.js?v=athar-pro-v${workerVersion}`,
+    `js/components/ThemeBridge.js?v=athar-pro-v${workerVersion}`,
+    'js/composables/useSettings.js'
+]) {
+    if (!worker.includes(asset)) throw new Error(`Ressource du thème absente du cache : ${asset}`);
+}
+
+console.log(`Thème validé : bouton principal restauré, API centrale, pont immersif direct, raccourci et cache v${workerVersion}.`);
