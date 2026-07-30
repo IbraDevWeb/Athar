@@ -14,7 +14,8 @@ const files = [
     'scholar_atlas_men_hadith_tafsir.js',
     'scholar_atlas_men_qiraat_language.js',
     'scholar_atlas_men_science_history.js',
-    'scholar_atlas_enrichment.js'
+    'scholar_atlas_enrichment.js',
+    'scholar_atlas_density_patch.js'
 ];
 
 const context = vm.createContext({ window: {}, console });
