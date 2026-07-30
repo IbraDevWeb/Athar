@@ -25,7 +25,11 @@ html.athar-app-fullscreen .tx3-topbar {
     isolation: isolate;
 }
 
-html.athar-app-fullscreen .tx3-progress,
+/* La progression reste disponible hors immersif et dans la fenêtre À propos. */
+html.athar-app-fullscreen .tx3-progress {
+    display: none;
+}
+
 html.athar-app-fullscreen .tx3-main,
 html.athar-app-fullscreen .tx3-stage-head {
     position: relative;
@@ -33,6 +37,7 @@ html.athar-app-fullscreen .tx3-stage-head {
 }
 
 html.athar-app-fullscreen .tx3-map-view {
+    padding-top: 14px;
     scroll-margin-top: calc(var(--athar-immersive-bar, 60px) + 92px);
 }
 
@@ -141,6 +146,10 @@ html.athar-app-fullscreen .tx3-network-stage {
     html.athar-app-fullscreen .tx3-brand-mark {
         width: 36px;
         height: 36px;
+    }
+
+    html.athar-app-fullscreen .tx3-map-view {
+        padding-top: 10px;
     }
 
     html.athar-app-fullscreen .tx3-network-stage {
