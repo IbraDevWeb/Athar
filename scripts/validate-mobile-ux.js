@@ -51,7 +51,7 @@ for (const token of [
     'findSidebarButton',
     'findMobileMenuButton',
     'isDetailView',
-    "window.AtharMobile"
+    'window.AtharMobile'
 ]) {
     if (!script.includes(token)) throw new Error(`Comportement mobile absent : ${token}`);
 }
@@ -61,13 +61,17 @@ for (const required of ['home', 'library', 'hadiths', 'ussul', 'menu']) {
     if (!dockViews.includes(required)) throw new Error(`Destination mobile absente : ${required}`);
 }
 
-if (!config.includes("const APP_VERSION = 'athar-pro-v21'")) throw new Error('Version mobile v21 absente de config.js.');
+const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
+const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
+if (configVersion < 21 || workerVersion !== configVersion) {
+    throw new Error(`Versions mobile incohérentes : config v${configVersion}, worker v${workerVersion}.`);
+}
+
 if (!config.includes('viewport-fit=cover')) throw new Error('La prise en charge des zones sûres iOS est absente.');
 if (!config.includes('css/mobile-pro.css?v=${APP_VERSION}')) throw new Error('La feuille mobile n’est pas chargée en dernier.');
 if (!config.includes('js/components/MobileExperience.js?v=${APP_VERSION}')) throw new Error('Le contrôleur mobile n’est pas chargé.');
 
-if (!worker.includes("const CACHE_VERSION = 'athar-pro-v21'")) throw new Error('Cache mobile v21 absent.');
-for (const asset of ['css/mobile-pro.css?v=athar-pro-v21', 'js/components/MobileExperience.js?v=athar-pro-v21']) {
+for (const asset of [`css/mobile-pro.css?v=athar-pro-v${configVersion}`, `js/components/MobileExperience.js?v=athar-pro-v${configVersion}`]) {
     if (!worker.includes(asset)) throw new Error(`Ressource mobile absente du cache : ${asset}`);
 }
 
@@ -75,4 +79,4 @@ if (css.includes('padding-top: 112px') || css.includes('top: 62px')) {
     throw new Error('Le correctif mobile ne doit pas réintroduire une barre immersive sur deux lignes.');
 }
 
-console.log('Expérience mobile validée : viewport dynamique, zones sûres, dock tactile, clavier, lecteurs, menu et barre immersive compacte en cache v21.');
+console.log(`Expérience mobile validée : viewport dynamique, zones sûres, dock tactile, clavier, lecteurs, menu et barre immersive compacte en cache v${configVersion}.`);
