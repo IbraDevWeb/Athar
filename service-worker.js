@@ -1,18 +1,23 @@
-const CACHE_VERSION = 'athar-pro-v7';
+const CACHE_VERSION = 'athar-pro-v8';
 const APP_SHELL = [
     './',
     './index.html',
     './manifest.json',
     './css/style.css',
-    './css/transmission.css?v=athar-pro-v7',
-    './css/atlas.css?v=athar-pro-v7',
-    './css/atlas-layout-fix.css?v=athar-pro-v7',
+    './css/transmission.css?v=athar-pro-v8',
+    './css/atlas.css?v=athar-pro-v8',
+    './css/atlas-layout-fix.css?v=athar-pro-v8',
+    './css/scholar-atlas.css?v=athar-pro-v8',
     './js/config.js',
     './js/app.js',
-    './js/components/TransmissionView.js?v=athar-pro-v7',
-    './transmission_data.js?v=athar-pro-v7',
-    './js/components/AtlasView.js?v=athar-pro-v7',
-    './atlas_data.js?v=athar-pro-v7'
+    './js/components/TransmissionView.js?v=athar-pro-v8',
+    './transmission_data.js?v=athar-pro-v8',
+    './js/components/AtlasView.js?v=athar-pro-v8',
+    './atlas_data.js?v=athar-pro-v8',
+    './js/components/ToolView.js?v=athar-pro-v8',
+    './scholar_atlas_core.js?v=athar-pro-v8',
+    './scholar_atlas_traditions.js?v=athar-pro-v8',
+    './scholar_atlas_thought.js?v=athar-pro-v8'
 ];
 
 self.addEventListener('install', (event) => {

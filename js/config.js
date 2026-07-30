@@ -3,7 +3,7 @@
         if (document.readyState === 'loading') document.write(html);
     };
 
-    // Secours synchrone : l'Atlas ne doit jamais être monté avant Leaflet.
+    // Secours synchrone : les atlas ne doivent jamais être montés avant Leaflet.
     // jsDelivr sert de CDN alternatif aux scripts unpkg chargés plus bas dans index.html.
     if (document.readyState === 'loading') {
         if (!document.querySelector('link[data-athar-leaflet-core]')) {
@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v7';
+    const APP_VERSION = 'athar-pro-v8';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -99,6 +99,7 @@ tailwind.config = {
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
     ensureStylesheet(`css/atlas-layout-fix.css?v=${APP_VERSION}`, 'athar-atlas-layout-fix');
+    ensureStylesheet(`css/scholar-atlas.css?v=${APP_VERSION}`, 'athar-scholar-atlas-styles');
 
     window.addEventListener('load', async () => {
         if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
