@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '..');
 const paths = {
     data: path.join(root, 'transmission_data.js'),
     component: path.join(root, 'js', 'components', 'TransmissionView.js'),
+    patch: path.join(root, 'js', 'components', 'TransmissionFocusPatch.js'),
     css: path.join(root, 'css', 'transmission.css'),
     config: path.join(root, 'js', 'config.js'),
     worker: path.join(root, 'service-worker.js')
@@ -38,11 +39,13 @@ vm.createContext(context);
 vm.runInContext(dataSource, context, { filename: 'transmission_data.js' });
 
 const component = fs.readFileSync(paths.component, 'utf8');
+const patch = fs.readFileSync(paths.patch, 'utf8');
 const css = fs.readFileSync(paths.css, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
 
 new vm.Script(component, { filename: 'js/components/TransmissionView.js' });
+new vm.Script(patch, { filename: 'js/components/TransmissionFocusPatch.js' });
 
 const { SILSILA_DATA, SILSILA_JOURNEYS, SILSILA_THEMES } = context.__transmission;
 const requiredGroups = ['pre', 'fiqh', 'hadith', 'quran'];
@@ -128,6 +131,26 @@ for (const obsolete of [
 }
 
 for (const token of [
+    'Symbol.for(\'athar.transmission.focus.patched\')',
+    'rootComponent.components',
+    "components['transmission-view']",
+    'keepView: true',
+    'athar-transmission-active',
+    'athar-transmission-lock',
+    'event.stopImmediatePropagation'
+]) {
+    if (!patch.includes(token) && token !== 'event.stopImmediatePropagation') {
+        fail(`missing Transmission interaction bridge: ${token}`);
+    }
+}
+if (!patch.includes("html.athar-transmission-active .athar-mobile-dock")) {
+    fail('Transmission must hide the global mobile dock while its own navigation is active');
+}
+if (!patch.includes("html.athar-transmission-lock .athar-global-mainframe > main")) {
+    fail('Transmission drawers must lock the underlying scroll container');
+}
+
+for (const token of [
     '.tx3-network-stage',
     '.tx3-focus-card',
     '.tx3-relation-scroll',
@@ -155,9 +178,22 @@ const workerVersion = Number(worker.match(/const CACHE_VERSION = 'athar-pro-v(\d
 if (configVersion !== workerVersion || configVersion < 24) {
     fail(`inconsistent or stale application cache: config v${configVersion}, worker v${workerVersion}`);
 }
+
+for (const token of [
+    'writeEarlyScript',
+    "writeEarlyScript('js/components/TransmissionFocusPatch.js'",
+    'athar-transmission-focus-patch'
+]) {
+    if (!config.includes(token)) fail(`Transmission bridge is not loaded early enough: ${token}`);
+}
+if (config.indexOf("writeEarlyScript('js/components/TransmissionFocusPatch.js'") > config.indexOf('ensureScript(`js/components/GlobalFullscreen.js')) {
+    fail('TransmissionFocusPatch must be loaded before deferred application controllers');
+}
+
 for (const asset of [
     `css/transmission.css?v=athar-pro-v${workerVersion}`,
     `js/components/TransmissionView.js?v=athar-pro-v${workerVersion}`,
+    `js/components/TransmissionFocusPatch.js?v=athar-pro-v${workerVersion}`,
     `transmission_data.js?v=athar-pro-v${workerVersion}`
 ]) {
     if (!worker.includes(asset)) fail(`Transmission asset missing from cache: ${asset}`);
