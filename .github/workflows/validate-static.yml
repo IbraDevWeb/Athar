@@ -45,3 +45,6 @@ jobs:
 
       - name: Validate Scholar Atlas data
         run: node scripts/validate-scholar-atlas.js
+
+      - name: Validate Constellation data
+        run: node scripts/validate-constellation.js
