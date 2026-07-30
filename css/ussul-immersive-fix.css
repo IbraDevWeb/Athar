@@ -1,0 +1,50 @@
+/* Correctif ciblé du mode immersif Oussoul.
+   L'ancien sélecteur global [class*="ussul"] imposait min-height:100%
+   à chaque élément interne du module, y compris l'en-tête et les boutons. */
+
+html.athar-app-fullscreen .ussul-pro-root {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh !important;
+    min-height: 0 !important;
+    padding-top: 70px;
+    overflow: hidden;
+}
+
+html.athar-app-fullscreen .ussul-pro-root [class*="ussul"] {
+    min-height: 0 !important;
+}
+
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-header {
+    height: 68px !important;
+    min-height: 68px !important;
+}
+
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-index,
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-study {
+    height: calc(100% - 68px) !important;
+    min-height: 0 !important;
+}
+
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-index,
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-sidebar,
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-reader-scroll {
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-study,
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-sidebar,
+html.athar-app-fullscreen .ussul-pro-root .ussul-pro-reader-scroll {
+    min-width: 0;
+}
+
+html.athar-app-fullscreen .ussul-pro-root .ussul-video-layer {
+    min-height: 0 !important;
+}
+
+@media (max-width: 700px) {
+    html.athar-app-fullscreen .ussul-pro-root {
+        padding-top: 112px;
+    }
+}
