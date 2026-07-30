@@ -57,3 +57,6 @@ jobs:
 
       - name: Validate Tasbih interface
         run: node scripts/validate-tasbih.js
+
+      - name: Validate fullscreen and timeline
+        run: node scripts/validate-fullscreen-timeline.js

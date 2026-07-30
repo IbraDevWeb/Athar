@@ -46,7 +46,11 @@ for (const selector of ['.tasbih-session-layout', '.tasbih-counter-card', '.tasb
 if (!css.includes('@media(max-width:820px)')) throw new Error('Responsive Tasbih absent.');
 if (!css.includes('prefers-reduced-motion')) throw new Error('Réduction des animations non prise en charge.');
 if (!config.includes("css/tasbih-pro.css?v=${APP_VERSION}")) throw new Error('Feuille Tasbih non chargée par config.js.');
-if (!config.includes("athar-pro-v12")) throw new Error('config.js ne pointe pas vers v12.');
-if (!worker.includes("athar-pro-v12") || !worker.includes("./js/components/TasbihView.js")) throw new Error('Cache PWA Tasbih v12 incomplet.');
 
-console.log('Tasbih validé : compteur, séances, historique, statistiques, arabe, accessibilité et cache v12.');
+const configVersion = Number(config.match(/APP_VERSION = 'athar-pro-v(\d+)'/)?.[1]);
+const workerVersion = Number(worker.match(/CACHE_VERSION = 'athar-pro-v(\d+)'/)?.[1]);
+if (!Number.isFinite(configVersion) || configVersion < 12) throw new Error('La version de l’application est antérieure à la refonte Tasbih v12.');
+if (configVersion !== workerVersion) throw new Error(`Versions de cache incohérentes : config v${configVersion}, worker v${workerVersion}.`);
+if (!worker.includes('./js/components/TasbihView.js')) throw new Error('Composant Tasbih absent du cache PWA.');
+
+console.log(`Tasbih validé : compteur, séances, historique, statistiques, arabe, accessibilité et cache v${configVersion}.`);
