@@ -1,0 +1,41 @@
+.scholar-atlas-drawer{width:min(620px,96vw)}
+.scholar-atlas-expanded-tabs{overflow-x:auto;justify-content:flex-start;scrollbar-width:thin}
+.scholar-atlas-expanded-tabs button{flex:0 0 auto;white-space:nowrap;min-width:max-content;padding-inline:15px}
+.scholar-atlas-rich-profile,.scholar-atlas-tab-content{font-family:Inter,sans-serif}
+.scholar-atlas-reading-block{padding:18px 19px;border:1px solid rgba(197,160,89,.18);border-radius:16px;background:linear-gradient(145deg,rgba(197,160,89,.07),rgba(255,255,255,.7));margin-bottom:16px}
+.dark .scholar-atlas-reading-block{background:linear-gradient(145deg,rgba(197,160,89,.08),rgba(17,17,17,.72));border-color:rgba(197,160,89,.2)}
+.scholar-atlas-reading-block>span,.scholar-atlas-question-list>span,.scholar-atlas-keywords>span{display:block;margin-bottom:9px;color:#9a762f;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.scholar-atlas-reading-block p{font-size:13px;line-height:1.85;color:#556070;margin:0}
+.dark .scholar-atlas-reading-block p{color:#c7cbd1}
+.scholar-atlas-question-list{margin-top:20px}
+.scholar-atlas-question-list article{display:grid;grid-template-columns:30px 1fr;gap:11px;align-items:start;padding:13px 0;border-bottom:1px solid rgba(148,163,184,.2)}
+.scholar-atlas-question-list article b{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:rgba(197,160,89,.13);color:#a0782f;font-size:11px}
+.scholar-atlas-question-list article p{margin:2px 0 0;font-size:13px;line-height:1.6;color:#556070}
+.dark .scholar-atlas-question-list article p{color:#c8ccd2}
+.scholar-atlas-timeline{position:relative;margin:22px 0;padding-left:22px;border-left:2px solid rgba(197,160,89,.25)}
+.scholar-atlas-timeline article{position:relative;padding:0 0 20px 14px}
+.scholar-atlas-timeline article:before{content:"";position:absolute;left:-29px;top:3px;width:12px;height:12px;border-radius:50%;background:#c5a059;box-shadow:0 0 0 5px rgba(197,160,89,.12)}
+.scholar-atlas-timeline article b{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#9a762f}
+.scholar-atlas-timeline article p{margin:6px 0 0;font-size:13px;line-height:1.7;color:#596273}
+.dark .scholar-atlas-timeline article p{color:#c7cbd1}
+.scholar-atlas-debate{margin-top:18px}
+.scholar-atlas-network-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.scholar-atlas-network-grid article{padding:16px;border-radius:16px;border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.72)}
+.dark .scholar-atlas-network-grid article{background:rgba(18,18,18,.78);border-color:rgba(148,163,184,.16)}
+.scholar-atlas-network-grid article>span{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#9a762f;margin-bottom:11px}
+.scholar-atlas-network-grid article>span svg{width:15px;height:15px}
+.scholar-atlas-name-list{display:flex;flex-direction:column;gap:7px}
+.scholar-atlas-name-list p{margin:0;padding:8px 10px;border-radius:10px;background:rgba(197,160,89,.08);font-size:12px;line-height:1.45;color:#4b5563}
+.dark .scholar-atlas-name-list p{color:#d1d5db;background:rgba(197,160,89,.09)}
+.scholar-atlas-muted{font-size:12px;line-height:1.6;color:#94a3b8;font-style:italic;margin:0}
+.scholar-atlas-keywords{padding:17px;border-radius:16px;background:#111827;color:white;margin-top:16px}
+.dark .scholar-atlas-keywords{background:#050505;border:1px solid rgba(197,160,89,.18)}
+.scholar-atlas-keywords>span{color:#dfbd72}
+.scholar-atlas-keywords>div{display:flex;flex-wrap:wrap;gap:8px}
+.scholar-atlas-keywords b{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.08);font-size:11px;font-weight:600}
+.scholar-atlas-expanded-works>div{align-items:flex-start}
+.scholar-atlas-expanded-works small{display:block;margin-top:6px;line-height:1.55;color:#7b8492}
+.dark .scholar-atlas-expanded-works small{color:#aeb4be}
+.scholar-atlas-stat-grid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:680px){.scholar-atlas-drawer{width:100vw}.scholar-atlas-network-grid{grid-template-columns:1fr}.scholar-atlas-expanded-tabs button{padding-inline:12px;font-size:10px}.scholar-atlas-reading-block{padding:15px}.scholar-atlas-stat-grid{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.scholar-atlas-timeline article:before{box-shadow:none}}

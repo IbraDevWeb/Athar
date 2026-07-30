@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v9';
+    const APP_VERSION = 'athar-pro-v10';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -97,6 +97,11 @@ tailwind.config = {
         document.head.appendChild(script);
     };
 
+    const writeScholarAtlasScript = (src, id) => {
+        if (document.readyState !== 'loading' || document.getElementById(id)) return;
+        document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
+    };
+
     document.title = "Athar Pro — Bibliothèque numérique d'histoire islamique";
     setMeta('meta[name="description"]', "Biographies documentées, hadiths référencés et outils d'étude de l'histoire islamique.");
     setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque numérique d'histoire islamique");
@@ -109,9 +114,28 @@ tailwind.config = {
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
     ensureStylesheet(`css/atlas-layout-fix.css?v=${APP_VERSION}`, 'athar-atlas-layout-fix');
     ensureStylesheet(`css/scholar-atlas.css?v=${APP_VERSION}`, 'athar-scholar-atlas-styles');
+    ensureStylesheet(`css/scholar-atlas-expansion.css?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion');
     ensureStylesheet(`css/constellation-base.css?v=${APP_VERSION}`, 'athar-constellation-base');
     ensureStylesheet(`css/constellation-content.css?v=${APP_VERSION}`, 'athar-constellation-content');
     ensureStylesheet(`css/constellation-overlays.css?v=${APP_VERSION}`, 'athar-constellation-overlays');
+
+    if (!window.SCHOLAR_ATLAS_DATA) {
+        writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
+        writeScholarAtlasScript('scholar_atlas_traditions.js', 'athar-scholar-atlas-traditions');
+        writeScholarAtlasScript('scholar_atlas_thought.js', 'athar-scholar-atlas-thought');
+        writeScholarAtlasScript('scholar_atlas_cities_expansion.js', 'athar-scholar-atlas-cities-expansion');
+        writeScholarAtlasScript('scholar_atlas_women_1.js', 'athar-scholar-atlas-women-1');
+        writeScholarAtlasScript('scholar_atlas_women_2.js', 'athar-scholar-atlas-women-2');
+        writeScholarAtlasScript('scholar_atlas_women_3.js', 'athar-scholar-atlas-women-3');
+        writeScholarAtlasScript('scholar_atlas_women_4.js', 'athar-scholar-atlas-women-4');
+        writeScholarAtlasScript('scholar_atlas_men_law.js', 'athar-scholar-atlas-men-law');
+        writeScholarAtlasScript('scholar_atlas_men_hadith_tafsir.js', 'athar-scholar-atlas-men-hadith-tafsir');
+        writeScholarAtlasScript('scholar_atlas_men_qiraat_language.js', 'athar-scholar-atlas-men-qiraat-language');
+        writeScholarAtlasScript('scholar_atlas_men_science_history.js', 'athar-scholar-atlas-men-science-history');
+        writeScholarAtlasScript('scholar_atlas_enrichment.js', 'athar-scholar-atlas-enrichment');
+    }
+
+    ensureScript(`js/components/ScholarAtlasExpansionPatch.js?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion-patch');
     ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
 
     window.addEventListener('load', async () => {
