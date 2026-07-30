@@ -1,6 +1,6 @@
 // Athar Pro — amorçage autonome de la Constellation
 (() => {
-    const VERSION = 'athar-pro-v9';
+    const VERSION = 'athar-pro-v11';
     let app = null;
     let host = null;
     let loading = null;
@@ -48,7 +48,7 @@
         const target = findHost();
         if (!target || target.dataset.constellationMounted === 'true') return;
         target.dataset.constellationMounted = 'true';
-        target.innerHTML = '<div class="constellation-runtime-root"><div class="constellation-loading"><span class="constellation-loader"></span><strong>Construction de la constellation…</strong><small>Chargement des concepts et relations.</small></div></div>';
+        target.innerHTML = '<div class="constellation-runtime-root"><div class="constellation-loading"><span class="constellation-loader"></span><strong>Ouverture de l’espace d’étude…</strong><small>Chargement des thèmes et des références coraniques.</small></div></div>';
         try {
             await ensureAssets();
             if (!target.isConnected) return;

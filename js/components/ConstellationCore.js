@@ -1,250 +1,281 @@
-// Athar Pro — moteur de la Constellation coranique
+// Athar Pro — lecteur thématique coranique, version sobre et structurée
 window.ConstellationApp = {
     data() {
         const read = (key, fallback) => {
             try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
             catch (_) { return fallback; }
         };
+        const dataSet = window.QURAN_CONSTELLATION_DATA;
         return {
-            dataSet: window.QURAN_CONSTELLATION_DATA,
-            mode: 'network',
+            dataSet,
+            mode: 'study',
             search: '',
             category: 'all',
             favoritesOnly: false,
-            selectedId: null,
-            drawer: false,
-            tab: 'overview',
-            favorites: read('athar_constellation_favorites_v1', []),
-            studied: read('athar_constellation_studied_v1', []),
-            quizScore: read('athar_constellation_quiz_v1', { correct: 0, total: 0 }),
-            quiz: null,
-            quizAnswer: null,
+            selectedId: dataSet.concepts[0]?.id || null,
+            favorites: read('athar_constellation_favorites_v2', []),
+            studied: read('athar_constellation_studied_v2', []),
+            verseCache: read('athar_constellation_arabic_v1', {}),
+            verseLoading: {},
+            verseErrors: {},
             methodology: false,
             activePathId: null,
             pathStep: 0,
             toast: '',
-            network: null,
-            nodes: null,
-            edges: null,
-            toastTimer: null
+            toastTimer: null,
+            categoryGuides: {
+                faith: {
+                    question: 'Que révèle ce thème sur Dieu, la révélation et la manière de recevoir la vérité ?',
+                    context: 'Les thèmes de foi ne sont pas de simples définitions abstraites. Le Coran les relie à la connaissance de Dieu, à la confiance, à la responsabilité et aux actes.',
+                    caution: 'Distinguer ce que le texte affirme explicitement des constructions spéculatives ou des raccourcis théologiques.'
+                },
+                heart: {
+                    question: 'Quel mouvement intérieur le passage décrit-il, et comment ce mouvement transforme-t-il les actes ?',
+                    context: 'Le cœur coranique est le lieu de la compréhension, de l’intention, de la maladie, du retour et de l’apaisement. Son état se manifeste dans la conduite.',
+                    caution: 'Éviter de réduire les états du cœur à une émotion passagère ou à une formule de développement personnel.'
+                },
+                worship: {
+                    question: 'Comment l’adoration relie-t-elle le geste, l’intention, le temps et la présence devant Dieu ?',
+                    context: 'Les actes d’adoration structurent le rapport au temps, au corps, aux biens et à la communauté. Le Coran en rappelle à la fois la forme et la finalité.',
+                    caution: 'Cette lecture thématique ne remplace pas l’étude juridique détaillée des conditions, piliers et règles de chaque adoration.'
+                },
+                ethics: {
+                    question: 'Quelle qualité morale est demandée, dans quelle situation et avec quelles limites ?',
+                    context: 'L’éthique coranique se déploie dans la parole, les contrats, les conflits, la famille et la vie publique. Elle associe vertu personnelle et justice concrète.',
+                    caution: 'Un principe moral général doit être replacé dans le passage complet et articulé aux droits réels des personnes concernées.'
+                },
+                society: {
+                    question: 'Quels droits, devoirs et équilibres collectifs le passage cherche-t-il à protéger ?',
+                    context: 'La vie collective est abordée à travers la solidarité, la justice, les responsabilités familiales, la circulation des biens et la protection des vulnérables.',
+                    caution: 'Ne pas transformer un repère thématique en règle juridique isolée sans étudier son contexte et les commentaires spécialisés.'
+                },
+                destiny: {
+                    question: 'Comment le passage éclaire-t-il l’épreuve, le temps, la mort et la responsabilité humaine ?',
+                    context: 'Le Coran relie l’épreuve à la patience, au discernement, au retour vers Dieu et à l’horizon de la vie dernière, sans nier les causes ni l’action humaine.',
+                    caution: 'Éviter les lectures fatalistes : la foi au décret n’annule ni le choix, ni l’effort, ni la recherche de justice.'
+                }
+            }
         };
     },
     computed: {
-        categories() { return Object.entries(this.dataSet.categories).map(([id, item]) => ({ id, ...item })); },
-        conceptMap() { return new Map(this.dataSet.concepts.map(item => [item.id, item])); },
-        selected() { return this.conceptMap.get(this.selectedId) || null; },
-        activePath() { return this.dataSet.paths.find(item => item.id === this.activePathId) || null; },
-        pathConcept() { return this.activePath ? this.conceptMap.get(this.activePath.concepts[this.pathStep]) : null; },
+        categories() {
+            return Object.entries(this.dataSet.categories).map(([id, item]) => ({ id, ...item }));
+        },
+        conceptMap() {
+            return new Map(this.dataSet.concepts.map(item => [item.id, item]));
+        },
+        selected() {
+            return this.conceptMap.get(this.selectedId) || this.filtered[0] || this.dataSet.concepts[0] || null;
+        },
+        selectedCategory() {
+            return this.selected ? this.dataSet.categories[this.selected.category] : null;
+        },
+        guide() {
+            return this.selected ? this.categoryGuides[this.selected.category] : null;
+        },
+        activePath() {
+            return this.dataSet.paths.find(item => item.id === this.activePathId) || null;
+        },
+        pathConcept() {
+            return this.activePath ? this.conceptMap.get(this.activePath.concepts[this.pathStep]) : null;
+        },
         filtered() {
-            const q = this.search.trim().toLocaleLowerCase('fr');
+            const q = this.normalize(this.search);
             return this.dataSet.concepts.filter(item => {
                 if (this.category !== 'all' && item.category !== this.category) return false;
                 if (this.favoritesOnly && !this.favorites.includes(item.id)) return false;
                 if (!q) return true;
-                return [item.title, item.arabic, item.summary, item.key, ...item.tags, ...item.verses]
-                    .join(' ').toLocaleLowerCase('fr').includes(q);
+                return this.normalize([item.title, item.arabic, item.summary, item.key, ...item.tags, ...item.verses].join(' ')).includes(q);
             });
         },
-        filteredIds() { return new Set(this.filtered.map(item => item.id)); },
-        visibleLinks() { return this.dataSet.links.filter(link => this.filteredIds.has(link.from) && this.filteredIds.has(link.to)); },
+        groupedConcepts() {
+            return this.categories.map(cat => ({
+                ...cat,
+                concepts: this.filtered.filter(item => item.category === cat.id)
+            })).filter(group => group.concepts.length);
+        },
         related() {
             if (!this.selectedId) return [];
             return this.dataSet.links
                 .filter(link => link.from === this.selectedId || link.to === this.selectedId)
-                .map(link => ({ item: this.conceptMap.get(link.from === this.selectedId ? link.to : link.from), label: link.label }))
+                .map(link => ({
+                    item: this.conceptMap.get(link.from === this.selectedId ? link.to : link.from),
+                    label: link.label
+                }))
                 .filter(entry => entry.item)
-                .sort((a, b) => a.item.title.localeCompare(b.item.title, 'fr'));
+                .slice(0, 8);
         },
         stats() {
             return {
                 concepts: this.dataSet.concepts.length,
                 refs: this.dataSet.concepts.reduce((sum, item) => sum + item.verses.length, 0),
-                links: this.dataSet.links.length,
+                categories: Object.keys(this.dataSet.categories).length,
                 paths: this.dataSet.paths.length
             };
         },
-        progress() { return this.stats.concepts ? Math.round(this.studied.length * 100 / this.stats.concepts) : 0; }
+        progress() {
+            return this.stats.concepts ? Math.round(this.studied.length * 100 / this.stats.concepts) : 0;
+        },
+        studyAxes() {
+            if (!this.selected) return [];
+            const tags = this.selected.tags || [];
+            return [
+                {
+                    title: 'Définir avec précision',
+                    text: `Comprendre « ${this.selected.title} » à partir des passages indiqués, sans l’isoler des notions de ${tags.slice(0, 2).join(' et ') || 'foi et responsabilité'}.`
+                },
+                {
+                    title: 'Observer les effets',
+                    text: `${this.selected.key} Rechercher comment cette idée agit sur l’intention, la parole, les choix et les relations.`
+                },
+                {
+                    title: 'Comparer les passages',
+                    text: 'Lire les références ensemble : chaque passage apporte un angle, une situation ou une conséquence différente du même thème.'
+                }
+            ];
+        },
+        studyQuestions() {
+            if (!this.selected || !this.guide) return [];
+            return [
+                this.guide.question,
+                `Quels mots, oppositions ou conséquences reviennent dans les versets associés à « ${this.selected.title} » ?`,
+                `Comment distinguer une compréhension fidèle du texte d’une application trop rapide ou hors contexte ?`
+            ];
+        }
     },
     watch: {
-        search() { this.refreshGraph(true); },
-        category() { this.refreshGraph(true); },
-        favoritesOnly() { this.refreshGraph(true); },
-        favorites: { deep: true, handler(value) { localStorage.setItem('athar_constellation_favorites_v1', JSON.stringify(value)); } },
-        studied: { deep: true, handler(value) { localStorage.setItem('athar_constellation_studied_v1', JSON.stringify(value)); } },
-        quizScore: { deep: true, handler(value) { localStorage.setItem('athar_constellation_quiz_v1', JSON.stringify(value)); } }
+        favorites: {
+            deep: true,
+            handler(value) { localStorage.setItem('athar_constellation_favorites_v2', JSON.stringify(value)); }
+        },
+        studied: {
+            deep: true,
+            handler(value) { localStorage.setItem('athar_constellation_studied_v2', JSON.stringify(value)); }
+        },
+        verseCache: {
+            deep: true,
+            handler(value) { localStorage.setItem('athar_constellation_arabic_v1', JSON.stringify(value)); }
+        },
+        filtered(value) {
+            if (value.length && !value.some(item => item.id === this.selectedId)) this.selectConcept(value[0].id, false);
+        }
     },
     methods: {
-        color(item) { return this.dataSet.categories[item?.category || item]?.color || '#c5a059'; },
+        normalize(value) {
+            return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[ʿʾ]/g, '').toLowerCase();
+        },
+        color(item) {
+            return this.dataSet.categories[item?.category || item]?.color || '#b38b3f';
+        },
         isFavorite(id) { return this.favorites.includes(id); },
         isStudied(id) { return this.studied.includes(id); },
         notify(message) {
             this.toast = message;
             clearTimeout(this.toastTimer);
-            this.toastTimer = setTimeout(() => { this.toast = ''; }, 2400);
+            this.toastTimer = setTimeout(() => { this.toast = ''; }, 2200);
         },
         toggleFavorite(id) {
             this.favorites = this.isFavorite(id) ? this.favorites.filter(item => item !== id) : [...this.favorites, id];
             this.notify(this.isFavorite(id) ? 'Ajouté aux favoris' : 'Retiré des favoris');
         },
-        markStudied(id) { if (!this.isStudied(id)) this.studied = [...this.studied, id]; },
-        degree(id) {
-            return this.dataSet.links.reduce((sum, link) => sum + (link.from === id || link.to === id ? 1 : 0), 0);
+        markStudied(id) {
+            if (!this.isStudied(id)) this.studied = [...this.studied, id];
         },
-        pathHasLink(link) {
-            if (!this.activePath) return false;
-            return this.activePath.concepts.some((id, index, list) =>
-                index < list.length - 1 &&
-                ((id === link.from && list[index + 1] === link.to) || (id === link.to && list[index + 1] === link.from))
-            );
+        setMode(mode) {
+            this.mode = mode;
+            this.$nextTick(this.icons);
         },
-        nodeModel(item) {
-            const inPath = this.activePath?.concepts.includes(item.id);
-            const current = this.pathConcept?.id === item.id;
-            const color = this.color(item);
-            return {
-                id: item.id,
-                label: item.title,
-                title: `${item.arabic}\n${item.summary}`,
-                shape: 'dot',
-                size: Math.min(23 + this.degree(item.id) * .65, 39),
-                borderWidth: current ? 5 : inPath ? 4 : 2,
-                opacity: this.activePath && !inPath ? .16 : 1,
-                font: { face: 'Inter', size: inPath ? 15 : 13, color: '#f8fafc', strokeWidth: 4, strokeColor: 'rgba(6,8,15,.82)' },
-                color: {
-                    background: current ? '#fff' : color,
-                    border: current ? color : 'rgba(255,255,255,.9)',
-                    highlight: { background: '#fff', border: color },
-                    hover: { background: color, border: '#fff' }
-                },
-                shadow: { enabled: true, color: `${color}66`, size: inPath ? 24 : 14, x: 0, y: 4 }
-            };
-        },
-        edgeModel(link, index) {
-            const active = this.pathHasLink(link);
-            return {
-                id: `c-edge-${index}`,
-                from: link.from,
-                to: link.to,
-                label: active ? link.label : '',
-                width: active ? 4 : 1,
-                hidden: this.activePath ? !active : false,
-                dashes: active ? [8, 7] : false,
-                color: active
-                    ? { color: this.activePath.color, highlight: this.activePath.color, hover: this.activePath.color }
-                    : { color: 'rgba(148,163,184,.22)', highlight: '#c5a059', hover: '#c5a059' },
-                smooth: { type: 'continuous', roundness: .35 },
-                font: { face: 'Inter', size: 9, color: '#e2e8f0', background: 'rgba(7,9,16,.82)', strokeWidth: 0 }
-            };
-        },
-        initGraph() {
-            const element = this.$refs.network;
-            if (!element || !window.vis) return;
-            if (this.network) this.network.destroy();
-            this.nodes = new vis.DataSet();
-            this.edges = new vis.DataSet();
-            this.network = new vis.Network(element, { nodes: this.nodes, edges: this.edges }, {
-                autoResize: true,
-                layout: { improvedLayout: true, randomSeed: 23 },
-                interaction: { hover: true, tooltipDelay: 170, navigationButtons: true, keyboard: { enabled: true, bindToWindow: false } },
-                physics: {
-                    stabilization: { iterations: 220, fit: true },
-                    barnesHut: { gravitationalConstant: -24000, centralGravity: .22, springLength: 135, springConstant: .035, damping: .28, avoidOverlap: .65 }
-                }
-            });
-            this.network.on('click', params => { if (params.nodes.length) this.select(params.nodes[0], false); });
-            this.network.on('doubleClick', params => { if (params.nodes.length) this.open(params.nodes[0]); });
-            this.network.once('stabilizationIterationsDone', () => {
-                this.network.setOptions({ physics: false });
-                this.network.fit({ animation: { duration: 480, easingFunction: 'easeInOutQuad' } });
-            });
-            this.refreshGraph(false);
-        },
-        refreshGraph(fit = false) {
-            if (!this.network || !this.nodes || !this.edges) return;
-            this.nodes.clear();
-            this.edges.clear();
-            this.nodes.add(this.filtered.map(item => this.nodeModel(item)));
-            this.edges.add(this.visibleLinks.map((item, index) => this.edgeModel(item, index)));
-            if (fit && this.filtered.length) setTimeout(() => this.network?.fit({ animation: { duration: 430, easingFunction: 'easeInOutQuad' } }), 30);
-        },
-        select(id, openDrawer = true) {
+        selectConcept(id, scroll = true) {
             if (!this.conceptMap.has(id)) return;
             this.selectedId = id;
             this.markStudied(id);
-            if (this.network && this.filteredIds.has(id)) {
-                this.network.selectNodes([id]);
-                this.network.focus(id, { scale: 1.25, animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
-            }
-            if (openDrawer) {
-                this.tab = 'overview';
-                this.drawer = true;
-            }
+            this.loadArabicForSelected();
+            if (scroll) this.$nextTick(() => this.$refs.reader?.scrollTo({ top: 0, behavior: 'smooth' }));
             this.icons();
         },
-        open(item) { this.select(typeof item === 'string' ? item : item.id, true); },
-        closeDrawer() { this.drawer = false; },
-        setMode(mode) {
-            this.mode = mode;
-            this.$nextTick(() => {
-                if (mode === 'network') {
-                    if (!this.network) this.initGraph();
-                    else { this.network.redraw(); this.refreshGraph(true); }
-                }
-                this.icons();
-            });
+        openConcept(item) {
+            this.setMode('study');
+            this.$nextTick(() => this.selectConcept(typeof item === 'string' ? item : item.id));
         },
-        resetFilters() { this.search = ''; this.category = 'all'; this.favoritesOnly = false; },
+        resetFilters() {
+            this.search = '';
+            this.category = 'all';
+            this.favoritesOnly = false;
+        },
         random() {
             const pool = this.filtered.length ? this.filtered : this.dataSet.concepts;
             if (!pool.length) return;
-            this.setMode('network');
-            this.$nextTick(() => this.open(pool[Math.floor(Math.random() * pool.length)]));
+            this.openConcept(pool[Math.floor(Math.random() * pool.length)]);
         },
         startPath(path) {
             this.activePathId = path.id;
             this.pathStep = 0;
-            this.resetFilters();
-            this.setMode('network');
-            this.$nextTick(() => { this.refreshGraph(false); if (this.pathConcept) this.open(this.pathConcept); });
+            this.setMode('study');
+            this.$nextTick(() => this.pathConcept && this.selectConcept(this.pathConcept.id));
         },
-        stopPath() { this.activePathId = null; this.pathStep = 0; this.refreshGraph(true); },
+        stopPath() {
+            this.activePathId = null;
+            this.pathStep = 0;
+        },
         goPath(index) {
             if (!this.activePath || index < 0 || index >= this.activePath.concepts.length) return;
             this.pathStep = index;
-            this.refreshGraph(false);
-            this.$nextTick(() => this.pathConcept && this.open(this.pathConcept));
+            const concept = this.pathConcept;
+            if (concept) this.openConcept(concept);
         },
         previousPath() { this.goPath(this.pathStep - 1); },
         nextPath() { this.goPath(this.pathStep + 1); },
-        startQuiz() {
-            const answer = this.dataSet.concepts[Math.floor(Math.random() * this.dataSet.concepts.length)];
-            const useRef = Math.random() > .5;
-            const options = [...this.dataSet.concepts.filter(item => item.id !== answer.id).sort(() => Math.random() - .5).slice(0, 3), answer]
-                .sort(() => Math.random() - .5);
-            this.quiz = {
-                answer,
-                options,
-                eyebrow: useRef ? 'Repère coranique' : 'Définition',
-                prompt: useRef ? `Quel concept est relié à ${answer.verses[Math.floor(Math.random() * answer.verses.length)]} ?` : answer.summary
-            };
-            this.quizAnswer = null;
-            this.icons();
+        verseText(reference) {
+            return this.verseCache[reference] || '';
         },
-        answerQuiz(option) {
-            if (this.quizAnswer) return;
-            this.quizAnswer = option;
-            this.quizScore = {
-                correct: this.quizScore.correct + (option.id === this.quiz.answer.id ? 1 : 0),
-                total: this.quizScore.total + 1
-            };
+        async fetchArabicVerse(reference) {
+            if (this.verseCache[reference] || this.verseLoading[reference]) return;
+            this.verseLoading = { ...this.verseLoading, [reference]: true };
+            this.verseErrors = { ...this.verseErrors, [reference]: false };
+            try {
+                const response = await fetch(`https://api.alquran.cloud/v1/ayah/${encodeURIComponent(reference)}/quran-uthmani`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const payload = await response.json();
+                const text = payload?.data?.text;
+                if (!text) throw new Error('Texte arabe absent');
+                this.verseCache = { ...this.verseCache, [reference]: text };
+            } catch (error) {
+                console.warn(`Verset ${reference} indisponible`, error);
+                this.verseErrors = { ...this.verseErrors, [reference]: true };
+            } finally {
+                const next = { ...this.verseLoading };
+                delete next[reference];
+                this.verseLoading = next;
+            }
         },
-        closeQuiz() { this.quiz = null; this.quizAnswer = null; },
-        async copyRef(ref) {
-            try { await navigator.clipboard.writeText(ref); this.notify('Référence copiée'); }
-            catch (_) { this.notify('Copie indisponible'); }
+        loadArabicForSelected() {
+            if (!this.selected) return;
+            this.selected.verses.forEach(reference => this.fetchArabicVerse(reference));
         },
-        icons() { setTimeout(() => window.lucide?.createIcons(), 30); }
+        verseNote(index) {
+            if (!this.selected) return '';
+            if (index === 0) return `Point d’entrée principal : observer comment ce passage présente ${this.selected.title.toLowerCase()} et à quelle réponse il appelle.`;
+            if (index === 1) return `Élargissement du thème : comparer ce passage au premier afin d’identifier une autre situation, une autre conséquence ou un autre vocabulaire.`;
+            return `Mise en perspective : replacer ce verset dans sa sourate et vérifier comment il complète l’idée centrale de la fiche.`;
+        },
+        async copyRef(reference) {
+            try {
+                await navigator.clipboard.writeText(reference);
+                this.notify('Référence copiée');
+            } catch (_) {
+                this.notify('Copie indisponible');
+            }
+        },
+        icons() {
+            setTimeout(() => window.lucide?.createIcons(), 20);
+        }
     },
-    mounted() { this.$nextTick(() => { this.initGraph(); this.icons(); }); },
-    beforeUnmount() { clearTimeout(this.toastTimer); this.network?.destroy(); this.network = null; }
+    mounted() {
+        this.markStudied(this.selectedId);
+        this.loadArabicForSelected();
+        this.icons();
+    },
+    beforeUnmount() {
+        clearTimeout(this.toastTimer);
+    }
 };
