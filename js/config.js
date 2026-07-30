@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v20';
+    const APP_VERSION = 'athar-pro-v21';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -108,7 +108,7 @@ tailwind.config = {
     setMeta('meta[property="og:description"]', "Explorez des notices historiques, des hadiths référencés et outils d'étude, avec une méthodologie éditoriale transparente.");
 
     const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1');
+    if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
@@ -128,6 +128,7 @@ tailwind.config = {
     ensureStylesheet(`css/ussul-immersive-fix.css?v=${APP_VERSION}`, 'athar-ussul-immersive-fix');
     ensureStylesheet(`css/library-pro.css?v=${APP_VERSION}`, 'athar-library-pro');
     ensureStylesheet(`css/library-immersive-fix.css?v=${APP_VERSION}`, 'athar-library-immersive-fix');
+    ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
@@ -148,6 +149,7 @@ tailwind.config = {
     ensureScript(`js/components/ScholarAtlasExpansionPatch.js?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion-patch');
     ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
+    ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
 
     window.addEventListener('load', async () => {
         if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
