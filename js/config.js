@@ -72,7 +72,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v8';
+    const APP_VERSION = 'athar-pro-v9';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -88,10 +88,19 @@ tailwind.config = {
         document.head.appendChild(link);
     };
 
+    const ensureScript = (src, id) => {
+        if (document.getElementById(id)) return;
+        const script = document.createElement('script');
+        script.id = id;
+        script.src = src;
+        script.defer = true;
+        document.head.appendChild(script);
+    };
+
     document.title = "Athar Pro — Bibliothèque numérique d'histoire islamique";
     setMeta('meta[name="description"]', "Biographies documentées, hadiths référencés et outils d'étude de l'histoire islamique.");
     setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque numérique d'histoire islamique");
-    setMeta('meta[property="og:description"]', "Explorez des notices historiques, des hadiths référencés et des outils d'étude, avec une méthodologie éditoriale transparente.");
+    setMeta('meta[property="og:description"]', "Explorez des notices historiques, des hadiths référencés et outils d'étude, avec une méthodologie éditoriale transparente.");
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1');
@@ -100,6 +109,10 @@ tailwind.config = {
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
     ensureStylesheet(`css/atlas-layout-fix.css?v=${APP_VERSION}`, 'athar-atlas-layout-fix');
     ensureStylesheet(`css/scholar-atlas.css?v=${APP_VERSION}`, 'athar-scholar-atlas-styles');
+    ensureStylesheet(`css/constellation-base.css?v=${APP_VERSION}`, 'athar-constellation-base');
+    ensureStylesheet(`css/constellation-content.css?v=${APP_VERSION}`, 'athar-constellation-content');
+    ensureStylesheet(`css/constellation-overlays.css?v=${APP_VERSION}`, 'athar-constellation-overlays');
+    ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
 
     window.addEventListener('load', async () => {
         if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
