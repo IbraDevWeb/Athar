@@ -51,3 +51,6 @@ jobs:
 
       - name: Validate Constellation data
         run: node scripts/validate-constellation.js
+
+      - name: Validate Constellation study interface
+        run: node scripts/validate-constellation-study.js
