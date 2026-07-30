@@ -1,17 +1,17 @@
-const CACHE_VERSION = 'athar-pro-v5';
+const CACHE_VERSION = 'athar-pro-v6';
 const APP_SHELL = [
     './',
     './index.html',
     './manifest.json',
     './css/style.css',
-    './css/transmission.css?v=athar-pro-v5',
-    './css/atlas.css?v=athar-pro-v5',
+    './css/transmission.css?v=athar-pro-v6',
+    './css/atlas.css?v=athar-pro-v6',
     './js/config.js',
     './js/app.js',
-    './js/components/TransmissionView.js?v=athar-pro-v5',
-    './transmission_data.js?v=athar-pro-v5',
-    './js/components/AtlasView.js?v=athar-pro-v5',
-    './atlas_data.js?v=athar-pro-v5'
+    './js/components/TransmissionView.js?v=athar-pro-v6',
+    './transmission_data.js?v=athar-pro-v6',
+    './js/components/AtlasView.js?v=athar-pro-v6',
+    './atlas_data.js?v=athar-pro-v6'
 ];
 
 self.addEventListener('install', (event) => {
