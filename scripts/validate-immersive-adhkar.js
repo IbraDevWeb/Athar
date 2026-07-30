@@ -44,8 +44,9 @@ if (!adhkarCss.includes('@media(max-width:820px)') || !adhkarCss.includes('prefe
 for (const asset of ['css/adhkar-pro.css', 'js/components/AdhkarView.js', 'js/components/GlobalFullscreen.js']) {
     if (!worker.includes(asset)) throw new Error(`Ressource absente du cache : ${asset}`);
 }
-if (!config.includes('css/adhkar-pro.css') || !config.includes('athar-pro-v14') || !worker.includes('athar-pro-v14')) {
-    throw new Error('Intégration du cache v14 incomplète.');
-}
+if (!config.includes('css/adhkar-pro.css')) throw new Error('Feuille Al-Adhkar non chargée.');
+const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
+const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
+if (configVersion < 14 || configVersion !== workerVersion) throw new Error('Versions du cache immersif et Al-Adhkar incohérentes.');
 
-console.log('Mode immersif navigable et Al-Adhkar professionnel validés : navigation inter-sections, Oussoul, parcours, arabe, lecteur, progression et cache v14.');
+console.log(`Mode immersif navigable et Al-Adhkar professionnel validés : navigation inter-sections, Oussoul, parcours, arabe, lecteur, progression et cache v${configVersion}.`);
