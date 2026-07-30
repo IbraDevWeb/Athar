@@ -49,11 +49,9 @@ const lessons = vm.runInContext('USSUL_LESSONS', context);
 const component = vm.runInContext('UssulView', context);
 
 if (!Array.isArray(lessons) || lessons.length < 5) throw new Error(`Parcours Oussoul insuffisant : ${lessons?.length || 0} leçons.`);
-const ids = new Set();
+const internalKeys = new Set();
 for (const lesson of lessons) {
     if (!lesson || typeof lesson !== 'object') throw new Error('Leçon Oussoul invalide.');
-    if (ids.has(String(lesson.id))) throw new Error(`Identifiant Oussoul dupliqué : ${lesson.id}`);
-    ids.add(String(lesson.id));
     for (const field of ['title', 'author', 'intro', 'videoUrl']) {
         if (!String(lesson[field] || '').trim()) throw new Error(`Champ ${field} absent pour la leçon ${lesson.id}.`);
     }
@@ -63,6 +61,9 @@ for (const lesson of lessons) {
             throw new Error(`Contenu incomplet dans la leçon ${lesson.id}.`);
         }
     }
+    const internalKey = component.methods.lessonKey.call({ lessons }, lesson);
+    if (!internalKey || internalKeys.has(internalKey)) throw new Error(`Clé interne Oussoul dupliquée : ${internalKey}`);
+    internalKeys.add(internalKey);
     const videoId = component.methods.extractYouTubeId(lesson.videoUrl);
     if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) {
         throw new Error(`URL YouTube non intégrable pour la leçon ${lesson.id} : ${lesson.videoUrl}`);
@@ -82,6 +83,8 @@ for (const [url, expected] of urlCases) {
 
 const requiredComponentTokens = [
     'athar_ussul_v2',
+    'lessonKey',
+    ':key="lessonKey(lesson)"',
     'filteredLessons',
     'completionPercent',
     'onReaderScroll',
@@ -130,4 +133,4 @@ const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
 const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
 if (configVersion < 18 || configVersion !== workerVersion) throw new Error('Versions du cache Oussoul incohérentes.');
 
-console.log(`Oussoul al-Fiqh validé : ${lessons.length} leçons, ${lessons.reduce((n, lesson) => n + lesson.sections.length, 0)} sections, URLs YouTube intégrables, PiP interne et cache v${configVersion}.`);
+console.log(`Oussoul al-Fiqh validé : ${lessons.length} leçons, ${lessons.reduce((n, lesson) => n + lesson.sections.length, 0)} sections, clés internes stables, URLs YouTube intégrables, PiP interne et cache v${configVersion}.`);
