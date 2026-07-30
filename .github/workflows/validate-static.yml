@@ -60,3 +60,6 @@ jobs:
 
       - name: Validate fullscreen and timeline
         run: node scripts/validate-fullscreen-timeline.js
+
+      - name: Validate immersive navigation and Adhkar
+        run: node scripts/validate-immersive-adhkar.js

@@ -35,6 +35,8 @@ for (const asset of ['css/timeline-pro.css', 'css/fullscreen-global.css', 'js/co
     if (!config.includes(asset)) throw new Error(`Ressource non chargée par config.js : ${asset}`);
     if (!worker.includes(asset)) throw new Error(`Ressource non mise en cache : ${asset}`);
 }
-if (!config.includes('athar-pro-v13') || !worker.includes('athar-pro-v13')) throw new Error('La migration du cache v13 est absente.');
+const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
+const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
+if (configVersion < 13 || configVersion !== workerVersion) throw new Error('Versions du cache plein écran incohérentes.');
 
-console.log('Plein écran global et frise professionnelle validés : modes, périodes, parcours, détails, responsive et cache v13.');
+console.log(`Plein écran global et frise professionnelle validés : modes, périodes, parcours, détails, responsive et cache v${configVersion}.`);
