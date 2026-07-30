@@ -1,23 +1,34 @@
-const CACHE_VERSION = 'athar-pro-v8';
+const CACHE_VERSION = 'athar-pro-v9';
 const APP_SHELL = [
     './',
     './index.html',
     './manifest.json',
     './css/style.css',
-    './css/transmission.css?v=athar-pro-v8',
-    './css/atlas.css?v=athar-pro-v8',
-    './css/atlas-layout-fix.css?v=athar-pro-v8',
-    './css/scholar-atlas.css?v=athar-pro-v8',
+    './css/transmission.css?v=athar-pro-v9',
+    './css/atlas.css?v=athar-pro-v9',
+    './css/atlas-layout-fix.css?v=athar-pro-v9',
+    './css/scholar-atlas.css?v=athar-pro-v9',
+    './css/constellation-base.css?v=athar-pro-v9',
+    './css/constellation-content.css?v=athar-pro-v9',
+    './css/constellation-overlays.css?v=athar-pro-v9',
     './js/config.js',
     './js/app.js',
-    './js/components/TransmissionView.js?v=athar-pro-v8',
-    './transmission_data.js?v=athar-pro-v8',
-    './js/components/AtlasView.js?v=athar-pro-v8',
-    './atlas_data.js?v=athar-pro-v8',
-    './js/components/ToolView.js?v=athar-pro-v8',
-    './scholar_atlas_core.js?v=athar-pro-v8',
-    './scholar_atlas_traditions.js?v=athar-pro-v8',
-    './scholar_atlas_thought.js?v=athar-pro-v8'
+    './js/components/TransmissionView.js?v=athar-pro-v9',
+    './transmission_data.js?v=athar-pro-v9',
+    './js/components/AtlasView.js?v=athar-pro-v9',
+    './atlas_data.js?v=athar-pro-v9',
+    './js/components/ToolView.js?v=athar-pro-v9',
+    './scholar_atlas_core.js?v=athar-pro-v9',
+    './scholar_atlas_traditions.js?v=athar-pro-v9',
+    './scholar_atlas_thought.js?v=athar-pro-v9',
+    './js/components/ConstellationBootstrap.js?v=athar-pro-v9',
+    './js/components/ConstellationCore.js?v=athar-pro-v9',
+    './js/components/ConstellationTemplate.js?v=athar-pro-v9',
+    './constellation_part1.js?v=athar-pro-v9',
+    './constellation_part2.js?v=athar-pro-v9',
+    './constellation_part3.js?v=athar-pro-v9',
+    './constellation_part4.js?v=athar-pro-v9',
+    './constellation_links.js?v=athar-pro-v9'
 ];
 
 self.addEventListener('install', (event) => {
