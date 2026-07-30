@@ -77,7 +77,7 @@ for (const token of [
     'Collections thématiques',
     'Ma bibliothèque',
     'Recherche globale',
-    'méthodologie.html',
+    'methodologie.html',
     'lang="ar"',
     'dir="rtl"'
 ]) {
