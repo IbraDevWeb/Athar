@@ -1,7 +1,8 @@
-// Athar Pro — mode immersif global avec navigation intégrée
+// Athar Pro — mode immersif global avec navigation et thème intégrés
 (() => {
     const ROOT_CLASS = 'athar-app-fullscreen';
     const STORAGE_KEY = 'athar_immersive_last_view';
+    const SETTINGS_KEY = 'athar_settings';
     const SAFE_MODE = new URLSearchParams(window.location.search).get('immersive') === 'off';
     const NAV_GROUPS = [
         {
@@ -40,16 +41,72 @@
     let button = null;
     let exitButton = null;
     let menuButton = null;
+    let themeButton = null;
     let currentBadge = null;
     let drawer = null;
     let backdrop = null;
     let currentView = localStorage.getItem(STORAGE_KEY) || 'home';
     let retryTimer = null;
+    let themeObserver = null;
 
     const refreshIcons = () => setTimeout(() => window.lucide?.createIcons(), 20);
     const isActive = () => Boolean(document.fullscreenElement) || fallbackActive;
+    const isDark = () => document.documentElement.classList.contains('dark');
     const normalize = value => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
     const allItems = NAV_GROUPS.flatMap(group => group.items.map(item => ({ view: item[0], label: item[1], icon: item[2] })));
+
+    const updateThemeMeta = dark => {
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', dark ? '#070707' : '#f9f7f2');
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+    };
+
+    const renderThemeState = () => {
+        const dark = isDark();
+        updateThemeMeta(dark);
+        if (!themeButton) return;
+        const label = dark ? 'Passer en mode clair' : 'Passer en mode sombre';
+        themeButton.title = label;
+        themeButton.setAttribute('aria-label', label);
+        themeButton.setAttribute('aria-pressed', String(dark));
+        themeButton.innerHTML = `<i data-lucide="${dark ? 'sun' : 'moon'}"></i><span>${dark ? 'Clair' : 'Sombre'}</span>`;
+        refreshIcons();
+    };
+
+    const findNativeThemeButton = () => {
+        const candidates = [...document.querySelectorAll('#app > header button')];
+        return candidates.find(node => /mode clair|mode sombre/i.test(node.getAttribute('title') || ''))
+            || candidates.find(node => node.querySelector('[data-lucide="sun"], [data-lucide="moon"]'))
+            || null;
+    };
+
+    const persistFallbackTheme = dark => {
+        try {
+            const saved = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...saved, darkMode: dark }));
+        } catch (_) {}
+    };
+
+    const toggleTheme = () => {
+        const before = isDark();
+        const nativeButton = findNativeThemeButton();
+        if (nativeButton) {
+            nativeButton.click();
+        } else {
+            const next = !before;
+            document.documentElement.classList.toggle('dark', next);
+            persistFallbackTheme(next);
+            window.dispatchEvent(new CustomEvent('athar:theme-changed', { detail: { darkMode: next, immersive: true } }));
+        }
+        setTimeout(() => {
+            if (isDark() === before && nativeButton) {
+                const next = !before;
+                document.documentElement.classList.toggle('dark', next);
+                persistFallbackTheme(next);
+            }
+            renderThemeState();
+        }, 40);
+    };
 
     const markLayout = () => {
         const app = document.getElementById('app');
@@ -68,7 +125,7 @@
         localStorage.setItem(STORAGE_KEY, currentView);
         const item = allItems.find(entry => entry.view === currentView);
         const title = label || item?.label || 'Athar Pro';
-        currentBadge?.querySelector('span') && (currentBadge.querySelector('span').textContent = title);
+        if (currentBadge?.querySelector('span')) currentBadge.querySelector('span').textContent = title;
         drawer?.querySelectorAll('[data-athar-view]').forEach(node => {
             const active = node.dataset.atharView === currentView;
             node.classList.toggle('is-active', active);
@@ -115,6 +172,7 @@
         setTimeout(() => {
             markLayout();
             setCurrentView(view, label);
+            renderThemeState();
             refreshIcons();
         }, 100);
     };
@@ -139,9 +197,10 @@
             button.title = active ? 'Quitter le mode immersif' : 'Mode immersif';
             button.innerHTML = `<i data-lucide="${active ? 'minimize-2' : 'maximize-2'}"></i><span class="sr-only">${active ? 'Quitter le mode immersif' : 'Activer le mode immersif'}</span>`;
         }
-        [exitButton, menuButton, currentBadge].forEach(node => { if (node) node.hidden = !active; });
+        [exitButton, menuButton, themeButton, currentBadge].forEach(node => { if (node) node.hidden = !active; });
         if (!active) closeDrawer();
         else syncCurrentFromApp();
+        renderThemeState();
         refreshIcons();
     };
 
@@ -157,6 +216,7 @@
     const enter = async () => {
         markLayout();
         syncCurrentFromApp();
+        renderThemeState();
         try {
             if (document.documentElement.requestFullscreen) {
                 await document.documentElement.requestFullscreen({ navigationUI: 'hide' });
@@ -244,6 +304,15 @@
             document.body.appendChild(currentBadge);
         } else currentBadge = document.getElementById('athar-immersive-current');
 
+        if (!document.getElementById('athar-immersive-theme')) {
+            themeButton = document.createElement('button');
+            themeButton.id = 'athar-immersive-theme';
+            themeButton.type = 'button';
+            themeButton.className = 'athar-immersive-theme';
+            themeButton.addEventListener('click', toggleTheme);
+            document.body.appendChild(themeButton);
+        } else themeButton = document.getElementById('athar-immersive-theme');
+
         if (!document.getElementById('athar-fullscreen-exit')) {
             exitButton = document.createElement('button');
             exitButton.id = 'athar-fullscreen-exit';
@@ -255,6 +324,7 @@
         } else exitButton = document.getElementById('athar-fullscreen-exit');
 
         buildDrawer();
+        renderThemeState();
         renderState();
         return true;
     };
@@ -279,6 +349,15 @@
             event.preventDefault();
             toggleDrawer();
         }
+        if (event.key.toLocaleLowerCase() === 'd' && event.ctrlKey && event.shiftKey && isActive()) {
+            event.preventDefault();
+            toggleTheme();
+        }
+    });
+
+    window.addEventListener('athar:theme-changed', renderThemeState);
+    window.addEventListener('storage', event => {
+        if (event.key === SETTINGS_KEY) renderThemeState();
     });
 
     const start = (attempt = 0) => {
@@ -286,13 +365,24 @@
             document.documentElement.classList.remove(ROOT_CLASS, 'athar-immersive-menu-open');
             return;
         }
-        if (inject()) return;
+        if (inject()) {
+            if (!themeObserver) {
+                themeObserver = new MutationObserver(mutations => {
+                    if (mutations.some(mutation => mutation.attributeName === 'class')) renderThemeState();
+                });
+                themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+            }
+            return;
+        }
         if (attempt < 30) retryTimer = setTimeout(() => start(attempt + 1), 100);
     };
 
-    window.addEventListener('beforeunload', () => clearTimeout(retryTimer), { once: true });
+    window.addEventListener('beforeunload', () => {
+        clearTimeout(retryTimer);
+        themeObserver?.disconnect();
+    }, { once: true });
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => start(), { once: true });
     else start();
 
-    window.AtharFullscreen = { toggle, enter, exit, isActive, openMenu: openDrawer, navigate };
+    window.AtharFullscreen = { toggle, enter, exit, isActive, openMenu: openDrawer, navigate, toggleTheme };
 })();
