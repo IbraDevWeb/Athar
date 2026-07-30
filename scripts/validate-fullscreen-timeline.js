@@ -27,7 +27,7 @@ if ((timeline.match(/id: '[a-z-]+', label:/g) || []).length < 7) throw new Error
 if ((timeline.match(/title: '[^']+'/g) || []).length < 4) throw new Error('Les parcours chronologiques sont insuffisants.');
 if (!timelineCss.includes('.timeline-pro-workspace') || !timelineCss.includes('.timeline-pro-drawer') || !timelineCss.includes('@media(max-width:820px)')) throw new Error('Design de frise incomplet.');
 
-const fullscreenTokens = ['requestFullscreen', 'exitFullscreen', 'fullscreenchange', "event.ctrlKey && event.shiftKey", 'athar-app-fullscreen', 'GlobalFullscreen'];
+const fullscreenTokens = ['requestFullscreen', 'exitFullscreen', 'fullscreenchange', "event.ctrlKey && event.shiftKey", 'athar-app-fullscreen', 'AtharFullscreen'];
 for (const token of fullscreenTokens) if (!fullscreen.includes(token)) throw new Error(`Fonction plein écran absente : ${token}`);
 if (!fullscreenCss.includes('.athar-fullscreen-toggle') || !fullscreenCss.includes('.athar-global-sidebar') || !fullscreenCss.includes('.athar-fullscreen-exit')) throw new Error('Design plein écran incomplet.');
 
