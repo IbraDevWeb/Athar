@@ -54,3 +54,6 @@ jobs:
 
       - name: Validate Constellation study interface
         run: node scripts/validate-constellation-study.js
+
+      - name: Validate Tasbih interface
+        run: node scripts/validate-tasbih.js
