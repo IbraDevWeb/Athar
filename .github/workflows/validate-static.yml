@@ -72,3 +72,6 @@ jobs:
 
       - name: Validate encyclopedic library
         run: node scripts/validate-library.js
+
+      - name: Validate mobile and immersive UX
+        run: node scripts/validate-mobile-ux.js
