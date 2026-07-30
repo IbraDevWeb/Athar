@@ -75,3 +75,6 @@ jobs:
 
       - name: Validate mobile and immersive UX
         run: node scripts/validate-mobile-ux.js
+
+      - name: Validate immersive dark theme
+        run: node scripts/validate-immersive-theme.js
