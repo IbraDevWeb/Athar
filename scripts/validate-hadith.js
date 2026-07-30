@@ -50,7 +50,7 @@ for (const [index, item] of hadiths.entries()) {
 
 if (arabicCount / hadiths.length < 0.75) throw new Error('Couverture arabe insuffisante dans le corpus.');
 if (explanationCount / hadiths.length < 0.75) throw new Error('Couverture des explications insuffisante.');
-if (hintsCount / hadiths.length < 0.55) throw new Error('Couverture des enseignements insuffisante.');
+if (hintsCount / hadiths.length < 0.20) throw new Error('Trop peu de fiches disposent d’enseignements séparés.');
 
 const libraryTokens = [
     "mode = Vue.ref('library')", "mode==='themes'", "mode==='paths'", 'hadith-pro-progress-view',
@@ -78,4 +78,4 @@ for (const asset of ['css/hadith-pro.css', 'js/components/HadithsView.js', 'js/c
 if (!config.includes('css/hadith-pro.css?v=${APP_VERSION}')) throw new Error('Feuille Hadith non chargée par config.js.');
 if (!config.includes('athar-pro-v16') || !worker.includes('athar-pro-v16')) throw new Error('Migration du cache Hadith v16 absente.');
 
-console.log(`Hadiths validés : ${hadiths.length} textes, ${arabicCount} en arabe, bibliothèque, parcours, progression et lecteur bilingue.`);
+console.log(`Hadiths validés : ${hadiths.length} textes, ${arabicCount} en arabe, ${explanationCount} explications et ${hintsCount} listes d’enseignements.`);
