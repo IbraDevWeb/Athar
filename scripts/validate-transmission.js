@@ -10,6 +10,7 @@ const paths = {
     component: path.join(root, 'js', 'components', 'TransmissionView.js'),
     patch: path.join(root, 'js', 'components', 'TransmissionFocusPatch.js'),
     css: path.join(root, 'css', 'transmission.css'),
+    immersiveCss: path.join(root, 'css', 'transmission-immersive-fix.css'),
     config: path.join(root, 'js', 'config.js'),
     worker: path.join(root, 'service-worker.js')
 };
@@ -41,6 +42,7 @@ vm.runInContext(dataSource, context, { filename: 'transmission_data.js' });
 const component = fs.readFileSync(paths.component, 'utf8');
 const patch = fs.readFileSync(paths.patch, 'utf8');
 const css = fs.readFileSync(paths.css, 'utf8');
+const immersiveCss = fs.readFileSync(paths.immersiveCss, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
 
@@ -169,13 +171,30 @@ for (const token of [
     if (!css.includes(token)) fail(`missing Transmission design protection: ${token}`);
 }
 
-const openBraces = (css.match(/{/g) || []).length;
-const closeBraces = (css.match(/}/g) || []).length;
-if (openBraces !== closeBraces) fail(`unbalanced CSS braces: ${openBraces} opening / ${closeBraces} closing`);
+for (const token of [
+    'html.athar-app-fullscreen .tx3-app',
+    'padding-top: calc(var(--athar-immersive-bar, 60px) + 20px)',
+    'top: calc(var(--athar-immersive-bar, 60px) + 8px)',
+    'html.athar-app-fullscreen .tx3-progress',
+    '.tx3-node-student',
+    'grid-template-columns: 18px 42px minmax(0, 1fr)',
+    '.tx3-node-student > .tx3-node-copy',
+    '-webkit-line-clamp: 2',
+    'overscroll-behavior-inline: contain',
+    '@media (max-width: 620px)'
+]) {
+    if (!immersiveCss.includes(token)) fail(`missing immersive layout correction: ${token}`);
+}
+
+for (const [label, style] of [['base CSS', css], ['immersive CSS', immersiveCss]]) {
+    const openBraces = (style.match(/{/g) || []).length;
+    const closeBraces = (style.match(/}/g) || []).length;
+    if (openBraces !== closeBraces) fail(`unbalanced ${label} braces: ${openBraces} opening / ${closeBraces} closing`);
+}
 
 const configVersion = Number(config.match(/const APP_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
 const workerVersion = Number(worker.match(/const CACHE_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
-if (configVersion !== workerVersion || configVersion < 24) {
+if (configVersion !== workerVersion || configVersion < 25) {
     fail(`inconsistent or stale application cache: config v${configVersion}, worker v${workerVersion}`);
 }
 
@@ -190,8 +209,15 @@ if (config.indexOf("writeEarlyScript('js/components/TransmissionFocusPatch.js'")
     fail('TransmissionFocusPatch must be loaded before deferred application controllers');
 }
 
+const fixLoader = 'css/transmission-immersive-fix.css?v=${APP_VERSION}';
+if (!config.includes(fixLoader)) fail('Transmission immersive fix is not loaded by config.js');
+if (config.indexOf(fixLoader) < config.indexOf('css/mobile-pro.css?v=${APP_VERSION}')) {
+    fail('Transmission immersive fix must be loaded after the global mobile foundation');
+}
+
 for (const asset of [
     `css/transmission.css?v=athar-pro-v${workerVersion}`,
+    `css/transmission-immersive-fix.css?v=athar-pro-v${workerVersion}`,
     `js/components/TransmissionView.js?v=athar-pro-v${workerVersion}`,
     `js/components/TransmissionFocusPatch.js?v=athar-pro-v${workerVersion}`,
     `transmission_data.js?v=athar-pro-v${workerVersion}`
@@ -209,5 +235,5 @@ const counts = requiredGroups
     .join(', ');
 console.log(
     `Transmission Focus valid — ${SILSILA_DATA.nodes.length} profiles, ${SILSILA_DATA.edges.length} links, ` +
-    `${SILSILA_JOURNEYS.length} journeys (${counts}); focused map, drawers, guided player, review and mobile UX cached in v${workerVersion}.`
+    `${SILSILA_JOURNEYS.length} journeys (${counts}); immersive flow spacing, student-card columns, drawers, guided player, review and cache v${workerVersion} validated.`
 );
