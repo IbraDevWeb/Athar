@@ -21,6 +21,7 @@ const APP_SHELL = [
     './css/ussul-pro.css?v=athar-pro-v20',
     './css/ussul-immersive-fix.css?v=athar-pro-v20',
     './css/library-pro.css?v=athar-pro-v20',
+    './css/library-immersive-fix.css?v=athar-pro-v20',
     './js/config.js',
     './js/app.js',
     './js/components/LibraryView.js',
