@@ -69,3 +69,6 @@ jobs:
 
       - name: Validate Oussoul al-Fiqh and video PiP
         run: node scripts/validate-ussul.js
+
+      - name: Validate encyclopedic library
+        run: node scripts/validate-library.js
