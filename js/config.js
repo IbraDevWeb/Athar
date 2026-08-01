@@ -1,25 +1,3 @@
-(() => {
-    const writeAsset = (html) => {
-        if (document.readyState === 'loading') document.write(html);
-    };
-
-    if (document.readyState === 'loading') {
-        if (!document.querySelector('link[data-athar-leaflet-core]')) {
-            writeAsset('<link data-athar-leaflet-core rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">');
-        }
-        if (!window.L) {
-            writeAsset('<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"><\/script>');
-        }
-        if (!document.querySelector('link[data-athar-leaflet-cluster]')) {
-            writeAsset('<link data-athar-leaflet-cluster rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">');
-            writeAsset('<link data-athar-leaflet-cluster-theme rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">');
-        }
-        if (window.L && typeof window.L.markerClusterGroup !== 'function') {
-            writeAsset('<script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"><\/script>');
-        }
-    }
-})();
-
 tailwind.config = {
     darkMode: 'class',
     theme: {
@@ -70,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v26';
+    const APP_VERSION = 'athar-pro-v27';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -127,6 +105,7 @@ tailwind.config = {
     ensureStylesheet(`css/library-pro.css?v=${APP_VERSION}`, 'athar-library-pro');
     ensureStylesheet(`css/library-immersive-fix.css?v=${APP_VERSION}`, 'athar-library-immersive-fix');
     ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
+    ensureStylesheet(`css/interaction-stability.css?v=${APP_VERSION}`, 'athar-interaction-stability');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
