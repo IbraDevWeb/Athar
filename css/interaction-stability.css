@@ -1,0 +1,181 @@
+/* Athar Pro — stabilité globale des interactions et des agencements */
+
+/* Les icônes Lucide restent dans leur hôte Vue au lieu de remplacer le nœud. */
+.athar-icon-host {
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    line-height: 0;
+    vertical-align: -0.125em;
+    pointer-events: none !important;
+}
+
+.athar-icon-host > svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    pointer-events: none !important;
+}
+
+/* Les décorations d'un bouton ne doivent jamais voler son clic. */
+button > svg,
+button > i[data-lucide],
+button > .athar-icon-host,
+[role="button"] > svg,
+[role="button"] > i[data-lucide],
+[role="button"] > .athar-icon-host {
+    pointer-events: none !important;
+}
+
+button,
+[role="button"],
+a,
+input,
+select,
+textarea,
+summary {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+a[href],
+summary {
+    cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+/* Les nœuds en sortie de transition ne doivent pas recouvrir la vue entrante. */
+.fade-leave-active,
+.page-leave-active,
+.toast-leave-active,
+.tx4-fade-leave-active,
+.tx4-panel-leave-active,
+.tx4-overlay-leave-active {
+    pointer-events: none !important;
+}
+
+[hidden],
+[aria-hidden="true"][data-overlay],
+.inert,
+[inert] {
+    pointer-events: none !important;
+}
+
+/* Fondation anti-débordement pour les mises en page flex et grid. */
+.athar-global-mainframe,
+.athar-global-mainframe > main,
+.athar-global-mainframe > main > *,
+#app,
+#app > *,
+.tx4-shell,
+.tx4-frame,
+.tx4-main,
+.tx4-explore,
+.tx4-journeys,
+.tx4-review,
+.tx4-portrait,
+.tx4-lineage,
+.tx4-journey-index,
+.tx4-journey-reader,
+.tx4-review-card {
+    min-width: 0;
+}
+
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+}
+
+input,
+textarea,
+select {
+    max-width: 100%;
+}
+
+/* Les panneaux interactifs restent cliquables au-dessus des fonds décoratifs. */
+.tx4-masthead,
+.tx4-main,
+.tx4-mode-nav,
+.tx4-overlay,
+.tx4-command,
+.tx4-profile,
+.tx4-about,
+.tx4-review-card,
+.tx4-options,
+.tx4-options button {
+    isolation: isolate;
+}
+
+.tx4-options,
+.tx4-options button {
+    position: relative;
+    pointer-events: auto;
+}
+
+.tx4-options button:not(:disabled) {
+    z-index: 2;
+}
+
+.tx4-options button:disabled {
+    pointer-events: none;
+}
+
+/* Un overlay fermé ne doit jamais laisser une couche invisible sur la page. */
+.tx4-fade-enter-from,
+.tx4-fade-leave-to {
+    opacity: 0;
+    pointer-events: none !important;
+}
+
+html:not(.athar-transmission-overlay) .tx4-overlay {
+    pointer-events: none;
+}
+
+html.athar-transmission-overlay .tx4-overlay {
+    pointer-events: auto;
+}
+
+/* Hauteurs réelles et zones sûres sur téléphone. */
+@media (max-width: 720px) {
+    button,
+    [role="button"],
+    a[href] {
+        min-height: 44px;
+    }
+
+    .tx4-overlay {
+        padding:
+            max(10px, env(safe-area-inset-top, 0px))
+            max(10px, env(safe-area-inset-right, 0px))
+            max(10px, env(safe-area-inset-bottom, 0px))
+            max(10px, env(safe-area-inset-left, 0px));
+    }
+
+    .tx4-command,
+    .tx4-about,
+    .tx4-profile {
+        max-height: calc(var(--athar-viewport-height, 100dvh) - max(20px, env(safe-area-inset-top, 0px)));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+}
