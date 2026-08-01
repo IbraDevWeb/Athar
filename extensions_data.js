@@ -62,8 +62,8 @@ const EXTENSIONS_DATA = {
     isnad: {
         title: "La Chaîne d'Or",
         icon: "link",
-        desc: "Visualiseur de chaînes de transmission.",
-        type: "visualizer",
+        desc: "Explorateur pédagogique des isnāds, narrateurs et grandes routes de transmission.",
+        type: "interactive",
         data: []
     },
     currency: {
