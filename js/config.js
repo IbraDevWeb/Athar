@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v30';
+    const APP_VERSION = 'athar-pro-v31';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -99,6 +99,8 @@ tailwind.config = {
     writeEarlyScript('js/components/HistoryNightsView.js', 'athar-history-nights-view');
     writeEarlyScript('scriptorium_data.js', 'athar-scriptorium-data');
     writeEarlyScript('js/components/ScriptoriumView.js', 'athar-scriptorium-view');
+    writeEarlyScript('roots_data.js', 'athar-root-tree-data');
+    writeEarlyScript('js/components/RootTreeView.js', 'athar-root-tree-view');
     writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
@@ -125,6 +127,7 @@ tailwind.config = {
     ensureStylesheet(`css/history-nights.css?v=${APP_VERSION}`, 'athar-history-nights-styles');
     ensureStylesheet(`css/history-nights-scroll.css?v=${APP_VERSION}`, 'athar-history-nights-scroll');
     ensureStylesheet(`css/scriptorium.css?v=${APP_VERSION}`, 'athar-scriptorium-styles');
+    ensureStylesheet(`css/root-tree.css?v=${APP_VERSION}`, 'athar-root-tree-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
