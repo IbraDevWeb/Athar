@@ -121,6 +121,7 @@ tailwind.config = {
     ensureStylesheet(`css/interaction-stability.css?v=${APP_VERSION}`, 'athar-interaction-stability');
     ensureStylesheet(`css/ancient-sky.css?v=${APP_VERSION}`, 'athar-ancient-sky-styles');
     ensureStylesheet(`css/history-nights.css?v=${APP_VERSION}`, 'athar-history-nights-styles');
+    ensureStylesheet(`css/history-nights-scroll.css?v=${APP_VERSION}`, 'athar-history-nights-scroll');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
