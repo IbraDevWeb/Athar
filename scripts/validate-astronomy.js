@@ -68,6 +68,25 @@ const bridge = read('js/components/AstronomyBootstrap.js');
     'PATCH_FLAG'
 ].forEach((token) => requireToken(bridge, token, 'AstronomyBootstrap'));
 
+const toolView = read('js/components/ToolView.js');
+const toolAnchor = `<scholar-atlas-module v-if="currentTool === 'scholars_map'" :settings="settings"></scholar-atlas-module>\n    <div v-else`;
+requireToken(toolView, toolAnchor, 'ToolView integration anchor');
+
+const bridgeContext = {
+    console,
+    window: {
+        AncientSkyView: { name: 'AncientSkyView' },
+        Vue: { createApp: (root) => root }
+    }
+};
+vm.createContext(bridgeContext);
+vm.runInContext(bridge, bridgeContext, { filename: 'AstronomyBootstrap.js' });
+const fakeToolView = { components: {}, template: toolAnchor };
+bridgeContext.window.Vue.createApp({ components: { 'tool-view': fakeToolView } });
+if (!fakeToolView.components['ancient-sky-view']) fail('The astronomy component was not registered in ToolView.');
+if (!fakeToolView.template.includes(`currentTool === 'astronomy'`)) fail('The astronomy route was not inserted in ToolView.');
+if (!fakeToolView.template.includes(`v-else-if="currentTool === 'scholars_map'"`)) fail('Scholar Atlas routing was not preserved.');
+
 const css = read('css/ancient-sky.css');
 [
     '.sky5-shell', '.sky5-main', '.sky5-planisphere', '.sky5-inspector', '.sky5-guides',
