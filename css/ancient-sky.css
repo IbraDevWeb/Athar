@@ -1,0 +1,609 @@
+/* Athar Pro — Le Ciel des Anciens */
+.sky5-shell {
+    --sky5-accent: #c5a059;
+    --sky5-ink: #171816;
+    --sky5-muted: #6f716d;
+    --sky5-paper: #f4f1e9;
+    --sky5-surface: rgba(255, 253, 248, .88);
+    --sky5-line: rgba(74, 67, 55, .13);
+    --sky5-shadow: 0 30px 90px -56px rgba(45, 38, 28, .46);
+    min-height: 100%;
+    position: relative;
+    overflow-x: clip;
+    color: var(--sky5-ink);
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--sky5-accent) 11%, transparent), transparent 28rem),
+        linear-gradient(180deg, #faf8f3 0%, var(--sky5-paper) 100%);
+}
+
+.dark .sky5-shell {
+    --sky5-ink: #f5f0e8;
+    --sky5-muted: #aba89f;
+    --sky5-paper: #07090d;
+    --sky5-surface: rgba(16, 18, 24, .9);
+    --sky5-line: rgba(230, 226, 214, .12);
+    --sky5-shadow: 0 34px 100px -50px rgba(0, 0, 0, .9);
+    background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--sky5-accent) 15%, transparent), transparent 31rem),
+        linear-gradient(180deg, #0c0e14 0%, #040509 100%);
+}
+
+.sky5-shell *,
+.sky5-shell *::before,
+.sky5-shell *::after { box-sizing: border-box; }
+
+.sky5-shell button,
+.sky5-shell input { font: inherit; }
+.sky5-shell button { border: 0; cursor: pointer; }
+.sky5-shell button:focus-visible,
+.sky5-shell input:focus-visible,
+.sky5-object:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--sky5-accent) 78%, #fff);
+    outline-offset: 3px;
+}
+
+.sky5-frame {
+    width: min(1480px, calc(100% - 36px));
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 22px 0 92px;
+}
+
+.sky5-header {
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: minmax(220px, .8fr) auto minmax(220px, .8fr);
+    align-items: center;
+    gap: 22px;
+    position: sticky;
+    top: 12px;
+    z-index: 90;
+    padding: 10px 13px;
+    border: 1px solid var(--sky5-line);
+    border-radius: 19px;
+    background: color-mix(in srgb, var(--sky5-surface) 91%, transparent);
+    box-shadow: 0 18px 58px -44px rgba(24, 27, 36, .55);
+    backdrop-filter: blur(22px) saturate(145%);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+}
+.dark .sky5-header { box-shadow: 0 20px 62px -38px rgba(0, 0, 0, .86); }
+
+.sky5-brand {
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+}
+.sky5-brand-mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 14px;
+    color: #f3dfad;
+    background: linear-gradient(145deg, #202632, #10131b);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 14px 30px -20px rgba(0,0,0,.9);
+}
+.sky5-brand-mark svg { width: 20px; height: 20px; }
+.sky5-brand > span:last-child { min-width: 0; display: grid; gap: 3px; }
+.sky5-brand small,
+.sky5-scene-head small,
+.sky5-guides header small,
+.sky5-inspector header small,
+.sky5-note small,
+.sky5-memory small,
+.sky5-guide-step small,
+.sky5-about header small {
+    color: color-mix(in srgb, var(--sky5-accent) 78%, #92744e);
+    font-size: 8px;
+    font-weight: 850;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+.sky5-brand strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+    letter-spacing: .035em;
+}
+
+.sky5-seasons {
+    display: inline-flex;
+    justify-self: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--sky5-line);
+    border-radius: 999px;
+    background: rgba(110, 102, 84, .06);
+}
+.sky5-seasons button {
+    min-height: 38px;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--sky5-muted);
+    background: transparent;
+    font-size: 9px;
+    font-weight: 820;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+.sky5-seasons button:hover { color: var(--sky5-ink); }
+.sky5-seasons button.active {
+    color: #fff7e6;
+    background: #171b24;
+    box-shadow: 0 10px 24px -17px rgba(0,0,0,.9);
+}
+.dark .sky5-seasons button.active { color: #171713; background: #e2c989; }
+
+.sky5-header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+.sky5-header-actions button {
+    min-width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 11px;
+    border-radius: 12px;
+    color: var(--sky5-muted);
+    background: transparent;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+.sky5-header-actions button:hover,
+.sky5-header-actions button.active {
+    color: var(--sky5-ink);
+    background: color-mix(in srgb, var(--sky5-accent) 10%, transparent);
+    transform: translateY(-1px);
+}
+.sky5-header-actions svg { width: 16px; height: 16px; }
+.sky5-header-actions span { font-size: 8px; font-weight: 820; letter-spacing: .06em; text-transform: uppercase; }
+
+.sky5-main {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(310px, .55fr);
+    gap: 18px;
+    padding-top: 18px;
+}
+
+.sky5-observatory,
+.sky5-inspector,
+.sky5-guides,
+.sky5-guide-reader,
+.sky5-about {
+    border: 1px solid var(--sky5-line);
+    background: color-mix(in srgb, var(--sky5-surface) 94%, transparent);
+    box-shadow: var(--sky5-shadow);
+}
+
+.sky5-observatory {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.sky5-scene-head {
+    min-height: 112px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 26px 18px;
+    border-bottom: 1px solid var(--sky5-line);
+}
+.sky5-scene-head > div:first-child { min-width: 0; }
+.sky5-scene-head h1 {
+    margin: 6px 0 4px;
+    font-family: "Cinzel", serif;
+    font-size: clamp(1.65rem, 2.7vw, 2.8rem);
+    line-height: 1.08;
+}
+.sky5-scene-head p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--sky5-muted);
+    font-family: "Libre Baskerville", serif;
+    font-size: 10px;
+    line-height: 1.75;
+}
+
+.sky5-category-scroll {
+    flex: 0 1 auto;
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 2px;
+    scrollbar-width: none;
+}
+.sky5-category-scroll::-webkit-scrollbar { display: none; }
+.sky5-category-scroll button {
+    min-width: max-content;
+    min-height: 34px;
+    padding: 0 11px;
+    border-radius: 999px;
+    color: var(--sky5-muted);
+    background: transparent;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .03em;
+}
+.sky5-category-scroll button.active {
+    color: var(--sky5-ink);
+    background: color-mix(in srgb, var(--sky5-accent) 11%, transparent);
+}
+
+.sky5-planisphere-wrap {
+    position: relative;
+    padding: clamp(14px, 2.4vw, 26px);
+    background:
+        radial-gradient(circle at 50% 15%, rgba(76, 102, 154, .17), transparent 34%),
+        linear-gradient(180deg, #080d18, #03050a);
+}
+.sky5-planisphere {
+    width: min(100%, 760px);
+    aspect-ratio: 1;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    user-select: none;
+    touch-action: manipulation;
+}
+.sky5-dome { stroke: rgba(207, 221, 255, .13); stroke-width: .24; }
+.sky5-horizon { fill: none; stroke: rgba(228, 234, 255, .36); stroke-width: .34; }
+.sky5-altitude-ring { fill: none; stroke: rgba(204, 216, 246, .08); stroke-width: .18; stroke-dasharray: .8 1.2; }
+.sky5-axis { fill: none; stroke: rgba(204, 216, 246, .06); stroke-width: .16; }
+.sky5-background-stars circle { fill: #fff; }
+.sky5-constellations polyline {
+    fill: none;
+    stroke: color-mix(in srgb, var(--sky5-accent) 72%, #bad6ff);
+    stroke-width: .28;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: .52;
+    vector-effect: non-scaling-stroke;
+}
+.sky5-object { cursor: pointer; outline: none; }
+.sky5-hit { fill: transparent; }
+.sky5-selection {
+    fill: none;
+    stroke: var(--sky5-accent);
+    stroke-width: .35;
+    stroke-dasharray: .65 .55;
+    opacity: .95;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sky5-orbit 10s linear infinite;
+}
+.sky5-object:hover .sky5-star,
+.sky5-object:focus .sky5-star,
+.sky5-object.selected .sky5-star { transform: scale(1.18); }
+.sky5-star {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform .18s ease;
+}
+.sky5-label {
+    fill: rgba(245, 248, 255, .88);
+    font-family: "Inter", sans-serif;
+    font-size: 1.55px;
+    font-weight: 650;
+    paint-order: stroke;
+    stroke: rgba(3, 5, 10, .88);
+    stroke-width: .42px;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+.sky5-compass text {
+    fill: rgba(239, 229, 200, .72);
+    font-family: "Cinzel", serif;
+    font-size: 2.15px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: central;
+}
+.sky5-sky-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    position: absolute;
+    left: 26px;
+    right: 26px;
+    bottom: 15px;
+    color: rgba(224, 229, 242, .58);
+    font-size: 8px;
+    font-weight: 650;
+    pointer-events: none;
+}
+.sky5-sky-caption span { display: inline-flex; align-items: center; gap: 7px; }
+.sky5-sky-caption i { width: 5px; height: 5px; border-radius: 50%; background: var(--sky5-accent); box-shadow: 0 0 10px var(--sky5-accent); }
+
+.sky5-time-control {
+    min-height: 76px;
+    display: grid;
+    grid-template-columns: 160px minmax(120px, 1fr);
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    gap: 0 18px;
+    padding: 11px 23px 12px;
+    border-top: 1px solid var(--sky5-line);
+}
+.sky5-time-copy { grid-row: 1 / 3; display: flex; align-items: center; gap: 11px; }
+.sky5-time-copy > svg { width: 18px; height: 18px; color: var(--sky5-accent); }
+.sky5-time-copy span { display: grid; gap: 3px; }
+.sky5-time-copy small { color: var(--sky5-muted); font-size: 7px; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; }
+.sky5-time-copy strong { font-family: "Libre Baskerville", serif; font-size: 11px; }
+.sky5-time-control input {
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    accent-color: var(--sky5-accent);
+    cursor: pointer;
+}
+.sky5-time-ends { display: flex; justify-content: space-between; color: var(--sky5-muted); font-size: 7px; font-weight: 700; }
+
+.sky5-inspector {
+    min-width: 0;
+    align-self: start;
+    position: sticky;
+    top: 102px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+.sky5-inspector > header {
+    min-height: 88px;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    align-items: center;
+    gap: 13px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--sky5-line);
+    background: radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--sky5-accent) 14%, transparent), transparent 50%);
+}
+.sky5-object-mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--sky5-accent);
+    background: color-mix(in srgb, var(--sky5-accent) 10%, transparent);
+}
+.sky5-object-mark svg { width: 18px; height: 18px; }
+.sky5-inspector header > div { min-width: 0; }
+.sky5-inspector header h2 { margin: 5px 0 0; font-family: "Cinzel", serif; font-size: 23px; line-height: 1.1; }
+.sky5-arabic {
+    padding: 24px 22px 0;
+    color: var(--sky5-accent);
+    font-family: "Amiri", serif;
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
+    line-height: 1.35;
+    text-align: center;
+}
+.sky5-transliteration { margin: 2px 22px 0; color: var(--sky5-muted); font-family: "Libre Baskerville", serif; font-size: 10px; font-style: italic; text-align: center; }
+.sky5-summary { margin: 21px 22px 0; color: color-mix(in srgb, var(--sky5-ink) 78%, var(--sky5-muted)); font-family: "Libre Baskerville", serif; font-size: 12px; line-height: 1.8; }
+
+.sky5-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    margin: 20px 18px 0;
+}
+.sky5-facts div { min-width: 0; padding: 11px 8px; border: 1px solid var(--sky5-line); border-radius: 13px; background: rgba(112, 104, 87, .045); text-align: center; }
+.sky5-facts dt { color: var(--sky5-muted); font-size: 7px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+.sky5-facts dd { margin: 5px 0 0; color: var(--sky5-accent); font-size: 10px; font-weight: 800; }
+
+.sky5-note { margin: 20px 22px 0; }
+.sky5-note p { margin: 8px 0 0; color: var(--sky5-muted); font-family: "Libre Baskerville", serif; font-size: 10px; line-height: 1.85; }
+.sky5-memory {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 11px;
+    margin: 19px 18px 0;
+    padding: 13px;
+    border: 1px solid color-mix(in srgb, var(--sky5-accent) 22%, transparent);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--sky5-accent) 7%, transparent);
+}
+.sky5-memory > span { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: var(--sky5-accent); background: color-mix(in srgb, var(--sky5-accent) 10%, transparent); }
+.sky5-memory svg { width: 17px; height: 17px; }
+.sky5-memory p { margin: 5px 0 0; color: var(--sky5-muted); font-size: 9px; line-height: 1.65; }
+.sky5-inspector > footer { display: flex; align-items: center; gap: 9px; margin-top: 20px; padding: 15px 20px; border-top: 1px solid var(--sky5-line); color: var(--sky5-muted); font-size: 8px; line-height: 1.5; }
+.sky5-inspector > footer svg { width: 14px; height: 14px; flex: 0 0 auto; color: var(--sky5-accent); }
+
+.sky5-guides {
+    margin-top: 18px;
+    overflow: hidden;
+    border-radius: 28px;
+}
+.sky5-guides > header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 23px 25px 18px;
+    border-bottom: 1px solid var(--sky5-line);
+}
+.sky5-guides header h2 { margin: 6px 0 0; font-family: "Cinzel", serif; font-size: 22px; }
+.sky5-guides header p { max-width: 430px; margin: 0; color: var(--sky5-muted); font-family: "Libre Baskerville", serif; font-size: 9px; line-height: 1.7; text-align: right; }
+.sky5-guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sky5-guide-grid > button {
+    min-width: 0;
+    min-height: 100px;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) 18px;
+    align-items: center;
+    gap: 13px;
+    padding: 18px 22px;
+    border-right: 1px solid var(--sky5-line);
+    color: inherit;
+    background: transparent;
+    text-align: left;
+    transition: background .2s ease;
+}
+.sky5-guide-grid > button:last-child { border-right: 0; }
+.sky5-guide-grid > button:hover,
+.sky5-guide-grid > button.active { background: color-mix(in srgb, var(--sky5-accent) 7%, transparent); }
+.sky5-guide-grid > button > span:first-child { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 15px; color: var(--sky5-accent); background: color-mix(in srgb, var(--sky5-accent) 9%, transparent); }
+.sky5-guide-grid > button > span:first-child svg { width: 19px; height: 19px; }
+.sky5-guide-grid > button > span:nth-child(2) { min-width: 0; display: grid; gap: 5px; }
+.sky5-guide-grid strong { font-family: "Libre Baskerville", serif; font-size: 11px; }
+.sky5-guide-grid small { color: var(--sky5-muted); font-size: 8px; line-height: 1.45; }
+.sky5-guide-grid > button > svg { width: 15px; height: 15px; color: var(--sky5-muted); }
+
+.sky5-guide-reader {
+    position: relative;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    margin: 0 18px 18px;
+    padding: 20px 54px 20px 22px;
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--sky5-accent) 6%, var(--sky5-surface));
+    box-shadow: none;
+}
+.sky5-guide-close { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; color: var(--sky5-muted); background: rgba(110,103,87,.08); }
+.sky5-guide-close svg { width: 15px; height: 15px; }
+.sky5-guide-progress { display: flex; gap: 5px; }
+.sky5-guide-progress span { flex: 1; height: 3px; border-radius: 999px; background: var(--sky5-line); }
+.sky5-guide-progress span.active { background: var(--sky5-accent); }
+.sky5-guide-step { min-width: 0; display: grid; grid-template-columns: 42px minmax(0,1fr); align-items: center; gap: 14px; }
+.sky5-guide-step > span { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: #171713; background: var(--sky5-accent); font-family: "Cinzel", serif; font-weight: 800; }
+.sky5-guide-step > div { min-width: 0; }
+.sky5-guide-step h3 { margin: 5px 0 4px; font-family: "Cinzel", serif; font-size: 16px; }
+.sky5-guide-step p { margin: 0; color: var(--sky5-muted); font-family: "Libre Baskerville", serif; font-size: 9px; line-height: 1.65; }
+.sky5-guide-reader > footer { display: flex; gap: 7px; }
+.sky5-guide-reader > footer button { min-height: 39px; display: inline-flex; align-items: center; gap: 7px; padding: 0 12px; border-radius: 11px; color: var(--sky5-ink); background: rgba(112,104,87,.08); font-size: 8px; font-weight: 800; }
+.sky5-guide-reader > footer button:last-child { color: #171713; background: var(--sky5-accent); }
+.sky5-guide-reader > footer button:disabled { opacity: .3; cursor: not-allowed; }
+.sky5-guide-reader > footer svg { width: 13px; height: 13px; }
+
+.sky5-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 460;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(3, 5, 10, .66);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.sky5-about {
+    width: min(680px, 100%);
+    max-height: calc(var(--athar-viewport-height, 100dvh) - 40px);
+    overflow-y: auto;
+    border-radius: 25px;
+    color: var(--sky5-ink);
+    background: #faf8f2;
+    box-shadow: 0 40px 120px -35px rgba(0,0,0,.78);
+}
+.dark .sky5-about { background: #10131a; }
+.sky5-about > header { min-height: 82px; display: grid; grid-template-columns: 44px minmax(0,1fr) 42px; align-items: center; gap: 13px; padding: 15px 18px; border-bottom: 1px solid var(--sky5-line); }
+.sky5-about > header > span { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; color: var(--sky5-accent); background: color-mix(in srgb, var(--sky5-accent) 10%, transparent); }
+.sky5-about header svg { width: 18px; height: 18px; }
+.sky5-about h2 { margin: 5px 0 0; font-family: "Cinzel", serif; font-size: 20px; }
+.sky5-about header button { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: var(--sky5-muted); background: rgba(112,104,87,.08); }
+.sky5-about > p { margin: 0; padding: 24px 24px 14px; color: var(--sky5-muted); font-family: "Libre Baskerville", serif; font-size: 11px; line-height: 1.9; }
+.sky5-about ul { margin: 0; padding: 4px 42px 20px; color: var(--sky5-muted); font-size: 9px; line-height: 1.8; }
+.sky5-about-notice { display: grid; grid-template-columns: 34px minmax(0,1fr); align-items: center; gap: 11px; margin: 0 20px 20px; padding: 13px; border-radius: 15px; color: var(--sky5-muted); background: color-mix(in srgb, var(--sky5-accent) 8%, transparent); font-size: 9px; line-height: 1.55; }
+.sky5-about-notice svg { width: 17px; height: 17px; color: var(--sky5-accent); }
+
+.sky5-fade-enter-active,
+.sky5-fade-leave-active { transition: opacity .2s ease; }
+.sky5-fade-enter-from,
+.sky5-fade-leave-to { opacity: 0; }
+
+@keyframes sky5-orbit { to { transform: rotate(360deg); } }
+
+html.athar-app-fullscreen .sky5-frame {
+    width: min(1480px, calc(100% - 30px));
+    padding-top: calc(var(--athar-immersive-bar, 60px) + 16px);
+}
+html.athar-app-fullscreen .sky5-header { top: calc(var(--athar-immersive-bar, 60px) + 7px); }
+html.athar-app-fullscreen .sky5-inspector { top: calc(var(--athar-immersive-bar, 60px) + 98px); }
+
+@media (max-width: 1180px) {
+    .sky5-header { grid-template-columns: minmax(190px, 1fr) auto; }
+    .sky5-seasons { grid-column: 1 / 3; grid-row: 2; justify-self: stretch; justify-content: center; }
+    .sky5-main { grid-template-columns: minmax(0, 1fr) 300px; }
+    .sky5-guide-reader { grid-template-columns: 140px minmax(0,1fr); }
+    .sky5-guide-reader > footer { grid-column: 1 / 3; justify-content: flex-end; }
+}
+
+@media (max-width: 900px) {
+    .sky5-frame { width: min(100% - 24px, 820px); }
+    .sky5-header { position: relative; top: auto; grid-template-columns: minmax(0,1fr) auto; }
+    .sky5-header-actions span { display: none; }
+    .sky5-header-actions button { padding: 0; }
+    .sky5-main { grid-template-columns: 1fr; }
+    .sky5-inspector { position: relative; top: auto; }
+    .sky5-guide-grid { grid-template-columns: 1fr; }
+    .sky5-guide-grid > button { border-right: 0; border-bottom: 1px solid var(--sky5-line); }
+    .sky5-guide-grid > button:last-child { border-bottom: 0; }
+    html.athar-app-fullscreen .sky5-header { top: auto; }
+}
+
+@media (max-width: 640px) {
+    .sky5-frame { width: 100%; padding: 10px 10px 96px; }
+    .sky5-header { min-height: 58px; gap: 8px; padding: 7px 8px; border-radius: 16px; }
+    .sky5-brand { gap: 9px; }
+    .sky5-brand-mark { width: 39px; height: 39px; border-radius: 12px; }
+    .sky5-brand > span:last-child small { display: none; }
+    .sky5-brand strong { font-size: 12px; }
+    .sky5-seasons { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+    .sky5-seasons::-webkit-scrollbar { display: none; }
+    .sky5-seasons button { min-width: 74px; }
+    .sky5-header-actions { gap: 0; }
+    .sky5-header-actions button { width: 36px; min-width: 36px; height: 36px; }
+
+    .sky5-main { padding-top: 10px; gap: 10px; }
+    .sky5-observatory,
+    .sky5-inspector,
+    .sky5-guides { border-radius: 20px; }
+    .sky5-scene-head { min-height: auto; display: block; padding: 18px 16px 12px; }
+    .sky5-scene-head h1 { font-size: 1.65rem; }
+    .sky5-scene-head p { font-size: 9px; }
+    .sky5-category-scroll { margin-top: 14px; }
+    .sky5-planisphere-wrap { padding: 8px 5px 22px; }
+    .sky5-planisphere { width: 100%; }
+    .sky5-label { font-size: 1.8px; }
+    .sky5-sky-caption { left: 13px; right: 13px; bottom: 8px; font-size: 6px; }
+    .sky5-time-control { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 9px; padding: 13px 15px 14px; }
+    .sky5-time-copy { grid-row: auto; }
+
+    .sky5-inspector > header { min-height: 78px; padding: 14px 16px; }
+    .sky5-arabic { padding-top: 18px; }
+    .sky5-summary { margin-inline: 17px; }
+    .sky5-note { margin-inline: 17px; }
+    .sky5-memory { margin-inline: 13px; }
+
+    .sky5-guides > header { display: block; padding: 18px 16px 13px; }
+    .sky5-guides header h2 { font-size: 18px; }
+    .sky5-guides header p { margin-top: 8px; text-align: left; }
+    .sky5-guide-grid > button { min-height: 84px; padding: 14px 16px; }
+    .sky5-guide-reader { display: block; margin: 0 10px 10px; padding: 18px 44px 16px 16px; }
+    .sky5-guide-progress { margin-bottom: 16px; }
+    .sky5-guide-step { grid-template-columns: 36px minmax(0,1fr); }
+    .sky5-guide-step > span { width: 36px; height: 36px; }
+    .sky5-guide-reader > footer { justify-content: space-between; margin-top: 16px; }
+
+    .sky5-overlay { padding: 10px; }
+    .sky5-about { max-height: calc(var(--athar-viewport-height, 100dvh) - 20px); border-radius: 20px; }
+
+    html.athar-app-fullscreen .sky5-frame { width: 100%; padding-top: calc(var(--athar-immersive-bar, 60px) + 8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sky5-shell *,
+    .sky5-shell *::before,
+    .sky5-shell *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

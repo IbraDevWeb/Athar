@@ -71,14 +71,13 @@ const EXTENSIONS_DATA = {
         icon: "coins",
         desc: "Convertisseur de monnaie historique.",
         type: "tool",
-        // Données fonctionnelles pour le convertisseur
         rates: { gold_gram: 60, silver_gram: 0.75, dinar_weight: 4.25, dirham_weight: 2.975 }
     },
     astronomy: {
         title: "Le Ciel des Anciens",
         icon: "star",
-        desc: "Astronomie et horaires de prière.",
-        type: "tool",
+        desc: "Planisphère pédagogique : étoiles, orientation et mémoire du ciel arabe.",
+        type: "interactive",
         data: []
     },
 
