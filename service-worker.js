@@ -26,6 +26,7 @@ const APP_SHELL = [
     './css/interaction-stability.css?v=athar-pro-v29',
     './css/ancient-sky.css?v=athar-pro-v29',
     './css/history-nights.css?v=athar-pro-v29',
+    './css/history-nights-scroll.css?v=athar-pro-v29',
     './js/config.js',
     './js/app.js',
     './js/composables/useSettings.js',
