@@ -55,8 +55,8 @@ const EXTENSIONS_DATA = {
     history_nights: {
         title: "Les Nuits de l'Histoire",
         icon: "moon",
-        desc: "Récits audio immersifs.",
-        type: "audio",
+        desc: "Récits historiques immersifs, sourcés et lisibles chapitre par chapitre.",
+        type: "interactive",
         data: []
     },
     isnad: {

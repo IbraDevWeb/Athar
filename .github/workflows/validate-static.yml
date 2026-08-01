@@ -43,6 +43,9 @@ jobs:
       - name: Validate Ancient Sky interface
         run: node scripts/validate-astronomy.js
 
+      - name: Validate History Nights reader
+        run: node scripts/validate-history-nights.js
+
       - name: Validate Transmission data
         run: node scripts/validate-transmission.js
 

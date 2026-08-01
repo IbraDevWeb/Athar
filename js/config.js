@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v28';
+    const APP_VERSION = 'athar-pro-v29';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -95,7 +95,9 @@ tailwind.config = {
     writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
     writeEarlyScript('astronomy_data.js', 'athar-astronomy-data');
     writeEarlyScript('js/components/AncientSkyView.js', 'athar-ancient-sky-view');
-    writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-astronomy-bootstrap');
+    writeEarlyScript('history_nights_data.js', 'athar-history-nights-data');
+    writeEarlyScript('js/components/HistoryNightsView.js', 'athar-history-nights-view');
+    writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
@@ -118,6 +120,8 @@ tailwind.config = {
     ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
     ensureStylesheet(`css/interaction-stability.css?v=${APP_VERSION}`, 'athar-interaction-stability');
     ensureStylesheet(`css/ancient-sky.css?v=${APP_VERSION}`, 'athar-ancient-sky-styles');
+    ensureStylesheet(`css/history-nights.css?v=${APP_VERSION}`, 'athar-history-nights-styles');
+    ensureStylesheet(`css/history-nights-scroll.css?v=${APP_VERSION}`, 'athar-history-nights-scroll');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
