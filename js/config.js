@@ -73,6 +73,11 @@ tailwind.config = {
         document.head.appendChild(script);
     };
 
+    const writeEarlyScript = (src, id) => {
+        if (document.readyState !== 'loading' || document.getElementById(id)) return;
+        document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
+    };
+
     const writeScholarAtlasScript = (src, id) => {
         if (document.readyState !== 'loading' || document.getElementById(id)) return;
         document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
@@ -85,6 +90,9 @@ tailwind.config = {
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
+
+    /* Chargé avant Lucide et avant le montage de Vue ; le pont attend Lucide sans remplacer les nœuds Vue. */
+    writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
