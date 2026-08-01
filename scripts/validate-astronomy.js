@@ -65,8 +65,10 @@ const bridge = read('js/components/AstronomyBootstrap.js');
 [
     "'ancient-sky-view': window.AncientSkyView",
     "'history-nights-view': window.HistoryNightsView",
+    "'scriptorium-view': window.ScriptoriumView",
     "currentTool === 'astronomy'",
     "currentTool === 'history_nights'",
+    "currentTool === 'scriptorium'",
     'currentTool === \'scholars_map\'',
     'window.Vue.createApp',
     'PATCH_FLAG'
@@ -81,6 +83,7 @@ const bridgeContext = {
     window: {
         AncientSkyView: { name: 'AncientSkyView' },
         HistoryNightsView: { name: 'HistoryNightsView' },
+        ScriptoriumView: { name: 'ScriptoriumView' },
         Vue: { createApp: (root) => root }
     }
 };
@@ -90,6 +93,7 @@ const fakeToolView = { components: {}, template: toolAnchor };
 bridgeContext.window.Vue.createApp({ components: { 'tool-view': fakeToolView } });
 if (!fakeToolView.components['ancient-sky-view']) fail('The astronomy component was not registered in ToolView.');
 if (!fakeToolView.components['history-nights-view']) fail('The history component was not registered alongside astronomy.');
+if (!fakeToolView.components['scriptorium-view']) fail('The Scriptorium component was not registered alongside astronomy.');
 if (!fakeToolView.template.includes(`currentTool === 'astronomy'`)) fail('The astronomy route was not inserted in ToolView.');
 if (!fakeToolView.template.includes(`v-else-if="currentTool === 'scholars_map'"`)) fail('Scholar Atlas routing was not preserved.');
 
@@ -102,7 +106,7 @@ const css = read('css/ancient-sky.css');
 
 const config = read('js/config.js');
 [
-    "const APP_VERSION = 'athar-pro-v29'",
+    "const APP_VERSION = 'athar-pro-v30'",
     "writeEarlyScript('astronomy_data.js'",
     "writeEarlyScript('js/components/AncientSkyView.js'",
     "writeEarlyScript('js/components/AstronomyBootstrap.js'",
@@ -111,11 +115,11 @@ const config = read('js/config.js');
 
 const worker = read('service-worker.js');
 [
-    "const CACHE_VERSION = 'athar-pro-v29'",
-    './astronomy_data.js?v=athar-pro-v29',
-    './js/components/AncientSkyView.js?v=athar-pro-v29',
-    './js/components/AstronomyBootstrap.js?v=athar-pro-v29',
-    './css/ancient-sky.css?v=athar-pro-v29'
+    "const CACHE_VERSION = 'athar-pro-v30'",
+    './astronomy_data.js?v=athar-pro-v30',
+    './js/components/AncientSkyView.js?v=athar-pro-v30',
+    './js/components/AstronomyBootstrap.js?v=athar-pro-v30',
+    './css/ancient-sky.css?v=athar-pro-v30'
 ].forEach((token) => requireToken(worker, token, 'service worker'));
 
 const extensionData = read('extensions_data.js');

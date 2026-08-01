@@ -25,8 +25,8 @@ const EXTENSIONS_DATA = {
     scriptorium: {
         title: "Le Scriptorium",
         icon: "feather",
-        desc: "L'histoire de l'écriture du Coran.",
-        type: "gallery",
+        desc: "Galerie interactive des écritures, supports et rythmes de la page manuscrite.",
+        type: "interactive",
         data: []
     },
     diwan: {

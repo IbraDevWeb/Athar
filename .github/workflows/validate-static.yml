@@ -46,6 +46,9 @@ jobs:
       - name: Validate History Nights reader
         run: node scripts/validate-history-nights.js
 
+      - name: Validate Scriptorium gallery
+        run: node scripts/validate-scriptorium.js
+
       - name: Validate Transmission data
         run: node scripts/validate-transmission.js
 
