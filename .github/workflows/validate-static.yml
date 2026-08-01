@@ -49,6 +49,9 @@ jobs:
       - name: Validate Scriptorium gallery
         run: node scripts/validate-scriptorium.js
 
+      - name: Validate Root Tree explorer
+        run: node scripts/validate-root-tree.js
+
       - name: Validate Transmission data
         run: node scripts/validate-transmission.js
 

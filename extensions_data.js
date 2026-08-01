@@ -18,7 +18,7 @@ const EXTENSIONS_DATA = {
     roots: {
         title: "L'Arbre des Racines",
         icon: "sprout",
-        desc: "Étymologie profonde des mots sacrés.",
+        desc: "Explorateur visuel des racines arabes, de leurs dérivés et de leurs emplois coraniques.",
         type: "interactive",
         data: []
     },
