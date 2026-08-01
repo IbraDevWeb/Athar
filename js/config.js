@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v27';
+    const APP_VERSION = 'athar-pro-v28';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -91,8 +91,11 @@ tailwind.config = {
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
 
-    /* Chargé avant Lucide et avant le montage de Vue ; le pont attend Lucide sans remplacer les nœuds Vue. */
+    /* Ponts chargés avant le montage de Vue. */
     writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
+    writeEarlyScript('astronomy_data.js', 'athar-astronomy-data');
+    writeEarlyScript('js/components/AncientSkyView.js', 'athar-ancient-sky-view');
+    writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-astronomy-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
@@ -114,6 +117,7 @@ tailwind.config = {
     ensureStylesheet(`css/library-immersive-fix.css?v=${APP_VERSION}`, 'athar-library-immersive-fix');
     ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
     ensureStylesheet(`css/interaction-stability.css?v=${APP_VERSION}`, 'athar-interaction-stability');
+    ensureStylesheet(`css/ancient-sky.css?v=${APP_VERSION}`, 'athar-ancient-sky-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
