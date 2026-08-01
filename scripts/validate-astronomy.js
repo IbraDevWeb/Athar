@@ -57,7 +57,9 @@ const component = read('js/components/AncientSkyView.js');
     'startGuide', 'showAbout', '@click="selectObject(object.id)"', 'type="range"',
     'athar-astronomy-active', 'onBeforeUnmount'
 ].forEach((token) => requireToken(component, token, 'AncientSkyView'));
-if (/WebGL|THREE\.|canvas\.getContext/.test(component)) fail('The lightweight module must not add a WebGL engine.');
+if (/<canvas\b|getContext\s*\(\s*['"]webgl|THREE\./i.test(component)) {
+    fail('The lightweight module must not add a WebGL or canvas engine.');
+}
 
 const bridge = read('js/components/AstronomyBootstrap.js');
 [
