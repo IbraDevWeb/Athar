@@ -65,6 +65,12 @@ const css = read('css/history-nights.css');
     '@media (max-width: 480px)', 'prefers-reduced-motion', 'touch-action: manipulation'
 ].forEach((token) => requireToken(css, token, 'History Nights CSS'));
 
+const scrollCss = read('css/history-nights-scroll.css');
+[
+    '@media (min-width: 761px)', '.hn6-reading-sheet', 'height: 100%',
+    'overflow-y: auto', 'overscroll-behavior: contain', '@media (max-width: 760px)'
+].forEach((token) => requireToken(scrollCss, token, 'History Nights scroll CSS'));
+
 const bridge = read('js/components/AstronomyBootstrap.js');
 [
     "'history-nights-view': window.HistoryNightsView",
@@ -75,13 +81,34 @@ const bridge = read('js/components/AstronomyBootstrap.js');
     'PATCH_FLAG'
 ].forEach((token) => requireToken(bridge, token, 'Tool extensions bootstrap'));
 
+const toolView = read('js/components/ToolView.js');
+const toolAnchor = `<scholar-atlas-module v-if="currentTool === 'scholars_map'" :settings="settings"></scholar-atlas-module>\n    <div v-else`;
+requireToken(toolView, toolAnchor, 'ToolView integration anchor');
+
+const bridgeContext = {
+    console,
+    window: {
+        AncientSkyView: { name: 'AncientSkyView' },
+        HistoryNightsView: { name: 'HistoryNightsView' },
+        Vue: { createApp: (root) => root }
+    }
+};
+vm.createContext(bridgeContext);
+vm.runInContext(bridge, bridgeContext, { filename: 'AstronomyBootstrap.js' });
+const fakeToolView = { components: {}, template: toolAnchor };
+bridgeContext.window.Vue.createApp({ components: { 'tool-view': fakeToolView } });
+if (!fakeToolView.components['history-nights-view']) fail('HistoryNightsView was not registered in ToolView.');
+if (!fakeToolView.template.includes(`currentTool === 'history_nights'`)) fail('The history_nights route was not inserted in ToolView.');
+if (!fakeToolView.template.includes(`currentTool === 'astronomy'`)) fail('The astronomy route was not preserved.');
+
 const config = read('js/config.js');
 [
     "const APP_VERSION = 'athar-pro-v29'",
     "writeEarlyScript('history_nights_data.js'",
     "writeEarlyScript('js/components/HistoryNightsView.js'",
     "writeEarlyScript('js/components/AstronomyBootstrap.js'",
-    'css/history-nights.css?v=${APP_VERSION}'
+    'css/history-nights.css?v=${APP_VERSION}',
+    'css/history-nights-scroll.css?v=${APP_VERSION}'
 ].forEach((token) => requireToken(config, token, 'config.js'));
 
 const worker = read('service-worker.js');
@@ -90,7 +117,8 @@ const worker = read('service-worker.js');
     './history_nights_data.js?v=athar-pro-v29',
     './js/components/HistoryNightsView.js?v=athar-pro-v29',
     './js/components/AstronomyBootstrap.js?v=athar-pro-v29',
-    './css/history-nights.css?v=athar-pro-v29'
+    './css/history-nights.css?v=athar-pro-v29',
+    './css/history-nights-scroll.css?v=athar-pro-v29'
 ].forEach((token) => requireToken(worker, token, 'service worker'));
 
 const extensionData = read('extensions_data.js');
