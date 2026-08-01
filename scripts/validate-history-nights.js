@@ -74,8 +74,10 @@ const scrollCss = read('css/history-nights-scroll.css');
 const bridge = read('js/components/AstronomyBootstrap.js');
 [
     "'history-nights-view': window.HistoryNightsView",
+    "'scriptorium-view': window.ScriptoriumView",
     "currentTool === 'history_nights'",
     "currentTool === 'astronomy'",
+    "currentTool === 'scriptorium'",
     "currentTool === 'scholars_map'",
     'window.Vue.createApp',
     'PATCH_FLAG'
@@ -90,6 +92,7 @@ const bridgeContext = {
     window: {
         AncientSkyView: { name: 'AncientSkyView' },
         HistoryNightsView: { name: 'HistoryNightsView' },
+        ScriptoriumView: { name: 'ScriptoriumView' },
         Vue: { createApp: (root) => root }
     }
 };
@@ -98,12 +101,14 @@ vm.runInContext(bridge, bridgeContext, { filename: 'AstronomyBootstrap.js' });
 const fakeToolView = { components: {}, template: toolAnchor };
 bridgeContext.window.Vue.createApp({ components: { 'tool-view': fakeToolView } });
 if (!fakeToolView.components['history-nights-view']) fail('HistoryNightsView was not registered in ToolView.');
+if (!fakeToolView.components['scriptorium-view']) fail('ScriptoriumView was not registered alongside History Nights.');
 if (!fakeToolView.template.includes(`currentTool === 'history_nights'`)) fail('The history_nights route was not inserted in ToolView.');
 if (!fakeToolView.template.includes(`currentTool === 'astronomy'`)) fail('The astronomy route was not preserved.');
+if (!fakeToolView.template.includes(`currentTool === 'scriptorium'`)) fail('The scriptorium route was not preserved.');
 
 const config = read('js/config.js');
 [
-    "const APP_VERSION = 'athar-pro-v29'",
+    "const APP_VERSION = 'athar-pro-v30'",
     "writeEarlyScript('history_nights_data.js'",
     "writeEarlyScript('js/components/HistoryNightsView.js'",
     "writeEarlyScript('js/components/AstronomyBootstrap.js'",
@@ -113,15 +118,15 @@ const config = read('js/config.js');
 
 const worker = read('service-worker.js');
 [
-    "const CACHE_VERSION = 'athar-pro-v29'",
-    './history_nights_data.js?v=athar-pro-v29',
-    './js/components/HistoryNightsView.js?v=athar-pro-v29',
-    './js/components/AstronomyBootstrap.js?v=athar-pro-v29',
-    './css/history-nights.css?v=athar-pro-v29',
-    './css/history-nights-scroll.css?v=athar-pro-v29'
+    "const CACHE_VERSION = 'athar-pro-v30'",
+    './history_nights_data.js?v=athar-pro-v30',
+    './js/components/HistoryNightsView.js?v=athar-pro-v30',
+    './js/components/AstronomyBootstrap.js?v=athar-pro-v30',
+    './css/history-nights.css?v=athar-pro-v30',
+    './css/history-nights-scroll.css?v=athar-pro-v30'
 ].forEach((token) => requireToken(worker, token, 'service worker'));
 
 const extensionData = read('extensions_data.js');
 requireToken(extensionData, 'Récits historiques immersifs, sourcés', 'history nights extension metadata');
 
-console.log(`History Nights validated: ${data.stories.length} stories, ${totalChapters} chapters, optional local narration and cache v29.`);
+console.log(`History Nights validated: ${data.stories.length} stories, ${totalChapters} chapters, optional local narration and cache v30.`);
