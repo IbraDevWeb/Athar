@@ -3,8 +3,6 @@
         if (document.readyState === 'loading') document.write(html);
     };
 
-    // Secours synchrone : les atlas ne doivent jamais être montés avant Leaflet.
-    // jsDelivr sert de CDN alternatif aux scripts unpkg chargés plus bas dans index.html.
     if (document.readyState === 'loading') {
         if (!document.querySelector('link[data-athar-leaflet-core]')) {
             writeAsset('<link data-athar-leaflet-core rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">');
@@ -72,7 +70,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v25';
+    const APP_VERSION = 'athar-pro-v26';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -97,11 +95,6 @@ tailwind.config = {
         document.head.appendChild(script);
     };
 
-    const writeEarlyScript = (src, id) => {
-        if (document.readyState !== 'loading' || document.getElementById(id)) return;
-        document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
-    };
-
     const writeScholarAtlasScript = (src, id) => {
         if (document.readyState !== 'loading' || document.getElementById(id)) return;
         document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
@@ -114,9 +107,6 @@ tailwind.config = {
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
-
-    // Ce pont doit être présent avant js/app.js afin d’enrichir le composant avant son montage Vue.
-    writeEarlyScript('js/components/TransmissionFocusPatch.js', 'athar-transmission-focus-patch');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
     ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
@@ -137,7 +127,6 @@ tailwind.config = {
     ensureStylesheet(`css/library-pro.css?v=${APP_VERSION}`, 'athar-library-pro');
     ensureStylesheet(`css/library-immersive-fix.css?v=${APP_VERSION}`, 'athar-library-immersive-fix');
     ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
-    ensureStylesheet(`css/transmission-immersive-fix.css?v=${APP_VERSION}`, 'athar-transmission-immersive-fix');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
