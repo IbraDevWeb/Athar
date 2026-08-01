@@ -8,24 +8,22 @@ const root = path.resolve(__dirname, '..');
 const paths = {
     data: path.join(root, 'transmission_data.js'),
     component: path.join(root, 'js', 'components', 'TransmissionView.js'),
-    patch: path.join(root, 'js', 'components', 'TransmissionFocusPatch.js'),
     css: path.join(root, 'css', 'transmission.css'),
-    immersiveCss: path.join(root, 'css', 'transmission-immersive-fix.css'),
     config: path.join(root, 'js', 'config.js'),
     worker: path.join(root, 'service-worker.js')
 };
 
-const conflictPattern = /^(<<<<<<<|=======|>>>>>>>)/m;
 const failures = [];
 const fail = message => failures.push(message);
+const conflictPattern = /^(<<<<<<<|=======|>>>>>>>)/m;
 
 for (const [label, filePath] of Object.entries(paths)) {
     if (!fs.existsSync(filePath)) {
         fail(`missing ${label}: ${path.relative(root, filePath)}`);
         continue;
     }
-    const content = fs.readFileSync(filePath, 'utf8');
-    if (conflictPattern.test(content)) fail(`unresolved Git conflict marker in ${path.relative(root, filePath)}`);
+    const source = fs.readFileSync(filePath, 'utf8');
+    if (conflictPattern.test(source)) fail(`unresolved conflict marker in ${path.relative(root, filePath)}`);
 }
 
 if (failures.length) {
@@ -40,14 +38,10 @@ vm.createContext(context);
 vm.runInContext(dataSource, context, { filename: 'transmission_data.js' });
 
 const component = fs.readFileSync(paths.component, 'utf8');
-const patch = fs.readFileSync(paths.patch, 'utf8');
 const css = fs.readFileSync(paths.css, 'utf8');
-const immersiveCss = fs.readFileSync(paths.immersiveCss, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
-
 new vm.Script(component, { filename: 'js/components/TransmissionView.js' });
-new vm.Script(patch, { filename: 'js/components/TransmissionFocusPatch.js' });
 
 const { SILSILA_DATA, SILSILA_JOURNEYS, SILSILA_THEMES } = context.__transmission;
 const requiredGroups = ['pre', 'fiqh', 'hadith', 'quran'];
@@ -60,7 +54,6 @@ if (!SILSILA_DATA || !Array.isArray(SILSILA_DATA.nodes) || !Array.isArray(SILSIL
         if (!Number.isInteger(node.id)) fail(`node id must be an integer: ${node.label || 'unknown'}`);
         if (ids.has(node.id)) fail(`duplicate node id ${node.id}`);
         ids.add(node.id);
-
         for (const field of ['label', 'arabicName', 'group', 'role', 'dates', 'bio']) {
             if (!node[field]) fail(`node ${node.id} is missing ${field}`);
         }
@@ -98,30 +91,32 @@ for (const group of requiredGroups) {
 }
 
 for (const token of [
-    "viewMode = ref('map')",
-    "directoryOpen = ref(false)",
-    "profileOpen = ref(false)",
-    "recentIds = ref([])",
-    'visibleMasters',
-    'visibleStudents',
-    'directoryScholars',
-    'recommendedJourney',
-    'athar_transmission_recent',
-    'tx3-network-stage',
-    'tx3-focus-card',
-    'tx3-directory-drawer',
-    'tx3-profile-drawer',
-    'tx3-journey-player',
-    'tx3-review-view',
-    'tx3-space-nav',
-    "showView('review')",
+    "const mode = ref('explore')",
+    'const overlay = ref(null)',
+    'const activeGroup = ref',
+    'const masters = computed',
+    'const students = computed',
+    'const directoryResults = computed',
+    'const activeJourney = computed',
+    'const buildQuiz =',
     "event.key === '/'",
-    'onBeforeUnmount'
+    "classList.add('athar-transmission-active')",
+    "classList.toggle('athar-transmission-overlay'",
+    'onBeforeUnmount',
+    'tx4-explore',
+    'tx4-portrait',
+    'tx4-lineage',
+    'tx4-command',
+    'tx4-profile',
+    'tx4-journeys',
+    'tx4-review',
+    'tx4-mode-nav'
 ]) {
-    if (!component.includes(token)) fail(`missing focused Transmission behavior: ${token}`);
+    if (!component.includes(token)) fail(`missing editorial Transmission behavior: ${token}`);
 }
 
 for (const obsolete of [
+    'tx3-',
     'tx-stats-grid',
     'tx-explore-layout',
     'tx-side-panel',
@@ -129,97 +124,59 @@ for (const obsolete of [
     'tx-quiz-card',
     'tx-quick-journeys'
 ]) {
-    if (component.includes(obsolete)) fail(`obsolete dense layout still present: ${obsolete}`);
+    if (component.includes(obsolete)) fail(`obsolete Transmission structure remains in component: ${obsolete}`);
+    if (css.includes(obsolete)) fail(`obsolete Transmission structure remains in CSS: ${obsolete}`);
 }
 
 for (const token of [
-    'Symbol.for(\'athar.transmission.focus.patched\')',
-    'rootComponent.components',
-    "components['transmission-view']",
-    'keepView: true',
-    'athar-transmission-active',
-    'athar-transmission-lock',
-    'event.stopImmediatePropagation'
-]) {
-    if (!patch.includes(token) && token !== 'event.stopImmediatePropagation') {
-        fail(`missing Transmission interaction bridge: ${token}`);
-    }
-}
-if (!patch.includes("html.athar-transmission-active .athar-mobile-dock")) {
-    fail('Transmission must hide the global mobile dock while its own navigation is active');
-}
-if (!patch.includes("html.athar-transmission-lock .athar-global-mainframe > main")) {
-    fail('Transmission drawers must lock the underlying scroll container');
-}
-
-for (const token of [
-    '.tx3-network-stage',
-    '.tx3-focus-card',
-    '.tx3-relation-scroll',
-    '.tx3-space-nav',
-    '.tx3-directory-drawer',
-    '.tx3-profile-drawer',
-    '.tx3-journey-player',
-    '.tx3-quiz-stage',
-    'scroll-snap-type: x proximity',
+    '.tx4-shell',
+    '.tx4-masthead',
+    '.tx4-explore',
+    'grid-template-columns: minmax(0, 1.35fr) minmax(330px, .65fr)',
+    '.tx4-portrait',
+    '.tx4-lineage-row',
+    '.tx4-current-row',
+    '.tx4-mode-nav',
+    '.tx4-command',
+    '.tx4-profile',
+    '.tx4-journeys',
+    '.tx4-review-card',
+    'html.athar-app-fullscreen .tx4-frame',
+    'padding-top: calc(var(--athar-immersive-bar, 60px) + 18px)',
+    'top: calc(var(--athar-immersive-bar, 60px) + 8px)',
+    'html.athar-transmission-active .athar-mobile-dock',
+    'html.athar-transmission-overlay .athar-global-mainframe > main',
     'env(safe-area-inset-bottom',
     'var(--athar-viewport-height, 100dvh)',
-    'html.athar-app-fullscreen .tx3-topbar',
     '@media (max-width: 620px)',
     '@media (prefers-reduced-motion: reduce)'
 ]) {
-    if (!css.includes(token)) fail(`missing Transmission design protection: ${token}`);
+    if (!css.includes(token)) fail(`missing editorial design protection: ${token}`);
 }
 
-for (const token of [
-    'html.athar-app-fullscreen .tx3-app',
-    'padding-top: calc(var(--athar-immersive-bar, 60px) + 20px)',
-    'top: calc(var(--athar-immersive-bar, 60px) + 8px)',
-    'html.athar-app-fullscreen .tx3-progress',
-    '.tx3-node-student',
-    'grid-template-columns: 18px 42px minmax(0, 1fr)',
-    '.tx3-node-student > .tx3-node-copy',
-    '-webkit-line-clamp: 2',
-    'overscroll-behavior-inline: contain',
-    '@media (max-width: 620px)'
-]) {
-    if (!immersiveCss.includes(token)) fail(`missing immersive layout correction: ${token}`);
-}
-
-for (const [label, style] of [['base CSS', css], ['immersive CSS', immersiveCss]]) {
-    const openBraces = (style.match(/{/g) || []).length;
-    const closeBraces = (style.match(/}/g) || []).length;
-    if (openBraces !== closeBraces) fail(`unbalanced ${label} braces: ${openBraces} opening / ${closeBraces} closing`);
-}
+const openBraces = (css.match(/{/g) || []).length;
+const closeBraces = (css.match(/}/g) || []).length;
+if (openBraces !== closeBraces) fail(`unbalanced CSS braces: ${openBraces} opening / ${closeBraces} closing`);
 
 const configVersion = Number(config.match(/const APP_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
 const workerVersion = Number(worker.match(/const CACHE_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
-if (configVersion !== workerVersion || configVersion < 25) {
+if (configVersion !== workerVersion || configVersion < 26) {
     fail(`inconsistent or stale application cache: config v${configVersion}, worker v${workerVersion}`);
 }
 
-for (const token of [
-    'writeEarlyScript',
-    "writeEarlyScript('js/components/TransmissionFocusPatch.js'",
-    'athar-transmission-focus-patch'
+for (const legacy of [
+    'TransmissionFocusPatch.js',
+    'athar-transmission-focus-patch',
+    'transmission-immersive-fix.css',
+    'athar-transmission-immersive-fix'
 ]) {
-    if (!config.includes(token)) fail(`Transmission bridge is not loaded early enough: ${token}`);
-}
-if (config.indexOf("writeEarlyScript('js/components/TransmissionFocusPatch.js'") > config.indexOf('ensureScript(`js/components/GlobalFullscreen.js')) {
-    fail('TransmissionFocusPatch must be loaded before deferred application controllers');
-}
-
-const fixLoader = 'css/transmission-immersive-fix.css?v=${APP_VERSION}';
-if (!config.includes(fixLoader)) fail('Transmission immersive fix is not loaded by config.js');
-if (config.indexOf(fixLoader) < config.indexOf('css/mobile-pro.css?v=${APP_VERSION}')) {
-    fail('Transmission immersive fix must be loaded after the global mobile foundation');
+    if (config.includes(legacy)) fail(`legacy Transmission layer is still loaded by config: ${legacy}`);
+    if (worker.includes(legacy)) fail(`legacy Transmission layer is still cached: ${legacy}`);
 }
 
 for (const asset of [
     `css/transmission.css?v=athar-pro-v${workerVersion}`,
-    `css/transmission-immersive-fix.css?v=athar-pro-v${workerVersion}`,
     `js/components/TransmissionView.js?v=athar-pro-v${workerVersion}`,
-    `js/components/TransmissionFocusPatch.js?v=athar-pro-v${workerVersion}`,
     `transmission_data.js?v=athar-pro-v${workerVersion}`
 ]) {
     if (!worker.includes(asset)) fail(`Transmission asset missing from cache: ${asset}`);
@@ -234,6 +191,6 @@ const counts = requiredGroups
     .map(group => `${group}:${SILSILA_DATA.nodes.filter(node => node.group === group).length}`)
     .join(', ');
 console.log(
-    `Transmission Focus valid — ${SILSILA_DATA.nodes.length} profiles, ${SILSILA_DATA.edges.length} links, ` +
-    `${SILSILA_JOURNEYS.length} journeys (${counts}); immersive flow spacing, student-card columns, drawers, guided player, review and cache v${workerVersion} validated.`
+    `Transmission Editorial valid — ${SILSILA_DATA.nodes.length} profiles, ${SILSILA_DATA.edges.length} links, ` +
+    `${SILSILA_JOURNEYS.length} journeys (${counts}); portrait, lineage rail, command palette, profile, journeys, review, mobile and immersive v${workerVersion}.`
 );
