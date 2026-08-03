@@ -4,6 +4,9 @@ __pycache__/
 rag/data/*.sqlite
 rag/data/*.sqlite-*
 rag/data/snapshots/
+rag/runtime.json
+rag/runtime.json.tmp
+rag/server.log
 .env
 .env.*
 !.env.example
