@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "name": "Athar Starter Corpus",
+    "version": 1,
+    "generated_at": "2026-08-04",
+    "mode": "curated_starter",
+    "notice": "Corpus de démarrage composé d'extraits courts reliés à leurs pages publiques. Les traductions de travail Athar sont signalées comme non relues et doivent être vérifiées sur l'arabe.",
+    "source_policy": "Conserver l'URL exacte, l'arabe original et le statut de traduction. Ne jamais présenter une traduction de travail comme une édition savante relue."
+  },
+  "books": [
+    {
+      "id": "kutub-21739",
+      "kutub_id": 21739,
+      "title": "Bidāyat al-Mujtahid",
+      "title_ar": "بداية المجتهد ونهاية المقتصد",
+      "author": "Ibn Rushd al-Ḥafīd",
+      "discipline": "Fiqh comparé",
+      "madhhab": "Mālikite · Comparatif",
+      "pages": 945,
+      "description": "Ouvrage de fiqh comparé d'un juriste mālikite présentant les avis, leurs preuves et les causes de divergence.",
+      "source_url": "https://kutub.io/fr/book/21739",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Fiqh comparé mālikite",
+        "corpus_priority": 1,
+        "edition": "Édition publique Kutub — détails éditoriaux à vérifier",
+        "verification_status": "structure_source_checked"
+      }
+    },
+    {
+      "id": "kutub-7367",
+      "kutub_id": 7367,
+      "title": "Al-Kāfī",
+      "title_ar": "الكافي في فقه أهل المدينة",
+      "author": "Ibn ʿAbd al-Barr",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "pages": 1219,
+      "description": "Référence de fiqh mālikite exposant les règles de l'école de Médine.",
+      "source_url": "https://kutub.io/fr/book/7367",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Référence du madhhab",
+        "corpus_priority": 1,
+        "edition": "Édition publique Kutub — détails éditoriaux à vérifier",
+        "verification_status": "structure_source_checked"
+      }
+    },
+    {
+      "id": "kutub-11373",
+      "kutub_id": 11373,
+      "title": "Al-Risālah",
+      "title_ar": "الرسالة",
+      "author": "Ibn Abī Zayd al-Qayrawānī",
+      "discipline": "Fiqh et croyance",
+      "madhhab": "Mālikite",
+      "pages": 202,
+      "description": "Manuel fondamental du fiqh mālikite et de croyance.",
+      "source_url": "https://kutub.io/fr/book/11373",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Manuel du madhhab",
+        "corpus_priority": 1,
+        "edition": "Édition publique Kutub — détails éditoriaux à vérifier",
+        "verification_status": "structure_source_checked"
+      }
+    },
+    {
+      "id": "kutub-1655",
+      "kutub_id": 1655,
+      "title": "Kitāb al-Umm",
+      "title_ar": "كتاب الأم",
+      "author": "Al-Shāfiʿī",
+      "discipline": "Fiqh",
+      "madhhab": "Shāfiʿite",
+      "pages": null,
+      "description": "Ouvrage fondateur du fiqh shāfiʿite.",
+      "source_url": "https://kutub.io/fr/book/1655",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Source fondatrice shāfiʿite",
+        "corpus_priority": 3,
+        "edition": "Édition publique Kutub — détails éditoriaux à vérifier",
+        "verification_status": "structure_source_checked"
+      }
+    },
+    {
+      "id": "kutub-8183",
+      "kutub_id": 8183,
+      "title": "Badāʾiʿ al-Ṣanāʾiʿ",
+      "title_ar": "بدائع الصنائع",
+      "author": "Al-Kāsānī",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanafite",
+      "pages": 817,
+      "description": "Référence classique du fiqh ḥanafite.",
+      "source_url": "https://kutub.io/fr/book/8183",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Référence ḥanafite",
+        "corpus_priority": 3,
+        "edition": "Édition publique Kutub — détails éditoriaux à vérifier",
+        "verification_status": "structure_source_checked"
+      }
+    },
+    {
+      "id": "kutub-21751",
+      "kutub_id": 21751,
+      "title": "Al-Bayān wa-l-Taḥṣīl",
+      "title_ar": "البيان والتحصيل",
+      "author": "Ibn Rushd al-Jadd",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "pages": null,
+      "description": "Recueil mālikite d'explications et de questions transmises.",
+      "source_url": "https://kutub.io/fr/book/21751",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Développement du madhhab",
+        "corpus_priority": 2,
+        "edition": "Édition publique Kutub — détails éditoriaux à vérifier",
+        "verification_status": "structure_source_checked"
+      }
+    }
+  ],
+  "chunks": [
+    {
+      "id": "starter-21739-175",
+      "book_id": "kutub-21739",
+      "page": 175,
+      "chapter": "La manière de regrouper les prières en voyage",
+      "text_ar": "وأما المسألة الثانية وهي صورة الجمع فاختلف فيه أيضا القائلون بالجمع، أعني في السفر. فمنهم من رأى أن الاختيار أن تؤخر الصلاة الأولى وتصلى مع الثانية، وإن جمعتا معا في أول وقت الأولى جاز، وهي إحدى الروايتين عن مالك. ومنهم من سوى بين الأمرين، أعني أن يقدم الآخرة إلى وقت الأولى أو يعكس الأمر، وهي رواية أهل المدينة عن مالك، والأولى رواية ابن القاسم عنه. وأما الذي اشترط فيه ضربا من السير فهو مالك في رواية ابن القاسم عنه، وذلك أنه قال: لا يجمع المسافر إلا أن يجد به السير.",
+      "text_fr": "Ibn Rushd rapporte qu’en voyage une transmission attribuée à Mālik préfère retarder la première prière pour l’accomplir avec la seconde, tout en jugeant valable le regroupement au début du temps de la première. Une autre transmission médinoise attribuée à Mālik met les deux formes sur un pied d’égalité. Dans la transmission d’Ibn al-Qāsim, Mālik conditionne en outre le regroupement au fait que le déplacement se poursuive effectivement et presse le voyageur.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/21739/175",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "183",
+        "page_end": 175,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-21739-176",
+      "book_id": "kutub-21739",
+      "page": 176,
+      "chapter": "Regroupement en résidence et en cas de pluie",
+      "text_ar": "وأما الجمع في الحضر لغير عذر فإن مالكا وأكثر الفقهاء لا يجيزونه. وأما الجمع في الحضر لعذر المطر فأجازه الشافعي ليلا كان أو نهارا، ومنعه مالك في النهار وأجازه في الليل، وأجازه أيضا في الطين دون المطر في الليل.",
+      "text_fr": "Ibn Rushd indique que Mālik et la majorité des juristes ne permettent pas de regrouper les prières en résidence sans excuse. Pour la pluie, il rapporte que Mālik ne permet pas le regroupement de jour mais le permet de nuit, et qu’il l’admet également de nuit en présence de boue même sans pluie. Ce passage expose une distinction interne au traitement des excuses et ne doit pas être étendu au-delà de ce qu’il énonce.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/21739/176",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "184",
+        "page_end": 176,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-21739-35",
+      "book_id": "kutub-21739",
+      "page": 35,
+      "chapter": "Le sommeil et l’annulation des ablutions",
+      "text_ar": "وأما مالك فلما كان النوم عنده إنما ينقض الوضوء من حيث كان غالبا سببا للحدث، راعى فيه ثلاثة أشياء: الاستثقال أو الطول أو الهيئة، فلم يشترط في الهيئة التي يكون منها خروج الحدث غالبا لا الطول ولا الاستثقال، واشترط ذلك في الهيئات التي لا يكون خروج الحدث منها غالبا.",
+      "text_fr": "Ibn Rushd explique que Mālik ne considère pas le sommeil comme annulant les ablutions pour lui-même, mais parce qu’il constitue habituellement une cause de survenue d’un état d’impureté. L’évaluation tient alors compte de trois éléments : la profondeur du sommeil, sa durée et la posture. Dans une posture où la survenue d’un événement annulatif est probable, la durée ou la lourdeur du sommeil ne sont pas exigées de la même manière.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/21739/35",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "43",
+        "page_end": 35,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-7367-36",
+      "book_id": "kutub-7367",
+      "page": 36,
+      "chapter": "L’obligation de laver entièrement les membres du wuḍūʾ",
+      "text_ar": "وكذلك لو نسي لا يغسل إلا ما نسي، ومن تعمد ترك ذلك استأنف الوضوء وأعاد صلاته. ومتى لم يأت بالماء على كل عضو مغسول فلا يجزئه، لأنه يكون ماسحا لما قد أمر بغسله، والإسباغ فرض، وهو الإتيان بالماء على العضو المغسول حتى يعمه بالغسل وإمرار اليد عليه، والمرأة والرجل في ذلك سواء.",
+      "text_fr": "Ibn ʿAbd al-Barr précise que l’eau doit atteindre l’ensemble de chaque membre dont le lavage est obligatoire. Un simple passage qui ne réalise pas le lavage complet ne suffit pas. Il présente l’accomplissement intégral du lavage comme une obligation : l’eau doit couvrir le membre concerné et la main doit y être passée. La règle est présentée de la même manière pour l’homme et pour la femme.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/7367/36",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "170",
+        "page_end": 36,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-7367-86",
+      "book_id": "kutub-7367",
+      "page": 86,
+      "chapter": "La sutra devant le fidèle en prière",
+      "text_ar": "باب سترة المصلي. السترة في الصلاة سنة، وقيل سنة في كل موضع لا يؤمن فيه المرور بين يدي المصلي. وأما الصحراء والسطوح وحيث يؤمن المرور فلا بأس بالصلاة فيها من غير سترة. وأقل السترة ذراع في غلظ رمح. وينبغي أن يدنو المصلي من سترته ولا يبعد عنها.",
+      "text_fr": "Dans le chapitre de la sutra, Ibn ʿAbd al-Barr la présente comme une sunna de la prière, particulièrement dans les lieux où le passage devant le fidèle est à craindre. Il mentionne qu’en plein espace ou dans un lieu où aucun passage n’est attendu, la prière sans sutra ne pose pas le même problème. Il recommande également au fidèle de se tenir proche de sa sutra plutôt que de s’en éloigner.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/7367/86",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "209",
+        "page_end": 86,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-11373-24",
+      "book_id": "kutub-11373",
+      "page": 24,
+      "chapter": "L’essuyage sur les chaussons de cuir",
+      "text_ar": "لئلا يصل إلى عقب خفه شيء من رطوبة ما مسح من خفيه من القشب، وإن كان في أسفله طين فلا يمسح عليه حتى يزيله.",
+      "text_fr": "Le passage précise qu’il faut éviter que l’humidité provenant de l’essuyage des deux khuffayn n’atteigne le talon du chausson et ne l’endommage. Lorsque de la boue demeure sur la face inférieure du chausson, elle doit être retirée avant de procéder à l’essuyage. Ce fragment traite de la manière pratique de l’essuyage, non de toutes ses conditions de validité.",
+      "translation_status": "kutub_ai_unreviewed",
+      "source_url": "https://kutub.io/fr/book/11373/24",
+      "metadata": {
+        "printed_page": "23",
+        "page_end": 24,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction publique Kutub non relue par Athar.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-1655-80",
+      "book_id": "kutub-1655",
+      "page": 80,
+      "chapter": "Le regroupement en voyage et sous la pluie",
+      "text_ar": "",
+      "text_fr": "Al-Shāfiʿī distingue le regroupement en résidence de celui du voyage. Il rattache le regroupement en résidence à l’excuse de la pluie et indique que, lorsqu’il est fait pour cette raison, il a lieu au temps de la première prière. Pour le voyage, il considère que la permission repose sur les récits transmis du Prophète. Ce passage constitue un point de comparaison shāfiʿite et ne doit pas être présenté comme la position mālikite.",
+      "translation_status": "kutub_ai_unreviewed",
+      "source_url": "https://kutub.io/fr/book/1655/80",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "95",
+        "page_end": 80,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Résumé fidèle d'une traduction publique Kutub, à vérifier sur l'original.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-8183-126",
+      "book_id": "kutub-8183",
+      "page": 126,
+      "chapter": "Position ḥanafite sur le regroupement en voyage",
+      "text_ar": "ولنا أن تأخير الصلاة عن وقتها من الكبائر فلا يباح بعذر السفر والمطر. وهذه الصلوات عرفت مؤقتة بأوقاتها بالدلائل المقطوع بها، فلا يجوز تغييرها عن أوقاتها. وما روي من الجمع يؤول بأنه جمع بينهما فعلا لا وقتا، بأن أخر الأولى إلى آخر وقتها ثم أدى الأخرى في أول وقتها.",
+      "text_fr": "Al-Kāsānī expose l’argument ḥanafite refusant le regroupement réel des temps en voyage ou sous la pluie. Il soutient que chaque prière demeure liée à son horaire et interprète les récits de regroupement comme un rapprochement pratique : la première prière serait accomplie à la fin de son temps et la seconde au début du sien. Ce passage est utile pour identifier une divergence entre écoles, non pour décrire le madhhab mālikite.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/8183/126",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "127",
+        "page_end": 126,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    },
+    {
+      "id": "starter-21751-201",
+      "book_id": "kutub-21751",
+      "page": 201,
+      "chapter": "Le voyageur derrière un imam résident",
+      "text_ar": "قال ابن القاسم: وسمعت مالكا قال: لا ينبغي لقوم سفر أن يقدموا مقيما يتم بهم الصلاة لكي يتموا الصلاة، فإن صلى بهم فصلاتهم تامة. ومذهب مالك وجميع أصحابه أن قصر الصلاة في السفر سنة من السنن التي الأخذ بها فضيلة وتركها إلى غير خطيئة.",
+      "text_fr": "Ibn al-Qāsim rapporte de Mālik qu’un groupe de voyageurs ne devrait pas choisir volontairement un résident comme imam dans le seul but d’accomplir la prière complète ; s’ils prient toutefois derrière lui, leur prière est complète. Ibn Rushd al-Jadd explique que, dans le madhhab, le raccourcissement en voyage est une sunna dont l’application est méritoire, tandis que son abandon n’est pas présenté ici comme un péché.",
+      "translation_status": "athar_translation_unreviewed",
+      "source_url": "https://kutub.io/fr/book/21751/201",
+      "metadata": {
+        "volume": "1",
+        "printed_page": "226",
+        "page_end": 201,
+        "source_type": "classical_reference",
+        "verification_status": "source_checked_translation_unreviewed",
+        "translation_note": "Traduction de travail Athar à vérifier sur l'original arabe.",
+        "starter_corpus": true
+      }
+    }
+  ]
+}
