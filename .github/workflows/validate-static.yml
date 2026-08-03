@@ -66,6 +66,9 @@ jobs:
       - name: Validate RAG API bridge
         run: node scripts/validate-rag-api-bridge.js
 
+      - name: Validate RAG ingestion safeguards
+        run: node scripts/validate-rag-ingestion.js
+
       - name: Execute RAG launcher runtime
         run: python scripts/validate_rag_launcher_runtime.py
 
