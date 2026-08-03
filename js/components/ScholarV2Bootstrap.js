@@ -3,6 +3,7 @@
     if (!window.Vue || typeof window.Vue.createApp !== 'function') return;
 
     const PATCH_FLAG = Symbol.for('athar.scholar.v2.root.patched');
+    const HOME_PATCH_FLAG = Symbol.for('athar.scholar.v2.home.patched');
     const originalCreateApp = window.Vue.createApp;
 
     const navMarkup = `
@@ -17,6 +18,46 @@
             <span class="sv2-nav-v2">V2</span>
         </button>
     `;
+
+    const homeFeatureMarkup = `
+        <section class="sv2-home-pillar" aria-label="Les deux bibliothèques principales d’Athar">
+            <div class="sv2-home-grid">
+                <div class="sv2-home-main">
+                    <div>
+                        <span class="sv2-home-badge"><i data-lucide="sparkles"></i>Nouvelle pièce maîtresse · V2</span>
+                        <h2>Interroger les ouvrages, <span>vérifier chaque réponse.</span></h2>
+                        <p>La Bibliothèque Savante analyse la question, retrouve les passages arabes et français, sépare les divergences et relie chaque affirmation à sa preuve exacte.</p>
+                    </div>
+                    <div class="sv2-home-actions">
+                        <button type="button" @click="setView('rag_v2')">Poser une question <i data-lucide="arrow-right"></i></button>
+                        <button type="button" @click="setView('library')"><i data-lucide="users-round"></i> Bibliothèque des Compagnons</button>
+                    </div>
+                </div>
+                <aside class="sv2-home-proof">
+                    <div class="sv2-home-proof-head"><span>Principe citation-first</span><b><i data-lucide="shield-check"></i></b></div>
+                    <blockquote>« Une affirmation religieuse doit pouvoir être ouverte, relue et vérifiée dans son passage source. »</blockquote>
+                    <dl>
+                        <div><dt>Réponse</dt><dd>Structurée</dd></div>
+                        <div><dt>Preuves</dt><dd>Traçables</dd></div>
+                        <div><dt>Corpus insuffisant</dt><dd>Refus explicite</dd></div>
+                    </dl>
+                </aside>
+            </div>
+            <div class="sv2-home-pillars-note"><i></i>Athar s’organise autour de deux piliers : les ouvrages classiques et l’héritage des Compagnons.</div>
+        </section>
+    `;
+
+    const patchHomeView = (rootComponent) => {
+        const homeView = rootComponent?.components?.['home-view'];
+        if (!homeView || homeView[HOME_PATCH_FLAG] || typeof homeView.template !== 'string') return;
+        const anchor = '<div class="ap-home-wrap max-w-[1180px] mx-auto">';
+        if (!homeView.template.includes(anchor)) {
+            console.warn('[Athar V2] Le point d’intégration de l’accueil est introuvable.');
+            return;
+        }
+        homeView.template = homeView.template.replace(anchor, `${anchor}${homeFeatureMarkup}`);
+        homeView[HOME_PATCH_FLAG] = true;
+    };
 
     const patchDomTemplate = () => {
         const host = document.getElementById('app');
@@ -59,11 +100,12 @@
                 ...(rootComponent.components || {}),
                 'scholar-library-v2-view': window.ScholarLibraryV2View
             };
+            patchHomeView(rootComponent);
             patchDomTemplate();
             rootComponent[PATCH_FLAG] = true;
         }
         return originalCreateApp.call(this, rootComponent, ...args);
     };
 
-    window.AtharScholarV2 = { patchDomTemplate };
+    window.AtharScholarV2 = { patchDomTemplate, patchHomeView };
 })();
