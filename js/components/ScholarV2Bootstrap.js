@@ -64,46 +64,89 @@
         return compact.includes("viewMode==='home'") || compact.includes('viewMode==="home"');
     };
 
-    const findHomeRoute = host => {
-        const homeComponent = host?.querySelector?.('home-view');
-        let candidate = homeComponent?.parentElement || null;
+    // Le template racine d’Athar contient un <template v-else>. Avant le montage,
+    // son contenu vit dans template.content et n’est pas traversé par host.querySelector().
+    const collectTemplateScopes = root => {
+        if (!root) return [];
+        const scopes = [root];
+        const seen = new Set(scopes);
 
-        while (candidate && candidate !== host) {
-            const expression = candidate.getAttribute?.('v-if') || candidate.getAttribute?.('v-else-if') || '';
-            if (expressionTargetsHome(expression) || candidate.querySelector?.('home-view')) return candidate;
-            candidate = candidate.parentElement;
+        const visit = scope => {
+            const templates = [...(scope.querySelectorAll?.('template') || [])];
+            templates.forEach(template => {
+                const fragment = template.content;
+                if (!fragment || seen.has(fragment)) return;
+                seen.add(fragment);
+                scopes.push(fragment);
+                visit(fragment);
+            });
+        };
+
+        visit(root);
+        return scopes;
+    };
+
+    const findAcrossScopes = (host, selector) => {
+        for (const scope of collectTemplateScopes(host)) {
+            const match = scope.querySelector?.(selector);
+            if (match) return match;
+        }
+        return null;
+    };
+
+    const findHomeRoute = host => {
+        for (const scope of collectTemplateScopes(host)) {
+            const homeComponent = scope.querySelector?.('home-view');
+            let candidate = homeComponent?.parentElement || null;
+
+            while (candidate) {
+                const expression = candidate.getAttribute?.('v-if') || candidate.getAttribute?.('v-else-if') || '';
+                if (expressionTargetsHome(expression) || candidate.querySelector?.('home-view')) return candidate;
+                candidate = candidate.parentElement;
+            }
         }
 
-        return [...(host?.querySelectorAll?.('[v-if], [v-else-if]') || [])].find(element => {
-            const expression = element.getAttribute('v-if') || element.getAttribute('v-else-if') || '';
-            return expressionTargetsHome(expression) || Boolean(element.querySelector?.('home-view'));
-        }) || null;
+        for (const scope of collectTemplateScopes(host)) {
+            const candidates = [...(scope.querySelectorAll?.('[v-if], [v-else-if]') || [])];
+            const match = candidates.find(element => {
+                const expression = element.getAttribute('v-if') || element.getAttribute('v-else-if') || '';
+                return expressionTargetsHome(expression) || Boolean(element.querySelector?.('home-view'));
+            });
+            if (match) return match;
+        }
+
+        return null;
     };
 
     const injectNavigation = host => {
-        const homeButtons = [...host.querySelectorAll('button')].filter(button => {
-            const click = button.getAttribute('@click') || '';
-            return click.includes("setView('home')");
-        });
+        for (const scope of collectTemplateScopes(host)) {
+            const homeButtons = [...(scope.querySelectorAll?.('button') || [])].filter(button => {
+                const click = button.getAttribute('@click') || '';
+                return click.includes("setView('home')");
+            });
 
-        homeButtons.forEach(button => {
-            const previous = button.previousElementSibling;
-            if (!previous?.matches?.('[data-athar-scholar-v2-nav]')) {
-                button.insertAdjacentHTML('beforebegin', navMarkup);
-            }
-        });
+            homeButtons.forEach(button => {
+                const previous = button.previousElementSibling;
+                if (!previous?.matches?.('[data-athar-scholar-v2-nav]')) {
+                    button.insertAdjacentHTML('beforebegin', navMarkup);
+                }
+            });
+        }
     };
 
     const patchDomTemplate = target => {
         const host = typeof target === 'string' ? document.querySelector(target) : (target || document.getElementById('app'));
-        if (!host) return false;
+        if (!host) {
+            console.error('[Athar V2] Le conteneur de montage Vue est introuvable.');
+            return false;
+        }
         if (host.dataset.atharScholarV2Patched === 'true') return true;
 
-        let v2Route = host.querySelector('scholar-library-v2-view')?.parentElement || null;
+        let v2Route = findAcrossScopes(host, '[data-athar-scholar-v2-route]');
         if (!v2Route) {
             const homeRoute = findHomeRoute(host);
             if (!homeRoute) {
-                console.error('[Athar V2] Le conteneur <home-view> est introuvable avant le montage de Vue.');
+                console.error('[Athar V2] La route d’accueil est introuvable dans le DOM ou les fragments <template>.');
                 return false;
             }
 
@@ -119,7 +162,7 @@
         }
 
         if (!v2Route?.querySelector?.('scholar-library-v2-view')) {
-            console.error('[Athar V2] La route V2 n’a pas pu être injectée.');
+            console.error('[Athar V2] La route V2 n’a pas pu être injectée dans le template Vue.');
             return false;
         }
 
@@ -143,11 +186,20 @@
 
         const originalMount = app.mount.bind(app);
         app.mount = (target, ...mountArgs) => {
-            patchDomTemplate(target);
+            const patched = patchDomTemplate(target);
+            if (!patched) {
+                console.error('[Athar V2] Montage annulé pour éviter une application sans route V2.');
+            }
             return originalMount(target, ...mountArgs);
         };
         return app;
     };
 
-    window.AtharScholarV2 = { patchDomTemplate, patchHomeView, findHomeRoute };
+    window.AtharScholarV2 = {
+        patchDomTemplate,
+        patchHomeView,
+        findHomeRoute,
+        collectTemplateScopes,
+        findAcrossScopes
+    };
 })();

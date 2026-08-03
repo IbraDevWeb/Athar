@@ -49,7 +49,7 @@ tailwind.config = {
 
 (() => {
     const APP_VERSION = 'athar-pro-v34';
-    const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-1';
+    const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-2';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
