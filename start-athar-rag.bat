@@ -16,10 +16,15 @@ if "%ERRORLEVEL%"=="0" (
 )
 
 set "ATHAR_EXIT=%ERRORLEVEL%"
+echo.
 if not "%ATHAR_EXIT%"=="0" (
-  echo.
-  echo [Athar RAG] Le demarrage a echoue. Consultez le message ci-dessus.
+  echo [Athar RAG] Le demarrage a echoue. Consultez le message ci-dessus et rag\server.log.
   pause
+  exit /b %ATHAR_EXIT%
 )
 
-exit /b %ATHAR_EXIT%
+echo [Athar RAG] Le serveur fonctionne maintenant en arriere-plan.
+echo [Athar RAG] Vous pouvez fermer cette fenetre sans interrompre la Bibliotheque.
+echo [Athar RAG] Pour l'arreter plus tard, utilisez stop-athar-rag.bat.
+pause
+exit /b 0
