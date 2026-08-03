@@ -8,8 +8,6 @@ import sys
 from pathlib import Path
 from typing import Any
 
-import requests
-
 from core import DEFAULT_DB, connect, content_hash, initialize_database, upsert_book, upsert_chunk, utc_now
 from ingestion import (
     bootstrap_legacy_state,
@@ -34,6 +32,19 @@ from scrape_kutub import (
 
 PAGE_LINK = re.compile(r"/fr/book/(?P<book>\d+)/(?P<page>\d+)(?:[/?#]|$)")
 STOP_ERRORS = ("robots.txt interdit", "Accès refusé", "Protection anti-bot", "Limite de requêtes")
+COUNTER_KEYS = (
+    "attempted_pages",
+    "imported_pages",
+    "imported_chunks",
+    "duplicate_pages",
+    "empty_pages",
+    "failed_pages",
+    "blocked_pages",
+)
+
+
+def empty_counters() -> dict[str, int]:
+    return {key: 0 for key in COUNTER_KEYS}
 
 
 def discover_pages(html: str, kutub_id: int, declared_pages: int | None = None) -> list[int]:
@@ -45,6 +56,35 @@ def discover_pages(html: str, kutub_id: int, declared_pages: int | None = None) 
     if declared_pages and declared_pages > 0:
         pages.update(range(1, declared_pages + 1))
     return sorted(pages)
+
+
+def plan_pages(
+    discovered: list[int],
+    *,
+    start: int,
+    batch_size: int,
+    declared_pages: int = 0,
+) -> list[int]:
+    """Planifie un lot sans jamais dépasser la pagination connue d'un ouvrage."""
+    start = max(1, int(start))
+    batch_size = max(1, int(batch_size))
+    declared_pages = max(0, int(declared_pages or 0))
+
+    if declared_pages and start > declared_pages:
+        return []
+
+    available = [
+        page
+        for page in discovered
+        if page >= start and (not declared_pages or page <= declared_pages)
+    ]
+    if available:
+        return available[:batch_size]
+
+    if declared_pages:
+        stop = min(declared_pages, start + batch_size - 1)
+        return list(range(start, stop + 1))
+    return list(range(start, start + batch_size))
 
 
 def page_digest(pairs: list[tuple[str, str]]) -> str:
@@ -240,22 +280,19 @@ def ingest_book(
     start = next_page(connection, book_id, retry_errors=retry_errors)
     declared_pages = int(metadata.get("pages") or configured_book.get("pages") or 0)
     discovered = discover_pages(response.text, kutub_id, declared_pages or None)
-    available = [page for page in discovered if page >= start]
-    if not available:
-        available = list(range(start, start + batch_size))
-    pages = available[:batch_size]
+    pages = plan_pages(
+        discovered,
+        start=start,
+        batch_size=batch_size,
+        declared_pages=declared_pages,
+    )
+    counters = empty_counters()
 
-    counters = {
-        "attempted_pages": 0,
-        "imported_pages": 0,
-        "imported_chunks": 0,
-        "duplicate_pages": 0,
-        "empty_pages": 0,
-        "failed_pages": 0,
-        "blocked_pages": 0,
-    }
-    print(f"\n[{metadata['title']}] pages prévues : {pages[0] if pages else '-'} à {pages[-1] if pages else '-'}")
+    if not pages:
+        print(f"\n[{metadata['title']}] ouvrage déjà entièrement parcouru ({declared_pages} page(s)).")
+        return counters
 
+    print(f"\n[{metadata['title']}] pages prévues : {pages[0]} à {pages[-1]}")
     for page in pages:
         counters["attempted_pages"] += 1
         try:
@@ -289,6 +326,27 @@ def merge_counters(target: dict[str, int], source: dict[str, int]) -> None:
         target[key] = int(target.get(key, 0)) + int(value)
 
 
+def reconcile_recorded_counters(connection: Any, run_id: int, counters: dict[str, int]) -> None:
+    """Réconcilie les compteurs avec les pages persistées, y compris après un arrêt bloquant."""
+    row = connection.execute(
+        """
+        SELECT COUNT(*) AS attempted_pages,
+               SUM(CASE WHEN status='imported' THEN 1 ELSE 0 END) AS imported_pages,
+               SUM(CASE WHEN status='imported' THEN chunk_count ELSE 0 END) AS imported_chunks,
+               SUM(CASE WHEN status='duplicate' THEN 1 ELSE 0 END) AS duplicate_pages,
+               SUM(CASE WHEN status='empty' THEN 1 ELSE 0 END) AS empty_pages,
+               SUM(CASE WHEN status='error' THEN 1 ELSE 0 END) AS failed_pages,
+               SUM(CASE WHEN status='blocked' THEN 1 ELSE 0 END) AS blocked_pages
+        FROM ingestion_pages WHERE run_id=?
+        """,
+        (run_id,),
+    ).fetchone()
+    if not row:
+        return
+    for key in COUNTER_KEYS:
+        counters[key] = max(int(counters.get(key, 0)), int(row[key] or 0))
+
+
 def run_sync(args: argparse.Namespace) -> int:
     books = load_books()
     if args.book:
@@ -306,15 +364,7 @@ def run_sync(args: argparse.Namespace) -> int:
     initialize_ingestion(connection)
     bootstrap_legacy_state(connection)
 
-    counters = {
-        "attempted_pages": 0,
-        "imported_pages": 0,
-        "imported_chunks": 0,
-        "duplicate_pages": 0,
-        "empty_pages": 0,
-        "failed_pages": 0,
-        "blocked_pages": 0,
-    }
+    counters = empty_counters()
     run_id = start_run(
         connection,
         "kutub_public_pages",
@@ -348,6 +398,7 @@ def run_sync(args: argparse.Namespace) -> int:
         final_status = "partial"
         message = "Synchronisation interrompue par l’utilisateur."
     finally:
+        reconcile_recorded_counters(connection, run_id, counters)
         if final_status == "completed" and counters["failed_pages"]:
             final_status = "partial"
         finish_run(connection, run_id, status=final_status, message=message, counters=counters)
@@ -360,7 +411,8 @@ def run_sync(args: argparse.Namespace) -> int:
         f"{counters['imported_chunks']} passage(s), "
         f"{counters['duplicate_pages']} doublon(s), "
         f"{counters['empty_pages']} page(s) vide(s), "
-        f"{counters['failed_pages']} erreur(s)."
+        f"{counters['failed_pages']} erreur(s), "
+        f"{counters['blocked_pages']} blocage(s)."
     )
     if args.json:
         print(json.dumps(summary, ensure_ascii=False, indent=2))
