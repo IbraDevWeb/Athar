@@ -55,7 +55,7 @@ const bootstrap = read('js/components/ScholarV2Bootstrap.js');
     "setView('rag_v2')", 'data-athar-scholar-v2-nav', 'Pièce maîtresse',
     "'scholar-library-v2-view': window.ScholarLibraryV2View",
     "viewMode === 'rag_v2'", 'patchDomTemplate', 'patchHomeView',
-    'Bibliothèque des Compagnons', 'Aucune affirmation sans source',
+    'Bibliothèque des Compagnons', 'Une affirmation religieuse doit pouvoir être ouverte',
     "homeView.setAttribute('v-else-if'", 'window.Vue.createApp'
 ].forEach(token => need(bootstrap, token, 'Scholar V2 bootstrap'));
 const featurePosition = bootstrap.indexOf('sv2-home-pillar');
