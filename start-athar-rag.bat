@@ -2,15 +2,24 @@
 setlocal
 cd /d "%~dp0"
 
-if not exist ".venv-rag\Scripts\python.exe" (
-  echo [Athar RAG] Creation de l'environnement Python...
-  py -3 -m venv .venv-rag 2>nul || python -m venv .venv-rag
+where py >nul 2>nul
+if "%ERRORLEVEL%"=="0" (
+  py -3 rag\launcher.py %*
+) else (
+  where python >nul 2>nul
+  if not "%ERRORLEVEL%"=="0" (
+    echo [Athar RAG] Python 3 est introuvable. Installez Python puis relancez ce fichier.
+    pause
+    exit /b 1
+  )
+  python rag\launcher.py %*
 )
 
-call ".venv-rag\Scripts\activate.bat"
-python -m pip install --disable-pip-version-check -q -r rag\requirements.txt
+set "ATHAR_EXIT=%ERRORLEVEL%"
+if not "%ATHAR_EXIT%"=="0" (
+  echo.
+  echo [Athar RAG] Le demarrage a echoue. Consultez le message ci-dessus.
+  pause
+)
 
-start "" "http://127.0.0.1:8000/?v=34"
-python rag\server.py --port 8000
-
-endlocal
+exit /b %ATHAR_EXIT%

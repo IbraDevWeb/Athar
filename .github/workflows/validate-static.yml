@@ -46,7 +46,7 @@ jobs:
             | xargs -0 -n1 node --check
 
       - name: Check Python syntax
-        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/scrape_kutub.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py
+        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/launcher.py rag/scrape_kutub.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py scripts/validate_rag_launcher_runtime.py
 
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
@@ -59,6 +59,12 @@ jobs:
 
       - name: Validate Scholar RAG library V2
         run: node scripts/validate-rag-v2.js
+
+      - name: Validate RAG server launcher
+        run: node scripts/validate-rag-launcher.js
+
+      - name: Execute RAG launcher runtime
+        run: python scripts/validate_rag_launcher_runtime.py
 
       - name: Execute Scholar RAG runtime
         run: python scripts/validate_rag_runtime.py
