@@ -40,6 +40,9 @@ jobs:
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
 
+      - name: Validate Athar Lens
+        run: node scripts/validate-athar-lens.js
+
       - name: Validate Ancient Sky interface
         run: node scripts/validate-astronomy.js
 
