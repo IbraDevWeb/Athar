@@ -54,13 +54,30 @@ const bootstrap = read('js/components/ScholarV2Bootstrap.js');
 [
     "setView('rag_v2')", 'data-athar-scholar-v2-nav', 'Pièce maîtresse',
     "'scholar-library-v2-view': window.ScholarLibraryV2View",
-    "viewMode === 'rag_v2'", 'patchDomTemplate', 'patchHomeView',
+    "viewMode === 'rag_v2'", 'patchDomTemplate', 'patchHomeView', 'findHomeRoute',
+    "querySelector?.('home-view')", 'expressionTargetsHome',
     'Bibliothèque des Compagnons', 'Une affirmation religieuse doit pouvoir être ouverte',
-    "homeView.setAttribute('v-else-if'", 'window.Vue.createApp'
+    "homeRoute.setAttribute('v-else-if'", 'data-athar-scholar-v2-route',
+    'const originalMount = app.mount.bind(app)', 'app.mount = (target, ...mountArgs)',
+    'patchDomTemplate(target)', 'window.Vue.createApp'
 ].forEach(token => need(bootstrap, token, 'Scholar V2 bootstrap'));
 const featurePosition = bootstrap.indexOf('sv2-home-pillar');
 const companionsPosition = bootstrap.indexOf('Bibliothèque des Compagnons');
 if (featurePosition < 0 || companionsPosition < featurePosition) fail('The V2 home feature or companions link is missing.');
+const routeLookupPosition = bootstrap.indexOf('const homeRoute = findHomeRoute(host);');
+const navInjectionPosition = bootstrap.lastIndexOf('injectNavigation(host);');
+if (routeLookupPosition < 0 || navInjectionPosition < routeLookupPosition) {
+    fail('Navigation must only be injected after the V2 route has been resolved.');
+}
+const appCreationPosition = bootstrap.indexOf('const app = originalCreateApp.call');
+const mountPatchPosition = bootstrap.indexOf('app.mount = (target, ...mountArgs)');
+if (appCreationPosition < 0 || mountPatchPosition < appCreationPosition) {
+    fail('The DOM template must be patched immediately before Vue mount.');
+}
+
+const indexHtml = read('index.html');
+if (!/<home-view\b/i.test(indexHtml)) fail('index.html no longer contains the HomeView component used as a stable mount anchor.');
+if (!/v-if="viewMode\s*===\s*'home'"/i.test(indexHtml)) fail('The initial home route is missing from index.html.');
 
 const css = read('css/scholar-library-v2.css');
 [
@@ -82,8 +99,10 @@ if ((integrationCss.match(/{/g) || []).length !== (integrationCss.match(/}/g) ||
 
 const config = read('js/config.js');
 [
+    "const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-1'",
+    'const writeEarlyScript = (src, id, version = APP_VERSION)',
     "writeEarlyScript('js/components/ScholarLibraryV2View.js'",
-    "writeEarlyScript('js/components/ScholarV2Bootstrap.js'",
+    "writeEarlyScript('js/components/ScholarV2Bootstrap.js', 'athar-scholar-v2-bootstrap', SCHOLAR_V2_BOOTSTRAP_VERSION)",
     "writeEarlyScript('js/components/AstronomyBootstrap.js'",
     'css/scholar-library-v2.css?v=${APP_VERSION}',
     'css/scholar-v2-integration.css?v=${APP_VERSION}',
@@ -95,6 +114,7 @@ const worker = read('service-worker.js');
 [
     './js/components/ScholarLibraryV2View.js?v=athar-pro-v34',
     './js/components/ScholarV2Bootstrap.js?v=athar-pro-v34',
+    './js/components/ScholarV2Bootstrap.js?v=rag-v2-mount-1',
     './css/scholar-library-v2.css?v=athar-pro-v34',
     './css/scholar-v2-integration.css?v=athar-pro-v34',
     './rag/evaluation_v2.json?v=athar-pro-v34'
@@ -103,4 +123,4 @@ const worker = read('service-worker.js');
 const extensions = read('extensions_data.js');
 need(extensions, 'Moteur RAG classique', 'V1 metadata distinction');
 
-console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, root navigation, home centerpiece and cached assets.`);
+console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, mount-time root routing, home centerpiece and cached hotfix.`);
