@@ -13,14 +13,15 @@ const need = token => {
 };
 
 [
-    "const FIRST_PORT = 8000",
-    "const LAST_PORT = 8010",
-    "'/api/rag/v2/status'",
-    "payload?.server === 'athar-rag-v2'",
-    "window.fetch = async function atharFetch",
-    "response.status !== 404 && response.status !== 405",
-    "athar-rag-api-connected",
-    "ragPort"
+    "const RUNTIME_PATH = 'rag/runtime.json'",
+    "const STORAGE_KEY = 'athar_rag_api_origin_v2'",
+    'const readRuntimeOrigin = async () =>',
+    "payload?.server !== 'athar-rag-v2'",
+    'ports.push(8765)',
+    'window.fetch = async function atharFetch',
+    'unavailableResponse',
+    'athar-rag-api-connected',
+    'athar-rag-api-unavailable'
 ].forEach(need);
 
 const calls = [];
@@ -34,20 +35,32 @@ const jsonResponse = (status, payload) => ({
 const nativeFetch = async (input, init = {}) => {
     const url = String(input);
     calls.push({ url, method: init.method || 'GET' });
-    if (url.startsWith('http://127.0.0.1:8000/api/rag/v2/status')) {
-        return jsonResponse(404, { ok: false });
+    if (url.startsWith('http://127.0.0.1:8000/rag/runtime.json')) {
+        return jsonResponse(200, {
+            ok: true,
+            server: 'athar-rag-v2',
+            origin: 'http://127.0.0.1:8765',
+            port: 8765
+        });
     }
-    if (url.startsWith('http://localhost:8000/api/rag/v2/status')) {
-        return jsonResponse(404, { ok: false });
-    }
-    if (url.startsWith('http://127.0.0.1:8001/api/rag/v2/status')) {
+    if (url.startsWith('http://127.0.0.1:8765/api/rag/v2/status')) {
         return jsonResponse(200, { ok: true, server: 'athar-rag-v2', api_version: 2 });
     }
-    if (url === 'http://127.0.0.1:8001/api/rag/v2/ask') {
+    if (url === 'http://127.0.0.1:8765/api/rag/v2/ask') {
         return jsonResponse(200, { ok: true, server: 'athar-rag-v2', answer: { summary: 'ok' } });
     }
     return jsonResponse(404, { ok: false });
 };
+
+class FakeResponse {
+    constructor(body, options = {}) {
+        this.body = body;
+        this.status = options.status || 200;
+        this.ok = this.status >= 200 && this.status < 300;
+        this.headers = options.headers || {};
+    }
+    async json() { return JSON.parse(this.body); }
+}
 
 const windowObject = {
     fetch: nativeFetch,
@@ -75,6 +88,7 @@ const context = {
     URLSearchParams,
     AbortController,
     Request,
+    Response: FakeResponse,
     CustomEvent: class CustomEvent {
         constructor(type, options) {
             this.type = type;
@@ -98,14 +112,17 @@ vm.runInContext(bridgeSource, context, { filename: 'RagApiBridge.js' });
 
     const bridge = context.window.AtharRagApiBridge;
     if (!bridge) fail('AtharRagApiBridge was not exposed');
-    if (bridge.getBase() !== 'http://127.0.0.1:8001') {
+    if (bridge.getBase() !== 'http://127.0.0.1:8765') {
         fail(`unexpected discovered origin: ${bridge.getBase()}`);
     }
-    if (stored.get('athar_rag_api_origin_v1') !== 'http://127.0.0.1:8001') {
-        fail('the discovered origin was not cached');
+    if (stored.get('athar_rag_api_origin_v2') !== 'http://127.0.0.1:8765') {
+        fail('the runtime origin was not cached');
     }
-    if (!calls.some(call => call.url === 'http://127.0.0.1:8001/api/rag/v2/ask' && call.method === 'POST')) {
-        fail('the POST request was not redirected to the discovered RAG port');
+    if (!calls.some(call => call.url.startsWith('http://127.0.0.1:8000/rag/runtime.json'))) {
+        fail('the runtime manifest was not consulted');
+    }
+    if (!calls.some(call => call.url === 'http://127.0.0.1:8765/api/rag/v2/ask' && call.method === 'POST')) {
+        fail('the POST request was not redirected to the runtime RAG port');
     }
 
     const before = calls.length;
@@ -114,5 +131,5 @@ vm.runInContext(bridgeSource, context, { filename: 'RagApiBridge.js' });
         fail('non-RAG requests must pass through untouched');
     }
 
-    console.log('RAG API bridge validated: static port rejected, RAG port discovered, POST rewritten and origin cached.');
+    console.log('RAG API bridge validated: runtime manifest read, persistent server detected, POST rewritten and origin cached.');
 })().catch(error => fail(error.stack || error.message));
