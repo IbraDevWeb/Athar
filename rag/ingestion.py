@@ -8,6 +8,7 @@ from core import utc_now
 
 PAGE_STATES = {"pending", "imported", "empty", "duplicate", "error", "blocked", "skipped"}
 RUN_STATES = {"running", "completed", "partial", "failed", "blocked"}
+FINAL_PAGE_STATES = {"imported", "duplicate", "skipped"}
 
 
 def initialize_ingestion(connection: sqlite3.Connection) -> None:
@@ -57,49 +58,6 @@ def initialize_ingestion(connection: sqlite3.Connection) -> None:
     connection.commit()
 
 
-def bootstrap_legacy_state(connection: sqlite3.Connection) -> int:
-    """Crée un état minimal pour les pages déjà présentes avant ce pipeline."""
-    initialize_ingestion(connection)
-    rows = connection.execute(
-        """
-        SELECT c.book_id, c.page, COUNT(*) AS chunk_count,
-               SUM(LENGTH(COALESCE(c.text_ar, ''))) AS arabic_chars,
-               SUM(LENGTH(COALESCE(c.text_fr, ''))) AS french_chars,
-               MAX(c.scraped_at) AS updated_at
-        FROM chunks c
-        WHERE c.page IS NOT NULL
-        GROUP BY c.book_id, c.page
-        """
-    ).fetchall()
-    inserted = 0
-    for row in rows:
-        exists = connection.execute(
-            "SELECT 1 FROM ingestion_pages WHERE book_id = ? AND page = ?",
-            (row["book_id"], row["page"]),
-        ).fetchone()
-        if exists:
-            continue
-        arabic_chars = int(row["arabic_chars"] or 0)
-        french_chars = int(row["french_chars"] or 0)
-        score = quality_score(arabic_chars, french_chars, int(row["chunk_count"] or 0), True)
-        connection.execute(
-            """
-            INSERT INTO ingestion_pages (
-                book_id, page, status, chunk_count, quality_score, arabic_chars,
-                french_chars, attempts, updated_at, metadata_json
-            ) VALUES (?, ?, 'imported', ?, ?, ?, ?, 1, ?, ?)
-            """,
-            (
-                row["book_id"], row["page"], row["chunk_count"], score,
-                arabic_chars, french_chars, row["updated_at"] or utc_now(),
-                json.dumps({"origin": "legacy_bootstrap"}, ensure_ascii=False),
-            ),
-        )
-        inserted += 1
-    connection.commit()
-    return inserted
-
-
 def quality_score(arabic_chars: int, french_chars: int, chunks: int, chapter_detected: bool) -> int:
     score = 0
     if arabic_chars >= 120:
@@ -119,7 +77,58 @@ def quality_score(arabic_chars: int, french_chars: int, chunks: int, chapter_det
     return max(0, min(score, 100))
 
 
-def start_run(connection: sqlite3.Connection, source: str, requested_books: int, metadata: dict[str, Any] | None = None) -> int:
+def bootstrap_legacy_state(connection: sqlite3.Connection) -> int:
+    """Crée un état minimal pour les pages présentes avant le pipeline v3."""
+    initialize_ingestion(connection)
+    rows = connection.execute(
+        """
+        SELECT c.book_id, c.page, COUNT(*) AS chunk_count,
+               SUM(LENGTH(COALESCE(c.text_ar, ''))) AS arabic_chars,
+               SUM(LENGTH(COALESCE(c.text_fr, ''))) AS french_chars,
+               MAX(c.scraped_at) AS updated_at
+        FROM chunks c
+        WHERE c.page IS NOT NULL AND c.page > 0
+        GROUP BY c.book_id, c.page
+        """
+    ).fetchall()
+    inserted = 0
+    for row in rows:
+        if connection.execute(
+            "SELECT 1 FROM ingestion_pages WHERE book_id=? AND page=?",
+            (row["book_id"], row["page"]),
+        ).fetchone():
+            continue
+        arabic_chars = int(row["arabic_chars"] or 0)
+        french_chars = int(row["french_chars"] or 0)
+        connection.execute(
+            """
+            INSERT INTO ingestion_pages (
+                book_id, page, status, chunk_count, quality_score, arabic_chars,
+                french_chars, attempts, updated_at, metadata_json
+            ) VALUES (?, ?, 'imported', ?, ?, ?, ?, 1, ?, ?)
+            """,
+            (
+                row["book_id"],
+                row["page"],
+                row["chunk_count"],
+                quality_score(arabic_chars, french_chars, int(row["chunk_count"] or 0), True),
+                arabic_chars,
+                french_chars,
+                row["updated_at"] or utc_now(),
+                json.dumps({"origin": "legacy_bootstrap"}, ensure_ascii=False),
+            ),
+        )
+        inserted += 1
+    connection.commit()
+    return inserted
+
+
+def start_run(
+    connection: sqlite3.Connection,
+    source: str,
+    requested_books: int,
+    metadata: dict[str, Any] | None = None,
+) -> int:
     initialize_ingestion(connection)
     cursor = connection.execute(
         """
@@ -173,9 +182,19 @@ def mark_page(
             metadata_json=excluded.metadata_json
         """,
         (
-            book_id, page, run_id, status, chunk_count, quality,
-            arabic_chars, french_chars, digest, source_url, error[:1000],
-            utc_now(), json.dumps(metadata or {}, ensure_ascii=False),
+            book_id,
+            page,
+            run_id,
+            status,
+            chunk_count,
+            quality,
+            arabic_chars,
+            french_chars,
+            digest,
+            source_url,
+            error[:1000],
+            utc_now(),
+            json.dumps(metadata or {}, ensure_ascii=False),
         ),
     )
     connection.commit()
@@ -201,14 +220,41 @@ def finish_run(
         WHERE id=?
         """,
         (
-            status, utc_now(), int(values.get("attempted_pages", 0)),
-            int(values.get("imported_pages", 0)), int(values.get("imported_chunks", 0)),
-            int(values.get("duplicate_pages", 0)), int(values.get("empty_pages", 0)),
-            int(values.get("failed_pages", 0)), int(values.get("blocked_pages", 0)),
-            message[:1000], run_id,
+            status,
+            utc_now(),
+            int(values.get("attempted_pages", 0)),
+            int(values.get("imported_pages", 0)),
+            int(values.get("imported_chunks", 0)),
+            int(values.get("duplicate_pages", 0)),
+            int(values.get("empty_pages", 0)),
+            int(values.get("failed_pages", 0)),
+            int(values.get("blocked_pages", 0)),
+            message[:1000],
+            run_id,
         ),
     )
     connection.commit()
+
+
+def first_missing_final_page(connection: sqlite3.Connection, book_id: str) -> int:
+    """Retourne le premier trou, même si un extrait isolé existe sur une page éloignée."""
+    rows = connection.execute(
+        """
+        SELECT page FROM ingestion_pages
+        WHERE book_id=? AND status IN ('imported', 'duplicate', 'skipped') AND page > 0
+        ORDER BY page ASC
+        """,
+        (book_id,),
+    ).fetchall()
+    expected = 1
+    for row in rows:
+        page = int(row["page"])
+        if page < expected:
+            continue
+        if page > expected:
+            break
+        expected += 1
+    return expected
 
 
 def next_page(connection: sqlite3.Connection, book_id: str, retry_errors: bool = True) -> int:
@@ -217,22 +263,14 @@ def next_page(connection: sqlite3.Connection, book_id: str, retry_errors: bool =
         row = connection.execute(
             """
             SELECT page FROM ingestion_pages
-            WHERE book_id = ? AND status IN ('error', 'empty')
+            WHERE book_id=? AND status IN ('error', 'empty') AND page > 0
             ORDER BY page ASC LIMIT 1
             """,
             (book_id,),
         ).fetchone()
         if row:
             return int(row["page"])
-    row = connection.execute(
-        """
-        SELECT COALESCE(MAX(page), 0) AS last_page
-        FROM ingestion_pages
-        WHERE book_id = ? AND status IN ('imported', 'duplicate', 'skipped')
-        """,
-        (book_id,),
-    ).fetchone()
-    return int(row["last_page"] or 0) + 1
+    return first_missing_final_page(connection, book_id)
 
 
 def ingestion_status(connection: sqlite3.Connection) -> dict[str, Any]:
@@ -264,11 +302,7 @@ def ingestion_status(connection: sqlite3.Connection) -> dict[str, Any]:
         GROUP BY b.id ORDER BY imported_pages DESC, b.title ASC
         """
     ).fetchall()
-    runs = connection.execute(
-        """
-        SELECT * FROM ingestion_runs ORDER BY id DESC LIMIT 10
-        """
-    ).fetchall()
+    runs = connection.execute("SELECT * FROM ingestion_runs ORDER BY id DESC LIMIT 10").fetchall()
     book_payload = []
     for row in books:
         item = dict(row)
