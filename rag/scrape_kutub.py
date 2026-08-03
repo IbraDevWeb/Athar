@@ -6,7 +6,6 @@ import os
 import re
 import sys
 import time
-import urllib.parse
 import urllib.robotparser
 from pathlib import Path
 from typing import Any
@@ -24,6 +23,8 @@ DEFAULT_DELAY = 1.25
 
 ARABIC_CHAR = re.compile(r"[\u0600-\u06FF]")
 PAGE_COUNT = re.compile(r"([\d\s,.]+)\s+pages?", re.IGNORECASE)
+VOLUME_HINT = re.compile(r"(?:tome|volume|vol\.?|الجزء)\s*([0-9٠-٩]+)", re.IGNORECASE)
+PRINTED_PAGE_HINT = re.compile(r"(?:page|p\.?|صفحة)\s*([0-9٠-٩]+)", re.IGNORECASE)
 BLOCKED_MARKERS = (
     "captcha",
     "cloudflare ray id",
@@ -124,7 +125,7 @@ def parse_book_page(html: str, fallback: dict[str, Any]) -> dict[str, Any]:
     soup = BeautifulSoup(html, "html.parser")
     main = find_main(soup)
     text = visible_text(main)
-    title = (soup.find("h1").get_text(" ", strip=True) if soup.find("h1") else fallback.get("title", ""))
+    title = soup.find("h1").get_text(" ", strip=True) if soup.find("h1") else fallback.get("title", "")
     lines = [line for line in text.splitlines() if line]
     arabic_title = next((line for line in lines if ARABIC_CHAR.search(line) and len(line) < 180), fallback.get("title_ar", ""))
     page_match = PAGE_COUNT.search(text)
@@ -136,6 +137,7 @@ def parse_book_page(html: str, fallback: dict[str, Any]) -> dict[str, Any]:
     about_index = next((index for index, line in enumerate(lines) if line.lower() in {"à propos", "about"}), -1)
     if about_index >= 0:
         description = " ".join(lines[about_index + 1 : about_index + 4])[:900] or description
+    inherited_metadata = fallback.get("metadata") if isinstance(fallback.get("metadata"), dict) else {}
     return {
         **fallback,
         "title": title or fallback.get("title", ""),
@@ -143,7 +145,12 @@ def parse_book_page(html: str, fallback: dict[str, Any]) -> dict[str, Any]:
         "pages": pages or fallback.get("pages"),
         "description": description,
         "scraped_at": utc_now(),
-        "metadata": {"parser": "kutub-html-v1"},
+        "metadata": {
+            **inherited_metadata,
+            "parser": "kutub-html-v2",
+            "catalogue_structure_checked": False,
+            "source_language": "ar/fr",
+        },
     }
 
 
@@ -155,7 +162,7 @@ def paragraph_language(text: str) -> str:
     return "ar" if arabic / len(letters) >= 0.45 else "fr"
 
 
-def extract_page_content(html: str) -> tuple[str, list[str], list[str]]:
+def extract_page_content(html: str) -> tuple[str, list[str], list[str], dict[str, Any]]:
     soup = BeautifulSoup(html, "html.parser")
     main = find_main(soup)
     for element in main.select("script, style, nav, footer, header, button, form, noscript, svg, aside"):
@@ -177,9 +184,19 @@ def extract_page_content(html: str) -> tuple[str, list[str], list[str]]:
             if len(line.strip()) >= 45
         ]
 
+    page_text = " ".join(headings + raw_paragraphs[:8])
+    volume_match = VOLUME_HINT.search(page_text)
+    printed_match = PRINTED_PAGE_HINT.search(page_text)
+    structure = {
+        "headings": headings[:8],
+        "volume": volume_match.group(1) if volume_match else None,
+        "printed_page": printed_match.group(1) if printed_match else None,
+        "chapter_detected": bool(chapter),
+    }
+
     arabic = [text for text in raw_paragraphs if paragraph_language(text) == "ar"]
     french = [text for text in raw_paragraphs if paragraph_language(text) == "fr"]
-    return chapter, arabic, french
+    return chapter, arabic, french, structure
 
 
 def chunk_paragraphs(paragraphs: list[str], target_words: int = 520, overlap_words: int = 70) -> list[str]:
@@ -258,7 +275,7 @@ def crawl_book(
         page_response = client.get(page_url)
         if snapshots:
             save_snapshot(kutub_id, page, page_response.text)
-        chapter, arabic, french = extract_page_content(page_response.text)
+        chapter, arabic, french, structure = extract_page_content(page_response.text)
         pairs = pair_chunks(arabic, french)
         if not pairs:
             print(f"[avertissement] Aucun passage exploitable : {page_url}", file=sys.stderr)
@@ -279,7 +296,19 @@ def crawl_book(
                     "source_url": page_url,
                     "content_hash": content_hash(text_ar, text_fr),
                     "scraped_at": utc_now(),
-                    "metadata": {"kutub_id": kutub_id, "chunk_index": index},
+                    "metadata": {
+                        "kutub_id": kutub_id,
+                        "chunk_index": index,
+                        "volume": structure.get("volume"),
+                        "printed_page": structure.get("printed_page"),
+                        "page_end": page,
+                        "headings": structure.get("headings", []),
+                        "chapter_detected": structure.get("chapter_detected", False),
+                        "verification_status": "imported_unreviewed",
+                        "arabic_present": bool(text_ar),
+                        "french_present": bool(text_fr),
+                        "source_type": metadata.get("metadata", {}).get("source_type", "classical_reference"),
+                    },
                 },
             )
             imported_chunks += 1
@@ -300,7 +329,7 @@ def main() -> int:
     args = parser.parse_args()
 
     contact = os.getenv("ATHAR_BOT_CONTACT", "operator-contact-not-configured")
-    user_agent = f"AtharResearchBot/1.0 (+{contact}; public pages; respectful rate limit)"
+    user_agent = f"AtharResearchBot/2.0 (+{contact}; public pages; respectful rate limit)"
     client = KutubClient(args.delay, user_agent)
     books = load_books()
     if args.book:

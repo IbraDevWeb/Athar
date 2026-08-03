@@ -83,10 +83,10 @@ tailwind.config = {
         document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
     };
 
-    document.title = "Athar Pro — Bibliothèque numérique d'histoire islamique";
-    setMeta('meta[name="description"]', "Biographies documentées, hadiths référencés et outils d'étude de l'histoire islamique.");
-    setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque numérique d'histoire islamique");
-    setMeta('meta[property="og:description"]', "Explorez des notices historiques, des hadiths référencés et outils d'étude, avec une méthodologie éditoriale transparente.");
+    document.title = "Athar Pro — Bibliothèque savante et encyclopédie islamique";
+    setMeta('meta[name="description"]', "Interrogez les ouvrages classiques avec des réponses sourcées, puis explorez la bibliothèque des Compagnons et les outils d'étude d'Athar Pro.");
+    setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque Savante");
+    setMeta('meta[property="og:description"]', "Une bibliothèque citation-first reliée à l'encyclopédie des Compagnons et aux outils d'étude islamique.");
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
@@ -106,6 +106,8 @@ tailwind.config = {
     writeEarlyScript('isnad_data.js', 'athar-golden-chain-data');
     writeEarlyScript('js/components/GoldenChainView.js', 'athar-golden-chain-view');
     writeEarlyScript('js/components/ScholarLibraryView.js', 'athar-scholar-library-view');
+    writeEarlyScript('js/components/ScholarLibraryV2View.js', 'athar-scholar-library-v2-view');
+    writeEarlyScript('js/components/ScholarV2Bootstrap.js', 'athar-scholar-v2-bootstrap');
     writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
@@ -136,6 +138,8 @@ tailwind.config = {
     ensureStylesheet(`css/golden-chain.css?v=${APP_VERSION}`, 'athar-golden-chain-styles');
     ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
     ensureStylesheet(`css/scholar-library.css?v=${APP_VERSION}`, 'athar-scholar-library-styles');
+    ensureStylesheet(`css/scholar-library-v2.css?v=${APP_VERSION}`, 'athar-scholar-library-v2-styles');
+    ensureStylesheet(`css/scholar-v2-integration.css?v=${APP_VERSION}`, 'athar-scholar-v2-integration');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');

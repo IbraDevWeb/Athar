@@ -30,9 +30,9 @@ const EXTENSIONS_DATA = {
         data: []
     },
     rag_library: {
-        title: "Bibliothèque Savante",
-        icon: "book-search",
-        desc: "Recherche RAG bilingue dans les ouvrages classiques avec passages et citations vérifiables.",
+        title: "Moteur RAG classique",
+        icon: "database-zap",
+        desc: "Interface technique V1 conservée pour auditer la recherche brute et le corpus local.",
         type: "interactive",
         data: []
     },
