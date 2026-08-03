@@ -17,9 +17,10 @@ if "%ATHAR_BOT_CONTACT%"=="" (
   echo.
 )
 
-python rag\scrape_kutub.py --max-pages 25
+python rag\sync_kutub_batch.py --batch-size 25
 
 echo.
-echo Synchronisation terminee. Relancez start-athar-rag.bat pour voir le corpus.
+echo Synchronisation terminee. Chaque execution ajoute le prochain lot de 25 pages maximum par ouvrage.
+echo Relancez start-athar-rag.bat pour voir le corpus.
 pause
 endlocal
