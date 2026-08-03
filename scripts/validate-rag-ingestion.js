@@ -35,8 +35,7 @@ const pipeline = read('rag/ingest_kutub.py');
     'kutub_ai_unreviewed',
     'ingestion_pipeline": "kutub-v3"',
     'start_run(',
-    'finish_run(',
-    'sync-kutub.bat'
+    'finish_run('
 ].forEach(token => need(pipeline, token, 'rag/ingest_kutub.py'));
 if (/captcha.*bypass|cloudflare.*bypass|selenium|playwright/i.test(pipeline)) {
     fail('The crawler must never include anti-bot bypass logic.');
@@ -56,7 +55,8 @@ const batch = read('sync-kutub.bat');
     'rag\\ingest_kutub.py sync --batch-size 25',
     'rag\\ingest_kutub.py status',
     'ATHAR_BOT_CONTACT',
-    'requirements.txt'
+    'requirements.txt',
+    'Synchronisation terminee'
 ].forEach(token => need(batch, token, 'sync-kutub.bat'));
 if (/http\.server/i.test(batch)) fail('The ingestion launcher must not start a static server.');
 
@@ -65,6 +65,7 @@ need(statusBatch, 'rag\\ingest_kutub.py status', 'status-kutub.bat');
 
 const docs = read('RAG_INGESTION.md');
 [
+    'sync-kutub.bat',
     'robots.txt',
     'duplicate',
     'kutub_ai_unreviewed',
