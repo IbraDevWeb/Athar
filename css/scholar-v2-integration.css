@@ -1,0 +1,87 @@
+/* Intégration globale de la Bibliothèque Savante V2 */
+.sv2-nav-entry {
+    min-height: 66px;
+    margin-bottom: 7px;
+    border: 1px solid rgba(197,160,89,.22);
+    color: #6f675a;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(197,160,89,.16), transparent 70%),
+        rgba(197,160,89,.055);
+    position: relative;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+.dark .sv2-nav-entry { color: #b6ad9d; background: radial-gradient(circle at 100% 0%, rgba(197,160,89,.14), transparent 70%), rgba(255,255,255,.025); }
+.sv2-nav-entry::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: #c5a059; opacity: .55; }
+.sv2-nav-entry:hover { border-color: rgba(197,160,89,.48); transform: translateY(-1px); }
+.sv2-nav-entry.is-active { color: #fff; border-color: #2b261d; background: linear-gradient(135deg,#30291f,#17130e); box-shadow: 0 14px 30px -20px rgba(30,24,14,.65); }
+.dark .sv2-nav-entry.is-active { color: #241c10; border-color: #d0b16a; background: linear-gradient(135deg,#dbc17f,#ac813a); }
+.sv2-nav-mark { width: 34px; height: 34px; flex: 0 0 34px; border-radius: 11px; display: grid; place-items: center; color: #c5a059; background: rgba(197,160,89,.12); }
+.sv2-nav-entry.is-active .sv2-nav-mark { color: #fff; background: rgba(255,255,255,.12); }
+.dark .sv2-nav-entry.is-active .sv2-nav-mark { color: #241c10; background: rgba(36,28,16,.1); }
+.sv2-nav-mark svg { width: 16px; height: 16px; }
+.sv2-nav-copy { flex: 1; display: grid; gap: 3px; text-transform: none; letter-spacing: normal; }
+.sv2-nav-copy small { color: #aa8544; font-size: 7px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.sv2-nav-entry.is-active .sv2-nav-copy small { color: #ddc37f; }
+.dark .sv2-nav-entry.is-active .sv2-nav-copy small { color: #60451d; }
+.sv2-nav-copy strong { font-family: Cinzel,serif; font-size: 10px; line-height: 1.2; }
+.sv2-nav-v2 { padding: 4px 6px; border-radius: 999px; color: #8d6a31; background: rgba(197,160,89,.14); font-size: 7px; font-weight: 950; }
+.sv2-nav-entry.is-active .sv2-nav-v2 { color: #241c10; background: #d9bd78; }
+.dark .sv2-nav-entry.is-active .sv2-nav-v2 { color: #fff; background: #34291a; }
+
+.sv2-home-pillar {
+    margin-bottom: 16px;
+    padding: clamp(20px,3vw,34px);
+    border: 1px solid rgba(197,160,89,.18);
+    border-radius: 28px;
+    color: #eee8db;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(197,160,89,.22), transparent 28rem),
+        radial-gradient(circle at 100% 100%, rgba(64,119,101,.22), transparent 22rem),
+        linear-gradient(135deg,#29251e 0%,#171510 54%,#0f1411 100%);
+    box-shadow: 0 30px 75px -46px rgba(24,19,12,.75);
+    position: relative;
+    overflow: hidden;
+}
+.sv2-home-pillar::after { content: 'مكتبة آثار العلمية'; position: absolute; right: -12px; bottom: -34px; color: rgba(255,255,255,.035); font-family: Amiri,serif; font-size: clamp(70px,11vw,150px); line-height: 1; pointer-events: none; }
+.sv2-home-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.35fr) minmax(270px,.65fr); gap: 24px; align-items: stretch; }
+.sv2-home-main { display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; }
+.sv2-home-badge { width: max-content; min-height: 28px; padding: 0 10px; border-radius: 999px; color: #241c10; background: #d1b46e; display: inline-flex; align-items: center; gap: 7px; font: 900 8px/1 Inter,sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.sv2-home-badge svg { width: 13px; height: 13px; }
+.sv2-home-main h2 { max-width: 780px; margin: 21px 0 0; font-family: Cinzel,serif; font-size: clamp(28px,4vw,52px); font-weight: 500; line-height: 1.04; letter-spacing: -.025em; }
+.sv2-home-main h2 span { color: #d1b46e; }
+.sv2-home-main > p { max-width: 720px; margin: 14px 0 0; color: rgba(238,232,219,.72); font: 400 13px/1.75 Inter,sans-serif; }
+.sv2-home-actions { margin-top: 25px; display: flex; flex-wrap: wrap; gap: 9px; }
+.sv2-home-actions button { min-height: 47px; padding: 0 17px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 850 9px/1 Inter,sans-serif; letter-spacing: .06em; cursor: pointer; touch-action: manipulation; }
+.sv2-home-actions button:first-child { border: 0; color: #211a10; background: #d1b46e; }
+.sv2-home-actions button:last-child { border: 1px solid rgba(255,255,255,.13); color: #eee8db; background: rgba(255,255,255,.055); }
+.sv2-home-actions svg { width: 14px; height: 14px; }
+.sv2-home-proof { padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 20px; background: rgba(255,255,255,.045); backdrop-filter: blur(10px); display: flex; flex-direction: column; }
+.sv2-home-proof-head { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.sv2-home-proof-head span { color: #d1b46e; font: 850 8px Inter,sans-serif; letter-spacing: .11em; text-transform: uppercase; }
+.sv2-home-proof-head b { width: 29px; height: 29px; border-radius: 9px; display: grid; place-items: center; color: #d1b46e; background: rgba(209,180,110,.1); }
+.sv2-home-proof-head svg { width: 14px; }
+.sv2-home-proof blockquote { margin: 25px 0 0; color: #f4efe4; font: italic 14px/1.8 'Libre Baskerville',serif; }
+.sv2-home-proof dl { margin: auto 0 0; padding-top: 20px; display: grid; gap: 7px; }
+.sv2-home-proof dl div { min-height: 38px; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.04); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.sv2-home-proof dt { color: rgba(238,232,219,.55); font-size: 8px; }
+.sv2-home-proof dd { margin: 0; color: #d1b46e; font-size: 8px; font-weight: 850; }
+.sv2-home-pillars-note { position: relative; z-index: 1; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; gap: 9px; color: rgba(238,232,219,.5); font-size: 8px; letter-spacing: .04em; }
+.sv2-home-pillars-note i { width: 5px; height: 5px; border-radius: 50%; background: #d1b46e; }
+
+@media (max-width: 900px) {
+    .sv2-home-grid { grid-template-columns: 1fr; }
+    .sv2-home-proof { min-height: 230px; }
+}
+@media (max-width: 640px) {
+    .sv2-nav-entry { min-height: 62px; }
+    .sv2-home-pillar { padding: 19px 16px; border-radius: 22px; }
+    .sv2-home-main { min-height: 250px; }
+    .sv2-home-main h2 { font-size: 29px; }
+    .sv2-home-actions { display: grid; grid-template-columns: 1fr; }
+    .sv2-home-actions button { width: 100%; }
+    .sv2-home-proof { min-height: 210px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .sv2-nav-entry,.sv2-home-pillar * { transition: none !important; }
+}
