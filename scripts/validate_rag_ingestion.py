@@ -41,8 +41,8 @@ HTML = """
 <html><body><main>
   <h1>كتاب الاختبار</h1>
   <h2>باب الجمع بين الصلاتين في السفر</h2>
-  <a href="/fr/book/999/1">1</a>
-  <a href="/fr/book/999/2">2</a>
+  <a href="/fr/book/999/1/">1</a>
+  <a href="/fr/book/999/2/">2</a>
   <p dir="rtl">يجوز للمسافر جمع الظهر والعصر عند الحاجة إلى السير ويعتبر وقت الرحيل وحال السفر في تنزيل الحكم على النازلة.</p>
   <p>Ce passage explique que le regroupement de dhuhr et de asr dépend de la réalité du déplacement et du moment du départ du voyageur.</p>
 </main></body></html>
