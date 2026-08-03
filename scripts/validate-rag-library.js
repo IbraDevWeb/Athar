@@ -63,7 +63,7 @@ const scraper = read('rag/scrape_kutub.py');
 [
     'urllib.robotparser', 'parser.can_fetch', 'DEFAULT_DELAY = 1.25', 'Retry-After',
     'response.status_code in {401, 403}', 'Protection anti-bot détectée',
-    'ATHAR_BOT_CONTACT', '--max-pages', '--skip-existing', 'source_url', 'content_hash'
+    'ATHAR_BOT_CONTACT', '--max-pages', '--no-skip-existing', 'source_url', 'content_hash'
 ].forEach(token => need(scraper, token, 'Kutub scraper'));
 for (const forbidden of ['selenium', 'playwright', 'captcha solver', 'bypass', 'login(', 'password', 'cookie_jar']) {
     if (scraper.toLowerCase().includes(forbidden)) fail(`Forbidden crawler behavior detected: ${forbidden}`);
