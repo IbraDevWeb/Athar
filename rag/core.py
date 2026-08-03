@@ -8,7 +8,6 @@ import sqlite3
 import unicodedata
 import urllib.error
 import urllib.request
-from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -18,6 +17,7 @@ DEFAULT_DB = ROOT / "rag" / "data" / "athar_rag.sqlite"
 SEED_PATH = ROOT / "rag" / "seed.json"
 
 ARABIC_DIACRITICS = re.compile(r"[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED]")
+ARABIC_LETTER = re.compile(r"[\u0600-\u06FF]")
 NON_WORD = re.compile(r"[^\w\u0600-\u06FF]+", re.UNICODE)
 SPACE = re.compile(r"\s+")
 
@@ -76,6 +76,11 @@ def expand_query(query: str) -> list[str]:
     for term in terms:
         for extra in QUERY_EXPANSIONS.get(term, []):
             expanded.extend(normalize_text(extra).split())
+        if ARABIC_LETTER.search(term):
+            if term.startswith("ال") and len(term) > 3:
+                expanded.append(term[2:])
+            elif not term.startswith("ال"):
+                expanded.append(f"ال{term}")
     return list(dict.fromkeys(term for term in expanded if term))
 
 
