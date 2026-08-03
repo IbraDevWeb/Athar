@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from core import DEFAULT_DB, answer_question, database_status, ensure_database, search_chunks
+from ingestion import ingestion_status
 from v2 import answer_question_v2, corpus_status_v2, evaluation_status_v2, retrieve_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,7 +21,7 @@ LOCAL_ORIGIN_PATTERN = re.compile(r"^https?://(?:127\.0\.0\.1|localhost)(?::\d{1
 
 
 class AtharRagHandler(SimpleHTTPRequestHandler):
-    server_version = "AtharRAG/2.1"
+    server_version = "AtharRAG/2.2"
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -39,7 +40,6 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Cross-Origin-Resource-Policy", "cross-origin" if is_api else "same-origin")
-
         origin = self.allowed_cors_origin()
         if is_api and origin:
             self.send_header("Access-Control-Allow-Origin", origin)
@@ -90,7 +90,31 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
 
         if path == "/api/rag/v2/status":
             with ensure_database(self.db_path) as connection:
-                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **corpus_status_v2(connection)})
+                corpus = corpus_status_v2(connection)
+                ingestion = ingestion_status(connection)
+                self.send_json({
+                    "ok": True,
+                    "server": SERVER_MARKER,
+                    "api_version": 2,
+                    **corpus,
+                    "ingestion": {
+                        "tracked_pages": ingestion["tracked_pages"],
+                        "imported_pages": ingestion["imported_pages"],
+                        "error_pages": ingestion["error_pages"],
+                        "blocked_pages": ingestion["blocked_pages"],
+                        "average_quality": ingestion["average_quality"],
+                    },
+                })
+            return
+
+        if path == "/api/rag/v2/ingestion":
+            with ensure_database(self.db_path) as connection:
+                self.send_json({
+                    "ok": True,
+                    "server": SERVER_MARKER,
+                    "api_version": 2,
+                    "ingestion": ingestion_status(connection),
+                })
             return
 
         if path == "/api/rag/v2/evaluation":
@@ -100,15 +124,14 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
         if path == "/api/rag/v2/corpus":
             with ensure_database(self.db_path) as connection:
                 payload = corpus_status_v2(connection)
-                self.send_json(
-                    {
-                        "ok": True,
-                        "server": SERVER_MARKER,
-                        "api_version": 2,
-                        "corpus": payload["corpus"],
-                        "translation_statuses": payload["translation_statuses"],
-                    }
-                )
+                self.send_json({
+                    "ok": True,
+                    "server": SERVER_MARKER,
+                    "api_version": 2,
+                    "corpus": payload["corpus"],
+                    "translation_statuses": payload["translation_statuses"],
+                    "ingestion": ingestion_status(connection),
+                })
             return
 
         if path in {"/api/rag/v2/search", "/api/rag/v2/ask"}:
@@ -200,6 +223,7 @@ def main() -> int:
     with ensure_database(args.db) as connection:
         status = database_status(connection)
         v2_status = corpus_status_v2(connection)
+        pipeline = ingestion_status(connection)
 
     server = ThreadingHTTPServer((args.host, args.port), AtharRagHandler)
     server.db_path = args.db
@@ -207,6 +231,10 @@ def main() -> int:
     print(
         f"Corpus : {status['books']} livre(s), {status['chunks']} passage(s), "
         f"dont {v2_status['substantive_passages']} passage(s) substantiel(s)."
+    )
+    print(
+        f"Ingestion : {pipeline['imported_pages']} page(s) suivie(s), "
+        f"qualité moyenne {pipeline['average_quality']} %, {pipeline['error_pages']} erreur(s)."
     )
     if status["mode"] == "demo":
         print("Conseil : exécutez sync-kutub.bat pour enrichir la bibliothèque locale.")

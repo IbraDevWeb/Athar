@@ -69,11 +69,13 @@ for (const forbidden of ['selenium', 'playwright', 'captcha solver', 'bypass', '
     if (scraper.toLowerCase().includes(forbidden)) fail(`Forbidden crawler behavior detected: ${forbidden}`);
 }
 
-const batchSync = read('rag/sync_kutub_batch.py');
+const compatibility = read('rag/sync_kutub_batch.py');
+['from ingest_kutub import main', "sys.argv.insert(1, 'sync')"].forEach(token => need(compatibility, token, 'Batch compatibility wrapper'));
+const pipeline = read('rag/ingest_kutub.py');
 [
-    '--batch-size', 'default=25', 'COALESCE(MAX(page), 0)', 'last_page + batch_size',
-    'skip_existing=True', 'crawl_book', 'ATHAR_BOT_CONTACT'
-].forEach(token => need(batchSync, token, 'Batch synchronizer'));
+    '--batch-size', 'default=25', 'next_page(', 'retry_errors', 'ingest_book',
+    'is_page_duplicate', 'chunk_exists_by_hash', 'ATHAR_BOT_CONTACT', 'finish_run('
+].forEach(token => need(pipeline, token, 'Durable batch synchronizer'));
 
 const server = read('rag/server.py');
 ['/api/rag/status', '/api/rag/search', '/api/rag/ask', 'ThreadingHTTPServer', 'directory=str(ROOT)', 'no-store'].forEach(token => need(server, token, 'RAG server'));
@@ -132,6 +134,6 @@ need(windowsLauncher, 'py -3', 'Windows Python launcher');
 const pythonLauncher = read('rag/launcher.py');
 need(pythonLauncher, 'SERVER_SCRIPT = ROOT / "rag" / "server.py"', 'Python launcher server target');
 need(pythonLauncher, '/api/rag/v2/status', 'Python launcher health check');
-need(read('sync-kutub.bat'), 'python rag\\sync_kutub_batch.py --batch-size 25', 'Windows sync launcher');
+need(read('sync-kutub.bat'), 'python rag\\ingest_kutub.py sync --batch-size 25', 'Windows sync launcher');
 
-console.log(`RAG Library V1 validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, progressive batches and compatibility with the V2 corpus manifest.`);
+console.log(`RAG Library V1 validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, durable progressive ingestion and compatibility with the V2 corpus manifest.`);
