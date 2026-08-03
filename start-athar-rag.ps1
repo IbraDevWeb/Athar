@@ -15,10 +15,13 @@ function Test-RagApi {
     param([int]$Port)
 
     try {
-        $response = Invoke-RestMethod \
-            -Uri "http://127.0.0.1:$Port/api/rag/v2/status" \
-            -Method Get \
-            -TimeoutSec 2
+        $request = @{
+            Uri = "http://127.0.0.1:$Port/api/rag/v2/status"
+            Method = 'Get'
+            TimeoutSec = 2
+            ErrorAction = 'Stop'
+        }
+        $response = Invoke-RestMethod @request
         return [bool]$response.ok
     }
     catch {
@@ -112,13 +115,14 @@ $serverArguments = @(
     '--host', '127.0.0.1',
     '--port', [string]$selectedPort
 )
-
-$serverProcess = Start-Process \
-    -FilePath $venvPython \
-    -ArgumentList $serverArguments \
-    -WorkingDirectory $PSScriptRoot \
-    -PassThru \
-    -NoNewWindow
+$startParameters = @{
+    FilePath = $venvPython
+    ArgumentList = $serverArguments
+    WorkingDirectory = $PSScriptRoot
+    PassThru = $true
+    NoNewWindow = $true
+}
+$serverProcess = Start-Process @startParameters
 
 try {
     $ready = $false
