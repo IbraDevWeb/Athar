@@ -1,4 +1,4 @@
-// Athar Pro — branchement racine de la Bibliothèque Savante V2
+// Athar Pro — branchement racine robuste de la Bibliothèque Savante V2
 (() => {
     if (!window.Vue || typeof window.Vue.createApp !== 'function') return;
 
@@ -59,37 +59,71 @@
         homeView[HOME_PATCH_FLAG] = true;
     };
 
-    const patchDomTemplate = () => {
-        const host = document.getElementById('app');
-        if (!host || host.dataset.atharScholarV2Patched === 'true') return false;
+    const expressionTargetsHome = expression => {
+        const compact = String(expression || '').replace(/\s+/g, '');
+        return compact.includes("viewMode==='home'") || compact.includes('viewMode==="home"');
+    };
 
+    const findHomeRoute = host => {
+        const homeComponent = host?.querySelector?.('home-view');
+        let candidate = homeComponent?.parentElement || null;
+
+        while (candidate && candidate !== host) {
+            const expression = candidate.getAttribute?.('v-if') || candidate.getAttribute?.('v-else-if') || '';
+            if (expressionTargetsHome(expression) || candidate.querySelector?.('home-view')) return candidate;
+            candidate = candidate.parentElement;
+        }
+
+        return [...(host?.querySelectorAll?.('[v-if], [v-else-if]') || [])].find(element => {
+            const expression = element.getAttribute('v-if') || element.getAttribute('v-else-if') || '';
+            return expressionTargetsHome(expression) || Boolean(element.querySelector?.('home-view'));
+        }) || null;
+    };
+
+    const injectNavigation = host => {
         const homeButtons = [...host.querySelectorAll('button')].filter(button => {
             const click = button.getAttribute('@click') || '';
             return click.includes("setView('home')");
         });
+
         homeButtons.forEach(button => {
-            if (!button.parentElement?.querySelector(':scope > [data-athar-scholar-v2-nav]')) {
+            const previous = button.previousElementSibling;
+            if (!previous?.matches?.('[data-athar-scholar-v2-nav]')) {
                 button.insertAdjacentHTML('beforebegin', navMarkup);
             }
         });
+    };
 
-        const homeView = [...host.querySelectorAll('[v-if]')].find(element => {
-            return element.getAttribute('v-if') === "viewMode === 'home'";
-        });
-        if (!homeView) {
-            console.warn('[Athar V2] Le point d’intégration principal est introuvable.');
+    const patchDomTemplate = target => {
+        const host = typeof target === 'string' ? document.querySelector(target) : (target || document.getElementById('app'));
+        if (!host) return false;
+        if (host.dataset.atharScholarV2Patched === 'true') return true;
+
+        let v2Route = host.querySelector('scholar-library-v2-view')?.parentElement || null;
+        if (!v2Route) {
+            const homeRoute = findHomeRoute(host);
+            if (!homeRoute) {
+                console.error('[Athar V2] Le conteneur <home-view> est introuvable avant le montage de Vue.');
+                return false;
+            }
+
+            homeRoute.removeAttribute('v-if');
+            homeRoute.setAttribute('v-else-if', "viewMode === 'home'");
+            homeRoute.insertAdjacentHTML(
+                'beforebegin',
+                `<div v-if="viewMode === 'rag_v2'" class="h-full" key="rag-v2" data-athar-scholar-v2-route>
+                    <scholar-library-v2-view :settings="settings" :set-view="setView"></scholar-library-v2-view>
+                </div>`
+            );
+            v2Route = homeRoute.previousElementSibling;
+        }
+
+        if (!v2Route?.querySelector?.('scholar-library-v2-view')) {
+            console.error('[Athar V2] La route V2 n’a pas pu être injectée.');
             return false;
         }
 
-        homeView.removeAttribute('v-if');
-        homeView.setAttribute('v-else-if', "viewMode === 'home'");
-        homeView.insertAdjacentHTML(
-            'beforebegin',
-            `<div v-if="viewMode === 'rag_v2'" class="h-full" key="rag-v2">
-                <scholar-library-v2-view :settings="settings" :set-view="setView"></scholar-library-v2-view>
-            </div>`
-        );
-
+        injectNavigation(host);
         host.dataset.atharScholarV2Patched = 'true';
         return true;
     };
@@ -101,11 +135,19 @@
                 'scholar-library-v2-view': window.ScholarLibraryV2View
             };
             patchHomeView(rootComponent);
-            patchDomTemplate();
             rootComponent[PATCH_FLAG] = true;
         }
-        return originalCreateApp.call(this, rootComponent, ...args);
+
+        const app = originalCreateApp.call(this, rootComponent, ...args);
+        if (!app || typeof app.mount !== 'function') return app;
+
+        const originalMount = app.mount.bind(app);
+        app.mount = (target, ...mountArgs) => {
+            patchDomTemplate(target);
+            return originalMount(target, ...mountArgs);
+        };
+        return app;
     };
 
-    window.AtharScholarV2 = { patchDomTemplate, patchHomeView };
+    window.AtharScholarV2 = { patchDomTemplate, patchHomeView, findHomeRoute };
 })();
