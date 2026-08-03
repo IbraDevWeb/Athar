@@ -69,6 +69,12 @@ for (const forbidden of ['selenium', 'playwright', 'captcha solver', 'bypass', '
     if (scraper.toLowerCase().includes(forbidden)) fail(`Forbidden crawler behavior detected: ${forbidden}`);
 }
 
+const batchSync = read('rag/sync_kutub_batch.py');
+[
+    '--batch-size', 'default=25', 'COALESCE(MAX(page), 0)', 'last_page + batch_size',
+    'skip_existing=True', 'crawl_book', 'ATHAR_BOT_CONTACT'
+].forEach(token => need(batchSync, token, 'Batch synchronizer'));
+
 const server = read('rag/server.py');
 ['/api/rag/status', '/api/rag/search', '/api/rag/ask', 'ThreadingHTTPServer', 'directory=str(ROOT)', 'no-store'].forEach(token => need(server, token, 'RAG server'));
 
@@ -90,13 +96,8 @@ need(toolView, anchor, 'ToolView integration anchor');
 const sandbox = {
     console,
     window: {
-        AncientSkyView: {},
-        HistoryNightsView: {},
-        ScriptoriumView: {},
-        RootTreeView: {},
-        GoldenChainView: {},
-        ScholarLibraryView: {},
-        Vue: { createApp: root => root }
+        AncientSkyView: {}, HistoryNightsView: {}, ScriptoriumView: {}, RootTreeView: {},
+        GoldenChainView: {}, ScholarLibraryView: {}, Vue: { createApp: root => root }
     }
 };
 vm.createContext(sandbox);
@@ -124,6 +125,6 @@ const worker = read('service-worker.js');
 const extensions = read('extensions_data.js');
 need(extensions, 'Recherche RAG bilingue dans les ouvrages classiques', 'extension metadata');
 need(read('start-athar-rag.bat'), 'python rag\\server.py --port 8000', 'Windows launcher');
-need(read('sync-kutub.bat'), 'python rag\\scrape_kutub.py --max-pages 25', 'Windows sync launcher');
+need(read('sync-kutub.bat'), 'python rag\\sync_kutub_batch.py --batch-size 25', 'Windows sync launcher');
 
-console.log(`RAG Library validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, cautious crawler and cache v34.`);
+console.log(`RAG Library validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, progressive batches and cache v34.`);
