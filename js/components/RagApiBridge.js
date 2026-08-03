@@ -5,10 +5,11 @@
     const nativeFetch = window.fetch.bind(window);
     const API_PREFIX = '/api/rag/';
     const HEALTH_PATH = '/api/rag/v2/status';
-    const STORAGE_KEY = 'athar_rag_api_origin_v1';
+    const RUNTIME_PATH = 'rag/runtime.json';
+    const STORAGE_KEY = 'athar_rag_api_origin_v2';
     const LOCAL_HOSTS = new Set(['127.0.0.1', 'localhost', '::1', '[::1]']);
     const FIRST_PORT = 8000;
-    const LAST_PORT = 8010;
+    const LAST_PORT = 8790;
 
     let activeOrigin = '';
     let discoveryPromise = null;
@@ -47,17 +48,47 @@
         return null;
     };
 
+    const validLocalOrigin = value => {
+        try {
+            const url = new URL(String(value || ''));
+            return url.protocol === 'http:' && LOCAL_HOSTS.has(url.hostname.toLowerCase()) && /^\d{1,5}$/.test(url.port)
+                ? url.origin
+                : '';
+        } catch (_) {
+            return '';
+        }
+    };
+
     const addCandidate = (list, seen, origin) => {
-        if (!origin || seen.has(origin)) return;
-        seen.add(origin);
-        list.push(origin.replace(/\/$/, ''));
+        const valid = validLocalOrigin(origin);
+        if (!valid || seen.has(valid)) return;
+        seen.add(valid);
+        list.push(valid);
+    };
+
+    const readRuntimeOrigin = async () => {
+        if (!isLocalPage()) return '';
+        try {
+            const runtimeUrl = new URL(RUNTIME_PATH, window.location.href);
+            runtimeUrl.searchParams.set('t', String(Date.now()));
+            const response = await nativeFetch(runtimeUrl.href, {
+                method: 'GET',
+                cache: 'no-store',
+                headers: { Accept: 'application/json' }
+            });
+            if (!response.ok) return '';
+            const payload = await response.json();
+            if (payload?.ok !== true || payload?.server !== 'athar-rag-v2') return '';
+            return validLocalOrigin(payload.origin || `http://127.0.0.1:${payload.port}`);
+        } catch (_) {
+            return '';
+        }
     };
 
     const candidateOrigins = () => {
         const list = [];
         const seen = new Set();
-        const cached = storage.get();
-        addCandidate(list, seen, cached);
+        addCandidate(list, seen, storage.get());
 
         const location = window.location;
         if (!location) return list;
@@ -65,14 +96,17 @@
         if (!isLocalPage()) return list;
 
         const params = new URLSearchParams(location.search || '');
-        const requestedPort = Number(params.get('ragPort'));
+        const requestedPorts = [params.get('ragPort'), params.get('rag_port'), params.get('port')]
+            .map(Number)
+            .filter(port => Number.isInteger(port) && port > 0 && port < 65536);
         const hosts = [location.hostname, '127.0.0.1', 'localhost']
             .filter((host, index, values) => host && values.indexOf(host) === index);
-        const ports = [];
-        if (Number.isInteger(requestedPort) && requestedPort > 0 && requestedPort < 65536) ports.push(requestedPort);
+        const ports = [...requestedPorts];
         const currentPort = Number(location.port);
         if (Number.isInteger(currentPort) && currentPort > 0) ports.push(currentPort);
-        for (let port = FIRST_PORT; port <= LAST_PORT; port += 1) ports.push(port);
+        ports.push(8765);
+        for (let port = FIRST_PORT; port <= 8020; port += 1) ports.push(port);
+        for (let port = 8765; port <= LAST_PORT; port += 1) ports.push(port);
 
         for (const port of [...new Set(ports)]) {
             for (const host of hosts) {
@@ -84,9 +118,9 @@
 
     const probe = async origin => {
         const controller = typeof AbortController === 'function' ? new AbortController() : null;
-        const timeout = window.setTimeout?.(() => controller?.abort(), 900);
+        const timeout = window.setTimeout?.(() => controller?.abort(), 1000);
         try {
-            const response = await nativeFetch(`${origin}${HEALTH_PATH}?probe=1`, {
+            const response = await nativeFetch(`${origin}${HEALTH_PATH}?probe=1&t=${Date.now()}`, {
                 method: 'GET',
                 cache: 'no-store',
                 headers: { Accept: 'application/json' },
@@ -102,9 +136,9 @@
         }
     };
 
-    const announce = origin => {
+    const announce = (eventName, detail = {}) => {
         if (typeof window.dispatchEvent !== 'function' || typeof CustomEvent !== 'function') return;
-        window.dispatchEvent(new CustomEvent('athar-rag-api-connected', { detail: { origin } }));
+        window.dispatchEvent(new CustomEvent(eventName, { detail }));
     };
 
     const reset = () => {
@@ -119,17 +153,26 @@
         if (!force && discoveryPromise) return discoveryPromise;
 
         discoveryPromise = (async () => {
+            const runtimeOrigin = await readRuntimeOrigin();
+            if (runtimeOrigin && runtimeOrigin !== excludedOrigin && await probe(runtimeOrigin)) {
+                activeOrigin = runtimeOrigin;
+                storage.set(runtimeOrigin);
+                announce('athar-rag-api-connected', { origin: runtimeOrigin, source: 'runtime' });
+                return runtimeOrigin;
+            }
+
             for (const origin of candidateOrigins()) {
-                if (origin === excludedOrigin) continue;
+                if (origin === excludedOrigin || origin === runtimeOrigin) continue;
                 if (await probe(origin)) {
                     activeOrigin = origin;
                     storage.set(origin);
-                    announce(origin);
+                    announce('athar-rag-api-connected', { origin, source: 'scan' });
                     return origin;
                 }
             }
             activeOrigin = '';
             storage.set('');
+            announce('athar-rag-api-unavailable', { reason: 'no-local-server' });
             return '';
         })();
 
@@ -150,6 +193,18 @@
         return target;
     };
 
+    const unavailableResponse = () => new Response(JSON.stringify({
+        ok: false,
+        error: 'Le serveur RAG local n’est pas démarré. Lancez start-athar-rag.bat.'
+    }), {
+        status: 503,
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Cache-Control': 'no-store',
+            'X-Athar-RAG-Bridge': 'unavailable'
+        }
+    });
+
     window.fetch = async function atharFetch(input, init) {
         const url = toUrl(input);
         if (!url || !url.pathname.startsWith(API_PREFIX) || !isLocalPage()) {
@@ -157,7 +212,7 @@
         }
 
         let origin = await discover(false);
-        if (!origin) return nativeFetch(input, init);
+        if (!origin) return unavailableResponse();
 
         try {
             let response = await nativeFetch(rewriteInput(input, origin), init);
@@ -165,13 +220,13 @@
 
             reset();
             const replacement = await discover(true, origin);
-            if (!replacement) return response;
+            if (!replacement) return unavailableResponse();
             response = await nativeFetch(rewriteInput(input, replacement), init);
             return response;
         } catch (error) {
             reset();
             const replacement = await discover(true, origin);
-            if (!replacement) throw error;
+            if (!replacement) return unavailableResponse();
             return nativeFetch(rewriteInput(input, replacement), init);
         }
     };
@@ -181,6 +236,7 @@
         reset,
         getBase: () => activeOrigin,
         candidateOrigins,
+        readRuntimeOrigin,
         nativeFetch
     };
 
