@@ -130,7 +130,7 @@ const windowsLauncher = read('start-athar-rag.bat');
 need(windowsLauncher, 'rag\\launcher.py', 'Windows launcher');
 need(windowsLauncher, 'py -3', 'Windows Python launcher');
 const pythonLauncher = read('rag/launcher.py');
-need(pythonLauncher, 'rag/server.py', 'Python launcher server target');
+need(pythonLauncher, 'SERVER_SCRIPT = ROOT / "rag" / "server.py"', 'Python launcher server target');
 need(pythonLauncher, '/api/rag/v2/status', 'Python launcher health check');
 need(read('sync-kutub.bat'), 'python rag\\sync_kutub_batch.py --batch-size 25', 'Windows sync launcher');
 
