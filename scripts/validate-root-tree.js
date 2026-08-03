@@ -31,8 +31,8 @@ const css = read('css/root-tree.css');
 if ((css.match(/{/g)||[]).length !== (css.match(/}/g)||[]).length) fail('Unbalanced CSS braces.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v33'","writeEarlyScript('roots_data.js'",'css/root-tree.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+["const APP_VERSION = 'athar-pro-v34'","writeEarlyScript('roots_data.js'",'css/root-tree.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v33'",'./roots_data.js?v=athar-pro-v33','./css/root-tree.css?v=athar-pro-v33'].forEach(t => need(worker,t,'service worker'));
+["const CACHE_VERSION = 'athar-pro-v34'",'./roots_data.js?v=athar-pro-v34','./css/root-tree.css?v=athar-pro-v34'].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Explorateur visuel des racines arabes','metadata');
-console.log(`Root Tree validated: ${data.roots.length} roots, ${derivativeIds.size} derivatives and cache v33.`);
+console.log(`Root Tree validated: ${data.roots.length} roots, ${derivativeIds.size} derivatives and cache v34.`);
