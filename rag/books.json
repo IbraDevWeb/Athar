@@ -1,4 +1,6 @@
 {
+  "version": "2.0",
+  "target_books": 25,
   "books": [
     {
       "kutub_id": 7367,
@@ -9,7 +11,14 @@
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/7367",
       "max_pages": 25,
-      "enabled": true
+      "enabled": true,
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Référence du madhhab",
+        "corpus_priority": 1,
+        "edition": "Édition à identifier depuis la notice publique",
+        "verification_status": "structure_pending_review"
+      }
     },
     {
       "kutub_id": 21739,
@@ -20,7 +29,14 @@
       "madhhab": "Comparatif",
       "source_url": "https://kutub.io/fr/book/21739",
       "max_pages": 25,
-      "enabled": true
+      "enabled": true,
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Fiqh comparé",
+        "corpus_priority": 2,
+        "edition": "Édition à identifier depuis la notice publique",
+        "verification_status": "structure_pending_review"
+      }
     },
     {
       "kutub_id": 20855,
@@ -31,7 +47,14 @@
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/20855",
       "max_pages": 25,
-      "enabled": true
+      "enabled": true,
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Tafsīr juridique",
+        "corpus_priority": 2,
+        "edition": "Édition à identifier depuis la notice publique",
+        "verification_status": "structure_pending_review"
+      }
     },
     {
       "kutub_id": 11373,
@@ -42,7 +65,14 @@
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/11373",
       "max_pages": 25,
-      "enabled": true
+      "enabled": true,
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Manuel du madhhab",
+        "corpus_priority": 1,
+        "edition": "Édition à identifier depuis la notice publique",
+        "verification_status": "structure_pending_review"
+      }
     },
     {
       "kutub_id": 28107,
@@ -54,7 +84,14 @@
       "source_url": "https://kutub.io/fr/book/28107",
       "max_pages": 25,
       "enabled": false,
-      "note": "À activer après vérification manuelle de la fiche publique et de la pagination."
+      "note": "À activer après vérification manuelle de la fiche publique et de la pagination.",
+      "metadata": {
+        "source_type": "primary",
+        "authority_role": "Source fondatrice",
+        "corpus_priority": 1,
+        "edition": "Édition à identifier depuis la notice publique",
+        "verification_status": "pagination_pending_review"
+      }
     }
   ]
 }
