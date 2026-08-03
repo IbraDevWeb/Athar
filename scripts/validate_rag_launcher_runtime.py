@@ -25,10 +25,20 @@ class StaticOnlyHandler(QuietHandler):
         self.end_headers()
 
 
+class FakeJsonHandler(QuietHandler):
+    def do_GET(self) -> None:
+        body = json.dumps({"ok": True, "books": 999}).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+
 class RagHealthHandler(QuietHandler):
     def do_GET(self) -> None:
         if self.path == "/api/rag/v2/status":
-            body = json.dumps({"ok": True, "books": 1}).encode("utf-8")
+            body = json.dumps({"ok": True, "server": "athar-rag-v2", "api_version": 2, "books": 1}).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(body)))
@@ -54,14 +64,18 @@ def stop_server(server: ThreadingHTTPServer, thread: threading.Thread) -> None:
 
 def main() -> int:
     static_server, static_thread = start_server(StaticOnlyHandler)
+    fake_server, fake_thread = start_server(FakeJsonHandler)
     rag_server, rag_thread = start_server(RagHealthHandler)
 
     try:
         static_port = int(static_server.server_address[1])
+        fake_port = int(fake_server.server_address[1])
         rag_port = int(rag_server.server_address[1])
 
         if launcher.test_rag_api(static_port):
             raise AssertionError("Un serveur statique ne doit jamais être reconnu comme serveur RAG.")
+        if launcher.test_rag_api(fake_port):
+            raise AssertionError("Un JSON sans marqueur serveur ne doit jamais être reconnu comme serveur RAG.")
         if not launcher.test_rag_api(rag_port):
             raise AssertionError("Le serveur de santé RAG doit être détecté.")
 
@@ -76,16 +90,17 @@ def main() -> int:
             raise AssertionError("Le port de remplacement doit être libre.")
 
         url = launcher.open_athar(rag_port, no_browser=True)
-        if f":{rag_port}/" not in url or "server=rag-v2" not in url:
-            raise AssertionError("L’URL finale doit utiliser le port RAG validé.")
+        if f":{rag_port}/" not in url or "server=rag-v2" not in url or f"ragPort={rag_port}" not in url:
+            raise AssertionError("L’URL finale doit utiliser le port RAG validé et le transmettre à l’interface.")
 
         print(
-            "RAG launcher runtime validated: static server rejected, existing RAG reused, "
+            "RAG launcher runtime validated: static and fake JSON servers rejected, existing RAG reused, "
             "free fallback port selected and browser URL protected."
         )
         return 0
     finally:
         stop_server(static_server, static_thread)
+        stop_server(fake_server, fake_thread)
         stop_server(rag_server, rag_thread)
 
 
