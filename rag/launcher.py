@@ -56,6 +56,16 @@ def choose_port(preferred: int, span: int = 20) -> tuple[int, bool]:
     raise RuntimeError(f"Aucun port libre trouvé entre {preferred} et {preferred + span}.")
 
 
+def read_runtime(path: Path = RUNTIME_FILE) -> dict[str, object]:
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, ValueError, json.JSONDecodeError):
+        return {}
+
+
 def write_runtime(port: int, pid: int, path: Path = RUNTIME_FILE) -> dict[str, object]:
     payload: dict[str, object] = {
         "ok": True,
@@ -146,7 +156,9 @@ def run(preferred_port: int = 8765, no_browser: bool = False) -> int:
 
     if existing:
         log(f"Un serveur RAG V2 fonctionne déjà sur le port {port}.")
-        write_runtime(port, 0)
+        current = read_runtime()
+        known_pid = int(current.get("pid") or 0) if int(current.get("port") or 0) == port else 0
+        write_runtime(port, known_pid)
         open_athar(port, no_browser)
         return 0
 
