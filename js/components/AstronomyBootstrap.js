@@ -7,10 +7,17 @@
 
     const patchToolView = (toolView) => {
         if (!toolView || toolView[PATCH_FLAG]) return toolView;
-        if (!window.AncientSkyView || !window.HistoryNightsView || !window.ScriptoriumView || !window.RootTreeView || !window.GoldenChainView) return toolView;
+        if (
+            !window.AncientSkyView ||
+            !window.HistoryNightsView ||
+            !window.ScriptoriumView ||
+            !window.RootTreeView ||
+            !window.GoldenChainView ||
+            !window.ScholarLibraryView
+        ) return toolView;
 
         const anchor = `<scholar-atlas-module v-if="currentTool === 'scholars_map'" :settings="settings"></scholar-atlas-module>\n    <div v-else`;
-        const replacement = `<golden-chain-view v-if="currentTool === 'isnad'" :settings="settings"></golden-chain-view>\n    <root-tree-view v-else-if="currentTool === 'roots'" :settings="settings"></root-tree-view>\n    <scriptorium-view v-else-if="currentTool === 'scriptorium'" :settings="settings"></scriptorium-view>\n    <history-nights-view v-else-if="currentTool === 'history_nights'" :settings="settings"></history-nights-view>\n    <ancient-sky-view v-else-if="currentTool === 'astronomy'" :settings="settings"></ancient-sky-view>\n    <scholar-atlas-module v-else-if="currentTool === 'scholars_map'" :settings="settings"></scholar-atlas-module>\n    <div v-else`;
+        const replacement = `<scholar-library-view v-if="currentTool === 'rag_library'" :settings="settings"></scholar-library-view>\n    <golden-chain-view v-else-if="currentTool === 'isnad'" :settings="settings"></golden-chain-view>\n    <root-tree-view v-else-if="currentTool === 'roots'" :settings="settings"></root-tree-view>\n    <scriptorium-view v-else-if="currentTool === 'scriptorium'" :settings="settings"></scriptorium-view>\n    <history-nights-view v-else-if="currentTool === 'history_nights'" :settings="settings"></history-nights-view>\n    <ancient-sky-view v-else-if="currentTool === 'astronomy'" :settings="settings"></ancient-sky-view>\n    <scholar-atlas-module v-else-if="currentTool === 'scholars_map'" :settings="settings"></scholar-atlas-module>\n    <div v-else`;
 
         if (typeof toolView.template !== 'string' || !toolView.template.includes(anchor)) {
             console.warn('[Athar] Le point d’intégration des modules éditoriaux dans ToolView est introuvable.');
@@ -23,7 +30,8 @@
             'history-nights-view': window.HistoryNightsView,
             'scriptorium-view': window.ScriptoriumView,
             'root-tree-view': window.RootTreeView,
-            'golden-chain-view': window.GoldenChainView
+            'golden-chain-view': window.GoldenChainView,
+            'scholar-library-view': window.ScholarLibraryView
         };
         toolView.template = toolView.template.replace(anchor, replacement);
         toolView[PATCH_FLAG] = true;

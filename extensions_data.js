@@ -29,6 +29,13 @@ const EXTENSIONS_DATA = {
         type: "interactive",
         data: []
     },
+    rag_library: {
+        title: "Bibliothèque Savante",
+        icon: "book-search",
+        desc: "Recherche RAG bilingue dans les ouvrages classiques avec passages et citations vérifiables.",
+        type: "interactive",
+        data: []
+    },
     diwan: {
         title: "Le Diwan Sonore",
         icon: "headphones",

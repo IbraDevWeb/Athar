@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v33';
+    const APP_VERSION = 'athar-pro-v34';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -105,6 +105,7 @@ tailwind.config = {
     writeEarlyScript('js/components/RootTreeView.js', 'athar-root-tree-view');
     writeEarlyScript('isnad_data.js', 'athar-golden-chain-data');
     writeEarlyScript('js/components/GoldenChainView.js', 'athar-golden-chain-view');
+    writeEarlyScript('js/components/ScholarLibraryView.js', 'athar-scholar-library-view');
     writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
@@ -134,6 +135,7 @@ tailwind.config = {
     ensureStylesheet(`css/root-tree.css?v=${APP_VERSION}`, 'athar-root-tree-styles');
     ensureStylesheet(`css/golden-chain.css?v=${APP_VERSION}`, 'athar-golden-chain-styles');
     ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
+    ensureStylesheet(`css/scholar-library.css?v=${APP_VERSION}`, 'athar-scholar-library-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');

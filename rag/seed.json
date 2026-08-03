@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "name": "Athar Scholar Library",
+    "version": 1,
+    "generated_at": "2026-08-03",
+    "mode": "demo",
+    "notice": "Index de démonstration composé de métadonnées et de titres de chapitres publics. Lancez sync-kutub.bat pour indexer les pages complètes.",
+    "source_policy": "Kutub doit être cité comme source. Les traductions Kutub sont signalées comme traductions initiales générées par IA lorsqu'elles ne sont pas relues."
+  },
+  "books": [
+    {
+      "id": "kutub-7367",
+      "kutub_id": 7367,
+      "title": "Al-Kāfī",
+      "title_ar": "الكافي في فقه أهل المدينة",
+      "author": "Ibn ʿAbd al-Barr",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "pages": 1219,
+      "description": "Ouvrage de fiqh mālikite présentant les règles de l'école de Médine avec leurs fondements.",
+      "source_url": "https://kutub.io/fr/book/7367"
+    },
+    {
+      "id": "kutub-21739",
+      "kutub_id": 21739,
+      "title": "Bidāyat al-Mujtahid",
+      "title_ar": "بداية المجتهد ونهاية المقتصد",
+      "author": "Ibn Rushd al-Ḥafīd",
+      "discipline": "Fiqh comparé",
+      "madhhab": "Comparatif",
+      "pages": 945,
+      "description": "Présentation des avis juridiques, de leurs preuves et des causes de divergence entre les écoles.",
+      "source_url": "https://kutub.io/fr/book/21739"
+    },
+    {
+      "id": "kutub-20855",
+      "kutub_id": 20855,
+      "title": "Tafsīr al-Qurṭubī",
+      "title_ar": "الجامع لأحكام القرآن",
+      "author": "Al-Qurṭubī",
+      "discipline": "Tafsīr",
+      "madhhab": "Mālikite",
+      "pages": 7453,
+      "description": "Exégèse juridique et linguistique du Coran, avec étude des règles et des récits transmis.",
+      "source_url": "https://kutub.io/fr/book/20855"
+    },
+    {
+      "id": "kutub-11373",
+      "kutub_id": 11373,
+      "title": "Al-Risālah",
+      "title_ar": "الرسالة",
+      "author": "Ibn Abī Zayd al-Qayrawānī",
+      "discipline": "Fiqh et croyance",
+      "madhhab": "Mālikite",
+      "pages": 202,
+      "description": "Épître introductive aux croyances et aux règles fondamentales du fiqh mālikite.",
+      "source_url": "https://kutub.io/fr/book/11373"
+    },
+    {
+      "id": "kutub-28107",
+      "kutub_id": 28107,
+      "title": "Al-Muwaṭṭaʾ",
+      "title_ar": "الموطأ",
+      "author": "Mālik ibn Anas",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Mālikite",
+      "pages": null,
+      "description": "Recueil médinois de hadiths, d'athār et de questions juridiques transmis par l'imam Mālik.",
+      "source_url": "https://kutub.io/fr/book/28107"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "demo-7367-1",
+      "book_id": "kutub-7367",
+      "page": null,
+      "chapter": "Présentation générale",
+      "text_fr": "Al-Kāfī rassemble les règles du fiqh des gens de Médine dans un exposé structuré adapté à l'étude de l'école mālikite.",
+      "text_ar": "الكافي في فقه أهل المدينة",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/7367"
+    },
+    {
+      "id": "demo-21739-1",
+      "book_id": "kutub-21739",
+      "page": null,
+      "chapter": "Le Livre de l'Ablution",
+      "text_fr": "Chapitres consacrés à l'obligation des ablutions, à leurs actes, aux eaux et aux causes qui les annulent.",
+      "text_ar": "كتاب الوضوء",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/21739"
+    },
+    {
+      "id": "demo-21739-2",
+      "book_id": "kutub-21739",
+      "page": null,
+      "chapter": "Le Livre du Tayammum",
+      "text_fr": "Étude de ceux pour qui le tayammum est permis, de sa description et de ses causes d'invalidation.",
+      "text_ar": "كتاب التيمم",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/21739"
+    },
+    {
+      "id": "demo-21739-3",
+      "book_id": "kutub-21739",
+      "page": null,
+      "chapter": "Les horaires de la prière",
+      "text_fr": "Discussion des temps prescrits, des temps choisis et des temps de nécessité ou d'excuse pour la prière.",
+      "text_ar": "كتاب مواقيت الصلاة",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/21739"
+    },
+    {
+      "id": "demo-21739-4",
+      "book_id": "kutub-21739",
+      "page": null,
+      "chapter": "Le jeûne et l'intention",
+      "text_fr": "Le livre du jeûne traite du temps, de l'abstinence et de l'intention parmi les piliers du jeûne.",
+      "text_ar": "كتاب الصيام والنية",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/21739"
+    },
+    {
+      "id": "demo-20855-1",
+      "book_id": "kutub-20855",
+      "page": 1,
+      "chapter": "Notice de l'édition",
+      "text_fr": "L'édition de référence comporte vingt parties en dix tomes et une pagination conforme à l'édition imprimée.",
+      "text_ar": "عدد الأجزاء عشرون جزءا في عشرة مجلدات وترقيم الكتاب موافق للمطبوع",
+      "translation_status": "kutub_ai_unreviewed",
+      "source_url": "https://kutub.io/fr/book/20855/1"
+    },
+    {
+      "id": "demo-20855-2",
+      "book_id": "kutub-20855",
+      "page": null,
+      "chapter": "Mérites du Coran",
+      "text_fr": "Introduction sur les mérites du Coran, l'encouragement à sa récitation, à son écoute et à sa mise en pratique.",
+      "text_ar": "باب في فضل القرآن والحث على تلاوته وسماعه والعمل به",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/20855"
+    },
+    {
+      "id": "demo-20855-3",
+      "book_id": "kutub-20855",
+      "page": null,
+      "chapter": "Méthode de l'exégèse",
+      "text_fr": "Avertissement contre l'interprétation sans science et présentation des degrés des exégètes.",
+      "text_ar": "التحذير من التفسير بالرأي ومراتب المفسرين",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/20855"
+    },
+    {
+      "id": "demo-11373-1",
+      "book_id": "kutub-11373",
+      "page": null,
+      "chapter": "Fondements de l'apprentissage",
+      "text_fr": "Épître d'initiation réunissant croyance, purification, prière, jeûne, zakāt, pèlerinage et conduite.",
+      "text_ar": "الرسالة في العقيدة والفقه والآداب",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/11373"
+    },
+    {
+      "id": "demo-28107-1",
+      "book_id": "kutub-28107",
+      "page": null,
+      "chapter": "Hadith et pratique médinoise",
+      "text_fr": "Le Muwaṭṭaʾ associe récits prophétiques, paroles de Compagnons, avis de Successeurs et pratique juridique de Médine.",
+      "text_ar": "الموطأ يجمع الحديث والآثار وفقه أهل المدينة",
+      "translation_status": "catalogue_public",
+      "source_url": "https://kutub.io/fr/book/28107"
+    }
+  ]
+}

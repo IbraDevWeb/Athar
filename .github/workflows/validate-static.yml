@@ -21,6 +21,14 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install RAG parser dependencies
+        run: python -m pip install -r rag/requirements.txt
+
       - name: Reject unresolved merge conflicts
         shell: bash
         run: |
@@ -37,11 +45,20 @@ jobs:
           find . -type f -name '*.js' -not -path './.git/*' -print0 \
             | xargs -0 -n1 node --check
 
+      - name: Check Python syntax
+        run: python -m py_compile rag/core.py rag/server.py rag/scrape_kutub.py scripts/validate_rag_runtime.py
+
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
 
       - name: Validate Athar Lens
         run: node scripts/validate-athar-lens.js
+
+      - name: Validate Scholar RAG library
+        run: node scripts/validate-rag-library.js
+
+      - name: Execute Scholar RAG runtime
+        run: python scripts/validate_rag_runtime.py
 
       - name: Validate Ancient Sky interface
         run: node scripts/validate-astronomy.js
