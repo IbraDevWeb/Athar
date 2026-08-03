@@ -16,6 +16,7 @@ VENV_DIR = ROOT / ".venv-rag"
 VENV_PYTHON = VENV_DIR / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
 REQUIREMENTS = ROOT / "rag" / "requirements.txt"
 SERVER_SCRIPT = ROOT / "rag" / "server.py"
+SERVER_MARKER = "athar-rag-v2"
 
 
 def log(message: str) -> None:
@@ -29,7 +30,7 @@ def test_rag_api(port: int, timeout: float = 1.5) -> bool:
             if response.status != 200:
                 return False
             payload = json.loads(response.read().decode("utf-8"))
-            return bool(payload.get("ok"))
+            return bool(payload.get("ok") and payload.get("server") == SERVER_MARKER)
     except (OSError, ValueError, urllib.error.URLError, json.JSONDecodeError):
         return False
 
@@ -108,7 +109,7 @@ def stop_process(process: subprocess.Popen[bytes]) -> None:
 
 
 def open_athar(port: int, no_browser: bool) -> str:
-    url = f"http://127.0.0.1:{port}/?v=34&server=rag-v2"
+    url = f"http://127.0.0.1:{port}/?v=34&server=rag-v2&ragPort={port}"
     log(f"Bibliothèque Savante V2 prête : {url}")
     if not no_browser:
         webbrowser.open(url, new=2)
