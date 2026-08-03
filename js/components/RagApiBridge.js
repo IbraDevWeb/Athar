@@ -8,8 +8,11 @@
     const RUNTIME_PATH = 'rag/runtime.json';
     const STORAGE_KEY = 'athar_rag_api_origin_v2';
     const LOCAL_HOSTS = new Set(['127.0.0.1', 'localhost', '::1', '[::1]']);
-    const FIRST_PORT = 8000;
-    const LAST_PORT = 8790;
+    const FIRST_LEGACY_PORT = 8000;
+    const LAST_LEGACY_PORT = 8020;
+    const FIRST_RUNTIME_PORT = 8765;
+    const LAST_RUNTIME_PORT = 8785;
+    const PROBE_BATCH_SIZE = 8;
 
     let activeOrigin = '';
     let discoveryPromise = null;
@@ -104,9 +107,9 @@
         const ports = [...requestedPorts];
         const currentPort = Number(location.port);
         if (Number.isInteger(currentPort) && currentPort > 0) ports.push(currentPort);
-        ports.push(8765);
-        for (let port = FIRST_PORT; port <= 8020; port += 1) ports.push(port);
-        for (let port = 8765; port <= LAST_PORT; port += 1) ports.push(port);
+        ports.push(FIRST_RUNTIME_PORT);
+        for (let port = FIRST_LEGACY_PORT; port <= LAST_LEGACY_PORT; port += 1) ports.push(port);
+        for (let port = FIRST_RUNTIME_PORT; port <= LAST_RUNTIME_PORT; port += 1) ports.push(port);
 
         for (const port of [...new Set(ports)]) {
             for (const host of hosts) {
@@ -118,7 +121,7 @@
 
     const probe = async origin => {
         const controller = typeof AbortController === 'function' ? new AbortController() : null;
-        const timeout = window.setTimeout?.(() => controller?.abort(), 1000);
+        const timeout = window.setTimeout?.(() => controller?.abort(), 900);
         try {
             const response = await nativeFetch(`${origin}${HEALTH_PATH}?probe=1&t=${Date.now()}`, {
                 method: 'GET',
@@ -134,6 +137,16 @@
         } finally {
             if (timeout) window.clearTimeout?.(timeout);
         }
+    };
+
+    const probeCandidates = async origins => {
+        for (let index = 0; index < origins.length; index += PROBE_BATCH_SIZE) {
+            const batch = origins.slice(index, index + PROBE_BATCH_SIZE);
+            const results = await Promise.all(batch.map(async origin => ({ origin, ok: await probe(origin) })));
+            const match = results.find(result => result.ok);
+            if (match) return match.origin;
+        }
+        return '';
     };
 
     const announce = (eventName, detail = {}) => {
@@ -161,15 +174,15 @@
                 return runtimeOrigin;
             }
 
-            for (const origin of candidateOrigins()) {
-                if (origin === excludedOrigin || origin === runtimeOrigin) continue;
-                if (await probe(origin)) {
-                    activeOrigin = origin;
-                    storage.set(origin);
-                    announce('athar-rag-api-connected', { origin, source: 'scan' });
-                    return origin;
-                }
+            const candidates = candidateOrigins().filter(origin => origin !== excludedOrigin && origin !== runtimeOrigin);
+            const discovered = await probeCandidates(candidates);
+            if (discovered) {
+                activeOrigin = discovered;
+                storage.set(discovered);
+                announce('athar-rag-api-connected', { origin: discovered, source: 'scan' });
+                return discovered;
             }
+
             activeOrigin = '';
             storage.set('');
             announce('athar-rag-api-unavailable', { reason: 'no-local-server' });
@@ -237,6 +250,7 @@
         getBase: () => activeOrigin,
         candidateOrigins,
         readRuntimeOrigin,
+        probeCandidates,
         nativeFetch
     };
 
