@@ -35,8 +35,9 @@ if (/openai|anthropic|gemini|api\.openai/i.test(engine)) fail('The V2 engine mus
 const server = read('rag/server.py');
 [
     '/api/rag/v2/status', '/api/rag/v2/evaluation', '/api/rag/v2/corpus',
-    '/api/rag/v2/search', '/api/rag/v2/ask', 'answer_question_v2',
-    'corpus_status_v2', 'evaluation_status_v2', 'AtharRAG/2.1',
+    '/api/rag/v2/ingestion', '/api/rag/v2/search', '/api/rag/v2/ask',
+    'answer_question_v2', 'corpus_status_v2', 'evaluation_status_v2',
+    'AtharRAG/2.2', 'from ingestion import ingestion_status',
     'SERVER_MARKER = "athar-rag-v2"', 'LOCAL_ORIGIN_PATTERN', 'def do_OPTIONS',
     'Access-Control-Allow-Origin', 'Access-Control-Allow-Methods', 'X-Athar-RAG'
 ].forEach(token => need(server, token, 'RAG server'));
@@ -153,4 +154,4 @@ const launcher = read('rag/launcher.py');
 const extensions = read('extensions_data.js');
 need(extensions, 'Moteur RAG classique', 'V1 metadata distinction');
 
-console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, persistent runtime manifest and batched local discovery.`);
+console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, persistent runtime manifest and durable ingestion telemetry.`);
