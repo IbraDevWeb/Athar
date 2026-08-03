@@ -22,8 +22,8 @@ const css = read('css/scriptorium.css');
 if ((css.match(/{/g)||[]).length !== (css.match(/}/g)||[]).length) fail('Unbalanced CSS braces.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v33'","writeEarlyScript('scriptorium_data.js'",'css/scriptorium.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+["const APP_VERSION = 'athar-pro-v34'","writeEarlyScript('scriptorium_data.js'",'css/scriptorium.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v33'",'./scriptorium_data.js?v=athar-pro-v33','./css/scriptorium.css?v=athar-pro-v33'].forEach(t => need(worker,t,'service worker'));
+["const CACHE_VERSION = 'athar-pro-v34'",'./scriptorium_data.js?v=athar-pro-v34','./css/scriptorium.css?v=athar-pro-v34'].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Galerie interactive des écritures, supports et rythmes','metadata');
-console.log(`Scriptorium validated: ${data.folios.length} folios and cache v33.`);
+console.log(`Scriptorium validated: ${data.folios.length} folios and cache v34.`);
