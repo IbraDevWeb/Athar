@@ -26,14 +26,14 @@
       "title_ar": "بداية المجتهد ونهاية المقتصد",
       "author": "Ibn Rushd al-Ḥafīd",
       "discipline": "Fiqh comparé",
-      "madhhab": "Comparatif",
+      "madhhab": "Mālikite · Comparatif",
       "source_url": "https://kutub.io/fr/book/21739",
       "max_pages": 25,
       "enabled": true,
       "metadata": {
         "source_type": "classical_reference",
-        "authority_role": "Fiqh comparé",
-        "corpus_priority": 2,
+        "authority_role": "Fiqh comparé mālikite",
+        "corpus_priority": 1,
         "edition": "Édition à identifier depuis la notice publique",
         "verification_status": "structure_pending_review"
       }
