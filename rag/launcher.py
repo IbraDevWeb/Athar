@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import socket
 import subprocess
 import sys
@@ -9,13 +10,13 @@ import time
 import urllib.error
 import urllib.request
 import webbrowser
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VENV_DIR = ROOT / ".venv-rag"
-VENV_PYTHON = VENV_DIR / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
-REQUIREMENTS = ROOT / "rag" / "requirements.txt"
 SERVER_SCRIPT = ROOT / "rag" / "server.py"
+RUNTIME_FILE = ROOT / "rag" / "runtime.json"
+LOG_FILE = ROOT / "rag" / "server.log"
 SERVER_MARKER = "athar-rag-v2"
 
 
@@ -45,7 +46,7 @@ def port_is_free(port: int) -> bool:
     return True
 
 
-def choose_port(preferred: int, span: int = 10) -> tuple[int, bool]:
+def choose_port(preferred: int, span: int = 20) -> tuple[int, bool]:
     for port in range(preferred, preferred + span + 1):
         if test_rag_api(port):
             return port, True
@@ -55,34 +56,29 @@ def choose_port(preferred: int, span: int = 10) -> tuple[int, bool]:
     raise RuntimeError(f"Aucun port libre trouvé entre {preferred} et {preferred + span}.")
 
 
-def ensure_environment() -> Path:
-    if not VENV_PYTHON.exists():
-        log("Création de l’environnement Python local…")
-        subprocess.run(
-            [sys.executable, "-m", "venv", str(VENV_DIR)],
-            cwd=ROOT,
-            check=True,
-        )
+def write_runtime(port: int, pid: int, path: Path = RUNTIME_FILE) -> dict[str, object]:
+    payload: dict[str, object] = {
+        "ok": True,
+        "server": SERVER_MARKER,
+        "api_version": 2,
+        "host": "127.0.0.1",
+        "port": port,
+        "origin": f"http://127.0.0.1:{port}",
+        "pid": pid,
+        "started_at": datetime.now(timezone.utc).isoformat(),
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    temporary.replace(path)
+    return payload
 
-    if not VENV_PYTHON.exists():
-        raise RuntimeError("L’environnement Python local n’a pas été créé correctement.")
 
-    log("Vérification des dépendances…")
-    subprocess.run(
-        [
-            str(VENV_PYTHON),
-            "-m",
-            "pip",
-            "install",
-            "--disable-pip-version-check",
-            "-q",
-            "-r",
-            str(REQUIREMENTS),
-        ],
-        cwd=ROOT,
-        check=True,
-    )
-    return VENV_PYTHON
+def remove_runtime(path: Path = RUNTIME_FILE) -> None:
+    try:
+        path.unlink(missing_ok=True)
+    except OSError:
+        pass
 
 
 def wait_until_ready(process: subprocess.Popen[bytes], port: int, timeout: float = 30.0) -> None:
@@ -90,76 +86,93 @@ def wait_until_ready(process: subprocess.Popen[bytes], port: int, timeout: float
     while time.monotonic() < deadline:
         return_code = process.poll()
         if return_code is not None:
-            raise RuntimeError(f"Le serveur RAG s’est arrêté pendant son démarrage (code {return_code}).")
+            raise RuntimeError(
+                f"Le serveur RAG s’est arrêté pendant son démarrage (code {return_code}). "
+                f"Consultez {LOG_FILE.name}."
+            )
         if test_rag_api(port):
             return
-        time.sleep(0.5)
-    raise RuntimeError("Le serveur RAG n’a pas répondu après 30 secondes.")
+        time.sleep(0.4)
+    raise RuntimeError(f"Le serveur RAG n’a pas répondu après 30 secondes. Consultez {LOG_FILE.name}.")
 
 
-def stop_process(process: subprocess.Popen[bytes]) -> None:
-    if process.poll() is not None:
-        return
-    process.terminate()
+def detached_process_kwargs() -> dict[str, object]:
+    if os.name == "nt":
+        flags = int(getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0))
+        flags |= int(getattr(subprocess, "DETACHED_PROCESS", 0))
+        flags |= int(getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        return {"creationflags": flags, "close_fds": True}
+    return {"start_new_session": True, "close_fds": True}
+
+
+def start_server(port: int) -> subprocess.Popen[bytes]:
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    log_stream = LOG_FILE.open("ab", buffering=0)
     try:
-        process.wait(timeout=5)
-    except subprocess.TimeoutExpired:
-        process.kill()
-        process.wait(timeout=5)
+        process = subprocess.Popen(
+            [
+                sys.executable,
+                str(SERVER_SCRIPT),
+                "--host",
+                "127.0.0.1",
+                "--port",
+                str(port),
+            ],
+            cwd=ROOT,
+            stdin=subprocess.DEVNULL,
+            stdout=log_stream,
+            stderr=subprocess.STDOUT,
+            **detached_process_kwargs(),
+        )
+    except Exception:
+        log_stream.close()
+        raise
+    wait_until_ready(process, port)
+    write_runtime(port, int(process.pid))
+    return process
 
 
 def open_athar(port: int, no_browser: bool) -> str:
-    url = f"http://127.0.0.1:{port}/?v=34&server=rag-v2&ragPort={port}"
+    stamp = int(time.time())
+    url = f"http://127.0.0.1:{port}/?v=34&server=rag-v2&ragPort={port}&runtime={stamp}"
     log(f"Bibliothèque Savante V2 prête : {url}")
     if not no_browser:
         webbrowser.open(url, new=2)
     return url
 
 
-def run(preferred_port: int = 8000, no_browser: bool = False) -> int:
-    python_executable = ensure_environment()
+def run(preferred_port: int = 8765, no_browser: bool = False) -> int:
     port, existing = choose_port(preferred_port)
 
     if existing:
         log(f"Un serveur RAG V2 fonctionne déjà sur le port {port}.")
+        write_runtime(port, 0)
         open_athar(port, no_browser)
         return 0
 
+    remove_runtime()
     log(f"Démarrage du serveur RAG V2 sur le port {port}…")
-    process = subprocess.Popen(
-        [
-            str(python_executable),
-            str(SERVER_SCRIPT),
-            "--host",
-            "127.0.0.1",
-            "--port",
-            str(port),
-        ],
-        cwd=ROOT,
-    )
-
-    try:
-        wait_until_ready(process, port)
-        open_athar(port, no_browser)
-        log("Fermez cette fenêtre ou utilisez Ctrl+C pour arrêter le serveur.")
-        return process.wait()
-    except KeyboardInterrupt:
-        log("Arrêt demandé.")
-        return 0
-    finally:
-        stop_process(process)
+    process = start_server(port)
+    log(f"Serveur démarré en arrière-plan (PID {process.pid}).")
+    log(f"Journal : {LOG_FILE}")
+    open_athar(port, no_browser)
+    log("Le serveur reste actif après la fermeture de cette fenêtre.")
+    log("Utilisez stop-athar-rag.bat pour l’arrêter proprement.")
+    return 0
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Démarre Athar Pro avec la Bibliothèque Savante V2.")
-    parser.add_argument("--preferred-port", type=int, default=8000)
+    parser.add_argument("--preferred-port", type=int, default=8765)
     parser.add_argument("--no-browser", action="store_true")
     args = parser.parse_args()
 
     try:
         return run(preferred_port=args.preferred_port, no_browser=args.no_browser)
     except (OSError, RuntimeError, subprocess.SubprocessError) as error:
+        remove_runtime()
         print(f"[Athar RAG] Échec du démarrage : {error}", file=sys.stderr)
+        print(f"[Athar RAG] Journal éventuel : {LOG_FILE}", file=sys.stderr)
         return 1
 
 
