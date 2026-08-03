@@ -49,6 +49,7 @@ tailwind.config = {
 
 (() => {
     const APP_VERSION = 'athar-pro-v34';
+    const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -73,9 +74,9 @@ tailwind.config = {
         document.head.appendChild(script);
     };
 
-    const writeEarlyScript = (src, id) => {
+    const writeEarlyScript = (src, id, version = APP_VERSION) => {
         if (document.readyState !== 'loading' || document.getElementById(id)) return;
-        document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
+        document.write(`<script id="${id}" src="${src}?v=${version}"><\/script>`);
     };
 
     const writeScholarAtlasScript = (src, id) => {
@@ -107,7 +108,7 @@ tailwind.config = {
     writeEarlyScript('js/components/GoldenChainView.js', 'athar-golden-chain-view');
     writeEarlyScript('js/components/ScholarLibraryView.js', 'athar-scholar-library-view');
     writeEarlyScript('js/components/ScholarLibraryV2View.js', 'athar-scholar-library-v2-view');
-    writeEarlyScript('js/components/ScholarV2Bootstrap.js', 'athar-scholar-v2-bootstrap');
+    writeEarlyScript('js/components/ScholarV2Bootstrap.js', 'athar-scholar-v2-bootstrap', SCHOLAR_V2_BOOTSTRAP_VERSION);
     writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
