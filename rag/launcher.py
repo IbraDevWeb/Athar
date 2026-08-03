@@ -13,10 +13,13 @@ import webbrowser
 from datetime import datetime, timezone
 from pathlib import Path
 
+from core import DEFAULT_DB, ensure_database, import_seed
+
 ROOT = Path(__file__).resolve().parents[1]
 SERVER_SCRIPT = ROOT / "rag" / "server.py"
 RUNTIME_FILE = ROOT / "rag" / "runtime.json"
 LOG_FILE = ROOT / "rag" / "server.log"
+STARTER_CORPUS = ROOT / "rag" / "starter_corpus.json"
 SERVER_MARKER = "athar-rag-v2"
 
 
@@ -54,6 +57,49 @@ def choose_port(preferred: int, span: int = 20) -> tuple[int, bool]:
             return port, False
         log(f"Le port {port} est occupé par un autre serveur ; essai du port suivant.")
     raise RuntimeError(f"Aucun port libre trouvé entre {preferred} et {preferred + span}.")
+
+
+def ensure_starter_corpus() -> tuple[int, int, int]:
+    """Ajoute sans destruction le corpus substantiel livré avec Athar.
+
+    Cette migration est exécutée à chaque lancement afin qu'une base SQLite déjà
+    créée avec les seules notices de démonstration reçoive aussi les nouveaux
+    passages. Les upserts rendent l'opération idempotente.
+    """
+    if not STARTER_CORPUS.exists():
+        raise RuntimeError(f"Corpus de démarrage introuvable : {STARTER_CORPUS}")
+
+    connection = ensure_database(DEFAULT_DB)
+    try:
+        before = int(
+            connection.execute("SELECT COUNT(*) FROM chunks WHERE id LIKE 'starter-%'").fetchone()[0]
+        )
+        import_seed(connection, STARTER_CORPUS)
+        after = int(
+            connection.execute("SELECT COUNT(*) FROM chunks WHERE id LIKE 'starter-%'").fetchone()[0]
+        )
+        substantive = int(
+            connection.execute(
+                """
+                SELECT COUNT(*)
+                FROM chunks
+                WHERE id LIKE 'starter-%'
+                  AND (
+                    LENGTH(TRIM(COALESCE(text_ar, ''))) >= 80
+                    OR LENGTH(TRIM(COALESCE(text_fr, ''))) >= 120
+                  )
+                """
+            ).fetchone()[0]
+        )
+    finally:
+        connection.close()
+
+    added = max(0, after - before)
+    if added:
+        log(f"Corpus de démarrage enrichi : {added} nouveau(x) passage(s), {substantive} substantiel(s).")
+    else:
+        log(f"Corpus de démarrage vérifié : {after} passage(s), {substantive} substantiel(s).")
+    return added, after, substantive
 
 
 def read_runtime(path: Path = RUNTIME_FILE) -> dict[str, object]:
@@ -152,6 +198,7 @@ def open_athar(port: int, no_browser: bool) -> str:
 
 
 def run(preferred_port: int = 8765, no_browser: bool = False) -> int:
+    ensure_starter_corpus()
     port, existing = choose_port(preferred_port)
 
     if existing:

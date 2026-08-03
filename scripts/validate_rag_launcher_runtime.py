@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import sys
 import tempfile
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "rag"))
 SPEC = importlib.util.spec_from_file_location("athar_rag_launcher", ROOT / "rag" / "launcher.py")
 if SPEC is None or SPEC.loader is None:
     raise RuntimeError("Impossible de charger rag/launcher.py")
