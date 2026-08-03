@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import tempfile
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -89,13 +90,31 @@ def main() -> int:
         if not launcher.port_is_free(selected):
             raise AssertionError("Le port de remplacement doit être libre.")
 
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            runtime_path = Path(temporary_directory) / "runtime.json"
+            payload = launcher.write_runtime(rag_port, 4321, runtime_path)
+            restored = launcher.read_runtime(runtime_path)
+            if payload.get("server") != "athar-rag-v2" or restored.get("port") != rag_port:
+                raise AssertionError("Le manifeste runtime doit conserver le marqueur et le port.")
+            if restored.get("pid") != 4321 or restored.get("origin") != f"http://127.0.0.1:{rag_port}":
+                raise AssertionError("Le manifeste runtime doit conserver le PID et l’origine.")
+            launcher.remove_runtime(runtime_path)
+            if runtime_path.exists():
+                raise AssertionError("Le manifeste temporaire doit pouvoir être supprimé.")
+
+        detached = launcher.detached_process_kwargs()
+        if not detached.get("close_fds"):
+            raise AssertionError("Le processus persistant doit fermer les descripteurs hérités.")
+        if "start_new_session" not in detached and "creationflags" not in detached:
+            raise AssertionError("Le processus serveur doit être détaché du lanceur.")
+
         url = launcher.open_athar(rag_port, no_browser=True)
         if f":{rag_port}/" not in url or "server=rag-v2" not in url or f"ragPort={rag_port}" not in url:
             raise AssertionError("L’URL finale doit utiliser le port RAG validé et le transmettre à l’interface.")
 
         print(
-            "RAG launcher runtime validated: static and fake JSON servers rejected, existing RAG reused, "
-            "free fallback port selected and browser URL protected."
+            "RAG launcher runtime validated: static and fake JSON servers rejected, runtime manifest persisted, "
+            "detached lifecycle configured and browser URL protected."
         )
         return 0
     finally:
