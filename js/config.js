@@ -50,6 +50,7 @@ tailwind.config = {
 (() => {
     const APP_VERSION = 'athar-pro-v34';
     const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-2';
+    const RAG_API_BRIDGE_VERSION = 'rag-api-discovery-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -96,6 +97,7 @@ tailwind.config = {
     writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
     writeEarlyScript('js/components/AtharLensBridge.js', 'athar-lens-bridge');
     writeEarlyScript('js/components/AtharLens.js', 'athar-lens-engine');
+    writeEarlyScript('js/components/RagApiBridge.js', 'athar-rag-api-bridge', RAG_API_BRIDGE_VERSION);
     writeEarlyScript('astronomy_data.js', 'athar-astronomy-data');
     writeEarlyScript('js/components/AncientSkyView.js', 'athar-ancient-sky-view');
     writeEarlyScript('history_nights_data.js', 'athar-history-nights-data');

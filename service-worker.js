@@ -40,6 +40,7 @@ const APP_SHELL = [
     './js/components/VueSafeIcons.js?v=athar-pro-v34',
     './js/components/AtharLensBridge.js?v=athar-pro-v34',
     './js/components/AtharLens.js?v=athar-pro-v34',
+    './js/components/RagApiBridge.js?v=rag-api-discovery-1',
     './astronomy_data.js?v=athar-pro-v34',
     './js/components/AncientSkyView.js?v=athar-pro-v34',
     './history_nights_data.js?v=athar-pro-v34',
