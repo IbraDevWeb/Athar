@@ -1,0 +1,60 @@
+{
+  "books": [
+    {
+      "kutub_id": 7367,
+      "title": "Al-Kāfī",
+      "title_ar": "الكافي في فقه أهل المدينة",
+      "author": "Ibn ʿAbd al-Barr",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/7367",
+      "max_pages": 25,
+      "enabled": true
+    },
+    {
+      "kutub_id": 21739,
+      "title": "Bidāyat al-Mujtahid",
+      "title_ar": "بداية المجتهد ونهاية المقتصد",
+      "author": "Ibn Rushd al-Ḥafīd",
+      "discipline": "Fiqh comparé",
+      "madhhab": "Comparatif",
+      "source_url": "https://kutub.io/fr/book/21739",
+      "max_pages": 25,
+      "enabled": true
+    },
+    {
+      "kutub_id": 20855,
+      "title": "Tafsīr al-Qurṭubī",
+      "title_ar": "الجامع لأحكام القرآن",
+      "author": "Al-Qurṭubī",
+      "discipline": "Tafsīr",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/20855",
+      "max_pages": 25,
+      "enabled": true
+    },
+    {
+      "kutub_id": 11373,
+      "title": "Al-Risālah",
+      "title_ar": "الرسالة",
+      "author": "Ibn Abī Zayd al-Qayrawānī",
+      "discipline": "Fiqh et croyance",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/11373",
+      "max_pages": 25,
+      "enabled": true
+    },
+    {
+      "kutub_id": 28107,
+      "title": "Al-Muwaṭṭaʾ",
+      "title_ar": "الموطأ",
+      "author": "Mālik ibn Anas",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/28107",
+      "max_pages": 25,
+      "enabled": false,
+      "note": "À activer après vérification manuelle de la fiche publique et de la pagination."
+    }
+  ]
+}
