@@ -13,38 +13,39 @@ const need = (source, token, label) => {
 
 const batch = read('start-athar-rag.bat');
 [
-    'powershell.exe -NoProfile -ExecutionPolicy Bypass',
-    'start-athar-rag.ps1',
+    'where py >nul 2>nul',
+    'py -3 rag\\launcher.py %*',
+    'python rag\\launcher.py %*',
     'if not "%ATHAR_EXIT%"=="0"',
     'exit /b %ATHAR_EXIT%'
 ].forEach(token => need(batch, token, 'start-athar-rag.bat'));
 if (/python\s+-m\s+http\.server/i.test(batch)) fail('The batch launcher must never start a static-only server.');
 if (/start\s+""\s+"http:/i.test(batch)) fail('The browser must not open before the RAG health check.');
+if (/powershell/i.test(batch)) fail('The launcher must no longer depend on a PowerShell bootstrap.');
 
-const powershell = read('start-athar-rag.ps1');
+const launcher = read('rag/launcher.py');
 [
-    'function Test-RagApi',
+    'def test_rag_api',
     '/api/rag/v2/status',
-    'function Test-PortOccupied',
-    '$PreferredPort..($PreferredPort + 10)',
-    'Le port $candidate est occupé par un autre serveur',
-    "'rag\\server.py'",
-    'Start-Process @startParameters',
-    'for ($attempt = 0; $attempt -lt 60; $attempt++)',
-    'if (Test-RagApi -Port $selectedPort)',
-    'Start-Process $url',
-    'Wait-Process -Id $serverProcess.Id',
-    'Stop-Process -Id $serverProcess.Id'
-].forEach(token => need(powershell, token, 'start-athar-rag.ps1'));
+    'def port_is_free',
+    'def choose_port',
+    'range(preferred, preferred + span + 1)',
+    'Le port {port} est occupé par un autre serveur',
+    'def ensure_environment',
+    'def wait_until_ready',
+    'def stop_process',
+    'subprocess.Popen',
+    'wait_until_ready(process, port)',
+    'open_athar(port, no_browser)',
+    'return process.wait()',
+    'webbrowser.open',
+    'rag-v2'
+].forEach(token => need(launcher, token, 'rag/launcher.py'));
 
-const healthPosition = powershell.indexOf('if (Test-RagApi -Port $selectedPort)');
-const browserPosition = powershell.lastIndexOf('Start-Process $url');
+const healthPosition = launcher.indexOf('wait_until_ready(process, port)');
+const browserPosition = launcher.indexOf('open_athar(port, no_browser)', healthPosition);
 if (healthPosition < 0 || browserPosition < healthPosition) {
     fail('The browser must only open after the RAG API has answered successfully.');
-}
-
-if (/Invoke-RestMethod\s+\\/m.test(powershell) || /Start-Process\s+\\/m.test(powershell)) {
-    fail('Invalid shell-style line continuation found in the PowerShell launcher.');
 }
 
 const server = read('rag/server.py');
