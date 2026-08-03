@@ -60,6 +60,9 @@ jobs:
       - name: Validate Scholar RAG library V2
         run: node scripts/validate-rag-v2.js
 
+      - name: Validate RAG server launcher
+        run: node scripts/validate-rag-launcher.js
+
       - name: Execute Scholar RAG runtime
         run: python scripts/validate_rag_runtime.py
 
