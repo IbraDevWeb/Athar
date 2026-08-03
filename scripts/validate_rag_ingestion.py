@@ -8,7 +8,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "rag"))
 
 from core import connect, initialize_database, upsert_book, upsert_chunk, utc_now  # noqa: E402
-from ingest_kutub import discover_pages, ingest_page  # noqa: E402
+from ingest_kutub import (  # noqa: E402
+    discover_pages,
+    empty_counters,
+    ingest_page,
+    plan_pages,
+    reconcile_recorded_counters,
+)
 from ingestion import (  # noqa: E402
     bootstrap_legacy_state,
     finish_run,
@@ -31,6 +37,11 @@ class FakeClient:
 
     def get(self, _url: str) -> FakeResponse:
         return FakeResponse(self.html)
+
+
+class BlockedClient:
+    def get(self, _url: str) -> FakeResponse:
+        raise RuntimeError("Protection anti-bot détectée sur la page de test.")
 
 
 def fail(message: str) -> None:
@@ -100,6 +111,12 @@ with tempfile.TemporaryDirectory() as temporary_directory:
     pages = discover_pages(HTML, 999)
     if pages != [1, 2]:
         fail(f"Page discovery returned {pages!r} instead of [1, 2].")
+    if plan_pages(pages, start=3, batch_size=25, declared_pages=2) != []:
+        fail("A completed book must not schedule pages beyond its declared end.")
+    if plan_pages([], start=4, batch_size=5, declared_pages=5) != [4, 5]:
+        fail("A bounded fallback must stop at the declared final page.")
+    if plan_pages([], start=4, batch_size=3, declared_pages=0) != [4, 5, 6]:
+        fail("An unknown pagination should still produce a conservative batch.")
 
     result = ingest_page(
         client=FakeClient(HTML),
@@ -141,14 +158,38 @@ with tempfile.TemporaryDirectory() as temporary_directory:
         "blocked_pages": 0,
     }
     finish_run(connection, run_id, status="completed", counters=counters)
+
+    blocked_run = start_run(connection, "blocked-fixture", 1)
+    try:
+        ingest_page(
+            client=BlockedClient(),
+            connection=connection,
+            run_id=blocked_run,
+            book={"id": "kutub-999", "kutub_id": 999, "metadata": {}},
+            page=6,
+            snapshots=False,
+        )
+        fail("A blocked client should stop ingestion.")
+    except RuntimeError:
+        pass
+    blocked_counters = empty_counters()
+    reconcile_recorded_counters(connection, blocked_run, blocked_counters)
+    if blocked_counters["attempted_pages"] != 1 or blocked_counters["blocked_pages"] != 1:
+        fail(f"Blocked pages were not reconciled into run counters: {blocked_counters!r}")
+    finish_run(connection, blocked_run, status="blocked", counters=blocked_counters)
+
     status = ingestion_status(connection)
     if status["imported_pages"] < 2 or status["duplicate_pages"] < 2:
         fail("The ingestion dashboard did not aggregate page states.")
-    if not status["runs"] or status["runs"][0]["status"] != "completed":
-        fail("The completed run is missing from ingestion history.")
+    run_states = {item["status"] for item in status["runs"]}
+    if not {"completed", "blocked"}.issubset(run_states):
+        fail(f"The run history is incomplete: {run_states!r}")
     if quality_score(300, 300, 2, True) < 90:
         fail("A complete bilingual page should receive a high quality score.")
 
     connection.close()
 
-print("RAG ingestion valid — gap-aware cursor, retry, parser, deduplication, quality scoring and run history.")
+print(
+    "RAG ingestion valid — gap-aware cursor, bounded pagination, retry, parser, "
+    "deduplication, quality scoring, blocked-run counters and history."
+)
