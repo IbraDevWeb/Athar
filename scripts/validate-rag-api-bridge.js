@@ -15,9 +15,12 @@ const need = token => {
 [
     "const RUNTIME_PATH = 'rag/runtime.json'",
     "const STORAGE_KEY = 'athar_rag_api_origin_v2'",
+    'const FIRST_RUNTIME_PORT = 8765',
+    'const LAST_RUNTIME_PORT = 8785',
+    'const PROBE_BATCH_SIZE = 8',
     'const readRuntimeOrigin = async () =>',
     "payload?.server !== 'athar-rag-v2'",
-    'ports.push(8765)',
+    'const probeCandidates = async origins =>',
     'window.fetch = async function atharFetch',
     'unavailableResponse',
     'athar-rag-api-connected',
@@ -131,5 +134,5 @@ vm.runInContext(bridgeSource, context, { filename: 'RagApiBridge.js' });
         fail('non-RAG requests must pass through untouched');
     }
 
-    console.log('RAG API bridge validated: runtime manifest read, persistent server detected, POST rewritten and origin cached.');
+    console.log('RAG API bridge validated: runtime manifest read, persistent server detected, batched discovery and POST rewrite are operational.');
 })().catch(error => fail(error.stack || error.message));
