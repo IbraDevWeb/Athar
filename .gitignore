@@ -1,0 +1,9 @@
+.venv-rag/
+__pycache__/
+*.py[cod]
+rag/data/*.sqlite
+rag/data/*.sqlite-*
+rag/data/snapshots/
+.env
+.env.*
+!.env.example
