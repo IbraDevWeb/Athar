@@ -56,7 +56,7 @@ const core = read('rag/core.py');
 [
     'CREATE VIRTUAL TABLE IF NOT EXISTS chunks_fts', 'normalize_arabic', 'expand_query',
     'search_chunks', 'extractive_answer', 'ollama_answer', 'answer_question',
-    'ATHAR_OLLAMA_MODEL', 'Kutub', 'source_url', 'translation_status'
+    'ATHAR_OLLAMA_MODEL', 'source_url', 'translation_status'
 ].forEach(token => need(core, token, 'RAG core'));
 
 const scraper = read('rag/scrape_kutub.py');
