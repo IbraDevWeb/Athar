@@ -79,8 +79,10 @@ const server = read('rag/server.py');
 ['/api/rag/status', '/api/rag/search', '/api/rag/ask', 'ThreadingHTTPServer', 'directory=str(ROOT)', 'no-store'].forEach(token => need(server, token, 'RAG server'));
 
 const books = JSON.parse(read('rag/books.json'));
+if (books.version !== '2.0' || Number(books.target_books) !== 25) fail('The bibliographic manifest must expose V2 targets.');
 if (!Array.isArray(books.books) || books.books.filter(book => book.enabled).length !== 4) fail('Four books must be enabled for the first cautious sync.');
 if (books.books.some(book => Number(book.max_pages || 0) > 25)) fail('The launch sync must stay capped at 25 pages per book.');
+if (books.books.some(book => !book.metadata?.source_type || !book.metadata?.verification_status)) fail('V2 book metadata is incomplete.');
 
 const bridge = read('js/components/AstronomyBootstrap.js');
 [
@@ -123,8 +125,8 @@ const worker = read('service-worker.js');
 ].forEach(token => need(worker, token, 'service worker'));
 
 const extensions = read('extensions_data.js');
-need(extensions, 'Recherche RAG bilingue dans les ouvrages classiques', 'extension metadata');
+need(extensions, 'Moteur RAG classique', 'V1 metadata distinction');
 need(read('start-athar-rag.bat'), 'python rag\\server.py --port 8000', 'Windows launcher');
 need(read('sync-kutub.bat'), 'python rag\\sync_kutub_batch.py --batch-size 25', 'Windows sync launcher');
 
-console.log(`RAG Library validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, progressive batches and cache v34.`);
+console.log(`RAG Library V1 validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, progressive batches and compatibility with the V2 corpus manifest.`);
