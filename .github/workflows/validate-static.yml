@@ -46,22 +46,7 @@ jobs:
             | xargs -0 -n1 node --check
 
       - name: Check Python syntax
-        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/scrape_kutub.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py
-
-      - name: Check PowerShell launcher syntax
-        shell: pwsh
-        run: |
-          $tokens = $null
-          $errors = $null
-          [System.Management.Automation.Language.Parser]::ParseFile(
-            (Resolve-Path 'start-athar-rag.ps1'),
-            [ref]$tokens,
-            [ref]$errors
-          ) | Out-Null
-          if ($errors.Count -gt 0) {
-            $errors | ForEach-Object { Write-Error $_.Message }
-            exit 1
-          }
+        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/launcher.py rag/scrape_kutub.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py scripts/validate_rag_launcher_runtime.py
 
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
@@ -77,6 +62,9 @@ jobs:
 
       - name: Validate RAG server launcher
         run: node scripts/validate-rag-launcher.js
+
+      - name: Execute RAG launcher runtime
+        run: python scripts/validate_rag_launcher_runtime.py
 
       - name: Execute Scholar RAG runtime
         run: python scripts/validate_rag_runtime.py
