@@ -36,7 +36,9 @@ const server = read('rag/server.py');
 [
     '/api/rag/v2/status', '/api/rag/v2/evaluation', '/api/rag/v2/corpus',
     '/api/rag/v2/search', '/api/rag/v2/ask', 'answer_question_v2',
-    'corpus_status_v2', 'evaluation_status_v2', 'AtharRAG/2.0'
+    'corpus_status_v2', 'evaluation_status_v2', 'AtharRAG/2.1',
+    'SERVER_MARKER = "athar-rag-v2"', 'LOCAL_ORIGIN_PATTERN', 'def do_OPTIONS',
+    'Access-Control-Allow-Origin', 'Access-Control-Allow-Methods', 'X-Athar-RAG'
 ].forEach(token => need(server, token, 'RAG server'));
 
 const component = read('js/components/ScholarLibraryV2View.js');
@@ -49,6 +51,13 @@ const component = read('js/components/ScholarLibraryV2View.js');
     'athar-scholar-v2-active', 'onBeforeUnmount', '@click="ask"'
 ].forEach(token => need(component, token, 'ScholarLibraryV2View'));
 if (/v-html|innerHTML|<iframe|new\s+Audio|WebGL|THREE\./i.test(component)) fail('Unsafe or heavy frontend behavior detected.');
+
+const apiBridge = read('js/components/RagApiBridge.js');
+[
+    "const FIRST_PORT = 8000", "const LAST_PORT = 8010", "'/api/rag/v2/status'",
+    "payload?.server === 'athar-rag-v2'", 'candidateOrigins', 'window.fetch = async function atharFetch',
+    "response.status !== 404 && response.status !== 405", 'athar_rag_api_origin_v1'
+].forEach(token => need(apiBridge, token, 'RAG API bridge'));
 
 const bootstrap = read('js/components/ScholarV2Bootstrap.js');
 [
@@ -107,7 +116,9 @@ if ((integrationCss.match(/{/g) || []).length !== (integrationCss.match(/}/g) ||
 const config = read('js/config.js');
 [
     "const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-2'",
+    "const RAG_API_BRIDGE_VERSION = 'rag-api-discovery-1'",
     'const writeEarlyScript = (src, id, version = APP_VERSION)',
+    "writeEarlyScript('js/components/RagApiBridge.js', 'athar-rag-api-bridge', RAG_API_BRIDGE_VERSION)",
     "writeEarlyScript('js/components/ScholarLibraryV2View.js'",
     "writeEarlyScript('js/components/ScholarV2Bootstrap.js', 'athar-scholar-v2-bootstrap', SCHOLAR_V2_BOOTSTRAP_VERSION)",
     "writeEarlyScript('js/components/AstronomyBootstrap.js'",
@@ -115,10 +126,12 @@ const config = read('js/config.js');
     'css/scholar-v2-integration.css?v=${APP_VERSION}',
     'Bibliothèque savante et encyclopédie islamique'
 ].forEach(token => need(config, token, 'config.js'));
+if (config.indexOf('RagApiBridge.js') > config.indexOf('ScholarLibraryV2View.js')) fail('The RAG API bridge must load before the V2 component.');
 if (config.indexOf('ScholarV2Bootstrap.js') > config.indexOf('AstronomyBootstrap.js')) fail('Scholar V2 must patch the root before the Tool extensions bootstrap.');
 
 const worker = read('service-worker.js');
 [
+    './js/components/RagApiBridge.js?v=rag-api-discovery-1',
     './js/components/ScholarLibraryV2View.js?v=athar-pro-v34',
     './js/components/ScholarV2Bootstrap.js?v=athar-pro-v34',
     './js/components/ScholarV2Bootstrap.js?v=rag-v2-mount-2',
@@ -130,4 +143,4 @@ const worker = read('service-worker.js');
 const extensions = read('extensions_data.js');
 need(extensions, 'Moteur RAG classique', 'V1 metadata distinction');
 
-console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, template-fragment routing, home centerpiece and cached hotfix.`);
+console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, cross-port API bridge, local CORS and cached hotfix.`);
