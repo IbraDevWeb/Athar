@@ -16,47 +16,50 @@ const batch = read('start-athar-rag.bat');
     'where py >nul 2>nul',
     'py -3 rag\\launcher.py %*',
     'python rag\\launcher.py %*',
-    'if not "%ATHAR_EXIT%"=="0"',
-    'exit /b %ATHAR_EXIT%'
+    'Le serveur fonctionne maintenant en arriere-plan',
+    'stop-athar-rag.bat',
+    'exit /b 0'
 ].forEach(token => need(batch, token, 'start-athar-rag.bat'));
 if (/python\s+-m\s+http\.server/i.test(batch)) fail('The batch launcher must never start a static-only server.');
-if (/start\s+""\s+"http:/i.test(batch)) fail('The browser must not open before the RAG health check.');
-if (/powershell/i.test(batch)) fail('The launcher must no longer depend on a PowerShell bootstrap.');
+if (/pip\s+install/i.test(batch)) fail('The server launcher must not install scraper dependencies.');
 
 const launcher = read('rag/launcher.py');
 [
+    'RUNTIME_FILE = ROOT / "rag" / "runtime.json"',
+    'LOG_FILE = ROOT / "rag" / "server.log"',
     'def test_rag_api',
     '/api/rag/v2/status',
     'def port_is_free',
     'def choose_port',
-    'range(preferred, preferred + span + 1)',
-    'Le port {port} est occupé par un autre serveur',
-    'def ensure_environment',
-    'def wait_until_ready',
-    'def stop_process',
-    'subprocess.Popen',
+    'def write_runtime',
+    'def detached_process_kwargs',
+    'def start_server',
     'wait_until_ready(process, port)',
+    'write_runtime(port, int(process.pid))',
+    'start_new_session',
+    'DETACHED_PROCESS',
+    'default=8765',
     'open_athar(port, no_browser)',
-    'return process.wait()',
-    'webbrowser.open',
-    'rag-v2'
+    'Le serveur reste actif après la fermeture de cette fenêtre',
+    'stop-athar-rag.bat'
 ].forEach(token => need(launcher, token, 'rag/launcher.py'));
-
-const healthPosition = launcher.indexOf('wait_until_ready(process, port)');
-const browserPosition = launcher.indexOf('open_athar(port, no_browser)', healthPosition);
-if (healthPosition < 0 || browserPosition < healthPosition) {
-    fail('The browser must only open after the RAG API has answered successfully.');
+if (/pip["']?\s*,?\s*["']install|requirements\.txt/i.test(launcher)) {
+    fail('Starting the RAG server must not depend on pip or scraper requirements.');
 }
 
-const server = read('rag/server.py');
-[
-    'class AtharRagHandler',
-    'def do_GET',
-    'def do_POST',
-    '"/api/rag/v2/status"',
-    '"/api/rag/v2/evaluation"',
-    '"/api/rag/v2/ask"',
-    'ThreadingHTTPServer'
-].forEach(token => need(server, token, 'rag/server.py'));
+const healthPosition = launcher.indexOf('wait_until_ready(process, port)');
+const runtimePosition = launcher.indexOf('write_runtime(port, int(process.pid))', healthPosition);
+const browserPosition = launcher.indexOf('open_athar(port, no_browser)', runtimePosition);
+if (healthPosition < 0 || runtimePosition < healthPosition || browserPosition < runtimePosition) {
+    fail('Health check and runtime manifest must complete before opening the browser.');
+}
 
-console.log('RAG launcher validated: port detection, API health check, delayed browser opening and server lifecycle are protected.');
+const stopBatch = read('stop-athar-rag.bat');
+['rag\\stop_server.py', 'pause', 'exit /b %ATHAR_EXIT%'].forEach(token => need(stopBatch, token, 'stop-athar-rag.bat'));
+const stopScript = read('rag/stop_server.py');
+['RUNTIME_FILE', 'def api_alive', 'def stop_pid', 'taskkill', 'os.killpg', 'RUNTIME_FILE.unlink'].forEach(token => need(stopScript, token, 'rag/stop_server.py'));
+
+const ignore = read('.gitignore');
+['rag/runtime.json', 'rag/runtime.json.tmp', 'rag/server.log'].forEach(token => need(ignore, token, '.gitignore'));
+
+console.log('RAG launcher validated: no network dependency, detached server, runtime manifest, persistent lifecycle and explicit stop command.');

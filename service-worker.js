@@ -40,7 +40,7 @@ const APP_SHELL = [
     './js/components/VueSafeIcons.js?v=athar-pro-v34',
     './js/components/AtharLensBridge.js?v=athar-pro-v34',
     './js/components/AtharLens.js?v=athar-pro-v34',
-    './js/components/RagApiBridge.js?v=rag-api-discovery-1',
+    './js/components/RagApiBridge.js?v=rag-persistent-runtime-1',
     './astronomy_data.js?v=athar-pro-v34',
     './js/components/AncientSkyView.js?v=athar-pro-v34',
     './history_nights_data.js?v=athar-pro-v34',
@@ -125,6 +125,16 @@ self.addEventListener('fetch', event => {
     if (request.method !== 'GET') return;
     const url = new URL(request.url);
     if (url.origin !== self.location.origin) return;
+
+    if (url.pathname.endsWith('/rag/runtime.json')) {
+        event.respondWith(
+            fetch(request, { cache: 'no-store' }).catch(() => new Response('', {
+                status: 404,
+                headers: { 'Cache-Control': 'no-store' }
+            }))
+        );
+        return;
+    }
 
     const isPage = request.mode === 'navigate';
     const isCodeAsset = /\.(?:js|css)$/.test(url.pathname);
