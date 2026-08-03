@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.parse
 from http import HTTPStatus
@@ -14,10 +15,12 @@ from core import DEFAULT_DB, answer_question, database_status, ensure_database, 
 from v2 import answer_question_v2, corpus_status_v2, evaluation_status_v2, retrieve_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
+SERVER_MARKER = "athar-rag-v2"
+LOCAL_ORIGIN_PATTERN = re.compile(r"^https?://(?:127\.0\.0\.1|localhost)(?::\d{1,5})?$")
 
 
 class AtharRagHandler(SimpleHTTPRequestHandler):
-    server_version = "AtharRAG/2.0"
+    server_version = "AtharRAG/2.1"
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -26,10 +29,22 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
     def db_path(self) -> Path:
         return Path(getattr(self.server, "db_path", DEFAULT_DB))
 
+    def allowed_cors_origin(self) -> str:
+        origin = str(self.headers.get("Origin") or "").strip()
+        return origin if LOCAL_ORIGIN_PATTERN.fullmatch(origin) else ""
+
     def end_headers(self) -> None:
+        path = urllib.parse.urlsplit(self.path).path
+        is_api = path.startswith("/api/rag/")
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
-        self.send_header("Cross-Origin-Resource-Policy", "same-origin")
+        self.send_header("Cross-Origin-Resource-Policy", "cross-origin" if is_api else "same-origin")
+
+        origin = self.allowed_cors_origin()
+        if is_api and origin:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Access-Control-Expose-Headers", "X-Athar-RAG")
+            self.send_header("Vary", "Origin")
         super().end_headers()
 
     def send_json(self, payload: dict[str, Any], status: int = HTTPStatus.OK) -> None:
@@ -38,6 +53,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Athar-RAG", "v2")
         self.end_headers()
         self.wfile.write(body)
 
@@ -52,27 +68,47 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
         except ValueError:
             return default
 
+    def do_OPTIONS(self) -> None:
+        path, _ = self.parse_query()
+        if not path.startswith("/api/rag/"):
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+        self.send_response(HTTPStatus.NO_CONTENT)
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Accept")
+        self.send_header("Access-Control-Max-Age", "600")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
     def do_GET(self) -> None:
         path, params = self.parse_query()
 
         if path == "/api/rag/status":
             with ensure_database(self.db_path) as connection:
-                self.send_json({"ok": True, **database_status(connection)})
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **database_status(connection)})
             return
 
         if path == "/api/rag/v2/status":
             with ensure_database(self.db_path) as connection:
-                self.send_json({"ok": True, **corpus_status_v2(connection)})
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **corpus_status_v2(connection)})
             return
 
         if path == "/api/rag/v2/evaluation":
-            self.send_json({"ok": True, **evaluation_status_v2()})
+            self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **evaluation_status_v2()})
             return
 
         if path == "/api/rag/v2/corpus":
             with ensure_database(self.db_path) as connection:
                 payload = corpus_status_v2(connection)
-                self.send_json({"ok": True, "corpus": payload["corpus"], "translation_statuses": payload["translation_statuses"]})
+                self.send_json(
+                    {
+                        "ok": True,
+                        "server": SERVER_MARKER,
+                        "api_version": 2,
+                        "corpus": payload["corpus"],
+                        "translation_statuses": payload["translation_statuses"],
+                    }
+                )
             return
 
         if path in {"/api/rag/v2/search", "/api/rag/v2/ask"}:
@@ -89,7 +125,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                 else:
                     analysis, sources = retrieve_evidence(connection, query, madhhab=madhhab, discipline=discipline, limit=limit)
                     payload = {"query": query, "analysis": analysis, "sources": sources, "count": len(sources)}
-                self.send_json({"ok": True, **payload})
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **payload})
             return
 
         if path in {"/api/rag/search", "/api/rag/ask"}:
@@ -106,7 +142,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                 else:
                     results = search_chunks(connection, query, madhhab=madhhab, discipline=discipline, limit=limit)
                     payload = {"query": query, "results": results, "count": len(results)}
-                self.send_json({"ok": True, **payload})
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **payload})
             return
 
         super().do_GET()
@@ -148,7 +184,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                     discipline=str(payload.get("discipline") or ""),
                     limit=limit,
                 )
-            self.send_json({"ok": True, **result})
+            self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **result})
 
     def log_message(self, format_string: str, *args: Any) -> None:
         sys.stdout.write(f"[Athar RAG] {self.address_string()} — {format_string % args}\n")
@@ -167,7 +203,7 @@ def main() -> int:
 
     server = ThreadingHTTPServer((args.host, args.port), AtharRagHandler)
     server.db_path = args.db
-    print(f"Athar Pro + Bibliothèque Savante V2 : http://{args.host}:{args.port}/?v=34")
+    print(f"Athar Pro + Bibliothèque Savante V2 : http://{args.host}:{args.port}/?v=34&server=rag-v2&ragPort={args.port}")
     print(
         f"Corpus : {status['books']} livre(s), {status['chunks']} passage(s), "
         f"dont {v2_status['substantive_passages']} passage(s) substantiel(s)."
