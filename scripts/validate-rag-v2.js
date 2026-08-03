@@ -54,9 +54,10 @@ if (/v-html|innerHTML|<iframe|new\s+Audio|WebGL|THREE\./i.test(component)) fail(
 
 const apiBridge = read('js/components/RagApiBridge.js');
 [
-    "const FIRST_PORT = 8000", "const LAST_PORT = 8010", "'/api/rag/v2/status'",
-    "payload?.server === 'athar-rag-v2'", 'candidateOrigins', 'window.fetch = async function atharFetch',
-    "response.status !== 404 && response.status !== 405", 'athar_rag_api_origin_v1'
+    "const RUNTIME_PATH = 'rag/runtime.json'", "const STORAGE_KEY = 'athar_rag_api_origin_v2'",
+    'const readRuntimeOrigin = async () =>', "payload?.server !== 'athar-rag-v2'",
+    'ports.push(8765)', 'candidateOrigins', 'window.fetch = async function atharFetch',
+    'unavailableResponse', 'athar-rag-api-connected', 'athar-rag-api-unavailable'
 ].forEach(token => need(apiBridge, token, 'RAG API bridge'));
 
 const bootstrap = read('js/components/ScholarV2Bootstrap.js');
@@ -76,19 +77,13 @@ const companionsPosition = bootstrap.indexOf('Bibliothèque des Compagnons');
 if (featurePosition < 0 || companionsPosition < featurePosition) fail('The V2 home feature or companions link is missing.');
 const routeLookupPosition = bootstrap.indexOf('const homeRoute = findHomeRoute(host);');
 const navInjectionPosition = bootstrap.lastIndexOf('injectNavigation(host);');
-if (routeLookupPosition < 0 || navInjectionPosition < routeLookupPosition) {
-    fail('Navigation must only be injected after the V2 route has been resolved.');
-}
+if (routeLookupPosition < 0 || navInjectionPosition < routeLookupPosition) fail('Navigation must only be injected after the V2 route has been resolved.');
 const scopeCollectionPosition = bootstrap.indexOf('const collectTemplateScopes');
 const homeLookupPosition = bootstrap.indexOf('const findHomeRoute');
-if (scopeCollectionPosition < 0 || homeLookupPosition < scopeCollectionPosition) {
-    fail('Template fragments must be collected before resolving the home route.');
-}
+if (scopeCollectionPosition < 0 || homeLookupPosition < scopeCollectionPosition) fail('Template fragments must be collected before resolving the home route.');
 const appCreationPosition = bootstrap.indexOf('const app = originalCreateApp.call');
 const mountPatchPosition = bootstrap.indexOf('app.mount = (target, ...mountArgs)');
-if (appCreationPosition < 0 || mountPatchPosition < appCreationPosition) {
-    fail('The DOM template must be patched immediately before Vue mount.');
-}
+if (appCreationPosition < 0 || mountPatchPosition < appCreationPosition) fail('The DOM template must be patched immediately before Vue mount.');
 
 const indexHtml = read('index.html');
 if (!/<template\s+v-else>/i.test(indexHtml)) fail('index.html no longer contains the root template fragment handled by the V2 bootstrap.');
@@ -116,7 +111,7 @@ if ((integrationCss.match(/{/g) || []).length !== (integrationCss.match(/}/g) ||
 const config = read('js/config.js');
 [
     "const SCHOLAR_V2_BOOTSTRAP_VERSION = 'rag-v2-mount-2'",
-    "const RAG_API_BRIDGE_VERSION = 'rag-api-discovery-1'",
+    "const RAG_API_BRIDGE_VERSION = 'rag-persistent-runtime-1'",
     'const writeEarlyScript = (src, id, version = APP_VERSION)',
     "writeEarlyScript('js/components/RagApiBridge.js', 'athar-rag-api-bridge', RAG_API_BRIDGE_VERSION)",
     "writeEarlyScript('js/components/ScholarLibraryV2View.js'",
@@ -131,16 +126,22 @@ if (config.indexOf('ScholarV2Bootstrap.js') > config.indexOf('AstronomyBootstrap
 
 const worker = read('service-worker.js');
 [
-    './js/components/RagApiBridge.js?v=rag-api-discovery-1',
+    './js/components/RagApiBridge.js?v=rag-persistent-runtime-1',
+    "url.pathname.endsWith('/rag/runtime.json')",
+    "fetch(request, { cache: 'no-store' })",
     './js/components/ScholarLibraryV2View.js?v=athar-pro-v34',
-    './js/components/ScholarV2Bootstrap.js?v=athar-pro-v34',
     './js/components/ScholarV2Bootstrap.js?v=rag-v2-mount-2',
     './css/scholar-library-v2.css?v=athar-pro-v34',
-    './css/scholar-v2-integration.css?v=athar-pro-v34',
     './rag/evaluation_v2.json?v=athar-pro-v34'
 ].forEach(token => need(worker, token, 'service worker'));
+
+const launcher = read('rag/launcher.py');
+[
+    'RUNTIME_FILE = ROOT / "rag" / "runtime.json"', 'default=8765',
+    'write_runtime(port, int(process.pid))', 'Le serveur reste actif après la fermeture de cette fenêtre'
+].forEach(token => need(launcher, token, 'persistent launcher'));
 
 const extensions = read('extensions_data.js');
 need(extensions, 'Moteur RAG classique', 'V1 metadata distinction');
 
-console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, cross-port API bridge, local CORS and cached hotfix.`);
+console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, persistent runtime manifest and cache-safe local bridge.`);
