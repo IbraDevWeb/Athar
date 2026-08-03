@@ -54,10 +54,19 @@ if (/v-html|innerHTML|<iframe|new\s+Audio|WebGL|THREE\./i.test(component)) fail(
 
 const apiBridge = read('js/components/RagApiBridge.js');
 [
-    "const RUNTIME_PATH = 'rag/runtime.json'", "const STORAGE_KEY = 'athar_rag_api_origin_v2'",
-    'const readRuntimeOrigin = async () =>', "payload?.server !== 'athar-rag-v2'",
-    'ports.push(8765)', 'candidateOrigins', 'window.fetch = async function atharFetch',
-    'unavailableResponse', 'athar-rag-api-connected', 'athar-rag-api-unavailable'
+    "const RUNTIME_PATH = 'rag/runtime.json'",
+    "const STORAGE_KEY = 'athar_rag_api_origin_v2'",
+    'const FIRST_RUNTIME_PORT = 8765',
+    'const LAST_RUNTIME_PORT = 8785',
+    'const PROBE_BATCH_SIZE = 8',
+    'const readRuntimeOrigin = async () =>',
+    "payload?.server !== 'athar-rag-v2'",
+    'const probeCandidates = async origins =>',
+    'candidateOrigins',
+    'window.fetch = async function atharFetch',
+    'unavailableResponse',
+    'athar-rag-api-connected',
+    'athar-rag-api-unavailable'
 ].forEach(token => need(apiBridge, token, 'RAG API bridge'));
 
 const bootstrap = read('js/components/ScholarV2Bootstrap.js');
@@ -144,4 +153,4 @@ const launcher = read('rag/launcher.py');
 const extensions = read('extensions_data.js');
 need(extensions, 'Moteur RAG classique', 'V1 metadata distinction');
 
-console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, persistent runtime manifest and cache-safe local bridge.`);
+console.log(`Scholar RAG V2 validated: ${evaluation.cases.length} evaluation questions, citation-first engine, persistent runtime manifest and batched local discovery.`);
