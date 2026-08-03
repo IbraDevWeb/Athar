@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v32';
+    const APP_VERSION = 'athar-pro-v33';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -93,6 +93,8 @@ tailwind.config = {
 
     /* Ponts chargés avant le montage de Vue. */
     writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
+    writeEarlyScript('js/components/AtharLensBridge.js', 'athar-lens-bridge');
+    writeEarlyScript('js/components/AtharLens.js', 'athar-lens-engine');
     writeEarlyScript('astronomy_data.js', 'athar-astronomy-data');
     writeEarlyScript('js/components/AncientSkyView.js', 'athar-ancient-sky-view');
     writeEarlyScript('history_nights_data.js', 'athar-history-nights-data');
@@ -131,6 +133,7 @@ tailwind.config = {
     ensureStylesheet(`css/scriptorium.css?v=${APP_VERSION}`, 'athar-scriptorium-styles');
     ensureStylesheet(`css/root-tree.css?v=${APP_VERSION}`, 'athar-root-tree-styles');
     ensureStylesheet(`css/golden-chain.css?v=${APP_VERSION}`, 'athar-golden-chain-styles');
+    ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
