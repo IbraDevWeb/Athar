@@ -1,0 +1,30 @@
+{
+  "version": "2.0",
+  "notice": "Jeu initial de questions de contrôle. Il mesure la récupération et les citations, sans constituer lui-même une réponse religieuse.",
+  "cases": [
+    {"id":"maliki-travel-distance","question":"Quelle distance constitue un voyage selon le madhhab malikite ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["voyage","distance","prière"],"expected_terms_ar":["السفر","المسافة"]},
+    {"id":"maliki-arrival-days","question":"Le jour d’arrivée et le jour de départ sont-ils comptés dans la durée du séjour du voyageur ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["voyage","séjour"],"expected_terms_ar":["يوم الدخول","يوم الخروج","الإقامة"]},
+    {"id":"maliki-prayer-combine","question":"Peut-on regrouper dhuhr et asr à l’heure de dhuhr pendant le voyage ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["prière","voyage","regroupement"],"expected_terms_ar":["جمع الصلاتين","السفر","تقديم العصر"]},
+    {"id":"maliki-jumua-late","question":"Que fait celui qui arrive tard à la prière du vendredi selon les malikites ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["jumu'a","retard"],"expected_terms_ar":["الجمعة","إدراك الركعة"]},
+    {"id":"maliki-wudu-intention","question":"Une seule intention peut-elle couvrir plusieurs objectifs lors des ablutions ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["ablution","intention"],"expected_terms_ar":["الوضوء","النية"]},
+    {"id":"maliki-tayammum","question":"Dans quels cas le tayammum remplace-t-il les ablutions ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["tayammum","purification"],"expected_terms_ar":["التيمم","الطهارة","الماء"]},
+    {"id":"maliki-mosquito-blood","question":"Le sang d’un moustique sur le vêtement affecte-t-il la prière ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["impureté","sang","prière"],"expected_terms_ar":["الدم","النجاسة","الصلاة"]},
+    {"id":"maliki-vinegar","question":"Quel est le statut du vinaigre provenant du vin ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["vinaigre","vin","transformation"],"expected_terms_ar":["الخل","الخمر","الاستحالة"]},
+    {"id":"maliki-hair-dye","question":"Quel est le statut de la teinture des cheveux et de la barbe ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["teinture","apparence"],"expected_terms_ar":["الخضاب","الشعر","السواد"]},
+    {"id":"maliki-food-alcohol","question":"Quel est le statut d’un aliment contenant une petite quantité d’alcool transformé ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["alimentation","alcool","transformation"],"expected_terms_ar":["الخمر","النجاسة","الاستحالة"]},
+    {"id":"fast-ashura-health","question":"Peut-on rompre un jeûne surérogatoire en cas de risque de déshydratation ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["jeûne","santé","surérogatoire"],"expected_terms_ar":["صوم التطوع","المرض","الفطر"]},
+    {"id":"traveler-witr","question":"Comment le voyageur accomplit-il le witr selon le madhhab malikite ?","madhhab":"Mālikite","discipline":"Fiqh","topics":["witr","voyage"],"expected_terms_ar":["الوتر","السفر"]},
+    {"id":"hadith-intentions","question":"Que signifie le hadith selon lequel les actes valent par les intentions ?","madhhab":"","discipline":"Hadith","topics":["intention","hadith"],"expected_terms_ar":["إنما الأعمال بالنيات","النية"]},
+    {"id":"hadith-sirius","question":"Que disent les sources classiques au sujet de l’étoile Sirius mentionnée dans le Coran ?","madhhab":"","discipline":"Tafsīr","topics":["Sirius","tafsir"],"expected_terms_ar":["الشعرى","النجم"]},
+    {"id":"tafsir-mercy","question":"Comment les exégètes expliquent-ils la miséricorde dans la basmala ?","madhhab":"","discipline":"Tafsīr","topics":["miséricorde","basmala"],"expected_terms_ar":["الرحمن","الرحيم","الرحمة"]},
+    {"id":"tafsir-creation","question":"Comment les exégètes comprennent-ils l’expression selon laquelle l’être humain a été créé dans la meilleure forme ?","madhhab":"","discipline":"Tafsīr","topics":["création","forme"],"expected_terms_ar":["أحسن تقويم","خلق الإنسان"]},
+    {"id":"sira-hijra","question":"Quels événements majeurs entourent la nuit de l’Hégire ?","madhhab":"","discipline":"Sīra","topics":["Hégire","Médine"],"expected_terms_ar":["الهجرة","الغار","المدينة"]},
+    {"id":"sira-hudaybiyya","question":"Pourquoi le traité de Hudaybiyya fut-il considéré comme une ouverture ?","madhhab":"","discipline":"Sīra","topics":["Hudaybiyya","traité"],"expected_terms_ar":["الحديبية","الفتح"]},
+    {"id":"usul-urf","question":"Quelle place l’usage reconnu occupe-t-il dans les fondements du droit ?","madhhab":"Mālikite","discipline":"Uṣūl","topics":["usage","coutume"],"expected_terms_ar":["العرف","العادة"]},
+    {"id":"usul-maslaha","question":"Comment les malikites utilisent-ils la notion d’intérêt général ?","madhhab":"Mālikite","discipline":"Uṣūl","topics":["maslaha","fondements"],"expected_terms_ar":["المصلحة المرسلة","المصالح"]},
+    {"id":"fiqh-comparison-travel","question":"Comment les quatre madhhabs divergent-ils sur la durée maximale du séjour du voyageur ?","madhhab":"Comparatif","discipline":"Fiqh comparé","topics":["voyage","divergence"],"expected_terms_ar":["المسافر","الإقامة","اختلاف"]},
+    {"id":"fiqh-comparison-touch","question":"Les quatre madhhabs considèrent-ils que toucher une femme annule les ablutions ?","madhhab":"Comparatif","discipline":"Fiqh comparé","topics":["ablution","contact"],"expected_terms_ar":["لمس المرأة","الوضوء","اختلاف"]},
+    {"id":"arabic-root-mercy","question":"Quels sens relient les mots issus de la racine ر ح م ?","madhhab":"","discipline":"Langue arabe","topics":["racine","miséricorde"],"expected_terms_ar":["رحم","رحمة","الرحمن"]},
+    {"id":"isnad-malik-nafi","question":"Pourquoi la chaîne Mālik, Nāfiʿ, Ibn ʿUmar est-elle célèbre ?","madhhab":"","discipline":"Sciences du hadith","topics":["isnad","Mālik","Nāfiʿ"],"expected_terms_ar":["مالك عن نافع عن ابن عمر","الإسناد"]}
+  ]
+}
