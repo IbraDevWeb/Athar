@@ -43,9 +43,11 @@ if (/captcha.*bypass|cloudflare.*bypass|selenium|playwright/i.test(pipeline)) {
 
 const server = read('rag/server.py');
 [
-    'AtharRAG/2.2',
+    'AtharRAG/2.3',
     'from ingestion import ingestion_status',
+    'from source_registry import registry_status',
     'if path == "/api/rag/v2/ingestion"',
+    'if path == "/api/rag/v2/sources"',
     '"ingestion": ingestion_status(connection)',
     'average_quality'
 ].forEach(token => need(server, token, 'rag/server.py'));
@@ -73,4 +75,4 @@ const docs = read('RAG_INGESTION.md');
     'ne tente jamais de contourner'
 ].forEach(token => need(docs, token, 'RAG_INGESTION.md'));
 
-console.log('RAG ingestion statically validated: durable state, gap-aware resume, deduplication, API status and respectful crawler policy.');
+console.log('RAG ingestion statically validated: durable Kutub state, multi-source status, gap-aware resume, deduplication and respectful crawler policy.');
