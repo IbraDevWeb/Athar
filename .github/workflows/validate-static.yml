@@ -46,7 +46,7 @@ jobs:
             | xargs -0 -n1 node --check
 
       - name: Check Python syntax
-        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/launcher.py rag/stop_server.py rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py scripts/validate_rag_starter_corpus.py scripts/validate_rag_launcher_runtime.py scripts/validate_rag_cross_port.py scripts/validate_rag_ingestion.py
+        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/launcher.py rag/stop_server.py rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/ingest_source.py rag/source_registry.py rag/citations.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py scripts/validate_rag_starter_corpus.py scripts/validate_rag_launcher_runtime.py scripts/validate_rag_cross_port.py scripts/validate_rag_ingestion.py scripts/validate_rag_multisource.py
 
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
@@ -83,6 +83,9 @@ jobs:
 
       - name: Execute durable ingestion pipeline
         run: python scripts/validate_rag_ingestion.py
+
+      - name: Execute multi-source ingestion pipeline
+        run: python scripts/validate_rag_multisource.py
 
       - name: Validate Ancient Sky interface
         run: node scripts/validate-astronomy.js
