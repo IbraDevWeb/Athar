@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "kutub",
+      "label": "Kutub",
+      "kind": "web_catalog",
+      "enabled": true,
+      "base_url": "https://kutub.io",
+      "rights_status": "public_pages_terms_to_verify",
+      "citation_policy": "exact_page_url",
+      "description": "Pages publiques déjà collectées par le pipeline Kutub respectueux de robots.txt.",
+      "metadata": {
+        "languages": ["ar", "fr"],
+        "adapter": "rag/ingest_kutub.py"
+      }
+    },
+    {
+      "id": "local",
+      "label": "Documents locaux Athar",
+      "kind": "local_files",
+      "enabled": true,
+      "rights_status": "operator_supplied",
+      "citation_policy": "stable_internal_urn",
+      "description": "JSON, JSONL, texte et Markdown fournis ou préparés par l'équipe Athar.",
+      "metadata": {
+        "languages": ["ar", "fr"],
+        "adapter": "rag/ingest_source.py"
+      }
+    },
+    {
+      "id": "shamela",
+      "label": "Al-Maktaba al-Shamela",
+      "kind": "archive",
+      "enabled": false,
+      "base_url": "https://shamela.ws",
+      "rights_status": "adapter_and_rights_review_required",
+      "citation_policy": "edition_and_location_required",
+      "description": "Connecteur préparé mais volontairement désactivé tant que l'accès, les éditions et les droits ne sont pas validés."
+    },
+    {
+      "id": "waqfeya",
+      "label": "Maktaba Waqfeya",
+      "kind": "pdf",
+      "enabled": false,
+      "base_url": "https://waqfeya.net",
+      "rights_status": "adapter_and_rights_review_required",
+      "citation_policy": "original_pdf_url_and_printed_page",
+      "description": "Source PDF préparée pour un futur extracteur avec contrôle des éditions et des pages imprimées."
+    },
+    {
+      "id": "archive_org",
+      "label": "Internet Archive",
+      "kind": "archive",
+      "enabled": false,
+      "base_url": "https://archive.org",
+      "rights_status": "item_level_rights_required",
+      "citation_policy": "item_url_file_and_page",
+      "description": "Connecteur futur : chaque item devra être filtré selon sa licence et son édition."
+    }
+  ]
+}
