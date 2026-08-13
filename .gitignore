@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 rag/data/*.sqlite
 rag/data/*.sqlite-*
+rag/data/*.gz
 rag/data/snapshots/
 rag/runtime.json
 rag/runtime.json.tmp
