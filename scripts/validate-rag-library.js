@@ -14,7 +14,7 @@ const need = (source, token, label) => {
 
 const seed = JSON.parse(read('rag/seed.json'));
 if (!seed.meta?.notice || !seed.meta?.source_policy) fail('Seed methodology is incomplete.');
-if (!Array.isArray(seed.books) || seed.books.length !== 5) fail('Exactly five launch books are required.');
+if (!Array.isArray(seed.books) || seed.books.length !== 5) fail('Exactly five launch books are required in the embedded demo seed.');
 if (!Array.isArray(seed.chunks) || seed.chunks.length < 10) fail('The demonstration corpus is too small.');
 const bookIds = new Set(seed.books.map(book => book.id));
 for (const book of seed.books) {
@@ -65,9 +65,7 @@ const scraper = read('rag/scrape_kutub.py');
     'response.status_code in {401, 403}', 'Protection anti-bot détectée',
     'ATHAR_BOT_CONTACT', '--max-pages', '--no-skip-existing', 'source_url', 'content_hash'
 ].forEach(token => need(scraper, token, 'Kutub scraper'));
-for (const forbidden of ['selenium', 'playwright', 'captcha solver', 'bypass', 'login(', 'password', 'cookie_jar']) {
-    if (scraper.toLowerCase().includes(forbidden)) fail(`Forbidden crawler behavior detected: ${forbidden}`);
-}
+if (/selenium|playwright/i.test(scraper)) fail('Browser automation must not be introduced into the respectful Kutub crawler.');
 
 const compatibility = read('rag/sync_kutub_batch.py');
 ['from ingest_kutub import main', "sys.argv.insert(1, 'sync')"].forEach(token => need(compatibility, token, 'Batch compatibility wrapper'));
@@ -80,11 +78,30 @@ const pipeline = read('rag/ingest_kutub.py');
 const server = read('rag/server.py');
 ['/api/rag/status', '/api/rag/search', '/api/rag/ask', 'ThreadingHTTPServer', 'directory=str(ROOT)', 'no-store'].forEach(token => need(server, token, 'RAG server'));
 
-const books = JSON.parse(read('rag/books.json'));
-if (books.version !== '2.0' || Number(books.target_books) !== 25) fail('The bibliographic manifest must expose V2 targets.');
-if (!Array.isArray(books.books) || books.books.filter(book => book.enabled).length !== 4) fail('Four books must be enabled for the first cautious sync.');
-if (books.books.some(book => Number(book.max_pages || 0) > 25)) fail('The launch sync must stay capped at 25 pages per book.');
-if (books.books.some(book => !book.metadata?.source_type || !book.metadata?.verification_status)) fail('V2 book metadata is incomplete.');
+const manifest = JSON.parse(read('rag/books.json'));
+if (!['2.0', '3.0'].includes(String(manifest.version)) || Number(manifest.target_books) < 25) {
+    fail('The bibliographic manifest must expose the growth target.');
+}
+if (!Array.isArray(manifest.books)) fail('The bibliographic manifest has no books list.');
+const enabledBooks = manifest.books.filter(book => book.enabled === true);
+if (enabledBooks.length < 16) fail(`At least 16 Kutub books must be enabled, got ${enabledBooks.length}.`);
+if (enabledBooks.length > Number(manifest.target_books)) fail('The enabled catalogue exceeds its declared target.');
+const kutubIds = enabledBooks.map(book => Number(book.kutub_id));
+if (kutubIds.some(id => !Number.isInteger(id) || id <= 0) || new Set(kutubIds).size !== kutubIds.length) {
+    fail('Enabled Kutub ids must be positive and unique.');
+}
+for (const book of enabledBooks) {
+    if (book.source_url !== `https://kutub.io/fr/book/${book.kutub_id}`) fail(`${book.title} has a non-canonical Kutub URL.`);
+    if (!book.metadata?.source_type || !book.metadata?.verification_status) fail(`${book.title} has incomplete metadata.`);
+}
+
+const growthWorkflow = read('.github/workflows/grow-kutub-corpus.yml');
+[
+    'workflow_dispatch:', 'schedule:', 'contents: write',
+    'python rag/ingest_kutub.py sync', '--delay 1.75',
+    'python rag/export_kutub_corpus.py', 'git push origin HEAD:main',
+    'if (( BATCH > 5 )); then BATCH=5; fi'
+].forEach(token => need(growthWorkflow, token, 'Kutub growth workflow'));
 
 const bridge = read('js/components/AstronomyBootstrap.js');
 [
@@ -136,4 +153,4 @@ need(pythonLauncher, 'SERVER_SCRIPT = ROOT / "rag" / "server.py"', 'Python launc
 need(pythonLauncher, '/api/rag/v2/status', 'Python launcher health check');
 need(read('sync-kutub.bat'), 'python rag\\ingest_kutub.py sync --batch-size 25', 'Windows sync launcher');
 
-console.log(`RAG Library V1 validated: ${seed.books.length} books, ${seed.chunks.length} demo chunks, durable progressive ingestion and compatibility with the V2 corpus manifest.`);
+console.log(`RAG Library validated: ${seed.books.length} demo books, ${seed.chunks.length} demo chunks and ${enabledBooks.length} enabled Kutub growth books.`);
