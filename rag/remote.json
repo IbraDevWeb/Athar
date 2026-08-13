@@ -2,6 +2,6 @@
   "enabled": true,
   "mode": "hosted",
   "origin": "https://athar-rag-ibradevweb.onrender.com",
-  "health_path": "/api/rag/v2/status",
-  "notes": "Cette URL correspond au service Render défini dans render.yaml. Si Render attribue un autre sous-domaine, remplacez uniquement origin."
+  "health_path": "/healthz",
+  "notes": "Le frontend utilise /healthz pour détecter rapidement Render avant d'interroger les routes RAG V2."
 }
