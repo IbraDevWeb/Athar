@@ -182,6 +182,102 @@
       "source_url": "https://kutub.io/fr/book/8183",
       "enabled": true,
       "metadata": {"source_type": "classical_reference", "authority_role": "Référence ḥanafite pour comparaison", "corpus_priority": 3, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 6910,
+      "title": "Al-Mughnī",
+      "title_ar": "المغني",
+      "author": "Ibn Qudāmah",
+      "discipline": "Fiqh comparé",
+      "madhhab": "Ḥanbalite · Comparatif",
+      "pages": 7955,
+      "source_url": "https://kutub.io/fr/book/6910",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Encyclopédie ḥanbalite de fiqh comparé", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 1673,
+      "title": "Fatḥ al-Bārī",
+      "title_ar": "فتح الباري بشرح البخاري",
+      "author": "Ibn Ḥajar al-ʿAsqalānī",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Shāfiʿite · Comparatif",
+      "pages": 7996,
+      "source_url": "https://kutub.io/fr/book/1673",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Commentaire majeur de Ṣaḥīḥ al-Bukhārī", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 30097,
+      "title": "Al-Bidāyah wa-l-Nihāyah",
+      "title_ar": "البداية والنهاية",
+      "author": "Ibn Kathīr",
+      "discipline": "Histoire et sīra",
+      "madhhab": "Shāfiʿite · Historique",
+      "pages": 8257,
+      "source_url": "https://kutub.io/fr/book/30097",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Chronique historique et sīra", "corpus_priority": 3, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 201,
+      "title": "Tahdhīb al-Sunan",
+      "title_ar": "تهذيب سنن أبي داود",
+      "author": "Ibn al-Qayyim",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Ḥanbalite · Comparatif",
+      "pages": 1727,
+      "source_url": "https://kutub.io/fr/book/201",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Analyse de Sunan Abī Dāwūd", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 151100,
+      "title": "Al-Ijmāʿ",
+      "title_ar": "الإجماع",
+      "author": "Ibn al-Mundhir",
+      "discipline": "Fiqh et ijmāʿ",
+      "madhhab": "Comparatif",
+      "pages": 136,
+      "source_url": "https://kutub.io/fr/book/151100",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Recueil des questions de consensus rapporté", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 7289,
+      "title": "Majmūʿ al-Fatāwā",
+      "title_ar": "مجموع الفتاوى",
+      "author": "Ibn Taymiyyah",
+      "discipline": "Fiqh, uṣūl et croyance",
+      "madhhab": "Ḥanbalite",
+      "pages": 16874,
+      "source_url": "https://kutub.io/fr/book/7289",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Recueil encyclopédique de fatwas", "corpus_priority": 3, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 11620,
+      "title": "Iqtiḍāʾ al-Ṣirāṭ al-Mustaqīm",
+      "title_ar": "اقتضاء الصراط المستقيم لمخالفة أصحاب الجحيم",
+      "author": "Ibn Taymiyyah",
+      "discipline": "Fiqh, uṣūl et croyance",
+      "madhhab": "Ḥanbalite",
+      "pages": 951,
+      "source_url": "https://kutub.io/fr/book/11620",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Traité juridico-doctrinal", "corpus_priority": 3, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 205,
+      "title": "Shifāʾ al-ʿAlīl",
+      "title_ar": "شفاء العليل في مسائل القضاء والقدر والحكمة والتعليل",
+      "author": "Ibn al-Qayyim",
+      "discipline": "Croyance et qadar",
+      "madhhab": "Ḥanbalite",
+      "pages": 1033,
+      "source_url": "https://kutub.io/fr/book/205",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Traité sur le décret divin et la causalité", "corpus_priority": 3, "verification_status": "source_checked"}
     }
   ]
 }

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: Pages à tenter par ouvrage pour cette exécution
+        description: Pages à tenter par ouvrage si Kutub autorise le crawl
         required: false
         default: '2'
   schedule:
@@ -47,7 +47,38 @@ jobs:
       - name: Hydrate versioned corpus
         run: python rag/prepare_hosted_db.py --db /tmp/athar-kutub-grow.sqlite
 
+      - name: Check Kutub automated-access policy
+        id: policy
+        shell: bash
+        env:
+          ATHAR_BOT_CONTACT: https://github.com/IbraDevWeb/Athar
+        run: |
+          set +e
+          python - <<'PY'
+          import os
+          import sys
+          sys.path.insert(0, 'rag')
+          from scrape_kutub import robots_policy
+
+          contact = os.environ.get('ATHAR_BOT_CONTACT', 'operator-contact-not-configured')
+          user_agent = f"AtharResearchBot/3.0 (+{contact}; public pages; respectful rate limit)"
+          try:
+              robots_policy(user_agent)
+          except Exception as error:
+              print(f"Kutub automated access unavailable: {error}")
+              raise SystemExit(2)
+          print("Kutub robots.txt autorise actuellement AtharResearchBot sur les pages de livres.")
+          PY
+          RESULT=$?
+          if [[ "$RESULT" -eq 0 ]]; then
+            echo "allowed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
       - name: Select respectful batch size
+        if: steps.policy.outputs.allowed == 'true'
         id: batch
         shell: bash
         run: |
@@ -64,8 +95,7 @@ jobs:
           echo "value=$BATCH" >> "$GITHUB_OUTPUT"
 
       - name: Crawl next public Kutub pages
-        id: crawl
-        continue-on-error: true
+        if: steps.policy.outputs.allowed == 'true'
         env:
           ATHAR_BOT_CONTACT: https://github.com/IbraDevWeb/Athar
         run: >-
@@ -75,6 +105,12 @@ jobs:
           --delay 1.75
           --json
 
+      - name: Explain Kutub robots policy
+        if: steps.policy.outputs.allowed != 'true'
+        run: |
+          echo "Kutub robots.txt interdit actuellement l'exploration automatisée des pages de livres."
+          echo "Athar ne tente aucun contournement. Le workflow reverifiera cette autorisation lors de la prochaine exécution."
+
       - name: Export durable Kutub snapshot
         run: >-
           python rag/export_kutub_corpus.py
@@ -82,11 +118,11 @@ jobs:
           --output rag/kutub_corpus.json
           --max-mib 20
 
-      - name: Commit corpus growth
+      - name: Commit catalogue or corpus growth
         shell: bash
         run: |
-          if git diff --quiet -- rag/kutub_corpus.json; then
-            echo "Aucun nouveau passage à versionner."
+          if [[ -z "$(git status --porcelain -- rag/kutub_corpus.json)" ]]; then
+            echo "Aucun changement Kutub à versionner."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -94,9 +130,3 @@ jobs:
           git add rag/kutub_corpus.json
           git commit -m "Enrichir progressivement le corpus Kutub"
           git push origin HEAD:main
-
-      - name: Report crawler refusal
-        if: steps.crawl.outcome == 'failure'
-        run: |
-          echo "Le collecteur a rencontré un refus ou une erreur. Le snapshot des pages déjà acquises a tout de même été sauvegardé si nécessaire."
-          exit 1
