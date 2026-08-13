@@ -2,9 +2,9 @@
   "meta": {
     "name": "Athar Kutub Corpus",
     "version": 1,
-    "generated_at": "2026-08-13T12:01:53+00:00",
+    "generated_at": "2026-08-13T12:06:17+00:00",
     "mode": "versioned_public_kutub_snapshot",
-    "books": 24,
+    "books": 25,
     "chunks": 0,
     "notice": "Pages publiques Kutub importées progressivement. Les traductions automatiques restent explicitement non relues."
   },
@@ -356,6 +356,27 @@
       "metadata": {
         "source_type": "classical_reference",
         "authority_role": "Commentaire tardif du Mukhtaṣar Khalīl",
+        "corpus_priority": 2,
+        "verification_status": "source_checked",
+        "catalogue": "rag/books.json",
+        "catalogue_enabled": true
+      }
+    },
+    {
+      "id": "kutub-17798",
+      "kutub_id": 17798,
+      "title": "Iʿlām al-Muwaqqiʿīn",
+      "title_ar": "إعلام الموقعين عن رب العالمين",
+      "author": "Ibn al-Qayyim",
+      "discipline": "Uṣūl al-fiqh et méthodologie juridique",
+      "madhhab": "Ḥanbalite · Comparatif",
+      "pages": 3107,
+      "description": "",
+      "source_url": "https://kutub.io/fr/book/17798",
+      "scraped_at": "2026-08-13T12:06:16+00:00",
+      "metadata": {
+        "source_type": "classical_reference",
+        "authority_role": "Uṣūl et ijtihād",
         "corpus_priority": 2,
         "verification_status": "source_checked",
         "catalogue": "rag/books.json",
