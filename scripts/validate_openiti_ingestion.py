@@ -11,7 +11,7 @@ if str(RAG) not in sys.path:
     sys.path.insert(0, str(RAG))
 
 from core import ensure_database  # noqa: E402
-from openiti import ingest_book, parse  # noqa: E402
+from openiti import ingest_book, load_manifest, parse  # noqa: E402
 
 SAMPLE = """######OpenITI#
 #META# 020.BookTITLE :: مثال
@@ -71,12 +71,25 @@ def main() -> int:
             assert metadata["license"] == "CC BY-NC-SA 4.0"
             assert metadata["openiti_uri"] == "0001Test.Book.Test-ara1"
 
-    configured = json.loads((RAG / "openiti_books.json").read_text(encoding="utf-8"))
-    enabled = [book for book in configured["books"] if book.get("enabled", True)]
-    assert len(enabled) >= 6
-    assert all("PRIMARY_VERSION" in book.get("quality_status", "") for book in enabled)
-    assert len({book["openiti_uri"] for book in enabled}) == len(enabled)
-    print(f"OpenITI ingestion validated: {len(enabled)} configured primary texts, page-aware parsing and SQLite provenance.")
+    configured = load_manifest()
+    enabled = [item for item in configured["books"] if item.get("enabled", True)]
+    assert len(enabled) >= 30, len(enabled)
+    assert all("PRIMARY_VERSION" in item.get("quality_status", "") for item in enabled)
+    assert all("CLEANED_VERSION" in item.get("quality_status", "") for item in enabled)
+    assert len({item["book_id"] for item in enabled}) == len(enabled)
+    assert len({item["openiti_uri"] for item in enabled}) == len(enabled)
+    required = {
+        "openiti-istidhkar",
+        "openiti-muqaddimat",
+        "openiti-muwafaqat",
+        "openiti-ictisam",
+        "openiti-jamic-bayan-cilm",
+        "openiti-sahih-bukhari",
+        "openiti-sahih-muslim",
+    }
+    assert required.issubset({item["book_id"] for item in enabled})
+    assert configured["license"] == "CC BY-NC-SA 4.0"
+    print(f"OpenITI ingestion validated: {len(enabled)} primary/cleaned texts, page-aware parsing and SQLite provenance.")
     return 0
 
 
