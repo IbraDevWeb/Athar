@@ -86,6 +86,7 @@ def main() -> int:
     allowed_urls = {
         "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-latest/athar_hosted.sqlite",
         "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite",
+        "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite.gz",
     }
     if release_url not in allowed_urls:
         fail("Le manifeste corpus ne cible pas une Release GitHub Athar prévue")
@@ -136,7 +137,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: corpus manifest commits redeploy Render, prebuilt v2 corpus stays isolated, and API-only mode remains operational.")
+    print("Hosted RAG validated: corpus manifest commits redeploy Render, compressed v2 corpus is accepted, and API-only mode is operational.")
     return 0
 
 
