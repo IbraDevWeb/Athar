@@ -40,12 +40,13 @@ def request_json(url: str, *, origin: str = "") -> tuple[int, dict[str, object],
 
 def main() -> int:
     render = (ROOT / "render.yaml").read_text(encoding="utf-8")
+    openiti_command = "python rag/ingest_openiti.py --best-effort --max-books 10"
     for token in [
         "name: athar-rag-ibradevweb",
         "runtime: python",
         "plan: free",
         "python rag/prepare_hosted_db.py",
-        "python rag/ingest_openiti.py --best-effort --max-books 6",
+        openiti_command,
         "python rag/server.py --host 0.0.0.0 --api-only",
         "healthCheckPath: /healthz",
         "ATHAR_CORS_ORIGINS",
@@ -53,7 +54,7 @@ def main() -> int:
         if token not in render:
             fail(f"render.yaml incomplet : {token}")
     prepare_position = render.index("python rag/prepare_hosted_db.py")
-    openiti_position = render.index("python rag/ingest_openiti.py --best-effort --max-books 6")
+    openiti_position = render.index(openiti_command)
     server_position = render.index("python rag/server.py --host 0.0.0.0 --api-only")
     if not prepare_position < openiti_position < server_position:
         fail("Render doit préparer la base, charger OpenITI puis démarrer l'API")
@@ -76,27 +77,19 @@ def main() -> int:
         try:
             origin = "https://ibradevweb.github.io"
             base = f"http://127.0.0.1:{server.server_port}"
-
             status, health, headers = request_json(f"{base}/healthz", origin=origin)
             if status != 200 or health.get("ok") is not True or health.get("server") != SERVER_MARKER:
                 fail(f"healthz invalide : {status} {health}")
             if headers.get("access-control-allow-origin") != origin:
                 fail("CORS GitHub Pages absent sur /healthz")
-
             status, payload, headers = request_json(f"{base}/api/rag/v2/status", origin=origin)
-            if status != 200 or payload.get("ok") is not True:
+            if status != 200 or payload.get("ok") is not True or payload.get("deployment") != "hosted":
                 fail(f"status V2 invalide : {status} {payload}")
-            if payload.get("deployment") != "hosted":
-                fail("le serveur n'annonce pas le mode hosted")
             if headers.get("access-control-allow-origin") != origin:
                 fail("CORS GitHub Pages absent sur l'API")
-
             status, _, headers = request_json(f"{base}/api/rag/v2/status", origin="https://example.com")
-            if status != 200:
-                fail("une origine refusée ne doit pas casser la réponse API")
-            if "access-control-allow-origin" in headers:
-                fail("une origine non autorisée reçoit un en-tête CORS")
-
+            if status != 200 or "access-control-allow-origin" in headers:
+                fail("gestion CORS d'une origine non autorisée invalide")
             status, payload, _ = request_json(f"{base}/README.md", origin=origin)
             if status != 404 or payload.get("ok") is not False:
                 fail("le mode API-only expose encore les fichiers du dépôt")
@@ -105,7 +98,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: bundled corpus, OpenITI import, GitHub Pages CORS and API-only mode are operational.")
+    print("Hosted RAG validated: ten-book OpenITI startup, GitHub Pages CORS and API-only mode are operational.")
     return 0
 
 
