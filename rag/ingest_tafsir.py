@@ -15,6 +15,17 @@ TAFSIR_MANIFEST = ROOT / "rag" / "openiti_books_tafsir.json"
 TRUTHY = {"1", "true", "yes", "on"}
 
 
+def compact_search_index(connection: sqlite3.Connection) -> None:
+    """Keep the FTS token index but stop storing a second full copy of passage text."""
+    try:
+        connection.execute("UPDATE chunks_fts SET text_ar='', text_fr='' WHERE text_ar<>'' OR text_fr<>''")
+        connection.execute("INSERT INTO chunks_fts(chunks_fts) VALUES('optimize')")
+        connection.commit()
+    except sqlite3.OperationalError:
+        # Some local SQLite builds can be compiled without FTS5.
+        pass
+
+
 def sync(db_path: Path, min_books: int | None = None) -> dict[str, object]:
     source = load_manifest()
     extra = json.loads(TAFSIR_MANIFEST.read_text(encoding="utf-8"))
@@ -41,6 +52,7 @@ def sync(db_path: Path, min_books: int | None = None) -> dict[str, object]:
 
     final = sqlite3.connect(db_path)
     try:
+        compact_search_index(final)
         final.execute("PRAGMA wal_checkpoint(TRUNCATE)")
         final.execute("PRAGMA journal_mode=DELETE")
         final.execute("VACUUM")
