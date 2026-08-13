@@ -46,7 +46,7 @@ jobs:
             | xargs -0 -n1 node --check
 
       - name: Check Python syntax
-        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/launcher.py rag/stop_server.py rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/sync_kutub_batch.py scripts/validate_rag_runtime.py scripts/validate_rag_starter_corpus.py scripts/validate_rag_launcher_runtime.py scripts/validate_rag_cross_port.py scripts/validate_rag_ingestion.py scripts/validate_rag_hosted.py
+        run: python -m py_compile rag/core.py rag/v2.py rag/server.py rag/launcher.py rag/stop_server.py rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/sync_kutub_batch.py rag/prepare_hosted_db.py rag/export_kutub_corpus.py scripts/validate_rag_runtime.py scripts/validate_rag_starter_corpus.py scripts/validate_rag_launcher_runtime.py scripts/validate_rag_cross_port.py scripts/validate_rag_ingestion.py scripts/validate_rag_hosted.py
 
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
@@ -89,6 +89,31 @@ jobs:
 
       - name: Execute hosted RAG API
         run: python scripts/validate_rag_hosted.py
+
+      - name: Validate Kutub corpus growth
+        shell: bash
+        run: |
+          python rag/prepare_hosted_db.py --db /tmp/athar-growth-test.sqlite
+          python rag/export_kutub_corpus.py --db /tmp/athar-growth-test.sqlite --output /tmp/athar-growth-corpus.json --max-mib 2
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          books = json.loads(Path('rag/books.json').read_text(encoding='utf-8'))['books']
+          assert len(books) >= 16
+          assert len({int(book['kutub_id']) for book in books}) == len(books)
+          required = {587, 236, 569, 2215, 6684, 11355, 14297, 21611, 28107}
+          assert required.issubset({int(book['kutub_id']) for book in books})
+          snapshot = json.loads(Path('/tmp/athar-growth-corpus.json').read_text(encoding='utf-8'))
+          assert len(snapshot['books']) >= 16
+          assert isinstance(snapshot['chunks'], list)
+          render = Path('render.yaml').read_text(encoding='utf-8')
+          assert 'python rag/prepare_hosted_db.py' in render
+          workflow = Path('.github/workflows/grow-kutub-corpus.yml').read_text(encoding='utf-8')
+          assert 'python rag/ingest_kutub.py sync' in workflow
+          assert '--delay 1.75' in workflow
+          assert 'git push origin HEAD:main' in workflow
+          print(f"Kutub growth validated: {len(books)} configured books.")
+          PY
 
       - name: Validate Ancient Sky interface
         run: node scripts/validate-astronomy.js

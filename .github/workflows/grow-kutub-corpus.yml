@@ -1,0 +1,102 @@
+name: Grow Kutub corpus
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: Pages à tenter par ouvrage pour cette exécution
+        required: false
+        default: '2'
+  schedule:
+    - cron: '17 3 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'rag/books.json'
+      - 'rag/prepare_hosted_db.py'
+      - 'rag/export_kutub_corpus.py'
+      - '.github/workflows/grow-kutub-corpus.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: grow-kutub-corpus
+  cancel-in-progress: false
+
+jobs:
+  grow:
+    if: github.repository == 'IbraDevWeb/Athar'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install crawler dependencies
+        run: python -m pip install -r rag/requirements.txt
+
+      - name: Hydrate versioned corpus
+        run: python rag/prepare_hosted_db.py --db /tmp/athar-kutub-grow.sqlite
+
+      - name: Select respectful batch size
+        id: batch
+        shell: bash
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+            BATCH=1
+          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            BATCH="${{ inputs.batch_size }}"
+          else
+            BATCH=2
+          fi
+          if ! [[ "$BATCH" =~ ^[0-9]+$ ]]; then BATCH=2; fi
+          if (( BATCH < 1 )); then BATCH=1; fi
+          if (( BATCH > 5 )); then BATCH=5; fi
+          echo "value=$BATCH" >> "$GITHUB_OUTPUT"
+
+      - name: Crawl next public Kutub pages
+        id: crawl
+        continue-on-error: true
+        env:
+          ATHAR_BOT_CONTACT: https://github.com/IbraDevWeb/Athar
+        run: >-
+          python rag/ingest_kutub.py sync
+          --db /tmp/athar-kutub-grow.sqlite
+          --batch-size ${{ steps.batch.outputs.value }}
+          --delay 1.75
+          --json
+
+      - name: Export durable Kutub snapshot
+        run: >-
+          python rag/export_kutub_corpus.py
+          --db /tmp/athar-kutub-grow.sqlite
+          --output rag/kutub_corpus.json
+          --max-mib 20
+
+      - name: Commit corpus growth
+        shell: bash
+        run: |
+          if git diff --quiet -- rag/kutub_corpus.json; then
+            echo "Aucun nouveau passage à versionner."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rag/kutub_corpus.json
+          git commit -m "Enrichir progressivement le corpus Kutub"
+          git push origin HEAD:main
+
+      - name: Report crawler refusal
+        if: steps.crawl.outcome == 'failure'
+        run: |
+          echo "Le collecteur a rencontré un refus ou une erreur. Le snapshot des pages déjà acquises a tout de même été sauvegardé si nécessaire."
+          exit 1
