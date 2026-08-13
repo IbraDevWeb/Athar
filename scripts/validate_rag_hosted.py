@@ -40,7 +40,7 @@ def request_json(url: str, *, origin: str = "") -> tuple[int, dict[str, object],
 
 def main() -> int:
     render = (ROOT / "render.yaml").read_text(encoding="utf-8")
-    openiti_command = "python rag/ingest_openiti.py --best-effort --max-books 10"
+    openiti_command = "python rag/ingest_openiti.py --best-effort --max-books 22"
     for token in [
         "name: athar-rag-ibradevweb",
         "runtime: python",
@@ -98,7 +98,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: ten-book OpenITI startup, GitHub Pages CORS and API-only mode are operational.")
+    print("Hosted RAG validated: twenty-two-book OpenITI startup, GitHub Pages CORS and API-only mode are operational.")
     return 0
 
 
