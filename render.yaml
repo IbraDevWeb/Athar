@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: athar-rag-ibradevweb
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: python -m pip install -r rag/requirements.txt
+    startCommand: python rag/server.py --host 0.0.0.0 --api-only
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.13
+      - key: ATHAR_API_ONLY
+        value: "1"
+      - key: ATHAR_CORS_ORIGINS
+        value: https://ibradevweb.github.io
+      - key: ATHAR_DB_PATH
+        value: /tmp/athar_rag.sqlite
