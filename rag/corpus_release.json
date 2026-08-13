@@ -1,12 +1,12 @@
 {
   "version": 2,
   "tag": "rag-corpus-v2",
-  "asset": "athar_hosted.sqlite.gz",
+  "asset": "athar_hosted.sqlite",
   "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite",
-  "compression": "gzip",
+  "compression": "none",
   "sha256": "27cc17929b7203c3d11623857f5e6fc90bbc9262c790936a8c40b803926f9ef7",
   "size_bytes": 1889308672,
-  "min_openiti_books": 45,
+  "min_openiti_books": 55,
   "source_sha": "3ea9f171782b2246457410a780991743fcd30dd2",
   "built_at": "2026-08-13T22:30:37+00:00"
 }
