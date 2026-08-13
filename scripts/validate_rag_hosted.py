@@ -44,12 +44,17 @@ def main() -> int:
         "name: athar-rag-ibradevweb",
         "runtime: python",
         "plan: free",
-        "startCommand: python rag/server.py --host 0.0.0.0 --api-only",
+        "python rag/prepare_hosted_db.py",
+        "python rag/server.py --host 0.0.0.0 --api-only",
         "healthCheckPath: /healthz",
         "ATHAR_CORS_ORIGINS",
     ]:
         if token not in render:
             fail(f"render.yaml incomplet : {token}")
+    prepare_position = render.index("python rag/prepare_hosted_db.py")
+    server_position = render.index("python rag/server.py --host 0.0.0.0 --api-only")
+    if prepare_position > server_position:
+        fail("Render doit préparer la base avant de démarrer l'API")
 
     remote = json.loads((RAG / "remote.json").read_text(encoding="utf-8"))
     if remote.get("origin") != "https://athar-rag-ibradevweb.onrender.com":
@@ -98,7 +103,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: API-only server, GitHub Pages CORS, health check and starter corpus bootstrap are operational.")
+    print("Hosted RAG validated: corpus preparation precedes API startup, GitHub Pages CORS and API-only mode are operational.")
     return 0
 
 
