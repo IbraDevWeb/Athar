@@ -64,15 +64,23 @@ def main() -> int:
         "python rag/build_hosted_corpus.py",
         "python rag/ingest_tafsir.py",
         "softprops/action-gh-release@v2",
-        "rag-corpus-latest",
+        "tag_name: rag-corpus-v2",
+        "group: athar-hosted-rag-corpus-v2",
+        "cancel-in-progress: true",
         "athar_hosted.sqlite",
+        "Refresh hosted RAG corpus v2",
     ]:
         if token not in workflow:
             fail(f"workflow corpus incomplet : {token}")
 
     release = load_manifest()
-    if release.get("url") != "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-latest/athar_hosted.sqlite":
-        fail("Le manifeste corpus ne cible pas la Release GitHub prévue")
+    release_url = str(release.get("url") or "")
+    allowed_urls = {
+        "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-latest/athar_hosted.sqlite",
+        "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite",
+    }
+    if release_url not in allowed_urls:
+        fail("Le manifeste corpus ne cible pas une Release GitHub Athar prévue")
 
     remote = json.loads((RAG / "remote.json").read_text(encoding="utf-8"))
     if remote.get("origin") != "https://athar-rag-ibradevweb.onrender.com":
@@ -120,7 +128,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: prebuilt release corpus, fast Render startup, starter fallback and API-only mode are operational.")
+    print("Hosted RAG validated: isolated prebuilt v2 corpus, fast Render startup, starter fallback and API-only mode are operational.")
     return 0
 
 
