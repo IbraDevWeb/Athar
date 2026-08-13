@@ -13,8 +13,9 @@ services:
     buildFilter:
       paths:
         - rag/**
+        - render.yaml
       ignoredPaths: []
-    buildCommand: python -m pip install -r rag/requirements.txt
+    buildCommand: python -m pip install -r rag/requirements.txt && python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz
     startCommand: python rag/strict_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
@@ -27,4 +28,10 @@ services:
       - key: ATHAR_DB_PATH
         value: /tmp/athar_rag.sqlite
       - key: ATHAR_PREBUILT_CORPUS
+        value: "1"
+      - key: ATHAR_REQUIRE_FULL_CORPUS
+        value: "1"
+      - key: ATHAR_CORPUS_ARCHIVE
+        value: rag/data/athar_hosted.sqlite.gz
+      - key: ATHAR_DELETE_CORPUS_ARCHIVE_AFTER_INSTALL
         value: "1"

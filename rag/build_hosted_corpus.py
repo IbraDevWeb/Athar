@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 from pathlib import Path
 
 from ingest_openiti import sync
 from prepare_hosted_db import prepare_database
+
+TRUTHY = {"1", "true", "yes", "on"}
 
 
 def reset_database(path: Path) -> None:
@@ -31,31 +34,46 @@ def finalize_database(path: Path) -> dict[str, int]:
         connection.close()
 
 
-def build(db_path: Path, max_books: int, min_books: int | None = None) -> dict[str, object]:
-    minimum = max_books if min_books is None else max(1, min(int(min_books), max_books))
+def build(db_path: Path, max_books: int | None = None, min_books: int | None = None) -> dict[str, object]:
     reset_database(db_path)
     prepared = prepare_database(db_path)
     imported = sync(db_path, max_books=max_books, best_effort=True)
     finalized = finalize_database(db_path)
-    if imported["requested_books"] != max_books:
-        raise RuntimeError(f"OpenITI manifest incomplete: {imported['requested_books']}/{max_books}")
-    if int(imported["imported_books"]) < minimum:
-        raise RuntimeError(f"OpenITI import below minimum: {imported['imported_books']}/{max_books}, minimum {minimum}; errors={imported.get('errors', [])}")
-    if finalized["openiti_books"] < minimum:
+    requested = int(imported["requested_books"])
+    imported_count = int(imported["imported_books"])
+    if requested <= 0:
+        raise RuntimeError("OpenITI manifest contains no enabled books.")
+    if max_books is not None and requested < max_books:
+        raise RuntimeError(f"OpenITI manifest incomplete: {requested}/{max_books} requested book(s).")
+    minimum = requested if min_books is None else max(1, min(int(min_books), requested))
+    if imported_count < minimum:
+        raise RuntimeError(f"OpenITI import below minimum: {imported_count}/{requested}, minimum {minimum}; errors={imported.get('errors', [])}")
+    if min_books is None and imported_count != requested:
+        raise RuntimeError(f"OpenITI full-corpus build is incomplete: {imported_count}/{requested}; errors={imported.get('errors', [])}")
+    if int(finalized["openiti_books"]) < minimum:
         raise RuntimeError(f"SQLite OpenITI corpus below minimum: {finalized['openiti_books']}, minimum {minimum}")
-    if finalized["openiti_chunks"] <= max(1, finalized["openiti_books"]):
+    if min_books is None and int(finalized["openiti_books"]) != requested:
+        raise RuntimeError(f"SQLite OpenITI corpus does not contain every enabled book: {finalized['openiti_books']}/{requested}")
+    if int(finalized["openiti_chunks"]) <= max(1, int(finalized["openiti_books"])):
         raise RuntimeError("OpenITI corpus has too few chunks")
-    status = {"requested_openiti_books": max_books, "minimum_openiti_books": minimum, "prepared": prepared, "imported": imported, "finalized": finalized, "database_bytes": db_path.stat().st_size}
+    status = {"requested_openiti_books": requested, "minimum_openiti_books": minimum, "full_corpus_required": min_books is None, "prepared": prepared, "imported": imported, "finalized": finalized, "database_bytes": db_path.stat().st_size}
     db_path.with_suffix(".stats.json").write_text(json.dumps(status, ensure_ascii=False, indent=2), encoding="utf-8")
     return status
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the validated Athar corpus for Render")
+    parser = argparse.ArgumentParser(description="Build the validated Athar corpus for the hosted RAG.")
     parser.add_argument("--db", type=Path, default=Path("rag/data/athar_hosted.sqlite"))
-    parser.add_argument("--max-books", type=int, default=30)
-    parser.add_argument("--min-books", type=int, default=None)
+    parser.add_argument("--max-books", type=int, default=None, help="Optional local development limit.")
+    parser.add_argument("--min-books", type=int, default=None, help="Optional local partial-build threshold.")
     args = parser.parse_args()
+
+    ci_requires_all = str(os.getenv("GITHUB_ACTIONS") or "").strip().lower() in TRUTHY
+    if ci_requires_all:
+        args.max_books = None
+        args.min_books = None
+        print("[Corpus] GitHub Actions detected: every enabled OpenITI book is mandatory.", flush=True)
+
     print(json.dumps(build(args.db, args.max_books, args.min_books), ensure_ascii=False))
     return 0
 
