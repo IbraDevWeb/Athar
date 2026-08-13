@@ -1,11 +1,12 @@
 {
-  "version": 1,
-  "tag": "rag-corpus-latest",
-  "asset": "athar_hosted.sqlite",
-  "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-latest/athar_hosted.sqlite",
-  "sha256": "",
-  "size_bytes": 0,
+  "version": 2,
+  "tag": "rag-corpus-v2",
+  "asset": "athar_hosted.sqlite.gz",
+  "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite.gz",
+  "compression": "gzip",
+  "sha256": "1df7864791a8200ec3a0c873cca72a6c3e704e72a692ac18f0df35ab669f0c20",
+  "size_bytes": 520239269,
   "min_openiti_books": 45,
-  "source_sha": "",
-  "built_at": ""
+  "source_sha": "18d4f29a60d0e2b625cdecafb91c5ba16ef7484d",
+  "built_at": "2026-08-13T19:29:23Z"
 }
