@@ -5,7 +5,7 @@ services:
     plan: free
     region: frankfurt
     buildCommand: python -m pip install -r rag/requirements.txt
-    startCommand: python rag/prepare_hosted_db.py && python rag/server.py --host 0.0.0.0 --api-only
+    startCommand: python rag/prepare_hosted_db.py && python rag/ingest_openiti.py --best-effort --max-books 6 && python rag/server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
