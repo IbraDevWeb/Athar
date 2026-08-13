@@ -15,6 +15,7 @@ if str(RAG) not in sys.path:
     sys.path.insert(0, str(RAG))
 
 from core import ensure_database  # noqa: E402
+from fetch_hosted_corpus import build_fallback, load_manifest  # noqa: E402
 from server import AtharRagHandler, SERVER_MARKER, bootstrap_corpus  # noqa: E402
 
 
@@ -40,30 +41,51 @@ def request_json(url: str, *, origin: str = "") -> tuple[int, dict[str, object],
 
 def main() -> int:
     render = (ROOT / "render.yaml").read_text(encoding="utf-8")
-    openiti_command = "python rag/ingest_openiti.py --best-effort --max-books 22"
     for token in [
         "name: athar-rag-ibradevweb",
         "runtime: python",
         "plan: free",
-        "python rag/prepare_hosted_db.py",
-        openiti_command,
-        "python rag/server.py --host 0.0.0.0 --api-only",
+        "buildCommand: python -m pip install -r rag/requirements.txt",
+        "startCommand: python rag/strict_server.py --host 0.0.0.0 --api-only",
         "healthCheckPath: /healthz",
         "ATHAR_CORS_ORIGINS",
+        "ATHAR_DB_PATH",
+        "ATHAR_PREBUILT_CORPUS",
     ]:
         if token not in render:
             fail(f"render.yaml incomplet : {token}")
-    prepare_position = render.index("python rag/prepare_hosted_db.py")
-    openiti_position = render.index(openiti_command)
-    server_position = render.index("python rag/server.py --host 0.0.0.0 --api-only")
-    if not prepare_position < openiti_position < server_position:
-        fail("Render doit préparer la base, charger OpenITI puis démarrer l'API")
+
+    build_line = next((line.strip() for line in render.splitlines() if line.strip().startswith("buildCommand:")), "")
+    if "build_hosted_corpus.py" in build_line or "ingest_tafsir.py" in build_line:
+        fail("Render ne doit plus construire le corpus pendant le déploiement")
+
+    workflow = (ROOT / ".github" / "workflows" / "build-rag-corpus.yml").read_text(encoding="utf-8")
+    for token in [
+        "python rag/build_hosted_corpus.py",
+        "python rag/ingest_tafsir.py",
+        "softprops/action-gh-release@v2",
+        "rag-corpus-latest",
+        "athar_hosted.sqlite",
+    ]:
+        if token not in workflow:
+            fail(f"workflow corpus incomplet : {token}")
+
+    release = load_manifest()
+    if release.get("url") != "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-latest/athar_hosted.sqlite":
+        fail("Le manifeste corpus ne cible pas la Release GitHub prévue")
 
     remote = json.loads((RAG / "remote.json").read_text(encoding="utf-8"))
     if remote.get("origin") != "https://athar-rag-ibradevweb.onrender.com":
         fail("rag/remote.json ne cible pas le service Render prévu")
 
     with tempfile.TemporaryDirectory() as directory:
+        fallback_path = Path(directory) / "fallback.sqlite"
+        fallback = build_fallback(fallback_path)
+        if fallback.get("mode") != "starter_fallback":
+            fail(f"fallback corpus invalide : {fallback}")
+        if int(fallback["validated"]["chunks"]) <= 0:
+            fail("Le corpus de secours doit rester exploitable")
+
         db_path = Path(directory) / "hosted.sqlite"
         with ensure_database(db_path) as connection:
             bootstrap_corpus(connection)
@@ -98,7 +120,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: twenty-two-book OpenITI startup, GitHub Pages CORS and API-only mode are operational.")
+    print("Hosted RAG validated: prebuilt release corpus, fast Render startup, starter fallback and API-only mode are operational.")
     return 0
 
 

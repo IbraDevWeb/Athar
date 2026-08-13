@@ -10,8 +10,8 @@ services:
     plan: free
     region: frankfurt
     autoDeployTrigger: checksPass
-    buildCommand: python -m pip install -r rag/requirements.txt && python rag/build_hosted_corpus.py --db rag/data/athar_hosted.sqlite --max-books 50 --min-books 45 && python rag/ingest_tafsir.py --db rag/data/athar_hosted.sqlite --min-books 4
-    startCommand: cp rag/data/athar_hosted.sqlite /tmp/athar_rag.sqlite && python rag/strict_server.py --host 0.0.0.0 --api-only
+    buildCommand: python -m pip install -r rag/requirements.txt
+    startCommand: python rag/strict_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
@@ -22,3 +22,5 @@ services:
         value: https://ibradevweb.github.io
       - key: ATHAR_DB_PATH
         value: /tmp/athar_rag.sqlite
+      - key: ATHAR_PREBUILT_CORPUS
+        value: "1"
