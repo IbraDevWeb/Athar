@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from typing import Any
 
@@ -9,6 +10,11 @@ from core import utc_now
 PAGE_STATES = {"pending", "imported", "empty", "duplicate", "error", "blocked", "skipped"}
 RUN_STATES = {"running", "completed", "partial", "failed", "blocked"}
 FINAL_PAGE_STATES = {"imported", "duplicate", "skipped"}
+TRUTHY = {"1", "true", "yes", "on"}
+
+
+def _hosted_api() -> bool:
+    return str(os.getenv("ATHAR_API_ONLY") or "").strip().lower() in TRUTHY
 
 
 def initialize_ingestion(connection: sqlite3.Connection) -> None:
@@ -275,7 +281,12 @@ def next_page(connection: sqlite3.Connection, book_id: str, retry_errors: bool =
 
 def ingestion_status(connection: sqlite3.Connection) -> dict[str, Any]:
     initialize_ingestion(connection)
-    bootstrap_legacy_state(connection)
+    # Sur le backend hébergé, le corpus OpenITI contient déjà des centaines de milliers
+    # de passages. Reconstruire ingestion_pages à chaque lecture du statut provoquait un
+    # GROUP BY massif puis des milliers d'écritures et bloquait l'API. Le bootstrap
+    # historique reste disponible pour le mode local où il sert encore au crawler Kutub.
+    if not _hosted_api():
+        bootstrap_legacy_state(connection)
     totals = connection.execute(
         """
         SELECT COUNT(*) AS tracked_pages,
