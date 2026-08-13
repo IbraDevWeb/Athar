@@ -111,7 +111,7 @@ jobs:
           assert isinstance(snapshot['chunks'], list)
           render = Path('render.yaml').read_text(encoding='utf-8')
           assert 'python rag/prepare_hosted_db.py' in render
-          assert 'python rag/ingest_openiti.py --best-effort --max-books 6' in render
+          assert 'python rag/ingest_openiti.py --best-effort --max-books 10' in render
           workflow = Path('.github/workflows/grow-kutub-corpus.yml').read_text(encoding='utf-8')
           assert 'python rag/ingest_kutub.py sync' in workflow
           assert '--delay 1.75' in workflow
