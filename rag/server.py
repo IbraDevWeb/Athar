@@ -11,13 +11,52 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 
-from core import DEFAULT_DB, answer_question, database_status, ensure_database, search_chunks
+from core import DEFAULT_DB, answer_question, database_status, ensure_database, import_seed, search_chunks
 from ingestion import ingestion_status
 from v2 import answer_question_v2, corpus_status_v2, evaluation_status_v2, retrieve_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
+STARTER_CORPUS = ROOT / "rag" / "starter_corpus.json"
 SERVER_MARKER = "athar-rag-v2"
 LOCAL_ORIGIN_PATTERN = re.compile(r"^https?://(?:127\.0\.0\.1|localhost)(?::\d{1,5})?$")
+DEFAULT_CORS_ORIGINS = {"https://ibradevweb.github.io"}
+TRUTHY = {"1", "true", "yes", "on"}
+
+
+def env_flag(name: str, default: bool = False) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in TRUTHY
+
+
+def env_port(default: int = 8000) -> int:
+    for name in ("PORT", "ATHAR_PORT"):
+        value = str(os.getenv(name) or "").strip()
+        if not value:
+            continue
+        try:
+            port = int(value)
+        except ValueError:
+            continue
+        if 0 < port < 65536:
+            return port
+    return default
+
+
+def allowed_origins_from_env() -> set[str]:
+    origins = set(DEFAULT_CORS_ORIGINS)
+    raw = str(os.getenv("ATHAR_CORS_ORIGINS") or "")
+    for item in raw.split(","):
+        origin = item.strip().rstrip("/")
+        if origin:
+            origins.add(origin)
+    return origins
+
+
+def bootstrap_corpus(connection: Any) -> None:
+    if STARTER_CORPUS.exists():
+        import_seed(connection, STARTER_CORPUS)
 
 
 class AtharRagHandler(SimpleHTTPRequestHandler):
@@ -30,13 +69,22 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
     def db_path(self) -> Path:
         return Path(getattr(self.server, "db_path", DEFAULT_DB))
 
+    @property
+    def api_only(self) -> bool:
+        return bool(getattr(self.server, "api_only", False))
+
     def allowed_cors_origin(self) -> str:
-        origin = str(self.headers.get("Origin") or "").strip()
-        return origin if LOCAL_ORIGIN_PATTERN.fullmatch(origin) else ""
+        origin = str(self.headers.get("Origin") or "").strip().rstrip("/")
+        if not origin:
+            return ""
+        if LOCAL_ORIGIN_PATTERN.fullmatch(origin):
+            return origin
+        allowed = set(getattr(self.server, "allowed_origins", DEFAULT_CORS_ORIGINS))
+        return origin if origin in allowed else ""
 
     def end_headers(self) -> None:
         path = urllib.parse.urlsplit(self.path).path
-        is_api = path.startswith("/api/rag/")
+        is_api = path.startswith("/api/rag/") or path == "/healthz"
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Cross-Origin-Resource-Policy", "cross-origin" if is_api else "same-origin")
@@ -70,7 +118,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
 
     def do_OPTIONS(self) -> None:
         path, _ = self.parse_query()
-        if not path.startswith("/api/rag/"):
+        if not (path.startswith("/api/rag/") or path == "/healthz"):
             self.send_error(HTTPStatus.NOT_FOUND)
             return
         self.send_response(HTTPStatus.NO_CONTENT)
@@ -82,6 +130,15 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         path, params = self.parse_query()
+
+        if path == "/healthz":
+            try:
+                with ensure_database(self.db_path) as connection:
+                    connection.execute("SELECT 1").fetchone()
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, "mode": "api" if self.api_only else "local"})
+            except Exception as error:
+                self.send_json({"ok": False, "server": SERVER_MARKER, "error": str(error)}, HTTPStatus.SERVICE_UNAVAILABLE)
+            return
 
         if path == "/api/rag/status":
             with ensure_database(self.db_path) as connection:
@@ -96,6 +153,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                     "ok": True,
                     "server": SERVER_MARKER,
                     "api_version": 2,
+                    "deployment": "hosted" if self.api_only else "local",
                     **corpus,
                     "ingestion": {
                         "tracked_pages": ingestion["tracked_pages"],
@@ -168,6 +226,10 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                 self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **payload})
             return
 
+        if self.api_only:
+            self.send_json({"ok": False, "error": "Route introuvable."}, HTTPStatus.NOT_FOUND)
+            return
+
         super().do_GET()
 
     def do_POST(self) -> None:
@@ -214,20 +276,33 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Sert Athar Pro et les API RAG V1/V2 sur le même port.")
-    parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8000)
-    parser.add_argument("--db", type=Path, default=DEFAULT_DB)
+    default_host = str(os.getenv("ATHAR_HOST") or "127.0.0.1")
+    default_db = Path(os.getenv("ATHAR_DB_PATH") or DEFAULT_DB)
+
+    parser = argparse.ArgumentParser(description="Sert Athar Pro et les API RAG V1/V2.")
+    parser.add_argument("--host", default=default_host)
+    parser.add_argument("--port", type=int, default=env_port())
+    parser.add_argument("--db", type=Path, default=default_db)
+    parser.add_argument("--api-only", action="store_true", default=env_flag("ATHAR_API_ONLY"))
     args = parser.parse_args()
 
     with ensure_database(args.db) as connection:
+        bootstrap_corpus(connection)
         status = database_status(connection)
         v2_status = corpus_status_v2(connection)
         pipeline = ingestion_status(connection)
 
     server = ThreadingHTTPServer((args.host, args.port), AtharRagHandler)
     server.db_path = args.db
-    print(f"Athar Pro + Bibliothèque Savante V2 : http://{args.host}:{args.port}/?v=34&server=rag-v2&ragPort={args.port}")
+    server.api_only = bool(args.api_only)
+    server.allowed_origins = allowed_origins_from_env()
+
+    if args.api_only:
+        print(f"Athar RAG API V2 : http://{args.host}:{args.port}")
+        print(f"Origines CORS autorisées : {', '.join(sorted(server.allowed_origins)) or 'aucune'}")
+    else:
+        print(f"Athar Pro + Bibliothèque Savante V2 : http://{args.host}:{args.port}/?v=34&server=rag-v2&ragPort={args.port}")
+
     print(
         f"Corpus : {status['books']} livre(s), {status['chunks']} passage(s), "
         f"dont {v2_status['substantive_passages']} passage(s) substantiel(s)."
