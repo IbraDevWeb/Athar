@@ -60,9 +60,11 @@ def main() -> int:
             stats = ingest_book(connection, manifest, book, SAMPLE)
             assert stats == {"chunks": 2, "pages": 2}, stats
             chunks = connection.execute(
-                "SELECT page, chapter, text_ar, translation_status, metadata_json FROM chunks ORDER BY page"
+                "SELECT page, chapter, text_ar, translation_status, metadata_json "
+                "FROM chunks WHERE book_id=? ORDER BY page",
+                (book["book_id"],),
             ).fetchall()
-            assert len(chunks) == 2
+            assert len(chunks) == 2, len(chunks)
             assert chunks[0]["translation_status"] == "openiti_arabic_source"
             metadata = json.loads(chunks[0]["metadata_json"])
             assert metadata["volume"] == 1 and metadata["printed_page"] == 2
