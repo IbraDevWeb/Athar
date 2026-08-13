@@ -11,8 +11,10 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 
+from citations import attach_citations
 from core import DEFAULT_DB, answer_question, database_status, ensure_database, search_chunks
 from ingestion import ingestion_status
+from source_registry import registry_status
 from v2 import answer_question_v2, corpus_status_v2, evaluation_status_v2, retrieve_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,7 +23,7 @@ LOCAL_ORIGIN_PATTERN = re.compile(r"^https?://(?:127\.0\.0\.1|localhost)(?::\d{1
 
 
 class AtharRagHandler(SimpleHTTPRequestHandler):
-    server_version = "AtharRAG/2.2"
+    server_version = "AtharRAG/2.3"
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -68,6 +70,16 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
         except ValueError:
             return default
 
+    @staticmethod
+    def _attach_payload_citations(payload: dict[str, Any]) -> dict[str, Any]:
+        sources = payload.get("sources")
+        if isinstance(sources, list):
+            attach_citations(sources)
+        results = payload.get("results")
+        if isinstance(results, list):
+            attach_citations(results)
+        return payload
+
     def do_OPTIONS(self) -> None:
         path, _ = self.parse_query()
         if not path.startswith("/api/rag/"):
@@ -92,6 +104,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
             with ensure_database(self.db_path) as connection:
                 corpus = corpus_status_v2(connection)
                 ingestion = ingestion_status(connection)
+                sources = registry_status(connection)
                 self.send_json({
                     "ok": True,
                     "server": SERVER_MARKER,
@@ -104,6 +117,12 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                         "blocked_pages": ingestion["blocked_pages"],
                         "average_quality": ingestion["average_quality"],
                     },
+                    "sources": {
+                        "configured": sources["configured_sources"],
+                        "enabled": sources["enabled_sources"],
+                        "documents": sources["documents"],
+                        "passages": sources["passages"],
+                    },
                 })
             return
 
@@ -114,6 +133,16 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                     "server": SERVER_MARKER,
                     "api_version": 2,
                     "ingestion": ingestion_status(connection),
+                })
+            return
+
+        if path == "/api/rag/v2/sources":
+            with ensure_database(self.db_path) as connection:
+                self.send_json({
+                    "ok": True,
+                    "server": SERVER_MARKER,
+                    "api_version": 2,
+                    "registry": registry_status(connection),
                 })
             return
 
@@ -131,6 +160,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                     "corpus": payload["corpus"],
                     "translation_statuses": payload["translation_statuses"],
                     "ingestion": ingestion_status(connection),
+                    "sources": registry_status(connection),
                 })
             return
 
@@ -148,7 +178,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                 else:
                     analysis, sources = retrieve_evidence(connection, query, madhhab=madhhab, discipline=discipline, limit=limit)
                     payload = {"query": query, "analysis": analysis, "sources": sources, "count": len(sources)}
-                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **payload})
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **self._attach_payload_citations(payload)})
             return
 
         if path in {"/api/rag/search", "/api/rag/ask"}:
@@ -165,7 +195,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                 else:
                     results = search_chunks(connection, query, madhhab=madhhab, discipline=discipline, limit=limit)
                     payload = {"query": query, "results": results, "count": len(results)}
-                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **payload})
+                self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **self._attach_payload_citations(payload)})
             return
 
         super().do_GET()
@@ -207,7 +237,7 @@ class AtharRagHandler(SimpleHTTPRequestHandler):
                     discipline=str(payload.get("discipline") or ""),
                     limit=limit,
                 )
-            self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **result})
+            self.send_json({"ok": True, "server": SERVER_MARKER, "api_version": 2, **self._attach_payload_citations(result)})
 
     def log_message(self, format_string: str, *args: Any) -> None:
         sys.stdout.write(f"[Athar RAG] {self.address_string()} — {format_string % args}\n")
@@ -224,6 +254,7 @@ def main() -> int:
         status = database_status(connection)
         v2_status = corpus_status_v2(connection)
         pipeline = ingestion_status(connection)
+        sources = registry_status(connection)
 
     server = ThreadingHTTPServer((args.host, args.port), AtharRagHandler)
     server.db_path = args.db
@@ -236,8 +267,12 @@ def main() -> int:
         f"Ingestion : {pipeline['imported_pages']} page(s) suivie(s), "
         f"qualité moyenne {pipeline['average_quality']} %, {pipeline['error_pages']} erreur(s)."
     )
+    print(
+        f"Sources : {sources['enabled_sources']}/{sources['configured_sources']} actives, "
+        f"{sources['documents']} document(s) suivis par le registre multi-source."
+    )
     if status["mode"] == "demo":
-        print("Conseil : exécutez sync-kutub.bat pour enrichir la bibliothèque locale.")
+        print("Conseil : exécutez sync-kutub.bat ou import-source.bat pour enrichir la bibliothèque locale.")
     if status["ollama_enabled"]:
         print(f"Synthèse citation-first activée avec le modèle {os.getenv('ATHAR_OLLAMA_MODEL')}.")
     else:
