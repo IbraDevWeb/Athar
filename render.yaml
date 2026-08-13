@@ -9,7 +9,11 @@ services:
     runtime: python
     plan: free
     region: frankfurt
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - rag/**
+      ignoredPaths: []
     buildCommand: python -m pip install -r rag/requirements.txt
     startCommand: python rag/strict_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
