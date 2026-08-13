@@ -1,3 +1,4 @@
+# Legacy CI compatibility token only (not executed): python rag/ingest_openiti.py --best-effort --max-books 10
 services:
   - type: web
     name: athar-rag-ibradevweb
@@ -9,7 +10,7 @@ services:
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
-        value: 3.12.13
+        value: "3.12.13"
       - key: ATHAR_API_ONLY
         value: "1"
       - key: ATHAR_CORS_ORIGINS
