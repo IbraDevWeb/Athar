@@ -45,6 +45,10 @@ def main() -> int:
         "name: athar-rag-ibradevweb",
         "runtime: python",
         "plan: free",
+        "autoDeployTrigger: commit",
+        "buildFilter:",
+        "- rag/**",
+        "ignoredPaths: []",
         "buildCommand: python -m pip install -r rag/requirements.txt",
         "startCommand: python rag/strict_server.py --host 0.0.0.0 --api-only",
         "healthCheckPath: /healthz",
@@ -54,6 +58,9 @@ def main() -> int:
     ]:
         if token not in render:
             fail(f"render.yaml incomplet : {token}")
+
+    if "autoDeployTrigger: checksPass" in render:
+        fail("Render ne doit plus attendre des checks CI pour le commit automatique du manifeste corpus")
 
     build_line = next((line.strip() for line in render.splitlines() if line.strip().startswith("buildCommand:")), "")
     if "build_hosted_corpus.py" in build_line or "ingest_tafsir.py" in build_line:
@@ -69,6 +76,7 @@ def main() -> int:
         "cancel-in-progress: true",
         "athar_hosted.sqlite",
         "Refresh hosted RAG corpus v2",
+        "git push origin HEAD:main",
     ]:
         if token not in workflow:
             fail(f"workflow corpus incomplet : {token}")
@@ -128,7 +136,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: isolated prebuilt v2 corpus, fast Render startup, starter fallback and API-only mode are operational.")
+    print("Hosted RAG validated: corpus manifest commits redeploy Render, prebuilt v2 corpus stays isolated, and API-only mode remains operational.")
     return 0
 
 
