@@ -3,7 +3,7 @@
     if (!window.fetch || window.AtharRagApiBridge) return;
     const nativeFetch = window.fetch.bind(window);
     const API_PREFIX = '/api/rag/';
-    const HEALTH_PATH = '/api/rag/v2/status';
+    const HEALTH_PATH = '/healthz';
     const RUNTIME_PATH = 'rag/runtime.json';
     const REMOTE_CONFIG_PATH = 'rag/remote.json';
     const STORAGE_KEY = 'athar_rag_api_origin_v2';
