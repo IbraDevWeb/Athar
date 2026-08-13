@@ -5,6 +5,7 @@ import re
 import sqlite3
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 import requests
 
@@ -12,14 +13,13 @@ from core import content_hash, normalize_text, upsert_book, utc_now
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "rag" / "openiti_books.json"
-EXTRA_MANIFESTS = [
-    ROOT / "rag" / "openiti_books_extra.json",
-    ROOT / "rag" / "openiti_books_extra_40.json",
-]
+EXTRA_MANIFESTS = [ROOT / "rag" / "openiti_books_extra.json", ROOT / "rag" / "openiti_books_extra_40.json"]
 HEADER_END = "#META#Header#End#"
 PAGE_RE = re.compile(r"PageV(?P<volume>\d{2,3})P(?P<page>\d{3,5})(?P<side>[AB])?")
 HEADING_RE = re.compile(r"^###\s+\|+\s*(.*)$")
 SPACE_RE = re.compile(r"\s+")
+QUALITY_FLAGS = ("PRIMARY_VERSION", "CLEANED_VERSION", "NO_MAJOR_ISSUES", "PAGINATION", "HTML_TAGS")
+_RESOLVED_URLS: dict[str, dict[str, str]] = {}
 
 
 def load_manifest() -> dict[str, Any]:
@@ -46,9 +46,10 @@ def load_manifest() -> dict[str, Any]:
 def urls(manifest: dict[str, Any], book: dict[str, Any]) -> tuple[str, str]:
     commit = manifest["release_commit"]
     path = book["path"]
-    raw = f"https://raw.githubusercontent.com/OpenITI/RELEASE/{commit}/{path}"
-    page = f"https://github.com/OpenITI/RELEASE/blob/{commit}/{path}"
-    return raw, page
+    return (
+        f"https://raw.githubusercontent.com/OpenITI/RELEASE/{commit}/{path}",
+        f"https://github.com/OpenITI/RELEASE/blob/{commit}/{path}",
+    )
 
 
 def clean(value: str) -> str:
@@ -132,7 +133,89 @@ def parse(text: str) -> list[dict[str, Any]]:
     return rows
 
 
-def fetch_text(raw_url: str) -> str:
+def _candidate_uri(name: str) -> str:
+    return name[:-10] if name.endswith(".completed") else name
+
+
+def _quality(metadata_text: str) -> tuple[list[str], str, int]:
+    upper = metadata_text.upper()
+    flags = [flag for flag in QUALITY_FLAGS if flag in upper]
+    if "CLEAN OPERATION" in upper and "CLEANED_VERSION" not in flags:
+        flags.append("CLEANED_VERSION")
+    match = re.search(r"^90#VERS#ISSUES###:\s*(.*)$", metadata_text, flags=re.MULTILINE)
+    issues = clean(match.group(1)) if match else ""
+    if issues.lower().startswith("formalized issues"):
+        issues = ""
+    score = 500 * ("PRIMARY_VERSION" in flags) + 300 * ("CLEANED_VERSION" in flags) + 100 * ("NO_MAJOR_ISSUES" in flags)
+    score -= 5 * ("PAGINATION" in flags) + 10 * ("HTML_TAGS" in flags)
+    if "UNCORRECTED_OCR" in upper:
+        score -= 500
+    if "INCOMPLETE" in upper:
+        score -= 300
+    return flags, issues, score
+
+
+def select_version_candidate(entries: list[dict[str, Any]], metadata_by_name: dict[str, str]) -> tuple[dict[str, Any], list[str], str]:
+    candidates = [item for item in entries if item.get("type") == "file" and "-ara1" in str(item.get("name") or "") and not str(item.get("name") or "").endswith(".yml")]
+    if not candidates:
+        raise RuntimeError("Aucun texte alternatif OpenITI n'est disponible pour cet ouvrage.")
+    ranked: list[tuple[float, dict[str, Any], list[str], str]] = []
+    for item in candidates:
+        name = str(item.get("name") or "")
+        yml_name = f"{_candidate_uri(name)}.yml"
+        flags, issues, score = _quality(metadata_by_name.get(yml_name, ""))
+        score += min(max(0, int(item.get("size") or 0)) / 1_000_000, 25.0)
+        ranked.append((float(score), item, flags, issues))
+    ranked.sort(key=lambda row: row[0], reverse=True)
+    _, selected, flags, issues = ranked[0]
+    return selected, flags, issues
+
+
+def _split_openiti_raw_url(raw_url: str) -> tuple[str, str]:
+    marker = "/OpenITI/RELEASE/"
+    if marker not in raw_url:
+        raise RuntimeError("URL OpenITI non reconnue.")
+    remainder = raw_url.split(marker, 1)[1]
+    commit, path = remainder.split("/", 1)
+    return commit, path
+
+
+def resolve_raw_url(raw_url: str) -> dict[str, str]:
+    commit, configured_path = _split_openiti_raw_url(raw_url)
+    directory = configured_path.rsplit("/", 1)[0]
+    api_url = "https://api.github.com/repos/OpenITI/RELEASE/contents/" + quote(directory, safe="/") + "?ref=" + quote(commit, safe="")
+    response = requests.get(api_url, timeout=(10, 60), headers={"Accept": "application/vnd.github+json", "User-Agent": "AtharResearch/1.0"})
+    response.raise_for_status()
+    payload = response.json()
+    if not isinstance(payload, list):
+        raise RuntimeError("Réponse OpenITI inattendue lors de la recherche d'une version disponible.")
+    entries = [item for item in payload if isinstance(item, dict)]
+    yml_entries = {str(item.get("name") or ""): item for item in entries if str(item.get("name") or "").endswith(".yml")}
+    metadata: dict[str, str] = {}
+    for item in entries:
+        name = str(item.get("name") or "")
+        if item.get("type") != "file" or "-ara1" not in name or name.endswith(".yml"):
+            continue
+        yml_name = f"{_candidate_uri(name)}.yml"
+        yml_url = str((yml_entries.get(yml_name) or {}).get("download_url") or "")
+        if not yml_url:
+            continue
+        try:
+            meta = requests.get(yml_url, timeout=(10, 30), headers={"User-Agent": "AtharResearch/1.0"})
+            meta.raise_for_status()
+            metadata[yml_name] = meta.text
+        except requests.RequestException:
+            metadata[yml_name] = ""
+    selected, flags, issues = select_version_candidate(entries, metadata)
+    resolved_raw = str(selected.get("download_url") or "")
+    resolved_path = str(selected.get("path") or "")
+    if not resolved_raw or not resolved_path:
+        raise RuntimeError("La version alternative OpenITI n'a pas d'URL exploitable.")
+    resolved_page = f"https://github.com/OpenITI/RELEASE/blob/{commit}/{resolved_path}"
+    return {"raw_url": resolved_raw, "source_url": resolved_page, "openiti_uri": _candidate_uri(str(selected.get("name") or "")), "quality_status": ",".join(flags) if flags else "OPENITI_RELEASE_AVAILABLE", "known_issues": issues, "configured_path": configured_path}
+
+
+def _fetch_exact(raw_url: str) -> str:
     response = requests.get(raw_url, timeout=(10, 120), headers={"User-Agent": "AtharResearch/1.0"})
     response.raise_for_status()
     if len(response.content) > 32 * 1024 * 1024:
@@ -143,21 +226,38 @@ def fetch_text(raw_url: str) -> str:
     return text
 
 
+def fetch_text(raw_url: str) -> str:
+    try:
+        return _fetch_exact(raw_url)
+    except requests.HTTPError as error:
+        status = error.response.status_code if error.response is not None else 0
+        if status != 404:
+            raise
+    resolved = resolve_raw_url(raw_url)
+    _RESOLVED_URLS[raw_url] = resolved
+    return _fetch_exact(resolved["raw_url"])
+
+
 def ingest_book(connection: Any, manifest: dict[str, Any], book: dict[str, Any], text: str) -> dict[str, int]:
-    raw_url, source_url = urls(manifest, book)
-    upsert_book(connection, {**book, "id": book["book_id"], "source_url": source_url, "metadata": {"source": "OpenITI", "license": manifest["license"]}})
+    configured_raw, configured_source = urls(manifest, book)
+    resolution = _RESOLVED_URLS.get(configured_raw)
+    raw_url = resolution["raw_url"] if resolution else configured_raw
+    source_url = resolution["source_url"] if resolution else configured_source
+    actual_uri = resolution["openiti_uri"] if resolution else str(book["openiti_uri"])
+    quality_status = resolution["quality_status"] if resolution else str(book.get("quality_status", ""))
+    known_issues = resolution["known_issues"] if resolution else str(book.get("known_issues", ""))
+    resolution_status = "automatic_fallback" if resolution else "configured"
+    upsert_book(connection, {**book, "id": book["book_id"], "source_url": source_url, "metadata": {"source": "OpenITI", "license": manifest["license"], "source_resolution": resolution_status, "openiti_uri_used": actual_uri, "configured_openiti_uri": book.get("openiti_uri", "")}})
     rows = parse(text)
     now = utc_now()
-    title = str(book.get("title") or "")
-    title_ar = str(book.get("title_ar") or "")
-    author = str(book.get("author") or "")
+    title, title_ar, author = str(book.get("title") or ""), str(book.get("title_ar") or ""), str(book.get("author") or "")
     chunk_rows: list[tuple[Any, ...]] = []
     fts_rows: list[tuple[Any, ...]] = []
     for row in rows:
-        digest = content_hash(book["openiti_uri"], row["volume"], row["page"], row["seq"], row["text"])
+        digest = content_hash(actual_uri, row["volume"], row["page"], row["seq"], row["text"])
         chunk_id = f"openiti-{digest[:24]}"
-        metadata = {"source": "OpenITI", "openiti_uri": book["openiti_uri"], "release_commit": manifest["release_commit"], "license": manifest["license"], "license_url": manifest["license_url"], "volume": row["volume"], "printed_page": row["page"], "page_marker": row["marker"], "quality_status": book.get("quality_status", ""), "known_issues": book.get("known_issues", ""), "raw_source_url": raw_url}
-        chunk_rows.append((chunk_id, book["book_id"], row["page"], row["chapter"], row["text"], "", "openiti_arabic_source", source_url, digest, now, json.dumps(metadata, ensure_ascii=False)))
+        meta = {"source": "OpenITI", "openiti_uri": actual_uri, "configured_openiti_uri": book.get("openiti_uri", ""), "source_resolution": resolution_status, "release_commit": manifest["release_commit"], "license": manifest["license"], "license_url": manifest["license_url"], "volume": row["volume"], "printed_page": row["page"], "page_marker": row["marker"], "quality_status": quality_status, "known_issues": known_issues, "raw_source_url": raw_url}
+        chunk_rows.append((chunk_id, book["book_id"], row["page"], row["chapter"], row["text"], "", "openiti_arabic_source", source_url, digest, now, json.dumps(meta, ensure_ascii=False)))
         normalized = normalize_text(" ".join(filter(None, [title, title_ar, author, row["chapter"], row["text"]])))
         fts_rows.append((chunk_id, title, title_ar, author, row["chapter"], row["text"], "", normalized))
     old_ids = connection.execute("SELECT id FROM chunks WHERE book_id=?", (book["book_id"],)).fetchall()
