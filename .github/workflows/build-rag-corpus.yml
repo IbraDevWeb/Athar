@@ -20,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: athar-hosted-rag-corpus
+  group: athar-hosted-rag-corpus-v2
   cancel-in-progress: true
 
 jobs:
@@ -78,9 +78,9 @@ jobs:
       - name: Publish SQLite corpus release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: rag-corpus-latest
-          name: Athar hosted RAG corpus
-          body: Corpus SQLite préconstruit pour le backend RAG Athar, généré depuis les sources ouvertes configurées dans le dépôt.
+          tag_name: rag-corpus-v2
+          name: Athar hosted RAG corpus v2
+          body: Corpus SQLite préconstruit v2 pour le backend RAG Athar, généré depuis les sources ouvertes configurées dans le dépôt.
           files: rag/data/athar_hosted.sqlite
           make_latest: false
           overwrite_files: true
@@ -104,6 +104,8 @@ jobs:
           path = Path('rag/corpus_release.json')
           payload = json.loads(path.read_text(encoding='utf-8'))
           payload.update({
+              'tag': 'rag-corpus-v2',
+              'url': 'https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite',
               'sha256': digest.hexdigest(),
               'size_bytes': db.stat().st_size,
               'min_openiti_books': 45,
@@ -118,7 +120,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'Corpus manifest already current.'
           else
-            git commit -m 'Refresh hosted RAG corpus release'
+            git commit -m 'Refresh hosted RAG corpus v2'
             git push origin HEAD:main
           fi
 
