@@ -45,6 +45,7 @@ def main() -> int:
         "runtime: python",
         "plan: free",
         "python rag/prepare_hosted_db.py",
+        "python rag/ingest_openiti.py --best-effort --max-books 6",
         "python rag/server.py --host 0.0.0.0 --api-only",
         "healthCheckPath: /healthz",
         "ATHAR_CORS_ORIGINS",
@@ -52,9 +53,10 @@ def main() -> int:
         if token not in render:
             fail(f"render.yaml incomplet : {token}")
     prepare_position = render.index("python rag/prepare_hosted_db.py")
+    openiti_position = render.index("python rag/ingest_openiti.py --best-effort --max-books 6")
     server_position = render.index("python rag/server.py --host 0.0.0.0 --api-only")
-    if prepare_position > server_position:
-        fail("Render doit préparer la base avant de démarrer l'API")
+    if not prepare_position < openiti_position < server_position:
+        fail("Render doit préparer la base, charger OpenITI puis démarrer l'API")
 
     remote = json.loads((RAG / "remote.json").read_text(encoding="utf-8"))
     if remote.get("origin") != "https://athar-rag-ibradevweb.onrender.com":
@@ -103,7 +105,7 @@ def main() -> int:
             server.server_close()
             thread.join(timeout=5)
 
-    print("Hosted RAG validated: corpus preparation precedes API startup, GitHub Pages CORS and API-only mode are operational.")
+    print("Hosted RAG validated: bundled corpus, OpenITI import, GitHub Pages CORS and API-only mode are operational.")
     return 0
 
 
