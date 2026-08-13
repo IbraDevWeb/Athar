@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 from pathlib import Path
 
@@ -11,6 +12,7 @@ from openiti import ingest_book, load_manifest, urls
 
 ROOT = Path(__file__).resolve().parents[1]
 TAFSIR_MANIFEST = ROOT / "rag" / "openiti_books_tafsir.json"
+TRUTHY = {"1", "true", "yes", "on"}
 
 
 def sync(db_path: Path, min_books: int | None = None) -> dict[str, object]:
@@ -55,6 +57,11 @@ def main() -> int:
     parser.add_argument("--db", type=Path, default=Path("rag/data/athar_hosted.sqlite"))
     parser.add_argument("--min-books", type=int, default=None)
     args = parser.parse_args()
+
+    if str(os.getenv("GITHUB_ACTIONS") or "").strip().lower() in TRUTHY:
+        args.min_books = None
+        print("[Corpus] GitHub Actions detected: every enabled tafsir book is mandatory.", flush=True)
+
     print(json.dumps(sync(args.db, args.min_books), ensure_ascii=False))
     return 0
 
