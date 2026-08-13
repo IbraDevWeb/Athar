@@ -2,12 +2,13 @@ from __future__ import annotations
 
 import json
 import re
+import sqlite3
 from pathlib import Path
 from typing import Any
 
 import requests
 
-from core import content_hash, upsert_book, upsert_chunk, utc_now
+from core import content_hash, normalize_text, upsert_book, utc_now
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "rag" / "openiti_books.json"
@@ -144,21 +145,34 @@ def fetch_text(raw_url: str) -> str:
 
 def ingest_book(connection: Any, manifest: dict[str, Any], book: dict[str, Any], text: str) -> dict[str, int]:
     raw_url, source_url = urls(manifest, book)
-    if not connection.execute("SELECT 1 FROM books WHERE id=?", (book["book_id"],)).fetchone():
-        upsert_book(connection, {**book, "id": book["book_id"], "source_url": source_url, "metadata": {"source": "OpenITI", "license": manifest["license"]}})
+    upsert_book(connection, {**book, "id": book["book_id"], "source_url": source_url, "metadata": {"source": "OpenITI", "license": manifest["license"]}})
     rows = parse(text)
+    now = utc_now()
+    title = str(book.get("title") or "")
+    title_ar = str(book.get("title_ar") or "")
+    author = str(book.get("author") or "")
+    chunk_rows: list[tuple[Any, ...]] = []
+    fts_rows: list[tuple[Any, ...]] = []
     for row in rows:
         digest = content_hash(book["openiti_uri"], row["volume"], row["page"], row["seq"], row["text"])
-        upsert_chunk(connection, {
-            "id": f"openiti-{digest[:24]}", "book_id": book["book_id"], "page": row["page"],
-            "chapter": row["chapter"], "text_ar": row["text"], "text_fr": "",
-            "translation_status": "openiti_arabic_source", "source_url": source_url,
-            "content_hash": digest, "scraped_at": utc_now(),
-            "metadata": {"source": "OpenITI", "openiti_uri": book["openiti_uri"], "release_commit": manifest["release_commit"],
-                         "license": manifest["license"], "license_url": manifest["license_url"], "volume": row["volume"],
-                         "printed_page": row["page"], "page_marker": row["marker"], "quality_status": book.get("quality_status", ""),
-                         "known_issues": book.get("known_issues", ""), "raw_source_url": raw_url}
-        })
+        chunk_id = f"openiti-{digest[:24]}"
+        metadata = {"source": "OpenITI", "openiti_uri": book["openiti_uri"], "release_commit": manifest["release_commit"], "license": manifest["license"], "license_url": manifest["license_url"], "volume": row["volume"], "printed_page": row["page"], "page_marker": row["marker"], "quality_status": book.get("quality_status", ""), "known_issues": book.get("known_issues", ""), "raw_source_url": raw_url}
+        chunk_rows.append((chunk_id, book["book_id"], row["page"], row["chapter"], row["text"], "", "openiti_arabic_source", source_url, digest, now, json.dumps(metadata, ensure_ascii=False)))
+        normalized = normalize_text(" ".join(filter(None, [title, title_ar, author, row["chapter"], row["text"]])))
+        fts_rows.append((chunk_id, title, title_ar, author, row["chapter"], row["text"], "", normalized))
+    old_ids = connection.execute("SELECT id FROM chunks WHERE book_id=?", (book["book_id"],)).fetchall()
+    if old_ids:
+        try:
+            connection.executemany("DELETE FROM chunks_fts WHERE chunk_id=?", [(str(item[0]),) for item in old_ids])
+        except sqlite3.OperationalError:
+            pass
+        connection.execute("DELETE FROM chunks WHERE book_id=?", (book["book_id"],))
+    if chunk_rows:
+        connection.executemany("INSERT INTO chunks (id, book_id, page, chapter, text_ar, text_fr, translation_status, source_url, content_hash, scraped_at, metadata_json) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", chunk_rows)
+        try:
+            connection.executemany("INSERT INTO chunks_fts VALUES (?, ?, ?, ?, ?, ?, ?, ?)", fts_rows)
+        except sqlite3.OperationalError:
+            pass
     connection.commit()
     pages = len({(row["volume"], row["page"]) for row in rows if row["page"] is not None})
     return {"chunks": len(rows), "pages": pages}
