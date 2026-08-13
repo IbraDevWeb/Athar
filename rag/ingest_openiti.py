@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,22 @@ if str(RAG_DIR) not in sys.path:
 
 from core import DEFAULT_DB, connect, initialize_database  # noqa: E402
 from openiti import fetch_text, ingest_book, load_manifest, urls  # noqa: E402
+
+
+def fetch_with_retry(raw_url: str, attempts: int = 3) -> str:
+    last_error: Exception | None = None
+    for attempt in range(1, max(1, attempts) + 1):
+        try:
+            return fetch_text(raw_url)
+        except Exception as error:
+            last_error = error
+            if attempt >= attempts:
+                break
+            delay = 2 ** (attempt - 1)
+            print(f"[OpenITI] téléchargement échoué, nouvelle tentative dans {delay}s…", file=sys.stderr, flush=True)
+            time.sleep(delay)
+    assert last_error is not None
+    raise last_error
 
 
 def sync(db_path: Path, max_books: int | None = None, best_effort: bool = False) -> dict[str, object]:
@@ -31,7 +48,7 @@ def sync(db_path: Path, max_books: int | None = None, best_effort: bool = False)
             raw_url, _ = urls(manifest, book)
             try:
                 print(f"[OpenITI] {book['title']} : téléchargement…", flush=True)
-                stats = ingest_book(connection, manifest, book, fetch_text(raw_url))
+                stats = ingest_book(connection, manifest, book, fetch_with_retry(raw_url))
                 imported_books += 1
                 imported_chunks += stats["chunks"]
                 imported_pages += stats["pages"]

@@ -11,6 +11,7 @@ from core import content_hash, upsert_book, upsert_chunk, utc_now
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "rag" / "openiti_books.json"
+EXTRA_MANIFEST = ROOT / "rag" / "openiti_books_extra.json"
 HEADER_END = "#META#Header#End#"
 PAGE_RE = re.compile(r"PageV(?P<volume>\d{2,3})P(?P<page>\d{3,5})(?P<side>[AB])?")
 HEADING_RE = re.compile(r"^###\s+\|+\s*(.*)$")
@@ -18,7 +19,22 @@ SPACE_RE = re.compile(r"\s+")
 
 
 def load_manifest() -> dict[str, Any]:
-    return json.loads(MANIFEST.read_text(encoding="utf-8"))
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    base_books = manifest.get("books", [])
+    if EXTRA_MANIFEST.exists():
+        extra = json.loads(EXTRA_MANIFEST.read_text(encoding="utf-8"))
+        extra_books = extra.get("books", []) if isinstance(extra, dict) else []
+        if not isinstance(base_books, list) or not isinstance(extra_books, list):
+            raise RuntimeError("Les manifestes OpenITI doivent contenir une liste books.")
+        merged = [book for book in [*base_books, *extra_books] if isinstance(book, dict)]
+        ids = [str(book.get("book_id") or "") for book in merged]
+        uris = [str(book.get("openiti_uri") or "") for book in merged]
+        if not all(ids) or len(ids) != len(set(ids)):
+            raise RuntimeError("Identifiants book_id OpenITI manquants ou dupliqués.")
+        if not all(uris) or len(uris) != len(set(uris)):
+            raise RuntimeError("URI OpenITI manquantes ou dupliquées.")
+        manifest["books"] = merged
+    return manifest
 
 
 def urls(manifest: dict[str, Any], book: dict[str, Any]) -> tuple[str, str]:
