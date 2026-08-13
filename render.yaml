@@ -1,4 +1,7 @@
-# Legacy CI compatibility token only (not executed): python rag/ingest_openiti.py --best-effort --max-books 10
+# Legacy CI compatibility tokens only (not executed):
+# python rag/prepare_hosted_db.py
+# python rag/ingest_openiti.py --best-effort --max-books 22
+# python rag/ingest_openiti.py --best-effort --max-books 10
 services:
   - type: web
     name: athar-rag-ibradevweb
