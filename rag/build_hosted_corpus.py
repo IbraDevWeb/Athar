@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 from pathlib import Path
 
 from ingest_openiti import sync
 from prepare_hosted_db import prepare_database
+
+TRUTHY = {"1", "true", "yes", "on"}
 
 
 def reset_database(path: Path) -> None:
@@ -61,9 +64,16 @@ def build(db_path: Path, max_books: int | None = None, min_books: int | None = N
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the validated Athar corpus for the hosted RAG.")
     parser.add_argument("--db", type=Path, default=Path("rag/data/athar_hosted.sqlite"))
-    parser.add_argument("--max-books", type=int, default=None, help="Optional development limit. Omit it to import every enabled OpenITI book.")
-    parser.add_argument("--min-books", type=int, default=None, help="Optional partial-build threshold. Omit it to require every requested book.")
+    parser.add_argument("--max-books", type=int, default=None, help="Optional local development limit.")
+    parser.add_argument("--min-books", type=int, default=None, help="Optional local partial-build threshold.")
     args = parser.parse_args()
+
+    ci_requires_all = str(os.getenv("GITHUB_ACTIONS") or "").strip().lower() in TRUTHY
+    if ci_requires_all:
+        args.max_books = None
+        args.min_books = None
+        print("[Corpus] GitHub Actions detected: every enabled OpenITI book is mandatory.", flush=True)
+
     print(json.dumps(build(args.db, args.max_books, args.min_books), ensure_ascii=False))
     return 0
 
