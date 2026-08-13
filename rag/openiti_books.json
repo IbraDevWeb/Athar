@@ -1,5 +1,5 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "source": "OpenITI",
   "source_repository": "https://github.com/OpenITI/RELEASE",
   "release_commit": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
@@ -29,6 +29,7 @@
     {"book_id":"kutub-11620","kutub_id":11620,"title":"Iqtiḍāʾ al-Ṣirāṭ al-Mustaqīm","title_ar":"اقتضاء الصراط المستقيم لمخالفة أصحاب الجحيم","author":"Ibn Taymiyyah","discipline":"ʿAqīda et comportement","madhhab":"Ḥanbalite","openiti_uri":"0728IbnTaymiyya.IqtidaSirat.JK000367-ara1","path":"data/0728IbnTaymiyya/0728IbnTaymiyya.IqtidaSirat/0728IbnTaymiyya.IqtidaSirat.JK000367-ara1","quality_status":"PRIMARY_VERSION,CLEANED_VERSION","known_issues":"","enabled":true},
     {"book_id":"kutub-205","kutub_id":205,"title":"Shifāʾ al-ʿAlīl","title_ar":"شفاء العليل في مسائل القضاء والقدر والحكمة والتعليل","author":"Ibn al-Qayyim","discipline":"ʿAqīda","madhhab":"Ḥanbalite","openiti_uri":"0751IbnQayyimJawziyya.ShifaCalil.JK000100-ara1","path":"data/0751IbnQayyimJawziyya/0751IbnQayyimJawziyya.ShifaCalil/0751IbnQayyimJawziyya.ShifaCalil.JK000100-ara1","quality_status":"PRIMARY_VERSION,CLEANED_VERSION","known_issues":"","enabled":true},
     {"book_id":"kutub-17798","kutub_id":17798,"title":"Iʿlām al-Muwaqqiʿīn","title_ar":"إعلام الموقعين عن رب العالمين","author":"Ibn al-Qayyim","discipline":"Uṣūl et fiqh","madhhab":"Ḥanbalite","openiti_uri":"0751IbnQayyimJawziyya.AclamMuwaqqicin.JK000094-ara1","path":"data/0751IbnQayyimJawziyya/0751IbnQayyimJawziyya.AclamMuwaqqicin/0751IbnQayyimJawziyya.AclamMuwaqqicin.JK000094-ara1","quality_status":"PRIMARY_VERSION,CLEANED_VERSION","known_issues":"","enabled":true},
-    {"book_id":"kutub-201","kutub_id":201,"title":"Tahdhīb al-Sunan","title_ar":"تهذيب سنن أبي داود","author":"Ibn al-Qayyim","discipline":"Hadith et fiqh","madhhab":"Ḥanbalite","openiti_uri":"0751IbnQayyimJawziyya.TahdhibSunanAbiDawud.ShamAY0035960-ara1","path":"data/0751IbnQayyimJawziyya/0751IbnQayyimJawziyya.TahdhibSunanAbiDawud/0751IbnQayyimJawziyya.TahdhibSunanAbiDawud.ShamAY0035960-ara1","quality_status":"PRIMARY_VERSION,CLEANED_VERSION","known_issues":"","enabled":true}
+    {"book_id":"kutub-201","kutub_id":201,"title":"Tahdhīb al-Sunan","title_ar":"تهذيب سنن أبي داود","author":"Ibn al-Qayyim","discipline":"Hadith et fiqh","madhhab":"Ḥanbalite","openiti_uri":"0751IbnQayyimJawziyya.TahdhibSunanAbiDawud.ShamAY0035960-ara1","path":"data/0751IbnQayyimJawziyya/0751IbnQayyimJawziyya.TahdhibSunanAbiDawud/0751IbnQayyimJawziyya.TahdhibSunanAbiDawud.ShamAY0035960-ara1","quality_status":"PRIMARY_VERSION,CLEANED_VERSION","known_issues":"","enabled":true},
+    {"book_id":"kutub-30097","kutub_id":30097,"title":"Al-Bidāyah wa-l-Nihāyah","title_ar":"البداية والنهاية","author":"Ibn Kathīr","discipline":"Histoire et sīra","madhhab":"Shāfiʿite","openiti_uri":"0774IbnKathir.Bidaya.Shamela0004445-ara1","path":"data/0774IbnKathir/0774IbnKathir.Bidaya/0774IbnKathir.Bidaya.Shamela0004445-ara1","quality_status":"PRIMARY_VERSION,CLEANED_VERSION","known_issues":"HTML_TAGS,EDITORIAL_SECTIONS","enabled":true}
   ]
 }
