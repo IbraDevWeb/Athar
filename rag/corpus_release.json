@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "tag": "rag-corpus-latest",
+  "asset": "athar_hosted.sqlite",
+  "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-latest/athar_hosted.sqlite",
+  "sha256": "",
+  "size_bytes": 0,
+  "min_openiti_books": 45,
+  "source_sha": "",
+  "built_at": ""
+}
