@@ -2,14 +2,15 @@
 # python rag/prepare_hosted_db.py
 # python rag/ingest_openiti.py --best-effort --max-books 22
 # python rag/ingest_openiti.py --best-effort --max-books 10
+# python rag/server.py --host 0.0.0.0 --api-only
 services:
   - type: web
     name: athar-rag-ibradevweb
     runtime: python
     plan: free
     region: frankfurt
-    buildCommand: python -m pip install -r rag/requirements.txt && python rag/build_hosted_corpus.py --db rag/data/athar_hosted.sqlite --max-books 40
-    startCommand: cp rag/data/athar_hosted.sqlite /tmp/athar_rag.sqlite && python rag/server.py --host 0.0.0.0 --api-only
+    buildCommand: python -m pip install -r rag/requirements.txt && python rag/build_hosted_corpus.py --db rag/data/athar_hosted.sqlite --max-books 40 && python rag/ingest_tafsir.py --db rag/data/athar_hosted.sqlite
+    startCommand: cp rag/data/athar_hosted.sqlite /tmp/athar_rag.sqlite && python rag/strict_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
