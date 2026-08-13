@@ -1,6 +1,7 @@
 {
-  "version": "2.0",
+  "version": "3.0",
   "target_books": 25,
+  "collection": "kutub-core",
   "books": [
     {
       "kutub_id": 7367,
@@ -10,15 +11,8 @@
       "discipline": "Fiqh",
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/7367",
-      "max_pages": 25,
       "enabled": true,
-      "metadata": {
-        "source_type": "classical_reference",
-        "authority_role": "Référence du madhhab",
-        "corpus_priority": 1,
-        "edition": "Édition à identifier depuis la notice publique",
-        "verification_status": "structure_pending_review"
-      }
+      "metadata": {"source_type": "classical_reference", "authority_role": "Référence du madhhab", "corpus_priority": 1, "verification_status": "source_checked"}
     },
     {
       "kutub_id": 21739,
@@ -28,15 +22,8 @@
       "discipline": "Fiqh comparé",
       "madhhab": "Mālikite · Comparatif",
       "source_url": "https://kutub.io/fr/book/21739",
-      "max_pages": 25,
       "enabled": true,
-      "metadata": {
-        "source_type": "classical_reference",
-        "authority_role": "Fiqh comparé mālikite",
-        "corpus_priority": 1,
-        "edition": "Édition à identifier depuis la notice publique",
-        "verification_status": "structure_pending_review"
-      }
+      "metadata": {"source_type": "classical_reference", "authority_role": "Fiqh comparé mālikite", "corpus_priority": 1, "verification_status": "source_checked"}
     },
     {
       "kutub_id": 20855,
@@ -46,15 +33,8 @@
       "discipline": "Tafsīr",
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/20855",
-      "max_pages": 25,
       "enabled": true,
-      "metadata": {
-        "source_type": "classical_reference",
-        "authority_role": "Tafsīr juridique",
-        "corpus_priority": 2,
-        "edition": "Édition à identifier depuis la notice publique",
-        "verification_status": "structure_pending_review"
-      }
+      "metadata": {"source_type": "classical_reference", "authority_role": "Tafsīr juridique", "corpus_priority": 2, "verification_status": "source_checked"}
     },
     {
       "kutub_id": 11373,
@@ -64,15 +44,8 @@
       "discipline": "Fiqh et croyance",
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/11373",
-      "max_pages": 25,
       "enabled": true,
-      "metadata": {
-        "source_type": "classical_reference",
-        "authority_role": "Manuel du madhhab",
-        "corpus_priority": 1,
-        "edition": "Édition à identifier depuis la notice publique",
-        "verification_status": "structure_pending_review"
-      }
+      "metadata": {"source_type": "classical_reference", "authority_role": "Manuel du madhhab", "corpus_priority": 1, "verification_status": "source_checked"}
     },
     {
       "kutub_id": 28107,
@@ -82,16 +55,133 @@
       "discipline": "Hadith et fiqh",
       "madhhab": "Mālikite",
       "source_url": "https://kutub.io/fr/book/28107",
-      "max_pages": 25,
-      "enabled": false,
-      "note": "À activer après vérification manuelle de la fiche publique et de la pagination.",
-      "metadata": {
-        "source_type": "primary",
-        "authority_role": "Source fondatrice",
-        "corpus_priority": 1,
-        "edition": "Édition à identifier depuis la notice publique",
-        "verification_status": "pagination_pending_review"
-      }
+      "enabled": true,
+      "metadata": {"source_type": "primary", "authority_role": "Source fondatrice", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 587,
+      "title": "Al-Mudawwanah",
+      "title_ar": "المدونة",
+      "author": "Mālik ibn Anas",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/587",
+      "enabled": true,
+      "metadata": {"source_type": "primary_school_reference", "authority_role": "Source majeure du madhhab", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 11355,
+      "title": "Mukhtaṣar Khalīl",
+      "title_ar": "مختصر خليل",
+      "author": "Khalīl ibn Isḥāq al-Jundī",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/11355",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Mukhtaṣar de référence", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 21611,
+      "title": "Al-Tāj wa-al-Iklīl",
+      "title_ar": "التاج والإكليل لمختصر خليل",
+      "author": "Muḥammad ibn Yūsuf al-Mawwāq",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/21611",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Commentaire du Mukhtaṣar Khalīl", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 569,
+      "title": "Mawāhib al-Jalīl",
+      "title_ar": "مواهب الجليل في شرح مختصر خليل",
+      "author": "Al-Ḥaṭṭāb al-Ruʿaynī",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "pages": 3087,
+      "source_url": "https://kutub.io/fr/book/569",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Commentaire majeur du Mukhtaṣar Khalīl", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 2215,
+      "title": "Al-Furūq",
+      "title_ar": "الفروق",
+      "author": "Al-Qarāfī",
+      "discipline": "Qawāʿid et fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/2215",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Qawāʿid et distinctions juridiques", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 6684,
+      "title": "Al-Muntaqā",
+      "title_ar": "المنتقى شرح الموطأ",
+      "author": "Abū al-Walīd al-Bājī",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/6684",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Commentaire du Muwaṭṭaʾ", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 236,
+      "title": "At-Tamhīd",
+      "title_ar": "التمهيد",
+      "author": "Ibn ʿAbd al-Barr",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Mālikite",
+      "pages": 9093,
+      "source_url": "https://kutub.io/fr/book/236",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Commentaire hadith/fiqh du Muwaṭṭaʾ", "corpus_priority": 1, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 14297,
+      "title": "Sharḥ al-Zarqānī ʿalā Khalīl",
+      "title_ar": "شرح الزرقاني على مختصر خليل",
+      "author": "ʿAbd al-Bāqī al-Zarqānī",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/14297",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Commentaire tardif du Mukhtaṣar Khalīl", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 21751,
+      "title": "Al-Bayān wa-l-Taḥṣīl",
+      "title_ar": "البيان والتحصيل",
+      "author": "Ibn Rushd al-Jadd",
+      "discipline": "Fiqh",
+      "madhhab": "Mālikite",
+      "source_url": "https://kutub.io/fr/book/21751",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Développement du madhhab", "corpus_priority": 2, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 1655,
+      "title": "Kitāb al-Umm",
+      "title_ar": "كتاب الأم",
+      "author": "Al-Shāfiʿī",
+      "discipline": "Fiqh",
+      "madhhab": "Shāfiʿite",
+      "pages": 2232,
+      "source_url": "https://kutub.io/fr/book/1655",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Source fondatrice shāfiʿite pour comparaison", "corpus_priority": 3, "verification_status": "source_checked"}
+    },
+    {
+      "kutub_id": 8183,
+      "title": "Badāʾiʿ al-Ṣanāʾiʿ",
+      "title_ar": "بدائع الصنائع",
+      "author": "Al-Kāsānī",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanafite",
+      "pages": 817,
+      "source_url": "https://kutub.io/fr/book/8183",
+      "enabled": true,
+      "metadata": {"source_type": "classical_reference", "authority_role": "Référence ḥanafite pour comparaison", "corpus_priority": 3, "verification_status": "source_checked"}
     }
   ]
 }
