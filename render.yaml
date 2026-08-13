@@ -8,7 +8,7 @@ services:
     runtime: python
     plan: free
     region: frankfurt
-    buildCommand: python -m pip install -r rag/requirements.txt && python rag/build_hosted_corpus.py --db rag/data/athar_hosted.sqlite --max-books 40
+    buildCommand: python -m pip install -r rag/requirements.txt && python rag/build_hosted_corpus.py --db rag/data/athar_hosted.sqlite --max-books 50
     startCommand: cp rag/data/athar_hosted.sqlite /tmp/athar_rag.sqlite && python rag/server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
