@@ -1,7 +1,7 @@
-// Athar — Bibliothèque Savante V4
-// Interface volontairement simple : API V4 réelle ou erreur explicite. Aucun faux fallback local.
+// Athar Research — interface documentaire V5
+// Espace autonome de recherche dans le corpus savant. Aucun fallback vers la bibliothèque classique.
 window.ScholarLibraryV4View = {
-    name: 'ScholarLibraryV4View',
+    name: 'AtharResearchView',
     props: ['settings', 'setView'],
     setup(props) {
         const { ref, computed, onMounted, nextTick } = Vue;
@@ -9,6 +9,7 @@ window.ScholarLibraryV4View = {
         const DEFAULT_ORIGIN = 'https://athar-rag-ibradevweb.onrender.com';
         const REMOTE_CONFIG = 'rag/remote.json';
         const REQUEST_TIMEOUT_MS = 120000;
+        const HISTORY_KEY = 'athar_research_history_v1';
 
         const mode = ref('ask');
         const query = ref('');
@@ -20,26 +21,32 @@ window.ScholarLibraryV4View = {
         const response = ref(null);
         const selectedSourceId = ref('');
         const apiOrigin = ref('');
-        const status = ref({ connected: false, books: 0, chunks: 0, substantive_passages: 0, fts_ready: false });
+        const status = ref({ connected: false, books: 0, chunks: 0, substantive_passages: 0, fts_ready: false, engine_version: 0 });
         const books = ref([]);
         const booksLoading = ref(false);
+        const bookQuery = ref('');
+        const bookDiscipline = ref('');
+        const bookMadhhab = ref('');
+        const history = ref([]);
 
         const examples = [
-            'Que dit Sahih al-Bukhari sur les intentions ?',
-            'Que dit le Tafsir Ibn Kathir sur Ayat al-Kursi ?',
-            'Que rapporte Sunan al-Tirmidhi sur la prière du witr ?',
-            "Que trouve-t-on dans la Sira d'Ibn Hisham concernant la bataille de Badr ?"
+            { icon: 'volume-2', label: 'Fiqh', query: 'Dans quelles prières récite-t-on à voix haute ?' },
+            { icon: 'route', label: 'Voyage', query: 'Peut-on regrouper les prières en voyage ?' },
+            { icon: 'droplets', label: 'Purification', query: 'Comment faire le wudu ?' },
+            { icon: 'book-marked', label: 'Ouvrage précis', query: 'Que dit Sahih al-Bukhari sur les intentions ?' },
+            { icon: 'moon-star', label: 'Hadith', query: 'Que rapporte Sunan al-Tirmidhi sur la prière du witr ?' },
+            { icon: 'landmark', label: 'Sīra', query: "Que trouve-t-on dans la Sira d'Ibn Hisham concernant la bataille de Badr ?" }
         ];
 
         const madhhabs = [
             { value: '', label: 'Toutes les écoles' },
-            { value: 'Mālikite', label: 'Mālikite prioritaire' },
-            { value: 'Ḥanafite', label: 'Ḥanafite prioritaire' },
-            { value: 'Shāfiʿite', label: 'Shāfiʿite prioritaire' },
-            { value: 'Ḥanbalite', label: 'Ḥanbalite prioritaire' }
+            { value: 'Mālikite', label: 'Mālikite' },
+            { value: 'Ḥanafite', label: 'Ḥanafite' },
+            { value: 'Shāfiʿite', label: 'Shāfiʿite' },
+            { value: 'Ḥanbalite', label: 'Ḥanbalite' }
         ];
+        const disciplines = ['', 'Fiqh', 'Hadith', 'Tafsir', 'Sira', 'Usul', 'Aqida', 'Histoire'];
 
-        const disciplines = ['', 'Fiqh', 'Hadith', 'Tafsir', 'Sira', 'Usul'];
         const sources = computed(() => response.value?.sources || []);
         const answer = computed(() => response.value?.answer || null);
         const analysis = computed(() => response.value?.analysis || null);
@@ -49,12 +56,31 @@ window.ScholarLibraryV4View = {
             const total = Number(status.value.chunks || 0);
             return total ? Math.round(Number(status.value.substantive_passages || 0) * 100 / total) : 0;
         });
+        const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? 'RAG V5' : 'RAG');
+        const runtimeLabel = computed(() => status.value.runtime_profile === 'low-memory' ? 'Production optimisée' : 'Production');
+        const filteredBooks = computed(() => {
+            const needle = normalize(bookQuery.value);
+            const wantedDiscipline = normalize(bookDiscipline.value);
+            const wantedMadhhab = normalize(bookMadhhab.value);
+            return books.value.filter(book => {
+                const haystack = normalize([book.title, book.title_ar, book.author, book.discipline, book.madhhab].filter(Boolean).join(' '));
+                if (needle && !haystack.includes(needle)) return false;
+                if (wantedDiscipline && !normalize(book.discipline).includes(wantedDiscipline)) return false;
+                if (wantedMadhhab && !normalize(book.madhhab).includes(wantedMadhhab)) return false;
+                return true;
+            });
+        });
+        const distinctBookDisciplines = computed(() => [...new Set(books.value.map(book => book.discipline).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'fr')));
+        const distinctBookMadhhabs = computed(() => [...new Set(books.value.map(book => book.madhhab).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'fr')));
+
+        function normalize(value) {
+            return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        }
 
         const validOrigin = value => {
             try {
                 const url = new URL(String(value || ''));
-                if (url.protocol !== 'https:') return '';
-                return url.origin;
+                return url.protocol === 'https:' ? url.origin : '';
             } catch (_) {
                 return '';
             }
@@ -64,7 +90,7 @@ window.ScholarLibraryV4View = {
             if (apiOrigin.value) return apiOrigin.value;
             try {
                 const url = new URL(REMOTE_CONFIG, window.location.href);
-                url.searchParams.set('v', 'rag-v4');
+                url.searchParams.set('v', 'rag-v5-ui');
                 const request = await window.fetch(url.href, { cache: 'no-store', headers: { Accept: 'application/json' } });
                 if (request.ok) {
                     const payload = await request.json();
@@ -99,30 +125,56 @@ window.ScholarLibraryV4View = {
             }
         };
 
+        const validateV5 = payload => {
+            if (!payload?.ok) throw new Error(payload?.error || 'Réponse API invalide.');
+            if (Number(payload?.engine_version || 0) !== 5 || payload?.engine !== 'rag-v5-hybrid-multilingual') {
+                throw new Error('Le moteur documentaire V5 n’est pas encore actif.');
+            }
+            return payload;
+        };
+
         const connect = async () => {
             waking.value = true;
             error.value = '';
             try {
                 const health = await apiFetch('/healthz', {}, 90000);
                 if (!health.ok) throw new Error(`HTTP ${health.status}`);
-                const healthPayload = await health.json();
-                if (healthPayload?.server !== 'athar-rag-v4' || Number(healthPayload?.api_version) !== 4) {
-                    throw new Error('Le serveur actif n’est pas la Bibliothèque V4.');
-                }
+                validateV5(await health.json());
 
-                const request = await apiFetch('/api/rag/v4/status');
+                const request = await apiFetch('/api/rag/v5/status');
                 if (!request.ok) throw new Error(`HTTP ${request.status}`);
-                const payload = await request.json();
-                if (!payload?.ok || payload?.server !== 'athar-rag-v4') throw new Error(payload?.error || 'Statut V4 invalide.');
+                const payload = validateV5(await request.json());
                 status.value = { ...payload, connected: true };
             } catch (connectionError) {
-                status.value = { connected: false, books: 0, chunks: 0, substantive_passages: 0, fts_ready: false };
+                status.value = { connected: false, books: 0, chunks: 0, substantive_passages: 0, fts_ready: false, engine_version: 0 };
                 error.value = connectionError?.name === 'AbortError'
-                    ? 'La bibliothèque met trop de temps à se réveiller. Réessaie dans quelques instants.'
-                    : `Bibliothèque momentanément indisponible : ${connectionError?.message || 'connexion impossible'}`;
+                    ? 'Le moteur met trop de temps à répondre. Réessaie dans quelques instants.'
+                    : `Moteur documentaire indisponible : ${connectionError?.message || 'connexion impossible'}`;
             } finally {
                 waking.value = false;
             }
+        };
+
+        const loadHistory = () => {
+            try {
+                const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+                history.value = Array.isArray(parsed) ? parsed.slice(0, 20) : [];
+            } catch (_) {
+                history.value = [];
+            }
+        };
+
+        const saveHistory = payload => {
+            const item = {
+                id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+                query: query.value.trim(),
+                created_at: new Date().toISOString(),
+                count: Number(payload?.count || 0),
+                routed_book: payload?.analysis?.routed_book?.title || '',
+                top_books: [...new Set((payload?.sources || []).map(source => source.title).filter(Boolean))].slice(0, 3)
+            };
+            history.value = [item, ...history.value.filter(entry => entry.query !== item.query)].slice(0, 20);
+            try { localStorage.setItem(HISTORY_KEY, JSON.stringify(history.value)); } catch (_) {}
         };
 
         const ask = async () => {
@@ -133,25 +185,22 @@ window.ScholarLibraryV4View = {
             response.value = null;
             selectedSourceId.value = '';
             try {
-                const request = await apiFetch('/api/rag/v4/ask', {
+                const request = await apiFetch('/api/rag/v5/ask', {
                     method: 'POST',
-                    body: JSON.stringify({
-                        query: value,
-                        limit: 8,
-                        madhhab: madhhab.value,
-                        discipline: discipline.value
-                    })
+                    body: JSON.stringify({ query: value, limit: 8, madhhab: madhhab.value, discipline: discipline.value })
                 });
                 const payload = await request.json().catch(() => ({}));
-                if (!request.ok || !payload?.ok) throw new Error(payload?.error || `HTTP ${request.status}`);
-                if (payload?.server !== 'athar-rag-v4' || Number(payload?.api_version) !== 4) throw new Error('Réponse provenant d’un ancien moteur.');
+                if (!request.ok) throw new Error(payload?.error || `HTTP ${request.status}`);
+                validateV5(payload);
                 response.value = payload;
                 status.value.connected = true;
+                status.value.engine_version = 5;
                 selectedSourceId.value = payload.sources?.[0]?.citation_id || '';
-                nextTick(() => document.querySelector('.sv2-response')?.scrollIntoView?.({ behavior: 'smooth', block: 'start' }));
+                saveHistory(payload);
+                nextTick(() => document.querySelector('.ar5-results')?.scrollIntoView?.({ behavior: 'smooth', block: 'start' }));
             } catch (searchError) {
                 error.value = searchError?.name === 'AbortError'
-                    ? 'La recherche a dépassé deux minutes. Aucune réponse de secours n’est affichée pour éviter de te tromper.'
+                    ? 'La recherche a dépassé deux minutes. Aucun résultat de secours n’est affiché.'
                     : `Recherche impossible : ${searchError?.message || 'serveur indisponible'}`;
             } finally {
                 loading.value = false;
@@ -161,13 +210,15 @@ window.ScholarLibraryV4View = {
         const loadBooks = async () => {
             if (books.value.length || booksLoading.value) return;
             booksLoading.value = true;
+            error.value = '';
             try {
-                const request = await apiFetch('/api/rag/v4/books');
+                const request = await apiFetch('/api/rag/v5/books');
                 const payload = await request.json().catch(() => ({}));
-                if (!request.ok || !payload?.ok) throw new Error(payload?.error || `HTTP ${request.status}`);
+                if (!request.ok) throw new Error(payload?.error || `HTTP ${request.status}`);
+                validateV5(payload);
                 books.value = payload.books || [];
             } catch (bookError) {
-                error.value = `Impossible de charger le catalogue : ${bookError?.message || 'erreur inconnue'}`;
+                error.value = `Impossible de charger les ouvrages : ${bookError?.message || 'erreur inconnue'}`;
             } finally {
                 booksLoading.value = false;
             }
@@ -185,6 +236,17 @@ window.ScholarLibraryV4View = {
             nextTick(ask);
         };
 
+        const rerunHistory = item => {
+            query.value = item?.query || '';
+            mode.value = 'ask';
+            nextTick(ask);
+        };
+
+        const clearHistory = () => {
+            history.value = [];
+            try { localStorage.removeItem(HISTORY_KEY); } catch (_) {}
+        };
+
         const selectSource = sourceOrId => {
             selectedSourceId.value = typeof sourceOrId === 'string' ? sourceOrId : sourceOrId?.citation_id;
         };
@@ -193,6 +255,7 @@ window.ScholarLibraryV4View = {
             response.value = null;
             selectedSourceId.value = '';
             error.value = '';
+            nextTick(() => document.querySelector('.ar5-composer textarea')?.focus());
         };
 
         const copyCitation = async source => {
@@ -201,140 +264,176 @@ window.ScholarLibraryV4View = {
             try { await navigator.clipboard.writeText(parts.join(' · ')); } catch (_) {}
         };
 
-        const formatNumber = value => new Intl.NumberFormat('fr-FR').format(Number(value || 0));
-        const openCompanions = () => typeof props.setView === 'function' && props.setView('library');
+        const onComposerKeydown = event => {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+                event.preventDefault();
+                ask();
+            }
+        };
 
-        onMounted(connect);
+        const formatNumber = value => new Intl.NumberFormat('fr-FR').format(Number(value || 0));
+        const formatDate = value => {
+            try { return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value)); }
+            catch (_) { return ''; }
+        };
+        const openCompanions = () => typeof props.setView === 'function' && props.setView('library');
+        const openHome = () => typeof props.setView === 'function' && props.setView('home');
+
+        onMounted(() => { loadHistory(); connect(); });
 
         return {
             mode, query, madhhab, discipline, loading, waking, error, response, status, books, booksLoading,
-            examples, madhhabs, disciplines, sources, answer, analysis, routedBook, selectedSource, selectedSourceId,
-            substantiveRatio, ask, connect, changeMode, chooseExample, selectSource, reset, copyCitation, formatNumber, openCompanions
+            bookQuery, bookDiscipline, bookMadhhab, history, examples, madhhabs, disciplines, sources, answer,
+            analysis, routedBook, selectedSource, selectedSourceId, substantiveRatio, engineLabel, runtimeLabel,
+            filteredBooks, distinctBookDisciplines, distinctBookMadhhabs, ask, connect, changeMode, chooseExample,
+            rerunHistory, clearHistory, selectSource, reset, copyCitation, onComposerKeydown, formatNumber, formatDate,
+            openCompanions, openHome
         };
     },
     template: `
-    <section class="sv2-shell" aria-label="Bibliothèque Savante V4">
-        <header class="sv2-header">
-            <div class="sv2-brand-block">
-                <div class="sv2-kicker-row">
-                    <span class="sv2-masterpiece">Bibliothèque Athar</span>
-                    <span class="sv2-live" :class="{ online: status.connected }"><i></i>{{ status.connected ? 'Moteur V4 connecté' : (waking ? 'Réveil du serveur…' : 'Serveur indisponible') }}</span>
-                </div>
-                <h1>Bibliothèque <span>Savante</span></h1>
-                <p class="sv2-arabic" lang="ar" dir="rtl">مكتبة آثار العلمية</p>
-                <p class="sv2-subtitle">Recherche documentaire dans les ouvrages réels. Aucun passage de secours n’est substitué lorsque le serveur ne répond pas.</p>
+    <section class="ar5-shell" aria-label="Athar Research — Bibliothèque Savante">
+        <header class="ar5-topbar">
+            <div class="ar5-brand" @click="changeMode('ask')">
+                <span class="ar5-brand-mark"><i data-lucide="scan-search"></i></span>
+                <span class="ar5-brand-copy"><small>Athar</small><strong>Research</strong></span>
             </div>
-            <button type="button" class="sv2-companions-link" @click="openCompanions">
-                <span class="sv2-companions-icon"><i data-lucide="users-round"></i></span>
-                <span><small>Autre bibliothèque</small><strong>Bibliothèque des Compagnons</strong></span>
-                <i data-lucide="arrow-up-right"></i>
-            </button>
+            <div class="ar5-runtime" :class="{ online: status.connected }">
+                <span class="ar5-runtime-dot"></span>
+                <span><strong>{{ status.connected ? engineLabel : (waking ? 'Connexion…' : 'Hors ligne') }}</strong><small>{{ status.connected ? runtimeLabel : 'Moteur documentaire' }}</small></span>
+            </div>
+            <div class="ar5-top-actions">
+                <button type="button" class="ar5-ghost" @click="openHome"><i data-lucide="grid-2x2"></i><span>Athar Pro</span></button>
+                <button type="button" class="ar5-ghost" @click="openCompanions"><i data-lucide="users-round"></i><span>Compagnons</span></button>
+            </div>
         </header>
 
-        <nav class="sv2-tabs" aria-label="Espaces de la Bibliothèque Savante">
-            <button type="button" :class="{ active: mode === 'ask' }" @click="changeMode('ask')"><i data-lucide="message-square-text"></i>Interroger</button>
-            <button type="button" :class="{ active: mode === 'corpus' }" @click="changeMode('corpus')"><i data-lucide="library-big"></i>Les ouvrages</button>
-            <button type="button" :class="{ active: mode === 'method' }" @click="changeMode('method')"><i data-lucide="shield-check"></i>Méthode</button>
-        </nav>
-
-        <main v-if="mode === 'ask'" class="sv2-ask-space">
-            <section class="sv2-query-panel">
-                <div class="sv2-query-heading">
-                    <div><span>Recherche V4</span><h2>Que veux-tu retrouver dans les ouvrages ?</h2></div>
-                    <span class="sv2-citation-rule"><i data-lucide="shield-check"></i>Preuves avant synthèse</span>
+        <div class="ar5-frame">
+            <aside class="ar5-rail">
+                <div class="ar5-rail-intro"><span>Moteur documentaire</span><p>Recherche directe dans les ouvrages indexés, sans réponse de remplacement.</p></div>
+                <nav aria-label="Navigation Athar Research">
+                    <button type="button" :class="{ active: mode === 'ask' }" @click="changeMode('ask')"><i data-lucide="search"></i><span><strong>Recherche</strong><small>Interroger le corpus</small></span></button>
+                    <button type="button" :class="{ active: mode === 'corpus' }" @click="changeMode('corpus')"><i data-lucide="library-big"></i><span><strong>Ouvrages</strong><small>Explorer le corpus</small></span></button>
+                    <button type="button" :class="{ active: mode === 'history' }" @click="changeMode('history')"><i data-lucide="history"></i><span><strong>Historique</strong><small>Reprendre une recherche</small></span></button>
+                    <button type="button" :class="{ active: mode === 'method' }" @click="changeMode('method')"><i data-lucide="shield-check"></i><span><strong>Méthode</strong><small>Comprendre le moteur</small></span></button>
+                </nav>
+                <div class="ar5-rail-stats">
+                    <div><span>Ouvrages</span><strong>{{ formatNumber(status.books) }}</strong></div>
+                    <div><span>Passages</span><strong>{{ formatNumber(status.chunks) }}</strong></div>
                 </div>
+                <button type="button" class="ar5-classic-link" @click="openCompanions"><i data-lucide="arrow-left-right"></i><span><small>Espace distinct</small><strong>Bibliothèque des Compagnons</strong></span></button>
+            </aside>
 
-                <div class="sv2-question-box">
-                    <textarea v-model="query" rows="3" placeholder="Ex. Que dit Sahih al-Bukhari sur les intentions ?" aria-label="Question à la Bibliothèque Savante"></textarea>
-                    <button type="button" :disabled="loading || waking || query.trim().length < 3" @click="ask">
-                        <span v-if="!loading">Chercher dans les livres</span><span v-else>Recherche en cours…</span>
-                        <i v-if="!loading" data-lucide="search"></i><i v-else data-lucide="loader-circle" class="sv2-spin"></i>
-                    </button>
-                </div>
+            <main class="ar5-main">
+                <div v-if="error" class="ar5-alert"><i data-lucide="triangle-alert"></i><span>{{ error }}</span><button v-if="!waking" type="button" @click="connect">Réessayer</button></div>
 
-                <div class="sv2-query-controls">
-                    <label><span>École à privilégier</span><select v-model="madhhab"><option v-for="item in madhhabs" :key="item.value" :value="item.value">{{ item.label }}</option></select></label>
-                    <label><span>Discipline</span><select v-model="discipline"><option v-for="item in disciplines" :key="item || 'auto'" :value="item">{{ item || 'Automatique' }}</option></select></label>
-                </div>
-            </section>
+                <template v-if="mode === 'ask'">
+                    <section class="ar5-hero">
+                        <div class="ar5-eyebrow"><span>Bibliothèque Savante</span><b>{{ status.connected ? 'Corpus connecté' : 'Connexion requise' }}</b></div>
+                        <h1>Chercher dans les textes.<br><em>Lire les preuves.</em></h1>
+                        <p>Pose une question en français ou en arabe. Athar détecte les notions, cible l’ouvrage lorsqu’il est nommé et renvoie les passages les plus pertinents du corpus.</p>
 
-            <div v-if="error" class="sv2-alert"><i data-lucide="triangle-alert"></i><span>{{ error }}</span><button v-if="!status.connected && !waking" type="button" @click="connect">Réessayer</button></div>
+                        <div class="ar5-composer" :class="{ busy: loading }">
+                            <textarea v-model="query" rows="4" @keydown="onComposerKeydown" placeholder="Ex. Dans quelles prières récite-t-on à voix haute ?" aria-label="Question à Athar Research"></textarea>
+                            <div class="ar5-composer-footer">
+                                <span><i data-lucide="command"></i> Ctrl + Entrée</span>
+                                <button type="button" :disabled="loading || waking || query.trim().length < 3" @click="ask">
+                                    <i v-if="!loading" data-lucide="arrow-up-right"></i><i v-else data-lucide="loader-circle" class="ar5-spin"></i>
+                                    <span>{{ loading ? 'Recherche…' : 'Rechercher' }}</span>
+                                </button>
+                            </div>
+                        </div>
 
-            <section v-if="!response && !loading" class="sv2-start">
-                <div class="sv2-start-head">
-                    <div><span>Tests représentatifs</span><h2>Essaie plusieurs types d’ouvrages</h2></div>
-                    <div class="sv2-start-stats"><strong>{{ formatNumber(status.substantive_passages) }}</strong><span>passages substantiels</span></div>
-                </div>
-                <div class="sv2-example-grid">
-                    <button v-for="example in examples" :key="example" type="button" @click="chooseExample(example)">
-                        <span class="sv2-example-icon"><i data-lucide="book-search"></i></span><small>Question test</small><strong>{{ example }}</strong><b>Interroger <i data-lucide="arrow-right"></i></b>
-                    </button>
-                </div>
-            </section>
+                        <div class="ar5-filters">
+                            <label><span>École</span><select v-model="madhhab"><option v-for="item in madhhabs" :key="item.value" :value="item.value">{{ item.label }}</option></select></label>
+                            <label><span>Discipline</span><select v-model="discipline"><option v-for="item in disciplines" :key="item || 'auto'" :value="item">{{ item || 'Automatique' }}</option></select></label>
+                            <div class="ar5-corpus-pill"><i data-lucide="database"></i><span><strong>{{ formatNumber(status.substantive_passages) }}</strong> passages substantiels</span></div>
+                        </div>
+                    </section>
 
-            <section v-if="loading" class="sv2-loading" aria-live="polite">
-                <div class="sv2-loading-orbit"><span></span><i data-lucide="book-open-check"></i></div>
-                <div><strong>Recherche dans le corpus</strong><span>Détection de l’ouvrage · recherche des concepts · classement des passages</span></div>
-            </section>
+                    <section v-if="!response && !loading" class="ar5-discovery">
+                        <div class="ar5-section-head"><div><span>Exemples</span><h2>Questions naturelles</h2></div><p>Pas besoin de connaître le vocabulaire arabe exact.</p></div>
+                        <div class="ar5-example-grid">
+                            <button v-for="example in examples" :key="example.query" type="button" @click="chooseExample(example.query)">
+                                <span class="ar5-example-icon"><i :data-lucide="example.icon"></i></span><small>{{ example.label }}</small><strong>{{ example.query }}</strong><span class="ar5-example-arrow"><i data-lucide="arrow-up-right"></i></span>
+                            </button>
+                        </div>
+                    </section>
 
-            <section v-if="response && answer" class="sv2-response">
-                <div class="sv2-analysis-strip">
-                    <div><span>Moteur</span><strong>RAG V4</strong></div>
-                    <div><span>Recherche</span><strong>{{ routedBook ? 'Ouvrage ciblé' : 'Corpus général' }}</strong></div>
-                    <div v-if="routedBook"><span>Ouvrage détecté</span><strong>{{ routedBook.title }}</strong></div>
-                    <div><span>Concepts</span><strong>{{ analysis?.concepts?.join(' · ') || 'lexicaux' }}</strong></div>
-                    <button type="button" @click="reset"><i data-lucide="rotate-ccw"></i>Nouvelle question</button>
-                </div>
+                    <section v-if="loading" class="ar5-loading" aria-live="polite">
+                        <span class="ar5-loading-mark"><i data-lucide="scan-search"></i></span>
+                        <div><strong>Recherche dans les ouvrages</strong><p>Analyse des notions · interrogation de l’index · classement des passages</p></div>
+                    </section>
 
-                <div class="sv2-confidence" :class="sources.length ? 'is-sufficient' : 'is-insufficient'">
-                    <div class="sv2-confidence-score"><strong>{{ sources.length }}</strong></div>
-                    <div><span>Résultat documentaire</span><h2>{{ sources.length ? 'Passages retrouvés' : 'Aucune preuve suffisante' }}</h2><p>{{ answer.summary }}</p></div>
-                    <dl>
-                        <div><dt>Passages</dt><dd>{{ sources.length }}</dd></div>
-                        <div><dt>Ouvrage ciblé</dt><dd>{{ routedBook ? 'Oui' : 'Non' }}</dd></div>
-                        <div><dt>Mode</dt><dd>Extraits directs</dd></div>
-                    </dl>
-                </div>
+                    <section v-if="response && answer" class="ar5-results">
+                        <div class="ar5-result-head">
+                            <div><span>Résultat documentaire</span><h2>{{ sources.length ? `${sources.length} passage${sources.length > 1 ? 's' : ''} retrouvé${sources.length > 1 ? 's' : ''}` : 'Aucun passage suffisamment pertinent' }}</h2><p>{{ answer.summary }}</p></div>
+                            <button type="button" class="ar5-new-search" @click="reset"><i data-lucide="plus"></i>Nouvelle recherche</button>
+                        </div>
 
-                <div class="sv2-answer-layout">
-                    <div class="sv2-answer-column">
-                        <div class="sv2-section-title"><span>Passages les plus pertinents</span><p>Le pourcentage mesure la pertinence documentaire, pas la certitude religieuse.</p></div>
-                        <article v-for="claim in answer.claims" :key="claim.id" class="sv2-claim">
-                            <div class="sv2-claim-head"><span>Extrait direct</span><b>{{ claim.relevance }} % de pertinence</b></div>
-                            <p>{{ claim.text }}</p>
-                            <div class="sv2-claim-sources"><button v-for="sourceId in claim.source_ids" :key="sourceId" @click="selectSource(sourceId)"><span>[{{ sourceId }}]</span>Ouvrir le passage<i data-lucide="arrow-up-right"></i></button></div>
-                        </article>
-                        <div class="sv2-limits"><div class="sv2-section-title"><span>Important</span></div><ul><li><i data-lucide="info"></i>{{ answer.warning }}</li></ul></div>
-                    </div>
+                        <div class="ar5-analysis">
+                            <div><span>Moteur</span><strong>RAG V5</strong></div>
+                            <div><span>Mode</span><strong>{{ routedBook ? 'Ouvrage ciblé' : 'Corpus général' }}</strong></div>
+                            <div v-if="routedBook"><span>Ouvrage détecté</span><strong>{{ routedBook.title }}</strong></div>
+                            <div><span>Notions</span><strong>{{ analysis?.concepts?.join(' · ') || 'Recherche lexicale' }}</strong></div>
+                        </div>
 
-                    <aside class="sv2-evidence" :class="{ empty: !selectedSource }">
-                        <template v-if="selectedSource">
-                            <div class="sv2-evidence-head"><div><span>Preuve sélectionnée</span><strong>[{{ selectedSource.citation_id }}]</strong></div><b>{{ selectedSource.relevance }} % pertinent</b></div>
-                            <h2>{{ selectedSource.title }}</h2><p class="sv2-evidence-arabic-title" lang="ar" dir="rtl">{{ selectedSource.title_ar }}</p><p class="sv2-evidence-author">{{ selectedSource.author }}</p>
-                            <dl class="sv2-evidence-meta"><div><dt>Discipline</dt><dd>{{ selectedSource.discipline || '—' }}</dd></div><div><dt>Madhhab</dt><dd>{{ selectedSource.madhhab || 'Transversal' }}</dd></div><div><dt>Page</dt><dd>{{ selectedSource.page ?? '—' }}</dd></div><div><dt>Concepts trouvés</dt><dd>{{ selectedSource.matched_concepts?.join(', ') || '—' }}</dd></div></dl>
-                            <div v-if="selectedSource.chapter" class="sv2-evidence-chapter"><span>Chapitre</span><strong>{{ selectedSource.chapter }}</strong></div>
-                            <div v-if="selectedSource.text_ar" class="sv2-source-text arabic"><div><span>Texte arabe</span><b>Source indexée</b></div><p lang="ar" dir="rtl">{{ selectedSource.text_ar }}</p></div>
-                            <div v-if="selectedSource.text_fr" class="sv2-source-text french"><div><span>Texte français</span><b>{{ selectedSource.translation_status }}</b></div><p>{{ selectedSource.text_fr }}</p></div>
-                            <div class="sv2-evidence-actions"><button type="button" @click="copyCitation(selectedSource)"><i data-lucide="copy"></i>Copier la citation</button><a v-if="selectedSource.source_url" :href="selectedSource.source_url" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i>Ouvrir la source</a></div>
-                            <div class="sv2-source-list"><span>Tous les passages</span><button v-for="source in sources" :key="source.citation_id" :class="{ active: selectedSourceId === source.citation_id }" @click="selectSource(source)"><b>[{{ source.citation_id }}]</b><span>{{ source.title }} · p. {{ source.page ?? '—' }}</span><small>{{ source.relevance }}%</small></button></div>
-                        </template>
-                        <div v-else class="sv2-evidence-empty"><i data-lucide="book-x"></i><p>Aucun passage suffisamment pertinent.</p></div>
-                    </aside>
-                </div>
-            </section>
-        </main>
+                        <div v-if="sources.length" class="ar5-result-layout">
+                            <div class="ar5-source-list">
+                                <article v-for="source in sources" :key="source.citation_id" class="ar5-source-card" :class="{ active: selectedSourceId === source.citation_id }" @click="selectSource(source)">
+                                    <div class="ar5-source-card-top"><span>[{{ source.citation_id }}]</span><b>{{ source.relevance }}% pertinent</b></div>
+                                    <h3>{{ source.title }}</h3>
+                                    <p class="ar5-source-author">{{ source.author || 'Auteur non renseigné' }}</p>
+                                    <p v-if="source.chapter" class="ar5-source-chapter">{{ source.chapter }}</p>
+                                    <p class="ar5-source-preview" :class="{ arabic: !source.text_fr && source.text_ar }" :dir="!source.text_fr && source.text_ar ? 'rtl' : 'ltr'">{{ source.text_fr || source.text_ar }}</p>
+                                    <div class="ar5-source-tags"><span v-if="source.discipline">{{ source.discipline }}</span><span v-if="source.madhhab">{{ source.madhhab }}</span><span v-if="source.page != null">p. {{ source.page }}</span></div>
+                                </article>
+                            </div>
 
-        <main v-else-if="mode === 'corpus'" class="sv2-corpus-space">
-            <section class="sv2-corpus-hero"><div><span>Corpus réellement connecté</span><h2>{{ formatNumber(status.books) }} ouvrages · {{ formatNumber(status.chunks) }} passages</h2><p>Cette liste vient directement de l’API V4. Elle n’est pas reconstruite depuis un petit index embarqué.</p></div><div class="sv2-corpus-ring"><strong>{{ substantiveRatio }}%</strong><span>passages substantiels</span></div></section>
-            <div class="sv2-corpus-stats"><article><span>Ouvrages</span><strong>{{ formatNumber(status.books) }}</strong></article><article><span>Passages</span><strong>{{ formatNumber(status.chunks) }}</strong></article><article><span>Substantiels</span><strong>{{ formatNumber(status.substantive_passages) }}</strong></article><article><span>Index FTS</span><strong>{{ status.fts_ready ? 'Actif' : 'Absent' }}</strong></article></div>
-            <section v-if="booksLoading" class="sv2-loading"><div><strong>Chargement du catalogue…</strong></div></section>
-            <div v-else class="sv2-corpus-grid"><article v-for="book in books" :key="book.id" class="sv2-book-card"><div class="sv2-book-top"><span>{{ book.discipline || 'Ouvrage classique' }}</span><b>{{ formatNumber(book.chunks) }} passages</b></div><h3>{{ book.title }}</h3><p lang="ar" dir="rtl">{{ book.title_ar }}</p><strong>{{ book.author }}</strong><dl><div><dt>Madhhab</dt><dd>{{ book.madhhab || 'Transversal' }}</dd></div><div><dt>Pages indexées</dt><dd>{{ formatNumber(book.indexed_pages) }}</dd></div></dl><a v-if="book.source_url" :href="book.source_url" target="_blank" rel="noopener noreferrer">Ouvrir la source <i data-lucide="external-link"></i></a></article></div>
-        </main>
+                            <aside class="ar5-evidence">
+                                <template v-if="selectedSource">
+                                    <div class="ar5-evidence-top"><div><span>Passage sélectionné</span><strong>[{{ selectedSource.citation_id }}]</strong></div><b>{{ selectedSource.relevance }}%</b></div>
+                                    <h2>{{ selectedSource.title }}</h2>
+                                    <p v-if="selectedSource.title_ar" class="ar5-evidence-title-ar" lang="ar" dir="rtl">{{ selectedSource.title_ar }}</p>
+                                    <p class="ar5-evidence-author">{{ selectedSource.author }}</p>
+                                    <dl class="ar5-evidence-meta"><div><dt>Discipline</dt><dd>{{ selectedSource.discipline || '—' }}</dd></div><div><dt>École</dt><dd>{{ selectedSource.madhhab || 'Transversal' }}</dd></div><div><dt>Page</dt><dd>{{ selectedSource.page ?? '—' }}</dd></div><div><dt>Notions</dt><dd>{{ selectedSource.matched_concepts?.join(', ') || '—' }}</dd></div></dl>
+                                    <div v-if="selectedSource.chapter" class="ar5-evidence-chapter"><span>Chapitre</span><strong>{{ selectedSource.chapter }}</strong></div>
+                                    <section v-if="selectedSource.text_ar" class="ar5-text-block arabic"><header><span>Texte arabe</span><b>Original indexé</b></header><p lang="ar" dir="rtl">{{ selectedSource.text_ar }}</p></section>
+                                    <section v-if="selectedSource.text_fr" class="ar5-text-block"><header><span>Texte français</span><b>{{ selectedSource.translation_status || 'Indexé' }}</b></header><p>{{ selectedSource.text_fr }}</p></section>
+                                    <div class="ar5-evidence-actions"><button type="button" @click.stop="copyCitation(selectedSource)"><i data-lucide="copy"></i>Copier la citation</button><a v-if="selectedSource.source_url" :href="selectedSource.source_url" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i>Source originale</a></div>
+                                </template>
+                            </aside>
+                        </div>
 
-        <main v-else class="sv2-quality-space">
-            <section class="sv2-quality-hero"><div><span>Architecture V4</span><h2>Simple, vérifiable et refus explicite.</h2><p>Le moteur détecte l’ouvrage lorsqu’il est nommé, recherche les concepts à l’intérieur de ce livre et ne remplace jamais une recherche échouée par des passages d’un autre corpus.</p></div><div class="sv2-quality-score"><strong>V4</strong><span>evidence-first</span><small>lecture seule</small></div></section>
-            <div class="sv2-method-grid"><article><span>01</span><i data-lucide="book-key"></i><h3>Router</h3><p>Si un ouvrage est nommé, Athar identifie d’abord ce livre.</p></article><article><span>02</span><i data-lucide="scan-search"></i><h3>Rechercher</h3><p>Les concepts français et arabes sont cherchés dans le texte réel.</p></article><article><span>03</span><i data-lucide="list-ordered"></i><h3>Classer</h3><p>Les passages sont classés par pertinence documentaire.</p></article><article><span>04</span><i data-lucide="shield-x"></i><h3>Refuser</h3><p>Si aucune preuve ne correspond, Athar affiche zéro passage plutôt qu’une réponse hors sujet.</p></article></div>
-        </main>
+                        <div v-else class="ar5-empty">
+                            <span><i data-lucide="search-x"></i></span><h3>Aucune preuve suffisante</h3><p>Essaie une formulation plus directe, précise un ouvrage, une école ou une discipline. Athar n’invente pas de passage pour remplir le résultat.</p>
+                            <div><button v-for="example in examples.slice(0,3)" :key="example.query" @click="chooseExample(example.query)">{{ example.query }}</button></div>
+                        </div>
+                    </section>
+                </template>
+
+                <template v-else-if="mode === 'corpus'">
+                    <section class="ar5-page-head"><span>Corpus</span><h1>Les ouvrages indexés</h1><p>Catalogue réellement exposé par le moteur documentaire, distinct de la bibliothèque éditoriale des Compagnons.</p></section>
+                    <section class="ar5-corpus-stats"><article><span>Ouvrages</span><strong>{{ formatNumber(status.books) }}</strong></article><article><span>Passages</span><strong>{{ formatNumber(status.chunks) }}</strong></article><article><span>Substantiels</span><strong>{{ formatNumber(status.substantive_passages) }}</strong></article><article><span>Couverture</span><strong>{{ substantiveRatio }}%</strong></article></section>
+                    <section class="ar5-book-tools"><label class="ar5-book-search"><i data-lucide="search"></i><input v-model="bookQuery" placeholder="Titre, auteur, discipline…"></label><select v-model="bookDiscipline"><option value="">Toutes les disciplines</option><option v-for="item in distinctBookDisciplines" :key="item" :value="item">{{ item }}</option></select><select v-model="bookMadhhab"><option value="">Toutes les écoles</option><option v-for="item in distinctBookMadhhabs" :key="item" :value="item">{{ item }}</option></select></section>
+                    <section v-if="booksLoading" class="ar5-loading"><span class="ar5-loading-mark"><i data-lucide="loader-circle" class="ar5-spin"></i></span><div><strong>Chargement du corpus</strong></div></section>
+                    <section v-else class="ar5-books-grid"><article v-for="book in filteredBooks" :key="book.id" class="ar5-book-card"><div class="ar5-book-card-top"><span>{{ book.discipline || 'Ouvrage' }}</span><b>{{ formatNumber(book.chunks || 0) }} passages</b></div><h3>{{ book.title }}</h3><p v-if="book.title_ar" class="ar5-book-ar" lang="ar" dir="rtl">{{ book.title_ar }}</p><p>{{ book.author || 'Auteur non renseigné' }}</p><footer><span v-if="book.madhhab">{{ book.madhhab }}</span><span>{{ formatNumber(book.indexed_pages || book.pages || 0) }} pages</span><a v-if="book.source_url" :href="book.source_url" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a></footer></article></section>
+                    <div v-if="!booksLoading && !filteredBooks.length" class="ar5-empty compact"><span><i data-lucide="book-x"></i></span><h3>Aucun ouvrage correspondant</h3><p>Modifie les filtres ou la recherche.</p></div>
+                </template>
+
+                <template v-else-if="mode === 'history'">
+                    <section class="ar5-page-head with-action"><div><span>Historique local</span><h1>Reprendre une recherche</h1><p>Conservé uniquement dans ce navigateur. Aucun historique n’est envoyé au serveur.</p></div><button v-if="history.length" type="button" @click="clearHistory"><i data-lucide="trash-2"></i>Effacer</button></section>
+                    <section v-if="history.length" class="ar5-history-list"><button v-for="item in history" :key="item.id" type="button" @click="rerunHistory(item)"><span class="ar5-history-icon"><i data-lucide="history"></i></span><span class="ar5-history-copy"><small>{{ formatDate(item.created_at) }}</small><strong>{{ item.query }}</strong><em>{{ item.routed_book || item.top_books.join(' · ') || 'Corpus général' }}</em></span><span class="ar5-history-count">{{ item.count }}<small>passages</small></span><i data-lucide="arrow-up-right"></i></button></section>
+                    <div v-else class="ar5-empty"><span><i data-lucide="history"></i></span><h3>Aucune recherche enregistrée</h3><p>Les recherches réussies apparaîtront ici pour pouvoir être relancées rapidement.</p><button @click="changeMode('ask')">Commencer une recherche</button></div>
+                </template>
+
+                <template v-else>
+                    <section class="ar5-page-head"><span>Méthode</span><h1>Ce que fait Athar Research</h1><p>Un moteur documentaire, pas un oracle. L’objectif est de retrouver des passages vérifiables et de rendre le chemin vers la source visible.</p></section>
+                    <section class="ar5-method-grid"><article><span>01</span><i data-lucide="message-square-text"></i><h3>Comprendre la question</h3><p>Le moteur reconnaît des formulations françaises usuelles et les relie aux notions arabes pertinentes.</p></article><article><span>02</span><i data-lucide="book-key"></i><h3>Cibler l’ouvrage</h3><p>Lorsqu’un livre ou un auteur est explicitement nommé, la recherche est prioritairement routée vers cet ouvrage.</p></article><article><span>03</span><i data-lucide="scan-search"></i><h3>Retrouver les passages</h3><p>L’index plein texte remonte un ensemble borné de candidats qui sont ensuite reclassés selon leur proximité documentaire.</p></article><article><span>04</span><i data-lucide="quote"></i><h3>Afficher la preuve</h3><p>Le résultat conserve le texte, l’ouvrage, l’auteur, le chapitre, la page et le lien source quand ils sont disponibles.</p></article></section>
+                    <section class="ar5-method-note"><div><i data-lucide="shield-alert"></i></div><div><span>À retenir</span><h2>Pertinence documentaire ≠ certitude religieuse</h2><p>Le pourcentage affiché mesure la proximité entre la question et le passage indexé. Il ne classe ni l’authenticité d’un hadith, ni la force d’un avis juridique, ni la valeur d’une école.</p></div></section>
+                    <section class="ar5-method-tech"><div><span>Moteur</span><strong>RAG V5 multilingue</strong></div><div><span>Corpus</span><strong>{{ formatNumber(status.books) }} ouvrages</strong></div><div><span>Index</span><strong>{{ status.fts_ready ? 'FTS actif' : 'À vérifier' }}</strong></div><div><span>Mode</span><strong>Preuves directes</strong></div></section>
+                </template>
+            </main>
+        </div>
     </section>
     `
 };
