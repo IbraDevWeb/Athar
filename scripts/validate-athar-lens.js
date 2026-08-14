@@ -63,8 +63,8 @@ const css = read('css/athar-lens.css');
 if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) fail('Athar Lens CSS braces are unbalanced.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v34'", "writeEarlyScript('js/components/AtharLensBridge.js'", "writeEarlyScript('js/components/AtharLens.js'", 'css/athar-lens.css?v=${APP_VERSION}', "writeEarlyScript('js/components/AstronomyBootstrap.js'"].forEach(token => need(config, token, 'config.js'));
+["const APP_VERSION = 'athar-pro-v35'", "writeEarlyScript('js/components/AtharLensBridge.js'", "writeEarlyScript('js/components/AtharLens.js'", 'css/athar-lens.css?v=${APP_VERSION}', "writeEarlyScript('js/components/AstronomyBootstrap.js'"].forEach(token => need(config, token, 'config.js'));
 if (config.indexOf('AtharLensBridge.js') > config.indexOf('AstronomyBootstrap.js')) fail('Lens bridge must load before ToolView bootstrap.');
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v34'", './js/components/AtharLensBridge.js?v=athar-pro-v34', './js/components/AtharLens.js?v=athar-pro-v34', './css/athar-lens.css?v=athar-pro-v34'].forEach(token => need(worker, token, 'service worker'));
-console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache v34.`);
+["const CACHE_VERSION = 'athar-pro-v35'", './js/components/AtharLensBridge.js?v=athar-pro-v35', './js/components/AtharLens.js?v=athar-pro-v35', './css/athar-lens.css?v=athar-pro-v35'].forEach(token => need(worker, token, 'service worker'));
+console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache v35.`);
