@@ -11,7 +11,7 @@ services:
         - render.yaml
       ignoredPaths: []
     buildCommand: python -m pip install -r rag/requirements.txt && python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz
-    startCommand: python rag/v4_server.py --host 0.0.0.0 --api-only
+    startCommand: python rag/v5_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
