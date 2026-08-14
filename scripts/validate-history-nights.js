@@ -26,8 +26,8 @@ const css = read('css/history-nights.css');
 need(read('css/history-nights-scroll.css'),'overflow-y: auto','History scroll CSS');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v34'","writeEarlyScript('history_nights_data.js'",'css/history-nights.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+["const APP_VERSION = 'athar-pro-v36'","writeEarlyScript('history_nights_data.js'",'css/history-nights.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v34'",'./history_nights_data.js?v=athar-pro-v34','./css/history-nights-scroll.css?v=athar-pro-v34'].forEach(t => need(worker,t,'service worker'));
+["const CACHE_VERSION = 'athar-pro-v36'",'./history_nights_data.js?v=athar-pro-v36','./css/history-nights-scroll.css?v=athar-pro-v36'].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Récits historiques immersifs, sourcés','metadata');
-console.log(`History Nights validated: ${data.stories.length} stories, ${chapters} chapters and cache v34.`);
+console.log(`History Nights validated: ${data.stories.length} stories, ${chapters} chapters and cache v36.`);
