@@ -1,0 +1,40 @@
+name: RAG V4 frontend tests
+
+on:
+  push:
+    branches: [rag-v4-frontend]
+    paths:
+      - 'js/components/ScholarLibraryV4View.js'
+      - 'js/components/ScholarV4Bootstrap.js'
+      - 'js/components/ScholarV2Bootstrap.js'
+      - '.github/workflows/rag-v4-frontend-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript syntax
+        run: |
+          node --check js/components/ScholarLibraryV4View.js
+          node --check js/components/ScholarV4Bootstrap.js
+          node --check js/components/ScholarV2Bootstrap.js
+      - name: Verify V4-only runtime contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          view = Path('js/components/ScholarLibraryV4View.js').read_text(encoding='utf-8')
+          bootstrap = Path('js/components/ScholarV4Bootstrap.js').read_text(encoding='utf-8')
+          shim = Path('js/components/ScholarV2Bootstrap.js').read_text(encoding='utf-8')
+          assert '/api/rag/v4/status' in view
+          assert '/api/rag/v4/ask' in view
+          assert 'localFallback' not in view
+          assert '/api/rag/v2/' not in view
+          assert "viewMode === 'rag_v4'" in bootstrap
+          assert 'ScholarLibraryV4View' in bootstrap
+          assert 'ScholarLibraryV4View.js' in shim
+          assert 'ScholarV4Bootstrap.js' in shim
+          print('Frontend V4 contract OK')
+          PY
