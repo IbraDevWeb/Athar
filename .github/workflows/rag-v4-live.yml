@@ -37,9 +37,13 @@ jobs:
       - name: Validate live corpus and retrieval matrix
         run: |
           python - <<'PY'
-          import json, urllib.parse, urllib.request
+          import json, unicodedata, urllib.parse, urllib.request
 
           base = 'https://athar-rag-ibradevweb.onrender.com'
+
+          def norm(value):
+              value = unicodedata.normalize('NFKD', str(value or ''))
+              return ''.join(ch for ch in value if not unicodedata.combining(ch)).lower()
 
           def get(path, params=None):
               url = base + path
@@ -72,8 +76,8 @@ jobs:
               assert payload['ok'] is True, payload
               routed = payload['analysis']['routed_book']
               assert routed, payload['analysis']
-              routed_text = (str(routed.get('title','')) + ' ' + str(routed.get('author',''))).lower()
-              assert expected in routed_text, (question, routed)
+              routed_text = norm(str(routed.get('title','')) + ' ' + str(routed.get('author','')))
+              assert norm(expected) in routed_text, (question, routed)
               assert payload['sources'], (question, payload['analysis'])
               assert all(s['book_id'] == routed['id'] for s in payload['sources']), (question, payload['sources'])
               assert concept in payload['analysis']['concepts'], (question, payload['analysis'])
