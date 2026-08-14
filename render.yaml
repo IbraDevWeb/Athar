@@ -1,8 +1,3 @@
-# Legacy CI compatibility tokens only (not executed):
-# python rag/prepare_hosted_db.py
-# python rag/ingest_openiti.py --best-effort --max-books 22
-# python rag/ingest_openiti.py --best-effort --max-books 10
-# python rag/server.py --host 0.0.0.0 --api-only
 services:
   - type: web
     name: athar-rag-ibradevweb
@@ -16,7 +11,7 @@ services:
         - render.yaml
       ignoredPaths: []
     buildCommand: python -m pip install -r rag/requirements.txt && python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz
-    startCommand: python rag/server_v3.py --host 0.0.0.0 --api-only
+    startCommand: python rag/v4_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
@@ -27,11 +22,3 @@ services:
         value: https://ibradevweb.github.io
       - key: ATHAR_DB_PATH
         value: rag/data/athar_hosted.sqlite.gz
-      - key: ATHAR_PREBUILT_CORPUS
-        value: "1"
-      - key: ATHAR_REQUIRE_FULL_CORPUS
-        value: "1"
-      - key: ATHAR_CORPUS_ARCHIVE
-        value: rag/data/athar_hosted.sqlite.gz
-      - key: ATHAR_DELETE_CORPUS_ARCHIVE_AFTER_INSTALL
-        value: "0"
