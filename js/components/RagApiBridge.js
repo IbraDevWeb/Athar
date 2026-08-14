@@ -24,8 +24,8 @@
         return '';
     };
     const storage = {
-        get() { try { return validOrigin(sessionStorage.getItem(STORAGE_KEY)); } catch (_) { return ''; } },
-        set(value) { try { value ? sessionStorage.setItem(STORAGE_KEY, value) : sessionStorage.removeItem(STORAGE_KEY); } catch (_) {} }
+        get() { try { return validOrigin(window.sessionStorage?.getItem(STORAGE_KEY)); } catch (_) { return ''; } },
+        set(value) { try { value ? window.sessionStorage?.setItem(STORAGE_KEY, value) : window.sessionStorage?.removeItem(STORAGE_KEY); } catch (_) {} }
     };
     const readRuntimeOrigin = async () => {
         if (!isLocalPage()) return '';
