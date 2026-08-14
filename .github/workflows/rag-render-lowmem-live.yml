@@ -1,0 +1,54 @@
+name: Render low-memory RAG live check
+
+on:
+  push:
+    branches: [rag-v4-clean-rebuild]
+    paths:
+      - '.github/workflows/rag-render-lowmem-live.yml'
+      - 'rag/v5_server.py'
+      - 'rag/v5_lowmem.py'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Wait for low-memory runtime
+        run: |
+          python - <<'PY'
+          import json, time, urllib.request
+          url='https://athar-rag-ibradevweb.onrender.com/healthz'
+          last=None
+          for attempt in range(1,61):
+              try:
+                  req=urllib.request.Request(url, headers={'Cache-Control':'no-cache','User-Agent':'Athar-lowmem-live'})
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      payload=json.loads(r.read().decode('utf-8'))
+                  last=payload
+                  print('ATTEMPT', attempt, payload)
+                  if payload.get('runtime_profile')=='low-memory' and payload.get('engine_version')==5:
+                      raise SystemExit(0)
+              except Exception as exc:
+                  last=repr(exc)
+                  print('ATTEMPT', attempt, exc)
+              time.sleep(20)
+          raise SystemExit(f'Low-memory runtime did not become live: {last}')
+          PY
+      - name: Test user query on public API
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          body=json.dumps({'query':'prier à voix haute','limit':8}, ensure_ascii=False).encode('utf-8')
+          req=urllib.request.Request('https://athar-rag-ibradevweb.onrender.com/api/rag/v4/ask', data=body, headers={'Content-Type':'application/json; charset=utf-8','Origin':'https://ibradevweb.github.io','User-Agent':'Athar-lowmem-live'}, method='POST')
+          with urllib.request.urlopen(req, timeout=120) as r:
+              payload=json.loads(r.read().decode('utf-8'))
+              cors=r.headers.get('Access-Control-Allow-Origin')
+          print(json.dumps({'runtime_profile':payload.get('runtime_profile'),'count':payload.get('count'),'analysis':payload.get('analysis'),'titles':[s.get('title') for s in payload.get('sources',[])]}, ensure_ascii=False, indent=2))
+          assert cors=='https://ibradevweb.github.io', cors
+          assert payload.get('runtime_profile')=='low-memory', payload
+          assert payload.get('sources'), payload
+          assert 'recitation_aloud' in payload.get('analysis',{}).get('concepts',[]), payload
+          assert payload.get('analysis',{}).get('candidate_count',999) <= 72, payload
+          print('PUBLIC LOW-MEMORY RAG: PASS')
+          PY
