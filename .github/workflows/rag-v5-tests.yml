@@ -1,0 +1,45 @@
+name: RAG V5 rebuild tests
+
+on:
+  push:
+    branches: [rag-v5-rebuild]
+    paths:
+      - 'rag/v5_*.py'
+      - '.github/workflows/rag-v5-tests.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v5-rebuild
+  cancel-in-progress: true
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile V5
+        run: python -m py_compile rag/v5_engine.py rag/v5_server.py rag/v5_unit_tests.py rag/v5_corpus_tests.py
+      - name: Run V5 unit tests
+        working-directory: rag
+        run: python v5_unit_tests.py
+
+  real-corpus:
+    needs: unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install downloader dependencies
+        run: python -m pip install -r rag/requirements.txt
+      - name: Download published corpus
+        run: python rag/cache_hosted_corpus.py --output rag/data/v5_test.sqlite
+      - name: Validate published corpus with natural French questions
+        working-directory: rag
+        run: python v5_corpus_tests.py --db data/v5_test.sqlite
