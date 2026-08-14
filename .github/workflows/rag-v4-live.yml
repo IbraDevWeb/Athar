@@ -1,0 +1,89 @@
+name: RAG V4 live verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rag-v4-live.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Wait for Render V4
+        run: |
+          python - <<'PY'
+          import json, time, urllib.request
+          url = 'https://athar-rag-ibradevweb.onrender.com/healthz'
+          last = None
+          for attempt in range(1, 61):
+              try:
+                  with urllib.request.urlopen(url, timeout=30) as r:
+                      payload = json.loads(r.read().decode('utf-8'))
+                  last = payload
+                  print(f'Attempt {attempt}: {payload}')
+                  if payload.get('ok') and payload.get('server') == 'athar-rag-v4' and payload.get('api_version') == 4:
+                      print('Render V4 is live')
+                      raise SystemExit(0)
+              except Exception as exc:
+                  last = repr(exc)
+                  print(f'Attempt {attempt}: {exc}')
+              time.sleep(20)
+          raise SystemExit(f'Render V4 did not become ready: {last}')
+          PY
+
+      - name: Validate live corpus and retrieval matrix
+        run: |
+          python - <<'PY'
+          import json, urllib.parse, urllib.request
+
+          base = 'https://athar-rag-ibradevweb.onrender.com'
+
+          def get(path, params=None):
+              url = base + path
+              if params:
+                  url += '?' + urllib.parse.urlencode(params)
+              with urllib.request.urlopen(url, timeout=120) as r:
+                  return json.loads(r.read().decode('utf-8'))
+
+          status = get('/api/rag/v4/status')
+          print('STATUS:', status)
+          assert status['ok'] is True
+          assert status['server'] == 'athar-rag-v4'
+          assert status['books'] >= 55, status
+          assert status['chunks'] >= 240000, status
+          assert status['fts_ready'] is True, status
+
+          cases = [
+              ('Que dit Sahih al-Bukhari sur les intentions ?', 'bukhari', 'intention'),
+              ('Que dit Sahih Muslim sur la purification ?', 'muslim', 'purification'),
+              ('Que rapporte le Muwatta de Malik sur la prière ?', 'malik', 'prayer'),
+              ('Que dit Bidayat al-Mujtahid sur le jeûne du voyageur ?', 'ibn rushd', 'fasting'),
+              ('Que dit le Tafsir al-Tabari sur la sourate al-Fatiha ?', 'tabari', 'fatiha'),
+              ('Que dit le Tafsir Ibn Kathir sur Ayat al-Kursi ?', 'ibn kathir', 'ayat_al_kursi'),
+              ('Que rapporte Sunan al-Tirmidhi sur la prière du witr ?', 'tirmidhi', 'witr'),
+              ("Que trouve-t-on dans la Sira d'Ibn Hisham concernant la bataille de Badr ?", 'ibn hisham', 'badr'),
+          ]
+
+          for question, expected, concept in cases:
+              payload = get('/api/rag/v4/search', {'q': question, 'limit': 5})
+              assert payload['ok'] is True, payload
+              routed = payload['analysis']['routed_book']
+              assert routed, payload['analysis']
+              routed_text = (str(routed.get('title','')) + ' ' + str(routed.get('author',''))).lower()
+              assert expected in routed_text, (question, routed)
+              assert payload['sources'], (question, payload['analysis'])
+              assert all(s['book_id'] == routed['id'] for s in payload['sources']), (question, payload['sources'])
+              assert concept in payload['analysis']['concepts'], (question, payload['analysis'])
+              top = payload['sources'][0]
+              print(f"PASS | {question} | {top['title']} | p.{top.get('page')} | relevance={top['relevance']}")
+
+          general = get('/api/rag/v4/search', {'q': 'Peut-on regrouper les prières en voyage ?', 'limit': 5})
+          assert general['ok'] is True
+          assert general['analysis']['routed_book'] is None
+          assert general['sources']
+          print('PASS | general search |', [(s['title'], s['page'], s['relevance']) for s in general['sources'][:3]])
+          print('LIVE RAG V4: ALL TESTS PASSED')
+          PY
