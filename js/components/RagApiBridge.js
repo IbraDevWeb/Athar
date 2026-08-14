@@ -11,6 +11,7 @@
     const FIRST_RUNTIME_PORT = 8765;
     const LAST_RUNTIME_PORT = 8785;
     const PROBE_BATCH_SIZE = 8;
+    const REMOTE_REQUEST_TIMEOUT_MS = 120000;
     let activeOrigin = '';
     let discoveryPromise = null;
 
@@ -86,6 +87,18 @@
         status: 503,
         headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Athar-RAG-Bridge': 'unavailable' }
     });
+    const hostedFetch = async (target, init) => {
+        const controller = new AbortController();
+        const timeout = window.setTimeout?.(() => controller.abort(), REMOTE_REQUEST_TIMEOUT_MS);
+        const forwardedInit = init && typeof init === 'object'
+            ? { ...init, signal: controller.signal }
+            : { signal: controller.signal };
+        try {
+            return await nativeFetch(target, forwardedInit);
+        } finally {
+            if (timeout != null) window.clearTimeout?.(timeout);
+        }
+    };
 
     window.fetch = async function atharFetch(input, init) {
         const url = toUrl(input);
@@ -93,7 +106,7 @@
         const origin = await discover(false);
         if (!origin) return unavailableResponse();
         const target = `${origin}${url.pathname}${url.search}${url.hash}`;
-        try { return await nativeFetch(target, init); }
+        try { return await hostedFetch(target, init); }
         catch (_) { return unavailableResponse(); }
     };
 
@@ -109,7 +122,8 @@
         nativeFetch,
         FIRST_RUNTIME_PORT,
         LAST_RUNTIME_PORT,
-        PROBE_BATCH_SIZE
+        PROBE_BATCH_SIZE,
+        REMOTE_REQUEST_TIMEOUT_MS
     };
     window.setTimeout?.(() => discover(false).catch(() => {}), 0);
 })();
