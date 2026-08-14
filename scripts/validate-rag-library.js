@@ -130,17 +130,17 @@ if (!fake.template.includes(`currentTool === 'rag_library'`)) fail('The RAG rout
 
 const config = read('js/config.js');
 [
-    "const APP_VERSION = 'athar-pro-v34'",
+    "const APP_VERSION = 'athar-pro-v35'",
     "writeEarlyScript('js/components/ScholarLibraryView.js'",
     'css/scholar-library.css?v=${APP_VERSION}'
 ].forEach(token => need(config, token, 'config.js'));
 
 const worker = read('service-worker.js');
 [
-    "const CACHE_VERSION = 'athar-pro-v34'",
-    './js/components/ScholarLibraryView.js?v=athar-pro-v34',
-    './rag/seed.json?v=athar-pro-v34',
-    './css/scholar-library.css?v=athar-pro-v34'
+    "const CACHE_VERSION = 'athar-pro-v35'",
+    './js/components/ScholarLibraryView.js?v=athar-pro-v35',
+    './rag/seed.json?v=athar-pro-v35',
+    './css/scholar-library.css?v=athar-pro-v35'
 ].forEach(token => need(worker, token, 'service worker'));
 
 const extensions = read('extensions_data.js');
