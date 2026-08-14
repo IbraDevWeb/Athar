@@ -1,45 +1,45 @@
-// Athar — branchement racine de la Bibliothèque Savante V4
+// Athar Research V5 — branchement racine autonome
 (() => {
     if (!window.Vue || typeof window.Vue.createApp !== 'function') return;
 
-    const PATCH_FLAG = Symbol.for('athar.scholar.v4.root.patched');
-    const HOME_PATCH_FLAG = Symbol.for('athar.scholar.v4.home.patched');
+    const PATCH_FLAG = Symbol.for('athar.research.v5.root.patched');
+    const HOME_PATCH_FLAG = Symbol.for('athar.research.v5.home.patched');
     const originalCreateApp = window.Vue.createApp;
 
     const navMarkup = `
         <button
             type="button"
-            data-athar-scholar-v4-nav
-            @click="setView('rag_v4'); mobileMenuOpen=false"
-            :class="['sv2-nav-entry w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'rag_v4' ? 'is-active' : '']"
+            data-athar-research-v5-nav
+            @click="setView('rag_v5'); mobileMenuOpen=false"
+            :class="['ar5-nav-entry w-full text-left px-3 py-3 rounded-xl flex items-center gap-3 transition-all duration-200', (viewMode === 'rag_v5' || viewMode === 'rag_v4') ? 'is-active' : '']"
         >
-            <span class="sv2-nav-mark"><i data-lucide="book-open-check" class="w-4 h-4"></i></span>
-            <span class="sv2-nav-copy"><small>Pièce maîtresse</small><strong>Bibliothèque Savante</strong></span>
-            <span class="sv2-nav-v2">V4</span>
+            <span class="ar5-nav-mark"><i data-lucide="scan-search"></i></span>
+            <span class="ar5-nav-copy"><small>Moteur documentaire</small><strong>Athar Research</strong></span>
+            <span class="ar5-nav-version">V5</span>
         </button>
     `;
 
     const homeFeatureMarkup = `
-        <section class="sv2-home-pillar" aria-label="Bibliothèque Savante Athar">
-            <div class="sv2-home-grid">
-                <div class="sv2-home-main">
+        <section class="ar5-home-pillar" aria-label="Athar Research">
+            <div class="ar5-home-pillar-inner">
+                <div class="ar5-home-copy">
                     <div>
-                        <span class="sv2-home-badge"><i data-lucide="book-open-check"></i>Bibliothèque Savante · V4</span>
-                        <h2>Retrouver les textes, <span>ouvrir les preuves.</span></h2>
-                        <p>La nouvelle bibliothèque interroge directement le corpus hébergé, détecte l’ouvrage demandé et affiche les passages pertinents sans faux résultat de secours.</p>
+                        <span class="ar5-home-label"><i data-lucide="scan-search"></i>Athar Research · Bibliothèque Savante</span>
+                        <h2>Interroger les ouvrages,<br><em>pas une réponse pré-écrite.</em></h2>
+                        <p>Un espace documentaire séparé de l’encyclopédie classique : recherche multilingue, ciblage d’ouvrage et passages directement traçables vers leurs sources.</p>
                     </div>
-                    <div class="sv2-home-actions">
-                        <button type="button" @click="setView('rag_v4')">Interroger la bibliothèque <i data-lucide="arrow-right"></i></button>
+                    <div class="ar5-home-actions">
+                        <button type="button" @click="setView('rag_v5')">Ouvrir Athar Research <i data-lucide="arrow-up-right"></i></button>
                         <button type="button" @click="setView('library')"><i data-lucide="users-round"></i> Bibliothèque des Compagnons</button>
                     </div>
                 </div>
-                <aside class="sv2-home-proof">
-                    <div class="sv2-home-proof-head"><span>Principe evidence-first</span><b><i data-lucide="shield-check"></i></b></div>
-                    <blockquote>« Si le passage n’est pas retrouvé dans les ouvrages, Athar n’affiche pas une preuve de remplacement. »</blockquote>
+                <aside class="ar5-home-side">
+                    <span>Architecture actuelle</span>
+                    <strong>Preuves avant conclusion</strong>
                     <dl>
-                        <div><dt>Corpus</dt><dd>Réel</dd></div>
-                        <div><dt>Recherche</dt><dd>Traçable</dd></div>
-                        <div><dt>Échec</dt><dd>Explicite</dd></div>
+                        <div><dt>Moteur</dt><dd>RAG V5</dd></div>
+                        <div><dt>Corpus</dt><dd>Ouvrages indexés</dd></div>
+                        <div><dt>Sortie</dt><dd>Passages sourcés</dd></div>
                     </dl>
                 </aside>
             </div>
@@ -97,7 +97,7 @@
             });
             homeButtons.forEach(button => {
                 const previous = button.previousElementSibling;
-                if (!previous?.matches?.('[data-athar-scholar-v4-nav]')) button.insertAdjacentHTML('beforebegin', navMarkup);
+                if (!previous?.matches?.('[data-athar-research-v5-nav]')) button.insertAdjacentHTML('beforebegin', navMarkup);
             });
         }
     };
@@ -113,9 +113,12 @@
     const patchDomTemplate = target => {
         const host = typeof target === 'string' ? document.querySelector(target) : (target || document.getElementById('app'));
         if (!host) return false;
-        if (host.dataset.atharScholarV4Patched === 'true') return true;
+        if (host.dataset.atharResearchV5Patched === 'true') return true;
 
-        let route = findAcrossScopes(host, '[data-athar-scholar-v4-route]');
+        const oldRoute = findAcrossScopes(host, '[data-athar-scholar-v4-route]');
+        if (oldRoute) oldRoute.remove();
+
+        let route = findAcrossScopes(host, '[data-athar-research-v5-route]');
         if (!route) {
             const homeRoute = findHomeRoute(host);
             if (!homeRoute) return false;
@@ -123,7 +126,7 @@
             homeRoute.setAttribute('v-else-if', "viewMode === 'home'");
             homeRoute.insertAdjacentHTML(
                 'beforebegin',
-                `<div v-if="viewMode === 'rag_v4'" class="h-full" key="rag-v4" data-athar-scholar-v4-route>
+                `<div v-if="viewMode === 'rag_v5' || viewMode === 'rag_v4'" class="h-full" key="rag-v5" data-athar-research-v5-route>
                     <scholar-library-v4-view :settings="settings" :set-view="setView"></scholar-library-v4-view>
                 </div>`
             );
@@ -131,11 +134,11 @@
         }
         if (!route?.querySelector?.('scholar-library-v4-view')) return false;
         injectNavigation(host);
-        host.dataset.atharScholarV4Patched = 'true';
+        host.dataset.atharResearchV5Patched = 'true';
         return true;
     };
 
-    window.Vue.createApp = function createAtharAppWithScholarV4(rootComponent, ...args) {
+    window.Vue.createApp = function createAtharAppWithResearchV5(rootComponent, ...args) {
         if (rootComponent && !rootComponent[PATCH_FLAG] && window.ScholarLibraryV4View) {
             rootComponent.components = {
                 ...(rootComponent.components || {}),
@@ -148,11 +151,11 @@
         if (!app || typeof app.mount !== 'function') return app;
         const originalMount = app.mount.bind(app);
         app.mount = (target, ...mountArgs) => {
-            if (!patchDomTemplate(target)) console.error('[Athar V4] La route de la Bibliothèque Savante n’a pas pu être injectée.');
+            if (!patchDomTemplate(target)) console.error('[Athar Research V5] La route n’a pas pu être injectée.');
             return originalMount(target, ...mountArgs);
         };
         return app;
     };
 
-    window.AtharScholarV4 = { patchDomTemplate, patchHomeView, findHomeRoute, collectTemplateScopes, findAcrossScopes };
+    window.AtharResearchV5 = { patchDomTemplate, patchHomeView, findHomeRoute, collectTemplateScopes, findAcrossScopes };
 })();
