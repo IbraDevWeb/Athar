@@ -1,0 +1,80 @@
+name: RAG V4 published frontend verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rag-v4-frontend-live.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-published-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Verify GitHub Pages V4 assets and CORS
+        run: |
+          python - <<'PY'
+          import time
+          import urllib.error
+          import urllib.request
+
+          base = 'https://ibradevweb.github.io/Athar/'
+          api = 'https://athar-rag-ibradevweb.onrender.com'
+
+          assets = {
+              'js/components/ScholarV2Bootstrap.js?v=rag-v2-mount-3': [
+                  'ScholarLibraryV4View.js', 'ScholarV4Bootstrap.js', 'rag-v4-ui-1',
+              ],
+              'js/components/ScholarLibraryV4View.js?v=rag-v4-ui-1': [
+                  '/api/rag/v4/status', '/api/rag/v4/books', '/api/rag/v4/ask',
+                  'Aucune réponse de secours', 'Ouvrage ciblé',
+              ],
+              'js/components/ScholarV4Bootstrap.js?v=rag-v4-ui-1': [
+                  "setView('rag_v4')", "viewMode === 'rag_v4'", 'data-athar-scholar-v4-nav',
+              ],
+          }
+
+          def fetch_text(url, timeout=60):
+              request = urllib.request.Request(url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Athar-V4-live-check'})
+              with urllib.request.urlopen(request, timeout=timeout) as response:
+                  return response.status, response.read().decode('utf-8')
+
+          last_error = None
+          for attempt in range(1, 21):
+              try:
+                  for path, tokens in assets.items():
+                      status, body = fetch_text(base + path)
+                      assert status == 200, (path, status)
+                      for token in tokens:
+                          assert token in body, (path, token)
+                      if path.startswith('js/components/ScholarLibraryV4View'):
+                          assert '/api/rag/v2/' not in body
+                          assert 'localFallback' not in body
+                  print(f'Published V4 assets verified on attempt {attempt}')
+                  break
+              except Exception as exc:
+                  last_error = exc
+                  print(f'Attempt {attempt} not ready: {exc}')
+                  time.sleep(15)
+          else:
+              raise SystemExit(f'GitHub Pages never exposed the V4 assets: {last_error}')
+
+          # Verify browser-origin CORS against the production V4 API.
+          request = urllib.request.Request(
+              api + '/api/rag/v4/search?q=Que%20dit%20Sahih%20al-Bukhari%20sur%20les%20intentions%20%3F&limit=3',
+              headers={
+                  'Origin': 'https://ibradevweb.github.io',
+                  'Accept': 'application/json',
+                  'User-Agent': 'Athar-V4-live-check',
+              },
+          )
+          with urllib.request.urlopen(request, timeout=120) as response:
+              cors = response.headers.get('Access-Control-Allow-Origin')
+              body = response.read().decode('utf-8')
+              assert response.status == 200
+              assert cors == 'https://ibradevweb.github.io', cors
+              assert '"server": "athar-rag-v4"' in body
+              assert 'Sahih al-Bukhari' in body
+          print('Published frontend assets + production CORS + Bukhari retrieval: PASS')
+          PY
