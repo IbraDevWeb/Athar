@@ -3,5 +3,7 @@
   "mode": "hosted",
   "origin": "https://athar-rag-ibradevweb.onrender.com",
   "health_path": "/healthz",
-  "notes": "Le frontend utilise /healthz pour détecter rapidement Render avant d'interroger les routes RAG V2."
+  "api_version": 5,
+  "engine": "rag-v5-hybrid-multilingual",
+  "notes": "Athar Research utilise directement les routes /api/rag/v5/* et reste séparé de la bibliothèque éditoriale des Compagnons."
 }
