@@ -72,7 +72,7 @@ const unitTests = read('rag/v4_unit_tests.py');
 
 const corpusTests = read('rag/v4_corpus_tests.py');
 [
-    "status['books'] < 55", "status['chunks'] < 240_000", "status['fts_ready']",
+    'status["books"] < 55', 'status["chunks"] < 240_000', 'status["fts_ready"]',
     'RAG V4 REAL CORPUS: ALL TESTS PASSED'
 ].forEach(token => need(corpusTests, token, 'rag/v4_corpus_tests.py'));
 
