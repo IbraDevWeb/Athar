@@ -2,84 +2,90 @@
 
 const fs = require('fs');
 const read = path => fs.readFileSync(path, 'utf8');
-const fail = message => { console.error(`RAG V4 validation failed: ${message}`); process.exit(1); };
+const fail = message => { console.error(`Athar Research V5 validation failed: ${message}`); process.exit(1); };
 const need = (source, token, label) => { if (!source.includes(token)) fail(`${label} is missing: ${token}`); };
 const reject = (source, pattern, label) => { if (pattern.test(source)) fail(`${label} contains forbidden legacy behavior: ${pattern}`); };
 
-const engine = read('rag/v4_engine.py');
+const engine = read('rag/v5_engine.py');
 [
-    'def detect_book(', 'def detect_concepts(', 'def build_fts_query(', 'def search(', 'def ask(',
-    'STOPWORDS', 'CONCEPTS', 'read_only', 'routed_book', 'matched_concepts', 'matched_terms',
-    'Aucun passage suffisamment pertinent', 'pertinence documentaire'
-].forEach(token => need(engine, token, 'rag/v4_engine.py'));
-reject(engine, /from\s+v2\s+import|from\s+retrieval_v3\s+import|openai|anthropic|gemini/i, 'rag/v4_engine.py');
+    'def detect_book(', 'def detect_concepts(', 'def build_query_plan(', 'def search(', 'def ask(',
+    'STOPWORDS', 'CONCEPTS', 'routed_book', 'matched_concepts', 'matched_terms',
+    'recitation_aloud', 'Aucun passage suffisamment pertinent', 'pertinence documentaire'
+].forEach(token => need(engine, token, 'rag/v5_engine.py'));
+reject(engine, /from\s+v2\s+import|from\s+retrieval_v3\s+import|openai|anthropic|gemini/i, 'rag/v5_engine.py');
 
-const server = read('rag/v4_server.py');
+const lowmem = read('rag/v5_lowmem.py');
 [
-    'SERVER_MARKER = "athar-rag-v4"', 'api_version', '/api/rag/v4/status', '/api/rag/v4/books',
-    '/api/rag/v4/search', '/api/rag/v4/ask', 'mode=ro', 'PRAGMA query_only=ON',
-    'ThreadingHTTPServer', 'Access-Control-Allow-Origin', 'ATHAR_CORS_ORIGINS'
-].forEach(token => need(server, token, 'rag/v4_server.py'));
-reject(server, /import\s+v2|import\s+retrieval_v3|localFallback|seed\.json/i, 'rag/v4_server.py');
+    'MAX_FULL_CANDIDATES = 72', '_bounded_fetch_fts_candidates', '_engine._fetch_fts_candidates', 'search = _engine.search'
+].forEach(token => need(lowmem, token, 'rag/v5_lowmem.py'));
+
+const server = read('rag/v5_server.py');
+[
+    'ENGINE_MARKER = "rag-v5-hybrid-multilingual"', 'engine_version', 'runtime_profile',
+    '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/search', '/api/rag/v5/ask',
+    'mode=ro&immutable=1', 'PRAGMA query_only=ON', 'PRAGMA cache_size=-8192', 'PRAGMA mmap_size=0',
+    'Access-Control-Allow-Origin', 'ATHAR_CORS_ORIGINS', 'status": "ready"'
+].forEach(token => need(server, token, 'rag/v5_server.py'));
+reject(server, /localFallback|seed\.json/i, 'rag/v5_server.py');
 
 const view = read('js/components/ScholarLibraryV4View.js');
 [
-    '/api/rag/v4/status', '/api/rag/v4/books', '/api/rag/v4/ask',
-    "healthPayload?.server !== 'athar-rag-v4'", 'REQUEST_TIMEOUT_MS = 120000',
-    'Aucune réponse de secours', 'pertinence documentaire', 'Ouvrage ciblé', 'routed_book'
-].forEach(token => need(view, token, 'ScholarLibraryV4View.js'));
-reject(view, /\/api\/rag\/v2\/|localFallback|embedded_fallback|rag\/seed\.json/i, 'ScholarLibraryV4View.js');
+    "name: 'AtharResearchView'", '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/ask',
+    "payload?.engine !== 'rag-v5-hybrid-multilingual'", 'REQUEST_TIMEOUT_MS = 120000',
+    'Athar Research', 'Questions naturelles', 'Les ouvrages indexés', 'Historique local',
+    'Pertinence documentaire ≠ certitude religieuse', 'routed_book', 'matched_concepts'
+].forEach(token => need(view, token, 'ScholarLibraryV4View.js / Athar Research'));
+reject(view, /\/api\/rag\/v2\/|localFallback|embedded_fallback|rag\/seed\.json|Moteur V4 connecté/i, 'Athar Research frontend');
 
 const bootstrap = read('js/components/ScholarV4Bootstrap.js');
 [
-    "setView('rag_v4')", "viewMode === 'rag_v4'", "'scholar-library-v4-view': window.ScholarLibraryV4View",
-    'data-athar-scholar-v4-nav', 'patchDomTemplate', 'patchHomeView', 'Bibliothèque Savante · V4'
+    "setView('rag_v5')", "viewMode === 'rag_v5'", "'scholar-library-v4-view': window.ScholarLibraryV4View",
+    'data-athar-research-v5-nav', 'patchDomTemplate', 'patchHomeView', 'Athar Research · Bibliothèque Savante'
 ].forEach(token => need(bootstrap, token, 'ScholarV4Bootstrap.js'));
+reject(bootstrap, /Bibliothèque Savante · V4|data-athar-scholar-v4-nav/i, 'ScholarV4Bootstrap.js');
 
-const migration = read('js/components/ScholarV2Bootstrap.js');
+const style = read('css/athar-research-v5.css');
 [
-    'ScholarLibraryV4View.js', 'ScholarV4Bootstrap.js', 'rag-v4-ui-1',
-    'window.AtharRagApiBridge?.nativeFetch', 'window.fetch = window.AtharRagApiBridge.nativeFetch'
-].forEach(token => need(migration, token, 'ScholarV2Bootstrap.js migration shim'));
-reject(migration, /setView\(['"]rag_v2['"]\)|viewMode\s*===\s*['"]rag_v2['"]/i, 'ScholarV2Bootstrap.js migration shim');
+    '.ar5-shell', '.ar5-frame', '.ar5-rail', '.ar5-composer', '.ar5-result-layout', '.ar5-evidence',
+    '.ar5-books-grid', '.ar5-history-list', '.ar5-method-grid', '.ar5-nav-entry', '.ar5-home-pillar'
+].forEach(token => need(style, token, 'css/athar-research-v5.css'));
 
 const render = read('render.yaml');
 [
-    'python rag/v4_server.py --host 0.0.0.0 --api-only',
+    'python rag/v5_server.py --host 0.0.0.0 --api-only',
     'python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz',
     'ATHAR_DB_PATH', 'rag/data/athar_hosted.sqlite.gz', 'healthCheckPath: /healthz'
 ].forEach(token => need(render, token, 'render.yaml'));
-reject(render, /startCommand:\s*python rag\/(?:server|server_v3|strict_server)\.py/i, 'render.yaml');
 
 const config = read('js/config.js');
-need(config, "const APP_VERSION = 'athar-pro-v35'", 'js/config.js');
-need(config, "writeEarlyScript('js/components/ScholarV2Bootstrap.js'", 'js/config.js compatibility loader');
+[
+    "const APP_VERSION = 'athar-pro-v36'",
+    "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-1'",
+    "writeEarlyScript('js/components/ScholarLibraryV4View.js'",
+    "writeEarlyScript('js/components/ScholarV4Bootstrap.js'",
+    "css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}"
+].forEach(token => need(config, token, 'js/config.js'));
+reject(config, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js|scholar-library-v2\.css|scholar-v2-integration\.css/i, 'js/config.js');
+
 const worker = read('service-worker.js');
-need(worker, "const CACHE_VERSION = 'athar-pro-v35'", 'service-worker.js');
+need(worker, "const CACHE_VERSION = 'athar-pro-v36'", 'service-worker.js');
+need(worker, './css/athar-research-v5.css?v=athar-research-v5-ui-1', 'service-worker.js');
+need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-1', 'service-worker.js');
+reject(worker, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js/i, 'service-worker.js');
 
-const unitTests = read('rag/v4_unit_tests.py');
+const remote = read('rag/remote.json');
+need(remote, '"api_version": 5', 'rag/remote.json');
+need(remote, '"engine": "rag-v5-hybrid-multilingual"', 'rag/remote.json');
+
+const liveWorkflow = read('.github/workflows/rag-v5-live.yml');
 [
-    'Que dit Sahih al-Bukhari sur les intentions ?',
-    'Que dit Sahih Muslim sur la purification ?',
-    'Que rapporte le Muwatta de Malik sur la prière ?',
-    'Que dit Bidayat al-Mujtahid sur le jeûne du voyageur ?',
-    'Que dit le Tafsir al-Tabari sur la sourate al-Fatiha ?',
-    'Que dit le Tafsir Ibn Kathir sur Ayat al-Kursi ?',
-    'Que rapporte Sunan al-Tirmidhi sur la prière du witr ?',
-    "Que trouve-t-on dans la Sira d'Ibn Hisham concernant la bataille de Badr ?",
-    'test_no_unrelated_fallback'
-].forEach(token => need(unitTests, token, 'rag/v4_unit_tests.py'));
+    'athar-rag-ibradevweb.onrender.com/healthz', "payload.get('engine') == 'rag-v5-hybrid-multilingual'",
+    'prier à voix haute', 'PUBLIC RAG V5 NATURAL FRENCH RETRIEVAL: PASS'
+].forEach(token => need(liveWorkflow, token, 'RAG V5 live workflow'));
 
-const corpusTests = read('rag/v4_corpus_tests.py');
+const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
 [
-    'status["books"] < 55', 'status["chunks"] < 240_000', 'status["fts_ready"]',
-    'RAG V4 REAL CORPUS: ALL TESTS PASSED'
-].forEach(token => need(corpusTests, token, 'rag/v4_corpus_tests.py'));
+    'Hammer lightweight health check', 'Verify natural-language query and bounded candidates', 'Check process memory'
+].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-const liveWorkflow = read('.github/workflows/rag-v4-live.yml');
-[
-    'athar-rag-ibradevweb.onrender.com/healthz', "payload.get('server') == 'athar-rag-v4'",
-    '/api/rag/v4/status', '/api/rag/v4/search', 'LIVE RAG V4: ALL TESTS PASSED'
-].forEach(token => need(liveWorkflow, token, 'RAG V4 live workflow'));
-
-console.log('RAG V4 static contract valid — read-only corpus, book-aware retrieval, explicit failure, V4 frontend and live verification gate.');
+console.log('Athar Research V5 static contract valid — standalone UI, V5 routes, low-memory runtime, book-aware retrieval and explicit evidence-only behavior.');
