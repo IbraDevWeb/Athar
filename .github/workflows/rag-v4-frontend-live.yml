@@ -1,4 +1,4 @@
-name: RAG V4 published frontend verification
+name: Athar Research V5 published frontend verification
 
 on:
   push:
@@ -10,71 +10,106 @@ on:
 jobs:
   verify-published-ui:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
-      - name: Verify GitHub Pages V4 assets and CORS
+      - name: Verify published Research V5 assets, CORS and retrieval
         run: |
           python - <<'PY'
+          import json
           import time
-          import urllib.error
+          import urllib.parse
           import urllib.request
 
           base = 'https://ibradevweb.github.io/Athar/'
           api = 'https://athar-rag-ibradevweb.onrender.com'
 
           assets = {
-              'js/components/ScholarV2Bootstrap.js?v=rag-v2-mount-3': [
-                  'ScholarLibraryV4View.js', 'ScholarV4Bootstrap.js', 'rag-v4-ui-1',
+              'js/config.js?v=athar-pro-v36': [
+                  "const APP_VERSION = 'athar-pro-v36'",
+                  "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-1'",
+                  'ScholarLibraryV4View.js', 'ScholarV4Bootstrap.js', 'athar-research-v5.css',
               ],
-              'js/components/ScholarLibraryV4View.js?v=rag-v4-ui-1': [
-                  '/api/rag/v4/status', '/api/rag/v4/books', '/api/rag/v4/ask',
-                  'Aucune réponse de secours', 'Ouvrage ciblé',
+              'js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-1': [
+                  "name: 'AtharResearchView'", '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/ask',
+                  'Athar Research', 'Questions naturelles', 'Les ouvrages indexés', 'Historique local',
+                  'Pertinence documentaire ≠ certitude religieuse',
               ],
-              'js/components/ScholarV4Bootstrap.js?v=rag-v4-ui-1': [
-                  "setView('rag_v4')", "viewMode === 'rag_v4'", 'data-athar-scholar-v4-nav',
+              'js/components/ScholarV4Bootstrap.js?v=athar-research-v5-ui-1': [
+                  "setView('rag_v5')", "viewMode === 'rag_v5'", 'data-athar-research-v5-nav',
+                  'Athar Research · Bibliothèque Savante',
+              ],
+              'css/athar-research-v5.css?v=athar-research-v5-ui-1': [
+                  '.ar5-shell', '.ar5-rail', '.ar5-composer', '.ar5-result-layout', '.ar5-evidence',
+                  '.ar5-books-grid', '.ar5-history-list', '.ar5-method-grid', '.ar5-nav-entry', '.ar5-home-pillar',
+              ],
+              'rag/remote.json?v=rag-v5-ui': [
+                  '"api_version": 5', '"engine": "rag-v5-hybrid-multilingual"',
               ],
           }
 
           def fetch_text(url, timeout=60):
-              request = urllib.request.Request(url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Athar-V4-live-check'})
+              request = urllib.request.Request(url, headers={
+                  'Cache-Control': 'no-cache',
+                  'Pragma': 'no-cache',
+                  'User-Agent': 'Athar-Research-V5-live-check',
+              })
               with urllib.request.urlopen(request, timeout=timeout) as response:
                   return response.status, response.read().decode('utf-8')
 
           last_error = None
-          for attempt in range(1, 21):
+          for attempt in range(1, 25):
               try:
                   for path, tokens in assets.items():
                       status, body = fetch_text(base + path)
                       assert status == 200, (path, status)
                       for token in tokens:
                           assert token in body, (path, token)
-                      if path.startswith('js/components/ScholarLibraryV4View'):
+                      if 'ScholarLibraryV4View.js' in path:
                           assert '/api/rag/v2/' not in body
                           assert 'localFallback' not in body
-                  print(f'Published V4 assets verified on attempt {attempt}')
+                  print(f'Published Athar Research V5 assets verified on attempt {attempt}')
                   break
               except Exception as exc:
                   last_error = exc
                   print(f'Attempt {attempt} not ready: {exc}')
                   time.sleep(15)
           else:
-              raise SystemExit(f'GitHub Pages never exposed the V4 assets: {last_error}')
+              raise SystemExit(f'GitHub Pages never exposed the Research V5 assets: {last_error}')
 
-          # Verify browser-origin CORS against the production V4 API.
-          request = urllib.request.Request(
-              api + '/api/rag/v4/search?q=Que%20dit%20Sahih%20al-Bukhari%20sur%20les%20intentions%20%3F&limit=3',
+          health_request = urllib.request.Request(api + '/healthz', headers={
+              'Origin': 'https://ibradevweb.github.io',
+              'Accept': 'application/json',
+              'User-Agent': 'Athar-Research-V5-live-check',
+          })
+          with urllib.request.urlopen(health_request, timeout=60) as response:
+              health = json.loads(response.read().decode('utf-8'))
+              assert response.status == 200
+              assert response.headers.get('Access-Control-Allow-Origin') == 'https://ibradevweb.github.io'
+              assert health.get('engine') == 'rag-v5-hybrid-multilingual', health
+              assert health.get('engine_version') == 5, health
+              assert health.get('runtime_profile') == 'low-memory', health
+
+          body = json.dumps({'query': 'prier à voix haute', 'limit': 8}, ensure_ascii=False).encode('utf-8')
+          ask_request = urllib.request.Request(
+              api + '/api/rag/v5/ask',
+              data=body,
+              method='POST',
               headers={
                   'Origin': 'https://ibradevweb.github.io',
                   'Accept': 'application/json',
-                  'User-Agent': 'Athar-V4-live-check',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'User-Agent': 'Athar-Research-V5-live-check',
               },
           )
-          with urllib.request.urlopen(request, timeout=120) as response:
-              cors = response.headers.get('Access-Control-Allow-Origin')
-              body = response.read().decode('utf-8')
+          with urllib.request.urlopen(ask_request, timeout=120) as response:
+              payload = json.loads(response.read().decode('utf-8'))
               assert response.status == 200
-              assert cors == 'https://ibradevweb.github.io', cors
-              assert '"server": "athar-rag-v4"' in body
-              assert 'Sahih al-Bukhari' in body
-          print('Published frontend assets + production CORS + Bukhari retrieval: PASS')
+              assert response.headers.get('Access-Control-Allow-Origin') == 'https://ibradevweb.github.io'
+              assert payload.get('engine') == 'rag-v5-hybrid-multilingual', payload
+              assert payload.get('engine_version') == 5, payload
+              assert payload.get('sources'), payload
+              assert 'recitation_aloud' in payload.get('analysis', {}).get('concepts', []), payload.get('analysis')
+              assert payload.get('analysis', {}).get('candidate_count', 999) <= 72, payload.get('analysis')
+
+          print('ATHAR RESEARCH V5 PUBLISHED UI + RENDER API + CORS + NATURAL QUERY: PASS')
           PY
