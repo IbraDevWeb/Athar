@@ -2,6 +2,7 @@ const CACHE_VERSION = 'athar-pro-v36';
 const APP_SHELL = [
     './',
     './index.html',
+    './research-library.html',
     './manifest.json',
     './css/style.css',
     './css/transmission.css?v=athar-pro-v36',
@@ -32,6 +33,7 @@ const APP_SHELL = [
     './css/golden-chain.css?v=athar-pro-v36',
     './css/athar-lens.css?v=athar-pro-v36',
     './css/athar-research-v5.css?v=athar-research-v5-ui-1',
+    './css/research-library-v2.css?v=athar-reader-v2',
     './js/config.js',
     './js/app.js',
     './js/composables/useSettings.js',
@@ -50,6 +52,7 @@ const APP_SHELL = [
     './js/components/GoldenChainView.js?v=athar-pro-v36',
     './js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-1',
     './js/components/ScholarV4Bootstrap.js?v=athar-research-v5-ui-1',
+    './js/research-library-v2.js?v=athar-reader-v2',
     './js/components/AstronomyBootstrap.js?v=athar-pro-v36',
     './js/components/LibraryView.js',
     './js/components/ReaderView.js',
