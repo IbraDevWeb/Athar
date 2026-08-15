@@ -28,6 +28,19 @@ const server = read('rag/v5_server.py');
 ].forEach(token => need(server, token, 'rag/v5_server.py'));
 reject(server, /localFallback|seed\.json/i, 'rag/v5_server.py');
 
+const library = read('rag/v5_library.py');
+[
+    'def get_book(', 'def read_book(', 'MAX_READ_LIMIT = 12', 'indexed_pages', 'french_passages',
+    'ORDER BY', 'next_offset', 'previous_offset'
+].forEach(token => need(library, token, 'rag/v5_library.py'));
+
+const libraryServer = read('rag/v5_library_server.py');
+[
+    '/api/rag/v5/book', '/api/rag/v5/read', 'class Handler(BaseHandler)', 'library_gate',
+    'open_connection(self.db_path)', 'AtharRAG/5.3-library-lowmem'
+].forEach(token => need(libraryServer, token, 'rag/v5_library_server.py'));
+reject(libraryServer, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library_server.py');
+
 const view = read('js/components/ScholarLibraryV4View.js');
 [
     "name: 'AtharResearchView'", '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/ask',
@@ -40,9 +53,18 @@ reject(view, /\/api\/rag\/v2\/|localFallback|embedded_fallback|rag\/seed\.json|M
 const bootstrap = read('js/components/ScholarV4Bootstrap.js');
 [
     "setView('rag_v5')", "viewMode === 'rag_v5'", "'scholar-library-v4-view': window.ScholarLibraryV4View",
-    'data-athar-research-v5-nav', 'patchDomTemplate', 'patchHomeView', 'Athar Research · Bibliothèque Savante'
+    'data-athar-research-v5-nav', 'data-athar-library-reader-nav', 'research-library.html',
+    'patchDomTemplate', 'patchHomeView', 'Athar Research · Bibliothèque Savante'
 ].forEach(token => need(bootstrap, token, 'ScholarV4Bootstrap.js'));
 reject(bootstrap, /Bibliothèque Savante · V4|data-athar-scholar-v4-nav/i, 'ScholarV4Bootstrap.js');
+
+const libraryPage = read('research-library.html');
+[
+    'Bibliothèque Athar', '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/search',
+    '/api/rag/v5/book', '/api/rag/v5/read', 'Le texte français n’est affiché que lorsqu’il existe réellement dans la base',
+    'french_passages', 'translation_status'
+].forEach(token => need(libraryPage, token, 'research-library.html'));
+reject(libraryPage, /MyMemory|translate_arabic|\/api\/rag\/v5\/translate/i, 'research-library.html');
 
 const style = read('css/athar-research-v5.css');
 [
@@ -52,7 +74,7 @@ const style = read('css/athar-research-v5.css');
 
 const render = read('render.yaml');
 [
-    'python rag/v5_server.py --host 0.0.0.0 --api-only',
+    'python rag/v5_library_server.py --host 0.0.0.0 --api-only',
     'python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz',
     'ATHAR_DB_PATH', 'rag/data/athar_hosted.sqlite.gz', 'healthCheckPath: /healthz'
 ].forEach(token => need(render, token, 'render.yaml'));
@@ -88,4 +110,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Hammer lightweight health check', 'Verify natural-language query and bounded candidates', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — standalone UI, V5 routes, low-memory runtime, book-aware retrieval and explicit evidence-only behavior.');
+console.log('Athar Research V5 static contract valid — queryable corpus, direct bounded reading, low-memory runtime and explicit source-first behavior.');
