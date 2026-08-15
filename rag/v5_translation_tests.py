@@ -38,6 +38,7 @@ class TranslationTests(unittest.TestCase):
             params = urllib.parse.parse_qs(parsed.query)
             self.assertEqual(params.get("langpair"), ["ar|fr"])
             self.assertEqual(params.get("mt"), ["1"])
+            self.assertEqual(params.get("de"), ["contact@example.org"])
             source = params.get("q", [""])[0]
             self.assertLessEqual(len(source.encode("utf-8")), MAX_QUERY_BYTES)
             seen.append(source)
@@ -46,7 +47,11 @@ class TranslationTests(unittest.TestCase):
                 "responseData": {"translatedText": f"Traduction française {len(seen)}"},
             })
 
-        result = translate_arabic_to_french("هذا نص عربي للاختبار. " * 80, opener=opener)
+        result = translate_arabic_to_french(
+            "هذا نص عربي للاختبار. " * 80,
+            opener=opener,
+            contact_email="contact@example.org",
+        )
         self.assertGreater(len(seen), 1)
         self.assertIn("Traduction française 1", result["text_fr"])
         self.assertEqual(result["translation_status"], "Traduction automatique")
@@ -62,6 +67,18 @@ class TranslationTests(unittest.TestCase):
             })
 
         with self.assertRaises(TranslationError):
+            translate_arabic_to_french("الصلاة", opener=opener)
+
+    def test_translation_rejects_quota_warning(self):
+        def opener(request, timeout):
+            return FakeResponse({
+                "responseStatus": 200,
+                "responseData": {
+                    "translatedText": "MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY"
+                },
+            })
+
+        with self.assertRaisesRegex(TranslationError, "quota gratuit"):
             translate_arabic_to_french("الصلاة", opener=opener)
 
     def test_translation_rejects_empty_source(self):
