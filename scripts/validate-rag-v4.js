@@ -24,9 +24,17 @@ const server = read('rag/v5_server.py');
     'ENGINE_MARKER = "rag-v5-hybrid-multilingual"', 'engine_version', 'runtime_profile',
     '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/search', '/api/rag/v5/ask',
     'mode=ro&immutable=1', 'PRAGMA query_only=ON', 'PRAGMA cache_size=-8192', 'PRAGMA mmap_size=0',
-    'Access-Control-Allow-Origin', 'ATHAR_CORS_ORIGINS', 'status": "ready"'
+    'Access-Control-Allow-Origin', 'ATHAR_CORS_ORIGINS', 'status": "ready"',
+    'ATHAR_CORPUS_MODE', 'ShardedCorpusRuntime', 'storage_mode'
 ].forEach(token => need(server, token, 'rag/v5_server.py'));
 reject(server, /localFallback|seed\.json/i, 'rag/v5_server.py');
+
+const sharded = read('rag/v5_sharded.py');
+[
+    'class ShardedCorpusRuntime', 'book_to_shard', 'def shard_for_book(', 'def book_connection(',
+    'def search(', 'shards_queried', 'storage_mode', 'mode=ro&immutable=1', 'PRAGMA query_only=ON'
+].forEach(token => need(sharded, token, 'rag/v5_sharded.py'));
+reject(sharded, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_sharded.py');
 
 const library = read('rag/v5_library.py');
 [
@@ -39,9 +47,21 @@ reject(library, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library.p
 const libraryServer = read('rag/v5_library_server.py');
 [
     '/api/rag/v5/library-books', '/api/rag/v5/book', '/api/rag/v5/read', '/api/rag/v5/toc', '/api/rag/v5/book-search',
-    'class Handler(BaseHandler)', 'library_gate', 'library_books_payload', 'open_connection(self.db_path)', 'AtharRAG/5.4-library-lowmem'
+    'class Handler(BaseHandler)', 'library_gate', 'library_books_payload', 'open_connection(self.db_path)',
+    'AtharRAG/5.5-library-sharded-lowmem', 'configure_server_corpus', 'book_connection(book_id)'
 ].forEach(token => need(libraryServer, token, 'rag/v5_library_server.py'));
 reject(libraryServer, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library_server.py');
+
+const cache = read('rag/cache_hosted_corpus.py');
+[
+    'def cache_sharded_release(', 'def _cache_entry(', '--manifest', '--output-dir', 'storage_mode'
+].forEach(token => need(cache, token, 'rag/cache_hosted_corpus.py'));
+
+const builder = read('rag/build_sharded_corpus.py');
+[
+    'def build_sharded_corpus(', 'athar_catalog.sqlite', 'book_stats', 'shard_stats',
+    'sync_books(', 'sharded_build.json', 'storage_mode', 'book_to_shard'
+].forEach(token => need(builder, token, 'rag/build_sharded_corpus.py'));
 
 const view = read('js/components/ScholarLibraryV4View.js');
 [
@@ -129,4 +149,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Hammer lightweight health check', 'Verify natural-language query and bounded candidates', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — professional source reader, book-scoped navigation, queryable corpus and low-memory runtime.');
+console.log('Athar Research V5 static contract valid — professional source reader, sharded routing, queryable corpus and low-memory runtime.');
