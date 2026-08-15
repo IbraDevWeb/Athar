@@ -29,12 +29,18 @@ def configured_manifests() -> list[Path]:
     return [path for path in paths if path.name != AUTO_MANIFEST.name and "tafsir" not in path.stem]
 
 
+def configured_book_count() -> int:
+    count = 0
+    for path in configured_manifests():
+        count += sum(1 for item in load_json(path).get("books") or [] if isinstance(item, dict) and item.get("enabled", True))
+    return count
+
+
 def existing_identity(auto_payload: dict[str, Any] | None = None) -> tuple[set[str], set[str], set[str]]:
     work_uris: set[str] = set()
     version_uris: set[str] = set()
     book_ids: set[str] = set()
-    paths = configured_manifests()
-    payloads = [load_json(path) for path in paths]
+    payloads = [load_json(path) for path in configured_manifests()]
     if auto_payload is None:
         auto_payload = load_json(AUTO_MANIFEST, {"books": []})
     payloads.append(auto_payload)
@@ -96,7 +102,6 @@ def manifest_book(candidate: dict[str, Any], release_ref: str) -> dict[str, Any]
 def _rank(candidate: dict[str, Any]) -> tuple[int, int, str]:
     flags = set(candidate.get("quality_flags") or [])
     quality = 100 * ("PRIMARY_VERSION" in flags) + 60 * ("CLEANED_VERSION" in flags) + 20 * ("NO_MAJOR_ISSUES" in flags)
-    # Prefer substantial references without letting gigantic works monopolise one batch.
     chars = min(int(candidate.get("char_length") or 0), 2_500_000)
     return quality + int(candidate.get("subject_score") or 0), chars, str(candidate.get("version_uri") or "")
 
@@ -168,8 +173,9 @@ def promote(
     catalog = load_json(catalog_path)
     policy = load_json(POLICY_PATH)
     promotion = policy.get("promotion") or {}
-    requested = int(batch_size if batch_size is not None else promotion.get("default_batch_size") or 8)
-    requested = max(1, min(requested, int(promotion.get("max_batch_size") or 20)))
+    hosted = policy.get("hosted") or {}
+    requested_input = int(batch_size if batch_size is not None else promotion.get("default_batch_size") or 8)
+    requested_input = max(1, min(requested_input, int(promotion.get("max_batch_size") or 20)))
     char_budget = int(promotion.get("max_source_chars_per_batch") or 0)
     max_auto_books = int(promotion.get("max_auto_books") or 80)
     auto_payload = load_json(
@@ -182,6 +188,10 @@ def promote(
         },
     )
     books = [item for item in auto_payload.get("books") or [] if isinstance(item, dict)]
+    base_books = configured_book_count()
+    hosted_target = int(hosted.get("target_openiti_books") or 0)
+    target_slots = max(0, hosted_target - base_books - len(books)) if hosted_target else requested_input
+    requested = min(requested_input, target_slots)
     selected = select_batch(
         catalog,
         {**auto_payload, "books": books},
@@ -203,12 +213,14 @@ def promote(
         "source": "OpenITI/RELEASE",
         "release_ref": str(catalog.get("release_ref") or ""),
         "catalog_candidate_works": int(catalog.get("candidate_works") or 0),
-        "requested_batch": requested,
+        "configured_base_books": base_books,
+        "hosted_target_openiti_books": hosted_target,
+        "requested_batch": requested_input,
+        "target_limited_batch": requested,
         "promoted_books": len(promoted),
         "promoted_source_chars": sum(int(item.get("char_length") or 0) for item in selected),
         "auto_manifest_books_before": len(books),
         "auto_manifest_books_after": len(books) + len(promoted),
-        "hosted_target_openiti_books": int((policy.get("hosted") or {}).get("target_openiti_books") or 0),
         "selected": [
             {
                 "book_id": book["book_id"],
