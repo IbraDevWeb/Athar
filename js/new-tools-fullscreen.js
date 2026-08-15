@@ -108,8 +108,9 @@
   }
 
   function inject() {
-    const changed = injectResearch() || injectLibrary();
-    if (changed) renderButtons();
+    const researchChanged = injectResearch();
+    const libraryChanged = injectLibrary();
+    if (researchChanged || libraryChanged) renderButtons();
   }
 
   document.addEventListener('fullscreenchange', () => {
