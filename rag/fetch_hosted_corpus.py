@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 import os
@@ -30,13 +31,14 @@ SQLITE_HEADER = b"SQLite format 3\x00"
 
 def load_manifest(path: Path = MANIFEST_PATH) -> dict[str, Any]:
     if not path.exists():
-        return {"url": DEFAULT_RELEASE_URL, "sha256": "", "min_openiti_books": 1}
+        return {"url": DEFAULT_RELEASE_URL, "sha256": "", "min_openiti_books": 1, "compression": "none"}
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise RuntimeError("rag/corpus_release.json doit contenir un objet JSON.")
     payload.setdefault("url", DEFAULT_RELEASE_URL)
     payload.setdefault("sha256", "")
     payload.setdefault("min_openiti_books", 1)
+    payload.setdefault("compression", "none")
     return payload
 
 
@@ -94,7 +96,7 @@ def download_release(url: str, destination: Path, expected_sha256: str = "", att
                 url,
                 stream=True,
                 timeout=(10, 300),
-                headers={"User-Agent": "AtharResearch/1.0"},
+                headers={"User-Agent": "AtharResearch/2.0"},
             ) as response:
                 response.raise_for_status()
                 digest = hashlib.sha256()
@@ -126,6 +128,32 @@ def download_release(url: str, destination: Path, expected_sha256: str = "", att
     raise last_error
 
 
+def materialize_gzip(asset: Path, destination: Path) -> None:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    part = destination.with_suffix(destination.suffix + ".part")
+    part.unlink(missing_ok=True)
+    try:
+        with gzip.open(asset, "rb") as source, part.open("wb") as output:
+            shutil.copyfileobj(source, output, length=1024 * 1024)
+        with part.open("rb") as handle:
+            if handle.read(len(SQLITE_HEADER)) != SQLITE_HEADER:
+                raise RuntimeError("Le contenu gzip n'est pas une base SQLite valide.")
+        os.replace(part, destination)
+    finally:
+        part.unlink(missing_ok=True)
+
+
+def validate_release_fingerprint(path: Path, manifest: dict[str, Any]) -> None:
+    expected_size = int(manifest.get("database_size_bytes") or 0)
+    expected_sha = str(manifest.get("database_sha256") or "").strip().lower()
+    if expected_size and path.stat().st_size != expected_size:
+        raise RuntimeError(f"Taille SQLite invalide : {path.stat().st_size}, attendu {expected_size}.")
+    if expected_sha:
+        actual_sha = sha256_file(path).lower()
+        if actual_sha != expected_sha:
+            raise RuntimeError(f"SHA-256 SQLite invalide : {actual_sha}, attendu {expected_sha}.")
+
+
 def build_fallback(destination: Path) -> dict[str, object]:
     for candidate in (destination, Path(f"{destination}-wal"), Path(f"{destination}-shm")):
         if candidate.exists():
@@ -139,18 +167,34 @@ def install(destination: Path, *, fallback_starter: bool = False) -> dict[str, o
     manifest = load_manifest()
     url = str(manifest.get("url") or DEFAULT_RELEASE_URL)
     expected_sha = str(manifest.get("sha256") or "").strip()
+    expected_asset_size = int(manifest.get("size_bytes") or 0)
     min_openiti_books = int(manifest.get("min_openiti_books") or 0)
+    compression = str(manifest.get("compression") or "none").strip().lower()
+    if compression not in {"none", "gzip"}:
+        raise RuntimeError(f"Compression de corpus non prise en charge : {compression}.")
+
+    asset = destination if compression == "none" else destination.with_suffix(destination.suffix + ".asset.gz")
+    if compression == "gzip":
+        asset.unlink(missing_ok=True)
 
     try:
-        download = download_release(url, destination, expected_sha256=expected_sha)
+        download = download_release(url, asset, expected_sha256=expected_sha)
+        if expected_asset_size and int(download["bytes"]) != expected_asset_size:
+            raise RuntimeError(f"Taille d'asset invalide : {download['bytes']}, attendu {expected_asset_size}.")
+        if compression == "gzip":
+            materialize_gzip(asset, destination)
+            validate_release_fingerprint(destination, manifest)
         validated = validate_database(destination, min_openiti_books=min_openiti_books)
         return {
-            "mode": "prebuilt_release",
+            "mode": "prebuilt_release_gzip" if compression == "gzip" else "prebuilt_release",
             "release": manifest,
             "download": download,
             "validated": validated,
+            "database_bytes": destination.stat().st_size,
+            "database_sha256": sha256_file(destination),
         }
     except Exception as error:
+        destination.unlink(missing_ok=True)
         if not fallback_starter:
             raise
         print(
@@ -162,11 +206,14 @@ def install(destination: Path, *, fallback_starter: bool = False) -> dict[str, o
         fallback = build_fallback(destination)
         fallback["release_error"] = str(error)
         return fallback
+    finally:
+        if compression == "gzip":
+            asset.unlink(missing_ok=True)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Télécharge la base RAG préconstruite publiée dans les Releases GitHub."
+        description="Télécharge et matérialise la base RAG préconstruite publiée dans les Releases GitHub."
     )
     parser.add_argument("--output", type=Path, default=Path(os.getenv("ATHAR_DB_PATH") or "/tmp/athar_rag.sqlite"))
     parser.add_argument("--fallback-starter", action="store_true")
