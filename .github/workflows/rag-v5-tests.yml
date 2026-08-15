@@ -22,10 +22,13 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile V5
-        run: python -m py_compile rag/v5_engine.py rag/v5_server.py rag/v5_unit_tests.py rag/v5_corpus_tests.py
+        run: python -m py_compile rag/v5_engine.py rag/v5_lowmem.py rag/v5_server.py rag/v5_translation.py rag/v5_unit_tests.py rag/v5_translation_tests.py rag/v5_corpus_tests.py
       - name: Run V5 unit tests
         working-directory: rag
         run: python v5_unit_tests.py
+      - name: Run citation translation tests
+        working-directory: rag
+        run: python v5_translation_tests.py
 
   real-corpus:
     needs: unit
