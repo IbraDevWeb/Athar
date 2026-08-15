@@ -18,9 +18,8 @@ USUL_STRONG_MARKERS = (
     "uṣūl fiqh",
     "أصول الفقه",
     "اصول الفقه",
-    "qiyas",
-    "qiyās",
-    "قياس",
+    # qiyās alone is deliberately not sufficient: the term is also central
+    # to Arabic grammar and morphology (e.g. Aḥmad Taymūr's al-Samāʿ wa-l-Qiyās).
     "ijma",
     "ijmā",
     "إجماع",
