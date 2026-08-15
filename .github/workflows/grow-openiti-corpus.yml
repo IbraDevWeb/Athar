@@ -1,0 +1,100 @@
+name: Grow OpenITI corpus
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: Nombre maximal de nouveaux ouvrages à promouvoir vers le prochain palier
+        required: false
+        default: '20'
+  schedule:
+    - cron: '43 3 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: grow-openiti-corpus
+  cancel-in-progress: false
+
+jobs:
+  grow:
+    if: github.repository == 'IbraDevWeb/Athar'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install -r rag/requirements.txt
+
+      - name: Validate industrialization logic
+        working-directory: rag
+        run: python corpus_industrializer_tests.py
+
+      - name: Refresh OpenITI scholarly catalogue
+        run: python rag/openiti_catalog.py --output /tmp/openiti_catalog.json
+
+      - name: Resolve batch size
+        id: batch
+        shell: bash
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            BATCH="${{ inputs.batch_size }}"
+          else
+            BATCH="20"
+          fi
+          if ! [[ "$BATCH" =~ ^[0-9]+$ ]]; then BATCH=20; fi
+          if (( BATCH < 1 )); then BATCH=1; fi
+          if (( BATCH > 20 )); then BATCH=20; fi
+          echo "value=$BATCH" >> "$GITHUB_OUTPUT"
+
+      - name: Promote next scholarly batch
+        run: >-
+          python rag/corpus_industrializer.py
+          --catalog /tmp/openiti_catalog.json
+          --batch-size ${{ steps.batch.outputs.value }}
+          --manifest rag/openiti_books_auto.json
+          --report rag/corpus_growth_report.json
+
+      - name: Validate promoted manifest
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'rag')
+          from ingest_openiti import load_industrialized_manifest
+
+          auto = json.loads(Path('rag/openiti_books_auto.json').read_text(encoding='utf-8'))
+          ids = [str(book.get('book_id') or '') for book in auto.get('books', [])]
+          uris = [str(book.get('openiti_uri') or '') for book in auto.get('books', [])]
+          assert all(ids) and len(ids) == len(set(ids)), 'duplicate automatic book ids'
+          assert all(uris) and len(uris) == len(set(uris)), 'duplicate automatic OpenITI URIs'
+          assert all(not str(book.get('madhhab') or '').strip() for book in auto.get('books', [])), 'automatic pipeline must not invent madhhab'
+          manifest = load_industrialized_manifest()
+          enabled = [book for book in manifest.get('books', []) if isinstance(book, dict) and book.get('enabled', True)]
+          print(f'Industrialized OpenITI manifest: {len(enabled)} enabled books; {len(ids)} auto-promoted')
+          PY
+
+      - name: Commit promotion queue
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain -- rag/openiti_books_auto.json rag/corpus_growth_report.json)" ]]; then
+            echo "Le palier de production est déjà rempli; aucune nouvelle promotion."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rag/openiti_books_auto.json rag/corpus_growth_report.json
+          git commit -m "Promouvoir le prochain lot OpenITI dans Athar"
+          git push origin HEAD:main

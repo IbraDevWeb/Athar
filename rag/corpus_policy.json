@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hosted": {
+    "target_openiti_books": 70,
+    "minimum_openiti_books": 65,
+    "expected_openiti_books_after_tafsir": 75,
+    "max_sqlite_bytes": 3221225472,
+    "description": "Premier palier industriel : 70 ouvrages OpenITI dans le noyau, puis 5 tafsirs dédiés. Augmenter seulement après validation du poids et de la mémoire Render."
+  },
+  "promotion": {
+    "default_batch_size": 20,
+    "max_batch_size": 20,
+    "max_auto_books": 80,
+    "max_source_chars_per_batch": 45000000,
+    "min_source_chars": 12000,
+    "max_source_chars_per_book": 12000000,
+    "require_primary": true,
+    "require_cleaned": true,
+    "exclude_uncorrected_ocr": true
+  }
+}

@@ -5,14 +5,11 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/build-rag-corpus.yml'
       - 'rag/openiti_books.json'
       - 'rag/openiti_books_extra.json'
+      - 'rag/openiti_books_extra_40.json'
+      - 'rag/openiti_books_auto.json'
       - 'rag/openiti_books_tafsir.json'
-      - 'rag/openiti.py'
-      - 'rag/ingest_openiti.py'
-      - 'rag/ingest_tafsir.py'
-      - 'rag/build_hosted_corpus.py'
       - 'rag/starter_corpus.json'
       - 'rag/kutub_corpus.json'
 
@@ -20,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: athar-hosted-rag-corpus-v2
+  group: athar-hosted-rag-corpus-industrial
   cancel-in-progress: true
 
 jobs:
@@ -29,9 +26,12 @@ jobs:
     timeout-minutes: 240
     env:
       ATHAR_OPENITI_WORKERS: '6'
+      ATHAR_ALLOW_BOUNDED_CORPUS: '1'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -41,78 +41,166 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r rag/requirements.txt
 
-      - name: Build OpenITI corpus
-        run: |
-          python rag/build_hosted_corpus.py \
-            --db rag/data/athar_hosted.sqlite \
-            --max-books 50 \
-            --min-books 45
-
-      - name: Add tafsir corpus
-        run: |
-          python rag/ingest_tafsir.py \
-            --db rag/data/athar_hosted.sqlite \
-            --min-books 4
-
-      - name: Validate final SQLite corpus
+      - name: Resolve industrial corpus policy
         shell: bash
         run: |
           python - <<'PY'
-          import sqlite3
+          import json, os
+          from pathlib import Path
+          policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))['hosted']
+          values = {
+              'TARGET_OPENITI': int(policy['target_openiti_books']),
+              'MIN_OPENITI': int(policy['minimum_openiti_books']),
+              'EXPECTED_FINAL_OPENITI': int(policy.get('expected_openiti_books_after_tafsir') or policy['target_openiti_books']),
+              'MAX_SQLITE_BYTES': int(policy['max_sqlite_bytes']),
+          }
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
+              for key, value in values.items():
+                  handle.write(f'{key}={value}\n')
+          print(values)
+          PY
+
+      - name: Check promotion queue is ready
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, sys
+          sys.path.insert(0, 'rag')
+          from ingest_openiti import load_industrialized_manifest
+          manifest = load_industrialized_manifest()
+          available = sum(1 for book in manifest.get('books', []) if isinstance(book, dict) and book.get('enabled', True))
+          target = int(os.environ['TARGET_OPENITI'])
+          skip = available < target
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
+              handle.write(f'SKIP_CORPUS_BUILD={1 if skip else 0}\n')
+              handle.write(f'AVAILABLE_OPENITI={available}\n')
+          print(f'OpenITI queue: {available} available / {target} target; skip={skip}')
+          PY
+
+      - name: Wait for enough promoted books
+        if: env.SKIP_CORPUS_BUILD == '1'
+        run: echo "La file OpenITI n'a pas encore atteint le palier de production. Aucun asset n'est remplacé."
+
+      - name: Build bounded OpenITI corpus
+        if: env.SKIP_CORPUS_BUILD != '1'
+        run: >-
+          python rag/build_hosted_corpus.py
+          --db rag/data/athar_hosted.sqlite
+          --max-books "$TARGET_OPENITI"
+          --min-books "$MIN_OPENITI"
+
+      - name: Add dedicated tafsir corpus
+        if: env.SKIP_CORPUS_BUILD != '1'
+        run: python rag/ingest_tafsir.py --db rag/data/athar_hosted.sqlite --min-books 5
+
+      - name: Validate final SQLite and size budget
+        if: env.SKIP_CORPUS_BUILD != '1'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, sqlite3
           from pathlib import Path
           db = Path('rag/data/athar_hosted.sqlite')
           assert db.exists() and db.stat().st_size > 0
+          maximum = int(os.environ['MAX_SQLITE_BYTES'])
+          if db.stat().st_size > maximum:
+              raise SystemExit(f'Corpus exceeds raw SQLite budget: {db.stat().st_size} > {maximum}')
           con = sqlite3.connect(db)
           try:
               assert con.execute('PRAGMA quick_check').fetchone()[0] == 'ok'
               books = int(con.execute('SELECT COUNT(*) FROM books').fetchone()[0])
               chunks = int(con.execute('SELECT COUNT(*) FROM chunks').fetchone()[0])
               openiti = int(con.execute("SELECT COUNT(DISTINCT book_id) FROM chunks WHERE translation_status='openiti_arabic_source'").fetchone()[0])
-              assert openiti >= 45, (books, chunks, openiti)
-              assert chunks > openiti
-              print(f'Corpus validated: {books} books, {openiti} OpenITI books, {chunks} chunks, {db.stat().st_size} bytes')
+              minimum_final = int(os.environ['MIN_OPENITI']) + 5
+              if openiti < minimum_final:
+                  raise SystemExit(f'Final OpenITI corpus too small: {openiti} < {minimum_final}')
+              if chunks <= openiti:
+                  raise SystemExit('Corpus contains too few chunks')
+              print(f'Corpus validated: {books} books, {openiti} OpenITI books, {chunks} chunks, {db.stat().st_size} raw bytes')
           finally:
               con.close()
           PY
 
-      - name: Publish SQLite corpus release
+      - name: Compress hosted corpus
+        if: env.SKIP_CORPUS_BUILD != '1'
+        run: gzip -6 -c rag/data/athar_hosted.sqlite > rag/data/athar_hosted.sqlite.gz
+
+      - name: Validate compressed asset
+        if: env.SKIP_CORPUS_BUILD != '1'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import gzip
+          from pathlib import Path
+          asset = Path('rag/data/athar_hosted.sqlite.gz')
+          if not asset.exists() or asset.stat().st_size <= 0:
+              raise SystemExit('Compressed corpus asset is empty')
+          with gzip.open(asset, 'rb') as handle:
+              if handle.read(16) != b'SQLite format 3\x00':
+                  raise SystemExit('Compressed asset does not contain SQLite')
+          print(f'Compressed corpus: {asset.stat().st_size} bytes')
+          PY
+
+      - name: Publish compressed SQLite corpus release
+        if: env.SKIP_CORPUS_BUILD != '1'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: rag-corpus-v2
           name: Athar hosted RAG corpus v2
-          body: Corpus SQLite préconstruit v2 pour le backend RAG Athar, généré depuis les sources ouvertes configurées dans le dépôt.
-          files: rag/data/athar_hosted.sqlite
+          body: Corpus SQLite Athar industrialisé, préconstruit depuis les sources ouvertes configurées et publié sous forme gzip pour limiter le poids de distribution.
+          files: rag/data/athar_hosted.sqlite.gz
           make_latest: false
           overwrite_files: true
 
-      - name: Update corpus manifest and trigger hosted refresh
+      - name: Update corpus release manifest
+        if: env.SKIP_CORPUS_BUILD != '1'
         shell: bash
         run: |
           python - <<'PY'
           import hashlib
           import json
           import os
+          import sqlite3
           from datetime import datetime, timezone
           from pathlib import Path
 
-          db = Path('rag/data/athar_hosted.sqlite')
-          digest = hashlib.sha256()
-          with db.open('rb') as handle:
-              for block in iter(lambda: handle.read(1024 * 1024), b''):
-                  digest.update(block)
+          raw = Path('rag/data/athar_hosted.sqlite')
+          asset = Path('rag/data/athar_hosted.sqlite.gz')
+          def sha(path):
+              digest = hashlib.sha256()
+              with path.open('rb') as handle:
+                  for block in iter(lambda: handle.read(1024 * 1024), b''):
+                      digest.update(block)
+              return digest.hexdigest()
+
+          con = sqlite3.connect(raw)
+          try:
+              books = int(con.execute('SELECT COUNT(*) FROM books').fetchone()[0])
+              chunks = int(con.execute('SELECT COUNT(*) FROM chunks').fetchone()[0])
+              openiti = int(con.execute("SELECT COUNT(DISTINCT book_id) FROM chunks WHERE translation_status='openiti_arabic_source'").fetchone()[0])
+          finally:
+              con.close()
 
           path = Path('rag/corpus_release.json')
           payload = json.loads(path.read_text(encoding='utf-8'))
           payload.update({
               'tag': 'rag-corpus-v2',
-              'url': 'https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite',
-              'sha256': digest.hexdigest(),
-              'size_bytes': db.stat().st_size,
-              'min_openiti_books': 45,
+              'asset': 'athar_hosted.sqlite.gz',
+              'url': 'https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v2/athar_hosted.sqlite.gz',
+              'compression': 'gzip',
+              'sha256': sha(asset),
+              'size_bytes': asset.stat().st_size,
+              'database_sha256': sha(raw),
+              'database_size_bytes': raw.stat().st_size,
+              'min_openiti_books': openiti,
+              'books': books,
+              'chunks': chunks,
+              'openiti_books': openiti,
               'source_sha': os.environ['GITHUB_SHA'],
               'built_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
           })
           path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(payload, ensure_ascii=False, indent=2))
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -120,11 +208,12 @@ jobs:
           if git diff --cached --quiet; then
             echo 'Corpus manifest already current.'
           else
-            git commit -m 'Refresh hosted RAG corpus v2'
+            git commit -m 'Publier le palier industriel du corpus Athar'
             git push origin HEAD:main
           fi
 
       - name: Archive build statistics
+        if: env.SKIP_CORPUS_BUILD != '1'
         uses: actions/upload-artifact@v4
         with:
           name: athar-rag-corpus-stats
