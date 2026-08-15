@@ -7,7 +7,7 @@ from http import HTTPStatus
 from pathlib import Path
 from typing import Any
 
-from v5_library import get_book, get_toc, read_book, search_book
+from v5_library import get_book, get_toc, list_library_books, read_book, search_book
 from v5_server import (
     DEFAULT_DB,
     AtharThreadingHTTPServer,
@@ -51,9 +51,24 @@ class Handler(BaseHandler):
             raise ValueError("Offset invalide.") from exc
         return max(0, min(parsed, 2_000_000))
 
+    def _library_books_payload(self) -> list[dict[str, Any]]:
+        cached = getattr(self.server, "library_books_payload", None)
+        if cached is not None:
+            return cached
+        lock = getattr(self.server, "library_books_lock")
+        with lock:
+            cached = getattr(self.server, "library_books_payload", None)
+            if cached is not None:
+                return cached
+            with open_connection(self.db_path) as connection:
+                cached = list_library_books(connection)
+            self.server.library_books_payload = cached
+            return cached
+
     def do_GET(self) -> None:
         path, params = self.parse_path()
         library_paths = {
+            "/api/rag/v5/library-books",
             "/api/rag/v5/book",
             "/api/rag/v5/read",
             "/api/rag/v5/toc",
@@ -64,6 +79,20 @@ class Handler(BaseHandler):
             return
 
         try:
+            if path == "/api/rag/v5/library-books":
+                if not self._library_acquire():
+                    self.send_json(
+                        self._compat_payload({"error": "Le catalogue est occupé. Réessaie dans quelques secondes."}),
+                        HTTPStatus.SERVICE_UNAVAILABLE,
+                    )
+                    return
+                try:
+                    books = self._library_books_payload()
+                finally:
+                    self._library_release()
+                self.send_json(self._compat_payload({"books": books, "count": len(books)}))
+                return
+
             book_id = self._first(params, "id") or self._first(params, "book_id")
             book_id = str(book_id or "").strip()
             if not book_id:
@@ -133,8 +162,10 @@ def main() -> int:
     server.library_gate = threading.BoundedSemaphore(4)
     server.status_lock = threading.Lock()
     server.books_lock = threading.Lock()
+    server.library_books_lock = threading.Lock()
     server.status_payload = None
     server.books_payload = None
+    server.library_books_payload = None
     print(
         json.dumps(
             {
