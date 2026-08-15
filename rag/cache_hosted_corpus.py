@@ -74,9 +74,10 @@ def cache_release(output: Path) -> dict[str, object]:
 
     if compression == "none":
         download = download_release(url, output, expected_sha256=expected_sha)
-        if expected_asset_size and output.stat().st_size != expected_asset_size:
+        actual_size = output.stat().st_size
+        if expected_asset_size and actual_size != expected_asset_size:
             output.unlink(missing_ok=True)
-            raise RuntimeError(f"Taille d'asset invalide: {output.stat().st_size}, attendu {expected_asset_size}.")
+            raise RuntimeError(f"Taille d'asset invalide: {actual_size}, attendu {expected_asset_size}.")
         if not _valid_sqlite(output):
             output.unlink(missing_ok=True)
             raise RuntimeError("L'asset corpus téléchargé n'est pas un SQLite valide.")
