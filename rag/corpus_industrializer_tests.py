@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 from corpus_industrializer import (
+    discipline_override,
     existing_auto_rejection,
     manifest_book,
     prune_existing_auto_books,
@@ -64,6 +65,7 @@ def staged_book(
             "source": "OpenITI",
             "source_id": source_id,
             "classification_subject": "fiqh",
+            "classification_status": "automatic_metadata_hint",
         },
     }
 
@@ -161,6 +163,83 @@ class OpenITICatalogTests(unittest.TestCase):
         uri = "0999Fixture.FiqhBook.JK1-ara1"
         self.assertEqual(stable_book_id(uri), stable_book_id(uri))
         self.assertTrue(stable_book_id(uri).startswith("openiti-auto-"))
+
+    def test_reviewed_discipline_override_reclassifies_staged_book_without_madhhab(self) -> None:
+        promotion = {
+            "excluded_source_markers": [],
+            "excluded_work_markers": [],
+            "discipline_overrides": {
+                "Nasai.FadailSahaba": {
+                    "subject": "hadith",
+                    "discipline": "Hadith",
+                    "reason": "Reviewed hadith collection",
+                }
+            },
+        }
+        staged = staged_book(
+            "nasai",
+            "0303Nasai.FadailSahaba.JK000747-ara1",
+            "0303Nasai.FadailSahaba",
+        )
+        normalized, detail = discipline_override(staged, promotion)
+        self.assertEqual(normalized["discipline"], "Hadith")
+        self.assertEqual(normalized["metadata"]["classification_subject"], "hadith")
+        self.assertEqual(normalized["metadata"]["classification_status"], "reviewed_policy_override")
+        self.assertEqual(normalized["madhhab"], "")
+        self.assertEqual(detail["from"], "Fiqh")
+        self.assertEqual(detail["to"], "Hadith")
+
+    def test_prune_rewrites_kept_book_with_reviewed_discipline_override(self) -> None:
+        promotion = {
+            "excluded_source_markers": [],
+            "excluded_work_markers": [],
+            "discipline_overrides": {
+                "AbuDharrSibtIbnCajami.KunuzDhahab": {
+                    "subject": "sira",
+                    "discipline": "Sīra et histoire",
+                    "reason": "Reviewed historical chronicle",
+                }
+            },
+        }
+        staged = staged_book(
+            "kunuz",
+            "0884AbuDharrSibtIbnCajami.KunuzDhahab.Shamela0011786-ara1",
+            "0884AbuDharrSibtIbnCajami.KunuzDhahab",
+        )
+        kept, removed = prune_existing_auto_books([staged], promotion)
+        self.assertEqual(removed, [])
+        self.assertEqual(kept[0]["discipline"], "Sīra et histoire")
+        self.assertEqual(kept[0]["metadata"]["classification_subject"], "sira")
+
+    def test_candidate_override_is_preserved_when_manifest_is_created(self) -> None:
+        promotion = {
+            "discipline_overrides": {
+                "Nasai.FadailSahaba": {
+                    "subject": "hadith",
+                    "discipline": "Hadith",
+                    "reason": "Reviewed hadith collection",
+                }
+            }
+        }
+        candidate = {
+            "version_uri": "0303Nasai.FadailSahaba.JK000747-ara1",
+            "work_uri": "0303Nasai.FadailSahaba",
+            "path": "data/nasai",
+            "title": "Fadail Sahaba",
+            "title_ar": "فضائل الصحابة",
+            "author": "Nasai",
+            "discipline": "Fiqh",
+            "subject": "fiqh",
+            "char_length": 100000,
+            "token_length": 20000,
+            "quality_flags": ["PRIMARY_VERSION", "CLEANED_VERSION"],
+        }
+        normalized, _ = discipline_override(candidate, promotion)
+        book = manifest_book(normalized, "release")
+        self.assertEqual(book["discipline"], "Hadith")
+        self.assertEqual(book["metadata"]["classification_subject"], "hadith")
+        self.assertEqual(book["metadata"]["classification_status"], "reviewed_policy_override")
+        self.assertEqual(book["madhhab"], "")
 
     def test_staged_shia_and_ibadiyya_sources_are_pruned_after_policy_hardening(self) -> None:
         promotion = {
