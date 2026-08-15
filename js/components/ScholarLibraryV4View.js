@@ -27,6 +27,10 @@ window.ScholarLibraryV4View = {
         const bookDiscipline = ref('');
         const bookMadhhab = ref('');
         const history = ref([]);
+        const translationMode = ref('faithful');
+        const translationLoadingKey = ref('');
+        const translationError = ref('');
+        const translations = ref({});
 
         const examples = [
             { icon: 'volume-2', label: 'Fiqh', query: 'Dans quelles prières récite-t-on à voix haute ?' },
@@ -44,6 +48,11 @@ window.ScholarLibraryV4View = {
             { value: 'Ḥanbalite', label: 'Ḥanbalite' }
         ];
         const disciplines = ['', 'Fiqh', 'Hadith', 'Tafsir', 'Sira', 'Usul', 'Aqida', 'Histoire'];
+        const translationModes = [
+            { value: 'faithful', label: 'Fidèle', help: 'Français clair, sens technique préservé.' },
+            { value: 'literal', label: 'Littérale', help: 'Au plus près de la formulation arabe.' },
+            { value: 'study', label: 'Étude', help: 'Traduction + termes techniques expliqués.' }
+        ];
         const conceptLabels = {
             eclipse_prayer: 'prière de l’éclipse',
             intention: 'intention', prayer: 'prière', recitation_aloud: 'récitation à voix haute', recitation_silent: 'récitation à voix basse',
@@ -60,6 +69,10 @@ window.ScholarLibraryV4View = {
         const analysis = computed(() => response.value?.analysis || null);
         const routedBook = computed(() => analysis.value?.routed_book || null);
         const selectedSource = computed(() => sources.value.find(item => item.citation_id === selectedSourceId.value) || sources.value[0] || null);
+        const translationKey = (source, wantedMode = translationMode.value) => `${source?.book_id || ''}:${source?.id || ''}:${wantedMode}`;
+        const selectedTranslation = computed(() => translations.value[translationKey(selectedSource.value)] || null);
+        const translationPending = computed(() => Boolean(selectedSource.value && translationLoadingKey.value === translationKey(selectedSource.value)));
+        const selectedTranslationMode = computed(() => translationModes.find(item => item.value === translationMode.value) || translationModes[0]);
         const substantiveRatio = computed(() => status.value.chunks ? Math.round((status.value.substantive_passages || 0) * 100 / status.value.chunks) : 0);
         const resultTitle = computed(() => {
             const count = sources.value.length;
@@ -160,7 +173,7 @@ window.ScholarLibraryV4View = {
         const ask = async () => {
             const value = query.value.trim();
             if (loading.value || value.length < 3) return;
-            loading.value = true; error.value = ''; response.value = null; selectedSourceId.value = '';
+            loading.value = true; error.value = ''; response.value = null; selectedSourceId.value = ''; translationError.value = '';
             try {
                 const request = await apiFetch('/api/rag/v5/ask', { method: 'POST', body: JSON.stringify({ query: value, limit: 8, madhhab: madhhab.value, discipline: discipline.value }) });
                 const payload = await request.json().catch(() => ({}));
@@ -188,12 +201,52 @@ window.ScholarLibraryV4View = {
             finally { booksLoading.value = false; }
         };
 
+        const setTranslationMode = value => {
+            if (!translationModes.some(item => item.value === value)) return;
+            translationMode.value = value;
+            translationError.value = '';
+        };
+        const translateSelected = async () => {
+            const source = selectedSource.value;
+            if (!source?.id || !source?.book_id || !source?.text_ar) {
+                translationError.value = 'Ce passage arabe ne peut pas être envoyé au traducteur.';
+                return;
+            }
+            const key = translationKey(source);
+            if (translationLoadingKey.value) return;
+            translationLoadingKey.value = key;
+            translationError.value = '';
+            try {
+                const request = await apiFetch('/api/rag/v5/translate', {
+                    method: 'POST',
+                    body: JSON.stringify({ source_id: source.id, book_id: source.book_id, mode: translationMode.value })
+                }, 45000);
+                const payload = await request.json().catch(() => ({}));
+                if (!request.ok) throw new Error(payload?.error || 'HTTP ' + request.status);
+                validateV5(payload);
+                if (!payload?.translation?.text_fr) throw new Error('Aucune traduction exploitable n’a été reçue.');
+                translations.value = { ...translations.value, [key]: payload.translation };
+                nextTick(() => document.querySelector('.ar5-ai-translation')?.scrollIntoView?.({ behavior: 'smooth', block: 'nearest' }));
+            } catch (translationFailure) {
+                translationError.value = translationFailure?.name === 'AbortError'
+                    ? 'La traduction a dépassé le délai prévu. Réessaie dans quelques instants.'
+                    : (translationFailure?.message || 'La traduction IA est indisponible.');
+            } finally {
+                if (translationLoadingKey.value === key) translationLoadingKey.value = '';
+            }
+        };
+        const copyTranslation = async translation => {
+            const text = translation?.text_fr || '';
+            if (!text) return;
+            try { await navigator.clipboard.writeText(text); } catch (_) {}
+        };
+
         const changeMode = value => { mode.value = value; error.value = ''; if (value === 'corpus') loadBooks(); };
         const chooseExample = value => { query.value = value; mode.value = 'ask'; nextTick(ask); };
         const rerunHistory = item => { query.value = item?.query || ''; mode.value = 'ask'; nextTick(ask); };
         const clearHistory = () => { history.value = []; try { localStorage.removeItem(HISTORY_KEY); } catch (_) {} };
-        const selectSource = sourceOrId => { selectedSourceId.value = typeof sourceOrId === 'string' ? sourceOrId : sourceOrId?.citation_id; };
-        const reset = () => { response.value = null; selectedSourceId.value = ''; error.value = ''; nextTick(() => document.querySelector('.ar5-composer textarea')?.focus()); };
+        const selectSource = sourceOrId => { selectedSourceId.value = typeof sourceOrId === 'string' ? sourceOrId : sourceOrId?.citation_id; translationError.value = ''; };
+        const reset = () => { response.value = null; selectedSourceId.value = ''; error.value = ''; translationError.value = ''; translationLoadingKey.value = ''; nextTick(() => document.querySelector('.ar5-composer textarea')?.focus()); };
         const copyCitation = async source => {
             if (!source) return;
             const parts = [source.author, source.title, source.chapter, source.page != null ? 'p. ' + source.page : '', source.source_url].filter(Boolean);
@@ -211,8 +264,10 @@ window.ScholarLibraryV4View = {
             mode, query, madhhab, discipline, loading, waking, error, response, status, books, booksLoading, bookQuery,
             bookDiscipline, bookMadhhab, history, examples, madhhabs, disciplines, sources, answer, analysis, routedBook,
             selectedSource, selectedSourceId, substantiveRatio, resultTitle, engineLabel, runtimeLabel, displayedNotions, filteredBooks,
-            distinctBookDisciplines, distinctBookMadhhabs, ask, connect, changeMode, chooseExample, rerunHistory, clearHistory,
-            selectSource, reset, copyCitation, sourceNotions, onComposerKeydown, formatNumber, formatDate, openCompanions, openHome
+            distinctBookDisciplines, distinctBookMadhhabs, translationModes, translationMode, selectedTranslationMode,
+            selectedTranslation, translationPending, translationError, ask, connect, changeMode, chooseExample, rerunHistory, clearHistory,
+            selectSource, reset, copyCitation, sourceNotions, onComposerKeydown, formatNumber, formatDate, openCompanions, openHome,
+            setTranslationMode, translateSelected, copyTranslation
         };
     },
     template: `
@@ -281,6 +336,27 @@ window.ScholarLibraryV4View = {
                                     <div v-if="selectedSource.chapter" class="ar5-evidence-chapter"><span>Chapitre</span><strong>{{ selectedSource.chapter }}</strong></div>
                                     <section v-if="selectedSource.text_ar" class="ar5-text-block arabic"><header><span>Texte arabe</span><b>Original indexé</b></header><p lang="ar" dir="rtl">{{ selectedSource.text_ar }}</p></section>
                                     <section v-if="selectedSource.text_fr" class="ar5-text-block"><header><span>Texte français</span><b>{{ selectedSource.translation_status || 'Indexé' }}</b></header><p>{{ selectedSource.text_fr }}</p></section>
+
+                                    <section v-if="selectedSource.text_ar" class="ar5-translation-tool" aria-label="Traduire le passage avec l’intelligence artificielle">
+                                        <div class="ar5-translation-tool-head"><div><span>Comprendre ce passage</span><h3>Traduction IA à la demande</h3></div><b><i data-lucide="sparkles"></i> Gemini</b></div>
+                                        <p class="ar5-translation-intro">Choisis le niveau de lecture. Le modèle reçoit le passage complet ainsi que l’ouvrage, l’auteur, le chapitre, la discipline et l’école pour limiter les contresens techniques.</p>
+                                        <div class="ar5-translation-modes" role="group" aria-label="Mode de traduction">
+                                            <button v-for="item in translationModes" :key="item.value" type="button" :class="{ active: translationMode === item.value }" @click.stop="setTranslationMode(item.value)"><strong>{{ item.label }}</strong><small>{{ item.help }}</small></button>
+                                        </div>
+                                        <div v-if="translationError" class="ar5-translation-error"><i data-lucide="triangle-alert"></i><span>{{ translationError }}</span></div>
+                                        <button type="button" class="ar5-translate-button" :disabled="translationPending" @click.stop="translateSelected"><i v-if="translationPending" data-lucide="loader-circle" class="ar5-spin"></i><i v-else data-lucide="languages"></i><span>{{ translationPending ? 'Traduction en cours…' : (selectedTranslation ? 'Retraduire en mode ' + selectedTranslationMode.label : 'Traduire en mode ' + selectedTranslationMode.label) }}</span></button>
+
+                                        <article v-if="selectedTranslation" class="ar5-ai-translation">
+                                            <header><div><span>Traduction assistée par IA</span><strong>{{ selectedTranslation.mode_label }}</strong></div><b>Non vérifiée</b></header>
+                                            <p class="ar5-ai-translation-text">{{ selectedTranslation.text_fr }}</p>
+                                            <div v-if="selectedTranslation.terms?.length" class="ar5-translation-terms"><h4>Termes techniques</h4><dl><div v-for="(term, index) in selectedTranslation.terms" :key="index"><dt><b lang="ar" dir="rtl">{{ term.arabic }}</b><span>{{ term.transliteration }}</span></dt><dd>{{ term.explanation }}</dd></div></dl></div>
+                                            <div v-if="selectedTranslation.uncertainties?.length" class="ar5-translation-uncertainties"><strong><i data-lucide="circle-help"></i>Points à vérifier</strong><ul><li v-for="(item, index) in selectedTranslation.uncertainties" :key="index">{{ item }}</li></ul></div>
+                                            <div v-if="selectedTranslation.source_truncated" class="ar5-translation-uncertainties"><strong><i data-lucide="scissors"></i>Passage très long</strong><p>La traduction a été limitée à la portion maximale acceptée par Athar. Consulte l’arabe original pour la suite.</p></div>
+                                            <footer><span>{{ selectedTranslation.provider === 'google-gemini' ? 'Gemini' : selectedTranslation.provider }} · {{ selectedTranslation.model }}</span><button type="button" @click.stop="copyTranslation(selectedTranslation)"><i data-lucide="copy"></i>Copier</button></footer>
+                                        </article>
+                                        <p class="ar5-translation-notice"><i data-lucide="shield-alert"></i><span>{{ selectedTranslation?.notice || 'La traduction IA est une aide de lecture non vérifiée. Le texte arabe original reste la référence.' }}</span></p>
+                                    </section>
+
                                     <div class="ar5-evidence-actions"><button type="button" @click.stop="copyCitation(selectedSource)"><i data-lucide="copy"></i>Copier la citation</button><a v-if="selectedSource.source_url" :href="selectedSource.source_url" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i>Source originale</a></div>
                                 </template>
                             </aside>
