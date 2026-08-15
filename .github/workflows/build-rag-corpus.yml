@@ -137,16 +137,17 @@ jobs:
           print(f'Shard registry validated: {len(ids)} OpenITI books in {registry["total_shards"]} shard(s).')
           PY
 
-      - name: Build independent SQLite shards
+      - name: Build or reuse independent SQLite shards
         if: env.SKIP_CORPUS_BUILD != '1'
         run: >-
           python rag/build_sharded_corpus.py
           --output-dir rag/data/sharded_build
           --registry rag/corpus_shards.json
+          --previous-release rag/corpus_release_v3.json
           --min-openiti-books "$MIN_FINAL_OPENITI"
           --workers "$ATHAR_OPENITI_WORKERS"
 
-      - name: Validate sharded build manifest
+      - name: Validate incremental sharded build manifest
         if: env.SKIP_CORPUS_BUILD != '1'
         shell: bash
         run: |
@@ -156,33 +157,52 @@ jobs:
           root = Path('rag/data/sharded_build')
           payload = json.loads((root / 'sharded_build.json').read_text(encoding='utf-8'))
           assert payload['storage_mode'] == 'sharded'
+          assert payload['shard_build_version']
           assert int(payload['openiti_books']) >= int(os.environ['MIN_FINAL_OPENITI'])
           assert int(payload['books']) >= int(payload['openiti_books'])
           assert int(payload['chunks']) > int(payload['books'])
           assert int(payload['shard_count']) == len(payload['shards'])
+          assert int(payload['reused_shards']) + int(payload['rebuilt_shards']) == int(payload['shard_count'])
           assert set(payload['book_to_shard'])
-          entries = [payload['catalog'], *payload['shards']]
-          for entry in entries:
-              asset = root / entry['asset']
-              assert asset.exists() and asset.stat().st_size == int(entry['size_bytes'])
+
+          catalog = payload['catalog']
+          catalog_asset = root / catalog['asset']
+          assert catalog.get('reuse_status') == 'rebuilt'
+          assert catalog_asset.exists() and catalog_asset.stat().st_size == int(catalog['size_bytes'])
+
+          for entry in payload['shards']:
               assert entry['compression'] == 'gzip'
               assert len(str(entry['sha256'])) == 64
               assert len(str(entry['database_sha256'])) == 64
-          print(f"Sharded corpus validated: {payload['books']} books, {payload['openiti_books']} OpenITI, {payload['chunks']} chunks, {payload['shard_count']} shard(s)")
+              asset = root / entry['asset']
+              if entry.get('reuse_status') == 'reused':
+                  assert entry.get('url'), f"reused shard {entry['id']} lost its published URL"
+                  assert entry.get('source_signature'), f"reused shard {entry['id']} has no source signature"
+                  assert entry.get('shard_build_version') == payload['shard_build_version']
+              else:
+                  assert asset.exists() and asset.stat().st_size == int(entry['size_bytes'])
+                  if str(entry['id']).startswith('openiti-'):
+                      assert entry.get('source_signature')
+                      assert entry.get('shard_build_version') == payload['shard_build_version']
+          print(
+              f"Incremental sharded corpus validated: {payload['books']} books, {payload['openiti_books']} OpenITI, "
+              f"{payload['chunks']} chunks, {payload['shard_count']} shard(s), "
+              f"{payload['reused_shards']} reused / {payload['rebuilt_shards']} rebuilt"
+          )
           PY
 
-      - name: Publish parallel sharded SQLite release
+      - name: Publish only rebuilt SQLite assets
         if: env.SKIP_CORPUS_BUILD != '1'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: rag-corpus-v3
           name: Athar sharded RAG corpus v3
-          body: Corpus Athar découpé en SQLite indépendants avec catalogue central. Cette release est publiée en parallèle du corpus V2 jusqu'à validation du basculement Render.
+          body: Corpus Athar distribué en SQLite indépendants avec catalogue central et réutilisation vérifiée des shards inchangés. Les assets absents du build courant restent ceux du release précédent lorsqu'une signature de source identique autorise explicitement leur réutilisation.
           files: rag/data/sharded_build/*.sqlite.gz
           make_latest: false
           overwrite_files: true
 
-      - name: Write parallel V3 release manifest
+      - name: Write V3 release manifest
         if: env.SKIP_CORPUS_BUILD != '1'
         shell: bash
         run: |
@@ -207,6 +227,8 @@ jobs:
               'openiti_books': payload['openiti_books'],
               'chunks': payload['chunks'],
               'shards': payload['shard_count'],
+              'reused_shards': payload['reused_shards'],
+              'rebuilt_shards': payload['rebuilt_shards'],
               'manifest': 'rag/corpus_release_v3.json',
           }, ensure_ascii=False))
           PY
@@ -221,7 +243,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'V3 manifest and shard registry already current.'
           else
-            git commit -m 'Publier le corpus Athar sharded V3 en parallèle'
+            git commit -m 'Publier le corpus Athar sharded V3 incrémental'
             git push origin HEAD:main
           fi
 

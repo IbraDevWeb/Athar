@@ -10,7 +10,14 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from build_sharded_corpus import _create_catalog, _record_shard
+from build_sharded_corpus import (
+    SHARD_BUILD_VERSION,
+    _create_catalog,
+    _record_reused_shard,
+    _record_shard,
+    _reuse_plan,
+    _source_signature,
+)
 from cache_hosted_corpus import cache_sharded_release
 from core import initialize_database, upsert_book, upsert_chunk
 from v5_library import get_book, read_book
@@ -72,28 +79,28 @@ class ShardedRuntimeTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
-        shard_a = self.root / "athar_openiti-001.sqlite"
-        shard_b = self.root / "athar_openiti-002.sqlite"
+        self.shard_a = self.root / "athar_openiti-001.sqlite"
+        self.shard_b = self.root / "athar_openiti-002.sqlite"
         stats_a = make_shard(
-            shard_a,
+            self.shard_a,
             "book-alpha",
             "Livre Alpha",
             "أحكام السفر وقصر الصلاة",
             "Règles du voyage et de la prière raccourcie",
         )
         stats_b = make_shard(
-            shard_b,
+            self.shard_b,
             "book-beta",
             "Livre Beta",
             "مسائل السفر للمسافر",
             "Questions concernant le voyageur",
         )
 
-        catalog_path = self.root / "athar_catalog.sqlite"
-        catalog = _create_catalog(catalog_path)
+        self.catalog_path = self.root / "athar_catalog.sqlite"
+        catalog = _create_catalog(self.catalog_path)
         try:
-            _record_shard(catalog, shard_a, "openiti-001", stats_a)
-            _record_shard(catalog, shard_b, "openiti-002", stats_b)
+            _record_shard(catalog, self.shard_a, "openiti-001", stats_a)
+            _record_shard(catalog, self.shard_b, "openiti-002", stats_b)
             for key, value in {
                 "storage_mode": "sharded",
                 "books": 2,
@@ -118,10 +125,10 @@ class ShardedRuntimeTests(unittest.TestCase):
             "openiti_books": 0,
             "substantive_passages": 4,
             "shard_count": 2,
-            "catalog": {"id": "catalog", "database": catalog_path.name},
+            "catalog": {"id": "catalog", "database": self.catalog_path.name},
             "shards": [
-                {"id": "openiti-001", "database": shard_a.name},
-                {"id": "openiti-002", "database": shard_b.name},
+                {"id": "openiti-001", "database": self.shard_a.name},
+                {"id": "openiti-002", "database": self.shard_b.name},
             ],
             "book_to_shard": {
                 "book-alpha": "openiti-001",
@@ -171,6 +178,126 @@ class ShardedRuntimeTests(unittest.TestCase):
         self.assertEqual(result["analysis"]["shards_queried"], ["openiti-001"])
         self.assertEqual(result["analysis"]["routed_book"]["id"], "book-alpha")
         self.assertTrue(all(row["book_id"] == "book-alpha" for row in result["sources"]))
+
+    def test_reused_shard_copies_catalog_rows_without_opening_shard_database(self) -> None:
+        destination = self.root / "reused_catalog.sqlite"
+        catalog = _create_catalog(destination)
+        try:
+            stats = _record_reused_shard(
+                catalog,
+                self.catalog_path,
+                "openiti-001",
+                ["book-alpha"],
+            )
+        finally:
+            catalog.close()
+        self.assertEqual(stats["books"], 1)
+        self.assertEqual(stats["chunks"], 2)
+        connection = sqlite3.connect(destination)
+        try:
+            self.assertEqual(connection.execute("SELECT COUNT(*) FROM books").fetchone()[0], 1)
+            self.assertEqual(
+                connection.execute("SELECT shard_id FROM book_stats WHERE book_id='book-alpha'").fetchone()[0],
+                "openiti-001",
+            )
+        finally:
+            connection.close()
+
+
+class IncrementalShardReuseTests(unittest.TestCase):
+    @staticmethod
+    def source_manifest(path: str = "data/book-a.completed") -> dict[str, object]:
+        return {
+            "release_commit": "release-123",
+            "source_repository": "https://github.com/OpenITI/RELEASE",
+            "books": [
+                {
+                    "book_id": "book-a",
+                    "title": "Book A",
+                    "openiti_uri": "0100Author.BookA.Source-ara1",
+                    "path": path,
+                    "quality_status": "PRIMARY_VERSION,CLEANED_VERSION",
+                    "enabled": True,
+                }
+            ],
+        }
+
+    @staticmethod
+    def registry() -> dict[str, object]:
+        return {
+            "shards": [
+                {
+                    "id": "openiti-001",
+                    "books": [{"book_id": "book-a"}],
+                }
+            ],
+            "book_to_shard": {"book-a": "openiti-001"},
+        }
+
+    def test_source_signature_is_stable_but_changes_with_source_identity(self) -> None:
+        fingerprint = {"rag/openiti.py": "abc"}
+        first = _source_signature(self.source_manifest(), ["book-a"], build_fingerprint=fingerprint)
+        second = _source_signature(self.source_manifest(), ["book-a", "book-a"], build_fingerprint=fingerprint)
+        changed = _source_signature(
+            self.source_manifest("data/book-a-other.completed"),
+            ["book-a"],
+            build_fingerprint=fingerprint,
+        )
+        self.assertEqual(first, second)
+        self.assertNotEqual(first, changed)
+
+    def test_signed_previous_shard_is_reused_only_when_signature_and_membership_match(self) -> None:
+        fingerprint = {"critical": "same"}
+        signature = _source_signature(self.source_manifest(), ["book-a"], build_fingerprint=fingerprint)
+        previous = {
+            "storage_mode": "sharded",
+            "source_sha": "previous",
+            "book_to_shard": {"book-a": "openiti-001"},
+            "shards": [
+                {
+                    "id": "openiti-001",
+                    "source_signature": signature,
+                    "shard_build_version": SHARD_BUILD_VERSION,
+                }
+            ],
+        }
+        with patch("build_sharded_corpus._build_fingerprint", return_value=fingerprint):
+            reusable, signatures = _reuse_plan(self.registry(), self.source_manifest(), previous)
+        self.assertIn("openiti-001", reusable)
+        self.assertEqual(signatures["openiti-001"], signature)
+
+        changed_manifest = self.source_manifest("data/changed.completed")
+        with patch("build_sharded_corpus._build_fingerprint", return_value=fingerprint):
+            changed_reusable, _ = _reuse_plan(self.registry(), changed_manifest, previous)
+        self.assertNotIn("openiti-001", changed_reusable)
+
+        previous["book_to_shard"] = {"book-a": "openiti-002"}
+        with patch("build_sharded_corpus._build_fingerprint", return_value=fingerprint):
+            rerouted, _ = _reuse_plan(self.registry(), self.source_manifest(), previous)
+        self.assertNotIn("openiti-001", rerouted)
+
+    def test_legacy_release_is_reused_only_after_historical_signature_proof(self) -> None:
+        fingerprint = {"critical": "same"}
+        previous = {
+            "storage_mode": "sharded",
+            "source_sha": "previous-sha",
+            "book_to_shard": {"book-a": "openiti-001"},
+            "shards": [{"id": "openiti-001"}],
+        }
+        with (
+            patch("build_sharded_corpus._build_fingerprint", return_value=fingerprint),
+            patch("build_sharded_corpus._load_shardable_manifest_at_ref", return_value=self.source_manifest()),
+        ):
+            reusable, _ = _reuse_plan(self.registry(), self.source_manifest(), previous)
+        self.assertIn("openiti-001", reusable)
+
+        historical_changed = self.source_manifest("data/old-version.completed")
+        with (
+            patch("build_sharded_corpus._build_fingerprint", return_value=fingerprint),
+            patch("build_sharded_corpus._load_shardable_manifest_at_ref", return_value=historical_changed),
+        ):
+            rejected, _ = _reuse_plan(self.registry(), self.source_manifest(), previous)
+        self.assertNotIn("openiti-001", rejected)
 
 
 class ShardedCacheTests(unittest.TestCase):
