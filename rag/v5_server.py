@@ -12,9 +12,12 @@ from pathlib import Path
 from typing import Any
 
 from v5_lowmem import ask, corpus_status, list_books, search
+from v5_sharded import ShardedCorpusRuntime
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB = ROOT / "rag" / "data" / "athar_hosted.sqlite.gz"
+DEFAULT_SHARD_DIR = ROOT / "rag" / "data" / "shards"
+DEFAULT_CORPUS_MANIFEST = ROOT / "rag" / "corpus_release.json"
 COMPAT_SERVER_MARKER = "athar-rag-v4"
 ENGINE_MARKER = "rag-v5-hybrid-multilingual"
 DEFAULT_CORS_ORIGINS = {"https://ibradevweb.github.io"}
@@ -40,8 +43,6 @@ def allowed_origins() -> set[str]:
 
 def open_connection(path: Path) -> sqlite3.Connection:
     resolved = path.resolve().as_posix()
-    # The hosted corpus is immutable for the lifetime of one Render deploy.
-    # immutable=1 avoids locking/journal work and keeps the read-only path cheap.
     connection = sqlite3.connect(
         f"file:{resolved}?mode=ro&immutable=1",
         uri=True,
@@ -63,8 +64,6 @@ def validate_db(path: Path) -> None:
         header = handle.read(16)
     if header != b"SQLite format 3\x00":
         raise RuntimeError(f"Le corpus n'est pas un SQLite brut: {path}")
-    # Startup validation is intentionally cheap. /healthz must never trigger a
-    # full corpus scan on a 512 MiB instance.
     with open_connection(path) as connection:
         tables = {
             row[0]
@@ -81,17 +80,52 @@ def validate_db(path: Path) -> None:
             raise RuntimeError("Le corpus ne contient aucun passage.")
 
 
+def _repo_path(value: Path | str) -> Path:
+    path = Path(value)
+    return path if path.is_absolute() else ROOT / path
+
+
+def configure_server_corpus(
+    server: ThreadingHTTPServer,
+    db_path: Path,
+    *,
+    shard_dir: Path | None = None,
+    manifest_path: Path | None = None,
+) -> None:
+    mode = str(os.getenv("ATHAR_CORPUS_MODE") or "monolith").strip().lower()
+    if mode == "sharded":
+        resolved_dir = _repo_path(shard_dir or os.getenv("ATHAR_SHARD_DIR") or DEFAULT_SHARD_DIR)
+        resolved_manifest = _repo_path(
+            manifest_path or os.getenv("ATHAR_CORPUS_MANIFEST") or DEFAULT_CORPUS_MANIFEST
+        )
+        runtime = ShardedCorpusRuntime(resolved_manifest, resolved_dir)
+        runtime.validate()
+        server.shard_runtime = runtime
+        server.storage_mode = "sharded"
+        server.db_path = runtime.catalog_path
+        return
+    resolved_db = _repo_path(db_path)
+    validate_db(resolved_db)
+    server.shard_runtime = None
+    server.storage_mode = "monolith"
+    server.db_path = resolved_db
+
+
 class AtharThreadingHTTPServer(ThreadingHTTPServer):
     daemon_threads = True
     request_queue_size = 16
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "AtharRAG/5.1-lowmem"
+    server_version = "AtharRAG/5.5-sharded-lowmem"
 
     @property
     def db_path(self) -> Path:
         return Path(getattr(self.server, "db_path", DEFAULT_DB))
+
+    @property
+    def shard_runtime(self) -> ShardedCorpusRuntime | None:
+        return getattr(self.server, "shard_runtime", None)
 
     def _origin(self) -> str:
         return str(self.headers.get("Origin") or "").strip().rstrip("/")
@@ -130,9 +164,6 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(body)
             return True
         except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
-            # Render health probes and browsers may close a socket after their
-            # timeout. That is not an application error and must not trigger a
-            # second 500 response on the already-closed connection.
             self.close_connection = True
             return False
 
@@ -160,6 +191,7 @@ class Handler(BaseHTTPRequestHandler):
             "engine": ENGINE_MARKER,
             "engine_version": 5,
             "runtime_profile": "low-memory",
+            "storage_mode": str(getattr(self.server, "storage_mode", "monolith")),
             **payload,
         }
 
@@ -184,8 +216,11 @@ class Handler(BaseHTTPRequestHandler):
             if not self._acquire_heavy():
                 raise RuntimeError("Le moteur est occupé. Réessaie dans quelques secondes.")
             try:
-                with open_connection(self.db_path) as connection:
-                    cached = corpus_status(connection)
+                if self.shard_runtime is not None:
+                    cached = self.shard_runtime.status()
+                else:
+                    with open_connection(self.db_path) as connection:
+                        cached = corpus_status(connection)
                 self.server.status_payload = cached
                 return cached
             finally:
@@ -203,8 +238,11 @@ class Handler(BaseHTTPRequestHandler):
             if not self._acquire_heavy():
                 raise RuntimeError("Le moteur est occupé. Réessaie dans quelques secondes.")
             try:
-                with open_connection(self.db_path) as connection:
-                    cached = list_books(connection)
+                if self.shard_runtime is not None:
+                    cached = self.shard_runtime.list_books()
+                else:
+                    with open_connection(self.db_path) as connection:
+                        cached = list_books(connection)
                 self.server.books_payload = cached
                 return cached
             finally:
@@ -228,8 +266,6 @@ class Handler(BaseHTTPRequestHandler):
         path, params = self.parse_path()
         try:
             if path == "/healthz":
-                # Constant-time liveness check: DB integrity was validated before
-                # the socket started listening. Never scan the 1.9 GB corpus here.
                 self.send_json(self._compat_payload({"status": "ready"}))
                 return
             if path in {"/api/rag/v4/status", "/api/rag/v5/status"}:
@@ -251,8 +287,16 @@ class Handler(BaseHTTPRequestHandler):
                     limit = self._limit(self._first(params, "limit", "8"))
                     madhhab = self._first(params, "madhhab")
                     discipline = self._first(params, "discipline")
-                    with open_connection(self.db_path) as connection:
-                        result = search(connection, query, limit=limit, madhhab=madhhab, discipline=discipline)
+                    if self.shard_runtime is not None:
+                        result = self.shard_runtime.search(
+                            query,
+                            limit=limit,
+                            madhhab=madhhab,
+                            discipline=discipline,
+                        )
+                    else:
+                        with open_connection(self.db_path) as connection:
+                            result = search(connection, query, limit=limit, madhhab=madhhab, discipline=discipline)
                 finally:
                     self._release_heavy()
                 self.send_json(self._compat_payload(result))
@@ -286,8 +330,16 @@ class Handler(BaseHTTPRequestHandler):
                 limit = self._limit(payload.get("limit"), 8)
                 madhhab = str(payload.get("madhhab") or "")
                 discipline = str(payload.get("discipline") or "")
-                with open_connection(self.db_path) as connection:
-                    result = ask(connection, query, limit=limit, madhhab=madhhab, discipline=discipline)
+                if self.shard_runtime is not None:
+                    result = self.shard_runtime.ask(
+                        query,
+                        limit=limit,
+                        madhhab=madhhab,
+                        discipline=discipline,
+                    )
+                else:
+                    with open_connection(self.db_path) as connection:
+                        result = ask(connection, query, limit=limit, madhhab=madhhab, discipline=discipline)
             finally:
                 self._release_heavy()
             self.send_json(self._compat_payload(result))
@@ -307,12 +359,18 @@ def main() -> int:
     parser.add_argument("--host", default=os.getenv("ATHAR_HOST") or "127.0.0.1")
     parser.add_argument("--port", type=int, default=env_port())
     parser.add_argument("--db", type=Path, default=Path(os.getenv("ATHAR_DB_PATH") or DEFAULT_DB))
+    parser.add_argument("--shard-dir", type=Path, default=None)
+    parser.add_argument("--manifest", type=Path, default=None)
     parser.add_argument("--api-only", action="store_true")
     args = parser.parse_args()
 
-    validate_db(args.db)
     server = AtharThreadingHTTPServer((args.host, args.port), Handler)
-    server.db_path = args.db
+    configure_server_corpus(
+        server,
+        args.db,
+        shard_dir=args.shard_dir,
+        manifest_path=args.manifest,
+    )
     server.cors_origins = allowed_origins()
     server.heavy_gate = threading.BoundedSemaphore(1)
     server.status_lock = threading.Lock()
@@ -321,8 +379,8 @@ def main() -> int:
     server.books_payload = None
 
     print(
-        f"[Athar RAG V5] listening on http://{args.host}:{args.port} with {args.db} "
-        f"({ENGINE_MARKER}, low-memory profile)",
+        f"[Athar RAG V5] listening on http://{args.host}:{args.port} "
+        f"({ENGINE_MARKER}, low-memory, {server.storage_mode})",
         flush=True,
     )
     try:
