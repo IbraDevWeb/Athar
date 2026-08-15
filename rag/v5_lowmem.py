@@ -10,7 +10,9 @@ adds LLM-derived search concepts without allowing the model to generate the
 answer or citations.
 """
 
+import re
 import threading
+import unicodedata
 from typing import Any
 
 import v5_engine as _engine
@@ -25,6 +27,7 @@ _original_fetch_fts_candidates = _engine._fetch_fts_candidates
 _original_detect_concepts = _engine.detect_concepts
 _original_search = _engine.search
 _QUERY_CONTEXT = threading.local()
+_ROUTE_KEY_NON_ALNUM = re.compile(r"[^a-z0-9]+")
 
 # Safety net for the exact class of failure reported in production. This
 # deterministic concept remains available even when Gemini is absent, down or
@@ -97,12 +100,60 @@ def _current_hints() -> dict[str, Any]:
     return value if isinstance(value, dict) else {}
 
 
+def _route_key(value: Any) -> str:
+    """Collapse scholarly Latin transliteration to an ASCII comparison key.
+
+    This intentionally removes modifier letters such as ʾ/ʿ so a user-facing
+    alias like ``Muwatta`` matches a catalogue title such as ``Al-Muwaṭṭaʾ``.
+    It is used only to decide whether a residual query token is already explained
+    by the routed book; it never changes retrieval text or citations.
+    """
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = (
+        text.casefold()
+        .replace("ʾ", "")
+        .replace("ʿ", "")
+        .replace("’", "")
+        .replace("'", "")
+        .replace("`", "")
+    )
+    return _ROUTE_KEY_NON_ALNUM.sub("", text)
+
+
+def _routed_book_noise(routed_book: dict[str, Any] | None) -> set[str]:
+    """Return transliteration-tolerant keys already explained by book routing."""
+    if not routed_book:
+        return set()
+    result: set[str] = set()
+    for field in ("title", "author"):
+        value = str(routed_book.get(field) or "")
+        for token in re.split(r"\s+", value):
+            key = _route_key(token)
+            if len(key) < 3:
+                continue
+            result.add(key)
+            # Classical titles very often use the Arabic article attached with a
+            # hyphen (al-Muwaṭṭaʾ, al-Bukhārī). Users usually omit it.
+            if key.startswith("al") and len(key) >= 6:
+                result.add(key[2:])
+    return result
+
+
 def _query_intelligence_needed(connection, query: str) -> tuple[bool, str]:
     """Spend an LLM request only when deterministic parsing leaves real meaning unresolved."""
     deterministic = [dict(item) for item in _original_detect_concepts(query)]
     routed_book = _engine.detect_book(connection, query)
     raw_terms = _engine._meaningful_terms(query, routed_book, deterministic)
-    unresolved = [term for term in raw_terms if _engine.normalize_text(term) not in _ROUTING_NOISE]
+    route_noise = _routed_book_noise(routed_book)
+    unresolved: list[str] = []
+    for term in raw_terms:
+        if _engine.normalize_text(term) in _ROUTING_NOISE:
+            continue
+        route_key = _route_key(term)
+        if route_key and route_key in route_noise:
+            continue
+        unresolved.append(term)
 
     if not deterministic:
         return True, "no_deterministic_concept"
