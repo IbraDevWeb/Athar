@@ -2,7 +2,7 @@
   "version": 2,
   "hosted": {
     "target_openiti_books": 95,
-    "minimum_openiti_books": 90,
+    "minimum_openiti_books": 95,
     "expected_openiti_books_after_tafsir": 100,
     "max_sqlite_bytes": 3221225472,
     "description": "Palier de transition : 95 ouvrages OpenITI dans le noyau puis 5 tafsirs dédiés, soit 100 ouvrages OpenITI attendus. Le fichier SQLite unique reste plafonné à 3 Gio et ne doit plus être utilisé pour croître au-delà de ce palier."
