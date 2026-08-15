@@ -18,6 +18,11 @@
     "require_cleaned": true,
     "exclude_uncorrected_ocr": true,
     "excluded_source_markers": ["Zaydiyya"],
-    "excluded_work_markers": ["IbnYacqubKulayni", "UsulMinKafi"]
+    "excluded_work_markers": [
+      "IbnYacqubKulayni",
+      "UsulMinKafi",
+      "AhmadTaymurBasha.SamacWaQiyas",
+      "IbnDaya.TafsirKitabThamara"
+    ]
   }
 }
