@@ -17,6 +17,7 @@
     "require_primary": true,
     "require_cleaned": true,
     "exclude_uncorrected_ocr": true,
-    "excluded_source_markers": ["Zaydiyya"]
+    "excluded_source_markers": ["Zaydiyya"],
+    "excluded_work_markers": ["IbnYacqubKulayni", "UsulMinKafi"]
   }
 }
