@@ -4,22 +4,22 @@
 
 ## Vue d’ensemble
 
-- **200 ouvrages OpenITI** audités.
-- **202 ouvrages** et **493749 passages** annoncés par le manifeste de production.
-- **6 shards** en production.
+- **213 ouvrages OpenITI** audités.
+- **215 ouvrages** et **574461 passages** annoncés par le manifeste de production.
+- **11 shards** en production.
 - **2 ouvrage(s) complémentaire(s)** hors OpenITI exclus du calcul des écoles juridiques.
 
 ## Disciplines
 
 | Discipline normalisée | Ouvrages | Part |
 |---|---|---|
-| Hadith | 47 | 23.5 % |
-| Fiqh | 42 | 21.0 % |
-| Tafsīr | 35 | 17.5 % |
-| Sīra et histoire | 34 | 17.0 % |
-| ʿAqīda | 31 | 15.5 % |
-| Uṣūl et qawāʿid | 10 | 5.0 % |
-| Autres | 1 | 0.5 % |
+| Fiqh | 49 | 23.0 % |
+| Hadith | 48 | 22.54 % |
+| Sīra et histoire | 36 | 16.9 % |
+| Tafsīr | 36 | 16.9 % |
+| ʿAqīda | 31 | 14.55 % |
+| Uṣūl et qawāʿid | 12 | 5.63 % |
+| Autres | 1 | 0.47 % |
 
 ## Écoles juridiques
 
@@ -27,10 +27,10 @@ Les chiffres ci-dessous utilisent uniquement les métadonnées explicitement pr�
 
 | École / statut | Ouvrages de fiqh associés |
 |---|---|
-| Mālikite | 19 |
-| Ḥanafite | 1 |
-| Shāfiʿite | 4 |
-| Ḥanbalite | 4 |
+| Mālikite | 20 |
+| Ḥanafite | 4 |
+| Shāfiʿite | 7 |
+| Ḥanbalite | 7 |
 | Non renseigné (fiqh) | 26 |
 
 Écoles sous la médiane connue actuelle : **Ḥanafite**.
@@ -39,54 +39,41 @@ Les chiffres ci-dessous utilisent uniquement les métadonnées explicitement pr�
 
 | Auteur | Ouvrages | Part du corpus |
 |---|---|---|
-| Suyuti | 8 | 4.0 % |
-| Ibn ʿAbd al-Barr | 5 | 2.5 % |
-| Dhahabi | 5 | 2.5 % |
-| Abu al-Walid al-Baji | 4 | 2.0 % |
-| Ibn al-Qayyim | 3 | 1.5 % |
-| Ibn Kathīr | 3 | 1.5 % |
-| Ibn Taymiyya | 3 | 1.5 % |
-| Ibn Casakir | 3 | 1.5 % |
-| Ibn Hajar Casqalani | 3 | 1.5 % |
-| Maqrizi | 3 | 1.5 % |
-| Ibn Cabd Wahhab | 3 | 1.5 % |
-| Al-Qarāfī | 2 | 1.0 % |
-| Ibn Rushd al-Jadd | 2 | 1.0 % |
-| Ibn Taymiyyah | 2 | 1.0 % |
-| Al-Shatibi | 2 | 1.0 % |
+| Al-Suyūṭī | 8 | 3.76 % |
+| Ibn ʿAbd al-Barr | 5 | 2.35 % |
+| Ibn Taymiyyah | 5 | 2.35 % |
+| Al-Dhahabī | 5 | 2.35 % |
+| Ibn Ḥajar al-ʿAsqalānī | 4 | 1.88 % |
+| Abū al-Walīd al-Bājī | 4 | 1.88 % |
+| Ibn Qudāmah al-Maqdisī | 3 | 1.41 % |
+| Ibn al-Qayyim | 3 | 1.41 % |
+| Ibn Kathīr | 3 | 1.41 % |
+| Ibn ʿAsākir | 3 | 1.41 % |
+| Aḥmad ibn Ḥanbal | 3 | 1.41 % |
+| Al-Maqrīzī | 3 | 1.41 % |
+| Muḥammad ibn ʿAbd al-Wahhāb | 3 | 1.41 % |
+| Al-Qarāfī | 2 | 0.94 % |
+| Ibn Rushd al-Jadd | 2 | 0.94 % |
 
-Seuil de concentration automatique : **8 ouvrages**. Les auteurs au-dessus de ce seuil sont signalés pour revue, pas automatiquement considérés comme indésirables.
+Seuil de concentration automatique : **9 ouvrages**. Les auteurs au-dessus de ce seuil sont signalés pour revue, pas automatiquement considérés comme indésirables.
 
 ## Qualité des métadonnées
 
-- Madhhab renseigné : **55 / 200 (27.5 %)**.
+- Madhhab renseigné : **68 / 213 (31.92 %)**.
 - Madhhab non renseigné : **145**.
 - Classification issue d’un indice automatique : **136**.
 - Discipline absente : **0**.
 
 ## Grille d’ouvrages de référence
 
-La grille éditoriale contient **57 références** : **34 présentes**, **23 absentes**, soit **59.65 %** de couverture de cette grille.
+La grille éditoriale contient **57 références** : **47 présentes**, **10 absentes**, soit **82.46 %** de couverture de cette grille.
 
 ### Références P1 absentes
 
-- **Mukhtaṣar al-Qudūrī** — Fiqh — Ḥanafite
-- **Al-Mabsūṭ** — Fiqh — Ḥanafite
-- **Al-Hidāyah** — Fiqh — Ḥanafite
-- **Al-Muhadhdhab** — Fiqh — Shāfiʿite
-- **Al-Kāfī d’Ibn Qudāmah** — Fiqh — Ḥanbalite
-- **Al-Muqniʿ** — Fiqh — Ḥanbalite
-- **Al-Inṣāf** — Fiqh — Ḥanbalite
-- **Musnad Aḥmad** — Hadith — Transversal
-- **Al-Jāmiʿ li-Aḥkām al-Qurʾān** — Tafsīr — Mālikite
-- **Al-Mustaṣfā** — Uṣūl al-fiqh — Shāfiʿite
-- **Al-Iḥkām fī Uṣūl al-Aḥkām** — Uṣūl al-fiqh — Shāfiʿite
-- **Al-Ṭabaqāt al-Kubrā** — Sīra et histoire — Transversal
-- **Tārīkh al-Ṭabarī** — Sīra et histoire — Transversal
+- Aucune référence P1 absente selon la grille actuelle.
 
 ## Priorités proposées pour le prochain lot
 
-1. Rechercher en priorité les références P1 absentes dans le catalogue OpenITI avant toute promotion générique. — 13 référence(s) P1 manquante(s)
 2. Rééquilibrer le fiqh vers les écoles sous la médiane actuelle, à qualité documentaire comparable. — Ḥanafite
 3. Enrichir les métadonnées de madhhab des ouvrages déjà présents avant d'utiliser le compteur d'école comme vérité exhaustive. — 145 ouvrage(s) concerné(s)
 

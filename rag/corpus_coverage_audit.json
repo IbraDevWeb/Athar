@@ -1,430 +1,404 @@
 {
   "version": 1,
   "scope": {
-    "audited_openiti_books": 200,
-    "production_books": 202,
-    "production_chunks": 493749,
-    "production_shards": 6,
+    "audited_openiti_books": 213,
+    "production_books": 215,
+    "production_chunks": 574461,
+    "production_shards": 11,
     "complementary_non_openiti_books_excluded": 2,
     "note": "L'audit de couverture savante porte sur les manifestes OpenITI shardables. Les ouvrages complémentaires du shard core ne sont pas utilisés pour mesurer les écoles juridiques."
   },
   "subjects": [
     {
-      "label": "Hadith",
-      "books": 47,
-      "share_pct": 23.5
-    },
-    {
       "label": "Fiqh",
-      "books": 42,
-      "share_pct": 21.0
+      "books": 49,
+      "share_pct": 23.0
     },
     {
-      "label": "Tafsīr",
-      "books": 35,
-      "share_pct": 17.5
+      "label": "Hadith",
+      "books": 48,
+      "share_pct": 22.54
     },
     {
       "label": "Sīra et histoire",
-      "books": 34,
-      "share_pct": 17.0
+      "books": 36,
+      "share_pct": 16.9
+    },
+    {
+      "label": "Tafsīr",
+      "books": 36,
+      "share_pct": 16.9
     },
     {
       "label": "ʿAqīda",
       "books": 31,
-      "share_pct": 15.5
+      "share_pct": 14.55
     },
     {
       "label": "Uṣūl et qawāʿid",
-      "books": 10,
-      "share_pct": 5.0
+      "books": 12,
+      "share_pct": 5.63
     },
     {
       "label": "Autres",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     }
   ],
   "exact_disciplines": [
     {
-      "label": "Hadith",
-      "books": 39,
-      "share_pct": 19.5
+      "label": "Fiqh",
+      "books": 44,
+      "share_pct": 20.66
     },
     {
-      "label": "Fiqh",
-      "books": 37,
-      "share_pct": 18.5
+      "label": "Hadith",
+      "books": 40,
+      "share_pct": 18.78
     },
     {
       "label": "Sīra et histoire",
-      "books": 30,
-      "share_pct": 15.0
+      "books": 34,
+      "share_pct": 15.96
+    },
+    {
+      "label": "Tafsīr",
+      "books": 31,
+      "share_pct": 14.55
     },
     {
       "label": "ʿAqīda",
       "books": 29,
-      "share_pct": 14.5
+      "share_pct": 13.62
     },
     {
-      "label": "Tafsīr",
-      "books": 28,
-      "share_pct": 14.0
+      "label": "Uṣūl al-fiqh",
+      "books": 7,
+      "share_pct": 3.29
     },
     {
-      "label": "Tafsir",
+      "label": "Fiqh comparé",
       "books": 4,
-      "share_pct": 2.0
-    },
-    {
-      "label": "Usul al-fiqh",
-      "books": 4,
-      "share_pct": 2.0
+      "share_pct": 1.88
     },
     {
       "label": "Hadith et fiqh",
       "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
-      "label": "Fiqh compare",
+      "label": "Tafsir",
       "books": 2,
-      "share_pct": 1.0
-    },
-    {
-      "label": "Fiqh comparé",
-      "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
       "label": "Tafsir et langue arabe",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
       "label": "Adab et conseil",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Fiqh et croyance",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Fiqh et usul",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Fiqh, ʿaqīda et uṣūl",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
-      "label": "Hadith et fiqh compare",
+      "label": "Hadith et fiqh comparé",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Hadith et rijal",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Hadith et sira",
       "books": 1,
-      "share_pct": 0.5
-    },
-    {
-      "label": "Histoire et sīra",
-      "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Qawāʿid et fiqh",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Science et transmission",
       "books": 1,
-      "share_pct": 0.5
-    },
-    {
-      "label": "Sira et histoire",
-      "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Sira, hadith et fada'il",
       "books": 1,
-      "share_pct": 0.5
-    },
-    {
-      "label": "Tabaqat et fiqh",
-      "books": 1,
-      "share_pct": 0.5
-    },
-    {
-      "label": "Tabaqat et histoire du madhhab",
-      "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Tafsir et kalam",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
-      "label": "Usul",
+      "label": "Uṣūl al-fiqh et maqāṣid",
       "books": 1,
-      "share_pct": 0.5
-    },
-    {
-      "label": "Usul al-fiqh et maqasid",
-      "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Uṣūl et fiqh",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Uṣūl et qawāʿid",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "ʿAqīda et comportement",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
+    },
+    {
+      "label": "Ṭabaqāt et fiqh",
+      "books": 1,
+      "share_pct": 0.47
+    },
+    {
+      "label": "Ṭabaqāt et histoire du madhhab",
+      "books": 1,
+      "share_pct": 0.47
     }
   ],
   "madhhab_all_books": [
     {
       "label": "Non renseigné",
       "books": 145,
-      "share_pct": 72.5
+      "share_pct": 68.08
     },
     {
       "label": "Mālikite",
-      "books": 26,
-      "share_pct": 13.0
+      "books": 27,
+      "share_pct": 12.68
     },
     {
       "label": "Transversal",
-      "books": 10,
-      "share_pct": 5.0
+      "books": 13,
+      "share_pct": 6.1
     },
     {
       "label": "Shāfiʿite",
-      "books": 9,
-      "share_pct": 4.5
+      "books": 12,
+      "share_pct": 5.63
     },
     {
       "label": "Ḥanbalite",
-      "books": 6,
-      "share_pct": 3.0
+      "books": 9,
+      "share_pct": 4.23
+    },
+    {
+      "label": "Ḥanafite",
+      "books": 4,
+      "share_pct": 1.88
     },
     {
       "label": "Comparatif",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
       "label": "Linguistique",
       "books": 1,
-      "share_pct": 0.5
-    },
-    {
-      "label": "Ḥanafite",
-      "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     },
     {
       "label": "Ẓāhirite",
       "books": 1,
-      "share_pct": 0.5
+      "share_pct": 0.47
     }
   ],
   "fiqh_madhhab": [
     {
       "label": "Non renseigné",
       "books": 26,
-      "share_pct": 45.61
+      "share_pct": 38.81
     },
     {
       "label": "Mālikite",
-      "books": 19,
-      "share_pct": 33.33
+      "books": 20,
+      "share_pct": 29.85
     },
     {
       "label": "Shāfiʿite",
-      "books": 4,
-      "share_pct": 7.02
+      "books": 7,
+      "share_pct": 10.45
     },
     {
       "label": "Ḥanbalite",
+      "books": 7,
+      "share_pct": 10.45
+    },
+    {
+      "label": "Ḥanafite",
       "books": 4,
-      "share_pct": 7.02
+      "share_pct": 5.97
     },
     {
       "label": "Comparatif",
       "books": 2,
-      "share_pct": 3.51
-    },
-    {
-      "label": "Ḥanafite",
-      "books": 1,
-      "share_pct": 1.75
+      "share_pct": 2.99
     },
     {
       "label": "Ẓāhirite",
       "books": 1,
-      "share_pct": 1.75
+      "share_pct": 1.49
     }
   ],
   "fiqh_school_gap": {
     "counts": {
-      "Mālikite": 19,
-      "Ḥanafite": 1,
-      "Shāfiʿite": 4,
-      "Ḥanbalite": 4
+      "Mālikite": 20,
+      "Ḥanafite": 4,
+      "Shāfiʿite": 7,
+      "Ḥanbalite": 7
     },
     "missing_schools": [],
     "below_known_median": [
       "Ḥanafite"
     ],
-    "known_median_books": 4,
-    "spread_books": 18
+    "known_median_books": 7,
+    "spread_books": 16
   },
   "authors_top": [
     {
-      "author": "Suyuti",
+      "author": "Al-Suyūṭī",
       "books": 8,
-      "share_pct": 4.0
+      "share_pct": 3.76
     },
     {
       "author": "Ibn ʿAbd al-Barr",
       "books": 5,
-      "share_pct": 2.5
+      "share_pct": 2.35
     },
     {
-      "author": "Dhahabi",
+      "author": "Ibn Taymiyyah",
       "books": 5,
-      "share_pct": 2.5
+      "share_pct": 2.35
     },
     {
-      "author": "Abu al-Walid al-Baji",
+      "author": "Al-Dhahabī",
+      "books": 5,
+      "share_pct": 2.35
+    },
+    {
+      "author": "Ibn Ḥajar al-ʿAsqalānī",
       "books": 4,
-      "share_pct": 2.0
+      "share_pct": 1.88
+    },
+    {
+      "author": "Abū al-Walīd al-Bājī",
+      "books": 4,
+      "share_pct": 1.88
+    },
+    {
+      "author": "Ibn Qudāmah al-Maqdisī",
+      "books": 3,
+      "share_pct": 1.41
     },
     {
       "author": "Ibn al-Qayyim",
       "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
       "author": "Ibn Kathīr",
       "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
-      "author": "Ibn Taymiyya",
+      "author": "Ibn ʿAsākir",
       "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
-      "author": "Ibn Casakir",
+      "author": "Aḥmad ibn Ḥanbal",
       "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
-      "author": "Ibn Hajar Casqalani",
+      "author": "Al-Maqrīzī",
       "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
-      "author": "Maqrizi",
+      "author": "Muḥammad ibn ʿAbd al-Wahhāb",
       "books": 3,
-      "share_pct": 1.5
-    },
-    {
-      "author": "Ibn Cabd Wahhab",
-      "books": 3,
-      "share_pct": 1.5
+      "share_pct": 1.41
     },
     {
       "author": "Al-Qarāfī",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
       "author": "Ibn Rushd al-Jadd",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
-      "author": "Ibn Taymiyyah",
+      "author": "Al-Shāṭibī",
       "books": 2,
-      "share_pct": 1.0
-    },
-    {
-      "author": "Al-Shatibi",
-      "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
       "author": "Al-Tirmidhi",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
-      "author": "Qadi Iyad",
+      "author": "Qāḍī ʿIyāḍ",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
       "author": "Ibn Hazm",
       "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     },
     {
-      "author": "Sultan Culama Cizz Din Dimashqi",
+      "author": "Al-Tabari",
       "books": 2,
-      "share_pct": 1.0
-    },
-    {
-      "author": "Ibn Hanbal",
-      "books": 2,
-      "share_pct": 1.0
+      "share_pct": 0.94
     }
   ],
   "author_concentration": {
-    "threshold_books": 8,
-    "threshold_share_pct": 4.0,
-    "flagged": [
-      {
-        "author": "Suyuti",
-        "books": 8,
-        "share_pct": 4.0
-      }
-    ]
+    "threshold_books": 9,
+    "threshold_share_pct": 4.23,
+    "flagged": []
   },
   "metadata_quality": {
-    "madhhab_known_books": 55,
+    "madhhab_known_books": 68,
     "madhhab_unknown_books": 145,
-    "madhhab_known_pct": 27.5,
+    "madhhab_known_pct": 31.92,
     "automatic_classification_books": 136,
     "books_without_discipline": 0
   },
   "reference_checklist": {
     "total": 57,
-    "present": 34,
-    "missing": 23,
-    "coverage_pct": 59.65,
+    "present": 47,
+    "missing": 10,
+    "coverage_pct": 82.46,
     "present_works": [
       {
         "id": "maliki-muwatta",
@@ -537,6 +511,39 @@
         "matched_title": "Al-Istidhkar"
       },
       {
+        "id": "hanafi-quduri",
+        "title": "Mukhtaṣar al-Qudūrī",
+        "title_ar": "مختصر القدوري",
+        "discipline": "Fiqh",
+        "madhhab": "Ḥanafite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hanafi-quduri",
+        "matched_title": "Mukhtaṣar al-Qudūrī"
+      },
+      {
+        "id": "hanafi-mabsut",
+        "title": "Al-Mabsūṭ",
+        "title_ar": "المبسوط",
+        "discipline": "Fiqh",
+        "madhhab": "Ḥanafite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hanafi-mabsut",
+        "matched_title": "Al-Mabsūṭ"
+      },
+      {
+        "id": "hanafi-hidaya",
+        "title": "Al-Hidāyah",
+        "title_ar": "الهداية",
+        "discipline": "Fiqh",
+        "madhhab": "Ḥanafite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hanafi-hidaya",
+        "matched_title": "Al-Hidāyah"
+      },
+      {
         "id": "hanafi-badai",
         "title": "Badāʾiʿ al-Ṣanāʾiʿ",
         "title_ar": "بدائع الصنائع",
@@ -570,6 +577,17 @@
         "matched_title": "Al-Risala"
       },
       {
+        "id": "shafii-muhadhdhab",
+        "title": "Al-Muhadhdhab",
+        "title_ar": "المهذب",
+        "discipline": "Fiqh",
+        "madhhab": "Shāfiʿite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-shafii-muhadhdhab",
+        "matched_title": "Al-Muhadhdhab"
+      },
+      {
         "id": "shafii-majmu",
         "title": "Al-Majmūʿ Sharḥ al-Muhadhdhab",
         "title_ar": "المجموع شرح المهذب",
@@ -590,6 +608,39 @@
         "present": true,
         "matched_book_id": "kutub-6910",
         "matched_title": "Al-Mughnī"
+      },
+      {
+        "id": "hanbali-kafi",
+        "title": "Al-Kāfī d’Ibn Qudāmah",
+        "title_ar": "الكافي",
+        "discipline": "Fiqh",
+        "madhhab": "Ḥanbalite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hanbali-kafi",
+        "matched_title": "Al-Kāfī fī fiqh al-Imām Aḥmad"
+      },
+      {
+        "id": "hanbali-muqni",
+        "title": "Al-Muqniʿ",
+        "title_ar": "المقنع",
+        "discipline": "Fiqh",
+        "madhhab": "Ḥanbalite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hanbali-muqni",
+        "matched_title": "Al-Muqniʿ"
+      },
+      {
+        "id": "hanbali-insaf",
+        "title": "Al-Inṣāf",
+        "title_ar": "الإنصاف",
+        "discipline": "Fiqh",
+        "madhhab": "Ḥanbalite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hanbali-insaf",
+        "matched_title": "Al-Inṣāf"
       },
       {
         "id": "hadith-bukhari",
@@ -658,6 +709,17 @@
         "matched_title": "Sunan Ibn Maja"
       },
       {
+        "id": "hadith-musnad-ahmad",
+        "title": "Musnad Aḥmad",
+        "title_ar": "مسند أحمد",
+        "discipline": "Hadith",
+        "madhhab": "Transversal",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-hadith-musnad-ahmad",
+        "matched_title": "Musnad Aḥmad"
+      },
+      {
         "id": "hadith-ibn-salah",
         "title": "Muqaddimat Ibn al-Ṣalāḥ",
         "title_ar": "مقدمة ابن الصلاح",
@@ -689,6 +751,17 @@
         "present": true,
         "matched_book_id": "openiti-ibn-kathir-tafsir",
         "matched_title": "Tafsir al-Quran al-Azim"
+      },
+      {
+        "id": "tafsir-qurtubi",
+        "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
+        "title_ar": "الجامع لأحكام القرآن",
+        "discipline": "Tafsīr",
+        "madhhab": "Mālikite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-tafsir-qurtubi",
+        "matched_title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān"
       },
       {
         "id": "tafsir-baghawi",
@@ -768,6 +841,28 @@
         "matched_title": "Al-Burhan fi Usul al-Fiqh"
       },
       {
+        "id": "usul-mustasfa",
+        "title": "Al-Mustaṣfā",
+        "title_ar": "المستصفى",
+        "discipline": "Uṣūl al-fiqh",
+        "madhhab": "Shāfiʿite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-usul-mustasfa",
+        "matched_title": "Al-Mustaṣfā"
+      },
+      {
+        "id": "usul-ihkam-amidi",
+        "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
+        "title_ar": "الإحكام في أصول الأحكام",
+        "discipline": "Uṣūl al-fiqh",
+        "madhhab": "Shāfiʿite",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-usul-ihkam-amidi",
+        "matched_title": "Al-Iḥkām fī Uṣūl al-Aḥkām"
+      },
+      {
         "id": "usul-muwafaqat",
         "title": "Al-Muwāfaqāt",
         "title_ar": "الموافقات",
@@ -790,6 +885,28 @@
         "matched_title": "Al-Sira al-Nabawiyya"
       },
       {
+        "id": "history-tabaqat-ibn-sad",
+        "title": "Al-Ṭabaqāt al-Kubrā",
+        "title_ar": "الطبقات الكبرى",
+        "discipline": "Sīra et histoire",
+        "madhhab": "Transversal",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-history-tabaqat-ibn-sad",
+        "matched_title": "Al-Ṭabaqāt al-Kubrā"
+      },
+      {
+        "id": "history-tabari",
+        "title": "Tārīkh al-Ṭabarī",
+        "title_ar": "تاريخ الطبري",
+        "discipline": "Sīra et histoire",
+        "madhhab": "Transversal",
+        "priority": "P1",
+        "present": true,
+        "matched_book_id": "openiti-priority-history-tabari",
+        "matched_title": "Tārīkh al-Ṭabarī"
+      },
+      {
         "id": "history-bidaya-nihaya",
         "title": "Al-Bidāyah wa-l-Nihāyah",
         "title_ar": "البداية والنهاية",
@@ -802,39 +919,6 @@
       }
     ],
     "missing_works": [
-      {
-        "id": "hanafi-quduri",
-        "title": "Mukhtaṣar al-Qudūrī",
-        "title_ar": "مختصر القدوري",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanafite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanafi-mabsut",
-        "title": "Al-Mabsūṭ",
-        "title_ar": "المبسوط",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanafite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanafi-hidaya",
-        "title": "Al-Hidāyah",
-        "title_ar": "الهداية",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanafite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
       {
         "id": "hanafi-ikhtiyar",
         "title": "Al-Ikhtiyār li-taʿlīl al-Mukhtār",
@@ -853,17 +937,6 @@
         "discipline": "Hadith et fiqh",
         "madhhab": "Ḥanafite",
         "priority": "P2",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "shafii-muhadhdhab",
-        "title": "Al-Muhadhdhab",
-        "title_ar": "المهذب",
-        "discipline": "Fiqh",
-        "madhhab": "Shāfiʿite",
-        "priority": "P1",
         "present": false,
         "matched_book_id": "",
         "matched_title": ""
@@ -902,39 +975,6 @@
         "matched_title": ""
       },
       {
-        "id": "hanbali-kafi",
-        "title": "Al-Kāfī d’Ibn Qudāmah",
-        "title_ar": "الكافي",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanbalite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanbali-muqni",
-        "title": "Al-Muqniʿ",
-        "title_ar": "المقنع",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanbalite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanbali-insaf",
-        "title": "Al-Inṣāf",
-        "title_ar": "الإنصاف",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanbalite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
         "id": "hanbali-kashshaf-qina",
         "title": "Kashshāf al-Qināʿ",
         "title_ar": "كشاف القناع",
@@ -968,78 +1008,12 @@
         "matched_title": ""
       },
       {
-        "id": "hadith-musnad-ahmad",
-        "title": "Musnad Aḥmad",
-        "title_ar": "مسند أحمد",
-        "discipline": "Hadith",
-        "madhhab": "Transversal",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
         "id": "hadith-nukhba",
         "title": "Nukhbat al-Fikar",
         "title_ar": "نخبة الفكر",
         "discipline": "Sciences du hadith",
         "madhhab": "Transversal",
         "priority": "P2",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "tafsir-qurtubi",
-        "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
-        "title_ar": "الجامع لأحكام القرآن",
-        "discipline": "Tafsīr",
-        "madhhab": "Mālikite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "usul-mustasfa",
-        "title": "Al-Mustaṣfā",
-        "title_ar": "المستصفى",
-        "discipline": "Uṣūl al-fiqh",
-        "madhhab": "Shāfiʿite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "usul-ihkam-amidi",
-        "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
-        "title_ar": "الإحكام في أصول الأحكام",
-        "discipline": "Uṣūl al-fiqh",
-        "madhhab": "Shāfiʿite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "history-tabaqat-ibn-sad",
-        "title": "Al-Ṭabaqāt al-Kubrā",
-        "title_ar": "الطبقات الكبرى",
-        "discipline": "Sīra et histoire",
-        "madhhab": "Transversal",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "history-tabari",
-        "title": "Tārīkh al-Ṭabarī",
-        "title_ar": "تاريخ الطبري",
-        "discipline": "Sīra et histoire",
-        "madhhab": "Transversal",
-        "priority": "P1",
         "present": false,
         "matched_book_id": "",
         "matched_title": ""
@@ -1056,223 +1030,59 @@
         "matched_title": ""
       }
     ],
-    "missing_p1": [
-      {
-        "id": "hanafi-quduri",
-        "title": "Mukhtaṣar al-Qudūrī",
-        "title_ar": "مختصر القدوري",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanafite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanafi-mabsut",
-        "title": "Al-Mabsūṭ",
-        "title_ar": "المبسوط",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanafite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanafi-hidaya",
-        "title": "Al-Hidāyah",
-        "title_ar": "الهداية",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanafite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "shafii-muhadhdhab",
-        "title": "Al-Muhadhdhab",
-        "title_ar": "المهذب",
-        "discipline": "Fiqh",
-        "madhhab": "Shāfiʿite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanbali-kafi",
-        "title": "Al-Kāfī d’Ibn Qudāmah",
-        "title_ar": "الكافي",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanbalite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanbali-muqni",
-        "title": "Al-Muqniʿ",
-        "title_ar": "المقنع",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanbalite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hanbali-insaf",
-        "title": "Al-Inṣāf",
-        "title_ar": "الإنصاف",
-        "discipline": "Fiqh",
-        "madhhab": "Ḥanbalite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "hadith-musnad-ahmad",
-        "title": "Musnad Aḥmad",
-        "title_ar": "مسند أحمد",
-        "discipline": "Hadith",
-        "madhhab": "Transversal",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "tafsir-qurtubi",
-        "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
-        "title_ar": "الجامع لأحكام القرآن",
-        "discipline": "Tafsīr",
-        "madhhab": "Mālikite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "usul-mustasfa",
-        "title": "Al-Mustaṣfā",
-        "title_ar": "المستصفى",
-        "discipline": "Uṣūl al-fiqh",
-        "madhhab": "Shāfiʿite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "usul-ihkam-amidi",
-        "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
-        "title_ar": "الإحكام في أصول الأحكام",
-        "discipline": "Uṣūl al-fiqh",
-        "madhhab": "Shāfiʿite",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "history-tabaqat-ibn-sad",
-        "title": "Al-Ṭabaqāt al-Kubrā",
-        "title_ar": "الطبقات الكبرى",
-        "discipline": "Sīra et histoire",
-        "madhhab": "Transversal",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      },
-      {
-        "id": "history-tabari",
-        "title": "Tārīkh al-Ṭabarī",
-        "title_ar": "تاريخ الطبري",
-        "discipline": "Sīra et histoire",
-        "madhhab": "Transversal",
-        "priority": "P1",
-        "present": false,
-        "matched_book_id": "",
-        "matched_title": ""
-      }
-    ],
+    "missing_p1": [],
     "missing_by_madhhab": [
       {
         "label": "Shāfiʿite",
-        "books": 6,
-        "share_pct": 26.09
+        "books": 3,
+        "share_pct": 30.0
       },
       {
         "label": "Ḥanbalite",
-        "books": 6,
-        "share_pct": 26.09
+        "books": 3,
+        "share_pct": 30.0
       },
       {
         "label": "Transversal",
-        "books": 5,
-        "share_pct": 21.74
+        "books": 2,
+        "share_pct": 20.0
       },
       {
         "label": "Ḥanafite",
-        "books": 5,
-        "share_pct": 21.74
-      },
-      {
-        "label": "Mālikite",
-        "books": 1,
-        "share_pct": 4.35
+        "books": 2,
+        "share_pct": 20.0
       }
     ],
     "missing_by_discipline": [
       {
         "label": "Fiqh",
-        "books": 13,
-        "share_pct": 56.52
-      },
-      {
-        "label": "Sīra et histoire",
-        "books": 3,
-        "share_pct": 13.04
-      },
-      {
-        "label": "Uṣūl al-fiqh",
-        "books": 3,
-        "share_pct": 13.04
-      },
-      {
-        "label": "Hadith",
-        "books": 1,
-        "share_pct": 4.35
+        "books": 6,
+        "share_pct": 60.0
       },
       {
         "label": "Hadith et fiqh",
         "books": 1,
-        "share_pct": 4.35
+        "share_pct": 10.0
       },
       {
         "label": "Sciences du hadith",
         "books": 1,
-        "share_pct": 4.35
+        "share_pct": 10.0
       },
       {
-        "label": "Tafsīr",
+        "label": "Sīra et histoire",
         "books": 1,
-        "share_pct": 4.35
+        "share_pct": 10.0
+      },
+      {
+        "label": "Uṣūl al-fiqh",
+        "books": 1,
+        "share_pct": 10.0
       }
     ],
     "method_note": "Grille éditoriale de couverture utilisée pour détecter les lacunes du corpus Athar. Ce fichier sert à la planification documentaire et ne constitue ni un classement de valeur religieuse ni une validation doctrinale."
   },
   "next_batch_priorities": [
-    {
-      "priority": 1,
-      "action": "Rechercher en priorité les références P1 absentes dans le catalogue OpenITI avant toute promotion générique.",
-      "missing_reference_books": 13
-    },
     {
       "priority": 2,
       "action": "Rééquilibrer le fiqh vers les écoles sous la médiane actuelle, à qualité documentaire comparable.",
