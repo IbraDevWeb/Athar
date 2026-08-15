@@ -7,6 +7,10 @@ on:
         description: Nombre maximal de nouveaux ouvrages à promouvoir vers le prochain palier
         required: false
         default: '20'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/grow-openiti-corpus.yml'
   schedule:
     - cron: '43 3 * * 1'
 
