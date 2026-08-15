@@ -6,7 +6,10 @@ on:
     paths:
       - 'rag/v5_library.py'
       - 'rag/v5_library_server.py'
-      - 'rag/corpus_release.json'
+      - 'rag/v5_server.py'
+      - 'rag/v5_sharded.py'
+      - 'rag/cache_hosted_corpus.py'
+      - 'rag/corpus_release_v3.json'
       - 'research-library.html'
       - 'js/research-library-v2.js'
       - 'css/research-library-v2.css'
@@ -20,11 +23,12 @@ permissions:
 jobs:
   verify-library-live:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
-      - name: Checkout expected corpus manifest
+      - name: Checkout expected sharded corpus manifest
         uses: actions/checkout@v4
 
-      - name: Wait for professional library reader API and expected corpus
+      - name: Wait for sharded professional library reader and RAG
         shell: bash
         run: |
           python - <<'PY'
@@ -36,53 +40,69 @@ jobs:
           from pathlib import Path
 
           base = 'https://athar-rag-ibradevweb.onrender.com'
-          release = json.loads(Path('rag/corpus_release.json').read_text(encoding='utf-8'))
+          release = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          if release.get('storage_mode') != 'sharded':
+              raise SystemExit(f'V3 manifest is not sharded: {release}')
           expected_books = int(release.get('books') or 0)
           expected_chunks = int(release.get('chunks') or 0)
           expected_openiti = int(release.get('openiti_books') or 0)
-          if expected_books <= 0 or expected_chunks <= 0:
-              raise SystemExit(f'Invalid expected corpus manifest: {release}')
+          expected_shards = int(release.get('shard_count') or 0)
+          if min(expected_books, expected_chunks, expected_openiti, expected_shards) <= 0:
+              raise SystemExit(f'Invalid expected sharded corpus manifest: {release}')
 
           last_error = None
-          for attempt in range(30):
+          for attempt in range(45):
               try:
-                  with urllib.request.urlopen(base + '/healthz', timeout=20) as response:
+                  with urllib.request.urlopen(base + '/healthz', timeout=30) as response:
                       health = json.load(response)
                   if health.get('engine') != 'rag-v5-hybrid-multilingual':
-                      raise RuntimeError(f"unexpected engine: {health}")
+                      raise RuntimeError(f'unexpected engine: {health}')
+                  if health.get('storage_mode') != 'sharded':
+                      raise RuntimeError(f'Render has not switched to sharded mode yet: {health}')
 
                   with urllib.request.urlopen(base + '/api/rag/v5/status', timeout=90) as response:
                       status = json.load(response)
                   served_books = int(status.get('books') or status.get('book_count') or 0)
                   served_chunks = int(status.get('chunks') or status.get('chunk_count') or 0)
+                  served_shards = int(status.get('shards') or 0)
+                  served_openiti = int(status.get('openiti_books') or 0)
+                  if status.get('storage_mode') != 'sharded':
+                      raise RuntimeError(f'status is not sharded: {status}')
                   if served_books < expected_books or served_chunks < expected_chunks:
                       raise RuntimeError(
-                          f'corpus release not deployed yet: served={served_books} books/{served_chunks} chunks; '
+                          f'V3 corpus not deployed yet: served={served_books} books/{served_chunks} chunks; '
                           f'expected>={expected_books}/{expected_chunks}'
                       )
+                  if served_shards != expected_shards:
+                      raise RuntimeError(f'shard count mismatch: served={served_shards}; expected={expected_shards}')
+                  if served_openiti < expected_openiti:
+                      raise RuntimeError(f'OpenITI count mismatch: served={served_openiti}; expected>={expected_openiti}')
 
                   with urllib.request.urlopen(base + '/api/rag/v5/library-books', timeout=90) as response:
                       catalogue = json.load(response)
+                  if catalogue.get('storage_mode') != 'sharded':
+                      raise RuntimeError(f'library catalogue is not served by sharded runtime: {catalogue.get("storage_mode")}')
                   rows = catalogue.get('books') or []
                   if len(rows) < expected_books:
                       raise RuntimeError(f'library catalogue still serves {len(rows)} books; expected >= {expected_books}')
-                  if 'french_passages' not in rows[0] or 'indexed_sections' not in rows[0]:
-                      raise RuntimeError('professional library catalogue is not deployed yet')
+                  if 'french_passages' not in rows[0] or 'indexed_sections' not in rows[0] or 'shard_id' not in rows[0]:
+                      raise RuntimeError('sharded professional library catalogue is not deployed yet')
 
                   book_id = str(rows[0].get('id') or '').strip()
-                  if not book_id:
-                      raise RuntimeError('first production book has no id')
+                  expected_book_shard = str(rows[0].get('shard_id') or '').strip()
+                  if not book_id or not expected_book_shard:
+                      raise RuntimeError('first production book has no id/shard_id')
                   encoded = urllib.parse.quote(book_id)
 
                   with urllib.request.urlopen(base + '/api/rag/v5/book?id=' + encoded, timeout=90) as response:
                       info = json.load(response)
                   book = info.get('book') or {}
-                  if info.get('engine') != 'rag-v5-hybrid-multilingual' or book.get('id') != book_id:
+                  if info.get('engine') != 'rag-v5-hybrid-multilingual' or info.get('storage_mode') != 'sharded' or book.get('id') != book_id:
                       raise RuntimeError(f'book endpoint not ready: {info}')
 
                   with urllib.request.urlopen(base + '/api/rag/v5/toc?book_id=' + encoded + '&limit=5', timeout=90) as response:
                       toc = json.load(response)
-                  if 'toc' not in toc or 'items' not in (toc.get('toc') or {}):
+                  if toc.get('storage_mode') != 'sharded' or 'toc' not in toc or 'items' not in (toc.get('toc') or {}):
                       raise RuntimeError(f'toc endpoint invalid: {toc}')
 
                   page = book.get('first_page')
@@ -92,8 +112,8 @@ jobs:
                   with urllib.request.urlopen(read_url, timeout=90) as response:
                       read = json.load(response)
                   passages = read.get('passages') or []
-                  if not passages or len(passages) > 2:
-                      raise RuntimeError(f'invalid bounded reader payload: {read}')
+                  if read.get('storage_mode') != 'sharded' or not passages or len(passages) > 2:
+                      raise RuntimeError(f'invalid sharded bounded reader payload: {read}')
                   if page and 'next_page' not in read:
                       raise RuntimeError('page-neighbor navigation is not deployed')
 
@@ -104,17 +124,36 @@ jobs:
                       search_url = base + '/api/rag/v5/book-search?book_id=' + encoded + '&limit=3&q=' + query
                       with urllib.request.urlopen(search_url, timeout=90) as response:
                           search = json.load(response)
-                      if not search.get('hits'):
-                          raise RuntimeError('book-scoped search returned no hit for a term taken from the passage')
+                      if search.get('storage_mode') != 'sharded' or not search.get('hits'):
+                          raise RuntimeError('book-scoped sharded search returned no hit for a term taken from the passage')
+
+                  body = json.dumps(
+                      {'query': 'prier à voix haute', 'limit': 6, 'madhhab': '', 'discipline': ''},
+                      ensure_ascii=False,
+                  ).encode('utf-8')
+                  request = urllib.request.Request(
+                      base + '/api/rag/v5/ask',
+                      data=body,
+                      headers={'Content-Type': 'application/json; charset=utf-8'},
+                      method='POST',
+                  )
+                  with urllib.request.urlopen(request, timeout=120) as response:
+                      rag = json.load(response)
+                  analysis = rag.get('analysis') or {}
+                  if rag.get('storage_mode') != 'sharded' or analysis.get('storage_mode') != 'sharded':
+                      raise RuntimeError(f'RAG query did not use sharded runtime: {rag}')
+                  if not rag.get('sources') or not analysis.get('shards_queried'):
+                      raise RuntimeError(f'sharded RAG returned no proof/routing metadata: {rag}')
 
                   print(
-                      f"PUBLIC ATHAR LIBRARY: PASS — {len(rows)} books — {served_chunks} chunks — "
-                      f"manifest expects {expected_books} books/{expected_chunks} chunks/{expected_openiti} OpenITI"
+                      f"PUBLIC ATHAR SHARDED V3: PASS — {len(rows)} books — {served_chunks} chunks — "
+                      f"{served_shards} shards — {served_openiti} OpenITI — reader shard {expected_book_shard} — "
+                      f"RAG queried {len(analysis.get('shards_queried') or [])} shard(s)"
                   )
                   raise SystemExit(0)
               except Exception as error:
                   last_error = error
-                  print(f'Attempt {attempt + 1}/30: {error}', flush=True)
+                  print(f'Attempt {attempt + 1}/45: {error}', flush=True)
                   time.sleep(20)
-          raise SystemExit(f'Professional library reader/corpus did not become ready: {last_error}')
+          raise SystemExit(f'Sharded professional library/RAG did not become ready: {last_error}')
           PY
