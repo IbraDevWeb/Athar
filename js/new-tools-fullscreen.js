@@ -3,6 +3,7 @@
   'use strict';
 
   const LOCAL_CLASS = 'athar-newtool-local-fullscreen';
+  const SHORTCUT = 'Ctrl + Maj + F';
   let localFallback = false;
   let observer = null;
 
@@ -16,10 +17,13 @@
 
   function renderButtons() {
     const active = isActive();
+    const state = String(active);
     document.querySelectorAll('[data-athar-newtool-fullscreen]').forEach(button => {
-      button.setAttribute('aria-pressed', String(active));
+      if (button.dataset.fullscreenActive === state) return;
+      button.dataset.fullscreenActive = state;
+      button.setAttribute('aria-pressed', state);
       button.setAttribute('aria-label', active ? 'Quitter le grand écran' : 'Passer en grand écran');
-      button.title = active ? 'Quitter le grand écran' : 'Grand écran';
+      button.title = active ? `Quitter le grand écran · ${SHORTCUT}` : `Grand écran · ${SHORTCUT}`;
       const label = button.querySelector('[data-fullscreen-label]');
       const icon = button.querySelector('[data-fullscreen-icon]');
       if (label) label.textContent = active ? 'Quitter' : 'Grand écran';
@@ -66,10 +70,11 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.dataset.atharNewtoolFullscreen = kind;
+    button.dataset.fullscreenShortcut = SHORTCUT;
     button.setAttribute('aria-pressed', 'false');
     if (kind === 'research') button.className = 'ar5-ghost athar-newtool-fullscreen';
     else button.className = kind === 'reader'
-      ? 'athar-btn athar-btn-ghost athar-newtool-fullscreen reader-wide-only'
+      ? 'athar-btn athar-btn-ghost athar-newtool-fullscreen'
       : 'athar-btn athar-btn-soft athar-newtool-fullscreen';
     button.innerHTML = `<span data-fullscreen-icon class="athar-newtool-fullscreen-icon">${expandSvg}</span><span data-fullscreen-label>Grand écran</span>`;
     button.addEventListener('click', toggle);
@@ -78,29 +83,33 @@
 
   function injectResearch() {
     const host = document.querySelector('.ar5-top-actions');
-    if (!host || host.querySelector('[data-athar-newtool-fullscreen="research"]')) return;
+    if (!host || host.querySelector('[data-athar-newtool-fullscreen="research"]')) return false;
     host.insertBefore(makeButton('research'), host.firstChild);
+    return true;
   }
 
   function injectLibrary() {
+    let changed = false;
     const topbar = document.querySelector('.library-topbar-actions');
     if (topbar && !topbar.querySelector('[data-athar-newtool-fullscreen="library"]')) {
       const status = document.getElementById('libraryStatus');
       const button = makeButton('library');
       if (status?.nextSibling) topbar.insertBefore(button, status.nextSibling);
       else topbar.appendChild(button);
+      changed = true;
     }
 
     const reader = document.querySelector('.reader-appbar-right');
     if (reader && !reader.querySelector('[data-athar-newtool-fullscreen="reader"]')) {
       reader.insertBefore(makeButton('reader'), reader.firstChild);
+      changed = true;
     }
+    return changed;
   }
 
   function inject() {
-    injectResearch();
-    injectLibrary();
-    renderButtons();
+    const changed = injectResearch() || injectLibrary();
+    if (changed) renderButtons();
   }
 
   document.addEventListener('fullscreenchange', () => {
@@ -108,6 +117,7 @@
       localFallback = false;
       document.documentElement.classList.remove(LOCAL_CLASS);
     }
+    document.querySelectorAll('[data-athar-newtool-fullscreen]').forEach(button => delete button.dataset.fullscreenActive);
     renderButtons();
   });
 
@@ -122,9 +132,13 @@
 
   function start() {
     inject();
+    renderButtons();
     observer = new MutationObserver(inject);
     observer.observe(document.body, { childList: true, subtree: true });
-    const htmlObserver = new MutationObserver(renderButtons);
+    const htmlObserver = new MutationObserver(() => {
+      document.querySelectorAll('[data-athar-newtool-fullscreen]').forEach(button => delete button.dataset.fullscreenActive);
+      renderButtons();
+    });
     htmlObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     window.addEventListener('beforeunload', () => {
       observer?.disconnect();
@@ -135,5 +149,5 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
 
-  window.AtharNewToolsFullscreen = { toggle, isActive };
+  window.AtharNewToolsFullscreen = { toggle, isActive, shortcut: SHORTCUT };
 })();
