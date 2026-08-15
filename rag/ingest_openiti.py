@@ -7,6 +7,7 @@ import sys
 import time
 from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 RAG_DIR = ROOT / "rag"
@@ -15,6 +16,28 @@ if str(RAG_DIR) not in sys.path:
 
 from core import DEFAULT_DB, connect, initialize_database  # noqa: E402
 from openiti import fetch_text, ingest_book, load_manifest, urls  # noqa: E402
+
+AUTO_MANIFEST = RAG_DIR / "openiti_books_auto.json"
+
+
+def load_industrialized_manifest() -> dict[str, Any]:
+    manifest = load_manifest()
+    books = [book for book in manifest.get("books", []) if isinstance(book, dict)]
+    if AUTO_MANIFEST.exists():
+        auto = json.loads(AUTO_MANIFEST.read_text(encoding="utf-8"))
+        auto_books = auto.get("books", []) if isinstance(auto, dict) else []
+        if not isinstance(auto_books, list):
+            raise RuntimeError("openiti_books_auto.json doit contenir une liste books.")
+        books.extend(book for book in auto_books if isinstance(book, dict))
+    ids = [str(book.get("book_id") or "") for book in books]
+    uris = [str(book.get("openiti_uri") or "") for book in books]
+    if not all(ids) or len(ids) != len(set(ids)):
+        raise RuntimeError("Identifiants OpenITI industriels manquants ou dupliqués.")
+    if not all(uris) or len(uris) != len(set(uris)):
+        raise RuntimeError("URI OpenITI industriels manquants ou dupliqués.")
+    manifest["books"] = books
+    manifest["industrialized_queue"] = str(AUTO_MANIFEST.relative_to(ROOT)) if AUTO_MANIFEST.exists() else ""
+    return manifest
 
 
 def fetch_with_retry(raw_url: str, attempts: int = 3) -> str:
@@ -39,8 +62,9 @@ def sync(
     best_effort: bool = False,
     workers: int | None = None,
 ) -> dict[str, object]:
-    manifest = load_manifest()
+    manifest = load_industrialized_manifest()
     books = [book for book in manifest.get("books", []) if isinstance(book, dict) and book.get("enabled", True)]
+    total_enabled = len(books)
     if max_books is not None:
         books = books[: max(0, max_books)]
 
@@ -87,17 +111,19 @@ def sync(
         connection.close()
 
     return {
+        "available_books": total_enabled,
         "requested_books": len(books),
         "imported_books": imported_books,
         "imported_pages": imported_pages,
         "imported_chunks": imported_chunks,
         "workers": worker_count,
+        "industrialized_queue": AUTO_MANIFEST.exists(),
         "errors": errors,
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Importe les textes OpenITI configurés dans la base RAG Athar.")
+    parser = argparse.ArgumentParser(description="Importe les textes OpenITI configurés et promus dans la base RAG Athar.")
     parser.add_argument("--db", type=Path, default=Path(os.getenv("ATHAR_DB_PATH") or DEFAULT_DB))
     parser.add_argument("--max-books", type=int, default=None)
     parser.add_argument("--workers", type=int, default=None)
