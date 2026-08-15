@@ -44,6 +44,16 @@ window.ScholarLibraryV4View = {
             { value: 'Ḥanbalite', label: 'Ḥanbalite' }
         ];
         const disciplines = ['', 'Fiqh', 'Hadith', 'Tafsir', 'Sira', 'Usul', 'Aqida', 'Histoire'];
+        const conceptLabels = {
+            eclipse_prayer: 'prière de l’éclipse',
+            intention: 'intention', prayer: 'prière', recitation_aloud: 'récitation à voix haute', recitation_silent: 'récitation à voix basse',
+            recitation: 'récitation', fatiha: 'al-Fātiḥa', basmala: 'basmala', witr: 'witr', qunut: 'qunūt', ruku: 'rukūʿ', sujud: 'sujūd',
+            tashahhud: 'tashahhud', takbir: 'takbīr', taslim: 'taslīm', adhan: 'adhān', iqama: 'iqāma', congregation: 'prière en groupe', imam: 'imam',
+            friday_prayer: 'prière du vendredi', prayer_times: 'horaires de prière', fajr: 'fajr', dhuhr: 'ẓuhr', asr: 'ʿaṣr', maghrib: 'maghrib', isha: 'ʿishāʾ',
+            travel: 'voyage', combine_prayers: 'regroupement des prières', shorten_prayer: 'raccourcissement de la prière', purification: 'purification',
+            wudu: 'wuḍūʾ', ghusl: 'ghusl', tayammum: 'tayammum', menstruation: 'menstruations', fasting: 'jeûne', zakat: 'zakāt', marriage: 'mariage',
+            divorce: 'divorce', inheritance: 'héritage', riba: 'ribā', badr: 'bataille de Badr', ayat_al_kursi: 'Āyat al-Kursī'
+        };
 
         const sources = computed(() => response.value?.sources || []);
         const answer = computed(() => response.value?.answer || null);
@@ -58,6 +68,13 @@ window.ScholarLibraryV4View = {
         });
         const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? 'RAG V5' : 'RAG');
         const runtimeLabel = computed(() => status.value.runtime_profile === 'low-memory' ? 'Production optimisée' : 'Production');
+        const conceptLabel = value => conceptLabels[String(value || '')] || String(value || '').replaceAll('_', ' ');
+        const displayedNotions = computed(() => {
+            const notions = analysis.value?.notions;
+            if (Array.isArray(notions) && notions.length) return notions.filter(Boolean);
+            return (analysis.value?.concepts || []).map(conceptLabel).filter(Boolean);
+        });
+        const sourceNotions = source => (source?.matched_concepts || []).map(conceptLabel).filter(Boolean).join(', ');
 
         const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
         const filteredBooks = computed(() => {
@@ -193,9 +210,9 @@ window.ScholarLibraryV4View = {
         return {
             mode, query, madhhab, discipline, loading, waking, error, response, status, books, booksLoading, bookQuery,
             bookDiscipline, bookMadhhab, history, examples, madhhabs, disciplines, sources, answer, analysis, routedBook,
-            selectedSource, selectedSourceId, substantiveRatio, resultTitle, engineLabel, runtimeLabel, filteredBooks,
+            selectedSource, selectedSourceId, substantiveRatio, resultTitle, engineLabel, runtimeLabel, displayedNotions, filteredBooks,
             distinctBookDisciplines, distinctBookMadhhabs, ask, connect, changeMode, chooseExample, rerunHistory, clearHistory,
-            selectSource, reset, copyCitation, onComposerKeydown, formatNumber, formatDate, openCompanions, openHome
+            selectSource, reset, copyCitation, sourceNotions, onComposerKeydown, formatNumber, formatDate, openCompanions, openHome
         };
     },
     template: `
@@ -247,7 +264,7 @@ window.ScholarLibraryV4View = {
 
                     <section v-if="response && answer" class="ar5-results">
                         <div class="ar5-result-head"><div><span>Résultat documentaire</span><h2>{{ resultTitle }}</h2><p>{{ answer.summary }}</p></div><button type="button" class="ar5-new-search" @click="reset"><i data-lucide="plus"></i>Nouvelle recherche</button></div>
-                        <div class="ar5-analysis"><div><span>Moteur</span><strong>RAG V5</strong></div><div><span>Mode</span><strong>{{ routedBook ? 'Ouvrage ciblé' : 'Corpus général' }}</strong></div><div v-if="routedBook"><span>Ouvrage détecté</span><strong>{{ routedBook.title }}</strong></div><div><span>Notions</span><strong>{{ analysis?.concepts?.join(' · ') || 'Recherche lexicale' }}</strong></div></div>
+                        <div class="ar5-analysis"><div><span>Moteur</span><strong>RAG V5</strong></div><div><span>Mode</span><strong>{{ routedBook ? 'Ouvrage ciblé' : 'Corpus général' }}</strong></div><div v-if="routedBook"><span>Ouvrage détecté</span><strong>{{ routedBook.title }}</strong></div><div><span>Notions</span><strong>{{ displayedNotions.join(' · ') || 'Recherche lexicale' }}</strong></div></div>
 
                         <div v-if="sources.length" class="ar5-result-layout">
                             <div class="ar5-source-list">
@@ -260,7 +277,7 @@ window.ScholarLibraryV4View = {
                             <aside class="ar5-evidence">
                                 <template v-if="selectedSource">
                                     <div class="ar5-evidence-top"><div><span>Passage sélectionné</span><strong>[{{ selectedSource.citation_id }}]</strong></div><b>{{ selectedSource.relevance }}%</b></div><h2>{{ selectedSource.title }}</h2><p v-if="selectedSource.title_ar" class="ar5-evidence-title-ar" lang="ar" dir="rtl">{{ selectedSource.title_ar }}</p><p class="ar5-evidence-author">{{ selectedSource.author }}</p>
-                                    <dl class="ar5-evidence-meta"><div><dt>Discipline</dt><dd>{{ selectedSource.discipline || '—' }}</dd></div><div><dt>École</dt><dd>{{ selectedSource.madhhab || 'Transversal' }}</dd></div><div><dt>Page</dt><dd>{{ selectedSource.page ?? '—' }}</dd></div><div><dt>Notions</dt><dd>{{ selectedSource.matched_concepts?.join(', ') || '—' }}</dd></div></dl>
+                                    <dl class="ar5-evidence-meta"><div><dt>Discipline</dt><dd>{{ selectedSource.discipline || '—' }}</dd></div><div><dt>École</dt><dd>{{ selectedSource.madhhab || 'Transversal' }}</dd></div><div><dt>Page</dt><dd>{{ selectedSource.page ?? '—' }}</dd></div><div><dt>Notions</dt><dd>{{ sourceNotions(selectedSource) || '—' }}</dd></div></dl>
                                     <div v-if="selectedSource.chapter" class="ar5-evidence-chapter"><span>Chapitre</span><strong>{{ selectedSource.chapter }}</strong></div>
                                     <section v-if="selectedSource.text_ar" class="ar5-text-block arabic"><header><span>Texte arabe</span><b>Original indexé</b></header><p lang="ar" dir="rtl">{{ selectedSource.text_ar }}</p></section>
                                     <section v-if="selectedSource.text_fr" class="ar5-text-block"><header><span>Texte français</span><b>{{ selectedSource.translation_status || 'Indexé' }}</b></header><p>{{ selectedSource.text_fr }}</p></section>
@@ -289,7 +306,7 @@ window.ScholarLibraryV4View = {
 
                 <template v-else>
                     <section class="ar5-page-head"><span>Méthode</span><h1>Ce que fait Athar Research</h1><p>Un moteur documentaire, pas un oracle. L’objectif est de retrouver des passages vérifiables et de rendre le chemin vers la source visible.</p></section>
-                    <section class="ar5-method-grid"><article><span>01</span><i data-lucide="message-square-text"></i><h3>Comprendre la question</h3><p>Le moteur reconnaît des formulations françaises usuelles et les relie aux notions arabes pertinentes.</p></article><article><span>02</span><i data-lucide="book-key"></i><h3>Cibler l’ouvrage</h3><p>Lorsqu’un livre ou un auteur est explicitement nommé, la recherche est prioritairement routée vers cet ouvrage.</p></article><article><span>03</span><i data-lucide="scan-search"></i><h3>Retrouver les passages</h3><p>L’index plein texte remonte un ensemble borné de candidats qui sont ensuite reclassés selon leur proximité documentaire.</p></article><article><span>04</span><i data-lucide="quote"></i><h3>Afficher la preuve</h3><p>Le résultat conserve le texte, l’ouvrage, l’auteur, le chapitre, la page et le lien source quand ils sont disponibles.</p></article></section>
+                    <section class="ar5-method-grid"><article><span>01</span><i data-lucide="message-square-text"></i><h3>Comprendre la question</h3><p>Une couche d’analyse sémantique peut enrichir la question avec les notions françaises et arabes pertinentes ; si elle est indisponible, l’ontologie locale prend automatiquement le relais.</p></article><article><span>02</span><i data-lucide="book-key"></i><h3>Cibler l’ouvrage</h3><p>Lorsqu’un livre ou un auteur est explicitement nommé, la recherche est prioritairement routée vers cet ouvrage.</p></article><article><span>03</span><i data-lucide="scan-search"></i><h3>Retrouver les passages</h3><p>L’index plein texte remonte un ensemble borné de candidats qui sont ensuite reclassés selon leur proximité documentaire.</p></article><article><span>04</span><i data-lucide="quote"></i><h3>Afficher la preuve</h3><p>Le résultat conserve le texte, l’ouvrage, l’auteur, le chapitre, la page et le lien source quand ils sont disponibles.</p></article></section>
                     <section class="ar5-method-note"><div><i data-lucide="shield-alert"></i></div><div><span>À retenir</span><h2>Pertinence documentaire ≠ certitude religieuse</h2><p>Le pourcentage affiché mesure la proximité entre la question et le passage indexé. Il ne classe ni l’authenticité d’un hadith, ni la force d’un avis juridique, ni la valeur d’une école.</p></div></section>
                     <section class="ar5-method-tech"><div><span>Moteur</span><strong>RAG V5 multilingue</strong></div><div><span>Corpus</span><strong>{{ formatNumber(status.books) }} ouvrages</strong></div><div><span>Index</span><strong>{{ status.fts_ready ? 'FTS actif' : 'À vérifier' }}</strong></div><div><span>Mode</span><strong>Preuves directes</strong></div></section>
                 </template>
