@@ -2,7 +2,13 @@ from __future__ import annotations
 
 import unittest
 
-from corpus_industrializer import manifest_book, select_batch, stable_book_id
+from corpus_industrializer import (
+    existing_auto_rejection,
+    manifest_book,
+    prune_existing_auto_books,
+    select_batch,
+    stable_book_id,
+)
 from openiti_catalog import classify_subject, parse_metadata
 
 HEADER = "\t".join(
@@ -33,6 +39,33 @@ def row(
         status, "20000", str(chars), f"data/fixture/{version}", tags, "Fixture", "", "", "", "", "", "", "", "", "",
     ]
     return "\t".join(values)
+
+
+def staged_book(
+    book_id: str,
+    uri: str,
+    work_uri: str,
+    *,
+    title: str = "Livre",
+    source_id: str = "Fixture",
+) -> dict[str, object]:
+    return {
+        "book_id": book_id,
+        "title": title,
+        "title_ar": "كتاب",
+        "author": "Auteur",
+        "discipline": "Fiqh",
+        "madhhab": "",
+        "openiti_uri": uri,
+        "work_uri": work_uri,
+        "path": f"data/fixture/{uri}",
+        "enabled": True,
+        "metadata": {
+            "source": "OpenITI",
+            "source_id": source_id,
+            "classification_subject": "fiqh",
+        },
+    }
 
 
 class OpenITICatalogTests(unittest.TestCase):
@@ -128,6 +161,57 @@ class OpenITICatalogTests(unittest.TestCase):
         uri = "0999Fixture.FiqhBook.JK1-ara1"
         self.assertEqual(stable_book_id(uri), stable_book_id(uri))
         self.assertTrue(stable_book_id(uri).startswith("openiti-auto-"))
+
+    def test_staged_shia_and_ibadiyya_sources_are_pruned_after_policy_hardening(self) -> None:
+        promotion = {
+            "excluded_source_markers": ["Zaydiyya", "Shia", "Ibadiyya"],
+            "excluded_work_markers": [],
+        }
+        shia = staged_book(
+            "shia",
+            "0726CallamaHilli.QawacidAhkam.Shia000091Vols-ara1",
+            "0726CallamaHilli.QawacidAhkam",
+        )
+        ibadi = staged_book(
+            "ibadi",
+            "1361SacidIbnNasirGhaythi.IdahTawhid.ShamIbadiyya0000279-ara1",
+            "1361SacidIbnNasirGhaythi.IdahTawhid",
+        )
+        self.assertEqual(existing_auto_rejection(shia, promotion), "excluded_source:Shia")
+        self.assertEqual(existing_auto_rejection(ibadi, promotion), "excluded_source:Ibadiyya")
+
+    def test_staged_modern_work_marker_is_pruned(self) -> None:
+        promotion = {
+            "excluded_source_markers": [],
+            "excluded_work_markers": ["HasanHanafi.MinCaqidaIlaThawra"],
+        }
+        row = staged_book(
+            "modern",
+            "1443HasanHanafi.MinCaqidaIlaThawraTawhid.Hindawi028173195-ara1",
+            "1443HasanHanafi.MinCaqidaIlaThawraTawhid",
+        )
+        self.assertTrue(existing_auto_rejection(row, promotion).startswith("excluded_work:"))
+
+    def test_policy_hardening_keeps_ordinary_staged_book_and_reports_removed_rows(self) -> None:
+        promotion = {
+            "excluded_source_markers": ["Zaydiyya", "Shia", "Ibadiyya"],
+            "excluded_work_markers": ["HasanHanafi.MinCaqidaIlaThawra"],
+        }
+        ordinary = staged_book(
+            "ordinary",
+            "0189MuhammadShaybani.Asl.Sham19Y0014285-ara1",
+            "0189MuhammadShaybani.Asl",
+        )
+        blocked = staged_book(
+            "blocked",
+            "0726CallamaHilli.QawacidAhkam.Shia000091Vols-ara1",
+            "0726CallamaHilli.QawacidAhkam",
+        )
+        kept, removed = prune_existing_auto_books([ordinary, blocked], promotion)
+        self.assertEqual([row["book_id"] for row in kept], ["ordinary"])
+        self.assertEqual(len(removed), 1)
+        self.assertEqual(removed[0]["book_id"], "blocked")
+        self.assertEqual(removed[0]["reason"], "excluded_source:Shia")
 
 
 if __name__ == "__main__":

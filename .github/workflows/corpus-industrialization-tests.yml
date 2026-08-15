@@ -113,9 +113,11 @@ jobs:
           assert int(policy['sharding']['max_books_per_shard']) > 0
           assert int(policy['sharding']['max_source_chars_per_shard']) > 0
           assert int(policy['sharding']['future_target_books']) >= 500
-          assert 'Zaydiyya' in policy['promotion'].get('excluded_source_markers', [])
+          excluded_sources = set(policy['promotion'].get('excluded_source_markers', []))
+          assert {'Zaydiyya', 'Shia', 'Ibadiyya'} <= excluded_sources
           excluded_works = policy['promotion'].get('excluded_work_markers', [])
           assert 'IbnYacqubKulayni' in excluded_works or 'UsulMinKafi' in excluded_works
+          assert 'HasanHanafi.MinCaqidaIlaThawra' in excluded_works
           assert all(not str(book.get('madhhab') or '').strip() for book in auto.get('books', []))
           approved_blob = str(approval.get('approved_auto_manifest_blob') or '')
           assert not approved_blob or re.fullmatch(r'[0-9a-f]{40}', approved_blob)

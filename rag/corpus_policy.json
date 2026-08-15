@@ -17,12 +17,13 @@
     "require_primary": true,
     "require_cleaned": true,
     "exclude_uncorrected_ocr": true,
-    "excluded_source_markers": ["Zaydiyya"],
+    "excluded_source_markers": ["Zaydiyya", "Shia", "Ibadiyya"],
     "excluded_work_markers": [
       "IbnYacqubKulayni",
       "UsulMinKafi",
       "AhmadTaymurBasha.SamacWaQiyas",
-      "IbnDaya.TafsirKitabThamara"
+      "IbnDaya.TafsirKitabThamara",
+      "HasanHanafi.MinCaqidaIlaThawra"
     ]
   },
   "sharding": {

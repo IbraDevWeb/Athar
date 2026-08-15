@@ -109,6 +109,61 @@ def _rank(candidate: dict[str, Any]) -> tuple[int, int, str]:
     return quality + int(candidate.get("subject_score") or 0), chars, str(candidate.get("version_uri") or "")
 
 
+def _auto_haystack(book: dict[str, Any]) -> str:
+    metadata = book.get("metadata") if isinstance(book.get("metadata"), dict) else {}
+    values = [
+        book.get("title"),
+        book.get("title_ar"),
+        book.get("author"),
+        book.get("openiti_uri"),
+        book.get("work_uri"),
+        book.get("path"),
+        (metadata or {}).get("source_id"),
+        (metadata or {}).get("classification_subject"),
+    ]
+    return " ".join(str(value or "") for value in values).casefold()
+
+
+def existing_auto_rejection(book: dict[str, Any], promotion: dict[str, Any]) -> str:
+    """Re-evaluate staged books when policy becomes stricter before approval."""
+    haystack = _auto_haystack(book)
+    for marker in promotion.get("excluded_source_markers") or []:
+        value = str(marker or "").strip()
+        if value and value.casefold() in haystack:
+            return f"excluded_source:{value}"
+    for marker in promotion.get("excluded_work_markers") or []:
+        value = str(marker or "").strip()
+        if value and value.casefold() in haystack:
+            return f"excluded_work:{value}"
+        compact_marker = "".join(character for character in value.casefold() if character.isalnum())
+        compact_work = "".join(character for character in str(book.get("work_uri") or "").casefold() if character.isalnum())
+        if compact_marker and compact_marker in compact_work:
+            return f"excluded_work:{value}"
+    return ""
+
+
+def prune_existing_auto_books(
+    books: list[dict[str, Any]],
+    promotion: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    kept: list[dict[str, Any]] = []
+    removed: list[dict[str, str]] = []
+    for book in books:
+        reason = existing_auto_rejection(book, promotion)
+        if not reason:
+            kept.append(book)
+            continue
+        removed.append(
+            {
+                "book_id": str(book.get("book_id") or ""),
+                "title": str(book.get("title") or ""),
+                "openiti_uri": str(book.get("openiti_uri") or ""),
+                "reason": reason,
+            }
+        )
+    return kept, removed
+
+
 def select_batch(
     catalog: dict[str, Any],
     auto_payload: dict[str, Any],
@@ -190,7 +245,8 @@ def promote(
             "books": [],
         },
     )
-    books = [item for item in auto_payload.get("books") or [] if isinstance(item, dict)]
+    raw_books = [item for item in auto_payload.get("books") or [] if isinstance(item, dict)]
+    books, pruned = prune_existing_auto_books(raw_books, promotion)
     base_books = configured_book_count()
     hosted_target = int(hosted.get("target_openiti_books") or 0)
     target_slots = max(0, hosted_target - base_books - len(books)) if hosted_target else requested_input
@@ -222,8 +278,10 @@ def promote(
         "target_limited_batch": requested,
         "promoted_books": len(promoted),
         "promoted_source_chars": sum(int(item.get("char_length") or 0) for item in selected),
-        "auto_manifest_books_before": len(books),
+        "auto_manifest_books_before": len(raw_books),
+        "auto_manifest_books_pruned": len(pruned),
         "auto_manifest_books_after": len(books) + len(promoted),
+        "pruned": pruned,
         "selected": [
             {
                 "book_id": book["book_id"],
