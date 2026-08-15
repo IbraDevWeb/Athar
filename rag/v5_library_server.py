@@ -7,7 +7,7 @@ from http import HTTPStatus
 from pathlib import Path
 from typing import Any
 
-from v5_library import get_book, read_book
+from v5_library import get_book, get_toc, read_book, search_book
 from v5_server import (
     DEFAULT_DB,
     AtharThreadingHTTPServer,
@@ -20,7 +20,7 @@ from v5_server import (
 
 
 class Handler(BaseHandler):
-    server_version = "AtharRAG/5.3-library-lowmem"
+    server_version = "AtharRAG/5.4-library-lowmem"
 
     def _library_acquire(self) -> bool:
         gate = getattr(self.server, "library_gate", None)
@@ -53,7 +53,13 @@ class Handler(BaseHandler):
 
     def do_GET(self) -> None:
         path, params = self.parse_path()
-        if path not in {"/api/rag/v5/book", "/api/rag/v5/read"}:
+        library_paths = {
+            "/api/rag/v5/book",
+            "/api/rag/v5/read",
+            "/api/rag/v5/toc",
+            "/api/rag/v5/book-search",
+        }
+        if path not in library_paths:
             super().do_GET()
             return
 
@@ -74,6 +80,21 @@ class Handler(BaseHandler):
                 with open_connection(self.db_path) as connection:
                     if path == "/api/rag/v5/book":
                         payload = {"book": get_book(connection, book_id)}
+                    elif path == "/api/rag/v5/toc":
+                        payload = {
+                            "toc": get_toc(
+                                connection,
+                                book_id,
+                                limit=self._positive_int(self._first(params, "limit", "360"), 360),
+                            )
+                        }
+                    elif path == "/api/rag/v5/book-search":
+                        payload = search_book(
+                            connection,
+                            book_id,
+                            self._first(params, "q"),
+                            limit=self._positive_int(self._first(params, "limit", "10"), 10),
+                        )
                     else:
                         payload = read_book(
                             connection,
@@ -124,6 +145,8 @@ def main() -> int:
                 "port": args.port,
                 "db": str(args.db),
                 "library_read_limit": 12,
+                "library_toc_limit": 360,
+                "library_search_limit": 16,
             },
             ensure_ascii=False,
         ),
