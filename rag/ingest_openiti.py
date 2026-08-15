@@ -40,6 +40,33 @@ def load_industrialized_manifest() -> dict[str, Any]:
     return manifest
 
 
+def persist_manifest_metadata(connection: Any, book: dict[str, object]) -> None:
+    """Preserve promotion provenance without overwriting source metadata set by openiti.ingest_book."""
+    configured = book.get("metadata")
+    if not isinstance(configured, dict) or not configured:
+        return
+    book_id = str(book.get("book_id") or "").strip()
+    if not book_id:
+        return
+    row = connection.execute("SELECT metadata_json FROM books WHERE id=?", (book_id,)).fetchone()
+    if row is None:
+        return
+    try:
+        existing = json.loads(str(row[0] or "{}"))
+    except (TypeError, ValueError, json.JSONDecodeError):
+        existing = {}
+    if not isinstance(existing, dict):
+        existing = {}
+    # Source metadata produced during ingestion wins on conflicts; catalogue hints
+    # remain explicit and auditable instead of becoming silent assertions.
+    merged = {**configured, **existing, "manifest_provenance_preserved": True}
+    connection.execute(
+        "UPDATE books SET metadata_json=? WHERE id=?",
+        (json.dumps(merged, ensure_ascii=False), book_id),
+    )
+    connection.commit()
+
+
 def fetch_with_retry(raw_url: str, attempts: int = 3) -> str:
     last_error: Exception | None = None
     for attempt in range(1, max(1, attempts) + 1):
@@ -95,6 +122,7 @@ def sync(
                 try:
                     downloaded_book, text = future.result()
                     stats = ingest_book(connection, manifest, downloaded_book, text)
+                    persist_manifest_metadata(connection, downloaded_book)
                     imported_books += 1
                     imported_chunks += stats["chunks"]
                     imported_pages += stats["pages"]
