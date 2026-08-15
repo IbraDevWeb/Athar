@@ -4,6 +4,7 @@ import sqlite3
 import unittest
 from unittest.mock import patch
 
+import v5_lowmem as lowmem
 from v5_lowmem import ask, normalize_text, search
 from v5_engine import corpus_status, detect_concepts
 
@@ -116,6 +117,43 @@ class RagV5Tests(unittest.TestCase):
         self.assertIn("doute sur le nombre de rakʿāt", result["analysis"]["notions"])
         self.assertGreater(result["count"], 0, result["analysis"])
         self.assertEqual("c11", result["sources"][0]["id"], result["sources"])
+
+    def test_empty_llm_expansion_falls_back_to_original_retrieval(self) -> None:
+        semantic = {
+            "used": True,
+            "provider": "google-gemini",
+            "model": "gemini-3.1-flash-lite",
+            "notions": ["notion enrichie"],
+            "concepts": [{"label": "notion enrichie", "importance": "primary", "terms": ["terme introuvable"]}],
+            "fallback": "none",
+            "latency_ms": 90,
+            "cache_hit": False,
+            "error": "",
+            "skipped_reason": "",
+        }
+        calls: list[bool] = []
+
+        def fake_core_search(connection, query, *, limit=8, madhhab="", discipline=""):
+            has_llm_hints = bool(lowmem._current_hints().get("used"))
+            calls.append(has_llm_hints)
+            if has_llm_hints:
+                return {"query": query, "analysis": {"concepts": ["notion enrichie"]}, "sources": [], "count": 0}
+            return {
+                "query": query,
+                "analysis": {"concepts": ["prayer"]},
+                "sources": [{"id": "rescued", "citation_id": "S1", "matched_concepts": ["prayer"]}],
+                "count": 1,
+            }
+
+        with patch("v5_lowmem._query_hints", return_value=semantic), patch("v5_lowmem._original_search", side_effect=fake_core_search):
+            result = lowmem.search(self.db, "question long-tail", limit=5)
+
+        self.assertEqual([True, False], calls)
+        self.assertEqual(1, result["count"])
+        self.assertEqual("rescued", result["sources"][0]["id"])
+        self.assertEqual("deterministic", result["analysis"]["retrieval_rescue"])
+        self.assertTrue(result["analysis"]["query_intelligence"]["used"])
+        self.assertEqual(["notion enrichie"], result["analysis"]["notions"])
 
     def test_morphology_prier_is_understood(self) -> None:
         concepts = [item["name"] for item in detect_concepts("comment prier en voyage ?")]
