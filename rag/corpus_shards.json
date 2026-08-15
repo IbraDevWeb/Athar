@@ -1361,9 +1361,9 @@
       "oversize_source": false,
       "subjects": {
         "aqida": 2,
-        "fiqh": 2,
+        "fiqh": 1,
         "hadith": 2,
-        "sira": 2,
+        "sira": 3,
         "tafsir": 7
       },
       "books": [
@@ -1412,7 +1412,7 @@
           "title": "Kitāb Faḍā'il al-ṣaḥāba",
           "title_ar": "كتاب فضائل الصحاب",
           "author": "Nasai",
-          "discipline": "Fiqh",
+          "discipline": "Hadith",
           "source_chars": 81056
         },
         {
@@ -1420,7 +1420,7 @@
           "title": "Kunuz Dhahab",
           "title_ar": "كنوز الذهب في تاريخ حلب",
           "author": "Abu Dharr Sibt Ibn Cajami",
-          "discipline": "Hadith",
+          "discipline": "Sīra et histoire",
           "source_chars": 607573
         },
         {

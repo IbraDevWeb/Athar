@@ -6,165 +6,31 @@
   "configured_base_books": 50,
   "hosted_target_openiti_books": 170,
   "requested_batch": 25,
-  "target_limited_batch": 10,
-  "promoted_books": 10,
-  "promoted_source_chars": 12670672,
+  "target_limited_batch": 0,
+  "promoted_books": 0,
+  "promoted_source_chars": 0,
   "auto_manifest_books_before": 120,
-  "auto_manifest_books_pruned": 10,
+  "auto_manifest_books_pruned": 0,
   "auto_manifest_books_after": 120,
-  "pruned": [
-    {
-      "book_id": "openiti-auto-4c469c2d6fb839de",
-      "title": "Khulasat Athar",
-      "openiti_uri": "1111MuhammadAminMuhibbi.KhulasatAthar.JK003502-ara1",
-      "reason": "excluded_work:MuhammadAminMuhibbi.KhulasatAthar"
-    },
-    {
-      "book_id": "openiti-auto-025973bebb884e62",
-      "title": "Iman Wa Macrifa Wa Falsafa",
-      "openiti_uri": "1375MuhammadHusaynHaykal.ImanWaMacrifaWaFalsafa.Hindawi019351958-ara1",
-      "reason": "excluded_work:MuhammadHusaynHaykal.ImanWaMacrifaWaFalsafa"
-    },
-    {
-      "book_id": "openiti-auto-b0c67c1eb62ea3bd",
-      "title": "al-Šaqāʾiq al-nuʿmāniyya fī ʿulamāʾ al-dawla al-¶ ʿuṯmāniyya",
-      "openiti_uri": "0968Tashkuprizadah.ShaqaiqNucmaniyya.Shamela0006723BK1-ara1",
-      "reason": "excluded_work:Tashkuprizadah.ShaqaiqNucmaniyya"
-    },
-    {
-      "book_id": "openiti-auto-1b69861a10e37fe2",
-      "title": "Kitāb al-Ḫarāǧ",
-      "openiti_uri": "0337QudamaIbnJacfar.Kharaj.Shamela0011767-ara1",
-      "reason": "excluded_work:QudamaIbnJacfar.Kharaj"
-    },
-    {
-      "book_id": "openiti-auto-8988ad985ff2a09f",
-      "title": "Tafsir",
-      "openiti_uri": "0286IbnHakamHibari.Tafsir.Tafsir05044-ara1",
-      "reason": "excluded_work:IbnHakamHibari.Tafsir"
-    },
-    {
-      "book_id": "openiti-auto-7d84ef9bb4410467",
-      "title": "Iḫbār al-ʿulamāʾ bi-aḫbār al-ḥukamāʾ",
-      "openiti_uri": "0646IbnQifti.IkhbarCulama.Shamela0026336-ara1",
-      "reason": "excluded_work:IbnQifti.IkhbarCulama"
-    },
-    {
-      "book_id": "openiti-auto-de4f1b33bac91480",
-      "title": "Faraj Bacda Shidda",
-      "openiti_uri": "0384MuhassinTanukhi.FarajBacdaShidda.Shamela0012828-ara1",
-      "reason": "excluded_work:MuhassinTanukhi.FarajBacdaShidda"
-    },
-    {
-      "book_id": "openiti-auto-577bbd4682371250",
-      "title": "Fiqh al-luġaŧ wa sirr al-ʿarabiyyaŧ",
-      "openiti_uri": "0429AbuMansurThacalibi.FiqhLugha.Shamela0011235-ara1",
-      "reason": "excluded_work:AbuMansurThacalibi.FiqhLugha"
-    },
-    {
-      "book_id": "openiti-auto-b2475b718626f3b1",
-      "title": "Tarikh Muctabar",
-      "openiti_uri": "0928MujirDinCulaymi.TarikhMuctabar.Sham19Y0127698-ara1",
-      "reason": "excluded_work:MujirDinCulaymi.TarikhMuctabar"
-    },
-    {
-      "book_id": "openiti-auto-c3b42bc14437465b",
-      "title": "Amthal Fi Tafsir",
-      "openiti_uri": "1450NasirMakarimShirazi.AmthalFiTafsir.Masaha000554Vols-ara1",
-      "reason": "excluded_work:NasirMakarimShirazi.AmthalFiTafsir"
-    }
-  ],
-  "selected": [
-    {
-      "book_id": "openiti-auto-eaf902bd95ee7aa0",
-      "title": "Idah Masalik",
-      "title_ar": "إيضاح المسالك إلى قواعد الإمام مالك ت بو طاهر",
-      "author": "Ibn Yahya Wansharisi",
-      "discipline": "Fiqh",
-      "openiti_uri": "0914IbnYahyaWansharisi.IdahMasalik.Sham19Y0132374-ara1",
-      "source_char_length": 88423
-    },
-    {
-      "book_id": "openiti-auto-8f55b6b5a2b1b8ef",
-      "title": "Taqrib Tahdhib",
-      "title_ar": "تقريب التهذيب",
-      "author": "Ibn Hajar Casqalani",
-      "discipline": "Hadith",
-      "openiti_uri": "0852IbnHajarCasqalani.TaqribTahdhib.JK000121-ara1",
-      "source_char_length": 807415
-    },
-    {
-      "book_id": "openiti-auto-4b962b153e28e832",
-      "title": "Mukhtasar Tafsir Ibn Kathir",
-      "title_ar": "مختصر تفسير ابن كثير",
-      "author": "Muhammad Cali Sabuni",
-      "discipline": "Tafsīr",
-      "openiti_uri": "1442MuhammadCaliSabuni.MukhtasarTafsirIbnKathir.Tafsir09084-ara1",
-      "source_char_length": 3321010
-    },
-    {
-      "book_id": "openiti-auto-e9f6404e51902cae",
-      "title": "Ictiqad Salaf Fi Huruf",
-      "title_ar": "جزء فيه ذكر اعتقاد السلف في الحروف والأصوات",
-      "author": "Nawawi",
-      "discipline": "ʿAqīda",
-      "openiti_uri": "0676Nawawi.IctiqadSalafFiHuruf.Shamela0011137-ara1",
-      "source_char_length": 46904
-    },
-    {
-      "book_id": "openiti-auto-e4d3a47e2b11f6a2",
-      "title": "Tarikh",
-      "title_ar": "تاريخ الأنطاكي المعروف بصلة تاريخ أوتيخاء",
-      "author": "Yahya Ibn Sacid Antaki",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0458YahyaIbnSacidAntaki.Tarikh.Sham19Y0014512BK1-ara1",
-      "source_char_length": 280284
-    },
+  "discipline_overrides_applied": [
     {
       "book_id": "openiti-auto-65b6ff1a2488c102",
-      "title": "Kitāb Faḍā'il al-ṣaḥāba",
-      "title_ar": "كتاب فضائل الصحاب",
-      "author": "Nasai",
-      "discipline": "Fiqh",
-      "openiti_uri": "0303Nasai.FadailSahaba.JK000747-ara1",
-      "source_char_length": 81056
+      "work_uri": "0303Nasai.FadailSahaba",
+      "from": "Fiqh",
+      "to": "Hadith",
+      "subject": "hadith",
+      "reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."
     },
     {
       "book_id": "openiti-auto-38ddf90cc1f471df",
-      "title": "Kunuz Dhahab",
-      "title_ar": "كنوز الذهب في تاريخ حلب",
-      "author": "Abu Dharr Sibt Ibn Cajami",
-      "discipline": "Hadith",
-      "openiti_uri": "0884AbuDharrSibtIbnCajami.KunuzDhahab.Shamela0011786-ara1",
-      "source_char_length": 607573
-    },
-    {
-      "book_id": "openiti-auto-32fa02bba3d5bc51",
-      "title": "Tafsir Wasit",
-      "title_ar": "الوسيط في تفسير القرآن الكريم",
-      "author": "Muhammad Sayyid Tantawi",
-      "discipline": "Tafsīr",
-      "openiti_uri": "1431MuhammadSayyidTantawi.TafsirWasit.Tafsir07057-ara1",
-      "source_char_length": 7131220
-    },
-    {
-      "book_id": "openiti-auto-0325f269d57a5dc0",
-      "title": "Ictiqad Qadiri",
-      "title_ar": "الاعتقاد القادري",
-      "author": "Ibn Hasan Baqillani Baghdadi",
-      "discipline": "ʿAqīda",
-      "openiti_uri": "0489IbnHasanBaqillaniBaghdadi.IctiqadQadiri.Shamela0026421-ara1",
-      "source_char_length": 44354
-    },
-    {
-      "book_id": "openiti-auto-ce6ba79e6196e98f",
-      "title": "Tarikh Dawlat Al Saljuq",
-      "title_ar": "تاريخ دولة آل سلجوق",
-      "author": "Cimad Din Katib Isfahani",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0597CimadDinKatibIsfahani.TarikhDawlatAlSaljuq.ShamAY0033830-ara1",
-      "source_char_length": 262433
+      "work_uri": "0884AbuDharrSibtIbnCajami.KunuzDhahab",
+      "from": "Hadith",
+      "to": "Sīra et histoire",
+      "subject": "sira",
+      "reason": "Revue bibliographique : chronique historique de la ville d'Alep."
     }
   ],
+  "pruned": [],
+  "selected": [],
   "dry_run": false
 }

@@ -3,7 +3,7 @@
   "source": "OpenITI automatic promotion queue",
   "source_repository": "https://github.com/OpenITI/RELEASE",
   "release_commit": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "notice": "Sélection automatique limitée aux références savantes identifiées par les métadonnées OpenITI. Discipline = indice automatique, madhhab laissé vide sans donnée explicite.",
+  "notice": "Sélection automatique limitée aux références savantes identifiées par les métadonnées OpenITI. Discipline = indice automatique ou correction documentaire explicitement revue ; madhhab laissé vide sans donnée explicite.",
   "books": [
     {
       "book_id": "openiti-auto-1f9d22598f30cb14",
@@ -3001,7 +3001,7 @@
       "title": "Kitāb Faḍā'il al-ṣaḥāba",
       "title_ar": "كتاب فضائل الصحاب",
       "author": "Nasai",
-      "discipline": "Fiqh",
+      "discipline": "Hadith",
       "madhhab": "",
       "openiti_uri": "0303Nasai.FadailSahaba.JK000747-ara1",
       "work_uri": "0303Nasai.FadailSahaba",
@@ -3013,13 +3013,17 @@
         "source": "OpenITI",
         "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
         "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "fiqh",
+        "classification_status": "reviewed_policy_override",
+        "classification_subject": "hadith",
         "source_char_length": 81056,
         "source_token_length": 21506,
         "source_id": "JK000747",
-        "date_ah": "0303"
-      }
+        "date_ah": "0303",
+        "classification_reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."
+      },
+      "subject": "hadith",
+      "classification_status": "reviewed_policy_override",
+      "classification_reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."
     },
     {
       "book_id": "openiti-auto-38ddf90cc1f471df",
@@ -3027,7 +3031,7 @@
       "title": "Kunuz Dhahab",
       "title_ar": "كنوز الذهب في تاريخ حلب",
       "author": "Abu Dharr Sibt Ibn Cajami",
-      "discipline": "Hadith",
+      "discipline": "Sīra et histoire",
       "madhhab": "",
       "openiti_uri": "0884AbuDharrSibtIbnCajami.KunuzDhahab.Shamela0011786-ara1",
       "work_uri": "0884AbuDharrSibtIbnCajami.KunuzDhahab",
@@ -3039,13 +3043,17 @@
         "source": "OpenITI",
         "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
         "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "hadith",
+        "classification_status": "reviewed_policy_override",
+        "classification_subject": "sira",
         "source_char_length": 607573,
         "source_token_length": 142356,
         "source_id": "Shamela0011786",
-        "date_ah": "0884"
-      }
+        "date_ah": "0884",
+        "classification_reason": "Revue bibliographique : chronique historique de la ville d'Alep."
+      },
+      "subject": "sira",
+      "classification_status": "reviewed_policy_override",
+      "classification_reason": "Revue bibliographique : chronique historique de la ville d'Alep."
     },
     {
       "book_id": "openiti-auto-32fa02bba3d5bc51",
