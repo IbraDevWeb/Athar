@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "hosted": {
     "target_openiti_books": 195,
     "minimum_openiti_books": 195,
@@ -35,7 +35,13 @@
       "MuhassinTanukhi.FarajBacdaShidda",
       "AbuMansurThacalibi.FiqhLugha",
       "MujirDinCulaymi.TarikhMuctabar",
-      "NasirMakarimShirazi.AmthalFiTafsir"
+      "NasirMakarimShirazi.AmthalFiTafsir",
+      "SayyidTabatabai.TafsirMizan",
+      "BahaDinNiliNajafi.SururAhlIman",
+      "SultanCaliShahGanabadhi.TafsirBayanSacada",
+      "QutbAtfayyish.TaysirTafsir",
+      "Zubaydi.TabaqatNahwiyyinWaLughawiyyin",
+      "AbuQasimAmidi.MutalifWaMukhtalif"
     ],
     "discipline_overrides": {
       "Nasai.FadailSahaba": {
@@ -47,6 +53,31 @@
         "subject": "sira",
         "discipline": "Sīra et histoire",
         "reason": "Revue bibliographique : chronique historique de la ville d'Alep."
+      },
+      "IbnHanbal.JamicFiCilal": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : ouvrage sur les défauts des hadiths et la connaissance des transmetteurs."
+      },
+      "IbnQunfudh.Wafayat": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : dictionnaire chronologique de décès de Compagnons, traditionnistes, juristes et auteurs."
+      },
+      "Sahmi.TarikhJurjan": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : histoire et biographies savantes de Jurjan."
+      },
+      "IbnCasakir.ArbacunaFiHathth": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : recueil de quarante traditions."
+      },
+      "IbnAbiDunya.DhammMuskir": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : recueil de traditions et athar sur les boissons enivrantes."
       }
     }
   },
