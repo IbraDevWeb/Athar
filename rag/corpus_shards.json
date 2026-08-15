@@ -1,11 +1,11 @@
 {
-  "version": 1,
+  "version": 2,
   "strategy": "append-friendly-manifest-order-v1",
-  "source": "Athar OpenITI industrial manifest",
+  "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "total_books": 95,
+  "total_books": 100,
   "total_shards": 3,
-  "hosted_target_openiti_books": 95,
+  "hosted_target_openiti_books": 100,
   "future_target_books": 500,
   "limits": {
     "max_books_per_shard": 40,
@@ -686,7 +686,7 @@
     },
     {
       "id": "openiti-003",
-      "book_count": 15,
+      "book_count": 20,
       "source_chars": 18306316,
       "oversize_source": false,
       "subjects": {
@@ -694,7 +694,7 @@
         "fiqh": 3,
         "hadith": 3,
         "sira": 3,
-        "tafsir": 3
+        "tafsir": 8
       },
       "books": [
         {
@@ -816,6 +816,46 @@
           "author": "Ibn Muhibb Samit",
           "discipline": "ʿAqīda",
           "source_chars": 202425
+        },
+        {
+          "book_id": "openiti-baghawi-tafsir",
+          "title": "Ma'alim al-Tanzil",
+          "title_ar": "معالم التنزيل",
+          "author": "Al-Baghawi",
+          "discipline": "Tafsir",
+          "source_chars": 0
+        },
+        {
+          "book_id": "openiti-zamakhshari-kashshaf",
+          "title": "Al-Kashshaf",
+          "title_ar": "الكشاف",
+          "author": "Al-Zamakhshari",
+          "discipline": "Tafsir et langue arabe",
+          "source_chars": 0
+        },
+        {
+          "book_id": "openiti-razi-mafatih-ghayb",
+          "title": "Mafatih al-Ghayb",
+          "title_ar": "مفاتيح الغيب",
+          "author": "Fakhr al-Din al-Razi",
+          "discipline": "Tafsir et kalam",
+          "source_chars": 0
+        },
+        {
+          "book_id": "openiti-ibn-atiyya-muharrar-wajiz",
+          "title": "Al-Muharrar al-Wajiz",
+          "title_ar": "المحرر الوجيز",
+          "author": "Ibn Atiyya al-Andalusi",
+          "discipline": "Tafsir",
+          "source_chars": 0
+        },
+        {
+          "book_id": "openiti-abu-hayyan-bahr-muhit",
+          "title": "Al-Bahr al-Muhit",
+          "title_ar": "البحر المحيط",
+          "author": "Abu Hayyan al-Gharnati",
+          "discipline": "Tafsir et langue arabe",
+          "source_chars": 0
         }
       ]
     }
@@ -915,6 +955,11 @@
     "openiti-auto-ae408e9530aaad1b": "openiti-003",
     "openiti-auto-30eb530b8fcbbda0": "openiti-003",
     "openiti-auto-a683ae6334ad806a": "openiti-003",
-    "openiti-auto-fffdd51749e9523a": "openiti-003"
+    "openiti-auto-fffdd51749e9523a": "openiti-003",
+    "openiti-baghawi-tafsir": "openiti-003",
+    "openiti-zamakhshari-kashshaf": "openiti-003",
+    "openiti-razi-mafatih-ghayb": "openiti-003",
+    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-003",
+    "openiti-abu-hayyan-bahr-muhit": "openiti-003"
   }
 }
