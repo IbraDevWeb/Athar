@@ -1,8 +1,10 @@
 Athar corpus deployment trigger
-corpus_source_commit=34179c7798ff8c89adda8e1ecb9603e72b1c01cf
-release_manifest_commit=3838ebdc8255dc05cd362c343839132792694698
-target_openiti_books=175
-total_books=177
-chunks=452248
+corpus_source_commit=0d17bcfdefcd8e76264208cdd0b292e9ab50e0fb
+release_manifest_commit=1a5f0f0ce2c7f4d0b3a51038f22719d907a8b79b
+target_openiti_books=200
+total_books=202
+chunks=493749
 shards=6
-reason=Render did not redeploy after the GitHub Actions bot committed the V3 release manifest; this reviewed commit exists only to trigger the configured rag/** Render build filter.
+reused_shards=4
+rebuilt_shards=2
+reason=Render must reload the reviewed V3 release after the GitHub Actions bot committed the incremental corpus manifest; this reviewed commit exists only to trigger the configured rag/** Render build filter.
