@@ -8,6 +8,8 @@ on:
       - 'rag/corpus_policy.json'
       - 'rag/corpus_approval.json'
       - 'rag/openiti_catalog.py'
+      - 'rag/corpus_candidate_guard.py'
+      - 'rag/corpus_candidate_guard_tests.py'
       - 'rag/corpus_industrializer.py'
       - 'rag/corpus_industrializer_tests.py'
       - 'rag/openiti_books_auto.json'
@@ -26,6 +28,8 @@ on:
       - 'rag/corpus_policy.json'
       - 'rag/corpus_approval.json'
       - 'rag/openiti_catalog.py'
+      - 'rag/corpus_candidate_guard.py'
+      - 'rag/corpus_candidate_guard_tests.py'
       - 'rag/corpus_industrializer.py'
       - 'rag/corpus_industrializer_tests.py'
       - 'rag/openiti_books_auto.json'
@@ -58,6 +62,8 @@ jobs:
         run: >-
           python -m py_compile
           rag/openiti_catalog.py
+          rag/corpus_candidate_guard.py
+          rag/corpus_candidate_guard_tests.py
           rag/corpus_industrializer.py
           rag/ingest_openiti.py
           rag/build_hosted_corpus.py
@@ -68,7 +74,9 @@ jobs:
 
       - name: Run deterministic catalogue and promotion tests
         working-directory: rag
-        run: python corpus_industrializer_tests.py
+        run: |
+          python corpus_industrializer_tests.py
+          python corpus_candidate_guard_tests.py
 
       - name: Run compressed release cache tests
         working-directory: rag
@@ -91,6 +99,8 @@ jobs:
           assert int(policy['hosted']['target_openiti_books']) >= int(policy['hosted']['minimum_openiti_books'])
           assert int(policy['hosted']['max_sqlite_bytes']) > 0
           assert 'Zaydiyya' in policy['promotion'].get('excluded_source_markers', [])
+          excluded_works = policy['promotion'].get('excluded_work_markers', [])
+          assert 'IbnYacqubKulayni' in excluded_works or 'UsulMinKafi' in excluded_works
           assert all(not str(book.get('madhhab') or '').strip() for book in auto.get('books', []))
           approved_blob = str(approval.get('approved_auto_manifest_blob') or '')
           assert not approved_blob or re.fullmatch(r'[0-9a-f]{40}', approved_blob)
