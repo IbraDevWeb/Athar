@@ -7,6 +7,9 @@ on:
       - 'rag/corpus_sources.json'
       - 'rag/corpus_policy.json'
       - 'rag/corpus_approval.json'
+      - 'rag/corpus_reference_checklist.json'
+      - 'rag/corpus_coverage_audit.py'
+      - 'rag/corpus_coverage_audit_tests.py'
       - 'rag/openiti_catalog.py'
       - 'rag/corpus_candidate_guard.py'
       - 'rag/corpus_candidate_guard_tests.py'
@@ -29,6 +32,7 @@ on:
       - 'rag/sharded_corpus_tests.py'
       - '.github/workflows/grow-openiti-corpus.yml'
       - '.github/workflows/build-rag-corpus.yml'
+      - '.github/workflows/corpus-coverage-audit.yml'
       - '.github/workflows/corpus-industrialization-tests.yml'
   push:
     branches: [main]
@@ -36,6 +40,9 @@ on:
       - 'rag/corpus_sources.json'
       - 'rag/corpus_policy.json'
       - 'rag/corpus_approval.json'
+      - 'rag/corpus_reference_checklist.json'
+      - 'rag/corpus_coverage_audit.py'
+      - 'rag/corpus_coverage_audit_tests.py'
       - 'rag/openiti_catalog.py'
       - 'rag/corpus_candidate_guard.py'
       - 'rag/corpus_candidate_guard_tests.py'
@@ -58,6 +65,7 @@ on:
       - 'rag/sharded_corpus_tests.py'
       - '.github/workflows/grow-openiti-corpus.yml'
       - '.github/workflows/build-rag-corpus.yml'
+      - '.github/workflows/corpus-coverage-audit.yml'
       - '.github/workflows/corpus-industrialization-tests.yml'
   workflow_dispatch:
 
@@ -85,6 +93,8 @@ jobs:
           rag/corpus_industrializer.py
           rag/corpus_shards.py
           rag/corpus_shards_tests.py
+          rag/corpus_coverage_audit.py
+          rag/corpus_coverage_audit_tests.py
           rag/ingest_openiti.py
           rag/build_hosted_corpus.py
           rag/build_sharded_corpus.py
@@ -97,12 +107,16 @@ jobs:
           rag/corpus_release_cache_tests.py
           rag/sharded_corpus_tests.py
 
-      - name: Run deterministic catalogue, promotion and sharding tests
+      - name: Run deterministic catalogue, promotion, sharding and coverage tests
         working-directory: rag
         run: |
           python corpus_industrializer_tests.py
           python corpus_candidate_guard_tests.py
           python corpus_shards_tests.py
+          python corpus_coverage_audit_tests.py
+
+      - name: Generate coverage audit as a smoke test
+        run: python rag/corpus_coverage_audit.py --json /tmp/corpus_coverage_audit.json --markdown /tmp/CORPUS_COVERAGE.md
 
       - name: Run compressed release cache tests
         working-directory: rag
@@ -126,6 +140,7 @@ jobs:
           sources = json.loads(Path('rag/corpus_sources.json').read_text(encoding='utf-8'))
           approval = json.loads(Path('rag/corpus_approval.json').read_text(encoding='utf-8'))
           auto = json.loads(Path('rag/openiti_books_auto.json').read_text(encoding='utf-8'))
+          checklist = json.loads(Path('rag/corpus_reference_checklist.json').read_text(encoding='utf-8'))
           assert sources['sources']['kutub']['automation_policy'] == 'respect_robots'
           assert int(policy['hosted']['target_openiti_books']) >= int(policy['hosted']['minimum_openiti_books'])
           assert int(policy['hosted']['expected_openiti_books_after_tafsir']) >= int(policy['hosted']['target_openiti_books'])
@@ -134,6 +149,8 @@ jobs:
           assert int(policy['sharding']['max_books_per_shard']) > 0
           assert int(policy['sharding']['max_source_chars_per_shard']) > 0
           assert int(policy['sharding']['future_target_books']) >= 500
+          assert len(checklist.get('works', [])) >= 40
+          assert all(item.get('match_any') for item in checklist.get('works', []))
           excluded_sources = set(policy['promotion'].get('excluded_source_markers', []))
           assert {'Zaydiyya', 'Shia', 'Ibadiyya'} <= excluded_sources
           excluded_works = policy['promotion'].get('excluded_work_markers', [])
