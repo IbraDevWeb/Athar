@@ -34,6 +34,15 @@ const scholarTranslation = read('rag/v5_scholar_translation.py');
 ].forEach(token => need(scholarTranslation, token, 'rag/v5_scholar_translation.py'));
 reject(scholarTranslation, /MyMemory|translated\.net|mymemory/i, 'rag/v5_scholar_translation.py');
 
+const scholarSynthesis = read('rag/v5_scholar_synthesis.py');
+[
+    'Grounded LLM synthesis for Athar Research', 'MAX_SYNTHESIS_SOURCES = 10', 'MAX_CONTEXT_CHARS = 36_000',
+    'Use ONLY the supplied passages', 'Do not use general knowledge', 'Every position MUST cite one or more supplied source IDs',
+    'do not issue a new fatwa', 'ScholarSynthesisError', 'select_synthesis_sources', 'synthesize_from_sources',
+    'responseMimeType', 'responseSchema', 'GEMINI_API_KEY', 'source_ids', 'position_status'
+].forEach(token => need(scholarSynthesis, token, 'rag/v5_scholar_synthesis.py'));
+reject(scholarSynthesis, /MyMemory|translated\.net|mymemory|web\.run|requests\.get/i, 'rag/v5_scholar_synthesis.py');
+
 const server = read('rag/v5_server.py');
 [
     'ENGINE_MARKER = "rag-v5-hybrid-multilingual"', 'engine_version', 'runtime_profile',
@@ -63,8 +72,10 @@ reject(library, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library.p
 const libraryServer = read('rag/v5_library_server.py');
 [
     '/api/rag/v5/library-books', '/api/rag/v5/book', '/api/rag/v5/read', '/api/rag/v5/toc', '/api/rag/v5/book-search',
-    'class Handler(BaseHandler)', 'library_gate', 'translation_gate', 'library_books_payload', 'open_connection(self.db_path)',
-    'AtharRAG/5.6-library-scholar-translation', 'configure_server_corpus', 'book_connection(book_id)'
+    '/api/rag/v5/synthesize', 'class Handler(BaseHandler)', 'library_gate', 'translation_gate', 'synthesis_gate',
+    'library_books_payload', 'open_connection(self.db_path)', 'AtharRAG/5.7-library-grounded-synthesis',
+    'configure_server_corpus', 'book_connection(book_id)', '_retrieve_for_synthesis', 'select_synthesis_sources',
+    'synthesize_from_sources(query, synthesis_sources)', 'The client cannot inject sources', 'llm_grounded_synthesis'
 ].forEach(token => need(libraryServer, token, 'rag/v5_library_server.py'));
 reject(libraryServer, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library_server.py');
 
@@ -89,6 +100,15 @@ const view = read('js/components/ScholarLibraryV4View.js');
     'source_id: source.id', 'book_id: source.book_id', 'selectedTranslation'
 ].forEach(token => need(view, token, 'ScholarLibraryV4View.js / Athar Research'));
 reject(view, /\/api\/rag\/v2\/|localFallback|embedded_fallback|rag\/seed\.json|Moteur V4 connecté|MyMemory/i, 'Athar Research frontend');
+
+const synthesisBridge = read('js/components/ScholarSynthesisBridge.js');
+[
+    '/api/rag/v5/synthesize', "answerMode.value === 'synthesis'", 'runSynthesis', 'runQuestion',
+    'Synthèse IA', 'Passages uniquement', 'Positions retrouvées', 'Convergences', 'Divergences',
+    'selectSynthesisSource', 'synthesis_source_ids', 'Recherche des passages dans le corpus',
+    'The endpoint performs retrieval first, then synthesizes only its own RAG results.'
+].forEach(token => need(synthesisBridge, token, 'ScholarSynthesisBridge.js'));
+reject(synthesisBridge, /sources\s*:\s*(base\.|payload|\[)|text_ar\s*:/i, 'ScholarSynthesisBridge.js');
 
 const bootstrap = read('js/components/ScholarV4Bootstrap.js');
 [
@@ -167,6 +187,12 @@ const translationStyle = read('css/athar-research-translation.css');
     '.ar5-translation-terms', '.ar5-translation-uncertainties', '.ar5-translation-notice', '@media (max-width: 767px)'
 ].forEach(token => need(translationStyle, token, 'css/athar-research-translation.css'));
 
+const synthesisStyle = read('css/athar-research-synthesis.css');
+[
+    '.ar5-answer-modes', '.ar5-synthesis', '.ar5-position-card', '.ar5-position-citations',
+    '.ar5-synthesis-compare', '.ar5-synthesis-limits', '.ar5-synthesis-fallback', '@media (max-width: 760px)'
+].forEach(token => need(synthesisStyle, token, 'css/athar-research-synthesis.css'));
+
 const render = read('render.yaml');
 [
     'python rag/v5_library_server.py --host 0.0.0.0 --api-only',
@@ -179,17 +205,21 @@ reject(render, /ATHAR_DB_PATH|athar_hosted\.sqlite\.gz/, 'render.yaml');
 const config = read('js/config.js');
 [
     "const APP_VERSION = 'athar-pro-v36'",
-    "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-1'",
+    "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-2'",
     "writeEarlyScript('js/components/ScholarLibraryV4View.js'",
+    "writeEarlyScript('js/components/ScholarSynthesisBridge.js'",
     "writeEarlyScript('js/components/ScholarV4Bootstrap.js'",
-    "css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}"
+    "css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}",
+    'css/athar-research-synthesis.css?v=athar-research-synthesis-1'
 ].forEach(token => need(config, token, 'js/config.js'));
 reject(config, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js|scholar-library-v2\.css|scholar-v2-integration\.css/i, 'js/config.js');
 
 const worker = read('service-worker.js');
 need(worker, "const CACHE_VERSION = 'athar-pro-v36'", 'service-worker.js');
-need(worker, './css/athar-research-v5.css?v=athar-research-v5-ui-1', 'service-worker.js');
-need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-1', 'service-worker.js');
+need(worker, './css/athar-research-v5.css?v=athar-research-v5-ui-2', 'service-worker.js');
+need(worker, './css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'service-worker.js');
+need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-2', 'service-worker.js');
+need(worker, './js/components/ScholarSynthesisBridge.js?v=athar-research-v5-ui-2', 'service-worker.js');
 need(worker, './research-library.html', 'service-worker.js');
 need(worker, './css/research-library-v2.css?v=athar-reader-v2', 'service-worker.js');
 need(worker, './js/research-library-v2.js?v=athar-reader-v2', 'service-worker.js');
@@ -219,4 +249,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Athar V5 sharded RSS', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — reader translation by passage/page, full-screen access on new tools, sharded Render deployment and contextual LLM safeguards.');
+console.log('Athar Research V5 static contract valid — grounded AI synthesis after RAG retrieval, cited positions, reader translation, full-screen access and sharded low-memory deployment.');
