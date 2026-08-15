@@ -1,0 +1,8 @@
+{
+  "version": "2.0",
+  "source": "OpenITI automatic promotion queue",
+  "source_repository": "https://github.com/OpenITI/RELEASE",
+  "release_commit": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+  "notice": "File de croissance industrialisée. Les disciplines ajoutées ici sont des indices automatiques issus des métadonnées OpenITI ; aucun madhhab n'est inventé.",
+  "books": []
+}
