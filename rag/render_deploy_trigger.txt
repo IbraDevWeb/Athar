@@ -1,0 +1,8 @@
+Athar corpus deployment trigger
+corpus_source_commit=34179c7798ff8c89adda8e1ecb9603e72b1c01cf
+release_manifest_commit=3838ebdc8255dc05cd362c343839132792694698
+target_openiti_books=175
+total_books=177
+chunks=452248
+shards=6
+reason=Render did not redeploy after the GitHub Actions bot committed the V3 release manifest; this reviewed commit exists only to trigger the configured rag/** Render build filter.
