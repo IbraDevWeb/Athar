@@ -24,9 +24,12 @@ def load_json(path: Path, default: dict[str, Any] | None = None) -> dict[str, An
     return payload
 
 
+def identity_manifests() -> list[Path]:
+    return [path for path in sorted(RAG_DIR.glob("openiti_books*.json")) if path.name != AUTO_MANIFEST.name]
+
+
 def configured_manifests() -> list[Path]:
-    paths = sorted(RAG_DIR.glob("openiti_books*.json"))
-    return [path for path in paths if path.name != AUTO_MANIFEST.name and "tafsir" not in path.stem]
+    return [path for path in identity_manifests() if "tafsir" not in path.stem]
 
 
 def configured_book_count() -> int:
@@ -40,7 +43,7 @@ def existing_identity(auto_payload: dict[str, Any] | None = None) -> tuple[set[s
     work_uris: set[str] = set()
     version_uris: set[str] = set()
     book_ids: set[str] = set()
-    payloads = [load_json(path) for path in configured_manifests()]
+    payloads = [load_json(path) for path in identity_manifests()]
     if auto_payload is None:
         auto_payload = load_json(AUTO_MANIFEST, {"books": []})
     payloads.append(auto_payload)
