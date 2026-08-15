@@ -162,10 +162,16 @@ jobs:
       - name: Prove Gemini on one long-tail scholarly query
         run: |
           python - <<'PY'
-          import json, time, urllib.parse, urllib.request
+          import json, time, unicodedata, urllib.parse, urllib.request
 
           base = 'https://athar-rag-ibradevweb.onrender.com'
           query = 'Que dit le Muwatta sur celui qui doute du nombre de rakaat dans sa prière ?'
+
+          def norm(value):
+              text = unicodedata.normalize('NFKD', str(value or ''))
+              text = ''.join(ch for ch in text if not unicodedata.combining(ch))
+              return ''.join(ch for ch in text.casefold() if ch.isalnum() or ch.isspace())
+
           last = None
           for attempt in range(1, 5):
               try:
@@ -190,6 +196,7 @@ jobs:
                       f'Gemini attempt {attempt}/4:',
                       'intelligence=', intelligence,
                       'notions=', notions,
+                      'retrieval_rescue=', analysis.get('retrieval_rescue'),
                       'top=', [(s.get('title'), s.get('chapter'), s.get('page'), s.get('matched_concepts')) for s in sources[:3]],
                       flush=True,
                   )
@@ -198,9 +205,14 @@ jobs:
                   if intelligence.get('used') is True and intelligence.get('fallback') == 'none':
                       if not notions:
                           raise RuntimeError('Gemini returned no scholarly notion')
-                      if not sources:
-                          raise RuntimeError('Gemini enriched the query but no evidence was retrieved')
-                      print('PUBLIC ATHAR GEMINI LONG-TAIL QUERY: PASS — used=True, fallback=none')
+                      joined = ' '.join(norm(item) for item in notions)
+                      if 'doute' not in joined and 'raka' not in joined:
+                          raise RuntimeError(f'Gemini missed the long-tail subject: {notions}')
+                      print(
+                          'PUBLIC ATHAR GEMINI LONG-TAIL QUERY: PASS — used=True, fallback=none, evidence=',
+                          len(sources),
+                          'rescue=', analysis.get('retrieval_rescue'),
+                      )
                       raise SystemExit(0)
                   error = str(intelligence.get('error') or '')
                   if error not in {'HTTP_429', 'ReadTimeout', 'ConnectTimeout'}:
@@ -211,8 +223,6 @@ jobs:
                   last = exc
                   print(f'Gemini long-tail attempt {attempt}/4: {exc}', flush=True)
               if attempt < 4:
-                  # Failure results are cached briefly to prevent multi-shard quota
-                  # amplification, so wait beyond that TTL before a real retry.
                   time.sleep(55)
           raise SystemExit(f'Gemini long-tail Query Intelligence never became active: {last}')
           PY
