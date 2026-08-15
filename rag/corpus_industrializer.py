@@ -74,6 +74,7 @@ def stable_book_id(version_uri: str) -> str:
 
 def manifest_book(candidate: dict[str, Any], release_ref: str) -> dict[str, Any]:
     flags = [str(flag) for flag in candidate.get("quality_flags") or []]
+    classification_status = str(candidate.get("classification_status") or "automatic_metadata_hint")
     return {
         "book_id": stable_book_id(str(candidate["version_uri"])),
         "kutub_id": None,
@@ -92,8 +93,9 @@ def manifest_book(candidate: dict[str, Any], release_ref: str) -> dict[str, Any]
             "source": "OpenITI",
             "source_release": release_ref,
             "catalogue_selection": "athar-corpus-industrializer-v2",
-            "classification_status": "automatic_metadata_hint",
+            "classification_status": classification_status,
             "classification_subject": str(candidate.get("subject") or ""),
+            "classification_reason": str(candidate.get("classification_reason") or ""),
             "source_char_length": int(candidate.get("char_length") or 0),
             "source_token_length": int(candidate.get("token_length") or 0),
             "source_id": str(candidate.get("source_id") or ""),
@@ -124,6 +126,54 @@ def _auto_haystack(book: dict[str, Any]) -> str:
     return " ".join(str(value or "") for value in values).casefold()
 
 
+def _matches_work_marker(work_uri: str, marker: str) -> bool:
+    value = str(marker or "").strip()
+    if not value:
+        return False
+    work = str(work_uri or "").strip()
+    if value.casefold() in work.casefold():
+        return True
+    compact_marker = "".join(character for character in value.casefold() if character.isalnum())
+    compact_work = "".join(character for character in work.casefold() if character.isalnum())
+    return bool(compact_marker and compact_marker in compact_work)
+
+
+def discipline_override(book: dict[str, Any], promotion: dict[str, Any]) -> tuple[dict[str, Any], dict[str, str] | None]:
+    """Apply an exact reviewed discipline correction without inventing madhhab metadata."""
+    overrides = promotion.get("discipline_overrides") or {}
+    if not isinstance(overrides, dict):
+        return dict(book), None
+    work_uri = str(book.get("work_uri") or "")
+    for marker, raw_override in overrides.items():
+        if not _matches_work_marker(work_uri, str(marker)) or not isinstance(raw_override, dict):
+            continue
+        subject = str(raw_override.get("subject") or "").strip()
+        discipline = str(raw_override.get("discipline") or "").strip()
+        if subject not in SUBJECT_ORDER or not discipline:
+            continue
+        normalized = dict(book)
+        before = str(normalized.get("discipline") or "")
+        normalized["subject"] = subject
+        normalized["discipline"] = discipline
+        normalized["classification_status"] = "reviewed_policy_override"
+        normalized["classification_reason"] = str(raw_override.get("reason") or "").strip()
+        metadata = dict(normalized.get("metadata") or {}) if isinstance(normalized.get("metadata"), dict) else {}
+        if metadata or "metadata" in normalized:
+            metadata["classification_subject"] = subject
+            metadata["classification_status"] = "reviewed_policy_override"
+            metadata["classification_reason"] = str(raw_override.get("reason") or "").strip()
+            normalized["metadata"] = metadata
+        return normalized, {
+            "book_id": str(normalized.get("book_id") or ""),
+            "work_uri": work_uri,
+            "from": before,
+            "to": discipline,
+            "subject": subject,
+            "reason": str(raw_override.get("reason") or "").strip(),
+        }
+    return dict(book), None
+
+
 def existing_auto_rejection(book: dict[str, Any], promotion: dict[str, Any]) -> str:
     """Re-evaluate staged books when policy becomes stricter before approval."""
     haystack = _auto_haystack(book)
@@ -135,9 +185,7 @@ def existing_auto_rejection(book: dict[str, Any], promotion: dict[str, Any]) -> 
         value = str(marker or "").strip()
         if value and value.casefold() in haystack:
             return f"excluded_work:{value}"
-        compact_marker = "".join(character for character in value.casefold() if character.isalnum())
-        compact_work = "".join(character for character in str(book.get("work_uri") or "").casefold() if character.isalnum())
-        if compact_marker and compact_marker in compact_work:
+        if _matches_work_marker(str(book.get("work_uri") or ""), value):
             return f"excluded_work:{value}"
     return ""
 
@@ -149,15 +197,16 @@ def prune_existing_auto_books(
     kept: list[dict[str, Any]] = []
     removed: list[dict[str, str]] = []
     for book in books:
-        reason = existing_auto_rejection(book, promotion)
+        normalized, _ = discipline_override(book, promotion)
+        reason = existing_auto_rejection(normalized, promotion)
         if not reason:
-            kept.append(book)
+            kept.append(normalized)
             continue
         removed.append(
             {
-                "book_id": str(book.get("book_id") or ""),
-                "title": str(book.get("title") or ""),
-                "openiti_uri": str(book.get("openiti_uri") or ""),
+                "book_id": str(normalized.get("book_id") or ""),
+                "title": str(normalized.get("title") or ""),
+                "openiti_uri": str(normalized.get("openiti_uri") or ""),
                 "reason": reason,
             }
         )
@@ -247,6 +296,15 @@ def promote(
     )
     raw_books = [item for item in auto_payload.get("books") or [] if isinstance(item, dict)]
     books, pruned = prune_existing_auto_books(raw_books, promotion)
+    staged_overrides: list[dict[str, str]] = []
+    for before, after in zip(raw_books, books):
+        if str(before.get("book_id") or "") != str(after.get("book_id") or ""):
+            continue
+        if str(before.get("discipline") or "") != str(after.get("discipline") or ""):
+            _, detail = discipline_override(before, promotion)
+            if detail:
+                staged_overrides.append(detail)
+
     base_books = configured_book_count()
     hosted_target = int(hosted.get("target_openiti_books") or 0)
     target_slots = max(0, hosted_target - base_books - len(books)) if hosted_target else requested_input
@@ -258,13 +316,20 @@ def promote(
         char_budget=char_budget,
         max_auto_books=max_auto_books,
     )
-    promoted = [manifest_book(item, str(catalog.get("release_ref") or "")) for item in selected]
+    normalized_selected: list[dict[str, Any]] = []
+    selected_overrides: list[dict[str, str]] = []
+    for item in selected:
+        normalized, detail = discipline_override(item, promotion)
+        normalized_selected.append(normalized)
+        if detail:
+            selected_overrides.append(detail)
+    promoted = [manifest_book(item, str(catalog.get("release_ref") or "")) for item in normalized_selected]
     next_payload = {
         "version": "2.0",
         "source": "OpenITI automatic promotion queue",
         "source_repository": "https://github.com/OpenITI/RELEASE",
         "release_commit": str(catalog.get("release_ref") or ""),
-        "notice": "Sélection automatique limitée aux références savantes identifiées par les métadonnées OpenITI. Discipline = indice automatique, madhhab laissé vide sans donnée explicite.",
+        "notice": "Sélection automatique limitée aux références savantes identifiées par les métadonnées OpenITI. Discipline = indice automatique ou correction documentaire explicitement revue ; madhhab laissé vide sans donnée explicite.",
         "books": [*books, *promoted],
     }
     report = {
@@ -277,10 +342,11 @@ def promote(
         "requested_batch": requested_input,
         "target_limited_batch": requested,
         "promoted_books": len(promoted),
-        "promoted_source_chars": sum(int(item.get("char_length") or 0) for item in selected),
+        "promoted_source_chars": sum(int(item.get("char_length") or 0) for item in normalized_selected),
         "auto_manifest_books_before": len(raw_books),
         "auto_manifest_books_pruned": len(pruned),
         "auto_manifest_books_after": len(books) + len(promoted),
+        "discipline_overrides_applied": [*staged_overrides, *selected_overrides],
         "pruned": pruned,
         "selected": [
             {
