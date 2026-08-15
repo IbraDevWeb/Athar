@@ -7,16 +7,28 @@
     const originalCreateApp = window.Vue.createApp;
 
     const navMarkup = `
-        <button
-            type="button"
-            data-athar-research-v5-nav
-            @click="setView('rag_v5'); mobileMenuOpen=false"
-            :class="['ar5-nav-entry w-full text-left px-3 py-3 rounded-xl flex items-center gap-3 transition-all duration-200', (viewMode === 'rag_v5' || viewMode === 'rag_v4') ? 'is-active' : '']"
-        >
-            <span class="ar5-nav-mark"><i data-lucide="scan-search"></i></span>
-            <span class="ar5-nav-copy"><small>Moteur documentaire</small><strong>Athar Research</strong></span>
-            <span class="ar5-nav-version">V5</span>
-        </button>
+        <div data-athar-research-v5-nav-group class="space-y-1">
+            <button
+                type="button"
+                data-athar-research-v5-nav
+                @click="setView('rag_v5'); mobileMenuOpen=false"
+                :class="['ar5-nav-entry w-full text-left px-3 py-3 rounded-xl flex items-center gap-3 transition-all duration-200', (viewMode === 'rag_v5' || viewMode === 'rag_v4') ? 'is-active' : '']"
+            >
+                <span class="ar5-nav-mark"><i data-lucide="scan-search"></i></span>
+                <span class="ar5-nav-copy"><small>Moteur documentaire</small><strong>Athar Research</strong></span>
+                <span class="ar5-nav-version">V5</span>
+            </button>
+            <button
+                type="button"
+                data-athar-library-reader-nav
+                onclick="window.location.href='research-library.html'"
+                class="ar5-nav-entry w-full text-left px-3 py-3 rounded-xl flex items-center gap-3 transition-all duration-200"
+            >
+                <span class="ar5-nav-mark"><i data-lucide="library-big"></i></span>
+                <span class="ar5-nav-copy"><small>Lecture directe</small><strong>Bibliothèque intégrale</strong></span>
+                <span class="ar5-nav-version">LIRE</span>
+            </button>
+        </div>
     `;
 
     const homeFeatureMarkup = `
@@ -25,11 +37,12 @@
                 <div class="ar5-home-copy">
                     <div>
                         <span class="ar5-home-label"><i data-lucide="scan-search"></i>Athar Research · Bibliothèque Savante</span>
-                        <h2>Interroger les ouvrages,<br><em>pas une réponse pré-écrite.</em></h2>
-                        <p>Un espace documentaire séparé de l’encyclopédie classique : recherche multilingue, ciblage d’ouvrage et passages directement traçables vers leurs sources.</p>
+                        <h2>Interroger les ouvrages,<br><em>ou les lire directement.</em></h2>
+                        <p>Un espace documentaire séparé de l’encyclopédie classique : recherche multilingue, ciblage d’ouvrage, lecture directe du corpus et passages traçables vers leurs sources.</p>
                     </div>
                     <div class="ar5-home-actions">
-                        <button type="button" @click="setView('rag_v5')">Ouvrir Athar Research <i data-lucide="arrow-up-right"></i></button>
+                        <button type="button" @click="setView('rag_v5')">Interroger Athar Research <i data-lucide="arrow-up-right"></i></button>
+                        <button type="button" onclick="window.location.href='research-library.html'"><i data-lucide="library-big"></i> Parcourir les ouvrages</button>
                         <button type="button" @click="setView('library')"><i data-lucide="users-round"></i> Bibliothèque des Compagnons</button>
                     </div>
                 </div>
@@ -39,7 +52,7 @@
                     <dl>
                         <div><dt>Moteur</dt><dd>RAG V5</dd></div>
                         <div><dt>Corpus</dt><dd>Ouvrages indexés</dd></div>
-                        <div><dt>Sortie</dt><dd>Passages sourcés</dd></div>
+                        <div><dt>Accès</dt><dd>Recherche + lecture</dd></div>
                     </dl>
                 </aside>
             </div>
@@ -97,7 +110,7 @@
             });
             homeButtons.forEach(button => {
                 const previous = button.previousElementSibling;
-                if (!previous?.matches?.('[data-athar-research-v5-nav]')) button.insertAdjacentHTML('beforebegin', navMarkup);
+                if (!previous?.matches?.('[data-athar-research-v5-nav-group]')) button.insertAdjacentHTML('beforebegin', navMarkup);
             });
         }
     };
