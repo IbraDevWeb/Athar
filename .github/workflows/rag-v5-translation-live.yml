@@ -40,7 +40,11 @@ jobs:
                   payload = exc.read().decode('utf-8', errors='replace')
                   last = (exc.code, payload)
                   print('Attempt', attempt, '=>', exc.code, payload, flush=True)
-                  if exc.code == 400 and 'Identifiant de passage requis' in payload:
+                  validation_error = (
+                      'Identifiant de passage requis' in payload
+                      or "Identifiant d'ouvrage requis" in payload
+                  )
+                  if exc.code == 400 and validation_error:
                       print('PUBLIC ATHAR TRANSLATION ROUTE: READY')
                       raise SystemExit(0)
               except Exception as exc:
