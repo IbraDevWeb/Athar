@@ -1,6 +1,16 @@
 name: RAG V5 low-memory production test
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'rag/v5_server.py'
+      - 'rag/v5_sharded.py'
+      - 'rag/v5_lowmem.py'
+      - 'rag/cache_hosted_corpus.py'
+      - 'rag/corpus_release_v3.json'
+      - 'render.yaml'
+      - '.github/workflows/rag-v5-lowmem.yml'
   push:
     branches: [main]
     paths:
