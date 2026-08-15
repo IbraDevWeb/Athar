@@ -1022,13 +1022,13 @@
     {
       "id": "openiti-004",
       "book_count": 40,
-      "source_chars": 24617406,
+      "source_chars": 21586583,
       "oversize_source": false,
       "subjects": {
-        "aqida": 8,
-        "fiqh": 9,
-        "hadith": 8,
-        "sira": 7,
+        "aqida": 9,
+        "fiqh": 8,
+        "hadith": 7,
+        "sira": 8,
         "tafsir": 8
       },
       "books": [
@@ -1241,14 +1241,6 @@
           "source_chars": 762494
         },
         {
-          "book_id": "openiti-auto-4c469c2d6fb839de",
-          "title": "Khulasat Athar",
-          "title_ar": "",
-          "author": "Muhammad Amin Muhibbi",
-          "discipline": "Hadith",
-          "source_chars": 2676137
-        },
-        {
           "book_id": "openiti-auto-c068dbb501a89dcc",
           "title": "Sharh Muqaddimat Tafsir Suyuti",
           "title_ar": "شرح مقدمة التفسير (النقاية) للسيوطي",
@@ -1257,28 +1249,12 @@
           "source_chars": 126603
         },
         {
-          "book_id": "openiti-auto-025973bebb884e62",
-          "title": "Iman Wa Macrifa Wa Falsafa",
-          "title_ar": "الإيمان والمعرفة والفلسفة",
-          "author": "Muhammad Husayn Haykal",
-          "discipline": "ʿAqīda",
-          "source_chars": 172385
-        },
-        {
           "book_id": "openiti-auto-60a7abe1de6f2b86",
           "title": "Tabaqat Shaficiyya",
           "title_ar": "طبقات الشافعية",
           "author": "Ibn Hasan Jamal Din Isnawi",
           "discipline": "Sīra et histoire",
           "source_chars": 519493
-        },
-        {
-          "book_id": "openiti-auto-b0c67c1eb62ea3bd",
-          "title": "al-Šaqāʾiq al-nuʿmāniyya fī ʿulamāʾ al-dawla al-¶ ʿuṯmāniyya",
-          "title_ar": "الشقائق النعماني في علماء الدول ال¶ عثماني",
-          "author": "Tashkuprizadah",
-          "discipline": "Fiqh",
-          "source_chars": 431290
         },
         {
           "book_id": "openiti-auto-b75b46871147f81a",
@@ -1313,28 +1289,12 @@
           "source_chars": 502400
         },
         {
-          "book_id": "openiti-auto-1b69861a10e37fe2",
-          "title": "Kitāb al-Ḫarāǧ",
-          "title_ar": "كتاب الخراج",
-          "author": "Qudama Ibn Jacfar",
-          "discipline": "Fiqh",
-          "source_chars": 364639
-        },
-        {
           "book_id": "openiti-auto-d97771e13c47f311",
           "title": "āl-āḥād wa al-maṯānī",
           "title_ar": "آلآحاد و المثاني",
           "author": "Ibn Abi Casim",
           "discipline": "Hadith",
           "source_chars": 919773
-        },
-        {
-          "book_id": "openiti-auto-8988ad985ff2a09f",
-          "title": "Tafsir",
-          "title_ar": "تفسير الحبري",
-          "author": "Ibn Hakam Hibari",
-          "discipline": "Tafsīr",
-          "source_chars": 25370
         },
         {
           "book_id": "openiti-auto-8611a96776230d27",
@@ -1345,43 +1305,12 @@
           "source_chars": 84336
         },
         {
-          "book_id": "openiti-auto-7d84ef9bb4410467",
-          "title": "Iḫbār al-ʿulamāʾ bi-aḫbār al-ḥukamāʾ",
-          "title_ar": "اخبار العلماء بأخبار الحكماء",
-          "author": "Ibn Qifti",
-          "discipline": "Sīra et histoire",
-          "source_chars": 422736
-        }
-      ]
-    },
-    {
-      "id": "openiti-005",
-      "book_count": 15,
-      "source_chars": 12878934,
-      "oversize_source": false,
-      "subjects": {
-        "aqida": 2,
-        "fiqh": 2,
-        "hadith": 2,
-        "sira": 2,
-        "tafsir": 7
-      },
-      "books": [
-        {
           "book_id": "openiti-auto-7a687c273d8d1bad",
           "title": "Qawacid Nuraniyya",
           "title_ar": "القواعد النورانية الفقهية",
           "author": "Ibn Taymiyya",
           "discipline": "Fiqh",
           "source_chars": 307469
-        },
-        {
-          "book_id": "openiti-auto-de4f1b33bac91480",
-          "title": "Faraj Bacda Shidda",
-          "title_ar": "الفرج بعد الشدة للتنوخي",
-          "author": "Muhassin Tanukhi",
-          "discipline": "Hadith",
-          "source_chars": 838294
         },
         {
           "book_id": "openiti-auto-b352e3d43116e59a",
@@ -1408,30 +1337,6 @@
           "source_chars": 322437
         },
         {
-          "book_id": "openiti-auto-577bbd4682371250",
-          "title": "Fiqh al-luġaŧ wa sirr al-ʿarabiyyaŧ",
-          "title_ar": "فقه اللغة و سر العربية",
-          "author": "Abu Mansur Thacalibi",
-          "discipline": "Fiqh",
-          "source_chars": 239404
-        },
-        {
-          "book_id": "openiti-auto-b2475b718626f3b1",
-          "title": "Tarikh Muctabar",
-          "title_ar": "التاريخ المعتبر في أنباء من غبر",
-          "author": "Mujir Din Culaymi",
-          "discipline": "Hadith",
-          "source_chars": 822325
-        },
-        {
-          "book_id": "openiti-auto-c3b42bc14437465b",
-          "title": "Amthal Fi Tafsir",
-          "title_ar": "الأمثل في تفسير كتاب الله المنزل - الجزء1",
-          "author": "Nasir Makarim Shirazi",
-          "discipline": "Tafsīr",
-          "source_chars": 9917177
-        },
-        {
           "book_id": "openiti-auto-aeec1b338b226077",
           "title": "Mashruciyyat Ijtihad",
           "title_ar": "مشروعية الاجتهاد في فروع الاعتقاد",
@@ -1446,6 +1351,101 @@
           "author": "Yusuf Hadi",
           "discipline": "Sīra et histoire",
           "source_chars": 297256
+        }
+      ]
+    },
+    {
+      "id": "openiti-005",
+      "book_count": 15,
+      "source_chars": 12670672,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 2,
+        "fiqh": 2,
+        "hadith": 2,
+        "sira": 2,
+        "tafsir": 7
+      },
+      "books": [
+        {
+          "book_id": "openiti-auto-eaf902bd95ee7aa0",
+          "title": "Idah Masalik",
+          "title_ar": "إيضاح المسالك إلى قواعد الإمام مالك ت بو طاهر",
+          "author": "Ibn Yahya Wansharisi",
+          "discipline": "Fiqh",
+          "source_chars": 88423
+        },
+        {
+          "book_id": "openiti-auto-8f55b6b5a2b1b8ef",
+          "title": "Taqrib Tahdhib",
+          "title_ar": "تقريب التهذيب",
+          "author": "Ibn Hajar Casqalani",
+          "discipline": "Hadith",
+          "source_chars": 807415
+        },
+        {
+          "book_id": "openiti-auto-4b962b153e28e832",
+          "title": "Mukhtasar Tafsir Ibn Kathir",
+          "title_ar": "مختصر تفسير ابن كثير",
+          "author": "Muhammad Cali Sabuni",
+          "discipline": "Tafsīr",
+          "source_chars": 3321010
+        },
+        {
+          "book_id": "openiti-auto-e9f6404e51902cae",
+          "title": "Ictiqad Salaf Fi Huruf",
+          "title_ar": "جزء فيه ذكر اعتقاد السلف في الحروف والأصوات",
+          "author": "Nawawi",
+          "discipline": "ʿAqīda",
+          "source_chars": 46904
+        },
+        {
+          "book_id": "openiti-auto-e4d3a47e2b11f6a2",
+          "title": "Tarikh",
+          "title_ar": "تاريخ الأنطاكي المعروف بصلة تاريخ أوتيخاء",
+          "author": "Yahya Ibn Sacid Antaki",
+          "discipline": "Sīra et histoire",
+          "source_chars": 280284
+        },
+        {
+          "book_id": "openiti-auto-65b6ff1a2488c102",
+          "title": "Kitāb Faḍā'il al-ṣaḥāba",
+          "title_ar": "كتاب فضائل الصحاب",
+          "author": "Nasai",
+          "discipline": "Fiqh",
+          "source_chars": 81056
+        },
+        {
+          "book_id": "openiti-auto-38ddf90cc1f471df",
+          "title": "Kunuz Dhahab",
+          "title_ar": "كنوز الذهب في تاريخ حلب",
+          "author": "Abu Dharr Sibt Ibn Cajami",
+          "discipline": "Hadith",
+          "source_chars": 607573
+        },
+        {
+          "book_id": "openiti-auto-32fa02bba3d5bc51",
+          "title": "Tafsir Wasit",
+          "title_ar": "الوسيط في تفسير القرآن الكريم",
+          "author": "Muhammad Sayyid Tantawi",
+          "discipline": "Tafsīr",
+          "source_chars": 7131220
+        },
+        {
+          "book_id": "openiti-auto-0325f269d57a5dc0",
+          "title": "Ictiqad Qadiri",
+          "title_ar": "الاعتقاد القادري",
+          "author": "Ibn Hasan Baqillani Baghdadi",
+          "discipline": "ʿAqīda",
+          "source_chars": 44354
+        },
+        {
+          "book_id": "openiti-auto-ce6ba79e6196e98f",
+          "title": "Tarikh Dawlat Al Saljuq",
+          "title_ar": "تاريخ دولة آل سلجوق",
+          "author": "Cimad Din Katib Isfahani",
+          "discipline": "Sīra et histoire",
+          "source_chars": 262433
         },
         {
           "book_id": "openiti-baghawi-tafsir",
@@ -1637,30 +1637,30 @@
     "openiti-auto-efccb0ad4a1ac254": "openiti-004",
     "openiti-auto-69049254d28939c4": "openiti-004",
     "openiti-auto-73950f53f2cc13a8": "openiti-004",
-    "openiti-auto-4c469c2d6fb839de": "openiti-004",
     "openiti-auto-c068dbb501a89dcc": "openiti-004",
-    "openiti-auto-025973bebb884e62": "openiti-004",
     "openiti-auto-60a7abe1de6f2b86": "openiti-004",
-    "openiti-auto-b0c67c1eb62ea3bd": "openiti-004",
     "openiti-auto-b75b46871147f81a": "openiti-004",
     "openiti-auto-1036ff7d3c118b9c": "openiti-004",
     "openiti-auto-705df19facf69d36": "openiti-004",
     "openiti-auto-5fd97614cc3c2ced": "openiti-004",
-    "openiti-auto-1b69861a10e37fe2": "openiti-004",
     "openiti-auto-d97771e13c47f311": "openiti-004",
-    "openiti-auto-8988ad985ff2a09f": "openiti-004",
     "openiti-auto-8611a96776230d27": "openiti-004",
-    "openiti-auto-7d84ef9bb4410467": "openiti-004",
-    "openiti-auto-7a687c273d8d1bad": "openiti-005",
-    "openiti-auto-de4f1b33bac91480": "openiti-005",
-    "openiti-auto-b352e3d43116e59a": "openiti-005",
-    "openiti-auto-33abc7b51e487910": "openiti-005",
-    "openiti-auto-7959e7267c0a4c18": "openiti-005",
-    "openiti-auto-577bbd4682371250": "openiti-005",
-    "openiti-auto-b2475b718626f3b1": "openiti-005",
-    "openiti-auto-c3b42bc14437465b": "openiti-005",
-    "openiti-auto-aeec1b338b226077": "openiti-005",
-    "openiti-auto-d4ccf6f52da049a0": "openiti-005",
+    "openiti-auto-7a687c273d8d1bad": "openiti-004",
+    "openiti-auto-b352e3d43116e59a": "openiti-004",
+    "openiti-auto-33abc7b51e487910": "openiti-004",
+    "openiti-auto-7959e7267c0a4c18": "openiti-004",
+    "openiti-auto-aeec1b338b226077": "openiti-004",
+    "openiti-auto-d4ccf6f52da049a0": "openiti-004",
+    "openiti-auto-eaf902bd95ee7aa0": "openiti-005",
+    "openiti-auto-8f55b6b5a2b1b8ef": "openiti-005",
+    "openiti-auto-4b962b153e28e832": "openiti-005",
+    "openiti-auto-e9f6404e51902cae": "openiti-005",
+    "openiti-auto-e4d3a47e2b11f6a2": "openiti-005",
+    "openiti-auto-65b6ff1a2488c102": "openiti-005",
+    "openiti-auto-38ddf90cc1f471df": "openiti-005",
+    "openiti-auto-32fa02bba3d5bc51": "openiti-005",
+    "openiti-auto-0325f269d57a5dc0": "openiti-005",
+    "openiti-auto-ce6ba79e6196e98f": "openiti-005",
     "openiti-baghawi-tafsir": "openiti-005",
     "openiti-zamakhshari-kashshaf": "openiti-005",
     "openiti-razi-mafatih-ghayb": "openiti-005",
