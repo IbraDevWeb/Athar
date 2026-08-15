@@ -6,106 +6,31 @@
   "configured_base_books": 50,
   "hosted_target_openiti_books": 195,
   "requested_batch": 25,
-  "target_limited_batch": 6,
-  "promoted_books": 6,
-  "promoted_source_chars": 9253494,
+  "target_limited_batch": 0,
+  "promoted_books": 0,
+  "promoted_source_chars": 0,
   "auto_manifest_books_before": 145,
-  "auto_manifest_books_pruned": 6,
+  "auto_manifest_books_pruned": 0,
   "auto_manifest_books_after": 145,
-  "discipline_overrides_applied": [],
-  "pruned": [
-    {
-      "book_id": "openiti-auto-bbebd10298701460",
-      "title": "Tafsir Mizan",
-      "openiti_uri": "1402SayyidTabatabai.TafsirMizan.Tafsir04056-ara1",
-      "reason": "excluded_work:SayyidTabatabai.TafsirMizan"
-    },
-    {
-      "book_id": "openiti-auto-a6fbcef3f2f749b6",
-      "title": "Surur Ahl Iman",
-      "openiti_uri": "0803BahaDinNiliNajafi.SururAhlIman.Masaha002219-ara1",
-      "reason": "excluded_work:BahaDinNiliNajafi.SururAhlIman"
-    },
-    {
-      "book_id": "openiti-auto-f0bdae2fc4474df0",
-      "title": "Tafsir Bayan Sacada",
-      "openiti_uri": "1350SultanCaliShahGanabadhi.TafsirBayanSacada.Tafsir04042-ara1",
-      "reason": "excluded_work:SultanCaliShahGanabadhi.TafsirBayanSacada"
-    },
-    {
-      "book_id": "openiti-auto-530071d114919ba5",
-      "title": "Taysir Tafsir",
-      "openiti_uri": "1332QutbAtfayyish.TaysirTafsir.Tafsir09050-ara1",
-      "reason": "excluded_work:QutbAtfayyish.TaysirTafsir"
-    },
-    {
-      "book_id": "openiti-auto-49e04946d66357a1",
-      "title": "Tabaqat Nahwiyyin Wa Lughawiyyin",
-      "openiti_uri": "0379Zubaydi.TabaqatNahwiyyinWaLughawiyyin.Sham19Y0013235-ara1",
-      "reason": "excluded_work:Zubaydi.TabaqatNahwiyyinWaLughawiyyin"
-    },
-    {
-      "book_id": "openiti-auto-0905456ef99c56e7",
-      "title": "Mutalif Wa Mukhtalif",
-      "openiti_uri": "0370AbuQasimAmidi.MutalifWaMukhtalif.Shamela0010913-ara1",
-      "reason": "excluded_work:AbuQasimAmidi.MutalifWaMukhtalif"
-    }
-  ],
-  "selected": [
+  "discipline_overrides_applied": [
     {
       "book_id": "openiti-auto-818a37bd28121aca",
-      "title": "Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ",
-      "title_ar": "كشف المغطأ في فضل الموطأ",
-      "author": "Ibn Casakir",
-      "discipline": "Fiqh",
-      "openiti_uri": "0571IbnCasakir.KashfMughatta.Shamela0006032-ara1",
-      "source_char_length": 16140
+      "work_uri": "0571IbnCasakir.KashfMughatta",
+      "from": "Fiqh",
+      "to": "Hadith",
+      "subject": "hadith",
+      "reason": "Revue bibliographique : ouvrage consacré aux mérites du Muwaṭṭaʾ et aux transmissions rapportées à son sujet."
     },
     {
       "book_id": "openiti-auto-59686169d552e5f4",
-      "title": "Tarikh",
-      "title_ar": "تاريخ خليفة بن خياط",
-      "author": "Ibn Khayyat Cusfuri",
-      "discipline": "Hadith",
-      "openiti_uri": "0240IbnKhayyatCusfuri.Tarikh.JK000412-ara1",
-      "source_char_length": 361165
-    },
-    {
-      "book_id": "openiti-auto-96157f9062648678",
-      "title": "Hashiya Cala Tafsir Baydawi",
-      "title_ar": "حاشية الشهاب على تفسير البيضاوي، المسماة: عناية القاضى وكفاية الراضى على تفسير البيضاوي",
-      "author": "Shihab Din Khafaji",
-      "discipline": "Tafsīr",
-      "openiti_uri": "1069ShihabDinKhafaji.HashiyaCalaTafsirBaydawi.Shamela0001535-ara1",
-      "source_char_length": 8668858
-    },
-    {
-      "book_id": "openiti-auto-a1e019ecd09140cf",
-      "title": "Sifat Munafiqin",
-      "title_ar": "صفات المنافقين",
-      "author": "Ibn Qayyim Jawziyya",
-      "discipline": "ʿAqīda",
-      "openiti_uri": "0751IbnQayyimJawziyya.SifatMunafiqin.Shamela0030842-ara1",
-      "source_char_length": 14178
-    },
-    {
-      "book_id": "openiti-auto-f1530c592e7e16f0",
-      "title": "Tarikh",
-      "title_ar": "تاريخ البصروي",
-      "author": "Basrawi",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0905Basrawi.Tarikh.Shamela0006637-ara1",
-      "source_char_length": 177178
-    },
-    {
-      "book_id": "openiti-auto-166504e567243026",
-      "title": "Manhaj Muntakhab",
-      "title_ar": "المنهج المنتخب في قواعد المذهب",
-      "author": "Cali Ibn Qasim Zaqqaq",
-      "discipline": "Fiqh",
-      "openiti_uri": "0912CaliIbnQasimZaqqaq.ManhajMuntakhab.ShamAY0034218-ara1",
-      "source_char_length": 15975
+      "work_uri": "0240IbnKhayyatCusfuri.Tarikh",
+      "from": "Hadith",
+      "to": "Sīra et histoire",
+      "subject": "sira",
+      "reason": "Revue bibliographique : chronique historique de Khalīfa ibn Khayyāṭ sur l'histoire du monde islamique."
     }
   ],
+  "pruned": [],
+  "selected": [],
   "dry_run": false
 }

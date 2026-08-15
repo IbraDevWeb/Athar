@@ -1361,9 +1361,9 @@
       "oversize_source": false,
       "subjects": {
         "aqida": 7,
-        "fiqh": 4,
+        "fiqh": 3,
         "hadith": 10,
-        "sira": 9,
+        "sira": 10,
         "tafsir": 10
       },
       "books": [
@@ -1604,7 +1604,7 @@
           "title": "Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ",
           "title_ar": "كشف المغطأ في فضل الموطأ",
           "author": "Ibn Casakir",
-          "discipline": "Fiqh",
+          "discipline": "Hadith",
           "source_chars": 16140
         },
         {
@@ -1612,7 +1612,7 @@
           "title": "Tarikh",
           "title_ar": "تاريخ خليفة بن خياط",
           "author": "Ibn Khayyat Cusfuri",
-          "discipline": "Hadith",
+          "discipline": "Sīra et histoire",
           "source_chars": 361165
         },
         {

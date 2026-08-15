@@ -3667,7 +3667,7 @@
       "title": "Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ",
       "title_ar": "كشف المغطأ في فضل الموطأ",
       "author": "Ibn Casakir",
-      "discipline": "Fiqh",
+      "discipline": "Hadith",
       "madhhab": "",
       "openiti_uri": "0571IbnCasakir.KashfMughatta.Shamela0006032-ara1",
       "work_uri": "0571IbnCasakir.KashfMughatta",
@@ -3679,14 +3679,17 @@
         "source": "OpenITI",
         "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
         "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "fiqh",
-        "classification_reason": "",
+        "classification_status": "reviewed_policy_override",
+        "classification_subject": "hadith",
+        "classification_reason": "Revue bibliographique : ouvrage consacré aux mérites du Muwaṭṭaʾ et aux transmissions rapportées à son sujet.",
         "source_char_length": 16140,
         "source_token_length": 4034,
         "source_id": "Shamela0006032",
         "date_ah": "0571"
-      }
+      },
+      "subject": "hadith",
+      "classification_status": "reviewed_policy_override",
+      "classification_reason": "Revue bibliographique : ouvrage consacré aux mérites du Muwaṭṭaʾ et aux transmissions rapportées à son sujet."
     },
     {
       "book_id": "openiti-auto-59686169d552e5f4",
@@ -3694,7 +3697,7 @@
       "title": "Tarikh",
       "title_ar": "تاريخ خليفة بن خياط",
       "author": "Ibn Khayyat Cusfuri",
-      "discipline": "Hadith",
+      "discipline": "Sīra et histoire",
       "madhhab": "",
       "openiti_uri": "0240IbnKhayyatCusfuri.Tarikh.JK000412-ara1",
       "work_uri": "0240IbnKhayyatCusfuri.Tarikh",
@@ -3706,14 +3709,17 @@
         "source": "OpenITI",
         "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
         "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "hadith",
-        "classification_reason": "",
+        "classification_status": "reviewed_policy_override",
+        "classification_subject": "sira",
+        "classification_reason": "Revue bibliographique : chronique historique de Khalīfa ibn Khayyāṭ sur l'histoire du monde islamique.",
         "source_char_length": 361165,
         "source_token_length": 90705,
         "source_id": "JK000412",
         "date_ah": "0240"
-      }
+      },
+      "subject": "sira",
+      "classification_status": "reviewed_policy_override",
+      "classification_reason": "Revue bibliographique : chronique historique de Khalīfa ibn Khayyāṭ sur l'histoire du monde islamique."
     },
     {
       "book_id": "openiti-auto-96157f9062648678",
