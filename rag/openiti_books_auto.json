@@ -604,32 +604,6 @@
       }
     },
     {
-      "book_id": "openiti-auto-14e288f107ed119b",
-      "kutub_id": null,
-      "title": "Idah Tawhid",
-      "title_ar": "إيضاح التوحيد بنور التوحيد",
-      "author": "Sacid Ibn Nasir Ghaythi",
-      "discipline": "ʿAqīda",
-      "madhhab": "",
-      "openiti_uri": "1361SacidIbnNasirGhaythi.IdahTawhid.ShamIbadiyya0000279-ara1",
-      "work_uri": "1361SacidIbnNasirGhaythi.IdahTawhid",
-      "path": "data/1361SacidIbnNasirGhaythi/1361SacidIbnNasirGhaythi.IdahTawhid/1361SacidIbnNasirGhaythi.IdahTawhid.ShamIbadiyya0000279-ara1",
-      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION",
-      "known_issues": "",
-      "enabled": true,
-      "metadata": {
-        "source": "OpenITI",
-        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-        "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "aqida",
-        "source_char_length": 843390,
-        "source_token_length": 201211,
-        "source_id": "ShamIbadiyya0000279",
-        "date_ah": "1361"
-      }
-    },
-    {
       "book_id": "openiti-auto-4d1ef29136a0ab0d",
       "kutub_id": null,
       "title": "Tabaqat Mufassirin",
@@ -734,32 +708,6 @@
       }
     },
     {
-      "book_id": "openiti-auto-900fc7e8afbe689e",
-      "kutub_id": null,
-      "title": "Min Caqida Ila Thawra Tawhid",
-      "title_ar": "من العقيدة إلى الثورة (٢): التوحيد",
-      "author": "Hasan Hanafi",
-      "discipline": "ʿAqīda",
-      "madhhab": "",
-      "openiti_uri": "1443HasanHanafi.MinCaqidaIlaThawraTawhid.Hindawi028173195-ara1",
-      "work_uri": "1443HasanHanafi.MinCaqidaIlaThawraTawhid",
-      "path": "data/1443HasanHanafi/1443HasanHanafi.MinCaqidaIlaThawraTawhid/1443HasanHanafi.MinCaqidaIlaThawraTawhid.Hindawi028173195-ara1",
-      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION",
-      "known_issues": "",
-      "enabled": true,
-      "metadata": {
-        "source": "OpenITI",
-        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-        "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "aqida",
-        "source_char_length": 562557,
-        "source_token_length": 123505,
-        "source_id": "Hindawi028173195",
-        "date_ah": "1443"
-      }
-    },
-    {
       "book_id": "openiti-auto-14f04fe3bcbb411a",
       "kutub_id": null,
       "title": "Dhayl Tabaqat Huffaz",
@@ -783,32 +731,6 @@
         "source_token_length": 5494,
         "source_id": "JK004504",
         "date_ah": "0911"
-      }
-    },
-    {
-      "book_id": "openiti-auto-6500f803b12204c6",
-      "kutub_id": null,
-      "title": "Qawāʿid al-Aḥkām",
-      "title_ar": "قواعد الأحكام",
-      "author": "Callama Hilli",
-      "discipline": "Fiqh",
-      "madhhab": "",
-      "openiti_uri": "0726CallamaHilli.QawacidAhkam.Shia000091Vols-ara1",
-      "work_uri": "0726CallamaHilli.QawacidAhkam",
-      "path": "data/0726CallamaHilli/0726CallamaHilli.QawacidAhkam/0726CallamaHilli.QawacidAhkam.Shia000091Vols-ara1.completed",
-      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
-      "known_issues": "",
-      "enabled": true,
-      "metadata": {
-        "source": "OpenITI",
-        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-        "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "fiqh",
-        "source_char_length": 1220357,
-        "source_token_length": 290351,
-        "source_id": "Shia000091Vols",
-        "date_ah": "0726"
       }
     },
     {
@@ -861,32 +783,6 @@
         "source_token_length": 276200,
         "source_id": "JK007018",
         "date_ah": "0660"
-      }
-    },
-    {
-      "book_id": "openiti-auto-f94278ad4a09e548",
-      "kutub_id": null,
-      "title": "Min Caqida Ila Thawra Iman",
-      "title_ar": "من العقيدة إلى الثورة (٥): الإيمان والعمل - الإمامة",
-      "author": "Hasan Hanafi",
-      "discipline": "ʿAqīda",
-      "madhhab": "",
-      "openiti_uri": "1443HasanHanafi.MinCaqidaIlaThawraIman.Hindawi013042758-ara1",
-      "work_uri": "1443HasanHanafi.MinCaqidaIlaThawraIman",
-      "path": "data/1443HasanHanafi/1443HasanHanafi.MinCaqidaIlaThawraIman/1443HasanHanafi.MinCaqidaIlaThawraIman.Hindawi013042758-ara1",
-      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION",
-      "known_issues": "",
-      "enabled": true,
-      "metadata": {
-        "source": "OpenITI",
-        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-        "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "aqida",
-        "source_char_length": 477385,
-        "source_token_length": 103030,
-        "source_id": "Hindawi013042758",
-        "date_ah": "1443"
       }
     },
     {
@@ -1173,6 +1069,110 @@
         "source_token_length": 387584,
         "source_id": "Masaha004395Vols",
         "date_ah": "0902"
+      }
+    },
+    {
+      "book_id": "openiti-auto-ae408e9530aaad1b",
+      "kutub_id": null,
+      "title": "Manthur Fi Qawacid",
+      "title_ar": "المنثور في القواعد الفقهية",
+      "author": "Badr Din Zarkashi",
+      "discipline": "Fiqh",
+      "madhhab": "",
+      "openiti_uri": "0794BadrDinZarkashi.ManthurFiQawacid.Shamela0021592-ara1",
+      "work_uri": "0794BadrDinZarkashi.ManthurFiQawacid",
+      "path": "data/0794BadrDinZarkashi/0794BadrDinZarkashi.ManthurFiQawacid/0794BadrDinZarkashi.ManthurFiQawacid.Shamela0021592-ara1.completed",
+      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
+      "known_issues": "",
+      "enabled": true,
+      "metadata": {
+        "source": "OpenITI",
+        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+        "catalogue_selection": "athar-corpus-industrializer-v2",
+        "classification_status": "automatic_metadata_hint",
+        "classification_subject": "fiqh",
+        "source_char_length": 776867,
+        "source_token_length": 185544,
+        "source_id": "Shamela0021592",
+        "date_ah": "0794"
+      }
+    },
+    {
+      "book_id": "openiti-auto-30eb530b8fcbbda0",
+      "kutub_id": null,
+      "title": "Tuhfat Tahsil",
+      "title_ar": "تحفة التحصيل في ذكر رواة المراسيل",
+      "author": "Ibn Ciraqi",
+      "discipline": "Hadith",
+      "madhhab": "",
+      "openiti_uri": "0826IbnCiraqi.TuhfatTahsil.Shamela0005838-ara1",
+      "work_uri": "0826IbnCiraqi.TuhfatTahsil",
+      "path": "data/0826IbnCiraqi/0826IbnCiraqi.TuhfatTahsil/0826IbnCiraqi.TuhfatTahsil.Shamela0005838-ara1.completed",
+      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
+      "known_issues": "",
+      "enabled": true,
+      "metadata": {
+        "source": "OpenITI",
+        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+        "catalogue_selection": "athar-corpus-industrializer-v2",
+        "classification_status": "automatic_metadata_hint",
+        "classification_subject": "hadith",
+        "source_char_length": 233450,
+        "source_token_length": 62413,
+        "source_id": "Shamela0005838",
+        "date_ah": "0826"
+      }
+    },
+    {
+      "book_id": "openiti-auto-a683ae6334ad806a",
+      "kutub_id": null,
+      "title": "Tafsir",
+      "title_ar": "تفسير السلمي وهو حقائق التفسير",
+      "author": "Sulami",
+      "discipline": "Tafsīr",
+      "madhhab": "",
+      "openiti_uri": "0412Sulami.Tafsir.JK007094-ara1",
+      "work_uri": "0412Sulami.Tafsir",
+      "path": "data/0412Sulami/0412Sulami.Tafsir/0412Sulami.Tafsir.JK007094-ara1",
+      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION",
+      "known_issues": "",
+      "enabled": true,
+      "metadata": {
+        "source": "OpenITI",
+        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+        "catalogue_selection": "athar-corpus-industrializer-v2",
+        "classification_status": "automatic_metadata_hint",
+        "classification_subject": "tafsir",
+        "source_char_length": 900628,
+        "source_token_length": 215380,
+        "source_id": "JK007094",
+        "date_ah": "0412"
+      }
+    },
+    {
+      "book_id": "openiti-auto-fffdd51749e9523a",
+      "kutub_id": null,
+      "title": "Sifat Rabb Calamin",
+      "title_ar": "صفات رب العالمين لابن المحب الصامت، من بداية (باب الرزق)، إلى نهاية (باب نزول الله جل ثناؤه يوم القيامة)",
+      "author": "Ibn Muhibb Samit",
+      "discipline": "ʿAqīda",
+      "madhhab": "",
+      "openiti_uri": "0789IbnMuhibbSamit.SifatRabbCalamin.Sham19Y0132403-ara1",
+      "work_uri": "0789IbnMuhibbSamit.SifatRabbCalamin",
+      "path": "data/0789IbnMuhibbSamit/0789IbnMuhibbSamit.SifatRabbCalamin/0789IbnMuhibbSamit.SifatRabbCalamin.Sham19Y0132403-ara1",
+      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION",
+      "known_issues": "",
+      "enabled": true,
+      "metadata": {
+        "source": "OpenITI",
+        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+        "catalogue_selection": "athar-corpus-industrializer-v2",
+        "classification_status": "automatic_metadata_hint",
+        "classification_subject": "aqida",
+        "source_char_length": 202425,
+        "source_token_length": 52127,
+        "source_id": "Sham19Y0132403",
+        "date_ah": "0789"
       }
     }
   ]

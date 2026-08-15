@@ -2,240 +2,78 @@
   "pipeline": "athar-corpus-industrializer-v2",
   "source": "OpenITI/RELEASE",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "catalog_candidate_works": 4172,
+  "catalog_candidate_works": 3669,
   "configured_base_books": 50,
   "hosted_target_openiti_books": 95,
   "requested_batch": 25,
-  "target_limited_batch": 25,
-  "promoted_books": 25,
-  "promoted_source_chars": 40942563,
-  "auto_manifest_books_before": 20,
+  "target_limited_batch": 4,
+  "promoted_books": 4,
+  "promoted_source_chars": 2113370,
+  "auto_manifest_books_before": 45,
+  "auto_manifest_books_pruned": 4,
   "auto_manifest_books_after": 45,
-  "selected": [
-    {
-      "book_id": "openiti-auto-69e49b8f24873ee6",
-      "title": "al-Fiqh al-Absaṭ",
-      "title_ar": "الفقه الأبسط",
-      "author": "Abu Hanifa",
-      "discipline": "Fiqh",
-      "openiti_uri": "0150AbuHanifa.FiqhAbsat.Shamela0006387-ara1",
-      "source_char_length": 17651
-    },
-    {
-      "book_id": "openiti-auto-0f10311c96216336",
-      "title": "Tahḏīb al-tahḏīb",
-      "title_ar": "تهذيب التهذيب",
-      "author": "Ibn Hajar Casqalani",
-      "discipline": "Hadith",
-      "openiti_uri": "0852IbnHajarCasqalani.TahdhibTahdhib.JK000134-ara1",
-      "source_char_length": 5102290
-    },
-    {
-      "book_id": "openiti-auto-b44f031d22f2e3b9",
-      "title": "Anwar Tanzil",
-      "title_ar": "انوار التنزيل واسرار التأويل",
-      "author": "Nasir Din Baydawi",
-      "discipline": "Tafsīr",
-      "openiti_uri": "0685NasirDinBaydawi.AnwarTanzil.Tafsir01006-ara1",
-      "source_char_length": 2058587
-    },
+  "pruned": [
     {
       "book_id": "openiti-auto-14e288f107ed119b",
       "title": "Idah Tawhid",
-      "title_ar": "إيضاح التوحيد بنور التوحيد",
-      "author": "Sacid Ibn Nasir Ghaythi",
-      "discipline": "ʿAqīda",
       "openiti_uri": "1361SacidIbnNasirGhaythi.IdahTawhid.ShamIbadiyya0000279-ara1",
-      "source_char_length": 843390
-    },
-    {
-      "book_id": "openiti-auto-4d1ef29136a0ab0d",
-      "title": "Tabaqat Mufassirin",
-      "title_ar": "طبقات المفسرين العشرين",
-      "author": "Suyuti",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0911Suyuti.TabaqatMufassirin.Shamela0006234-ara1",
-      "source_char_length": 50535
-    },
-    {
-      "book_id": "openiti-auto-fe666ee069554555",
-      "title": "al-ʾAṣl",
-      "title_ar": "الأصل",
-      "author": "Muhammad Shaybani",
-      "discipline": "Fiqh",
-      "openiti_uri": "0189MuhammadShaybani.Asl.Sham19Y0014285-ara1",
-      "source_char_length": 5554889
-    },
-    {
-      "book_id": "openiti-auto-6d6353e03c586c18",
-      "title": "Macrifat Sahaba",
-      "title_ar": "معرفة الصحابة",
-      "author": "Abu Nucaym Isbahani",
-      "discipline": "Hadith",
-      "openiti_uri": "0430AbuNucaymIsbahani.MacrifatSahaba.JK009408-ara1",
-      "source_char_length": 2912524
-    },
-    {
-      "book_id": "openiti-auto-59923883cb28de1e",
-      "title": "Tafsir Muqatil",
-      "title_ar": "مقاتل بن سليمان",
-      "author": "Muqatil Ibn Sulayman",
-      "discipline": "Tafsīr",
-      "openiti_uri": "0150MuqatilIbnSulayman.TafsirMuqatil.Tafsir02067-ara1",
-      "source_char_length": 1442918
+      "reason": "excluded_source:Ibadiyya"
     },
     {
       "book_id": "openiti-auto-900fc7e8afbe689e",
       "title": "Min Caqida Ila Thawra Tawhid",
-      "title_ar": "من العقيدة إلى الثورة (٢): التوحيد",
-      "author": "Hasan Hanafi",
-      "discipline": "ʿAqīda",
       "openiti_uri": "1443HasanHanafi.MinCaqidaIlaThawraTawhid.Hindawi028173195-ara1",
-      "source_char_length": 562557
-    },
-    {
-      "book_id": "openiti-auto-14f04fe3bcbb411a",
-      "title": "Dhayl Tabaqat Huffaz",
-      "title_ar": "ذيل طبقات الحفاظ ( للذهبي )",
-      "author": "Suyuti",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0911Suyuti.DhaylTabaqatHuffaz.JK004504-ara1",
-      "source_char_length": 24838
+      "reason": "excluded_work:HasanHanafi.MinCaqidaIlaThawra"
     },
     {
       "book_id": "openiti-auto-6500f803b12204c6",
       "title": "Qawāʿid al-Aḥkām",
-      "title_ar": "قواعد الأحكام",
-      "author": "Callama Hilli",
-      "discipline": "Fiqh",
       "openiti_uri": "0726CallamaHilli.QawacidAhkam.Shia000091Vols-ara1",
-      "source_char_length": 1220357
-    },
-    {
-      "book_id": "openiti-auto-0dee550bba7f7fb3",
-      "title": "al-Kāmil fī maʿrifat ḍuʿafāʾ al-muḥaddiṯīn wa-ʿilal¶ al-ḥadīṯ",
-      "title_ar": "الكامل في معرفت ضعفاء المحدثين وعلل¶ الحديث",
-      "author": "Ibn Cadi Jurjani",
-      "discipline": "Hadith",
-      "openiti_uri": "0365IbnCadiJurjani.KamilFiDucafa.Shamela0012579-ara1",
-      "source_char_length": 3339666
-    },
-    {
-      "book_id": "openiti-auto-bd357a7cf12302b3",
-      "title": "Tafsir Quran",
-      "title_ar": "تفسير العز بن عبد السلام",
-      "author": "Sultan Culama Cizz Din Dimashqi",
-      "discipline": "Tafsīr",
-      "openiti_uri": "0660SultanCulamaCizzDinDimashqi.TafsirQuran.JK007018-ara1",
-      "source_char_length": 1142030
+      "reason": "excluded_source:Shia"
     },
     {
       "book_id": "openiti-auto-f94278ad4a09e548",
       "title": "Min Caqida Ila Thawra Iman",
-      "title_ar": "من العقيدة إلى الثورة (٥): الإيمان والعمل - الإمامة",
-      "author": "Hasan Hanafi",
-      "discipline": "ʿAqīda",
       "openiti_uri": "1443HasanHanafi.MinCaqidaIlaThawraIman.Hindawi013042758-ara1",
-      "source_char_length": 477385
-    },
+      "reason": "excluded_work:HasanHanafi.MinCaqidaIlaThawra"
+    }
+  ],
+  "selected": [
     {
-      "book_id": "openiti-auto-5da1c9e3ad8929a7",
-      "title": "al-Sulūk li-maʿrifaŧ duwal al-mulūk",
-      "title_ar": "السلوك لمعرفة دول الملوك",
-      "author": "Maqrizi",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0845Maqrizi.Suluk.Shamela0006667-ara1",
-      "source_char_length": 3633863
-    },
-    {
-      "book_id": "openiti-auto-0375784c54ed4528",
-      "title": "Ḥilyaŧ al-ʿulamāʾ fī maʿrifaŧ maḏāhib al-fuqahāʾ",
-      "title_ar": "حلية العلماء في معرفة مذاهب الفقهاء",
-      "author": "Abu Bakr Shashi",
+      "book_id": "openiti-auto-ae408e9530aaad1b",
+      "title": "Manthur Fi Qawacid",
+      "title_ar": "المنثور في القواعد الفقهية",
+      "author": "Badr Din Zarkashi",
       "discipline": "Fiqh",
-      "openiti_uri": "0507AbuBakrShashi.HilyatCulama.Sham19Y0146126-ara1",
-      "source_char_length": 1083195
+      "openiti_uri": "0794BadrDinZarkashi.ManthurFiQawacid.Shamela0021592-ara1",
+      "source_char_length": 776867
     },
     {
-      "book_id": "openiti-auto-dd61a4c1d243e28f",
-      "title": "Thiqat",
-      "title_ar": "الثقات",
-      "author": "Ibn Hibban Busti",
+      "book_id": "openiti-auto-30eb530b8fcbbda0",
+      "title": "Tuhfat Tahsil",
+      "title_ar": "تحفة التحصيل في ذكر رواة المراسيل",
+      "author": "Ibn Ciraqi",
       "discipline": "Hadith",
-      "openiti_uri": "0354IbnHibbanBusti.Thiqat.Shamela0005816-ara1",
-      "source_char_length": 2029687
+      "openiti_uri": "0826IbnCiraqi.TuhfatTahsil.Shamela0005838-ara1",
+      "source_char_length": 233450
     },
     {
-      "book_id": "openiti-auto-ab3c98a3fa131f3a",
-      "title": "Itqan",
-      "title_ar": "الإتقان في علوم القرآن",
-      "author": "Suyuti",
+      "book_id": "openiti-auto-a683ae6334ad806a",
+      "title": "Tafsir",
+      "title_ar": "تفسير السلمي وهو حقائق التفسير",
+      "author": "Sulami",
       "discipline": "Tafsīr",
-      "openiti_uri": "0911Suyuti.Itqan.JK001295-ara1",
-      "source_char_length": 1037328
+      "openiti_uri": "0412Sulami.Tafsir.JK007094-ara1",
+      "source_char_length": 900628
     },
     {
-      "book_id": "openiti-auto-e0e32691b3a034eb",
-      "title": "Sharh Kitab Tawhid",
-      "title_ar": "شرح كتاب التوحيد",
-      "author": "Cabd Karim Khudayr",
+      "book_id": "openiti-auto-fffdd51749e9523a",
+      "title": "Sifat Rabb Calamin",
+      "title_ar": "صفات رب العالمين لابن المحب الصامت، من بداية (باب الرزق)، إلى نهاية (باب نزول الله جل ثناؤه يوم القيامة)",
+      "author": "Ibn Muhibb Samit",
       "discipline": "ʿAqīda",
-      "openiti_uri": "1450CabdKarimKhudayr.SharhKitabTawhid.Shamela0021709-ara1",
-      "source_char_length": 409121
-    },
-    {
-      "book_id": "openiti-auto-be91d6f09f21967f",
-      "title": "Muʿjam al-udabāʾ",
-      "title_ar": "معجم الأدباء",
-      "author": "Yaqut Hamawi",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0626YaqutHamawi.MucjamUdaba.Shamela0009788-ara1",
-      "source_char_length": 2578723
-    },
-    {
-      "book_id": "openiti-auto-875880ca957f7c78",
-      "title": "Ashbah Wa Nazair",
-      "title_ar": "الأشباه والنظائر",
-      "author": "Taj Din Subki",
-      "discipline": "Fiqh",
-      "openiti_uri": "0771TajDinSubki.AshbahWaNazair.Shamela0008634-ara1",
-      "source_char_length": 902413
-    },
-    {
-      "book_id": "openiti-auto-cd797ca1e121ae2d",
-      "title": "Maghani Akhyar",
-      "title_ar": "مغاني الأخيار في شرح أسامي رجال معاني الآثار",
-      "author": "Badr Din Cayni",
-      "discipline": "Hadith",
-      "openiti_uri": "0855BadrDinCayni.MaghaniAkhyar.Shamela0010452-ara1",
-      "source_char_length": 1678293
-    },
-    {
-      "book_id": "openiti-auto-c15581350bc95b2d",
-      "title": "Tafsir Jalalayn",
-      "title_ar": "تفسير الجلالين",
-      "author": "Suyuti",
-      "discipline": "Tafsīr",
-      "openiti_uri": "0911Suyuti.TafsirJalalayn.JK000818-ara1",
-      "source_char_length": 938909
-    },
-    {
-      "book_id": "openiti-auto-924e40a962b5bbd2",
-      "title": "Tawhid Wa Qurrat Cuyun Muwahhidin",
-      "title_ar": "كتاب التوحيد وقرة عيون الموحدين في تحقيق دعوة الأنبياء والمرسلين",
-      "author": "Ibn Hasan Al Shaykh",
-      "discipline": "ʿAqīda",
-      "openiti_uri": "1285IbnHasanAlShaykh.TawhidWaQurratCuyunMuwahhidin.Shamela0011334-ara1",
-      "source_char_length": 280005
-    },
-    {
-      "book_id": "openiti-auto-5b86f9eb9570f800",
-      "title": "Tuhfa Latifa",
-      "title_ar": "التحفة اللطيفة في تاريخ المدينة الشريفة - الجزء1",
-      "author": "Sakhawi",
-      "discipline": "Sīra et histoire",
-      "openiti_uri": "0902Sakhawi.TuhfaLatifa.Masaha004395Vols-ara1",
-      "source_char_length": 1621409
+      "openiti_uri": "0789IbnMuhibbSamit.SifatRabbCalamin.Sham19Y0132403-ara1",
+      "source_char_length": 202425
     }
   ],
   "dry_run": false

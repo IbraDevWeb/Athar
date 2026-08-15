@@ -351,14 +351,14 @@
     {
       "id": "openiti-002",
       "book_count": 40,
-      "source_chars": 35963226,
+      "source_chars": 39038975,
       "oversize_source": false,
       "subjects": {
-        "aqida": 6,
+        "aqida": 4,
         "fiqh": 12,
-        "hadith": 7,
+        "hadith": 8,
         "sira": 6,
-        "tafsir": 8,
+        "tafsir": 9,
         "usul": 1
       },
       "books": [
@@ -627,14 +627,6 @@
           "source_chars": 2058587
         },
         {
-          "book_id": "openiti-auto-14e288f107ed119b",
-          "title": "Idah Tawhid",
-          "title_ar": "إيضاح التوحيد بنور التوحيد",
-          "author": "Sacid Ibn Nasir Ghaythi",
-          "discipline": "ʿAqīda",
-          "source_chars": 843390
-        },
-        {
           "book_id": "openiti-auto-4d1ef29136a0ab0d",
           "title": "Tabaqat Mufassirin",
           "title_ar": "طبقات المفسرين العشرين",
@@ -667,43 +659,12 @@
           "source_chars": 1442918
         },
         {
-          "book_id": "openiti-auto-900fc7e8afbe689e",
-          "title": "Min Caqida Ila Thawra Tawhid",
-          "title_ar": "من العقيدة إلى الثورة (٢): التوحيد",
-          "author": "Hasan Hanafi",
-          "discipline": "ʿAqīda",
-          "source_chars": 562557
-        },
-        {
           "book_id": "openiti-auto-14f04fe3bcbb411a",
           "title": "Dhayl Tabaqat Huffaz",
           "title_ar": "ذيل طبقات الحفاظ ( للذهبي )",
           "author": "Suyuti",
           "discipline": "Sīra et histoire",
           "source_chars": 24838
-        }
-      ]
-    },
-    {
-      "id": "openiti-003",
-      "book_count": 15,
-      "source_chars": 22372384,
-      "oversize_source": false,
-      "subjects": {
-        "aqida": 3,
-        "fiqh": 3,
-        "hadith": 3,
-        "sira": 3,
-        "tafsir": 3
-      },
-      "books": [
-        {
-          "book_id": "openiti-auto-6500f803b12204c6",
-          "title": "Qawāʿid al-Aḥkām",
-          "title_ar": "قواعد الأحكام",
-          "author": "Callama Hilli",
-          "discipline": "Fiqh",
-          "source_chars": 1220357
         },
         {
           "book_id": "openiti-auto-0dee550bba7f7fb3",
@@ -720,15 +681,22 @@
           "author": "Sultan Culama Cizz Din Dimashqi",
           "discipline": "Tafsīr",
           "source_chars": 1142030
-        },
-        {
-          "book_id": "openiti-auto-f94278ad4a09e548",
-          "title": "Min Caqida Ila Thawra Iman",
-          "title_ar": "من العقيدة إلى الثورة (٥): الإيمان والعمل - الإمامة",
-          "author": "Hasan Hanafi",
-          "discipline": "ʿAqīda",
-          "source_chars": 477385
-        },
+        }
+      ]
+    },
+    {
+      "id": "openiti-003",
+      "book_count": 15,
+      "source_chars": 18306316,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 3,
+        "fiqh": 3,
+        "hadith": 3,
+        "sira": 3,
+        "tafsir": 3
+      },
+      "books": [
         {
           "book_id": "openiti-auto-5da1c9e3ad8929a7",
           "title": "al-Sulūk li-maʿrifaŧ duwal al-mulūk",
@@ -816,6 +784,38 @@
           "author": "Sakhawi",
           "discipline": "Sīra et histoire",
           "source_chars": 1621409
+        },
+        {
+          "book_id": "openiti-auto-ae408e9530aaad1b",
+          "title": "Manthur Fi Qawacid",
+          "title_ar": "المنثور في القواعد الفقهية",
+          "author": "Badr Din Zarkashi",
+          "discipline": "Fiqh",
+          "source_chars": 776867
+        },
+        {
+          "book_id": "openiti-auto-30eb530b8fcbbda0",
+          "title": "Tuhfat Tahsil",
+          "title_ar": "تحفة التحصيل في ذكر رواة المراسيل",
+          "author": "Ibn Ciraqi",
+          "discipline": "Hadith",
+          "source_chars": 233450
+        },
+        {
+          "book_id": "openiti-auto-a683ae6334ad806a",
+          "title": "Tafsir",
+          "title_ar": "تفسير السلمي وهو حقائق التفسير",
+          "author": "Sulami",
+          "discipline": "Tafsīr",
+          "source_chars": 900628
+        },
+        {
+          "book_id": "openiti-auto-fffdd51749e9523a",
+          "title": "Sifat Rabb Calamin",
+          "title_ar": "صفات رب العالمين لابن المحب الصامت، من بداية (باب الرزق)، إلى نهاية (باب نزول الله جل ثناؤه يوم القيامة)",
+          "author": "Ibn Muhibb Samit",
+          "discipline": "ʿAqīda",
+          "source_chars": 202425
         }
       ]
     }
@@ -894,17 +894,13 @@
     "openiti-auto-69e49b8f24873ee6": "openiti-002",
     "openiti-auto-0f10311c96216336": "openiti-002",
     "openiti-auto-b44f031d22f2e3b9": "openiti-002",
-    "openiti-auto-14e288f107ed119b": "openiti-002",
     "openiti-auto-4d1ef29136a0ab0d": "openiti-002",
     "openiti-auto-fe666ee069554555": "openiti-002",
     "openiti-auto-6d6353e03c586c18": "openiti-002",
     "openiti-auto-59923883cb28de1e": "openiti-002",
-    "openiti-auto-900fc7e8afbe689e": "openiti-002",
     "openiti-auto-14f04fe3bcbb411a": "openiti-002",
-    "openiti-auto-6500f803b12204c6": "openiti-003",
-    "openiti-auto-0dee550bba7f7fb3": "openiti-003",
-    "openiti-auto-bd357a7cf12302b3": "openiti-003",
-    "openiti-auto-f94278ad4a09e548": "openiti-003",
+    "openiti-auto-0dee550bba7f7fb3": "openiti-002",
+    "openiti-auto-bd357a7cf12302b3": "openiti-002",
     "openiti-auto-5da1c9e3ad8929a7": "openiti-003",
     "openiti-auto-0375784c54ed4528": "openiti-003",
     "openiti-auto-dd61a4c1d243e28f": "openiti-003",
@@ -915,6 +911,10 @@
     "openiti-auto-cd797ca1e121ae2d": "openiti-003",
     "openiti-auto-c15581350bc95b2d": "openiti-003",
     "openiti-auto-924e40a962b5bbd2": "openiti-003",
-    "openiti-auto-5b86f9eb9570f800": "openiti-003"
+    "openiti-auto-5b86f9eb9570f800": "openiti-003",
+    "openiti-auto-ae408e9530aaad1b": "openiti-003",
+    "openiti-auto-30eb530b8fcbbda0": "openiti-003",
+    "openiti-auto-a683ae6334ad806a": "openiti-003",
+    "openiti-auto-fffdd51749e9523a": "openiti-003"
   }
 }
