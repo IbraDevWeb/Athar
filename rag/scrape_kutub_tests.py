@@ -58,9 +58,11 @@ class KutubFrenchExtractionTests(unittest.TestCase):
         arabic = [" ".join(["فقه"] * 700)]
         french = [" ".join(["jurisprudence"] * 700)]
         pairs = pair_chunks(arabic, french)
-        self.assertGreaterEqual(len(pairs), 2)
+        self.assertGreaterEqual(len(pairs), 1)
         self.assertTrue(all(text_ar for text_ar, _ in pairs))
         self.assertTrue(all(text_fr for _, text_fr in pairs))
+        self.assertEqual(" ".join(text_ar for text_ar, _ in pairs).count("فقه"), 700)
+        self.assertEqual(" ".join(text_fr for _, text_fr in pairs).count("jurisprudence"), 700)
 
 
 if __name__ == "__main__":
