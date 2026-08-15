@@ -1,11 +1,11 @@
 {
-  "version": 6,
+  "version": 7,
   "hosted": {
-    "target_openiti_books": 170,
-    "minimum_openiti_books": 170,
-    "expected_openiti_books_after_tafsir": 175,
+    "target_openiti_books": 195,
+    "minimum_openiti_books": 195,
+    "expected_openiti_books_after_tafsir": 200,
     "max_sqlite_bytes": 3221225472,
-    "description": "Troisième palier de croissance sharded : 170 ouvrages OpenITI dans le noyau industriel puis 5 tafsirs dédiés, soit 175 ouvrages OpenITI attendus. Le build incrémental réutilise les shards dont la composition, les sources et l'empreinte d'ingestion sont inchangées."
+    "description": "Quatrième palier de croissance sharded : 195 ouvrages OpenITI dans le noyau industriel puis 5 tafsirs dédiés, soit 200 ouvrages OpenITI attendus. Le build incrémental réutilise les shards dont la composition, les sources et l'empreinte d'ingestion sont inchangées."
   },
   "promotion": {
     "default_batch_size": 25,
