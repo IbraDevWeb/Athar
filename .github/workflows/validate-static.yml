@@ -51,6 +51,7 @@ jobs:
           rag/core.py rag/v2.py rag/server.py
           rag/v4_engine.py rag/v4_server.py rag/v4_unit_tests.py rag/v4_corpus_tests.py
           rag/v5_engine.py rag/v5_lowmem.py rag/v5_server.py rag/v5_corpus_tests.py
+          rag/v5_library.py rag/v5_library_server.py rag/v5_library_tests.py
           rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/sync_kutub_batch.py
           rag/prepare_hosted_db.py rag/export_kutub_corpus.py rag/openiti.py rag/ingest_openiti.py
           scripts/validate_rag_ingestion.py scripts/validate_openiti_ingestion.py
@@ -67,6 +68,10 @@ jobs:
       - name: Execute deterministic legacy retrieval tests
         working-directory: rag
         run: python v4_unit_tests.py
+
+      - name: Execute library reader tests
+        working-directory: rag
+        run: python v5_library_tests.py
 
       - name: Validate RAG ingestion safeguards
         run: node scripts/validate-rag-ingestion.js
@@ -95,7 +100,7 @@ jobs:
           assert isinstance(snapshot['chunks'], list)
           render = Path('render.yaml').read_text(encoding='utf-8')
           assert 'python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz' in render
-          assert 'python rag/v5_server.py --host 0.0.0.0 --api-only' in render
+          assert 'python rag/v5_library_server.py --host 0.0.0.0 --api-only' in render
           assert 'ATHAR_DB_PATH' in render and 'rag/data/athar_hosted.sqlite.gz' in render
           workflow = Path('.github/workflows/grow-kutub-corpus.yml').read_text(encoding='utf-8')
           assert 'python rag/ingest_kutub.py sync' in workflow
