@@ -42,7 +42,10 @@ jobs:
           GEMINI_API_KEY: ''
         run: python v5_unit_tests.py
 
+  # Historical monolithic V2 validation. The production service now uses the
+  # separate V3 sharded/low-memory workflow, which runs on pull requests.
   real-corpus:
+    if: github.event_name != 'pull_request'
     needs: unit
     runs-on: ubuntu-latest
     timeout-minutes: 35
