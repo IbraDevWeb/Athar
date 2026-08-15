@@ -225,12 +225,8 @@ def analyze_query(
             "generationConfig": {
                 "temperature": 0.1,
                 "maxOutputTokens": 900,
-                "responseFormat": {
-                    "text": {
-                        "mimeType": "application/json",
-                        "schema": _RESPONSE_SCHEMA,
-                    }
-                },
+                "responseMimeType": "application/json",
+                "responseSchema": _RESPONSE_SCHEMA,
             },
         }
         response = post(
@@ -254,6 +250,11 @@ def analyze_query(
         if use_cache:
             _cache_put(cache_key, result)
         return result
+    except requests.HTTPError as exc:
+        base["latency_ms"] = max(1, round((time.monotonic() - started) * 1000))
+        status = getattr(getattr(exc, "response", None), "status_code", None)
+        base["error"] = f"HTTP_{status}" if status else "HTTPError"
+        return base
     except Exception as exc:
         base["latency_ms"] = max(1, round((time.monotonic() - started) * 1000))
         base["error"] = type(exc).__name__
