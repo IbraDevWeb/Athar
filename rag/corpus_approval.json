@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "approved_auto_manifest_blob": "",
-  "approved_auto_books": 0,
-  "reviewed_at": "",
-  "review_note": "Aucun lot automatique n'est encore approuvé pour publication."
+  "approved_auto_manifest_blob": "c346418e88fbdcc97803fe1d33f65f4abc4a186f",
+  "approved_auto_books": 20,
+  "reviewed_at": "2026-08-15T12:28:24Z",
+  "review_note": "Premier palier industriel revu avant publication : 20 ouvrages OpenITI retenus après exclusions des faux positifs de grammaire, commentaire scientifique, traditions non taxonomisées et uṣūl ambigu. Approbation liée exactement au blob Git du manifeste automatique."
 }
