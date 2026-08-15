@@ -8,6 +8,12 @@ from pathlib import Path
 from typing import Any
 
 from v5_library import get_book, get_toc, list_library_books, read_book, search_book
+from v5_lowmem import ask
+from v5_scholar_synthesis import (
+    ScholarSynthesisError,
+    select_synthesis_sources,
+    synthesize_from_sources,
+)
 from v5_server import (
     DEFAULT_DB,
     AtharThreadingHTTPServer,
@@ -20,7 +26,7 @@ from v5_server import (
 
 
 class Handler(BaseHandler):
-    server_version = "AtharRAG/5.6-library-scholar-translation"
+    server_version = "AtharRAG/5.7-library-grounded-synthesis"
 
     def _library_acquire(self) -> bool:
         gate = getattr(self.server, "library_gate", None)
@@ -28,6 +34,15 @@ class Handler(BaseHandler):
 
     def _library_release(self) -> None:
         gate = getattr(self.server, "library_gate", None)
+        if gate is not None:
+            gate.release()
+
+    def _synthesis_acquire(self) -> bool:
+        gate = getattr(self.server, "synthesis_gate", None)
+        return True if gate is None else bool(gate.acquire(timeout=15))
+
+    def _synthesis_release(self) -> None:
+        gate = getattr(self.server, "synthesis_gate", None)
         if gate is not None:
             gate.release()
 
@@ -67,6 +82,35 @@ class Handler(BaseHandler):
                     cached = list_library_books(connection)
             self.server.library_books_payload = cached
             return cached
+
+    def _retrieve_for_synthesis(
+        self,
+        query: str,
+        *,
+        limit: int,
+        madhhab: str,
+        discipline: str,
+    ) -> dict[str, Any]:
+        if not self._acquire_heavy():
+            raise RuntimeError("Le moteur documentaire est occupé. Réessaie dans quelques secondes.")
+        try:
+            if self.shard_runtime is not None:
+                return self.shard_runtime.ask(
+                    query,
+                    limit=limit,
+                    madhhab=madhhab,
+                    discipline=discipline,
+                )
+            with open_connection(self.db_path) as connection:
+                return ask(
+                    connection,
+                    query,
+                    limit=limit,
+                    madhhab=madhhab,
+                    discipline=discipline,
+                )
+        finally:
+            self._release_heavy()
 
     def do_GET(self) -> None:
         path, params = self.parse_path()
@@ -152,9 +196,96 @@ class Handler(BaseHandler):
                 HTTPStatus.INTERNAL_SERVER_ERROR,
             )
 
+    def do_POST(self) -> None:
+        path, _ = self.parse_path()
+        if path != "/api/rag/v5/synthesize":
+            super().do_POST()
+            return
+
+        try:
+            length = max(0, min(int(self.headers.get("Content-Length") or "0"), 64_000))
+            raw = self.rfile.read(length) if length else b"{}"
+            payload = json.loads(raw.decode("utf-8") or "{}")
+            if not isinstance(payload, dict):
+                raise ValueError("Corps JSON invalide.")
+
+            query = str(payload.get("query") or payload.get("q") or "").strip()
+            if len(query) < 3:
+                raise ValueError("Question requise.")
+            limit = self._limit(payload.get("limit"), 12)
+            madhhab = str(payload.get("madhhab") or "")
+            discipline = str(payload.get("discipline") or "")
+
+            # Retrieval always happens on the server. The client cannot inject sources.
+            result = self._retrieve_for_synthesis(
+                query,
+                limit=limit,
+                madhhab=madhhab,
+                discipline=discipline,
+            )
+            sources = list(result.get("sources") or [])
+            retrieval_answer = dict(result.get("answer") or {})
+            if not sources:
+                retrieval_answer["mode"] = "evidence_only"
+                retrieval_answer["synthesis"] = None
+                retrieval_answer["synthesis_error"] = "Aucun passage suffisamment pertinent n’a été retrouvé pour produire une synthèse IA."
+                result["answer"] = retrieval_answer
+                self.send_json(self._compat_payload(result))
+                return
+
+            routed = bool((result.get("analysis") or {}).get("routed_book"))
+            synthesis_sources = select_synthesis_sources(sources, routed_book=routed, limit=10)
+            used_ids = [str(item.get("citation_id") or "") for item in synthesis_sources if item.get("citation_id")]
+
+            if not self._synthesis_acquire():
+                retrieval_answer["mode"] = "evidence_only_synthesis_unavailable"
+                retrieval_answer["synthesis"] = None
+                retrieval_answer["synthesis_error"] = "Le synthétiseur IA est occupé. Les passages RAG restent disponibles."
+                result["answer"] = retrieval_answer
+                result["synthesis_source_ids"] = used_ids
+                self.send_json(self._compat_payload(result))
+                return
+
+            try:
+                synthesis = synthesize_from_sources(query, synthesis_sources)
+            except ScholarSynthesisError as exc:
+                retrieval_answer["mode"] = "evidence_only_synthesis_unavailable"
+                retrieval_answer["synthesis"] = None
+                retrieval_answer["synthesis_error"] = str(exc)
+                retrieval_answer["synthesis_error_code"] = exc.code
+                result["answer"] = retrieval_answer
+                result["synthesis_source_ids"] = used_ids
+                self.send_json(self._compat_payload(result))
+                return
+            finally:
+                self._synthesis_release()
+
+            result["synthesis_source_ids"] = synthesis.get("source_ids") or used_ids
+            result["answer"] = {
+                "mode": "llm_grounded_synthesis",
+                "summary": synthesis.get("overview") or retrieval_answer.get("summary") or "",
+                "verdict": "synthesis_ready",
+                "claims": retrieval_answer.get("claims") or [],
+                "warning": synthesis.get("notice"),
+                "retrieval_summary": retrieval_answer.get("summary") or "",
+                "synthesis": synthesis,
+            }
+            self.send_json(self._compat_payload(result))
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+            self.close_connection = True
+        except (ValueError, json.JSONDecodeError) as exc:
+            self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.BAD_REQUEST)
+        except RuntimeError as exc:
+            self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.SERVICE_UNAVAILABLE)
+        except Exception as exc:
+            self.send_json(
+                self._compat_payload({"error": f"{type(exc).__name__}: {exc}"}),
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+            )
+
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Serveur Athar RAG V5 avec lecteur de bibliothèque.")
+    parser = argparse.ArgumentParser(description="Serveur Athar RAG V5 avec lecteur et synthèse savante fondée sur les sources.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=env_port())
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
@@ -174,6 +305,7 @@ def main() -> int:
     server.heavy_gate = threading.BoundedSemaphore(1)
     server.library_gate = threading.BoundedSemaphore(4)
     server.translation_gate = threading.BoundedSemaphore(2)
+    server.synthesis_gate = threading.BoundedSemaphore(1)
     server.status_lock = threading.Lock()
     server.books_lock = threading.Lock()
     server.library_books_lock = threading.Lock()
@@ -194,6 +326,8 @@ def main() -> int:
                 "library_toc_limit": 360,
                 "library_search_limit": 16,
                 "translation_concurrency": 2,
+                "synthesis_concurrency": 1,
+                "synthesis_route": "/api/rag/v5/synthesize",
             },
             ensure_ascii=False,
         ),
