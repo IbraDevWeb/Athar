@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from v5_lowmem import ask, corpus_status, list_books, search
+from v5_scholar_translation import ScholarTranslationError, translate_passage
 from v5_sharded import ShardedCorpusRuntime
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,13 +112,53 @@ def configure_server_corpus(
     server.db_path = resolved_db
 
 
+def load_translation_source(
+    connection: sqlite3.Connection,
+    source_id: str,
+    *,
+    book_id: str = "",
+) -> dict[str, Any]:
+    """Load one full indexed passage; never accept arbitrary Arabic from clients."""
+    clean_source_id = str(source_id or "").strip()
+    clean_book_id = str(book_id or "").strip()
+    if not clean_source_id:
+        raise ValueError("Identifiant de passage requis.")
+    if len(clean_source_id) > 240 or len(clean_book_id) > 180:
+        raise ValueError("Identifiant de passage invalide.")
+
+    where = "c.id=?"
+    params: list[Any] = [clean_source_id]
+    if clean_book_id:
+        where += " AND c.book_id=?"
+        params.append(clean_book_id)
+    row = connection.execute(
+        f"""
+        SELECT
+            c.id, c.book_id, c.page, c.chapter, c.text_ar, c.text_fr,
+            c.translation_status, c.source_url,
+            b.title, b.title_ar, b.author, b.discipline, b.madhhab
+        FROM chunks c
+        JOIN books b ON b.id=c.book_id
+        WHERE {where}
+        LIMIT 1
+        """,
+        params,
+    ).fetchone()
+    if row is None:
+        raise LookupError("Passage introuvable dans le corpus indexé.")
+    source = dict(row)
+    if not str(source.get("text_ar") or "").strip():
+        raise ValueError("Ce passage ne contient pas de texte arabe à traduire.")
+    return source
+
+
 class AtharThreadingHTTPServer(ThreadingHTTPServer):
     daemon_threads = True
     request_queue_size = 16
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "AtharRAG/5.5-sharded-lowmem"
+    server_version = "AtharRAG/5.6-scholar-translation"
 
     @property
     def db_path(self) -> Path:
@@ -203,6 +244,24 @@ class Handler(BaseHTTPRequestHandler):
         gate = getattr(self.server, "heavy_gate", None)
         if gate is not None:
             gate.release()
+
+    def _acquire_translation(self) -> bool:
+        gate = getattr(self.server, "translation_gate", None)
+        return True if gate is None else bool(gate.acquire(timeout=10))
+
+    def _release_translation(self) -> None:
+        gate = getattr(self.server, "translation_gate", None)
+        if gate is not None:
+            gate.release()
+
+    def _translation_source(self, source_id: str, book_id: str) -> dict[str, Any]:
+        if self.shard_runtime is not None:
+            if not str(book_id or "").strip():
+                raise ValueError("Identifiant d'ouvrage requis pour traduire ce passage.")
+            with self.shard_runtime.book_connection(book_id) as connection:
+                return load_translation_source(connection, source_id, book_id=book_id)
+        with open_connection(self.db_path) as connection:
+            return load_translation_source(connection, source_id, book_id=book_id)
 
     def _status_payload(self) -> dict[str, Any]:
         cached = getattr(self.server, "status_payload", None)
@@ -311,7 +370,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path, _ = self.parse_path()
-        if path not in {"/api/rag/v4/ask", "/api/rag/v5/ask"}:
+        if path not in {"/api/rag/v4/ask", "/api/rag/v5/ask", "/api/rag/v5/translate"}:
             self.send_json(self._compat_payload({"error": "Route introuvable."}), HTTPStatus.NOT_FOUND)
             return
         try:
@@ -320,6 +379,39 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(raw.decode("utf-8") or "{}")
             if not isinstance(payload, dict):
                 raise ValueError("Corps JSON invalide.")
+
+            if path == "/api/rag/v5/translate":
+                source_id = str(payload.get("source_id") or "").strip()
+                book_id = str(payload.get("book_id") or "").strip()
+                mode = str(payload.get("mode") or "faithful").strip().lower()
+                source = self._translation_source(source_id, book_id)
+                if not self._acquire_translation():
+                    self.send_json(
+                        self._compat_payload({"error": "Le traducteur est occupé. Réessaie dans quelques secondes."}),
+                        HTTPStatus.SERVICE_UNAVAILABLE,
+                    )
+                    return
+                try:
+                    translation = translate_passage(source, mode=mode)
+                finally:
+                    self._release_translation()
+                self.send_json(
+                    self._compat_payload(
+                        {
+                            "translation": translation,
+                            "source": {
+                                "id": source.get("id"),
+                                "book_id": source.get("book_id"),
+                                "title": source.get("title"),
+                                "author": source.get("author"),
+                                "chapter": source.get("chapter"),
+                                "page": source.get("page"),
+                            },
+                        }
+                    )
+                )
+                return
+
             query = str(payload.get("query") or payload.get("q") or "").strip()
             if not query:
                 raise ValueError("Question requise.")
@@ -345,6 +437,18 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(self._compat_payload(result))
         except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
             self.close_connection = True
+        except LookupError as exc:
+            self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.NOT_FOUND)
+        except ScholarTranslationError as exc:
+            status = HTTPStatus.SERVICE_UNAVAILABLE
+            if exc.code == "quota":
+                status = HTTPStatus.TOO_MANY_REQUESTS
+            elif exc.code == "timeout":
+                status = HTTPStatus.GATEWAY_TIMEOUT
+            self.send_json(
+                self._compat_payload({"error": str(exc), "translation_error": exc.code}),
+                status,
+            )
         except (ValueError, json.JSONDecodeError) as exc:
             self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.BAD_REQUEST)
         except Exception as exc:
@@ -373,6 +477,7 @@ def main() -> int:
     )
     server.cors_origins = allowed_origins()
     server.heavy_gate = threading.BoundedSemaphore(1)
+    server.translation_gate = threading.BoundedSemaphore(2)
     server.status_lock = threading.Lock()
     server.books_lock = threading.Lock()
     server.status_payload = None
