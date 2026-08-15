@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from v5_lowmem import ask, corpus_status, list_books, search
+from v5_translation import MAX_SOURCE_CHARS, TranslationError, translate_arabic_to_french
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DB = ROOT / "rag" / "data" / "athar_hosted.sqlite.gz"
@@ -36,6 +37,11 @@ def allowed_origins() -> set[str]:
         if item:
             values.add(item)
     return values
+
+
+def bounded_excerpt(value: Any, limit: int = MAX_SOURCE_CHARS) -> str:
+    clean = " ".join(str(value or "").split()).strip()
+    return clean if len(clean) <= limit else clean[:limit].rstrip() + "…"
 
 
 def open_connection(path: Path) -> sqlite3.Connection:
@@ -87,7 +93,7 @@ class AtharThreadingHTTPServer(ThreadingHTTPServer):
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "AtharRAG/5.1-lowmem"
+    server_version = "AtharRAG/5.2-lowmem"
 
     @property
     def db_path(self) -> Path:
@@ -210,6 +216,46 @@ class Handler(BaseHTTPRequestHandler):
             finally:
                 self._release_heavy()
 
+    def _translation_payload(self, source_id: str) -> dict[str, Any]:
+        cache = getattr(self.server, "translation_cache")
+        cache_lock = getattr(self.server, "translation_cache_lock")
+        with cache_lock:
+            cached = cache.get(source_id)
+        if cached is not None:
+            return cached
+
+        with open_connection(self.db_path) as connection:
+            row = connection.execute(
+                "SELECT id, text_ar, text_fr, translation_status FROM chunks WHERE id=? LIMIT 1",
+                (source_id,),
+            ).fetchone()
+        if row is None:
+            raise LookupError("Passage introuvable dans le corpus.")
+
+        text_fr = bounded_excerpt(row["text_fr"])
+        if text_fr:
+            translated = {
+                "source_id": str(row["id"]),
+                "text_fr": text_fr,
+                "translation_status": str(row["translation_status"] or "Traduction indexée"),
+                "translation_provider": "corpus",
+                "translation_notice": "",
+            }
+        else:
+            text_ar = bounded_excerpt(row["text_ar"])
+            if not text_ar:
+                raise ValueError("Ce passage ne contient pas de texte arabe à traduire.")
+            translated = {
+                "source_id": str(row["id"]),
+                **translate_arabic_to_french(text_ar),
+            }
+
+        with cache_lock:
+            if len(cache) >= 128:
+                cache.pop(next(iter(cache)))
+            cache[source_id] = translated
+        return translated
+
     def do_OPTIONS(self) -> None:
         path, _ = self.parse_path()
         if path != "/healthz" and not (path.startswith("/api/rag/v4/") or path.startswith("/api/rag/v5/")):
@@ -267,7 +313,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path, _ = self.parse_path()
-        if path not in {"/api/rag/v4/ask", "/api/rag/v5/ask"}:
+        ask_paths = {"/api/rag/v4/ask", "/api/rag/v5/ask"}
+        translate_paths = {"/api/rag/v5/translate"}
+        if path not in ask_paths | translate_paths:
             self.send_json(self._compat_payload({"error": "Route introuvable."}), HTTPStatus.NOT_FOUND)
             return
         try:
@@ -276,6 +324,29 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(raw.decode("utf-8") or "{}")
             if not isinstance(payload, dict):
                 raise ValueError("Corps JSON invalide.")
+
+            if path in translate_paths:
+                source_id = str(payload.get("source_id") or "").strip()
+                if not source_id:
+                    raise ValueError("Identifiant de passage requis.")
+                if len(source_id) > 160:
+                    raise ValueError("Identifiant de passage invalide.")
+                gate = getattr(self.server, "translation_gate", None)
+                acquired = True if gate is None else bool(gate.acquire(timeout=5))
+                if not acquired:
+                    self.send_json(
+                        self._compat_payload({"error": "Le service de traduction est occupé. Réessaie dans quelques secondes."}),
+                        HTTPStatus.SERVICE_UNAVAILABLE,
+                    )
+                    return
+                try:
+                    translated = self._translation_payload(source_id)
+                finally:
+                    if gate is not None:
+                        gate.release()
+                self.send_json(self._compat_payload(translated))
+                return
+
             query = str(payload.get("query") or payload.get("q") or "").strip()
             if not query:
                 raise ValueError("Question requise.")
@@ -293,6 +364,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(self._compat_payload(result))
         except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
             self.close_connection = True
+        except LookupError as exc:
+            self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.NOT_FOUND)
+        except TranslationError as exc:
+            self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.BAD_GATEWAY)
         except (ValueError, json.JSONDecodeError) as exc:
             self.send_json(self._compat_payload({"error": str(exc)}), HTTPStatus.BAD_REQUEST)
         except Exception as exc:
@@ -315,10 +390,13 @@ def main() -> int:
     server.db_path = args.db
     server.cors_origins = allowed_origins()
     server.heavy_gate = threading.BoundedSemaphore(1)
+    server.translation_gate = threading.BoundedSemaphore(2)
     server.status_lock = threading.Lock()
     server.books_lock = threading.Lock()
+    server.translation_cache_lock = threading.Lock()
     server.status_payload = None
     server.books_payload = None
+    server.translation_cache = {}
 
     print(
         f"[Athar RAG V5] listening on http://{args.host}:{args.port} with {args.db} "
