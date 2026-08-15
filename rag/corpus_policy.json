@@ -1,13 +1,14 @@
 {
   "version": 1,
   "hosted": {
-    "target_openiti_books": 75,
+    "target_openiti_books": 70,
     "minimum_openiti_books": 65,
+    "expected_openiti_books_after_tafsir": 75,
     "max_sqlite_bytes": 3221225472,
-    "description": "Palier de production actuel. Augmenter progressivement après validation du poids et de la mémoire Render."
+    "description": "Premier palier industriel : 70 ouvrages OpenITI dans le noyau, puis 5 tafsirs dédiés. Augmenter seulement après validation du poids et de la mémoire Render."
   },
   "promotion": {
-    "default_batch_size": 8,
+    "default_batch_size": 20,
     "max_batch_size": 20,
     "max_auto_books": 80,
     "max_source_chars_per_batch": 45000000,
