@@ -1670,32 +1670,6 @@
       }
     },
     {
-      "book_id": "openiti-auto-f1ee88a266b3a72a",
-      "kutub_id": null,
-      "title": "Cuyun Anba",
-      "title_ar": "عيون الأنباء في طبقات الأطباء",
-      "author": "Ibn Abi Usaybica",
-      "discipline": "Sīra et histoire",
-      "madhhab": "",
-      "openiti_uri": "0668IbnAbiUsaybica.CuyunAnba.Shamela0006687-ara1",
-      "work_uri": "0668IbnAbiUsaybica.CuyunAnba",
-      "path": "data/0668IbnAbiUsaybica/0668IbnAbiUsaybica.CuyunAnba/0668IbnAbiUsaybica.CuyunAnba.Shamela0006687-ara1.completed",
-      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
-      "known_issues": "",
-      "enabled": true,
-      "metadata": {
-        "source": "OpenITI",
-        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-        "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "sira",
-        "source_char_length": 1081963,
-        "source_token_length": 252535,
-        "source_id": "Shamela0006687",
-        "date_ah": "0668"
-      }
-    },
-    {
       "book_id": "openiti-auto-97e42589bcf2a5ed",
       "kutub_id": null,
       "title": "Majallat Ahkam",
@@ -1823,6 +1797,32 @@
         "source_token_length": 242326,
         "source_id": "Shamela0010912",
         "date_ah": "1061"
+      }
+    },
+    {
+      "book_id": "openiti-auto-f435a7faa3834d7d",
+      "kutub_id": null,
+      "title": "Iscaf Awqaf",
+      "title_ar": "الإسعاف فى أحكام الأوقاف",
+      "author": "Ibn Shaykh Tarabulusi",
+      "discipline": "Fiqh",
+      "madhhab": "",
+      "openiti_uri": "0922IbnShaykhTarabulusi.IscafAwqaf.Shamela0096262-ara1",
+      "work_uri": "0922IbnShaykhTarabulusi.IscafAwqaf",
+      "path": "data/0922IbnShaykhTarabulusi/0922IbnShaykhTarabulusi.IscafAwqaf/0922IbnShaykhTarabulusi.IscafAwqaf.Shamela0096262-ara1.completed",
+      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
+      "known_issues": "",
+      "enabled": true,
+      "metadata": {
+        "source": "OpenITI",
+        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+        "catalogue_selection": "athar-corpus-industrializer-v2",
+        "classification_status": "automatic_metadata_hint",
+        "classification_subject": "fiqh",
+        "source_char_length": 174158,
+        "source_token_length": 43232,
+        "source_id": "Shamela0096262",
+        "date_ah": "0922"
       }
     }
   ]

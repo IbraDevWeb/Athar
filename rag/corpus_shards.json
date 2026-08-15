@@ -687,13 +687,13 @@
     {
       "id": "openiti-003",
       "book_count": 40,
-      "source_chars": 30292573,
+      "source_chars": 29384768,
       "oversize_source": false,
       "subjects": {
         "aqida": 8,
-        "fiqh": 8,
+        "fiqh": 9,
         "hadith": 8,
-        "sira": 8,
+        "sira": 7,
         "tafsir": 8
       },
       "books": [
@@ -970,14 +970,6 @@
           "source_chars": 26006
         },
         {
-          "book_id": "openiti-auto-f1ee88a266b3a72a",
-          "title": "Cuyun Anba",
-          "title_ar": "عيون الأنباء في طبقات الأطباء",
-          "author": "Ibn Abi Usaybica",
-          "discipline": "Sīra et histoire",
-          "source_chars": 1081963
-        },
-        {
           "book_id": "openiti-auto-97e42589bcf2a5ed",
           "title": "Majallat Ahkam",
           "title_ar": "مَجَلَّةُ الأَحْكَامِ العَدْلِيَّة",
@@ -1016,6 +1008,14 @@
           "author": "Najm Din Ghazzi",
           "discipline": "Sīra et histoire",
           "source_chars": 1063689
+        },
+        {
+          "book_id": "openiti-auto-f435a7faa3834d7d",
+          "title": "Iscaf Awqaf",
+          "title_ar": "الإسعاف فى أحكام الأوقاف",
+          "author": "Ibn Shaykh Tarabulusi",
+          "discipline": "Fiqh",
+          "source_chars": 174158
         }
       ]
     },
@@ -1186,12 +1186,12 @@
     "openiti-auto-41bcd1e39f675abe": "openiti-003",
     "openiti-auto-90ee9f89cf83849e": "openiti-003",
     "openiti-auto-15b224f075f9dcb0": "openiti-003",
-    "openiti-auto-f1ee88a266b3a72a": "openiti-003",
     "openiti-auto-97e42589bcf2a5ed": "openiti-003",
     "openiti-auto-d46aba0b893d7731": "openiti-003",
     "openiti-auto-c92f000c85ce7733": "openiti-003",
     "openiti-auto-ba24b51120ccd14c": "openiti-003",
     "openiti-auto-d0071395a8b5ac0a": "openiti-003",
+    "openiti-auto-f435a7faa3834d7d": "openiti-003",
     "openiti-baghawi-tafsir": "openiti-004",
     "openiti-zamakhshari-kashshaf": "openiti-004",
     "openiti-razi-mafatih-ghayb": "openiti-004",
