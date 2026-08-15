@@ -32,10 +32,16 @@ jobs:
         run: >-
           python -m py_compile
           rag/v5_engine.py rag/v5_lowmem.py rag/v5_query_intelligence.py
-          rag/v5_server.py rag/v5_unit_tests.py rag/v5_query_intelligence_tests.py rag/v5_corpus_tests.py
+          rag/v5_scholar_translation.py rag/v5_server.py rag/v5_unit_tests.py
+          rag/v5_query_intelligence_tests.py rag/v5_scholar_translation_tests.py rag/v5_corpus_tests.py
       - name: Run V5 query-intelligence tests
         working-directory: rag
         run: python v5_query_intelligence_tests.py
+      - name: Run V5 scholar translation tests
+        working-directory: rag
+        env:
+          GEMINI_API_KEY: ''
+        run: python v5_scholar_translation_tests.py
       - name: Run V5 unit tests
         working-directory: rag
         env:
