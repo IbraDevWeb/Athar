@@ -37,7 +37,6 @@ CRITICAL_BUILD_FILES = (
     "rag/openiti.py",
     "rag/ingest_openiti.py",
     "rag/core.py",
-    "rag/storage.py",
     "rag/ingest_tafsir.py",
 )
 

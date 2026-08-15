@@ -11,7 +11,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 from build_sharded_corpus import (
+    CRITICAL_BUILD_FILES,
     SHARD_BUILD_VERSION,
+    _build_fingerprint,
     _create_catalog,
     _record_reused_shard,
     _record_shard,
@@ -233,6 +235,11 @@ class IncrementalShardReuseTests(unittest.TestCase):
             ],
             "book_to_shard": {"book-a": "openiti-001"},
         }
+
+    def test_real_build_fingerprint_references_existing_files(self) -> None:
+        fingerprint = _build_fingerprint()
+        self.assertEqual(set(fingerprint), set(CRITICAL_BUILD_FILES))
+        self.assertTrue(all(len(value) == 64 for value in fingerprint.values()))
 
     def test_source_signature_is_stable_but_changes_with_source_identity(self) -> None:
         fingerprint = {"rag/openiti.py": "abc"}
