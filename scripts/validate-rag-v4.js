@@ -19,31 +19,21 @@ const lowmem = read('rag/v5_lowmem.py');
     'MAX_FULL_CANDIDATES = 72', '_bounded_fetch_fts_candidates', '_engine._fetch_fts_candidates', 'search = _engine.search'
 ].forEach(token => need(lowmem, token, 'rag/v5_lowmem.py'));
 
-const translation = read('rag/v5_translation.py');
-[
-    'MYMEMORY_ENDPOINT', 'MAX_QUERY_BYTES = 450', 'MAX_SOURCE_CHARS = 1800',
-    'def split_for_translation(', 'def translate_arabic_to_french(', 'Traduction automatique',
-    'Le texte arabe original reste la référence à consulter.'
-].forEach(token => need(translation, token, 'rag/v5_translation.py'));
-reject(translation, /openai|anthropic|gemini/i, 'rag/v5_translation.py');
-
 const server = read('rag/v5_server.py');
 [
     'ENGINE_MARKER = "rag-v5-hybrid-multilingual"', 'engine_version', 'runtime_profile',
-    '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/search', '/api/rag/v5/ask', '/api/rag/v5/translate',
+    '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/search', '/api/rag/v5/ask',
     'mode=ro&immutable=1', 'PRAGMA query_only=ON', 'PRAGMA cache_size=-8192', 'PRAGMA mmap_size=0',
-    'Access-Control-Allow-Origin', 'ATHAR_CORS_ORIGINS', 'status": "ready"',
-    'translation_gate = threading.BoundedSemaphore(2)', 'server.translation_cache = {}'
+    'Access-Control-Allow-Origin', 'ATHAR_CORS_ORIGINS', 'status": "ready"'
 ].forEach(token => need(server, token, 'rag/v5_server.py'));
 reject(server, /localFallback|seed\.json/i, 'rag/v5_server.py');
 
 const view = read('js/components/ScholarLibraryV4View.js');
 [
-    "name: 'AtharResearchView'", '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/ask', '/api/rag/v5/translate',
+    "name: 'AtharResearchView'", '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/ask',
     "payload?.engine !== 'rag-v5-hybrid-multilingual'", 'REQUEST_TIMEOUT_MS = 120000',
     'Athar Research', 'Questions naturelles', 'Les ouvrages indexés', 'Historique local',
-    'Pertinence documentaire ≠ certitude religieuse', 'routed_book', 'matched_concepts',
-    'translateSource', 'Traduire en français', 'translation_notice', 'Texte arabe', 'Texte français'
+    'Pertinence documentaire ≠ certitude religieuse', 'routed_book', 'matched_concepts'
 ].forEach(token => need(view, token, 'ScholarLibraryV4View.js / Athar Research'));
 reject(view, /\/api\/rag\/v2\/|localFallback|embedded_fallback|rag\/seed\.json|Moteur V4 connecté/i, 'Athar Research frontend');
 
@@ -98,4 +88,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Hammer lightweight health check', 'Verify natural-language query and bounded candidates', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — standalone UI, V5 routes, on-demand French citation translation, low-memory runtime, book-aware retrieval and explicit evidence-only behavior.');
+console.log('Athar Research V5 static contract valid — standalone UI, V5 routes, low-memory runtime, book-aware retrieval and explicit evidence-only behavior.');
