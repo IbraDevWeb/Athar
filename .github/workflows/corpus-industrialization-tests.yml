@@ -16,11 +16,17 @@ on:
       - 'rag/corpus_shards_tests.py'
       - 'rag/corpus_shards.json'
       - 'rag/openiti_books_auto.json'
+      - 'rag/openiti_books_tafsir.json'
       - 'rag/ingest_openiti.py'
       - 'rag/build_hosted_corpus.py'
+      - 'rag/build_sharded_corpus.py'
       - 'rag/cache_hosted_corpus.py'
       - 'rag/fetch_hosted_corpus.py'
       - 'rag/corpus_release_cache_tests.py'
+      - 'rag/v5_sharded.py'
+      - 'rag/v5_server.py'
+      - 'rag/v5_library_server.py'
+      - 'rag/sharded_corpus_tests.py'
       - '.github/workflows/grow-openiti-corpus.yml'
       - '.github/workflows/build-rag-corpus.yml'
       - '.github/workflows/corpus-industrialization-tests.yml'
@@ -39,11 +45,17 @@ on:
       - 'rag/corpus_shards_tests.py'
       - 'rag/corpus_shards.json'
       - 'rag/openiti_books_auto.json'
+      - 'rag/openiti_books_tafsir.json'
       - 'rag/ingest_openiti.py'
       - 'rag/build_hosted_corpus.py'
+      - 'rag/build_sharded_corpus.py'
       - 'rag/cache_hosted_corpus.py'
       - 'rag/fetch_hosted_corpus.py'
       - 'rag/corpus_release_cache_tests.py'
+      - 'rag/v5_sharded.py'
+      - 'rag/v5_server.py'
+      - 'rag/v5_library_server.py'
+      - 'rag/sharded_corpus_tests.py'
       - '.github/workflows/grow-openiti-corpus.yml'
       - '.github/workflows/build-rag-corpus.yml'
       - '.github/workflows/corpus-industrialization-tests.yml'
@@ -75,10 +87,15 @@ jobs:
           rag/corpus_shards_tests.py
           rag/ingest_openiti.py
           rag/build_hosted_corpus.py
+          rag/build_sharded_corpus.py
           rag/cache_hosted_corpus.py
           rag/fetch_hosted_corpus.py
+          rag/v5_sharded.py
+          rag/v5_server.py
+          rag/v5_library_server.py
           rag/corpus_industrializer_tests.py
           rag/corpus_release_cache_tests.py
+          rag/sharded_corpus_tests.py
 
       - name: Run deterministic catalogue, promotion and sharding tests
         working-directory: rag
@@ -91,6 +108,10 @@ jobs:
         working-directory: rag
         run: python corpus_release_cache_tests.py
 
+      - name: Run sharded runtime and cache tests
+        working-directory: rag
+        run: python sharded_corpus_tests.py
+
       - name: Validate industrial manifest invariants
         shell: bash
         run: |
@@ -99,7 +120,7 @@ jobs:
           from pathlib import Path
           sys.path.insert(0, 'rag')
           from ingest_openiti import load_industrialized_manifest
-          from corpus_shards import build_registry
+          from corpus_shards import build_registry, load_shardable_manifest
 
           policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
           sources = json.loads(Path('rag/corpus_sources.json').read_text(encoding='utf-8'))
@@ -122,14 +143,23 @@ jobs:
           approved_blob = str(approval.get('approved_auto_manifest_blob') or '')
           assert not approved_blob or re.fullmatch(r'[0-9a-f]{40}', approved_blob)
           assert int(approval.get('approved_auto_books') or 0) >= 0
-          manifest = load_industrialized_manifest()
-          ids = [str(book['book_id']) for book in manifest['books'] if book.get('enabled', True)]
-          uris = [str(book['openiti_uri']) for book in manifest['books'] if book.get('enabled', True)]
+
+          industrial = load_industrialized_manifest()
+          industrial_ids = [str(book['book_id']) for book in industrial['books'] if book.get('enabled', True)]
+          industrial_uris = [str(book['openiti_uri']) for book in industrial['books'] if book.get('enabled', True)]
+          assert len(industrial_ids) == len(set(industrial_ids))
+          assert len(industrial_uris) == len(set(industrial_uris))
+
+          shardable = load_shardable_manifest()
+          ids = [str(book['book_id']) for book in shardable['books'] if book.get('enabled', True)]
+          uris = [str(book['openiti_uri']) for book in shardable['books'] if book.get('enabled', True)]
           assert len(ids) == len(set(ids))
           assert len(uris) == len(set(uris))
-          registry = build_registry(manifest, policy)
+          assert len(ids) >= len(industrial_ids)
+          registry = build_registry(shardable, policy)
           assert registry['total_books'] == len(ids)
           assert set(registry['book_to_shard']) == set(ids)
           assert all(int(shard['book_count']) <= int(registry['limits']['max_books_per_shard']) for shard in registry['shards'])
-          print(f'Industrial manifest valid: {len(ids)} enabled OpenITI books, {registry["total_shards"]} planned shard(s)')
+          assert int(registry['hosted_target_openiti_books']) >= 100
+          print(f'Industrial manifest valid: {len(industrial_ids)} industrial + {len(ids) - len(industrial_ids)} dedicated = {len(ids)} shardable OpenITI books, {registry["total_shards"]} planned shard(s)')
           PY

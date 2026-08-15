@@ -13,14 +13,14 @@ from v5_server import (
     AtharThreadingHTTPServer,
     Handler as BaseHandler,
     allowed_origins,
+    configure_server_corpus,
     env_port,
     open_connection,
-    validate_db,
 )
 
 
 class Handler(BaseHandler):
-    server_version = "AtharRAG/5.4-library-lowmem"
+    server_version = "AtharRAG/5.5-library-sharded-lowmem"
 
     def _library_acquire(self) -> bool:
         gate = getattr(self.server, "library_gate", None)
@@ -60,8 +60,11 @@ class Handler(BaseHandler):
             cached = getattr(self.server, "library_books_payload", None)
             if cached is not None:
                 return cached
-            with open_connection(self.db_path) as connection:
-                cached = list_library_books(connection)
+            if self.shard_runtime is not None:
+                cached = self.shard_runtime.list_library_books()
+            else:
+                with open_connection(self.db_path) as connection:
+                    cached = list_library_books(connection)
             self.server.library_books_payload = cached
             return cached
 
@@ -106,7 +109,11 @@ class Handler(BaseHandler):
                 )
                 return
             try:
-                with open_connection(self.db_path) as connection:
+                if self.shard_runtime is not None:
+                    context = self.shard_runtime.book_connection(book_id)
+                else:
+                    context = open_connection(self.db_path)
+                with context as connection:
                     if path == "/api/rag/v5/book":
                         payload = {"book": get_book(connection, book_id)}
                     elif path == "/api/rag/v5/toc":
@@ -151,12 +158,18 @@ def main() -> int:
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=env_port())
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
+    parser.add_argument("--shard-dir", type=Path, default=None)
+    parser.add_argument("--manifest", type=Path, default=None)
     parser.add_argument("--api-only", action="store_true")
     args = parser.parse_args()
 
-    validate_db(args.db)
     server = AtharThreadingHTTPServer((args.host, args.port), Handler)
-    server.db_path = args.db
+    configure_server_corpus(
+        server,
+        args.db,
+        shard_dir=args.shard_dir,
+        manifest_path=args.manifest,
+    )
     server.cors_origins = allowed_origins()
     server.heavy_gate = threading.BoundedSemaphore(1)
     server.library_gate = threading.BoundedSemaphore(4)
@@ -172,9 +185,10 @@ def main() -> int:
                 "server": "athar-rag-v5-library",
                 "engine": "rag-v5-hybrid-multilingual",
                 "runtime_profile": "low-memory",
+                "storage_mode": server.storage_mode,
                 "host": args.host,
                 "port": args.port,
-                "db": str(args.db),
+                "db": str(server.db_path),
                 "library_read_limit": 12,
                 "library_toc_limit": 360,
                 "library_search_limit": 16,

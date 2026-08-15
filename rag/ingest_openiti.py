@@ -57,8 +57,6 @@ def persist_manifest_metadata(connection: Any, book: dict[str, object]) -> None:
         existing = {}
     if not isinstance(existing, dict):
         existing = {}
-    # Source metadata produced during ingestion wins on conflicts; catalogue hints
-    # remain explicit and auditable instead of becoming silent assertions.
     merged = {**configured, **existing, "manifest_provenance_preserved": True}
     connection.execute(
         "UPDATE books SET metadata_json=? WHERE id=?",
@@ -83,17 +81,24 @@ def fetch_with_retry(raw_url: str, attempts: int = 3) -> str:
     raise last_error
 
 
-def sync(
+def sync_books(
     db_path: Path,
-    max_books: int | None = None,
+    manifest: dict[str, Any],
+    books: list[dict[str, Any]],
+    *,
     best_effort: bool = False,
     workers: int | None = None,
 ) -> dict[str, object]:
-    manifest = load_industrialized_manifest()
-    books = [book for book in manifest.get("books", []) if isinstance(book, dict) and book.get("enabled", True)]
-    total_enabled = len(books)
-    if max_books is not None:
-        books = books[: max(0, max_books)]
+    """Ingest an explicit OpenITI subset into one SQLite database.
+
+    This is the primitive used by the sharded builder. It deliberately receives
+    an explicit list instead of slicing the global manifest, so one shard can be
+    rebuilt independently without first constructing the entire corpus.
+    """
+    selected = [book for book in books if isinstance(book, dict) and book.get("enabled", True)]
+    ids = [str(book.get("book_id") or "").strip() for book in selected]
+    if not selected or not all(ids) or len(ids) != len(set(ids)):
+        raise RuntimeError("Le sous-ensemble OpenITI à ingérer est vide, invalide ou dupliqué.")
 
     worker_count = max(1, min(int(workers or os.getenv("ATHAR_OPENITI_WORKERS", "4")), 8))
     connection = connect(db_path)
@@ -115,7 +120,7 @@ def sync(
     try:
         with ThreadPoolExecutor(max_workers=worker_count, thread_name_prefix="openiti") as pool:
             futures: dict[Future[tuple[dict[str, object], str]], dict[str, object]] = {
-                pool.submit(download, book): book for book in books
+                pool.submit(download, book): book for book in selected
             }
             for future in as_completed(futures):
                 book = futures[future]
@@ -126,7 +131,10 @@ def sync(
                     imported_books += 1
                     imported_chunks += stats["chunks"]
                     imported_pages += stats["pages"]
-                    print(f"[OpenITI] {downloaded_book['title']} : {stats['pages']} page(s), {stats['chunks']} passage(s).", flush=True)
+                    print(
+                        f"[OpenITI] {downloaded_book['title']} : {stats['pages']} page(s), {stats['chunks']} passage(s).",
+                        flush=True,
+                    )
                 except Exception as error:
                     message = f"{book.get('title', book.get('openiti_uri'))}: {error}"
                     errors.append(message)
@@ -139,14 +147,48 @@ def sync(
         connection.close()
 
     return {
-        "available_books": total_enabled,
-        "requested_books": len(books),
+        "requested_books": len(selected),
         "imported_books": imported_books,
         "imported_pages": imported_pages,
         "imported_chunks": imported_chunks,
         "workers": worker_count,
-        "industrialized_queue": AUTO_MANIFEST.exists(),
         "errors": errors,
+    }
+
+
+def sync(
+    db_path: Path,
+    max_books: int | None = None,
+    best_effort: bool = False,
+    workers: int | None = None,
+) -> dict[str, object]:
+    manifest = load_industrialized_manifest()
+    books = [book for book in manifest.get("books", []) if isinstance(book, dict) and book.get("enabled", True)]
+    total_enabled = len(books)
+    if max_books is not None:
+        books = books[: max(0, max_books)]
+    if not books:
+        return {
+            "available_books": total_enabled,
+            "requested_books": 0,
+            "imported_books": 0,
+            "imported_pages": 0,
+            "imported_chunks": 0,
+            "workers": max(1, min(int(workers or os.getenv("ATHAR_OPENITI_WORKERS", "4")), 8)),
+            "industrialized_queue": AUTO_MANIFEST.exists(),
+            "errors": [],
+        }
+    result = sync_books(
+        db_path,
+        manifest,
+        books,
+        best_effort=best_effort,
+        workers=workers,
+    )
+    return {
+        "available_books": total_enabled,
+        **result,
+        "industrialized_queue": AUTO_MANIFEST.exists(),
     }
 
 
