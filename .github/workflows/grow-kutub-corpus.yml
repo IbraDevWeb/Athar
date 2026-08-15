@@ -13,6 +13,9 @@ on:
     branches: [main]
     paths:
       - 'rag/books.json'
+      - 'rag/scrape_kutub.py'
+      - 'rag/scrape_kutub_tests.py'
+      - 'rag/ingest_kutub.py'
       - 'rag/prepare_hosted_db.py'
       - 'rag/export_kutub_corpus.py'
       - '.github/workflows/grow-kutub-corpus.yml'
@@ -43,6 +46,10 @@ jobs:
 
       - name: Install crawler dependencies
         run: python -m pip install -r rag/requirements.txt
+
+      - name: Validate Kutub French extractor
+        working-directory: rag
+        run: python scrape_kutub_tests.py
 
       - name: Hydrate versioned corpus
         run: python rag/prepare_hosted_db.py --db /tmp/athar-kutub-grow.sqlite
