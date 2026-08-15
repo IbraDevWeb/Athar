@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "notice": "Règles de normalisation éditoriale explicites. Aucun madhhab n'est inféré automatiquement.",
+  "author_aliases": {
+    "Suyuti": "Al-Suyūṭī",
+    "Dhahabi": "Al-Dhahabī",
+    "Abu al-Walid al-Baji": "Abū al-Walīd al-Bājī",
+    "Ibn Taymiyya": "Ibn Taymiyyah",
+    "Ibn Hajar Casqalani": "Ibn Ḥajar al-ʿAsqalānī",
+    "Ibn Cabd Wahhab": "Muḥammad ibn ʿAbd al-Wahhāb",
+    "Qadi Iyad": "Qāḍī ʿIyāḍ",
+    "Al-Shatibi": "Al-Shāṭibī",
+    "Ibn Casakir": "Ibn ʿAsākir",
+    "Ibn Hanbal": "Aḥmad ibn Ḥanbal",
+    "Maqrizi": "Al-Maqrīzī"
+  },
+  "discipline_aliases": {
+    "Tafsir": "Tafsīr",
+    "Usul": "Uṣūl al-fiqh",
+    "Usul al-fiqh": "Uṣūl al-fiqh",
+    "Usul al-fiqh et maqasid": "Uṣūl al-fiqh et maqāṣid",
+    "Uṣūl et qawāʿid": "Uṣūl et qawāʿid",
+    "Sira et histoire": "Sīra et histoire",
+    "Histoire et sīra": "Sīra et histoire",
+    "Fiqh compare": "Fiqh comparé",
+    "Hadith et fiqh compare": "Hadith et fiqh comparé",
+    "Tafsir et langue arabe": "Tafsīr et langue arabe",
+    "Tafsir et kalam": "Tafsīr et kalām",
+    "Tabaqat et fiqh": "Ṭabaqāt et fiqh",
+    "Tabaqat et histoire du madhhab": "Ṭabaqāt et histoire du madhhab"
+  },
+  "title_overrides": {}
+}

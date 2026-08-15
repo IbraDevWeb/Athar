@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import json
 import re
 import sqlite3
@@ -16,9 +17,16 @@ MANIFEST = ROOT / "rag" / "openiti_books.json"
 EXTRA_MANIFESTS = [ROOT / "rag" / "openiti_books_extra.json", ROOT / "rag" / "openiti_books_extra_40.json"]
 HEADER_END = "#META#Header#End#"
 PAGE_RE = re.compile(r"PageV(?P<volume>\d{2,3})P(?P<page>\d{3,5})(?P<side>[AB])?")
-HEADING_RE = re.compile(r"^###\s+\|+\s*(.*)$")
+HEADING_RE = re.compile(r"^###\s+(?P<pipes>\|+)\s*(?P<title>.*)$")
 SPACE_RE = re.compile(r"\s+")
+HTML_TAG_RE = re.compile(r"<[^>\n]{1,300}>")
+BRACKETED_PAGE_RE = re.compile(r"\[\s*(?:ص|صفحة|page)\s*[:：]?\s*[\d٠-٩]+\s*\]", re.I)
+CONTROL_PAGE_RE = re.compile(r"\bPageV\d{2,3}P\d{3,5}[AB]?\b")
+ZERO_WIDTH_RE = re.compile(r"[\u200b-\u200f\u202a-\u202e\u2060-\u206f\ufeff]")
+REPEATED_SIGNS_RE = re.compile(r"(?:\s*[|¦]{2,}\s*|\s*={3,}\s*|\s*_{3,}\s*)")
 QUALITY_FLAGS = ("PRIMARY_VERSION", "CLEANED_VERSION", "NO_MAJOR_ISSUES", "PAGINATION", "HTML_TAGS")
+READER_PARSER_VERSION = "athar-openiti-reader-v2"
+MAX_RAW_BYTES = 96 * 1024 * 1024
 _RESOLVED_URLS: dict[str, dict[str, str]] = {}
 
 
@@ -53,60 +61,114 @@ def urls(manifest: dict[str, Any], book: dict[str, Any]) -> tuple[str, str]:
 
 
 def clean(value: str) -> str:
+    """Conservative OpenITI cleanup suitable for indexing and reading.
+
+    Structural/editorial noise is removed, while ordinary numbers are kept:
+    hadith numbers, verse references, dates, quantities, etc. are source data.
+    """
+    value = html.unescape(value or "")
+    value = ZERO_WIDTH_RE.sub("", value)
+    value = CONTROL_PAGE_RE.sub(" ", value)
+    value = HTML_TAG_RE.sub(" ", value)
+    value = BRACKETED_PAGE_RE.sub(" ", value)
     value = re.sub(r"\bms\d+\b", " ", value, flags=re.I)
-    value = value.replace(" %~% ", " — ").replace(" | ", " ")
+    value = value.replace(" %~% ", " — ").replace("%~%", " — ")
+    value = value.replace("~~", " ")
+    value = REPEATED_SIGNS_RE.sub(" ", value)
+    value = value.replace(" | ", " ")
     return SPACE_RE.sub(" ", value).strip()
 
 
-def pieces(segment: str, inherited: str) -> tuple[list[tuple[str, str]], str]:
-    heading = inherited
-    result: list[tuple[str, str]] = []
+def _heading(line: str) -> tuple[int, str] | None:
+    match = HEADING_RE.match(line)
+    if match:
+        return min(6, max(1, len(match.group("pipes")))), clean(match.group("title"))[:500]
+    if line.startswith("### "):
+        title = clean(re.sub(r"^###\s+[^ ]*\s*", "", line))[:500]
+        return (1, title) if title else None
+    return None
+
+
+def pieces(
+    segment: str,
+    inherited: tuple[str, ...] | str = (),
+) -> tuple[list[dict[str, Any]], tuple[str, ...]]:
+    if isinstance(inherited, str):
+        section_path: list[str] = [inherited] if inherited else []
+    else:
+        section_path = [str(item) for item in inherited if str(item).strip()]
+    result: list[dict[str, Any]] = []
     buffer: list[str] = []
 
     def flush() -> None:
         text = clean(" ".join(buffer))
         buffer.clear()
         if text:
-            result.append((heading, text))
+            result.append(
+                {
+                    "chapter": section_path[-1] if section_path else "",
+                    "section_title": section_path[-1] if section_path else "",
+                    "section_level": len(section_path) if section_path else 0,
+                    "section_path": list(section_path),
+                    "text": text,
+                }
+            )
 
     for raw in segment.splitlines():
         line = raw.strip()
         if not line or line.startswith("#META#") or line == "######OpenITI#":
             continue
-        match = HEADING_RE.match(line)
-        if match:
+        heading = _heading(line)
+        if heading:
             flush()
-            heading = clean(match.group(1))[:500]
-            continue
-        if line.startswith("### "):
-            flush()
-            heading = clean(re.sub(r"^###\s+[^ ]*\s*", "", line))[:500]
+            level, title = heading
+            if title:
+                if level <= len(section_path):
+                    section_path = section_path[: level - 1]
+                while len(section_path) < level - 1:
+                    section_path.append("")
+                section_path.append(title)
+                section_path = [item for item in section_path if item]
             continue
         if line.startswith("~~"):
             line = line[2:].lstrip()
         elif line.startswith("# "):
             line = line[2:].lstrip()
-        buffer.append(line)
+        line = clean(line)
+        if line:
+            buffer.append(line)
     flush()
-    return result, heading
+    return result, tuple(section_path)
 
 
-def split_text(text: str, size: int = 1800, overlap: int = 220) -> list[str]:
+def split_text(text: str, size: int = 1800, overlap: int = 0) -> list[str]:
+    """Split source text without duplicating prose in the reader.
+
+    `overlap` remains accepted for compatibility but is intentionally ignored:
+    repeated overlap made the digital-book reader display the same words twice.
+    """
+    del overlap
+    text = clean(text)
     if len(text) <= size:
-        return [text]
+        return [text] if text else []
     out: list[str] = []
     start = 0
     while start < len(text):
         end = min(len(text), start + size)
         if end < len(text):
-            cut = max(text.rfind(mark, start + size // 2, end) for mark in (". ", "؟ ", "؛ ", "! "))
+            candidates = [text.rfind(mark, start + size // 2, end) for mark in (". ", "؟ ", "؛ ", "! ", "\n")]
+            cut = max(candidates)
             if cut > start:
                 end = cut + 1
-        out.append(text[start:end].strip())
+        chunk = text[start:end].strip()
+        if chunk:
+            out.append(chunk)
         if end >= len(text):
             break
-        start = max(start + 1, end - overlap)
-    return [item for item in out if item]
+        start = end
+        while start < len(text) and text[start].isspace():
+            start += 1
+    return out
 
 
 def parse(text: str) -> list[dict[str, Any]]:
@@ -114,19 +176,36 @@ def parse(text: str) -> list[dict[str, Any]]:
     markers = list(PAGE_RE.finditer(body))
     rows: list[dict[str, Any]] = []
     cursor = 0
-    heading = ""
+    section_path: tuple[str, ...] = ()
     seq = 0
 
     def append_segment(segment: str, volume: int | None, page: int | None, marker: str) -> None:
-        nonlocal heading, seq
-        parts, heading = pieces(segment, heading)
-        for chapter, value in parts:
-            for chunk in split_text(value):
+        nonlocal section_path, seq
+        parts, section_path = pieces(segment, section_path)
+        for part in parts:
+            for chunk in split_text(str(part["text"])):
                 seq += 1
-                rows.append({"seq": seq, "volume": volume, "page": page, "marker": marker, "chapter": chapter, "text": chunk})
+                rows.append(
+                    {
+                        "seq": seq,
+                        "volume": volume,
+                        "page": page,
+                        "marker": marker,
+                        "chapter": part["chapter"],
+                        "section_title": part["section_title"],
+                        "section_level": part["section_level"],
+                        "section_path": list(part["section_path"]),
+                        "text": chunk,
+                    }
+                )
 
     for marker in markers:
-        append_segment(body[cursor:marker.start()], int(marker.group("volume")), int(marker.group("page")), marker.group(0))
+        append_segment(
+            body[cursor:marker.start()],
+            int(marker.group("volume")),
+            int(marker.group("page")),
+            marker.group(0),
+        )
         cursor = marker.end()
     if body[cursor:].strip():
         append_segment(body[cursor:], None, None, "")
@@ -156,7 +235,12 @@ def _quality(metadata_text: str) -> tuple[list[str], str, int]:
 
 
 def select_version_candidate(entries: list[dict[str, Any]], metadata_by_name: dict[str, str]) -> tuple[dict[str, Any], list[str], str]:
-    candidates = [item for item in entries if item.get("type") == "file" and "-ara1" in str(item.get("name") or "") and not str(item.get("name") or "").endswith(".yml")]
+    candidates = [
+        item for item in entries
+        if item.get("type") == "file"
+        and re.search(r"-ara\d+(?:\.completed)?$", str(item.get("name") or ""), re.I)
+        and not str(item.get("name") or "").endswith(".yml")
+    ]
     if not candidates:
         raise RuntimeError("Aucun texte alternatif OpenITI n'est disponible pour cet ouvrage.")
     ranked: list[tuple[float, dict[str, Any], list[str], str]] = []
@@ -184,7 +268,7 @@ def resolve_raw_url(raw_url: str) -> dict[str, str]:
     commit, configured_path = _split_openiti_raw_url(raw_url)
     directory = configured_path.rsplit("/", 1)[0]
     api_url = "https://api.github.com/repos/OpenITI/RELEASE/contents/" + quote(directory, safe="/") + "?ref=" + quote(commit, safe="")
-    response = requests.get(api_url, timeout=(10, 60), headers={"Accept": "application/vnd.github+json", "User-Agent": "AtharResearch/1.0"})
+    response = requests.get(api_url, timeout=(10, 60), headers={"Accept": "application/vnd.github+json", "User-Agent": "AtharResearch/2.0"})
     response.raise_for_status()
     payload = response.json()
     if not isinstance(payload, list):
@@ -194,14 +278,14 @@ def resolve_raw_url(raw_url: str) -> dict[str, str]:
     metadata: dict[str, str] = {}
     for item in entries:
         name = str(item.get("name") or "")
-        if item.get("type") != "file" or "-ara1" not in name or name.endswith(".yml"):
+        if item.get("type") != "file" or not re.search(r"-ara\d+(?:\.completed)?$", name, re.I) or name.endswith(".yml"):
             continue
         yml_name = f"{_candidate_uri(name)}.yml"
         yml_url = str((yml_entries.get(yml_name) or {}).get("download_url") or "")
         if not yml_url:
             continue
         try:
-            meta = requests.get(yml_url, timeout=(10, 30), headers={"User-Agent": "AtharResearch/1.0"})
+            meta = requests.get(yml_url, timeout=(10, 30), headers={"User-Agent": "AtharResearch/2.0"})
             meta.raise_for_status()
             metadata[yml_name] = meta.text
         except requests.RequestException:
@@ -212,14 +296,21 @@ def resolve_raw_url(raw_url: str) -> dict[str, str]:
     if not resolved_raw or not resolved_path:
         raise RuntimeError("La version alternative OpenITI n'a pas d'URL exploitable.")
     resolved_page = f"https://github.com/OpenITI/RELEASE/blob/{commit}/{resolved_path}"
-    return {"raw_url": resolved_raw, "source_url": resolved_page, "openiti_uri": _candidate_uri(str(selected.get("name") or "")), "quality_status": ",".join(flags) if flags else "OPENITI_RELEASE_AVAILABLE", "known_issues": issues, "configured_path": configured_path}
+    return {
+        "raw_url": resolved_raw,
+        "source_url": resolved_page,
+        "openiti_uri": _candidate_uri(str(selected.get("name") or "")),
+        "quality_status": ",".join(flags) if flags else "OPENITI_RELEASE_AVAILABLE",
+        "known_issues": issues,
+        "configured_path": configured_path,
+    }
 
 
 def _fetch_exact(raw_url: str) -> str:
-    response = requests.get(raw_url, timeout=(10, 120), headers={"User-Agent": "AtharResearch/1.0"})
+    response = requests.get(raw_url, timeout=(10, 180), headers={"User-Agent": "AtharResearch/2.0"})
     response.raise_for_status()
-    if len(response.content) > 32 * 1024 * 1024:
-        raise RuntimeError("Fichier OpenITI supérieur à 32 MiB.")
+    if len(response.content) > MAX_RAW_BYTES:
+        raise RuntimeError(f"Fichier OpenITI supérieur à {MAX_RAW_BYTES // (1024 * 1024)} MiB.")
     text = response.content.decode("utf-8-sig")
     if "######OpenITI#" not in text[:200]:
         raise RuntimeError("Signature OpenITI absente.")
@@ -247,7 +338,24 @@ def ingest_book(connection: Any, manifest: dict[str, Any], book: dict[str, Any],
     quality_status = resolution["quality_status"] if resolution else str(book.get("quality_status", ""))
     known_issues = resolution["known_issues"] if resolution else str(book.get("known_issues", ""))
     resolution_status = "automatic_fallback" if resolution else "configured"
-    upsert_book(connection, {**book, "id": book["book_id"], "source_url": source_url, "metadata": {"source": "OpenITI", "license": manifest["license"], "source_resolution": resolution_status, "openiti_uri_used": actual_uri, "configured_openiti_uri": book.get("openiti_uri", "")}})
+    configured_metadata = book.get("metadata") if isinstance(book.get("metadata"), dict) else {}
+    upsert_book(
+        connection,
+        {
+            **book,
+            "id": book["book_id"],
+            "source_url": source_url,
+            "metadata": {
+                **configured_metadata,
+                "source": "OpenITI",
+                "license": manifest["license"],
+                "source_resolution": resolution_status,
+                "openiti_uri_used": actual_uri,
+                "configured_openiti_uri": book.get("openiti_uri", ""),
+                "reader_parser_version": READER_PARSER_VERSION,
+            },
+        },
+    )
     rows = parse(text)
     now = utc_now()
     title, title_ar, author = str(book.get("title") or ""), str(book.get("title_ar") or ""), str(book.get("author") or "")
@@ -256,7 +364,27 @@ def ingest_book(connection: Any, manifest: dict[str, Any], book: dict[str, Any],
     for row in rows:
         digest = content_hash(actual_uri, row["volume"], row["page"], row["seq"], row["text"])
         chunk_id = f"openiti-{digest[:24]}"
-        meta = {"source": "OpenITI", "openiti_uri": actual_uri, "configured_openiti_uri": book.get("openiti_uri", ""), "source_resolution": resolution_status, "release_commit": manifest["release_commit"], "license": manifest["license"], "license_url": manifest["license_url"], "volume": row["volume"], "printed_page": row["page"], "page_marker": row["marker"], "quality_status": quality_status, "known_issues": known_issues, "raw_source_url": raw_url}
+        meta = {
+            "source": "OpenITI",
+            "openiti_uri": actual_uri,
+            "configured_openiti_uri": book.get("openiti_uri", ""),
+            "source_resolution": resolution_status,
+            "release_commit": manifest["release_commit"],
+            "license": manifest["license"],
+            "license_url": manifest["license_url"],
+            "volume": row["volume"],
+            "printed_page": row["page"],
+            "page_marker": row["marker"],
+            "quality_status": quality_status,
+            "known_issues": known_issues,
+            "raw_source_url": raw_url,
+            "reader_parser_version": READER_PARSER_VERSION,
+            "section_title": row["section_title"],
+            "section_level": row["section_level"],
+            "section_path": row["section_path"],
+            "cleanup_applied": True,
+            "numbers_preserved": True,
+        }
         chunk_rows.append((chunk_id, book["book_id"], row["page"], row["chapter"], row["text"], "", "openiti_arabic_source", source_url, digest, now, json.dumps(meta, ensure_ascii=False)))
         normalized = normalize_text(" ".join(filter(None, [title, title_ar, author, row["chapter"], row["text"]])))
         fts_rows.append((chunk_id, title, title_ar, author, row["chapter"], row["text"], "", normalized))

@@ -8,9 +8,12 @@ on:
       - 'rag/openiti_books_extra.json'
       - 'rag/openiti_books_extra_40.json'
       - 'rag/openiti_books_auto.json'
+      - 'rag/openiti_books_priority.json'
       - 'rag/openiti_books_tafsir.json'
+      - 'rag/corpus_book_curation.json'
       - 'rag/corpus_release_v3.json'
       - 'rag/corpus_reference_checklist.json'
+      - 'rag/corpus_priority_targets.json'
       - 'rag/corpus_coverage_audit.py'
       - 'rag/corpus_coverage_audit_tests.py'
       - '.github/workflows/corpus-coverage-audit.yml'
@@ -27,24 +30,19 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
       - name: Install RAG dependencies
         run: python -m pip install -r rag/requirements.txt
-
       - name: Validate audit code
         working-directory: rag
         run: |
           python -m py_compile corpus_coverage_audit.py corpus_coverage_audit_tests.py
           python corpus_coverage_audit_tests.py
-
       - name: Generate coverage report
         run: python rag/corpus_coverage_audit.py
-
       - name: Commit refreshed report
         shell: bash
         run: |
