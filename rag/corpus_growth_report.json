@@ -2,13 +2,13 @@
   "pipeline": "athar-corpus-industrializer-v2",
   "source": "OpenITI/RELEASE",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "catalog_candidate_works": 4218,
+  "catalog_candidate_works": 4174,
   "configured_base_books": 50,
   "hosted_target_openiti_books": 70,
   "requested_batch": 20,
   "target_limited_batch": 20,
   "promoted_books": 20,
-  "promoted_source_chars": 13442989,
+  "promoted_source_chars": 12486233,
   "auto_manifest_books_before": 0,
   "auto_manifest_books_after": 20,
   "selected": [
@@ -40,13 +40,13 @@
       "source_char_length": 4441948
     },
     {
-      "book_id": "openiti-auto-75ef75677f4033e0",
-      "title": "Maqasid Nahwiyya",
-      "title_ar": "المقاصد النحوية في شرح شواهد شروح الألفية",
-      "author": "Badr Din Cayni",
+      "book_id": "openiti-auto-1f2b35326077b482",
+      "title": "Samac Wa Qiyas",
+      "title_ar": "السماع والقياس",
+      "author": "Ahmad Taymur Basha",
       "discipline": "Uṣūl et qawāʿid",
-      "openiti_uri": "0855BadrDinCayni.MaqasidNahwiyya.Sham19Y0016714-ara1",
-      "source_char_length": 1611170
+      "openiti_uri": "1348AhmadTaymurBasha.SamacWaQiyas.Sham19Y0037477-ara1",
+      "source_char_length": 50022
     },
     {
       "book_id": "openiti-auto-0f327c7c607299f2",
@@ -94,13 +94,13 @@
       "source_char_length": 64832
     },
     {
-      "book_id": "openiti-auto-14e8fbeec683ce69",
-      "title": "Usul Min Kafi",
-      "title_ar": "الأصول من الكافي - الجزء1",
-      "author": "Ibn Yacqub Kulayni",
+      "book_id": "openiti-auto-50b0c08cfcb94b92",
+      "title": "Naqd Maratib Ijmac",
+      "title_ar": "نقد مراتب الإجماع",
+      "author": "Ibn Taymiyya",
       "discipline": "Uṣūl et qawāʿid",
-      "openiti_uri": "0329IbnYacqubKulayni.UsulMinKafi.Masaha000001Vols-ara1",
-      "source_char_length": 1269016
+      "openiti_uri": "0728IbnTaymiyya.NaqdMaratibIjmac.Shamela0008630-ara1",
+      "source_char_length": 23516
     },
     {
       "book_id": "openiti-auto-359bfbd33aa7aaca",
@@ -148,15 +148,6 @@
       "source_char_length": 247458
     },
     {
-      "book_id": "openiti-auto-fb1c6cdc5a48d1b2",
-      "title": "Tawdih Maqasid",
-      "title_ar": "توضيح المقاصد والمسالك بشرح ألفية ابن مالك",
-      "author": "Badr Din Misri Muradi",
-      "discipline": "Uṣūl et qawāʿid",
-      "openiti_uri": "0749BadrDinMisriMuradi.TawdihMaqasid.Shamela0009988-ara1",
-      "source_char_length": 796526
-    },
-    {
       "book_id": "openiti-auto-375122ce638d1b31",
       "title": "Hawadith",
       "title_ar": "الحوادث والبدع",
@@ -191,6 +182,15 @@
       "discipline": "Hadith",
       "openiti_uri": "0463IbnCabdBarr.AdabMujalasa.JK000035-ara1",
       "source_char_length": 21402
+    },
+    {
+      "book_id": "openiti-auto-06dfda5e85767367",
+      "title": "Tafsir Quran",
+      "title_ar": "تفسير السمعاني",
+      "author": "Ibn Muhammad Samcani",
+      "discipline": "Tafsīr",
+      "openiti_uri": "0489IbnMuhammadSamcani.TafsirQuran.JK006476-ara1",
+      "source_char_length": 2646418
     }
   ],
   "dry_run": false
