@@ -173,10 +173,18 @@
     const sourceId = passage.dataset.passageId || '';
     const bookId = currentBookId();
     const existing = passage.querySelector('.reader-ai-translation');
-    existing?.remove();
-    if (!sourceId || !bookId) return;
+    if (!sourceId || !bookId) {
+      existing?.remove();
+      return;
+    }
     const translation = translations.get(cacheKey(bookId, sourceId));
-    if (!translation) return;
+    if (!translation) {
+      existing?.remove();
+      return;
+    }
+    const renderedMode = String(translation.mode || mode);
+    if (existing?.dataset.aiMode === renderedMode) return;
+    existing?.remove();
     const actions = passage.querySelector('.reader-ai-passage-actions');
     if (actions) actions.insertAdjacentHTML('afterend', translationMarkup(translation));
   }
@@ -194,9 +202,11 @@
       const button = actions?.querySelector('[data-ai-translate-passage]');
       if (button && !button.disabled) {
         const cached = translations.has(cacheKey(currentBookId(), sourceId));
-        button.querySelector('span').textContent = cached
+        const wanted = cached
           ? `Traduction ${modeLabel()} disponible`
           : `Traduire ce passage · ${modeLabel()}`;
+        const label = button.querySelector('span');
+        if (label && label.textContent !== wanted) label.textContent = wanted;
       }
       renderCachedTranslation(passage);
     });
@@ -215,7 +225,8 @@
     button.disabled = loading;
     button.classList.toggle('is-loading', loading);
     const label = button.querySelector('span');
-    if (label) label.textContent = loading ? 'Traduction en cours…' : `Traduire ce passage · ${modeLabel()}`;
+    const wanted = loading ? 'Traduction en cours…' : `Traduire ce passage · ${modeLabel()}`;
+    if (label && label.textContent !== wanted) label.textContent = wanted;
   }
 
   async function translatePassage(sourceId) {
@@ -243,9 +254,10 @@
     button.disabled = pageBusy || !page || !hasArabic;
     const label = button.querySelector('span');
     if (!label) return;
-    if (pageBusy && progress) label.textContent = progress;
-    else if (!page) label.textContent = 'Traduire la page';
-    else label.textContent = `Traduire la page ${page}`;
+    const wanted = pageBusy && progress
+      ? progress
+      : (page ? `Traduire la page ${page}` : 'Traduire la page');
+    if (label.textContent !== wanted) label.textContent = wanted;
   }
 
   async function translatePage() {
