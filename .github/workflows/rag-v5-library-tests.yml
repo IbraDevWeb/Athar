@@ -1,0 +1,44 @@
+name: RAG V5 library reader tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v5_library.py'
+      - 'rag/v5_library_server.py'
+      - 'rag/v5_library_tests.py'
+      - 'research-library.html'
+      - 'js/components/ScholarV4Bootstrap.js'
+      - 'render.yaml'
+      - 'scripts/validate-rag-v4.js'
+      - '.github/workflows/rag-v5-library-tests.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'rag/v5_library.py'
+      - 'rag/v5_library_server.py'
+      - 'rag/v5_library_tests.py'
+      - 'research-library.html'
+      - 'js/components/ScholarV4Bootstrap.js'
+      - 'render.yaml'
+      - 'scripts/validate-rag-v4.js'
+      - '.github/workflows/rag-v5-library-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  library-reader:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile reader modules
+        run: python -m py_compile rag/v5_library.py rag/v5_library_server.py rag/v5_library_tests.py
+      - name: Run reader unit tests
+        working-directory: rag
+        run: python v5_library_tests.py
+      - name: Validate Athar Research contract
+        run: node scripts/validate-rag-v4.js
