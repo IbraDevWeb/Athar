@@ -1,0 +1,94 @@
+name: Corpus industrialization tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'rag/corpus_sources.json'
+      - 'rag/corpus_policy.json'
+      - 'rag/openiti_catalog.py'
+      - 'rag/corpus_industrializer.py'
+      - 'rag/corpus_industrializer_tests.py'
+      - 'rag/openiti_books_auto.json'
+      - 'rag/ingest_openiti.py'
+      - 'rag/build_hosted_corpus.py'
+      - 'rag/cache_hosted_corpus.py'
+      - 'rag/corpus_release_cache_tests.py'
+      - '.github/workflows/grow-openiti-corpus.yml'
+      - '.github/workflows/build-rag-corpus.yml'
+      - '.github/workflows/corpus-industrialization-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'rag/corpus_sources.json'
+      - 'rag/corpus_policy.json'
+      - 'rag/openiti_catalog.py'
+      - 'rag/corpus_industrializer.py'
+      - 'rag/corpus_industrializer_tests.py'
+      - 'rag/openiti_books_auto.json'
+      - 'rag/ingest_openiti.py'
+      - 'rag/build_hosted_corpus.py'
+      - 'rag/cache_hosted_corpus.py'
+      - 'rag/corpus_release_cache_tests.py'
+      - '.github/workflows/grow-openiti-corpus.yml'
+      - '.github/workflows/build-rag-corpus.yml'
+      - '.github/workflows/corpus-industrialization-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  industrialization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install -r rag/requirements.txt
+
+      - name: Compile industrial corpus modules
+        run: >-
+          python -m py_compile
+          rag/openiti_catalog.py
+          rag/corpus_industrializer.py
+          rag/ingest_openiti.py
+          rag/build_hosted_corpus.py
+          rag/cache_hosted_corpus.py
+          rag/corpus_industrializer_tests.py
+          rag/corpus_release_cache_tests.py
+
+      - name: Run deterministic catalogue and promotion tests
+        working-directory: rag
+        run: python corpus_industrializer_tests.py
+
+      - name: Run compressed release cache tests
+        working-directory: rag
+        run: python corpus_release_cache_tests.py
+
+      - name: Validate industrial manifest invariants
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'rag')
+          from ingest_openiti import load_industrialized_manifest
+
+          policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
+          sources = json.loads(Path('rag/corpus_sources.json').read_text(encoding='utf-8'))
+          auto = json.loads(Path('rag/openiti_books_auto.json').read_text(encoding='utf-8'))
+          assert sources['sources']['kutub']['automation_policy'] == 'respect_robots'
+          assert int(policy['hosted']['target_openiti_books']) >= int(policy['hosted']['minimum_openiti_books'])
+          assert int(policy['hosted']['max_sqlite_bytes']) > 0
+          assert all(not str(book.get('madhhab') or '').strip() for book in auto.get('books', []))
+          manifest = load_industrialized_manifest()
+          ids = [str(book['book_id']) for book in manifest['books'] if book.get('enabled', True)]
+          uris = [str(book['openiti_uri']) for book in manifest['books'] if book.get('enabled', True)]
+          assert len(ids) == len(set(ids))
+          assert len(uris) == len(set(uris))
+          print(f'Industrial manifest valid: {len(ids)} enabled OpenITI books')
+          PY
