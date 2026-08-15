@@ -18,15 +18,17 @@ from typing import Any, Callable
 
 import requests
 
-DEFAULT_MODEL = "gemini-3.5-flash"
+DEFAULT_MODEL = "gemini-3.1-flash-lite"
 GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 MAX_CACHE_ITEMS = 128
 MAX_QUERY_CHARS = 1800
 MAX_CONCEPTS = 3
 MAX_TERMS_PER_CONCEPT = 12
 MAX_TERM_CHARS = 90
+SUCCESS_CACHE_TTL_SECONDS = 3600
+FAILURE_CACHE_TTL_SECONDS = 45
 
-_CACHE: OrderedDict[str, dict[str, Any]] = OrderedDict()
+_CACHE: OrderedDict[str, tuple[float, dict[str, Any]]] = OrderedDict()
 _CACHE_LOCK = threading.Lock()
 
 _RESPONSE_SCHEMA: dict[str, Any] = {
@@ -76,6 +78,22 @@ def _model() -> str:
 
 def _api_key(explicit: str | None = None) -> str:
     return str(explicit if explicit is not None else os.getenv("GEMINI_API_KEY") or "").strip()
+
+
+def deterministic_query_intelligence(reason: str = "deterministic_sufficient") -> dict[str, Any]:
+    """Return provider metadata without spending a model request."""
+    return {
+        "used": False,
+        "provider": "google-gemini",
+        "model": _model(),
+        "notions": [],
+        "concepts": [],
+        "fallback": "deterministic",
+        "latency_ms": 0,
+        "cache_hit": False,
+        "error": "",
+        "skipped_reason": str(reason or "deterministic_sufficient"),
+    }
 
 
 def _clean_text(value: Any, *, limit: int = MAX_TERM_CHARS) -> str:
@@ -162,17 +180,25 @@ def _cache_key(query: str, model: str) -> str:
 
 
 def _cache_get(key: str) -> dict[str, Any] | None:
+    now = time.monotonic()
     with _CACHE_LOCK:
-        value = _CACHE.get(key)
-        if value is None:
+        entry = _CACHE.get(key)
+        if entry is None:
+            return None
+        created_at, value = entry
+        ttl = SUCCESS_CACHE_TTL_SECONDS if value.get("used") else FAILURE_CACHE_TTL_SECONDS
+        if now - created_at > ttl:
+            _CACHE.pop(key, None)
             return None
         _CACHE.move_to_end(key)
-        return copy.deepcopy(value)
+        result = copy.deepcopy(value)
+        result["cache_hit"] = True
+        return result
 
 
 def _cache_put(key: str, value: dict[str, Any]) -> None:
     with _CACHE_LOCK:
-        _CACHE[key] = copy.deepcopy(value)
+        _CACHE[key] = (time.monotonic(), copy.deepcopy(value))
         _CACHE.move_to_end(key)
         while len(_CACHE) > MAX_CACHE_ITEMS:
             _CACHE.popitem(last=False)
@@ -194,16 +220,9 @@ def analyze_query(
     clean_query = " ".join(str(query or "").split()).strip()[:MAX_QUERY_CHARS]
     model = _model()
     key = _api_key(api_key)
-    base = {
-        "used": False,
-        "provider": "google-gemini",
-        "model": model,
-        "notions": [],
-        "concepts": [],
-        "fallback": "deterministic",
-        "latency_ms": 0,
-        "error": "",
-    }
+    base = deterministic_query_intelligence("provider_fallback")
+    base["model"] = model
+    base["skipped_reason"] = ""
     if not clean_query:
         return base
     if not _enabled() or not key:
@@ -214,7 +233,6 @@ def analyze_query(
     if use_cache:
         cached = _cache_get(cache_key)
         if cached is not None:
-            cached["cache_hit"] = True
             return cached
 
     started = time.monotonic()
@@ -223,8 +241,8 @@ def analyze_query(
         request_payload = {
             "contents": [{"parts": [{"text": _prompt(clean_query)}]}],
             "generationConfig": {
-                "temperature": 0.1,
-                "maxOutputTokens": 900,
+                "maxOutputTokens": 450,
+                "thinkingConfig": {"thinkingLevel": "minimal"},
                 "responseMimeType": "application/json",
                 "responseSchema": _RESPONSE_SCHEMA,
             },
@@ -233,7 +251,7 @@ def analyze_query(
             GEMINI_ENDPOINT.format(model=model),
             headers={"x-goog-api-key": key, "Content-Type": "application/json"},
             json=request_payload,
-            timeout=(3.5, 8.0),
+            timeout=(3.0, 6.0),
         )
         response.raise_for_status()
         parsed = _extract_response_json(response.json())
@@ -246,6 +264,7 @@ def analyze_query(
             "fallback": "none",
             "latency_ms": max(1, round((time.monotonic() - started) * 1000)),
             "cache_hit": False,
+            "error": "",
         }
         if use_cache:
             _cache_put(cache_key, result)
@@ -254,10 +273,14 @@ def analyze_query(
         base["latency_ms"] = max(1, round((time.monotonic() - started) * 1000))
         status = getattr(getattr(exc, "response", None), "status_code", None)
         base["error"] = f"HTTP_{status}" if status else "HTTPError"
+        if use_cache:
+            _cache_put(cache_key, base)
         return base
     except Exception as exc:
         base["latency_ms"] = max(1, round((time.monotonic() - started) * 1000))
         base["error"] = type(exc).__name__
+        if use_cache:
+            _cache_put(cache_key, base)
         return base
 
 
@@ -271,6 +294,7 @@ def public_metadata(result: dict[str, Any]) -> dict[str, Any]:
         "latency_ms": int(result.get("latency_ms") or 0),
         "cache_hit": bool(result.get("cache_hit")),
         "error": str(result.get("error") or ""),
+        "skipped_reason": str(result.get("skipped_reason") or ""),
     }
 
 
@@ -278,5 +302,6 @@ __all__ = [
     "DEFAULT_MODEL",
     "analyze_query",
     "clear_query_intelligence_cache",
+    "deterministic_query_intelligence",
     "public_metadata",
 ]
