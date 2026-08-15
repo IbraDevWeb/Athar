@@ -143,25 +143,25 @@ def cache_sharded_release(output_dir: Path, manifest: dict[str, Any] | None = No
     }
 
 
-def cache_release(output: Path) -> dict[str, object]:
-    manifest = load_manifest()
-    url = str(manifest.get("url") or "").strip()
-    expected_sha = str(manifest.get("sha256") or "").strip().lower()
-    expected_asset_size = int(manifest.get("size_bytes") or 0)
-    compression = str(manifest.get("compression") or "none").strip().lower()
+def cache_release(output: Path, manifest: dict[str, Any] | None = None) -> dict[str, object]:
+    release = manifest or load_manifest()
+    url = str(release.get("url") or "").strip()
+    expected_sha = str(release.get("sha256") or "").strip().lower()
+    expected_asset_size = int(release.get("size_bytes") or 0)
+    compression = str(release.get("compression") or "none").strip().lower()
     if not url or not expected_sha:
         raise RuntimeError("Le manifeste corpus doit fournir une URL et un SHA-256.")
     if compression not in {"none", "gzip"}:
         raise RuntimeError(f"Compression de corpus non prise en charge: {compression}.")
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    if _reuse_matches(output, manifest):
+    if _reuse_matches(output, release):
         return {
             "mode": "build_cache_reused",
             "path": str(output),
             "bytes": output.stat().st_size,
             "database_sha256": sha256_file(output),
-            "release": manifest,
+            "release": release,
         }
     output.unlink(missing_ok=True)
 
@@ -180,7 +180,7 @@ def cache_release(output: Path) -> dict[str, object]:
             "bytes": output.stat().st_size,
             "asset_sha256": str(download["sha256"]),
             "database_sha256": sha256_file(output),
-            "release": manifest,
+            "release": release,
         }
 
     asset = output.with_suffix(output.suffix + ".asset.gz")
@@ -190,8 +190,8 @@ def cache_release(output: Path) -> dict[str, object]:
         if expected_asset_size and asset.stat().st_size != expected_asset_size:
             raise RuntimeError(f"Taille d'asset gzip invalide: {asset.stat().st_size}, attendu {expected_asset_size}.")
         _decompress_gzip(asset, output)
-        database_size = int(manifest.get("database_size_bytes") or 0)
-        database_sha = str(manifest.get("database_sha256") or "").strip().lower()
+        database_size = int(release.get("database_size_bytes") or 0)
+        database_sha = str(release.get("database_sha256") or "").strip().lower()
         if database_size and output.stat().st_size != database_size:
             raise RuntimeError(f"Taille SQLite décompressée invalide: {output.stat().st_size}, attendu {database_size}.")
         actual_database_sha = sha256_file(output).lower()
@@ -204,7 +204,7 @@ def cache_release(output: Path) -> dict[str, object]:
             "asset_bytes": int(download["bytes"]),
             "asset_sha256": str(download["sha256"]),
             "database_sha256": actual_database_sha,
-            "release": manifest,
+            "release": release,
         }
     finally:
         asset.unlink(missing_ok=True)
@@ -212,17 +212,21 @@ def cache_release(output: Path) -> dict[str, object]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Cache et décompresse le corpus RAG dans l'artefact de build Render.")
+    parser.add_argument("--manifest", type=Path, default=None)
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_SHARD_DIR)
     args = parser.parse_args()
-    manifest = load_manifest()
+    manifest_path = None
+    if args.manifest is not None:
+        manifest_path = args.manifest if args.manifest.is_absolute() else ROOT / args.manifest
+    manifest = load_manifest(manifest_path) if manifest_path is not None else load_manifest()
     if str(manifest.get("storage_mode") or "").strip().lower() == "sharded":
         output_dir = args.output_dir if args.output_dir.is_absolute() else ROOT / args.output_dir
         result = cache_sharded_release(output_dir, manifest)
     else:
         output = args.output or DEFAULT_OUTPUT
         output = output if output.is_absolute() else ROOT / output
-        result = cache_release(output)
+        result = cache_release(output, manifest)
     print(json.dumps(result, ensure_ascii=False))
     return 0
 
