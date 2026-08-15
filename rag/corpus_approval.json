@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "approved_auto_manifest_blob": "0ea341479a2ecf7796b1ef6404effd8a7ed327a2",
-  "approved_auto_books": 45,
-  "reviewed_at": "2026-08-15T13:46:00Z",
-  "review_note": "Palier 100 revu avant publication : 45 ouvrages automatiques OpenITI, après retrait et remplacement des entrées provenant des sous-corpus Shia/Ibadiyya et de la série moderne HasanHanafi.MinCaqidaIlaThawra. Les disciplines restent des indices automatiques, aucun madhhab n'est inventé, et l'approbation est liée exactement au blob Git du manifeste automatique."
+  "approved_auto_manifest_blob": "a90b9412d9b6f6b9c5f125df212ddd0d2f35434e",
+  "approved_auto_books": 70,
+  "reviewed_at": "2026-08-15T14:44:00Z",
+  "review_note": "Palier 125 revu avant publication : 70 ouvrages automatiques OpenITI approuvés par blob exact. Le nouveau lot de 25 a été contrôlé avant build ; le faux positif IbnAbiUsaybica.CuyunAnba (histoire des médecins) a été retiré du flux automatique et remplacé par IbnShaykhTarabulusi.IscafAwqaf, ouvrage de fiqh sur les awqaf. Les disciplines restent des indices automatiques, aucun madhhab n'est inventé, et toute modification ultérieure du manifeste invalide cette approbation."
 }
