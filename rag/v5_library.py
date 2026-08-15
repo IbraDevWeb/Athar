@@ -89,6 +89,34 @@ def _query_tokens(value: Any) -> list[str]:
     return tokens
 
 
+def list_library_books(connection: sqlite3.Connection) -> list[dict[str, Any]]:
+    rows = connection.execute(
+        """
+        SELECT
+            b.id, b.kutub_id, b.title, b.title_ar, b.author, b.discipline,
+            b.madhhab, b.pages, b.description, b.source_url,
+            COUNT(c.id) AS chunks,
+            COUNT(DISTINCT CASE WHEN c.page IS NOT NULL AND c.page > 0 THEN c.page END) AS indexed_pages,
+            SUM(CASE WHEN LENGTH(TRIM(COALESCE(c.text_ar, ''))) > 0 THEN 1 ELSE 0 END) AS arabic_passages,
+            SUM(CASE WHEN LENGTH(TRIM(COALESCE(c.text_fr, ''))) > 0 THEN 1 ELSE 0 END) AS french_passages,
+            COUNT(DISTINCT CASE WHEN LENGTH(TRIM(COALESCE(c.chapter, ''))) > 0 THEN TRIM(c.chapter) END) AS indexed_sections
+        FROM books b
+        LEFT JOIN chunks c ON c.book_id=b.id
+        GROUP BY b.id
+        ORDER BY b.title COLLATE NOCASE, b.author COLLATE NOCASE
+        """
+    ).fetchall()
+    books: list[dict[str, Any]] = []
+    for row in rows:
+        item = dict(row)
+        for key in ("chunks", "indexed_pages", "arabic_passages", "french_passages", "indexed_sections"):
+            item[key] = int(item.get(key) or 0)
+        item["has_arabic"] = item["arabic_passages"] > 0
+        item["has_french"] = item["french_passages"] > 0
+        books.append(item)
+    return books
+
+
 def get_book(connection: sqlite3.Connection, book_id: Any) -> dict[str, Any]:
     book_id = _clean_id(book_id)
     row = connection.execute(
