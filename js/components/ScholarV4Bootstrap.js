@@ -6,6 +6,16 @@
     const HOME_PATCH_FLAG = Symbol.for('athar.research.v5.home.patched');
     const originalCreateApp = window.Vue.createApp;
 
+    const ensureTranslationStyles = () => {
+        if (document.getElementById('athar-research-translation-styles')) return;
+        const link = document.createElement('link');
+        link.id = 'athar-research-translation-styles';
+        link.rel = 'stylesheet';
+        link.href = 'css/athar-research-translation.css?v=athar-translation-ui-1';
+        document.head.appendChild(link);
+    };
+    ensureTranslationStyles();
+
     const navMarkup = `
         <div data-athar-research-v5-nav-group class="space-y-1">
             <button
