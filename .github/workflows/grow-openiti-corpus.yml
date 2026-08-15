@@ -11,6 +11,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/grow-openiti-corpus.yml'
+      - 'rag/openiti_catalog.py'
+      - 'rag/corpus_policy.json'
+      - 'rag/corpus_sources.json'
   schedule:
     - cron: '43 3 * * 1'
 
@@ -90,7 +93,7 @@ jobs:
           print(f'Industrialized OpenITI manifest: {len(enabled)} enabled books; {len(ids)} auto-promoted')
           PY
 
-      - name: Commit promotion queue
+      - name: Commit staged promotion queue
         shell: bash
         run: |
           if [[ -z "$(git status --porcelain -- rag/openiti_books_auto.json rag/corpus_growth_report.json)" ]]; then
@@ -100,5 +103,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add rag/openiti_books_auto.json rag/corpus_growth_report.json
-          git commit -m "Promouvoir le prochain lot OpenITI dans Athar"
+          git commit -m "Préparer le prochain lot OpenITI pour revue"
           git push origin HEAD:main
+          echo "Lot préparé. La publication exige désormais une approbation explicite du blob openiti_books_auto.json."

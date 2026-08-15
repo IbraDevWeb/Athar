@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-import json
-import tempfile
 import unittest
-from pathlib import Path
 
 from corpus_industrializer import manifest_book, select_batch, stable_book_id
 from openiti_catalog import classify_subject, parse_metadata
@@ -28,9 +25,11 @@ def row(
     chars: int = 100_000,
     tags: str = "PRIMARY_VERSION :: CLEANED_VERSION",
     ocr: str = "False",
+    subcorpus: str = "ara",
+    source_id: str = "FIX1",
 ) -> str:
     values = [
-        version, "ara", "ara", ocr, "0500", "مؤلف", "Fixture Author", work, title_ar, title_lat, "", "FIX1",
+        version, "ara", subcorpus, ocr, "0500", "مؤلف", "Fixture Author", work, title_ar, title_lat, "", source_id,
         status, "20000", str(chars), f"data/fixture/{version}", tags, "Fixture", "", "", "", "", "", "", "", "", "",
     ]
     return "\t".join(values)
@@ -47,6 +46,15 @@ class OpenITICatalogTests(unittest.TestCase):
                 row("0999Fixture.OcrFiqh.JK4-ara1", "0999Fixture.OcrFiqh", "فقه ممسوح", "Fiqh OCR", chars=70_000, ocr="True"),
                 row("0999Fixture.Secondary.JK5-ara1", "0999Fixture.Secondary", "مسائل الفقه", "Fiqh Secondary", chars=60_000, status="sec"),
                 row("0999Fixture.Unclean.JK6-ara1", "0999Fixture.Unclean", "فقه", "Fiqh Unclean", chars=50_000, tags="PRIMARY_VERSION"),
+                row(
+                    "0999Fixture.ZaydiFiqh.Zaydiyya0001-ara1",
+                    "0999Fixture.ZaydiFiqh",
+                    "كتاب الفقه",
+                    "Kitab al-Fiqh",
+                    chars=75_000,
+                    subcorpus="Zaydiyya",
+                    source_id="Zaydiyya0001",
+                ),
             ]
         ) + "\n"
 
@@ -59,11 +67,42 @@ class OpenITICatalogTests(unittest.TestCase):
         self.assertGreaterEqual(payload["rejected"].get("uncorrected_ocr", 0), 1)
         self.assertGreaterEqual(payload["rejected"].get("not_primary", 0), 1)
         self.assertGreaterEqual(payload["rejected"].get("not_cleaned", 0), 1)
+        self.assertGreaterEqual(payload["rejected"].get("excluded_source:Zaydiyya", 0), 1)
 
     def test_subject_classification_is_metadata_based(self) -> None:
         key, label, score = classify_subject({"book": "X", "title_ar": "تفسير القرآن", "title_lat": "", "tags": ""})
         self.assertEqual(key, "tafsir")
         self.assertEqual(label, "Tafsīr")
+        self.assertGreater(score, 0)
+
+    def test_usul_does_not_match_fusul_medical_commentary(self) -> None:
+        key, label, score = classify_subject(
+            {
+                "book": "0685IbnQuffKaraki.SharhFusulAbuqrat",
+                "title_ar": "شرح فصول أبقراط",
+                "title_lat": "Sharh Fusul Abuqrat",
+                "tags": "PRIMARY_VERSION :: CLEANED_VERSION",
+            }
+        )
+        self.assertEqual((key, label, score), ("", "", 0))
+
+    def test_generic_qawaid_does_not_imply_usul_al_fiqh(self) -> None:
+        key, _, _ = classify_subject(
+            {
+                "book": "0711Wasiti.QawacidFiSuluk",
+                "title_ar": "قواعد في السلوك إلى الله تعالى",
+                "title_lat": "Qawaid fi al-suluk ila Allah",
+                "tags": "PRIMARY_VERSION :: CLEANED_VERSION",
+            }
+        )
+        self.assertNotEqual(key, "usul")
+
+    def test_real_usul_terms_still_match(self) -> None:
+        key, label, score = classify_subject(
+            {"book": "X", "title_ar": "المستصفى في أصول الفقه", "title_lat": "al-Mustasfa fi Usul al-Fiqh", "tags": ""}
+        )
+        self.assertEqual(key, "fiqh")
+        self.assertTrue(label)
         self.assertGreater(score, 0)
 
     def test_batch_is_deduplicated_and_budget_bounded(self) -> None:

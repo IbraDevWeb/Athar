@@ -4,6 +4,7 @@ import argparse
 import csv
 import io
 import json
+import re
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RAG_DIR = ROOT / "rag"
 SOURCES_PATH = RAG_DIR / "corpus_sources.json"
 POLICY_PATH = RAG_DIR / "corpus_policy.json"
+ARABIC_CHAR = re.compile(r"[\u0600-\u06FF]")
 
 REQUIRED_COLUMNS = {
     "version_uri",
@@ -55,8 +57,10 @@ SUBJECT_RULES: dict[str, dict[str, Any]] = {
     "usul": {
         "label": "Uṣūl et qawāʿid",
         "weight": 6,
+        # Generic qawaid/قواعد is deliberately excluded: it also occurs in
+        # medicine, spirituality, grammar and many non-usul titles.
         "terms": (
-            "usul", "uṣūl", "اصول", "أصول", "qawaid", "qawāid", "قواعد", "maqasid", "maqāṣid", "مقاصد",
+            "usul", "uṣūl", "اصول", "أصول", "maqasid", "maqāṣid", "مقاصد",
             "furuq", "furūq", "فروق", "ijma", "ijmā", "إجماع", "qiyas", "قياس",
         ),
     },
@@ -137,6 +141,17 @@ def quality_flags(tags: str) -> list[str]:
     return [flag for flag in ("PRIMARY_VERSION", "CLEANED_VERSION", "NO_MAJOR_ISSUES", "PAGINATION") if flag in upper]
 
 
+def _contains_term(haystack: str, term: Any) -> bool:
+    needle = _clean(term).casefold()
+    if not needle:
+        return False
+    if ARABIC_CHAR.search(needle):
+        return needle in haystack
+    # Latin/transliterated terms must be complete tokens or phrases. In
+    # particular, "usul" must never match "fusul" (chapters/aphorisms).
+    return re.search(r"(?<!\w)" + re.escape(needle) + r"(?!\w)", haystack, flags=re.UNICODE) is not None
+
+
 def classify_subject(row: dict[str, Any]) -> tuple[str, str, int]:
     haystack = " ".join(
         [
@@ -150,7 +165,7 @@ def classify_subject(row: dict[str, Any]) -> tuple[str, str, int]:
     best_label = ""
     best_score = 0
     for key, rule in SUBJECT_RULES.items():
-        hits = sum(1 for term in rule["terms"] if str(term).casefold() in haystack)
+        hits = sum(1 for term in rule["terms"] if _contains_term(haystack, term))
         if not hits:
             continue
         score = int(rule["weight"]) * 10 + min(hits, 5)
@@ -159,6 +174,18 @@ def classify_subject(row: dict[str, Any]) -> tuple[str, str, int]:
             best_label = str(rule["label"])
             best_score = score
     return best_key, best_label, best_score
+
+
+def _blocked_source_marker(row: dict[str, Any], markers: Any) -> str:
+    values = " ".join(
+        str(row.get(key) or "")
+        for key in ("version_uri", "local_path", "id", "subcorpus")
+    ).casefold()
+    for marker in markers if isinstance(markers, list) else []:
+        cleaned = _clean(marker)
+        if cleaned and cleaned.casefold() in values:
+            return cleaned
+    return ""
 
 
 def parse_metadata(text: str, *, policy: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -191,6 +218,10 @@ def parse_metadata(text: str, *, policy: dict[str, Any] | None = None) -> dict[s
             continue
         if promotion.get("require_cleaned", True) and "CLEANED_VERSION" not in tags.upper():
             rejected["not_cleaned"] += 1
+            continue
+        blocked_marker = _blocked_source_marker(raw, promotion.get("excluded_source_markers") or [])
+        if blocked_marker:
+            rejected[f"excluded_source:{blocked_marker}"] += 1
             continue
         if char_length < int(promotion.get("min_source_chars") or 0):
             rejected["too_small"] += 1

@@ -6,6 +6,7 @@ on:
     paths:
       - 'rag/corpus_sources.json'
       - 'rag/corpus_policy.json'
+      - 'rag/corpus_approval.json'
       - 'rag/openiti_catalog.py'
       - 'rag/corpus_industrializer.py'
       - 'rag/corpus_industrializer_tests.py'
@@ -23,6 +24,7 @@ on:
     paths:
       - 'rag/corpus_sources.json'
       - 'rag/corpus_policy.json'
+      - 'rag/corpus_approval.json'
       - 'rag/openiti_catalog.py'
       - 'rag/corpus_industrializer.py'
       - 'rag/corpus_industrializer_tests.py'
@@ -76,18 +78,23 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import json, sys
+          import json, re, sys
           from pathlib import Path
           sys.path.insert(0, 'rag')
           from ingest_openiti import load_industrialized_manifest
 
           policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
           sources = json.loads(Path('rag/corpus_sources.json').read_text(encoding='utf-8'))
+          approval = json.loads(Path('rag/corpus_approval.json').read_text(encoding='utf-8'))
           auto = json.loads(Path('rag/openiti_books_auto.json').read_text(encoding='utf-8'))
           assert sources['sources']['kutub']['automation_policy'] == 'respect_robots'
           assert int(policy['hosted']['target_openiti_books']) >= int(policy['hosted']['minimum_openiti_books'])
           assert int(policy['hosted']['max_sqlite_bytes']) > 0
+          assert 'Zaydiyya' in policy['promotion'].get('excluded_source_markers', [])
           assert all(not str(book.get('madhhab') or '').strip() for book in auto.get('books', []))
+          approved_blob = str(approval.get('approved_auto_manifest_blob') or '')
+          assert not approved_blob or re.fullmatch(r'[0-9a-f]{40}', approved_blob)
+          assert int(approval.get('approved_auto_books') or 0) >= 0
           manifest = load_industrialized_manifest()
           ids = [str(book['book_id']) for book in manifest['books'] if book.get('enabled', True)]
           uris = [str(book['openiti_uri']) for book in manifest['books'] if book.get('enabled', True)]
