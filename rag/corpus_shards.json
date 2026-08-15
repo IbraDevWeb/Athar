@@ -4,7 +4,7 @@
   "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
   "total_books": 200,
-  "total_shards": 6,
+  "total_shards": 5,
   "hosted_target_openiti_books": 200,
   "future_target_books": 500,
   "limits": {
@@ -1356,15 +1356,15 @@
     },
     {
       "id": "openiti-005",
-      "book_count": 27,
-      "source_chars": 33984866,
+      "book_count": 40,
+      "source_chars": 37042381,
       "oversize_source": false,
       "subjects": {
-        "aqida": 5,
-        "fiqh": 5,
-        "hadith": 6,
-        "sira": 6,
-        "tafsir": 5
+        "aqida": 7,
+        "fiqh": 4,
+        "hadith": 10,
+        "sira": 9,
+        "tafsir": 10
       },
       "books": [
         {
@@ -1464,22 +1464,6 @@
           "source_chars": 542306
         },
         {
-          "book_id": "openiti-auto-bbebd10298701460",
-          "title": "Tafsir Mizan",
-          "title_ar": "الميزان في تفسير القرآن",
-          "author": "Sayyid Tabatabai",
-          "discipline": "Tafsīr",
-          "source_chars": 9777803
-        },
-        {
-          "book_id": "openiti-auto-a6fbcef3f2f749b6",
-          "title": "Surur Ahl Iman",
-          "title_ar": "سرور أهل الإيمان في علامات ظهور صاحب الزمان (عج)",
-          "author": "Baha Din Nili Najafi",
-          "discipline": "ʿAqīda",
-          "source_chars": 41252
-        },
-        {
           "book_id": "openiti-auto-5d76245d5a8bd8bd",
           "title": "Mawrid Latafa",
           "title_ar": "مورد اللطافة في من ولي السلطنة والخلافة",
@@ -1492,7 +1476,7 @@
           "title": "Min kalām al-imām ʿAbd Allāh Aḥmad b. Ḥanbal fī ʿilal al-ḥadīṯ wa-maʿrifaŧ al-riǧāl",
           "title_ar": "من كلام الامام عبد الله أحمد بن حنبل في علل الحديث ومعرفة الرجال",
           "author": "Ibn Hanbal",
-          "discipline": "Fiqh",
+          "discipline": "Hadith",
           "source_chars": 42312
         },
         {
@@ -1532,7 +1516,7 @@
           "title": "Wafayat",
           "title_ar": "الوفيات (معجم زمني للصحابة وأعلام المحدثين والفقهاء والمؤلفين)",
           "author": "Ibn Qunfudh",
-          "discipline": "Fiqh",
+          "discipline": "Sīra et histoire",
           "source_chars": 38939
         },
         {
@@ -1540,16 +1524,8 @@
           "title": "Tārīḫ Ǧurǧān",
           "title_ar": "تاريخ جرجان",
           "author": "Sahmi",
-          "discipline": "Hadith",
+          "discipline": "Sīra et histoire",
           "source_chars": 422624
-        },
-        {
-          "book_id": "openiti-auto-f0bdae2fc4474df0",
-          "title": "Tafsir Bayan Sacada",
-          "title_ar": "تفسير بيان السعادة في مقامات العبادة",
-          "author": "Sultan Cali Shah Ganabadhi",
-          "discipline": "Tafsīr",
-          "source_chars": 3146213
         },
         {
           "book_id": "openiti-auto-d0892e564a0ba9f3",
@@ -1572,7 +1548,7 @@
           "title": "al-Arbaʿūn fī al-ḥaṯṯ ʿalá al-ǧihād",
           "title_ar": "الأربعون في الحث على الجهاد",
           "author": "Ibn Casakir",
-          "discipline": "Fiqh",
+          "discipline": "Hadith",
           "source_chars": 23223
         },
         {
@@ -1582,29 +1558,6 @@
           "author": "Abu Shaykh Isbahani",
           "discipline": "Hadith",
           "source_chars": 416615
-        }
-      ]
-    },
-    {
-      "id": "openiti-006",
-      "book_count": 13,
-      "source_chars": 13449894,
-      "oversize_source": false,
-      "subjects": {
-        "aqida": 2,
-        "fiqh": 1,
-        "hadith": 1,
-        "sira": 2,
-        "tafsir": 7
-      },
-      "books": [
-        {
-          "book_id": "openiti-auto-530071d114919ba5",
-          "title": "Taysir Tafsir",
-          "title_ar": "تيسير التفسير",
-          "author": "Qutb Atfayyish",
-          "discipline": "Tafsīr",
-          "source_chars": 6277609
         },
         {
           "book_id": "openiti-auto-d47dc1729ae22e64",
@@ -1615,19 +1568,11 @@
           "source_chars": 21410
         },
         {
-          "book_id": "openiti-auto-49e04946d66357a1",
-          "title": "Tabaqat Nahwiyyin Wa Lughawiyyin",
-          "title_ar": "طبقات النحويين واللغويين (سلسلة ذخائر العرب 50)",
-          "author": "Zubaydi",
-          "discipline": "Sīra et histoire",
-          "source_chars": 204688
-        },
-        {
           "book_id": "openiti-auto-079949fd011cae5e",
           "title": "ḏamm al-muskir",
           "title_ar": "ذم المسكر",
           "author": "Ibn Abi Dunya",
-          "discipline": "Fiqh",
+          "discipline": "Hadith",
           "source_chars": 16156
         },
         {
@@ -1655,12 +1600,52 @@
           "source_chars": 15797
         },
         {
-          "book_id": "openiti-auto-0905456ef99c56e7",
-          "title": "Mutalif Wa Mukhtalif",
-          "title_ar": "المؤتلف والمختلف في أسماء الشعراء وكناهم وألقابهم وأنسابهم وبعض شعرهم",
-          "author": "Abu Qasim Amidi",
+          "book_id": "openiti-auto-818a37bd28121aca",
+          "title": "Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ",
+          "title_ar": "كشف المغطأ في فضل الموطأ",
+          "author": "Ibn Casakir",
+          "discipline": "Fiqh",
+          "source_chars": 16140
+        },
+        {
+          "book_id": "openiti-auto-59686169d552e5f4",
+          "title": "Tarikh",
+          "title_ar": "تاريخ خليفة بن خياط",
+          "author": "Ibn Khayyat Cusfuri",
+          "discipline": "Hadith",
+          "source_chars": 361165
+        },
+        {
+          "book_id": "openiti-auto-96157f9062648678",
+          "title": "Hashiya Cala Tafsir Baydawi",
+          "title_ar": "حاشية الشهاب على تفسير البيضاوي، المسماة: عناية القاضى وكفاية الراضى على تفسير البيضاوي",
+          "author": "Shihab Din Khafaji",
+          "discipline": "Tafsīr",
+          "source_chars": 8668858
+        },
+        {
+          "book_id": "openiti-auto-a1e019ecd09140cf",
+          "title": "Sifat Munafiqin",
+          "title_ar": "صفات المنافقين",
+          "author": "Ibn Qayyim Jawziyya",
+          "discipline": "ʿAqīda",
+          "source_chars": 14178
+        },
+        {
+          "book_id": "openiti-auto-f1530c592e7e16f0",
+          "title": "Tarikh",
+          "title_ar": "تاريخ البصروي",
+          "author": "Basrawi",
           "discipline": "Sīra et histoire",
-          "source_chars": 198308
+          "source_chars": 177178
+        },
+        {
+          "book_id": "openiti-auto-166504e567243026",
+          "title": "Manhaj Muntakhab",
+          "title_ar": "المنهج المنتخب في قواعد المذهب",
+          "author": "Cali Ibn Qasim Zaqqaq",
+          "discipline": "Fiqh",
+          "source_chars": 15975
         },
         {
           "book_id": "openiti-baghawi-tafsir",
@@ -1878,8 +1863,6 @@
     "openiti-auto-ce6ba79e6196e98f": "openiti-005",
     "openiti-auto-500e022ea71fad78": "openiti-005",
     "openiti-auto-7f97bae9b19b1a36": "openiti-005",
-    "openiti-auto-bbebd10298701460": "openiti-005",
-    "openiti-auto-a6fbcef3f2f749b6": "openiti-005",
     "openiti-auto-5d76245d5a8bd8bd": "openiti-005",
     "openiti-auto-f155a24cc9637212": "openiti-005",
     "openiti-auto-9148e0f8c7f8412e": "openiti-005",
@@ -1888,23 +1871,25 @@
     "openiti-auto-86e11d30d41fe26d": "openiti-005",
     "openiti-auto-107d5cdd57ee78f1": "openiti-005",
     "openiti-auto-481d1841dd4fcde4": "openiti-005",
-    "openiti-auto-f0bdae2fc4474df0": "openiti-005",
     "openiti-auto-d0892e564a0ba9f3": "openiti-005",
     "openiti-auto-409d0cf1dabd5a2e": "openiti-005",
     "openiti-auto-7d8397d7a41091d3": "openiti-005",
     "openiti-auto-9107bf79591e0cee": "openiti-005",
-    "openiti-auto-530071d114919ba5": "openiti-006",
-    "openiti-auto-d47dc1729ae22e64": "openiti-006",
-    "openiti-auto-49e04946d66357a1": "openiti-006",
-    "openiti-auto-079949fd011cae5e": "openiti-006",
-    "openiti-auto-7469784d18329b3e": "openiti-006",
-    "openiti-auto-644eda0af9ec4932": "openiti-006",
-    "openiti-auto-8ac462dbc62ea962": "openiti-006",
-    "openiti-auto-0905456ef99c56e7": "openiti-006",
-    "openiti-baghawi-tafsir": "openiti-006",
-    "openiti-zamakhshari-kashshaf": "openiti-006",
-    "openiti-razi-mafatih-ghayb": "openiti-006",
-    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-006",
-    "openiti-abu-hayyan-bahr-muhit": "openiti-006"
+    "openiti-auto-d47dc1729ae22e64": "openiti-005",
+    "openiti-auto-079949fd011cae5e": "openiti-005",
+    "openiti-auto-7469784d18329b3e": "openiti-005",
+    "openiti-auto-644eda0af9ec4932": "openiti-005",
+    "openiti-auto-8ac462dbc62ea962": "openiti-005",
+    "openiti-auto-818a37bd28121aca": "openiti-005",
+    "openiti-auto-59686169d552e5f4": "openiti-005",
+    "openiti-auto-96157f9062648678": "openiti-005",
+    "openiti-auto-a1e019ecd09140cf": "openiti-005",
+    "openiti-auto-f1530c592e7e16f0": "openiti-005",
+    "openiti-auto-166504e567243026": "openiti-005",
+    "openiti-baghawi-tafsir": "openiti-005",
+    "openiti-zamakhshari-kashshaf": "openiti-005",
+    "openiti-razi-mafatih-ghayb": "openiti-005",
+    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-005",
+    "openiti-abu-hayyan-bahr-muhit": "openiti-005"
   }
 }
