@@ -20,7 +20,7 @@ from v5_server import (
 
 
 class Handler(BaseHandler):
-    server_version = "AtharRAG/5.5-library-sharded-lowmem"
+    server_version = "AtharRAG/5.6-library-scholar-translation"
 
     def _library_acquire(self) -> bool:
         gate = getattr(self.server, "library_gate", None)
@@ -173,6 +173,7 @@ def main() -> int:
     server.cors_origins = allowed_origins()
     server.heavy_gate = threading.BoundedSemaphore(1)
     server.library_gate = threading.BoundedSemaphore(4)
+    server.translation_gate = threading.BoundedSemaphore(2)
     server.status_lock = threading.Lock()
     server.books_lock = threading.Lock()
     server.library_books_lock = threading.Lock()
@@ -192,6 +193,7 @@ def main() -> int:
                 "library_read_limit": 12,
                 "library_toc_limit": 360,
                 "library_search_limit": 16,
+                "translation_concurrency": 2,
             },
             ensure_ascii=False,
         ),
