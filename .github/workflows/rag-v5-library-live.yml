@@ -6,6 +6,7 @@ on:
     paths:
       - 'rag/v5_library.py'
       - 'rag/v5_library_server.py'
+      - 'rag/corpus_release.json'
       - 'research-library.html'
       - 'js/research-library-v2.js'
       - 'css/research-library-v2.css'
@@ -20,7 +21,10 @@ jobs:
   verify-library-live:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for professional library reader API
+      - name: Checkout expected corpus manifest
+        uses: actions/checkout@v4
+
+      - name: Wait for professional library reader API and expected corpus
         shell: bash
         run: |
           python - <<'PY'
@@ -29,8 +33,16 @@ jobs:
           import time
           import urllib.parse
           import urllib.request
+          from pathlib import Path
 
           base = 'https://athar-rag-ibradevweb.onrender.com'
+          release = json.loads(Path('rag/corpus_release.json').read_text(encoding='utf-8'))
+          expected_books = int(release.get('books') or 0)
+          expected_chunks = int(release.get('chunks') or 0)
+          expected_openiti = int(release.get('openiti_books') or 0)
+          if expected_books <= 0 or expected_chunks <= 0:
+              raise SystemExit(f'Invalid expected corpus manifest: {release}')
+
           last_error = None
           for attempt in range(30):
               try:
@@ -39,11 +51,21 @@ jobs:
                   if health.get('engine') != 'rag-v5-hybrid-multilingual':
                       raise RuntimeError(f"unexpected engine: {health}")
 
+                  with urllib.request.urlopen(base + '/api/rag/v5/status', timeout=90) as response:
+                      status = json.load(response)
+                  served_books = int(status.get('books') or status.get('book_count') or 0)
+                  served_chunks = int(status.get('chunks') or status.get('chunk_count') or 0)
+                  if served_books < expected_books or served_chunks < expected_chunks:
+                      raise RuntimeError(
+                          f'corpus release not deployed yet: served={served_books} books/{served_chunks} chunks; '
+                          f'expected>={expected_books}/{expected_chunks}'
+                      )
+
                   with urllib.request.urlopen(base + '/api/rag/v5/library-books', timeout=90) as response:
                       catalogue = json.load(response)
                   rows = catalogue.get('books') or []
-                  if not rows:
-                      raise RuntimeError('production library catalogue has no books')
+                  if len(rows) < expected_books:
+                      raise RuntimeError(f'library catalogue still serves {len(rows)} books; expected >= {expected_books}')
                   if 'french_passages' not in rows[0] or 'indexed_sections' not in rows[0]:
                       raise RuntimeError('professional library catalogue is not deployed yet')
 
@@ -85,11 +107,14 @@ jobs:
                       if not search.get('hits'):
                           raise RuntimeError('book-scoped search returned no hit for a term taken from the passage')
 
-                  print(f"PUBLIC ATHAR LIBRARY V2: PASS — {book_id} — {len(passages)} bounded passage(s) — {len(rows)} books")
+                  print(
+                      f"PUBLIC ATHAR LIBRARY: PASS — {len(rows)} books — {served_chunks} chunks — "
+                      f"manifest expects {expected_books} books/{expected_chunks} chunks/{expected_openiti} OpenITI"
+                  )
                   raise SystemExit(0)
               except Exception as error:
                   last_error = error
                   print(f'Attempt {attempt + 1}/30: {error}', flush=True)
                   time.sleep(20)
-          raise SystemExit(f'Professional library reader did not become ready: {last_error}')
+          raise SystemExit(f'Professional library reader/corpus did not become ready: {last_error}')
           PY
