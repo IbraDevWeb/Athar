@@ -30,14 +30,16 @@ reject(server, /localFallback|seed\.json/i, 'rag/v5_server.py');
 
 const library = read('rag/v5_library.py');
 [
-    'def get_book(', 'def read_book(', 'MAX_READ_LIMIT = 12', 'indexed_pages', 'french_passages',
-    'ORDER BY', 'next_offset', 'previous_offset'
+    'def list_library_books(', 'def get_book(', 'def get_toc(', 'def search_book(', 'def read_book(',
+    'MAX_READ_LIMIT = 12', 'MAX_TOC_ITEMS = 360', 'MAX_SEARCH_LIMIT = 16',
+    'indexed_pages', 'indexed_sections', 'french_passages', 'next_offset', 'previous_offset', 'next_page', 'previous_page'
 ].forEach(token => need(library, token, 'rag/v5_library.py'));
+reject(library, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library.py');
 
 const libraryServer = read('rag/v5_library_server.py');
 [
-    '/api/rag/v5/book', '/api/rag/v5/read', 'class Handler(BaseHandler)', 'library_gate',
-    'open_connection(self.db_path)', 'AtharRAG/5.3-library-lowmem'
+    '/api/rag/v5/library-books', '/api/rag/v5/book', '/api/rag/v5/read', '/api/rag/v5/toc', '/api/rag/v5/book-search',
+    'class Handler(BaseHandler)', 'library_gate', 'library_books_payload', 'open_connection(self.db_path)', 'AtharRAG/5.4-library-lowmem'
 ].forEach(token => need(libraryServer, token, 'rag/v5_library_server.py'));
 reject(libraryServer, /INSERT\s+INTO|UPDATE\s+books|DELETE\s+FROM/i, 'rag/v5_library_server.py');
 
@@ -60,11 +62,25 @@ reject(bootstrap, /Bibliothèque Savante · V4|data-athar-scholar-v4-nav/i, 'Sch
 
 const libraryPage = read('research-library.html');
 [
-    'Bibliothèque Athar', '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/search',
-    '/api/rag/v5/book', '/api/rag/v5/read', 'Le texte français n’est affiché que lorsqu’il existe réellement dans la base',
-    'french_passages', 'translation_status'
+    'Bibliothèque Athar', 'Lecture savante', 'reader-appbar', 'reader-bookrail', 'reader-navrail',
+    'Sommaire indexé', 'Rechercher dans ce livre', 'data-reader-mode="arabic"', 'data-reader-mode="bilingual"',
+    'css/research-library-v2.css?v=athar-reader-v2', 'js/research-library-v2.js?v=athar-reader-v2'
 ].forEach(token => need(libraryPage, token, 'research-library.html'));
 reject(libraryPage, /MyMemory|translate_arabic|\/api\/rag\/v5\/translate/i, 'research-library.html');
+
+const libraryScript = read('js/research-library-v2.js');
+[
+    '/api/rag/v5/library-books', '/api/rag/v5/book', '/api/rag/v5/read', '/api/rag/v5/toc', '/api/rag/v5/book-search',
+    'setReaderMode', 'loadPage', 'loadContinuous', 'searchInsideBook', 'copyCurrentReference',
+    'kutub_ai_unreviewed', 'IA non vérifiée', 'athar-reader-font-step'
+].forEach(token => need(libraryScript, token, 'js/research-library-v2.js'));
+reject(libraryScript, /MyMemory|\/api\/rag\/v5\/translate|translate_arabic/i, 'js/research-library-v2.js');
+
+const libraryStyle = read('css/research-library-v2.css');
+[
+    '.reader-layout', '.reader-bookrail', '.reader-navrail', '.reader-paper', '.reader-arabic', '.reader-french',
+    '.reader-tabs', '.toc-item', '.book-search-hit', 'body.reader-focus', '@media (max-width: 700px)'
+].forEach(token => need(libraryStyle, token, 'css/research-library-v2.css'));
 
 const style = read('css/athar-research-v5.css');
 [
@@ -93,6 +109,9 @@ const worker = read('service-worker.js');
 need(worker, "const CACHE_VERSION = 'athar-pro-v36'", 'service-worker.js');
 need(worker, './css/athar-research-v5.css?v=athar-research-v5-ui-1', 'service-worker.js');
 need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-1', 'service-worker.js');
+need(worker, './research-library.html', 'service-worker.js');
+need(worker, './css/research-library-v2.css?v=athar-reader-v2', 'service-worker.js');
+need(worker, './js/research-library-v2.js?v=athar-reader-v2', 'service-worker.js');
 reject(worker, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js/i, 'service-worker.js');
 
 const remote = read('rag/remote.json');
@@ -110,4 +129,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Hammer lightweight health check', 'Verify natural-language query and bounded candidates', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — queryable corpus, direct bounded reading, low-memory runtime and explicit source-first behavior.');
+console.log('Athar Research V5 static contract valid — professional source reader, book-scoped navigation, queryable corpus and low-memory runtime.');
