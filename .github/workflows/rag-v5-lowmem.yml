@@ -5,14 +5,18 @@ on:
     branches: [main]
     paths:
       - 'rag/v5_server.py'
+      - 'rag/v5_sharded.py'
       - 'rag/v5_lowmem.py'
+      - 'rag/cache_hosted_corpus.py'
+      - 'rag/corpus_release_v3.json'
+      - 'render.yaml'
       - '.github/workflows/rag-v5-lowmem.yml'
   workflow_dispatch:
 
 jobs:
   low-memory-real-corpus:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,45 +24,65 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: python -m pip install -r rag/requirements.txt
-      - name: Compile hosted server
-        run: python -m py_compile rag/v5_engine.py rag/v5_lowmem.py rag/v5_server.py
-      - name: Download published corpus
-        run: python rag/cache_hosted_corpus.py --output rag/data/v5_lowmem_test.sqlite
-      - name: Start low-memory server
+      - name: Compile hosted sharded server
+        run: python -m py_compile rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py rag/v5_server.py rag/cache_hosted_corpus.py
+      - name: Download published V3 shards
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v5_lowmem_shards
+      - name: Start low-memory sharded server
         run: |
-          ATHAR_DB_PATH=rag/data/v5_lowmem_test.sqlite python rag/v5_server.py --host 127.0.0.1 --port 8765 --api-only > /tmp/athar-v5.log 2>&1 &
+          ATHAR_CORPUS_MODE=sharded \
+          ATHAR_SHARD_DIR=rag/data/v5_lowmem_shards \
+          ATHAR_CORPUS_MANIFEST=rag/corpus_release_v3.json \
+          python rag/v5_server.py --host 127.0.0.1 --port 8765 --api-only > /tmp/athar-v5.log 2>&1 &
           echo $! > /tmp/athar-v5.pid
-          for i in $(seq 1 30); do
+          for i in $(seq 1 45); do
             if curl -fsS http://127.0.0.1:8765/healthz >/tmp/health.json; then break; fi
             sleep 1
           done
           cat /tmp/health.json
+          python - <<'PY'
+          import json
+          payload = json.load(open('/tmp/health.json', encoding='utf-8'))
+          assert payload.get('engine') == 'rag-v5-hybrid-multilingual', payload
+          assert payload.get('runtime_profile') == 'low-memory', payload
+          assert payload.get('storage_mode') == 'sharded', payload
+          PY
       - name: Hammer lightweight health check
         run: |
           for i in $(seq 1 60); do curl -fsS http://127.0.0.1:8765/healthz >/dev/null; done
-      - name: Verify natural-language query and bounded candidates
+      - name: Verify natural-language query and bounded per-shard candidates
         run: |
           python - <<'PY'
           import json, urllib.request
           body = json.dumps({'query':'prier à voix haute','limit':8,'madhhab':'','discipline':''}, ensure_ascii=False).encode('utf-8')
-          req = urllib.request.Request('http://127.0.0.1:8765/api/rag/v4/ask', data=body, headers={'Content-Type':'application/json; charset=utf-8'}, method='POST')
-          with urllib.request.urlopen(req, timeout=120) as r:
+          req = urllib.request.Request('http://127.0.0.1:8765/api/rag/v5/ask', data=body, headers={'Content-Type':'application/json; charset=utf-8'}, method='POST')
+          with urllib.request.urlopen(req, timeout=180) as r:
               payload = json.loads(r.read().decode('utf-8'))
-          print(json.dumps({'engine': payload.get('engine'), 'runtime_profile': payload.get('runtime_profile'), 'count': payload.get('count'), 'analysis': payload.get('analysis'), 'titles': [s.get('title') for s in payload.get('sources', [])]}, ensure_ascii=False, indent=2))
+          analysis = payload.get('analysis', {})
+          shard_count = int(analysis.get('shard_count') or 0)
+          candidate_count = int(analysis.get('candidate_count') or 0)
+          print(json.dumps({'engine': payload.get('engine'), 'runtime_profile': payload.get('runtime_profile'), 'storage_mode': payload.get('storage_mode'), 'count': payload.get('count'), 'analysis': analysis, 'titles': [s.get('title') for s in payload.get('sources', [])]}, ensure_ascii=False, indent=2))
           assert payload.get('engine') == 'rag-v5-hybrid-multilingual', payload
           assert payload.get('runtime_profile') == 'low-memory', payload
+          assert payload.get('storage_mode') == 'sharded', payload
+          assert analysis.get('storage_mode') == 'sharded', payload
           assert payload.get('sources'), payload
-          assert 'recitation_aloud' in payload.get('analysis', {}).get('concepts', []), payload
-          assert payload.get('analysis', {}).get('candidate_count', 999) <= 72, payload
+          assert 'recitation_aloud' in analysis.get('concepts', []), payload
+          assert shard_count >= 1, payload
+          assert len(analysis.get('shards_queried') or []) == shard_count, payload
+          assert candidate_count <= 72 * shard_count, payload
           PY
       - name: Check process memory
         run: |
           PID=$(cat /tmp/athar-v5.pid)
           RSS_KB=$(ps -o rss= -p "$PID" | tr -d ' ')
-          echo "Athar V5 RSS: ${RSS_KB} KiB"
+          echo "Athar V5 sharded RSS: ${RSS_KB} KiB"
           test -n "$RSS_KB"
           test "$RSS_KB" -lt 400000
-          tail -n 40 /tmp/athar-v5.log
+          tail -n 60 /tmp/athar-v5.log
       - name: Stop server
         if: always()
         run: kill $(cat /tmp/athar-v5.pid) 2>/dev/null || true
