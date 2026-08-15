@@ -12,9 +12,12 @@ on:
       - 'rag/openiti_books_extra.json'
       - 'rag/openiti_books_extra_40.json'
       - 'rag/openiti_books_auto.json'
+      - 'rag/openiti_books_priority.json'
       - 'rag/openiti_books_tafsir.json'
+      - 'rag/corpus_book_curation.json'
       - 'rag/starter_corpus.json'
       - 'rag/kutub_corpus.json'
+      - 'rag/openiti.py'
       - 'rag/ingest_openiti.py'
       - 'rag/build_sharded_corpus.py'
       - '.github/workflows/build-rag-corpus.yml'
@@ -28,7 +31,6 @@ concurrency:
 
 jobs:
   build-corpus:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -53,15 +55,47 @@ jobs:
           python - <<'PY'
           import json, os
           from pathlib import Path
-          policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))['hosted']
+          policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
+          hosted = policy['hosted']
+          curation = policy.get('curation') or {}
           values = {
-              'TARGET_INDUSTRIAL_OPENITI': int(policy['target_openiti_books']),
-              'MIN_FINAL_OPENITI': int(policy.get('expected_openiti_books_after_tafsir') or policy['target_openiti_books']),
+              'TARGET_INDUSTRIAL_OPENITI': int(hosted['target_openiti_books']),
+              'MIN_FINAL_OPENITI': int(hosted.get('expected_openiti_books_after_tafsir') or hosted['target_openiti_books']),
+              'REQUIRED_PRIORITY_P1': int(curation.get('required_priority_p1') or 0),
+              'REQUIRED_CURATED_OPENITI': int(curation.get('required_curated_openiti_books') or 0),
+              'READER_PARSER_VERSION': str(curation.get('reader_parser_version') or ''),
           }
           with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
-              for key, value in values.items():
-                  handle.write(f'{key}={value}\n')
+              for key, value in values.items(): handle.write(f'{key}={value}\n')
           print(values)
+          PY
+
+      - name: Verify quality-first descriptors
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          priority_path = Path('rag/corpus_priority_report.json')
+          curation_path = Path('rag/corpus_book_curation.json')
+          ready = priority_path.exists() and curation_path.exists()
+          detail = []
+          if ready:
+              priority = json.loads(priority_path.read_text(encoding='utf-8'))
+              curation = json.loads(curation_path.read_text(encoding='utf-8'))
+              required_priority = int(os.environ.get('REQUIRED_PRIORITY_P1') or 0)
+              required_curated = int(os.environ.get('REQUIRED_CURATED_OPENITI') or 0)
+              parser_version = os.environ.get('READER_PARSER_VERSION') or ''
+              checks = {
+                  'priority': int(priority.get('resolved') or 0) >= required_priority and not priority.get('missing'),
+                  'curation_count': int(curation.get('books_reviewed') or 0) >= required_curated,
+                  'parser_version': str(curation.get('parser_version') or '') == parser_version,
+              }
+              ready = all(checks.values()); detail.append(str(checks))
+          else:
+              detail.append('generated curation descriptors are not committed yet')
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle: handle.write(f'CURATION_READY={1 if ready else 0}\n')
+          print(f'Quality-first descriptors ready={ready}: {"; ".join(detail)}')
           PY
 
       - name: Verify exact promotion approval
@@ -80,13 +114,11 @@ jobs:
           approved_books = int(approval.get('approved_auto_books') or 0)
           ok = bool(approved_blob) and approved_blob == actual_blob and approved_books == actual_books
           with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
-              handle.write(f'APPROVAL_OK={1 if ok else 0}\n')
-              handle.write(f'AUTO_MANIFEST_BLOB={actual_blob}\n')
-              handle.write(f'AUTO_BOOKS={actual_books}\n')
+              handle.write(f'APPROVAL_OK={1 if ok else 0}\n'); handle.write(f'AUTO_MANIFEST_BLOB={actual_blob}\n'); handle.write(f'AUTO_BOOKS={actual_books}\n')
           print(f'Corpus approval: ok={ok}; auto_books={actual_books}; actual_blob={actual_blob}; approved_blob={approved_blob or "none"}')
           PY
 
-      - name: Check approved industrial queue is ready
+      - name: Check approved curated queue is ready
         shell: bash
         run: |
           python - <<'PY'
@@ -96,19 +128,18 @@ jobs:
           manifest = load_industrialized_manifest()
           available = sum(1 for book in manifest.get('books', []) if isinstance(book, dict) and book.get('enabled', True))
           target = int(os.environ['TARGET_INDUSTRIAL_OPENITI'])
-          approval_ok = os.environ.get('APPROVAL_OK') == '1'
-          skip = available < target or not approval_ok
+          approval_ok = os.environ.get('APPROVAL_OK') == '1'; curation_ready = os.environ.get('CURATION_READY') == '1'
+          skip = available < target or not approval_ok or not curation_ready
           with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
-              handle.write(f'SKIP_CORPUS_BUILD={1 if skip else 0}\n')
-              handle.write(f'AVAILABLE_INDUSTRIAL_OPENITI={available}\n')
-          print(f'Industrial OpenITI queue: {available} available / {target} minimum; approval={approval_ok}; skip={skip}')
+              handle.write(f'SKIP_CORPUS_BUILD={1 if skip else 0}\n'); handle.write(f'AVAILABLE_INDUSTRIAL_OPENITI={available}\n')
+          print(f'Curated OpenITI queue: {available} available / {target} minimum; approval={approval_ok}; curation={curation_ready}; skip={skip}')
           PY
 
       - name: Explain guarded build skip
         if: env.SKIP_CORPUS_BUILD == '1'
         run: |
           echo "Aucun asset V3 n'est publié."
-          echo "Le build exige une file industrielle suffisante et une approbation correspondant exactement au blob automatique."
+          echo "Le build attend la résolution des priorités P1, l'overlay de curation complet et l'approbation exacte du manifeste automatique."
 
       - name: Generate deterministic shard registry
         if: env.SKIP_CORPUS_BUILD != '1'
@@ -123,17 +154,13 @@ jobs:
           from pathlib import Path
           sys.path.insert(0, 'rag')
           from corpus_shards import load_shardable_manifest
-          manifest = load_shardable_manifest()
-          registry = json.loads(Path('rag/corpus_shards.json').read_text(encoding='utf-8'))
+          manifest = load_shardable_manifest(); registry = json.loads(Path('rag/corpus_shards.json').read_text(encoding='utf-8'))
           enabled = [book for book in manifest.get('books', []) if isinstance(book, dict) and book.get('enabled', True)]
           ids = {str(book['book_id']) for book in enabled}
-          assert registry['total_books'] == len(ids)
-          assert set(registry['book_to_shard']) == ids
-          assert registry['total_shards'] >= 1
+          assert registry['total_books'] == len(ids); assert set(registry['book_to_shard']) == ids; assert registry['total_shards'] >= 1
           assert all(int(shard['book_count']) <= int(registry['limits']['max_books_per_shard']) for shard in registry['shards'])
           minimum = int(os.environ['MIN_FINAL_OPENITI'])
-          if len(ids) < minimum:
-              raise SystemExit(f'Shardable OpenITI corpus below milestone: {len(ids)} < {minimum}')
+          if len(ids) < minimum: raise SystemExit(f'Shardable OpenITI corpus below curated milestone: {len(ids)} < {minimum}')
           print(f'Shard registry validated: {len(ids)} OpenITI books in {registry["total_shards"]} shard(s).')
           PY
 
@@ -147,48 +174,28 @@ jobs:
           --min-openiti-books "$MIN_FINAL_OPENITI"
           --workers "$ATHAR_OPENITI_WORKERS"
 
-      - name: Validate incremental sharded build manifest
+      - name: Validate reader-cleaned sharded build manifest
         if: env.SKIP_CORPUS_BUILD != '1'
         shell: bash
         run: |
           python - <<'PY'
           import json, os
           from pathlib import Path
-          root = Path('rag/data/sharded_build')
-          payload = json.loads((root / 'sharded_build.json').read_text(encoding='utf-8'))
-          assert payload['storage_mode'] == 'sharded'
-          assert payload['shard_build_version']
-          assert int(payload['openiti_books']) >= int(os.environ['MIN_FINAL_OPENITI'])
-          assert int(payload['books']) >= int(payload['openiti_books'])
-          assert int(payload['chunks']) > int(payload['books'])
-          assert int(payload['shard_count']) == len(payload['shards'])
-          assert int(payload['reused_shards']) + int(payload['rebuilt_shards']) == int(payload['shard_count'])
-          assert set(payload['book_to_shard'])
-
-          catalog = payload['catalog']
-          catalog_asset = root / catalog['asset']
-          assert catalog.get('reuse_status') == 'rebuilt'
-          assert catalog_asset.exists() and catalog_asset.stat().st_size == int(catalog['size_bytes'])
-
+          root = Path('rag/data/sharded_build'); payload = json.loads((root / 'sharded_build.json').read_text(encoding='utf-8'))
+          assert payload['storage_mode'] == 'sharded'; assert payload['shard_build_version']; assert int(payload['openiti_books']) >= int(os.environ['MIN_FINAL_OPENITI'])
+          assert int(payload['books']) >= int(payload['openiti_books']); assert int(payload['chunks']) > int(payload['books'])
+          assert int(payload['shard_count']) == len(payload['shards']); assert int(payload['reused_shards']) + int(payload['rebuilt_shards']) == int(payload['shard_count']); assert set(payload['book_to_shard'])
+          catalog = payload['catalog']; catalog_asset = root / catalog['asset']; assert catalog.get('reuse_status') == 'rebuilt'; assert catalog_asset.exists() and catalog_asset.stat().st_size == int(catalog['size_bytes'])
           for entry in payload['shards']:
-              assert entry['compression'] == 'gzip'
-              assert len(str(entry['sha256'])) == 64
-              assert len(str(entry['database_sha256'])) == 64
+              assert entry['compression'] == 'gzip'; assert len(str(entry['sha256'])) == 64; assert len(str(entry['database_sha256'])) == 64
               asset = root / entry['asset']
               if entry.get('reuse_status') == 'reused':
-                  assert entry.get('url'), f"reused shard {entry['id']} lost its published URL"
-                  assert entry.get('source_signature'), f"reused shard {entry['id']} has no source signature"
-                  assert entry.get('shard_build_version') == payload['shard_build_version']
+                  assert entry.get('url'); assert entry.get('source_signature'); assert entry.get('shard_build_version') == payload['shard_build_version']
               else:
                   assert asset.exists() and asset.stat().st_size == int(entry['size_bytes'])
                   if str(entry['id']).startswith('openiti-'):
-                      assert entry.get('source_signature')
-                      assert entry.get('shard_build_version') == payload['shard_build_version']
-          print(
-              f"Incremental sharded corpus validated: {payload['books']} books, {payload['openiti_books']} OpenITI, "
-              f"{payload['chunks']} chunks, {payload['shard_count']} shard(s), "
-              f"{payload['reused_shards']} reused / {payload['rebuilt_shards']} rebuilt"
-          )
+                      assert entry.get('source_signature'); assert entry.get('shard_build_version') == payload['shard_build_version']
+          print(f"Curated sharded corpus validated: {payload['books']} books, {payload['openiti_books']} OpenITI, {payload['chunks']} chunks, {payload['shard_count']} shard(s), {payload['reused_shards']} reused / {payload['rebuilt_shards']} rebuilt")
           PY
 
       - name: Publish only rebuilt SQLite assets
@@ -197,7 +204,7 @@ jobs:
         with:
           tag_name: rag-corpus-v3
           name: Athar sharded RAG corpus v3
-          body: Corpus Athar distribué en SQLite indépendants avec catalogue central et réutilisation vérifiée des shards inchangés. Les assets absents du build courant restent ceux du release précédent lorsqu'une signature de source identique autorise explicitement leur réutilisation.
+          body: Corpus Athar distribué et curaté, avec textes OpenITI nettoyés pour la lecture, métadonnées de curation et références P1 prioritaires.
           files: rag/data/sharded_build/*.sqlite.gz
           make_latest: false
           overwrite_files: true
@@ -209,28 +216,12 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          build_path = Path('rag/data/sharded_build/sharded_build.json')
-          payload = json.loads(build_path.read_text(encoding='utf-8'))
-          tag = 'rag-corpus-v3'
-          base = f'https://github.com/IbraDevWeb/Athar/releases/download/{tag}'
-          payload['tag'] = tag
-          payload['release_name'] = 'Athar sharded RAG corpus v3'
-          payload['catalog']['url'] = f"{base}/{payload['catalog']['asset']}"
-          for shard in payload['shards']:
-              shard['url'] = f"{base}/{shard['asset']}"
-          Path('rag/corpus_release_v3.json').write_text(
-              json.dumps(payload, ensure_ascii=False, indent=2) + '\n',
-              encoding='utf-8',
-          )
-          print(json.dumps({
-              'books': payload['books'],
-              'openiti_books': payload['openiti_books'],
-              'chunks': payload['chunks'],
-              'shards': payload['shard_count'],
-              'reused_shards': payload['reused_shards'],
-              'rebuilt_shards': payload['rebuilt_shards'],
-              'manifest': 'rag/corpus_release_v3.json',
-          }, ensure_ascii=False))
+          build_path = Path('rag/data/sharded_build/sharded_build.json'); payload = json.loads(build_path.read_text(encoding='utf-8'))
+          tag = 'rag-corpus-v3'; base = f'https://github.com/IbraDevWeb/Athar/releases/download/{tag}'
+          payload['tag'] = tag; payload['release_name'] = 'Athar sharded RAG corpus v3'; payload['catalog']['url'] = f"{base}/{payload['catalog']['asset']}"
+          for shard in payload['shards']: shard['url'] = f"{base}/{shard['asset']}"
+          Path('rag/corpus_release_v3.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps({'books': payload['books'], 'openiti_books': payload['openiti_books'], 'chunks': payload['chunks'], 'shards': payload['shard_count'], 'reused_shards': payload['reused_shards'], 'rebuilt_shards': payload['rebuilt_shards'], 'manifest': 'rag/corpus_release_v3.json'}, ensure_ascii=False))
           PY
 
       - name: Commit V3 manifest and current shard registry
@@ -240,12 +231,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add rag/corpus_release_v3.json rag/corpus_shards.json
-          if git diff --cached --quiet; then
-            echo 'V3 manifest and shard registry already current.'
-          else
-            git commit -m 'Publier le corpus Athar sharded V3 incrémental'
-            git push origin HEAD:main
-          fi
+          if git diff --cached --quiet; then echo 'V3 manifest and shard registry already current.'; else git commit -m 'Publier le corpus Athar curaté sharded V3'; git push origin HEAD:main; fi
 
       - name: Archive sharded build statistics
         if: env.SKIP_CORPUS_BUILD != '1'

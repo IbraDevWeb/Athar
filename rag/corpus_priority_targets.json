@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "release_commit": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+  "notice": "Priorités P1 de curation Athar. Les marqueurs OpenITI ont été vérifiés contre OpenITI/RELEASE; la sélection de version reste déterministe et exige une version primaire/nettoyée.",
+  "targets": [
+    {
+      "id": "hanafi-quduri",
+      "title": "Mukhtaṣar al-Qudūrī",
+      "title_ar": "مختصر القدوري",
+      "author": "Abū al-Ḥusayn al-Qudūrī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Ḥanafite",
+      "priority": "P1",
+      "work_markers": ["0428AbuHusaynQuduri.Mukhtasar"]
+    },
+    {
+      "id": "hanafi-mabsut",
+      "title": "Al-Mabsūṭ",
+      "title_ar": "المبسوط",
+      "author": "Al-Sarakhsī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Ḥanafite",
+      "priority": "P1",
+      "work_markers": ["0483IbnAhmadSarakhsi.Mabsut"]
+    },
+    {
+      "id": "hanafi-hidaya",
+      "title": "Al-Hidāyah",
+      "title_ar": "الهداية",
+      "author": "Burhān al-Dīn al-Marghīnānī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Ḥanafite",
+      "priority": "P1",
+      "work_markers": ["0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya"]
+    },
+    {
+      "id": "shafii-muhadhdhab",
+      "title": "Al-Muhadhdhab",
+      "title_ar": "المهذب",
+      "author": "Abū Isḥāq al-Shīrāzī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Shāfiʿite",
+      "priority": "P1",
+      "work_markers": ["0476AbuIshaqShirazi.MuhadhdhabFiFiqh"]
+    },
+    {
+      "id": "hanbali-kafi",
+      "title": "Al-Kāfī fī fiqh al-Imām Aḥmad",
+      "title_ar": "الكافي في فقه الإمام أحمد",
+      "author": "Ibn Qudāmah al-Maqdisī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Ḥanbalite",
+      "priority": "P1",
+      "work_markers": ["0620IbnQudamaMaqdisi.KafiFiFiqh"]
+    },
+    {
+      "id": "hanbali-muqni",
+      "title": "Al-Muqniʿ",
+      "title_ar": "المقنع",
+      "author": "Ibn Qudāmah al-Maqdisī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Ḥanbalite",
+      "priority": "P1",
+      "work_markers": ["0620IbnQudamaMaqdisi.MuqnicFiFiqh"]
+    },
+    {
+      "id": "hanbali-insaf",
+      "title": "Al-Inṣāf",
+      "title_ar": "الإنصاف",
+      "author": "ʿAlāʾ al-Dīn al-Mardāwī",
+      "discipline": "Fiqh",
+      "subject": "fiqh",
+      "madhhab": "Ḥanbalite",
+      "priority": "P1",
+      "work_markers": ["0885CalaDinMardawi.Insaf"]
+    },
+    {
+      "id": "hadith-musnad-ahmad",
+      "title": "Musnad Aḥmad",
+      "title_ar": "مسند أحمد",
+      "author": "Aḥmad ibn Ḥanbal",
+      "discipline": "Hadith",
+      "subject": "hadith",
+      "madhhab": "Transversal",
+      "priority": "P1",
+      "work_markers": ["0241IbnHanbal.Musnad"]
+    },
+    {
+      "id": "tafsir-qurtubi",
+      "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
+      "title_ar": "الجامع لأحكام القرآن",
+      "author": "Al-Qurṭubī",
+      "discipline": "Tafsīr",
+      "subject": "tafsir",
+      "madhhab": "Mālikite",
+      "priority": "P1",
+      "work_markers": ["0671AbuCabdAllahQurtubi.JamicLiAhkamQuran"]
+    },
+    {
+      "id": "usul-mustasfa",
+      "title": "Al-Mustaṣfā",
+      "title_ar": "المستصفى",
+      "author": "Al-Ghazālī",
+      "discipline": "Uṣūl al-fiqh",
+      "subject": "usul",
+      "madhhab": "Shāfiʿite",
+      "priority": "P1",
+      "work_markers": ["0505Ghazali.Mustasfa"]
+    },
+    {
+      "id": "usul-ihkam-amidi",
+      "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
+      "title_ar": "الإحكام في أصول الأحكام",
+      "author": "Al-Āmidī",
+      "discipline": "Uṣūl al-fiqh",
+      "subject": "usul",
+      "madhhab": "Shāfiʿite",
+      "priority": "P1",
+      "work_markers": ["0631SayfDinAmidi.IhkamFiUsulAhkam"]
+    },
+    {
+      "id": "history-tabaqat-ibn-sad",
+      "title": "Al-Ṭabaqāt al-Kubrā",
+      "title_ar": "الطبقات الكبرى",
+      "author": "Ibn Saʿd",
+      "discipline": "Sīra et histoire",
+      "subject": "sira",
+      "madhhab": "Transversal",
+      "priority": "P1",
+      "work_markers": ["0230IbnSacd.TabaqatKubra"]
+    },
+    {
+      "id": "history-tabari",
+      "title": "Tārīkh al-Ṭabarī",
+      "title_ar": "تاريخ الطبري",
+      "author": "Al-Ṭabarī",
+      "discipline": "Sīra et histoire",
+      "subject": "sira",
+      "madhhab": "Transversal",
+      "priority": "P1",
+      "work_markers": ["0310Tabari.Tarikh"]
+    }
+  ]
+}

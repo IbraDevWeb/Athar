@@ -89,21 +89,73 @@ def _query_tokens(value: Any) -> list[str]:
     return tokens
 
 
+def _passage(row: sqlite3.Row | dict[str, Any], *, sequence: int | None = None) -> dict[str, Any]:
+    item = dict(row)
+    meta = _metadata(item.pop("metadata_json", "{}"))
+    section_path = meta.get("section_path")
+    if not isinstance(section_path, list):
+        section_path = [str(item.get("chapter") or "")] if str(item.get("chapter") or "").strip() else []
+    section_path = [str(value).strip() for value in section_path if str(value).strip()]
+    try:
+        section_level = int(meta.get("section_level") or len(section_path) or 0)
+    except (TypeError, ValueError):
+        section_level = len(section_path)
+    item["text_ar"] = str(item.get("text_ar") or "")
+    item["text_fr"] = str(item.get("text_fr") or "")
+    item["chapter"] = str(item.get("chapter") or "")
+    item["metadata"] = meta
+    item["section_title"] = str(meta.get("section_title") or item["chapter"] or "")
+    item["section_level"] = max(0, section_level)
+    item["section_path"] = section_path
+    item["volume"] = meta.get("volume")
+    item["reader_parser_version"] = str(meta.get("reader_parser_version") or "")
+    if sequence is not None:
+        item["sequence"] = sequence
+    return item
+
+
+def _reader_pages(passages: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    pages: list[dict[str, Any]] = []
+    current_page: dict[str, Any] | None = None
+    current_section: dict[str, Any] | None = None
+    for passage in passages:
+        page = passage.get("page")
+        volume = passage.get("volume")
+        page_key = (volume, page)
+        if current_page is None or current_page["_key"] != page_key:
+            current_page = {"_key": page_key, "page": page, "volume": volume, "sections": []}
+            pages.append(current_page)
+            current_section = None
+        path = tuple(passage.get("section_path") or [])
+        if current_section is None or current_section["_path"] != path:
+            current_section = {
+                "_path": path,
+                "title": passage.get("section_title") or "",
+                "level": int(passage.get("section_level") or 0),
+                "path": list(path),
+                "passages": [],
+            }
+            current_page["sections"].append(current_section)
+        current_section["passages"].append(passage)
+    for page in pages:
+        page.pop("_key", None)
+        for section in page["sections"]:
+            section.pop("_path", None)
+    return pages
+
+
 def list_library_books(connection: sqlite3.Connection) -> list[dict[str, Any]]:
     rows = connection.execute(
         """
-        SELECT
-            b.id, b.kutub_id, b.title, b.title_ar, b.author, b.discipline,
-            b.madhhab, b.pages, b.description, b.source_url,
+        SELECT b.id, b.kutub_id, b.title, b.title_ar, b.author, b.discipline,
+            b.madhhab, b.pages, b.description, b.source_url, b.metadata_json,
             COUNT(c.id) AS chunks,
             COUNT(DISTINCT CASE WHEN c.page IS NOT NULL AND c.page > 0 THEN c.page END) AS indexed_pages,
             SUM(CASE WHEN LENGTH(TRIM(COALESCE(c.text_ar, ''))) > 0 THEN 1 ELSE 0 END) AS arabic_passages,
             SUM(CASE WHEN LENGTH(TRIM(COALESCE(c.text_fr, ''))) > 0 THEN 1 ELSE 0 END) AS french_passages,
             COUNT(DISTINCT CASE WHEN LENGTH(TRIM(COALESCE(c.chapter, ''))) > 0 THEN TRIM(c.chapter) END) AS indexed_sections
-        FROM books b
-        LEFT JOIN chunks c ON c.book_id=b.id
-        GROUP BY b.id
-        ORDER BY b.title COLLATE NOCASE, b.author COLLATE NOCASE
+        FROM books b LEFT JOIN chunks c ON c.book_id=b.id
+        GROUP BY b.id ORDER BY b.title COLLATE NOCASE, b.author COLLATE NOCASE
         """
     ).fetchall()
     books: list[dict[str, Any]] = []
@@ -111,6 +163,9 @@ def list_library_books(connection: sqlite3.Connection) -> list[dict[str, Any]]:
         item = dict(row)
         for key in ("chunks", "indexed_pages", "arabic_passages", "french_passages", "indexed_sections"):
             item[key] = int(item.get(key) or 0)
+        metadata = _metadata(item.pop("metadata_json", "{}"))
+        item["metadata"] = metadata
+        item["curation"] = metadata.get("curation") if isinstance(metadata.get("curation"), dict) else {}
         item["has_arabic"] = item["arabic_passages"] > 0
         item["has_french"] = item["french_passages"] > 0
         books.append(item)
@@ -121,8 +176,7 @@ def get_book(connection: sqlite3.Connection, book_id: Any) -> dict[str, Any]:
     book_id = _clean_id(book_id)
     row = connection.execute(
         """
-        SELECT
-            b.id, b.kutub_id, b.title, b.title_ar, b.author, b.discipline,
+        SELECT b.id, b.kutub_id, b.title, b.title_ar, b.author, b.discipline,
             b.madhhab, b.pages, b.description, b.source_url, b.metadata_json,
             COUNT(c.id) AS chunks,
             COUNT(DISTINCT CASE WHEN c.page IS NOT NULL AND c.page > 0 THEN c.page END) AS indexed_pages,
@@ -131,23 +185,18 @@ def get_book(connection: sqlite3.Connection, book_id: Any) -> dict[str, Any]:
             SUM(CASE WHEN LENGTH(TRIM(COALESCE(c.text_ar, ''))) > 0 THEN 1 ELSE 0 END) AS arabic_passages,
             SUM(CASE WHEN LENGTH(TRIM(COALESCE(c.text_fr, ''))) > 0 THEN 1 ELSE 0 END) AS french_passages,
             COUNT(DISTINCT CASE WHEN LENGTH(TRIM(COALESCE(c.chapter, ''))) > 0 THEN TRIM(c.chapter) END) AS indexed_sections
-        FROM books b
-        LEFT JOIN chunks c ON c.book_id=b.id
-        WHERE b.id=?
-        GROUP BY b.id
-        LIMIT 1
+        FROM books b LEFT JOIN chunks c ON c.book_id=b.id
+        WHERE b.id=? GROUP BY b.id LIMIT 1
         """,
         (book_id,),
     ).fetchone()
     if row is None:
         raise LookupError("Ouvrage introuvable dans le corpus.")
     payload = dict(row)
-    payload["chunks"] = int(payload.get("chunks") or 0)
-    payload["indexed_pages"] = int(payload.get("indexed_pages") or 0)
-    payload["arabic_passages"] = int(payload.get("arabic_passages") or 0)
-    payload["french_passages"] = int(payload.get("french_passages") or 0)
-    payload["indexed_sections"] = int(payload.get("indexed_sections") or 0)
+    for key in ("chunks", "indexed_pages", "arabic_passages", "french_passages", "indexed_sections"):
+        payload[key] = int(payload.get(key) or 0)
     payload["metadata"] = _metadata(payload.pop("metadata_json", "{}"))
+    payload["curation"] = payload["metadata"].get("curation") if isinstance(payload["metadata"].get("curation"), dict) else {}
     payload["has_arabic"] = payload["arabic_passages"] > 0
     payload["has_french"] = payload["french_passages"] > 0
     return payload
@@ -161,35 +210,19 @@ def get_toc(connection: sqlite3.Connection, book_id: Any, *, limit: Any = MAX_TO
     except (TypeError, ValueError):
         parsed_limit = MAX_TOC_ITEMS
     parsed_limit = max(1, min(parsed_limit, MAX_TOC_ITEMS))
-
-    total = int(
-        connection.execute(
-            """
-            SELECT COUNT(*) FROM (
-                SELECT 1
-                FROM chunks
-                WHERE book_id=? AND LENGTH(TRIM(COALESCE(chapter, ''))) > 0
-                GROUP BY TRIM(chapter)
-            )
-            """,
-            (book_id,),
-        ).fetchone()[0]
-    )
+    total = int(connection.execute("SELECT COUNT(*) FROM (SELECT 1 FROM chunks WHERE book_id=? AND LENGTH(TRIM(COALESCE(chapter, ''))) > 0 GROUP BY TRIM(chapter))", (book_id,)).fetchone()[0])
     rows = connection.execute(
         """
-        SELECT
-            TRIM(chapter) AS chapter,
+        SELECT TRIM(chapter) AS chapter,
             MIN(CASE WHEN page IS NOT NULL AND page > 0 THEN page END) AS first_page,
             MAX(CASE WHEN page IS NOT NULL AND page > 0 THEN page END) AS last_page,
             COUNT(*) AS passages,
-            COUNT(DISTINCT CASE WHEN page IS NOT NULL AND page > 0 THEN page END) AS pages
-        FROM chunks
-        WHERE book_id=? AND LENGTH(TRIM(COALESCE(chapter, ''))) > 0
+            COUNT(DISTINCT CASE WHEN page IS NOT NULL AND page > 0 THEN page END) AS pages,
+            MIN(rowid) AS representative_rowid
+        FROM chunks WHERE book_id=? AND LENGTH(TRIM(COALESCE(chapter, ''))) > 0
         GROUP BY TRIM(chapter)
-        ORDER BY
-            CASE WHEN MIN(CASE WHEN page IS NOT NULL AND page > 0 THEN page END) IS NULL THEN 1 ELSE 0 END,
-            MIN(CASE WHEN page IS NOT NULL AND page > 0 THEN page END) ASC,
-            MIN(rowid) ASC
+        ORDER BY CASE WHEN MIN(CASE WHEN page IS NOT NULL AND page > 0 THEN page END) IS NULL THEN 1 ELSE 0 END,
+            MIN(CASE WHEN page IS NOT NULL AND page > 0 THEN page END) ASC, MIN(rowid) ASC
         LIMIT ?
         """,
         (book_id, parsed_limit),
@@ -197,86 +230,46 @@ def get_toc(connection: sqlite3.Connection, book_id: Any, *, limit: Any = MAX_TO
     items: list[dict[str, Any]] = []
     for index, row in enumerate(rows, start=1):
         item = dict(row)
+        representative = connection.execute("SELECT metadata_json FROM chunks WHERE rowid=?", (item.pop("representative_rowid"),)).fetchone()
+        meta = _metadata(representative[0] if representative else "{}")
+        path = meta.get("section_path") if isinstance(meta.get("section_path"), list) else []
         item["chapter"] = str(item.get("chapter") or "")[:360]
         item["passages"] = int(item.get("passages") or 0)
         item["pages"] = int(item.get("pages") or 0)
         item["sequence"] = index
+        item["level"] = max(1, int(meta.get("section_level") or len(path) or 1))
+        item["path"] = [str(value) for value in path if str(value).strip()]
         items.append(item)
-    return {
-        "book_id": book_id,
-        "total": total,
-        "limit": parsed_limit,
-        "truncated": total > len(items),
-        "items": items,
-    }
+    return {"book_id": book_id, "total": total, "limit": parsed_limit, "truncated": total > len(items), "items": items}
 
 
-def search_book(
-    connection: sqlite3.Connection,
-    book_id: Any,
-    query: Any,
-    *,
-    limit: Any = 10,
-) -> dict[str, Any]:
+def search_book(connection: sqlite3.Connection, book_id: Any, query: Any, *, limit: Any = 10) -> dict[str, Any]:
     book_id = _clean_id(book_id)
     book = get_book(connection, book_id)
     tokens = _query_tokens(query)
     parsed_limit = _search_limit(limit)
-
     token_clauses: list[str] = []
     params: list[Any] = [book_id]
     for token in tokens:
-        token_clauses.append(
-            "(COALESCE(chapter, '') LIKE ? OR COALESCE(text_ar, '') LIKE ? OR COALESCE(text_fr, '') LIKE ?)"
-        )
+        token_clauses.append("(COALESCE(chapter, '') LIKE ? OR COALESCE(text_ar, '') LIKE ? OR COALESCE(text_fr, '') LIKE ?)")
         pattern = f"%{token}%"
         params.extend((pattern, pattern, pattern))
     where = " AND ".join(["book_id=?", *token_clauses])
-
     rows = connection.execute(
-        f"""
-        SELECT id, page, chapter, text_ar, text_fr, translation_status, source_url
-        FROM chunks
-        WHERE {where}
-        ORDER BY
-            CASE WHEN page IS NULL OR page <= 0 THEN 1 ELSE 0 END,
-            page ASC,
-            rowid ASC
-        LIMIT ?
-        """,
+        f"""SELECT id, page, chapter, text_ar, text_fr, translation_status, source_url, metadata_json
+        FROM chunks WHERE {where}
+        ORDER BY CASE WHEN page IS NULL OR page <= 0 THEN 1 ELSE 0 END, page ASC, rowid ASC LIMIT ?""",
         (*params, parsed_limit),
     ).fetchall()
-
-    hits: list[dict[str, Any]] = []
-    for row in rows:
-        item = dict(row)
-        item["text_ar"] = str(item.get("text_ar") or "")
-        item["text_fr"] = str(item.get("text_fr") or "")
-        item["chapter"] = str(item.get("chapter") or "")
-        hits.append(item)
-    return {
-        "book": book,
-        "query": str(query or "").strip(),
-        "tokens": tokens,
-        "count": len(hits),
-        "limit": parsed_limit,
-        "hits": hits,
-    }
+    hits = [_passage(row) for row in rows]
+    return {"book": book, "query": str(query or "").strip(), "tokens": tokens, "count": len(hits), "limit": parsed_limit, "hits": hits}
 
 
-def read_book(
-    connection: sqlite3.Connection,
-    book_id: Any,
-    *,
-    offset: Any = 0,
-    limit: Any = DEFAULT_READ_LIMIT,
-    page: Any = None,
-) -> dict[str, Any]:
+def read_book(connection: sqlite3.Connection, book_id: Any, *, offset: Any = 0, limit: Any = DEFAULT_READ_LIMIT, page: Any = None) -> dict[str, Any]:
     book_id = _clean_id(book_id)
     limit = _limit(limit)
     offset = _offset(offset)
     page = _page(page)
-
     book = get_book(connection, book_id)
     clauses = ["book_id=?"]
     params: list[Any] = [book_id]
@@ -285,51 +278,27 @@ def read_book(
     if page is not None:
         clauses.append("page=?")
         params.append(page)
-        previous_row = connection.execute(
-            "SELECT MAX(page) FROM chunks WHERE book_id=? AND page IS NOT NULL AND page > 0 AND page < ?",
-            (book_id, page),
-        ).fetchone()
-        next_row = connection.execute(
-            "SELECT MIN(page) FROM chunks WHERE book_id=? AND page IS NOT NULL AND page > ?",
-            (book_id, page),
-        ).fetchone()
+        previous_row = connection.execute("SELECT MAX(page) FROM chunks WHERE book_id=? AND page IS NOT NULL AND page > 0 AND page < ?", (book_id, page)).fetchone()
+        next_row = connection.execute("SELECT MIN(page) FROM chunks WHERE book_id=? AND page IS NOT NULL AND page > ?", (book_id, page)).fetchone()
         previous_page = int(previous_row[0]) if previous_row and previous_row[0] is not None else None
         next_page = int(next_row[0]) if next_row and next_row[0] is not None else None
     where = " AND ".join(clauses)
-
-    total = int(
-        connection.execute(f"SELECT COUNT(*) FROM chunks WHERE {where}", tuple(params)).fetchone()[0]
-    )
+    total = int(connection.execute(f"SELECT COUNT(*) FROM chunks WHERE {where}", tuple(params)).fetchone()[0])
     if total == 0 and page is not None:
         raise LookupError("Cette page n'est pas indexée pour cet ouvrage.")
     if total and offset >= total:
         offset = max(0, ((total - 1) // limit) * limit)
-
     rows = connection.execute(
-        f"""
-        SELECT id, page, chapter, text_ar, text_fr, translation_status, source_url
-        FROM chunks
-        WHERE {where}
-        ORDER BY
-            CASE WHEN page IS NULL OR page <= 0 THEN 1 ELSE 0 END,
-            page ASC,
-            rowid ASC
-        LIMIT ? OFFSET ?
-        """,
+        f"""SELECT id, page, chapter, text_ar, text_fr, translation_status, source_url, metadata_json
+        FROM chunks WHERE {where}
+        ORDER BY CASE WHEN page IS NULL OR page <= 0 THEN 1 ELSE 0 END, page ASC, rowid ASC LIMIT ? OFFSET ?""",
         (*params, limit, offset),
     ).fetchall()
-
-    passages: list[dict[str, Any]] = []
-    for index, row in enumerate(rows, start=offset + 1):
-        item = dict(row)
-        item["sequence"] = index
-        passages.append(item)
-
+    passages = [_passage(row, sequence=index) for index, row in enumerate(rows, start=offset + 1)]
     next_offset = offset + len(passages)
     if next_offset >= total:
         next_offset = None
     previous_offset = max(0, offset - limit) if offset > 0 else None
-
     return {
         "book": book,
         "page": page,
@@ -341,4 +310,6 @@ def read_book(
         "next_page": next_page,
         "previous_page": previous_page,
         "passages": passages,
+        "reader_pages": _reader_pages(passages),
+        "reader_mode": "structured-book-v2",
     }

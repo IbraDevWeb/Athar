@@ -18,30 +18,80 @@ from core import DEFAULT_DB, connect, initialize_database  # noqa: E402
 from openiti import fetch_text, ingest_book, load_manifest, urls  # noqa: E402
 
 AUTO_MANIFEST = RAG_DIR / "openiti_books_auto.json"
+PRIORITY_MANIFEST = RAG_DIR / "openiti_books_priority.json"
+CURATION_PATH = RAG_DIR / "corpus_book_curation.json"
 
 
-def load_industrialized_manifest() -> dict[str, Any]:
+def _load_books(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("books", []) if isinstance(payload, dict) else []
+    if not isinstance(rows, list):
+        raise RuntimeError(f"{path.name} doit contenir une liste books.")
+    return [book for book in rows if isinstance(book, dict)]
+
+
+def _load_curation() -> dict[str, Any]:
+    if not CURATION_PATH.exists():
+        return {}
+    payload = json.loads(CURATION_PATH.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise RuntimeError("corpus_book_curation.json doit contenir un objet JSON.")
+    books = payload.get("books") or {}
+    if not isinstance(books, dict):
+        raise RuntimeError("corpus_book_curation.json doit contenir un objet books.")
+    return books
+
+
+def _apply_curation(book: dict[str, Any], curation: dict[str, Any]) -> dict[str, Any]:
+    book_id = str(book.get("book_id") or "").strip()
+    row = curation.get(book_id)
+    if not isinstance(row, dict):
+        return dict(book)
+    curated = dict(book)
+    for key in ("title", "title_ar", "author", "discipline", "madhhab"):
+        value = row.get(key)
+        if value is not None and str(value).strip():
+            curated[key] = value
+        elif key == "madhhab" and value == "":
+            curated[key] = ""
+    existing_meta = curated.get("metadata") if isinstance(curated.get("metadata"), dict) else {}
+    curated_meta = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
+    curated["metadata"] = {**existing_meta, **curated_meta}
+    return curated
+
+
+def load_industrialized_manifest(*, apply_curation: bool = True) -> dict[str, Any]:
     manifest = load_manifest()
     books = [book for book in manifest.get("books", []) if isinstance(book, dict)]
-    if AUTO_MANIFEST.exists():
-        auto = json.loads(AUTO_MANIFEST.read_text(encoding="utf-8"))
-        auto_books = auto.get("books", []) if isinstance(auto, dict) else []
-        if not isinstance(auto_books, list):
-            raise RuntimeError("openiti_books_auto.json doit contenir une liste books.")
-        books.extend(book for book in auto_books if isinstance(book, dict))
+    auto_books = _load_books(AUTO_MANIFEST)
+    priority_books = _load_books(PRIORITY_MANIFEST)
+    books.extend(auto_books)
+    books.extend(priority_books)
+
     ids = [str(book.get("book_id") or "") for book in books]
     uris = [str(book.get("openiti_uri") or "") for book in books]
     if not all(ids) or len(ids) != len(set(ids)):
         raise RuntimeError("Identifiants OpenITI industriels manquants ou dupliqués.")
     if not all(uris) or len(uris) != len(set(uris)):
         raise RuntimeError("URI OpenITI industriels manquants ou dupliqués.")
+
+    curation = _load_curation() if apply_curation else {}
+    if apply_curation and curation:
+        books = [_apply_curation(book, curation) for book in books]
+
     manifest["books"] = books
     manifest["industrialized_queue"] = str(AUTO_MANIFEST.relative_to(ROOT)) if AUTO_MANIFEST.exists() else ""
+    manifest["priority_queue"] = str(PRIORITY_MANIFEST.relative_to(ROOT)) if PRIORITY_MANIFEST.exists() else ""
+    manifest["curation_overlay"] = str(CURATION_PATH.relative_to(ROOT)) if apply_curation and CURATION_PATH.exists() else ""
+    manifest["automatic_books"] = len(auto_books)
+    manifest["priority_books"] = len(priority_books)
     return manifest
 
 
 def persist_manifest_metadata(connection: Any, book: dict[str, object]) -> None:
-    """Preserve promotion provenance without overwriting source metadata set by openiti.ingest_book."""
+    """Preserve promotion/curation provenance without overwriting source metadata set during ingestion."""
     configured = book.get("metadata")
     if not isinstance(configured, dict) or not configured:
         return
@@ -89,12 +139,6 @@ def sync_books(
     best_effort: bool = False,
     workers: int | None = None,
 ) -> dict[str, object]:
-    """Ingest an explicit OpenITI subset into one SQLite database.
-
-    This is the primitive used by the sharded builder. It deliberately receives
-    an explicit list instead of slicing the global manifest, so one shard can be
-    rebuilt independently without first constructing the entire corpus.
-    """
     selected = [book for book in books if isinstance(book, dict) and book.get("enabled", True)]
     ids = [str(book.get("book_id") or "").strip() for book in selected]
     if not selected or not all(ids) or len(ids) != len(set(ids)):
@@ -176,6 +220,8 @@ def sync(
             "imported_chunks": 0,
             "workers": max(1, min(int(workers or os.getenv("ATHAR_OPENITI_WORKERS", "4")), 8)),
             "industrialized_queue": AUTO_MANIFEST.exists(),
+            "priority_queue": PRIORITY_MANIFEST.exists(),
+            "curation_overlay": CURATION_PATH.exists(),
             "errors": [],
         }
     result = sync_books(
@@ -189,11 +235,13 @@ def sync(
         "available_books": total_enabled,
         **result,
         "industrialized_queue": AUTO_MANIFEST.exists(),
+        "priority_queue": PRIORITY_MANIFEST.exists(),
+        "curation_overlay": CURATION_PATH.exists(),
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Importe les textes OpenITI configurés et promus dans la base RAG Athar.")
+    parser = argparse.ArgumentParser(description="Importe les textes OpenITI configurés, prioritaires et promus dans la base RAG Athar.")
     parser.add_argument("--db", type=Path, default=Path(os.getenv("ATHAR_DB_PATH") or DEFAULT_DB))
     parser.add_argument("--max-books", type=int, default=None)
     parser.add_argument("--workers", type=int, default=None)
