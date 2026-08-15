@@ -1,0 +1,63 @@
+name: RAG V5 library live verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v5_library.py'
+      - 'rag/v5_library_server.py'
+      - 'render.yaml'
+      - '.github/workflows/rag-v5-library-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-library-live:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for library-enabled V5 server
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import time
+          import urllib.request
+
+          base = 'https://athar-rag-ibradevweb.onrender.com'
+          last_error = None
+          for attempt in range(30):
+              try:
+                  with urllib.request.urlopen(base + '/healthz', timeout=20) as response:
+                      health = json.load(response)
+                  if health.get('engine') != 'rag-v5-hybrid-multilingual':
+                      raise RuntimeError(f"unexpected engine: {health}")
+                  with urllib.request.urlopen(base + '/api/rag/v5/books', timeout=60) as response:
+                      books = json.load(response)
+                  rows = books.get('books') or []
+                  if not rows:
+                      raise RuntimeError('production corpus has no books')
+                  book_id = str(rows[0].get('id') or '').strip()
+                  if not book_id:
+                      raise RuntimeError('first production book has no id')
+                  from urllib.parse import quote
+                  with urllib.request.urlopen(base + '/api/rag/v5/book?id=' + quote(book_id), timeout=60) as response:
+                      info = json.load(response)
+                  if info.get('engine') != 'rag-v5-hybrid-multilingual' or info.get('book', {}).get('id') != book_id:
+                      raise RuntimeError(f'book endpoint not ready: {info}')
+                  with urllib.request.urlopen(base + '/api/rag/v5/read?book_id=' + quote(book_id) + '&limit=2', timeout=60) as response:
+                      read = json.load(response)
+                  passages = read.get('passages') or []
+                  if not passages or len(passages) > 2:
+                      raise RuntimeError(f'invalid bounded reader payload: {read}')
+                  if not any((row.get('text_ar') or row.get('text_fr')) for row in passages):
+                      raise RuntimeError('reader returned empty passages')
+                  print(f"PUBLIC RAG V5 LIBRARY READER: PASS — {book_id} — {len(passages)} bounded passage(s)")
+                  raise SystemExit(0)
+              except Exception as error:
+                  last_error = error
+                  print(f'Attempt {attempt + 1}/30: {error}', flush=True)
+                  time.sleep(20)
+          raise SystemExit(f'Library server did not become ready: {last_error}')
+          PY
