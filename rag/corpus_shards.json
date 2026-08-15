@@ -3,9 +3,9 @@
   "strategy": "append-friendly-manifest-order-v1",
   "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "total_books": 200,
-  "total_shards": 5,
-  "hosted_target_openiti_books": 200,
+  "total_books": 213,
+  "total_shards": 10,
+  "hosted_target_openiti_books": 213,
   "future_target_books": 500,
   "limits": {
     "max_books_per_shard": 40,
@@ -14,16 +14,11 @@
   "shards": [
     {
       "id": "openiti-001",
-      "book_count": 40,
-      "source_chars": 0,
+      "book_count": 12,
+      "source_chars": 38403443,
       "oversize_source": false,
       "subjects": {
-        "aqida": 2,
-        "fiqh": 24,
-        "hadith": 9,
-        "other": 2,
-        "sira": 2,
-        "usul": 1
+        "fiqh": 12
       },
       "books": [
         {
@@ -32,7 +27,7 @@
           "title_ar": "الموطأ",
           "author": "Mālik ibn Anas",
           "discipline": "Hadith et fiqh",
-          "source_chars": 0
+          "source_chars": 946400
         },
         {
           "book_id": "kutub-11373",
@@ -40,7 +35,7 @@
           "title_ar": "الرسالة",
           "author": "Ibn Abī Zayd al-Qayrawānī",
           "discipline": "Fiqh et croyance",
-          "source_chars": 0
+          "source_chars": 100775
         },
         {
           "book_id": "kutub-7367",
@@ -48,7 +43,7 @@
           "title_ar": "الكافي في فقه أهل المدينة",
           "author": "Ibn ʿAbd al-Barr",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 782744
         },
         {
           "book_id": "kutub-236",
@@ -56,7 +51,7 @@
           "title_ar": "التمهيد",
           "author": "Ibn ʿAbd al-Barr",
           "discipline": "Hadith et fiqh",
-          "source_chars": 0
+          "source_chars": 5603231
         },
         {
           "book_id": "kutub-21739",
@@ -64,7 +59,7 @@
           "title_ar": "بداية المجتهد ونهاية المقتصد",
           "author": "Ibn Rushd al-Ḥafīd",
           "discipline": "Fiqh comparé",
-          "source_chars": 0
+          "source_chars": 1257663
         },
         {
           "book_id": "kutub-2215",
@@ -72,7 +67,7 @@
           "title_ar": "الفروق",
           "author": "Al-Qarāfī",
           "discipline": "Qawāʿid et fiqh",
-          "source_chars": 0
+          "source_chars": 1137296
         },
         {
           "book_id": "kutub-11355",
@@ -80,7 +75,7 @@
           "title_ar": "مختصر خليل",
           "author": "Khalīl ibn Isḥāq al-Jundī",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 236700
         },
         {
           "book_id": "kutub-21611",
@@ -88,7 +83,7 @@
           "title_ar": "التاج والإكليل لمختصر خليل",
           "author": "Muḥammad ibn Yūsuf al-Mawwāq",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 2777086
         },
         {
           "book_id": "kutub-569",
@@ -96,7 +91,7 @@
           "title_ar": "مواهب الجليل في شرح مختصر خليل",
           "author": "Al-Ḥaṭṭāb al-Ruʿaynī",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 5884362
         },
         {
           "book_id": "kutub-14297",
@@ -104,7 +99,7 @@
           "title_ar": "شرح الزرقاني على مختصر خليل",
           "author": "ʿAbd al-Bāqī al-Zarqānī",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 7223997
         },
         {
           "book_id": "kutub-587",
@@ -112,7 +107,7 @@
           "title_ar": "المدونة الكبرى",
           "author": "Saḥnūn ibn Saʿīd",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 3581017
         },
         {
           "book_id": "kutub-21751",
@@ -120,15 +115,27 @@
           "title_ar": "البيان والتحصيل",
           "author": "Ibn Rushd al-Jadd",
           "discipline": "Fiqh",
-          "source_chars": 0
-        },
+          "source_chars": 8872172
+        }
+      ]
+    },
+    {
+      "id": "openiti-002",
+      "book_count": 5,
+      "source_chars": 31108605,
+      "oversize_source": false,
+      "subjects": {
+        "fiqh": 4,
+        "hadith": 1
+      },
+      "books": [
         {
           "book_id": "kutub-1655",
           "title": "Kitāb al-Umm",
           "title_ar": "الأم",
           "author": "Al-Shāfiʿī",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 4644860
         },
         {
           "book_id": "kutub-8183",
@@ -136,7 +143,7 @@
           "title_ar": "بدائع الصنائع في ترتيب الشرائع",
           "author": "Al-Kāsānī",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 6007018
         },
         {
           "book_id": "kutub-6910",
@@ -144,7 +151,7 @@
           "title_ar": "المغني",
           "author": "Ibn Qudāmah al-Maqdisī",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 7108675
         },
         {
           "book_id": "kutub-1673",
@@ -152,7 +159,7 @@
           "title_ar": "فتح الباري شرح صحيح البخاري",
           "author": "Ibn Ḥajar al-ʿAsqalānī",
           "discipline": "Hadith",
-          "source_chars": 0
+          "source_chars": 13295094
         },
         {
           "book_id": "kutub-151100",
@@ -160,15 +167,30 @@
           "title_ar": "الإجماع",
           "author": "Ibn al-Mundhir",
           "discipline": "Fiqh comparé",
-          "source_chars": 0
-        },
+          "source_chars": 52958
+        }
+      ]
+    },
+    {
+      "id": "openiti-003",
+      "book_count": 14,
+      "source_chars": 39083373,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 2,
+        "fiqh": 7,
+        "hadith": 3,
+        "other": 1,
+        "sira": 1
+      },
+      "books": [
         {
           "book_id": "kutub-7289",
           "title": "Majmūʿ al-Fatāwā",
           "title_ar": "مجموع الفتاوى",
           "author": "Ibn Taymiyyah",
           "discipline": "Fiqh, ʿaqīda et uṣūl",
-          "source_chars": 0
+          "source_chars": 12318634
         },
         {
           "book_id": "kutub-11620",
@@ -176,7 +198,7 @@
           "title_ar": "اقتضاء الصراط المستقيم لمخالفة أصحاب الجحيم",
           "author": "Ibn Taymiyyah",
           "discipline": "ʿAqīda et comportement",
-          "source_chars": 0
+          "source_chars": 479278
         },
         {
           "book_id": "kutub-205",
@@ -184,7 +206,7 @@
           "title_ar": "شفاء العليل في مسائل القضاء والقدر والحكمة والتعليل",
           "author": "Ibn al-Qayyim",
           "discipline": "ʿAqīda",
-          "source_chars": 0
+          "source_chars": 687813
         },
         {
           "book_id": "kutub-17798",
@@ -192,7 +214,7 @@
           "title_ar": "إعلام الموقعين عن رب العالمين",
           "author": "Ibn al-Qayyim",
           "discipline": "Uṣūl et fiqh",
-          "source_chars": 0
+          "source_chars": 1841731
         },
         {
           "book_id": "kutub-201",
@@ -200,253 +222,268 @@
           "title_ar": "تهذيب سنن أبي داود",
           "author": "Ibn al-Qayyim",
           "discipline": "Hadith et fiqh",
-          "source_chars": 0
+          "source_chars": 749520
         },
         {
           "book_id": "kutub-30097",
           "title": "Al-Bidāyah wa-l-Nihāyah",
           "title_ar": "البداية والنهاية",
           "author": "Ibn Kathīr",
-          "discipline": "Histoire et sīra",
-          "source_chars": 0
+          "discipline": "Sīra et histoire",
+          "source_chars": 8944273
         },
         {
           "book_id": "openiti-istidhkar",
           "title": "Al-Istidhkar",
-          "title_ar": "",
+          "title_ar": "الاستذكار",
           "author": "Ibn Abd al-Barr",
-          "discipline": "Hadith et fiqh compare",
-          "source_chars": 0
+          "discipline": "Hadith et fiqh comparé",
+          "source_chars": 4437617
         },
         {
           "book_id": "openiti-muqaddimat",
           "title": "Al-Muqaddimat al-Mumahhidat",
-          "title_ar": "",
+          "title_ar": "المقدمات الممهدات",
           "author": "Ibn Rushd al-Jadd",
           "discipline": "Fiqh et usul",
-          "source_chars": 0
+          "source_chars": 1666353
         },
         {
           "book_id": "openiti-muwafaqat",
           "title": "Al-Muwafaqat",
-          "title_ar": "",
-          "author": "Al-Shatibi",
-          "discipline": "Usul al-fiqh et maqasid",
-          "source_chars": 0
+          "title_ar": "الموافقات",
+          "author": "Al-Shāṭibī",
+          "discipline": "Uṣūl al-fiqh et maqāṣid",
+          "source_chars": 1165057
         },
         {
           "book_id": "openiti-ictisam",
           "title": "Al-Ictisam",
-          "title_ar": "",
-          "author": "Al-Shatibi",
-          "discipline": "Usul",
-          "source_chars": 0
+          "title_ar": "الاعتصام",
+          "author": "Al-Shāṭibī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 647141
         },
         {
           "book_id": "openiti-jamic-bayan-cilm",
           "title": "Jamic Bayan al-Ilm wa-Fadlihi",
-          "title_ar": "",
+          "title_ar": "جامع بيان العلم وفضله",
           "author": "Ibn Abd al-Barr",
           "discipline": "Science et transmission",
-          "source_chars": 0
+          "source_chars": 509634
         },
         {
           "book_id": "openiti-sahih-bukhari",
           "title": "Sahih al-Bukhari",
-          "title_ar": "",
+          "title_ar": "صحيح البخاري",
           "author": "Al-Bukhari",
           "discipline": "Hadith",
-          "source_chars": 0
+          "source_chars": 2349294
         },
         {
           "book_id": "openiti-sahih-muslim",
           "title": "Sahih Muslim",
-          "title_ar": "",
+          "title_ar": "صحيح",
           "author": "Muslim ibn al-Hajjaj",
           "discipline": "Hadith",
-          "source_chars": 0
+          "source_chars": 1945463
         },
         {
           "book_id": "openiti-sunan-abu-dawud",
           "title": "Sunan Abi Dawud",
-          "title_ar": "",
+          "title_ar": "سنن أبي داود",
           "author": "Abu Dawud al-Sijistani",
           "discipline": "Hadith",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-sunan-tirmidhi",
-          "title": "Sunan al-Tirmidhi",
-          "title_ar": "",
-          "author": "Al-Tirmidhi",
-          "discipline": "Hadith",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-sunan-ibn-maja",
-          "title": "Sunan Ibn Maja",
-          "title_ar": "",
-          "author": "Ibn Maja",
-          "discipline": "Hadith",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-sunan-nasai",
-          "title": "Al-Sunan al-Sughra",
-          "title_ar": "",
-          "author": "Al-Nasai",
-          "discipline": "Hadith",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-sira-ibn-hisham",
-          "title": "Al-Sira al-Nabawiyya",
-          "title_ar": "",
-          "author": "Ibn Hisham",
-          "discipline": "Sira et histoire",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-shamail-tirmidhi",
-          "title": "Al-Shamail al-Muhammadiyya",
-          "title_ar": "",
-          "author": "Al-Tirmidhi",
-          "discipline": "Hadith et sira",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-baji-hudud-usul",
-          "title": "Al-Hudud fi al-Usul",
-          "title_ar": "",
-          "author": "Abu al-Walid al-Baji",
-          "discipline": "Usul al-fiqh",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-baji-ishara-usul",
-          "title": "Al-Ishara fi Usul al-Fiqh",
-          "title_ar": "",
-          "author": "Abu al-Walid al-Baji",
-          "discipline": "Usul al-fiqh",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-baji-tacdil-tajrih",
-          "title": "Al-Tacdil wa-l-Tajrih",
-          "title_ar": "",
-          "author": "Abu al-Walid al-Baji",
-          "discipline": "Hadith et rijal",
-          "source_chars": 0
-        },
-        {
-          "book_id": "openiti-baji-nasiha",
-          "title": "Al-Nasiha al-Waladiyya",
-          "title_ar": "",
-          "author": "Abu al-Walid al-Baji",
-          "discipline": "Adab et conseil",
-          "source_chars": 0
+          "source_chars": 1341565
         }
       ]
     },
     {
-      "id": "openiti-002",
-      "book_count": 40,
-      "source_chars": 39038975,
+      "id": "openiti-004",
+      "book_count": 18,
+      "source_chars": 36662457,
       "oversize_source": false,
       "subjects": {
-        "aqida": 4,
-        "fiqh": 12,
-        "hadith": 8,
-        "sira": 6,
-        "tafsir": 9,
-        "usul": 1
+        "fiqh": 8,
+        "hadith": 6,
+        "other": 1,
+        "sira": 2,
+        "tafsir": 1
       },
       "books": [
+        {
+          "book_id": "openiti-sunan-tirmidhi",
+          "title": "Sunan al-Tirmidhi",
+          "title_ar": "سنن",
+          "author": "Al-Tirmidhi",
+          "discipline": "Hadith",
+          "source_chars": 1464470
+        },
+        {
+          "book_id": "openiti-sunan-ibn-maja",
+          "title": "Sunan Ibn Maja",
+          "title_ar": "سنن ابن ماجه",
+          "author": "Ibn Maja",
+          "discipline": "Hadith",
+          "source_chars": 979610
+        },
+        {
+          "book_id": "openiti-sunan-nasai",
+          "title": "Al-Sunan al-Sughra",
+          "title_ar": "سنن",
+          "author": "Al-Nasai",
+          "discipline": "Hadith",
+          "source_chars": 1388342
+        },
+        {
+          "book_id": "openiti-sira-ibn-hisham",
+          "title": "Al-Sira al-Nabawiyya",
+          "title_ar": "السيرة النبوية لابن هشام",
+          "author": "Ibn Hisham",
+          "discipline": "Sīra et histoire",
+          "source_chars": 1090736
+        },
+        {
+          "book_id": "openiti-shamail-tirmidhi",
+          "title": "Al-Shamail al-Muhammadiyya",
+          "title_ar": "الشمائل المحمدية",
+          "author": "Al-Tirmidhi",
+          "discipline": "Hadith et sira",
+          "source_chars": 90773
+        },
+        {
+          "book_id": "openiti-baji-hudud-usul",
+          "title": "Al-Hudud fi al-Usul",
+          "title_ar": "الحدود في الأصول (مطبوع مع: الإشارة في أصول الفقه)",
+          "author": "Abū al-Walīd al-Bājī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 37616
+        },
+        {
+          "book_id": "openiti-baji-ishara-usul",
+          "title": "Al-Ishara fi Usul al-Fiqh",
+          "title_ar": "الإشارة في أصول الفقه",
+          "author": "Abū al-Walīd al-Bājī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 83258
+        },
+        {
+          "book_id": "openiti-baji-tacdil-tajrih",
+          "title": "Al-Tacdil wa-l-Tajrih",
+          "title_ar": "التعديل والتجريح , لمن خرج له البخاري في الجامع الصحيح",
+          "author": "Abū al-Walīd al-Bājī",
+          "discipline": "Hadith et rijal",
+          "source_chars": 541538
+        },
+        {
+          "book_id": "openiti-baji-nasiha",
+          "title": "Al-Nasiha al-Waladiyya",
+          "title_ar": "النصيحة الولدية",
+          "author": "Abū al-Walīd al-Bājī",
+          "discipline": "Adab et conseil",
+          "source_chars": 22139
+        },
         {
           "book_id": "openiti-qarafi-dhakhira",
           "title": "Al-Dhakhira",
           "title_ar": "الذخيرة",
           "author": "Al-Qarafi",
           "discipline": "Fiqh",
-          "source_chars": 0
+          "source_chars": 5071071
         },
         {
           "book_id": "openiti-qadi-iyad-shifa",
           "title": "Al-Shifa bi-Tacrif Huquq al-Mustafa",
           "title_ar": "الشفا بتعريف حقوق المصطفى",
-          "author": "Qadi Iyad",
+          "author": "Qāḍī ʿIyāḍ",
           "discipline": "Sira, hadith et fada'il",
-          "source_chars": 0
+          "source_chars": 505559
         },
         {
           "book_id": "openiti-qadi-iyad-tartib-madarik",
           "title": "Tartib al-Madarik",
           "title_ar": "ترتيب المدارك وتقريب المسالك",
-          "author": "Qadi Iyad",
-          "discipline": "Tabaqat et histoire du madhhab",
-          "source_chars": 0
+          "author": "Qāḍī ʿIyāḍ",
+          "discipline": "Ṭabaqāt et histoire du madhhab",
+          "source_chars": 1301812
         },
         {
           "book_id": "openiti-ibn-abd-barr-intiqa",
           "title": "Al-Intiqa fi Fada'il al-A'imma al-Thalatha al-Fuqaha",
           "title_ar": "الانتقاء في فضائل الأئمة الثلاثة الفقهاء",
           "author": "Ibn Abd al-Barr",
-          "discipline": "Tabaqat et fiqh",
-          "source_chars": 0
+          "discipline": "Ṭabaqāt et fiqh",
+          "source_chars": 138353
         },
         {
           "book_id": "openiti-juwayni-burhan",
           "title": "Al-Burhan fi Usul al-Fiqh",
           "title_ar": "البرهان في أصول الفقه",
           "author": "Imam al-Haramayn al-Juwayni",
-          "discipline": "Usul al-fiqh",
-          "source_chars": 0
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 669403
         },
         {
           "book_id": "openiti-shafici-risala",
           "title": "Al-Risala",
           "title_ar": "الرسالة",
           "author": "Al-Shafici",
-          "discipline": "Usul al-fiqh",
-          "source_chars": 0
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 188268
         },
         {
           "book_id": "openiti-nawawi-majmuc",
           "title": "Al-Majmuc Sharh al-Muhadhdhab",
           "title_ar": "المجموع شرح المهذب",
           "author": "Al-Nawawi",
-          "discipline": "Fiqh compare",
-          "source_chars": 0
+          "discipline": "Fiqh comparé",
+          "source_chars": 5671721
         },
         {
           "book_id": "openiti-ibn-hazm-muhalla",
           "title": "Al-Muhalla bi-l-Athar",
           "title_ar": "المحلى بالآثار",
           "author": "Ibn Hazm",
-          "discipline": "Fiqh compare",
-          "source_chars": 0
+          "discipline": "Fiqh comparé",
+          "source_chars": 5722506
         },
         {
           "book_id": "openiti-tabari-tafsir",
           "title": "Jamic al-Bayan",
           "title_ar": "جامع البيان عن تأويل آي القرآن",
           "author": "Al-Tabari",
-          "discipline": "Tafsir",
-          "source_chars": 0
-        },
+          "discipline": "Tafsīr",
+          "source_chars": 11695282
+        }
+      ]
+    },
+    {
+      "id": "openiti-005",
+      "book_count": 27,
+      "source_chars": 39449781,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 4,
+        "fiqh": 6,
+        "hadith": 6,
+        "sira": 4,
+        "tafsir": 6,
+        "usul": 1
+      },
+      "books": [
         {
           "book_id": "openiti-ibn-kathir-tafsir",
           "title": "Tafsir al-Quran al-Azim",
           "title_ar": "تفسير القرآن العظيم",
           "author": "Ibn Kathir",
-          "discipline": "Tafsir",
-          "source_chars": 0
+          "discipline": "Tafsīr",
+          "source_chars": 6360258
         },
         {
           "book_id": "openiti-auto-1f9d22598f30cb14",
           "title": "Ashbah",
           "title_ar": "الأشباه والنظائر",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Fiqh",
           "source_chars": 638792
         },
@@ -470,7 +507,7 @@
           "book_id": "openiti-auto-50b0c08cfcb94b92",
           "title": "Naqd Maratib Ijmac",
           "title_ar": "نقد مراتب الإجماع",
-          "author": "Ibn Taymiyya",
+          "author": "Ibn Taymiyyah",
           "discipline": "Uṣūl et qawāʿid",
           "source_chars": 23516
         },
@@ -518,7 +555,7 @@
           "book_id": "openiti-auto-359bfbd33aa7aaca",
           "title": "Tabyīn kaḏib al-muftarī fīmā nusiba ilá al-ʾImām Abī al-Ḥasan¶ al-Ašʿarī",
           "title_ar": "تبيين كذب المفتري فيما نسب الى الإمام أبي الحسن¶ الأشعري",
-          "author": "Ibn Casakir",
+          "author": "Ibn ʿAsākir",
           "discipline": "ʿAqīda",
           "source_chars": 373796
         },
@@ -534,7 +571,7 @@
           "book_id": "openiti-auto-146eb215ed126a3b",
           "title": "Masāʾil al-imām Aḥmad b. Ḥanbal riwāyaŧ Ibn Abī al-¶ Faḍl Ṣāliḥ",
           "title_ar": "مسائل الامام أحمد بن حنبل رواية ابن أبي ال¶ فضل صالح",
-          "author": "Ibn Hanbal",
+          "author": "Aḥmad ibn Ḥanbal",
           "discipline": "Fiqh",
           "source_chars": 259386
         },
@@ -614,7 +651,7 @@
           "book_id": "openiti-auto-0f10311c96216336",
           "title": "Tahḏīb al-tahḏīb",
           "title_ar": "تهذيب التهذيب",
-          "author": "Ibn Hajar Casqalani",
+          "author": "Ibn Ḥajar al-ʿAsqalānī",
           "discipline": "Hadith",
           "source_chars": 5102290
         },
@@ -630,7 +667,7 @@
           "book_id": "openiti-auto-4d1ef29136a0ab0d",
           "title": "Tabaqat Mufassirin",
           "title_ar": "طبقات المفسرين العشرين",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Sīra et histoire",
           "source_chars": 50535
         },
@@ -649,7 +686,22 @@
           "author": "Abu Nucaym Isbahani",
           "discipline": "Hadith",
           "source_chars": 2912524
-        },
+        }
+      ]
+    },
+    {
+      "id": "openiti-006",
+      "book_count": 40,
+      "source_chars": 33651783,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 7,
+        "fiqh": 8,
+        "hadith": 9,
+        "sira": 7,
+        "tafsir": 9
+      },
+      "books": [
         {
           "book_id": "openiti-auto-59923883cb28de1e",
           "title": "Tafsir Muqatil",
@@ -662,7 +714,7 @@
           "book_id": "openiti-auto-14f04fe3bcbb411a",
           "title": "Dhayl Tabaqat Huffaz",
           "title_ar": "ذيل طبقات الحفاظ ( للذهبي )",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Sīra et histoire",
           "source_chars": 24838
         },
@@ -681,27 +733,12 @@
           "author": "Sultan Culama Cizz Din Dimashqi",
           "discipline": "Tafsīr",
           "source_chars": 1142030
-        }
-      ]
-    },
-    {
-      "id": "openiti-003",
-      "book_count": 40,
-      "source_chars": 29384768,
-      "oversize_source": false,
-      "subjects": {
-        "aqida": 8,
-        "fiqh": 9,
-        "hadith": 8,
-        "sira": 7,
-        "tafsir": 8
-      },
-      "books": [
+        },
         {
           "book_id": "openiti-auto-5da1c9e3ad8929a7",
           "title": "al-Sulūk li-maʿrifaŧ duwal al-mulūk",
           "title_ar": "السلوك لمعرفة دول الملوك",
-          "author": "Maqrizi",
+          "author": "Al-Maqrīzī",
           "discipline": "Sīra et histoire",
           "source_chars": 3633863
         },
@@ -725,7 +762,7 @@
           "book_id": "openiti-auto-ab3c98a3fa131f3a",
           "title": "Itqan",
           "title_ar": "الإتقان في علوم القرآن",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Tafsīr",
           "source_chars": 1037328
         },
@@ -765,7 +802,7 @@
           "book_id": "openiti-auto-c15581350bc95b2d",
           "title": "Tafsir Jalalayn",
           "title_ar": "تفسير الجلالين",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Tafsīr",
           "source_chars": 938909
         },
@@ -853,7 +890,7 @@
           "book_id": "openiti-auto-00100f763cd36f5f",
           "title": "al-ʿIbar fī ḫabar man ġabar",
           "title_ar": "العبر في خبر من غبر",
-          "author": "Dhahabi",
+          "author": "Al-Dhahabī",
           "discipline": "Sīra et histoire",
           "source_chars": 1168213
         },
@@ -869,7 +906,7 @@
           "book_id": "openiti-auto-8a607c726157ecac",
           "title": "al-ʿuluww",
           "title_ar": "العلو",
-          "author": "Dhahabi",
+          "author": "Al-Dhahabī",
           "discipline": "Hadith",
           "source_chars": 204339
         },
@@ -885,7 +922,7 @@
           "book_id": "openiti-auto-7b0c303caa9c72d1",
           "title": "Masala Fi Tawhid Falasifa",
           "title_ar": "مسألة في توحيد الفلاسفة",
-          "author": "Ibn Taymiyya",
+          "author": "Ibn Taymiyyah",
           "discipline": "ʿAqīda",
           "source_chars": 80763
         },
@@ -925,7 +962,7 @@
           "book_id": "openiti-auto-112c4fbfa51fcf70",
           "title": "Tajrid Tawhid",
           "title_ar": "تجريد التوحيد المفيد",
-          "author": "Maqrizi",
+          "author": "Al-Maqrīzī",
           "discipline": "ʿAqīda",
           "source_chars": 34830
         },
@@ -984,7 +1021,22 @@
           "author": "Ibn Qaysarani",
           "discipline": "Hadith",
           "source_chars": 125506
-        },
+        }
+      ]
+    },
+    {
+      "id": "openiti-007",
+      "book_count": 40,
+      "source_chars": 22532059,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 8,
+        "fiqh": 9,
+        "hadith": 7,
+        "sira": 7,
+        "tafsir": 9
+      },
+      "books": [
         {
           "book_id": "openiti-auto-c92f000c85ce7733",
           "title": "Tafsir",
@@ -1016,22 +1068,7 @@
           "author": "Ibn Shaykh Tarabulusi",
           "discipline": "Fiqh",
           "source_chars": 174158
-        }
-      ]
-    },
-    {
-      "id": "openiti-004",
-      "book_count": 40,
-      "source_chars": 21586583,
-      "oversize_source": false,
-      "subjects": {
-        "aqida": 9,
-        "fiqh": 8,
-        "hadith": 7,
-        "sira": 8,
-        "tafsir": 8
-      },
-      "books": [
+        },
         {
           "book_id": "openiti-auto-70e9040625c9a938",
           "title": "Ṭabaqāt al-fuqahāʾ",
@@ -1124,7 +1161,7 @@
           "book_id": "openiti-auto-9263dada44e171d3",
           "title": "Alfiyyaŧ fī ʿilm al-ḥadīṯ",
           "title_ar": "ألفية في علم الحديث",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Hadith",
           "source_chars": 37257
         },
@@ -1132,7 +1169,7 @@
           "book_id": "openiti-auto-d057663abbd70021",
           "title": "Lubab Nuqul",
           "title_ar": "لباب النقول في أسباب النزول",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Tafsīr",
           "source_chars": 241636
         },
@@ -1172,7 +1209,7 @@
           "book_id": "openiti-auto-40aa6cebf46a1946",
           "title": "Tafsir Ayat Min Quran",
           "title_ar": "تفسير آيات من القرآن الكريم",
-          "author": "Ibn Cabd Wahhab",
+          "author": "Muḥammad ibn ʿAbd al-Wahhāb",
           "discipline": "Tafsīr",
           "source_chars": 192742
         },
@@ -1220,7 +1257,7 @@
           "book_id": "openiti-auto-efccb0ad4a1ac254",
           "title": "Tarikh Khulafa",
           "title_ar": "تاريخ الخلفاء",
-          "author": "Suyuti",
+          "author": "Al-Suyūṭī",
           "discipline": "Sīra et histoire",
           "source_chars": 538454
         },
@@ -1260,7 +1297,7 @@
           "book_id": "openiti-auto-b75b46871147f81a",
           "title": "Taḏkiraŧ al-ḥuffāẓ",
           "title_ar": "تذكرة الحفاظ",
-          "author": "Dhahabi",
+          "author": "Al-Dhahabī",
           "discipline": "Hadith",
           "source_chars": 1316663
         },
@@ -1284,7 +1321,7 @@
           "book_id": "openiti-auto-5fd97614cc3c2ced",
           "title": "Rafʿ al-iṣr ʿan quḍāŧ Miṣr",
           "title_ar": "رفع الاصر عن قضاة مصر",
-          "author": "Ibn Hajar Casqalani",
+          "author": "Ibn Ḥajar al-ʿAsqalānī",
           "discipline": "Sīra et histoire",
           "source_chars": 502400
         },
@@ -1308,7 +1345,7 @@
           "book_id": "openiti-auto-7a687c273d8d1bad",
           "title": "Qawacid Nuraniyya",
           "title_ar": "القواعد النورانية الفقهية",
-          "author": "Ibn Taymiyya",
+          "author": "Ibn Taymiyyah",
           "discipline": "Fiqh",
           "source_chars": 307469
         },
@@ -1316,10 +1353,25 @@
           "book_id": "openiti-auto-b352e3d43116e59a",
           "title": "Mukhtasar Tafsir Surat Anfal",
           "title_ar": "مختصر تفسير سورة الأنفال",
-          "author": "Ibn Cabd Wahhab",
+          "author": "Muḥammad ibn ʿAbd al-Wahhāb",
           "discipline": "Tafsīr",
           "source_chars": 17304
-        },
+        }
+      ]
+    },
+    {
+      "id": "openiti-008",
+      "book_count": 40,
+      "source_chars": 37954895,
+      "oversize_source": false,
+      "subjects": {
+        "aqida": 9,
+        "fiqh": 4,
+        "hadith": 10,
+        "sira": 12,
+        "tafsir": 5
+      },
+      "books": [
         {
           "book_id": "openiti-auto-33abc7b51e487910",
           "title": "Irshad Thiqat",
@@ -1351,22 +1403,7 @@
           "author": "Yusuf Hadi",
           "discipline": "Sīra et histoire",
           "source_chars": 297256
-        }
-      ]
-    },
-    {
-      "id": "openiti-005",
-      "book_count": 40,
-      "source_chars": 37042381,
-      "oversize_source": false,
-      "subjects": {
-        "aqida": 7,
-        "fiqh": 3,
-        "hadith": 10,
-        "sira": 10,
-        "tafsir": 10
-      },
-      "books": [
+        },
         {
           "book_id": "openiti-auto-eaf902bd95ee7aa0",
           "title": "Idah Masalik",
@@ -1379,7 +1416,7 @@
           "book_id": "openiti-auto-8f55b6b5a2b1b8ef",
           "title": "Taqrib Tahdhib",
           "title_ar": "تقريب التهذيب",
-          "author": "Ibn Hajar Casqalani",
+          "author": "Ibn Ḥajar al-ʿAsqalānī",
           "discipline": "Hadith",
           "source_chars": 807415
         },
@@ -1459,7 +1496,7 @@
           "book_id": "openiti-auto-7f97bae9b19b1a36",
           "title": "Muḫtaṣar al-Kāmil fī al-ḍuʿafāʾ wa ʿilal al-ḥadīṯ",
           "title_ar": "مختصر الكامل في الضعفاء و علل الحديث",
-          "author": "Maqrizi",
+          "author": "Al-Maqrīzī",
           "discipline": "Hadith",
           "source_chars": 542306
         },
@@ -1475,7 +1512,7 @@
           "book_id": "openiti-auto-f155a24cc9637212",
           "title": "Min kalām al-imām ʿAbd Allāh Aḥmad b. Ḥanbal fī ʿilal al-ḥadīṯ wa-maʿrifaŧ al-riǧāl",
           "title_ar": "من كلام الامام عبد الله أحمد بن حنبل في علل الحديث ومعرفة الرجال",
-          "author": "Ibn Hanbal",
+          "author": "Aḥmad ibn Ḥanbal",
           "discipline": "Hadith",
           "source_chars": 42312
         },
@@ -1483,7 +1520,7 @@
           "book_id": "openiti-auto-9148e0f8c7f8412e",
           "title": "al-Muġnī fī al-ḍuʿafāʾ",
           "title_ar": "المغني في الضعفاء",
-          "author": "Dhahabi",
+          "author": "Al-Dhahabī",
           "discipline": "Hadith",
           "source_chars": 448363
         },
@@ -1499,7 +1536,7 @@
           "book_id": "openiti-auto-b07b4f04bcb6054b",
           "title": "Mufid Mustafid",
           "title_ar": "مفيد المستفيد في كفر تارك التوحيد",
-          "author": "Ibn Cabd Wahhab",
+          "author": "Muḥammad ibn ʿAbd al-Wahhāb",
           "discipline": "ʿAqīda",
           "source_chars": 38842
         },
@@ -1547,7 +1584,7 @@
           "book_id": "openiti-auto-7d8397d7a41091d3",
           "title": "al-Arbaʿūn fī al-ḥaṯṯ ʿalá al-ǧihād",
           "title_ar": "الأربعون في الحث على الجهاد",
-          "author": "Ibn Casakir",
+          "author": "Ibn ʿAsākir",
           "discipline": "Hadith",
           "source_chars": 23223
         },
@@ -1579,7 +1616,7 @@
           "book_id": "openiti-auto-7469784d18329b3e",
           "title": "al-Muḫtaṣar al-muḥtāǧ ilayh min Tāriīḫ al-Ḥāfiẓ al-Dubayṯī",
           "title_ar": "المختصر المحتاج اليه من تاريخ الحافظ الدبيثي",
-          "author": "Dhahabi",
+          "author": "Al-Dhahabī",
           "discipline": "Hadith",
           "source_chars": 401267
         },
@@ -1603,7 +1640,7 @@
           "book_id": "openiti-auto-818a37bd28121aca",
           "title": "Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ",
           "title_ar": "كشف المغطأ في فضل الموطأ",
-          "author": "Ibn Casakir",
+          "author": "Ibn ʿAsākir",
           "discipline": "Hadith",
           "source_chars": 16140
         },
@@ -1646,6 +1683,136 @@
           "author": "Cali Ibn Qasim Zaqqaq",
           "discipline": "Fiqh",
           "source_chars": 15975
+        },
+        {
+          "book_id": "openiti-priority-hanafi-quduri",
+          "title": "Mukhtaṣar al-Qudūrī",
+          "title_ar": "مختصر القدوري",
+          "author": "Abū al-Ḥusayn al-Qudūrī",
+          "discipline": "Fiqh",
+          "source_chars": 175553
+        }
+      ]
+    },
+    {
+      "id": "openiti-009",
+      "book_count": 10,
+      "source_chars": 37530232,
+      "oversize_source": false,
+      "subjects": {
+        "fiqh": 6,
+        "hadith": 1,
+        "tafsir": 1,
+        "usul": 2
+      },
+      "books": [
+        {
+          "book_id": "openiti-priority-hanafi-mabsut",
+          "title": "Al-Mabsūṭ",
+          "title_ar": "المبسوط",
+          "author": "Al-Sarakhsī",
+          "discipline": "Fiqh",
+          "source_chars": 10184443
+        },
+        {
+          "book_id": "openiti-priority-hanafi-hidaya",
+          "title": "Al-Hidāyah",
+          "title_ar": "الهداية",
+          "author": "Burhān al-Dīn al-Marghīnānī",
+          "discipline": "Fiqh",
+          "source_chars": 1451031
+        },
+        {
+          "book_id": "openiti-priority-shafii-muhadhdhab",
+          "title": "Al-Muhadhdhab",
+          "title_ar": "المهذب",
+          "author": "Abū Isḥāq al-Shīrāzī",
+          "discipline": "Fiqh",
+          "source_chars": 1994736
+        },
+        {
+          "book_id": "openiti-priority-hanbali-kafi",
+          "title": "Al-Kāfī fī fiqh al-Imām Aḥmad",
+          "title_ar": "الكافي في فقه الإمام أحمد",
+          "author": "Ibn Qudāmah al-Maqdisī",
+          "discipline": "Fiqh",
+          "source_chars": 1708226
+        },
+        {
+          "book_id": "openiti-priority-hanbali-muqni",
+          "title": "Al-Muqniʿ",
+          "title_ar": "المقنع",
+          "author": "Ibn Qudāmah al-Maqdisī",
+          "discipline": "Fiqh",
+          "source_chars": 1313570
+        },
+        {
+          "book_id": "openiti-priority-hanbali-insaf",
+          "title": "Al-Inṣāf",
+          "title_ar": "الإنصاف",
+          "author": "ʿAlāʾ al-Dīn al-Mardāwī",
+          "discipline": "Fiqh",
+          "source_chars": 4708689
+        },
+        {
+          "book_id": "openiti-priority-hadith-musnad-ahmad",
+          "title": "Musnad Aḥmad",
+          "title_ar": "مسند أحمد",
+          "author": "Aḥmad ibn Ḥanbal",
+          "discipline": "Hadith",
+          "source_chars": 6219636
+        },
+        {
+          "book_id": "openiti-priority-tafsir-qurtubi",
+          "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
+          "title_ar": "الجامع لأحكام القرآن",
+          "author": "Al-Qurṭubī",
+          "discipline": "Tafsīr",
+          "source_chars": 7980130
+        },
+        {
+          "book_id": "openiti-priority-usul-mustasfa",
+          "title": "Al-Mustaṣfā",
+          "title_ar": "المستصفى",
+          "author": "Al-Ghazālī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 767795
+        },
+        {
+          "book_id": "openiti-priority-usul-ihkam-amidi",
+          "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
+          "title_ar": "الإحكام في أصول الأحكام",
+          "author": "Al-Āmidī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 1201976
+        }
+      ]
+    },
+    {
+      "id": "openiti-010",
+      "book_count": 7,
+      "source_chars": 10381128,
+      "oversize_source": false,
+      "subjects": {
+        "sira": 2,
+        "tafsir": 5
+      },
+      "books": [
+        {
+          "book_id": "openiti-priority-history-tabaqat-ibn-sad",
+          "title": "Al-Ṭabaqāt al-Kubrā",
+          "title_ar": "الطبقات الكبرى",
+          "author": "Ibn Saʿd",
+          "discipline": "Sīra et histoire",
+          "source_chars": 4476265
+        },
+        {
+          "book_id": "openiti-priority-history-tabari",
+          "title": "Tārīkh al-Ṭabarī",
+          "title_ar": "تاريخ الطبري",
+          "author": "Al-Ṭabarī",
+          "discipline": "Sīra et histoire",
+          "source_chars": 5904863
         },
         {
           "book_id": "openiti-baghawi-tafsir",
@@ -1703,193 +1870,206 @@
     "kutub-14297": "openiti-001",
     "kutub-587": "openiti-001",
     "kutub-21751": "openiti-001",
-    "kutub-1655": "openiti-001",
-    "kutub-8183": "openiti-001",
-    "kutub-6910": "openiti-001",
-    "kutub-1673": "openiti-001",
-    "kutub-151100": "openiti-001",
-    "kutub-7289": "openiti-001",
-    "kutub-11620": "openiti-001",
-    "kutub-205": "openiti-001",
-    "kutub-17798": "openiti-001",
-    "kutub-201": "openiti-001",
-    "kutub-30097": "openiti-001",
-    "openiti-istidhkar": "openiti-001",
-    "openiti-muqaddimat": "openiti-001",
-    "openiti-muwafaqat": "openiti-001",
-    "openiti-ictisam": "openiti-001",
-    "openiti-jamic-bayan-cilm": "openiti-001",
-    "openiti-sahih-bukhari": "openiti-001",
-    "openiti-sahih-muslim": "openiti-001",
-    "openiti-sunan-abu-dawud": "openiti-001",
-    "openiti-sunan-tirmidhi": "openiti-001",
-    "openiti-sunan-ibn-maja": "openiti-001",
-    "openiti-sunan-nasai": "openiti-001",
-    "openiti-sira-ibn-hisham": "openiti-001",
-    "openiti-shamail-tirmidhi": "openiti-001",
-    "openiti-baji-hudud-usul": "openiti-001",
-    "openiti-baji-ishara-usul": "openiti-001",
-    "openiti-baji-tacdil-tajrih": "openiti-001",
-    "openiti-baji-nasiha": "openiti-001",
-    "openiti-qarafi-dhakhira": "openiti-002",
-    "openiti-qadi-iyad-shifa": "openiti-002",
-    "openiti-qadi-iyad-tartib-madarik": "openiti-002",
-    "openiti-ibn-abd-barr-intiqa": "openiti-002",
-    "openiti-juwayni-burhan": "openiti-002",
-    "openiti-shafici-risala": "openiti-002",
-    "openiti-nawawi-majmuc": "openiti-002",
-    "openiti-ibn-hazm-muhalla": "openiti-002",
-    "openiti-tabari-tafsir": "openiti-002",
-    "openiti-ibn-kathir-tafsir": "openiti-002",
-    "openiti-auto-1f9d22598f30cb14": "openiti-002",
-    "openiti-auto-527961a94dfb5581": "openiti-002",
-    "openiti-auto-b6a5898e3a08d131": "openiti-002",
-    "openiti-auto-50b0c08cfcb94b92": "openiti-002",
-    "openiti-auto-0f327c7c607299f2": "openiti-002",
-    "openiti-auto-730a50b4808a7aaa": "openiti-002",
-    "openiti-auto-0729b70b8ea70f8d": "openiti-002",
-    "openiti-auto-b76e61a11c767b35": "openiti-002",
-    "openiti-auto-1a612db13565e026": "openiti-002",
-    "openiti-auto-359bfbd33aa7aaca": "openiti-002",
-    "openiti-auto-e317943c26236039": "openiti-002",
-    "openiti-auto-146eb215ed126a3b": "openiti-002",
-    "openiti-auto-d64d6ef5626286ed": "openiti-002",
-    "openiti-auto-06dfda5e85767367": "openiti-002",
-    "openiti-auto-375122ce638d1b31": "openiti-002",
-    "openiti-auto-503e4d085d6c01c1": "openiti-002",
-    "openiti-auto-2f803e3aa191dc97": "openiti-002",
-    "openiti-auto-20c7ee8bab1dd806": "openiti-002",
-    "openiti-auto-76d977d0559732fb": "openiti-002",
-    "openiti-auto-e778a85aee029803": "openiti-002",
-    "openiti-auto-69e49b8f24873ee6": "openiti-002",
-    "openiti-auto-0f10311c96216336": "openiti-002",
-    "openiti-auto-b44f031d22f2e3b9": "openiti-002",
-    "openiti-auto-4d1ef29136a0ab0d": "openiti-002",
-    "openiti-auto-fe666ee069554555": "openiti-002",
-    "openiti-auto-6d6353e03c586c18": "openiti-002",
-    "openiti-auto-59923883cb28de1e": "openiti-002",
-    "openiti-auto-14f04fe3bcbb411a": "openiti-002",
-    "openiti-auto-0dee550bba7f7fb3": "openiti-002",
-    "openiti-auto-bd357a7cf12302b3": "openiti-002",
-    "openiti-auto-5da1c9e3ad8929a7": "openiti-003",
-    "openiti-auto-0375784c54ed4528": "openiti-003",
-    "openiti-auto-dd61a4c1d243e28f": "openiti-003",
-    "openiti-auto-ab3c98a3fa131f3a": "openiti-003",
-    "openiti-auto-e0e32691b3a034eb": "openiti-003",
-    "openiti-auto-be91d6f09f21967f": "openiti-003",
-    "openiti-auto-875880ca957f7c78": "openiti-003",
-    "openiti-auto-cd797ca1e121ae2d": "openiti-003",
-    "openiti-auto-c15581350bc95b2d": "openiti-003",
-    "openiti-auto-924e40a962b5bbd2": "openiti-003",
-    "openiti-auto-5b86f9eb9570f800": "openiti-003",
-    "openiti-auto-ae408e9530aaad1b": "openiti-003",
-    "openiti-auto-30eb530b8fcbbda0": "openiti-003",
-    "openiti-auto-a683ae6334ad806a": "openiti-003",
-    "openiti-auto-fffdd51749e9523a": "openiti-003",
-    "openiti-auto-02973caea85cbcaf": "openiti-003",
-    "openiti-auto-76f076a7037b6c76": "openiti-003",
-    "openiti-auto-67d26b565f687f32": "openiti-003",
-    "openiti-auto-b8494f8cb7904d7e": "openiti-003",
-    "openiti-auto-00100f763cd36f5f": "openiti-003",
-    "openiti-auto-06225b2fe6e4eb8a": "openiti-003",
-    "openiti-auto-8a607c726157ecac": "openiti-003",
-    "openiti-auto-70197b0349579071": "openiti-003",
-    "openiti-auto-7b0c303caa9c72d1": "openiti-003",
-    "openiti-auto-90811210e6498c4d": "openiti-003",
-    "openiti-auto-bb84184ef0d80372": "openiti-003",
-    "openiti-auto-dc09016c5a4979af": "openiti-003",
-    "openiti-auto-27ab8d868c701499": "openiti-003",
-    "openiti-auto-112c4fbfa51fcf70": "openiti-003",
-    "openiti-auto-d0b7fa774adf59d1": "openiti-003",
-    "openiti-auto-ad0d34fcc41bed93": "openiti-003",
-    "openiti-auto-41bcd1e39f675abe": "openiti-003",
-    "openiti-auto-90ee9f89cf83849e": "openiti-003",
-    "openiti-auto-15b224f075f9dcb0": "openiti-003",
-    "openiti-auto-97e42589bcf2a5ed": "openiti-003",
-    "openiti-auto-d46aba0b893d7731": "openiti-003",
-    "openiti-auto-c92f000c85ce7733": "openiti-003",
-    "openiti-auto-ba24b51120ccd14c": "openiti-003",
-    "openiti-auto-d0071395a8b5ac0a": "openiti-003",
-    "openiti-auto-f435a7faa3834d7d": "openiti-003",
-    "openiti-auto-70e9040625c9a938": "openiti-004",
-    "openiti-auto-cf0a46f942e6f0d3": "openiti-004",
-    "openiti-auto-332ea3fd5e466670": "openiti-004",
-    "openiti-auto-1d4f0bbb88d1716e": "openiti-004",
-    "openiti-auto-1674cb1afc146fc6": "openiti-004",
-    "openiti-auto-3f5f3c931c2c1883": "openiti-004",
-    "openiti-auto-b4fb1f3e0cdd8954": "openiti-004",
-    "openiti-auto-a3153c39fcea6e11": "openiti-004",
-    "openiti-auto-4561ada31e7666d6": "openiti-004",
-    "openiti-auto-8d42780e4d94cdc7": "openiti-004",
-    "openiti-auto-b6bab1308698d011": "openiti-004",
-    "openiti-auto-9263dada44e171d3": "openiti-004",
-    "openiti-auto-d057663abbd70021": "openiti-004",
-    "openiti-auto-5c631b002b0672b7": "openiti-004",
-    "openiti-auto-a6b2d7022b06a964": "openiti-004",
-    "openiti-auto-2f207d88bbc61fd4": "openiti-004",
-    "openiti-auto-bc0d5557d59db0da": "openiti-004",
-    "openiti-auto-40aa6cebf46a1946": "openiti-004",
-    "openiti-auto-21bb3486c8a0e085": "openiti-004",
-    "openiti-auto-2721f0f182b87ab0": "openiti-004",
-    "openiti-auto-7e3315fb45370201": "openiti-004",
-    "openiti-auto-79d026267e5e9a25": "openiti-004",
-    "openiti-auto-ed4513cd1454d397": "openiti-004",
-    "openiti-auto-efccb0ad4a1ac254": "openiti-004",
-    "openiti-auto-69049254d28939c4": "openiti-004",
-    "openiti-auto-73950f53f2cc13a8": "openiti-004",
-    "openiti-auto-c068dbb501a89dcc": "openiti-004",
-    "openiti-auto-60a7abe1de6f2b86": "openiti-004",
-    "openiti-auto-b75b46871147f81a": "openiti-004",
-    "openiti-auto-1036ff7d3c118b9c": "openiti-004",
-    "openiti-auto-705df19facf69d36": "openiti-004",
-    "openiti-auto-5fd97614cc3c2ced": "openiti-004",
-    "openiti-auto-d97771e13c47f311": "openiti-004",
-    "openiti-auto-8611a96776230d27": "openiti-004",
-    "openiti-auto-7a687c273d8d1bad": "openiti-004",
-    "openiti-auto-b352e3d43116e59a": "openiti-004",
-    "openiti-auto-33abc7b51e487910": "openiti-004",
-    "openiti-auto-7959e7267c0a4c18": "openiti-004",
-    "openiti-auto-aeec1b338b226077": "openiti-004",
-    "openiti-auto-d4ccf6f52da049a0": "openiti-004",
-    "openiti-auto-eaf902bd95ee7aa0": "openiti-005",
-    "openiti-auto-8f55b6b5a2b1b8ef": "openiti-005",
-    "openiti-auto-4b962b153e28e832": "openiti-005",
-    "openiti-auto-e9f6404e51902cae": "openiti-005",
-    "openiti-auto-e4d3a47e2b11f6a2": "openiti-005",
-    "openiti-auto-65b6ff1a2488c102": "openiti-005",
-    "openiti-auto-38ddf90cc1f471df": "openiti-005",
-    "openiti-auto-32fa02bba3d5bc51": "openiti-005",
-    "openiti-auto-0325f269d57a5dc0": "openiti-005",
-    "openiti-auto-ce6ba79e6196e98f": "openiti-005",
-    "openiti-auto-500e022ea71fad78": "openiti-005",
-    "openiti-auto-7f97bae9b19b1a36": "openiti-005",
-    "openiti-auto-5d76245d5a8bd8bd": "openiti-005",
-    "openiti-auto-f155a24cc9637212": "openiti-005",
-    "openiti-auto-9148e0f8c7f8412e": "openiti-005",
-    "openiti-auto-6e39e45a2e8cbdc6": "openiti-005",
-    "openiti-auto-b07b4f04bcb6054b": "openiti-005",
-    "openiti-auto-86e11d30d41fe26d": "openiti-005",
-    "openiti-auto-107d5cdd57ee78f1": "openiti-005",
-    "openiti-auto-481d1841dd4fcde4": "openiti-005",
-    "openiti-auto-d0892e564a0ba9f3": "openiti-005",
-    "openiti-auto-409d0cf1dabd5a2e": "openiti-005",
-    "openiti-auto-7d8397d7a41091d3": "openiti-005",
-    "openiti-auto-9107bf79591e0cee": "openiti-005",
-    "openiti-auto-d47dc1729ae22e64": "openiti-005",
-    "openiti-auto-079949fd011cae5e": "openiti-005",
-    "openiti-auto-7469784d18329b3e": "openiti-005",
-    "openiti-auto-644eda0af9ec4932": "openiti-005",
-    "openiti-auto-8ac462dbc62ea962": "openiti-005",
-    "openiti-auto-818a37bd28121aca": "openiti-005",
-    "openiti-auto-59686169d552e5f4": "openiti-005",
-    "openiti-auto-96157f9062648678": "openiti-005",
-    "openiti-auto-a1e019ecd09140cf": "openiti-005",
-    "openiti-auto-f1530c592e7e16f0": "openiti-005",
-    "openiti-auto-166504e567243026": "openiti-005",
-    "openiti-baghawi-tafsir": "openiti-005",
-    "openiti-zamakhshari-kashshaf": "openiti-005",
-    "openiti-razi-mafatih-ghayb": "openiti-005",
-    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-005",
-    "openiti-abu-hayyan-bahr-muhit": "openiti-005"
+    "kutub-1655": "openiti-002",
+    "kutub-8183": "openiti-002",
+    "kutub-6910": "openiti-002",
+    "kutub-1673": "openiti-002",
+    "kutub-151100": "openiti-002",
+    "kutub-7289": "openiti-003",
+    "kutub-11620": "openiti-003",
+    "kutub-205": "openiti-003",
+    "kutub-17798": "openiti-003",
+    "kutub-201": "openiti-003",
+    "kutub-30097": "openiti-003",
+    "openiti-istidhkar": "openiti-003",
+    "openiti-muqaddimat": "openiti-003",
+    "openiti-muwafaqat": "openiti-003",
+    "openiti-ictisam": "openiti-003",
+    "openiti-jamic-bayan-cilm": "openiti-003",
+    "openiti-sahih-bukhari": "openiti-003",
+    "openiti-sahih-muslim": "openiti-003",
+    "openiti-sunan-abu-dawud": "openiti-003",
+    "openiti-sunan-tirmidhi": "openiti-004",
+    "openiti-sunan-ibn-maja": "openiti-004",
+    "openiti-sunan-nasai": "openiti-004",
+    "openiti-sira-ibn-hisham": "openiti-004",
+    "openiti-shamail-tirmidhi": "openiti-004",
+    "openiti-baji-hudud-usul": "openiti-004",
+    "openiti-baji-ishara-usul": "openiti-004",
+    "openiti-baji-tacdil-tajrih": "openiti-004",
+    "openiti-baji-nasiha": "openiti-004",
+    "openiti-qarafi-dhakhira": "openiti-004",
+    "openiti-qadi-iyad-shifa": "openiti-004",
+    "openiti-qadi-iyad-tartib-madarik": "openiti-004",
+    "openiti-ibn-abd-barr-intiqa": "openiti-004",
+    "openiti-juwayni-burhan": "openiti-004",
+    "openiti-shafici-risala": "openiti-004",
+    "openiti-nawawi-majmuc": "openiti-004",
+    "openiti-ibn-hazm-muhalla": "openiti-004",
+    "openiti-tabari-tafsir": "openiti-004",
+    "openiti-ibn-kathir-tafsir": "openiti-005",
+    "openiti-auto-1f9d22598f30cb14": "openiti-005",
+    "openiti-auto-527961a94dfb5581": "openiti-005",
+    "openiti-auto-b6a5898e3a08d131": "openiti-005",
+    "openiti-auto-50b0c08cfcb94b92": "openiti-005",
+    "openiti-auto-0f327c7c607299f2": "openiti-005",
+    "openiti-auto-730a50b4808a7aaa": "openiti-005",
+    "openiti-auto-0729b70b8ea70f8d": "openiti-005",
+    "openiti-auto-b76e61a11c767b35": "openiti-005",
+    "openiti-auto-1a612db13565e026": "openiti-005",
+    "openiti-auto-359bfbd33aa7aaca": "openiti-005",
+    "openiti-auto-e317943c26236039": "openiti-005",
+    "openiti-auto-146eb215ed126a3b": "openiti-005",
+    "openiti-auto-d64d6ef5626286ed": "openiti-005",
+    "openiti-auto-06dfda5e85767367": "openiti-005",
+    "openiti-auto-375122ce638d1b31": "openiti-005",
+    "openiti-auto-503e4d085d6c01c1": "openiti-005",
+    "openiti-auto-2f803e3aa191dc97": "openiti-005",
+    "openiti-auto-20c7ee8bab1dd806": "openiti-005",
+    "openiti-auto-76d977d0559732fb": "openiti-005",
+    "openiti-auto-e778a85aee029803": "openiti-005",
+    "openiti-auto-69e49b8f24873ee6": "openiti-005",
+    "openiti-auto-0f10311c96216336": "openiti-005",
+    "openiti-auto-b44f031d22f2e3b9": "openiti-005",
+    "openiti-auto-4d1ef29136a0ab0d": "openiti-005",
+    "openiti-auto-fe666ee069554555": "openiti-005",
+    "openiti-auto-6d6353e03c586c18": "openiti-005",
+    "openiti-auto-59923883cb28de1e": "openiti-006",
+    "openiti-auto-14f04fe3bcbb411a": "openiti-006",
+    "openiti-auto-0dee550bba7f7fb3": "openiti-006",
+    "openiti-auto-bd357a7cf12302b3": "openiti-006",
+    "openiti-auto-5da1c9e3ad8929a7": "openiti-006",
+    "openiti-auto-0375784c54ed4528": "openiti-006",
+    "openiti-auto-dd61a4c1d243e28f": "openiti-006",
+    "openiti-auto-ab3c98a3fa131f3a": "openiti-006",
+    "openiti-auto-e0e32691b3a034eb": "openiti-006",
+    "openiti-auto-be91d6f09f21967f": "openiti-006",
+    "openiti-auto-875880ca957f7c78": "openiti-006",
+    "openiti-auto-cd797ca1e121ae2d": "openiti-006",
+    "openiti-auto-c15581350bc95b2d": "openiti-006",
+    "openiti-auto-924e40a962b5bbd2": "openiti-006",
+    "openiti-auto-5b86f9eb9570f800": "openiti-006",
+    "openiti-auto-ae408e9530aaad1b": "openiti-006",
+    "openiti-auto-30eb530b8fcbbda0": "openiti-006",
+    "openiti-auto-a683ae6334ad806a": "openiti-006",
+    "openiti-auto-fffdd51749e9523a": "openiti-006",
+    "openiti-auto-02973caea85cbcaf": "openiti-006",
+    "openiti-auto-76f076a7037b6c76": "openiti-006",
+    "openiti-auto-67d26b565f687f32": "openiti-006",
+    "openiti-auto-b8494f8cb7904d7e": "openiti-006",
+    "openiti-auto-00100f763cd36f5f": "openiti-006",
+    "openiti-auto-06225b2fe6e4eb8a": "openiti-006",
+    "openiti-auto-8a607c726157ecac": "openiti-006",
+    "openiti-auto-70197b0349579071": "openiti-006",
+    "openiti-auto-7b0c303caa9c72d1": "openiti-006",
+    "openiti-auto-90811210e6498c4d": "openiti-006",
+    "openiti-auto-bb84184ef0d80372": "openiti-006",
+    "openiti-auto-dc09016c5a4979af": "openiti-006",
+    "openiti-auto-27ab8d868c701499": "openiti-006",
+    "openiti-auto-112c4fbfa51fcf70": "openiti-006",
+    "openiti-auto-d0b7fa774adf59d1": "openiti-006",
+    "openiti-auto-ad0d34fcc41bed93": "openiti-006",
+    "openiti-auto-41bcd1e39f675abe": "openiti-006",
+    "openiti-auto-90ee9f89cf83849e": "openiti-006",
+    "openiti-auto-15b224f075f9dcb0": "openiti-006",
+    "openiti-auto-97e42589bcf2a5ed": "openiti-006",
+    "openiti-auto-d46aba0b893d7731": "openiti-006",
+    "openiti-auto-c92f000c85ce7733": "openiti-007",
+    "openiti-auto-ba24b51120ccd14c": "openiti-007",
+    "openiti-auto-d0071395a8b5ac0a": "openiti-007",
+    "openiti-auto-f435a7faa3834d7d": "openiti-007",
+    "openiti-auto-70e9040625c9a938": "openiti-007",
+    "openiti-auto-cf0a46f942e6f0d3": "openiti-007",
+    "openiti-auto-332ea3fd5e466670": "openiti-007",
+    "openiti-auto-1d4f0bbb88d1716e": "openiti-007",
+    "openiti-auto-1674cb1afc146fc6": "openiti-007",
+    "openiti-auto-3f5f3c931c2c1883": "openiti-007",
+    "openiti-auto-b4fb1f3e0cdd8954": "openiti-007",
+    "openiti-auto-a3153c39fcea6e11": "openiti-007",
+    "openiti-auto-4561ada31e7666d6": "openiti-007",
+    "openiti-auto-8d42780e4d94cdc7": "openiti-007",
+    "openiti-auto-b6bab1308698d011": "openiti-007",
+    "openiti-auto-9263dada44e171d3": "openiti-007",
+    "openiti-auto-d057663abbd70021": "openiti-007",
+    "openiti-auto-5c631b002b0672b7": "openiti-007",
+    "openiti-auto-a6b2d7022b06a964": "openiti-007",
+    "openiti-auto-2f207d88bbc61fd4": "openiti-007",
+    "openiti-auto-bc0d5557d59db0da": "openiti-007",
+    "openiti-auto-40aa6cebf46a1946": "openiti-007",
+    "openiti-auto-21bb3486c8a0e085": "openiti-007",
+    "openiti-auto-2721f0f182b87ab0": "openiti-007",
+    "openiti-auto-7e3315fb45370201": "openiti-007",
+    "openiti-auto-79d026267e5e9a25": "openiti-007",
+    "openiti-auto-ed4513cd1454d397": "openiti-007",
+    "openiti-auto-efccb0ad4a1ac254": "openiti-007",
+    "openiti-auto-69049254d28939c4": "openiti-007",
+    "openiti-auto-73950f53f2cc13a8": "openiti-007",
+    "openiti-auto-c068dbb501a89dcc": "openiti-007",
+    "openiti-auto-60a7abe1de6f2b86": "openiti-007",
+    "openiti-auto-b75b46871147f81a": "openiti-007",
+    "openiti-auto-1036ff7d3c118b9c": "openiti-007",
+    "openiti-auto-705df19facf69d36": "openiti-007",
+    "openiti-auto-5fd97614cc3c2ced": "openiti-007",
+    "openiti-auto-d97771e13c47f311": "openiti-007",
+    "openiti-auto-8611a96776230d27": "openiti-007",
+    "openiti-auto-7a687c273d8d1bad": "openiti-007",
+    "openiti-auto-b352e3d43116e59a": "openiti-007",
+    "openiti-auto-33abc7b51e487910": "openiti-008",
+    "openiti-auto-7959e7267c0a4c18": "openiti-008",
+    "openiti-auto-aeec1b338b226077": "openiti-008",
+    "openiti-auto-d4ccf6f52da049a0": "openiti-008",
+    "openiti-auto-eaf902bd95ee7aa0": "openiti-008",
+    "openiti-auto-8f55b6b5a2b1b8ef": "openiti-008",
+    "openiti-auto-4b962b153e28e832": "openiti-008",
+    "openiti-auto-e9f6404e51902cae": "openiti-008",
+    "openiti-auto-e4d3a47e2b11f6a2": "openiti-008",
+    "openiti-auto-65b6ff1a2488c102": "openiti-008",
+    "openiti-auto-38ddf90cc1f471df": "openiti-008",
+    "openiti-auto-32fa02bba3d5bc51": "openiti-008",
+    "openiti-auto-0325f269d57a5dc0": "openiti-008",
+    "openiti-auto-ce6ba79e6196e98f": "openiti-008",
+    "openiti-auto-500e022ea71fad78": "openiti-008",
+    "openiti-auto-7f97bae9b19b1a36": "openiti-008",
+    "openiti-auto-5d76245d5a8bd8bd": "openiti-008",
+    "openiti-auto-f155a24cc9637212": "openiti-008",
+    "openiti-auto-9148e0f8c7f8412e": "openiti-008",
+    "openiti-auto-6e39e45a2e8cbdc6": "openiti-008",
+    "openiti-auto-b07b4f04bcb6054b": "openiti-008",
+    "openiti-auto-86e11d30d41fe26d": "openiti-008",
+    "openiti-auto-107d5cdd57ee78f1": "openiti-008",
+    "openiti-auto-481d1841dd4fcde4": "openiti-008",
+    "openiti-auto-d0892e564a0ba9f3": "openiti-008",
+    "openiti-auto-409d0cf1dabd5a2e": "openiti-008",
+    "openiti-auto-7d8397d7a41091d3": "openiti-008",
+    "openiti-auto-9107bf79591e0cee": "openiti-008",
+    "openiti-auto-d47dc1729ae22e64": "openiti-008",
+    "openiti-auto-079949fd011cae5e": "openiti-008",
+    "openiti-auto-7469784d18329b3e": "openiti-008",
+    "openiti-auto-644eda0af9ec4932": "openiti-008",
+    "openiti-auto-8ac462dbc62ea962": "openiti-008",
+    "openiti-auto-818a37bd28121aca": "openiti-008",
+    "openiti-auto-59686169d552e5f4": "openiti-008",
+    "openiti-auto-96157f9062648678": "openiti-008",
+    "openiti-auto-a1e019ecd09140cf": "openiti-008",
+    "openiti-auto-f1530c592e7e16f0": "openiti-008",
+    "openiti-auto-166504e567243026": "openiti-008",
+    "openiti-priority-hanafi-quduri": "openiti-008",
+    "openiti-priority-hanafi-mabsut": "openiti-009",
+    "openiti-priority-hanafi-hidaya": "openiti-009",
+    "openiti-priority-shafii-muhadhdhab": "openiti-009",
+    "openiti-priority-hanbali-kafi": "openiti-009",
+    "openiti-priority-hanbali-muqni": "openiti-009",
+    "openiti-priority-hanbali-insaf": "openiti-009",
+    "openiti-priority-hadith-musnad-ahmad": "openiti-009",
+    "openiti-priority-tafsir-qurtubi": "openiti-009",
+    "openiti-priority-usul-mustasfa": "openiti-009",
+    "openiti-priority-usul-ihkam-amidi": "openiti-009",
+    "openiti-priority-history-tabaqat-ibn-sad": "openiti-010",
+    "openiti-priority-history-tabari": "openiti-010",
+    "openiti-baghawi-tafsir": "openiti-010",
+    "openiti-zamakhshari-kashshaf": "openiti-010",
+    "openiti-razi-mafatih-ghayb": "openiti-010",
+    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-010",
+    "openiti-abu-hayyan-bahr-muhit": "openiti-010"
   }
 }

@@ -1,0 +1,170 @@
+# Curation du corpus Athar
+
+> Rapport généré à partir des manifestes Athar et des métadonnées officielles OpenITI.
+
+## État
+
+- **213 ouvrages OpenITI** passés dans la chaîne de curation.
+- Titre renseigné : **213 / 213**.
+- Titre arabe renseigné : **213 / 213**.
+- Auteur renseigné : **213 / 213**.
+- Discipline renseignée : **213 / 213**.
+- Métadonnées OpenITI appariées : **213 / 213**.
+- Madhhab explicitement renseigné : **68 / 213**.
+- Madhhab restant non résolu : **145**.
+
+## Principes de qualité
+
+- Athar n'invente pas un madhhab à partir du nom de l'auteur.
+- La lecture utilise le parseur structuré `athar-openiti-reader-v2`.
+- Les marqueurs OpenITI, balises HTML résiduelles et repères éditoriaux explicitement identifiés sont retirés de l'affichage.
+- Les nombres ayant un sens dans la source (hadith, verset, date, quantité, numéro cité dans le texte) sont conservés.
+
+## Madhhab à documenter
+
+- `openiti-auto-1f9d22598f30cb14` — **Ashbah** — Al-Suyūṭī — Fiqh
+- `openiti-auto-527961a94dfb5581` — **Alqab Sahaba** — Abu Cali Jayyani — Hadith
+- `openiti-auto-b6a5898e3a08d131` — **al-Kašf wa-l-bayān** — Abu Ishaq Thaclabi — Tafsīr
+- `openiti-auto-50b0c08cfcb94b92` — **Naqd Maratib Ijmac** — Ibn Taymiyyah — Uṣūl et qawāʿid
+- `openiti-auto-0f327c7c607299f2` — **Kitāb al-Milal wa-al-Niḥal** — Shahrastani — ʿAqīda
+- `openiti-auto-730a50b4808a7aaa` — **Dhayl Tarikh Baghdad** — Ibn Dubaythi — Sīra et histoire
+- `openiti-auto-0729b70b8ea70f8d` — **Qawacid Ahkam** — Sultan Culama Cizz Din Dimashqi — Fiqh
+- `openiti-auto-b76e61a11c767b35` — **al-ʾIršād fī maʿrifaŧ ʿulamāʾ al-ḥadīṯ** — Abu Yacla Khalili — Hadith
+- `openiti-auto-1a612db13565e026` — **ʾĪǧāz al-bayān ʿan maʿānī al-Qurʾān** — Bayan Haqq Naysaburi — Tafsīr
+- `openiti-auto-359bfbd33aa7aaca` — **Tabyīn kaḏib al-muftarī fīmā nusiba ilá al-ʾImām Abī al-Ḥasan¶ al-Ašʿarī** — Ibn ʿAsākir — ʿAqīda
+- `openiti-auto-e317943c26236039` — **Tārīḫ Ibn Yūnus al-Ṣadafī** — Ibn Yunus Sadafi — Sīra et histoire
+- `openiti-auto-146eb215ed126a3b` — **Masāʾil al-imām Aḥmad b. Ḥanbal riwāyaŧ Ibn Abī al-¶ Faḍl Ṣāliḥ** — Aḥmad ibn Ḥanbal — Fiqh
+- `openiti-auto-d64d6ef5626286ed` — **Muqaddimat Culum Hadith** — Ibn Salah Shahrazuri — Hadith
+- `openiti-auto-06dfda5e85767367` — **Tafsir Quran** — Ibn Muhammad Samcani — Tafsīr
+- `openiti-auto-375122ce638d1b31` — **Hawadith** — Ibn Walid Turtushi — ʿAqīda
+- `openiti-auto-503e4d085d6c01c1` — **Tarikh Culama Ahl Misr** — Ibn Tahhan — Sīra et histoire
+- `openiti-auto-2f803e3aa191dc97` — **Risālatān lahu aǧāb fīhimā ʿan risālatayn suʾila fīhimā suʾāl al-taʿnīf** — Ibn Hazm — Fiqh
+- `openiti-auto-20c7ee8bab1dd806` — **Adab al-muǧālasaŧ wa-ḥamd al-lisān wa-faḍl al-bayān¶ wa-ḏamm al-ʿiyy wa-taʿlīm al-iʿrāb** — Ibn Cabd Barr — Hadith
+- `openiti-auto-76d977d0559732fb` — **Tafsir** — Ibn Abi Hatim Razi — Tafsīr
+- `openiti-auto-e778a85aee029803` — **Minhaj Fi Shucab Iman** — Abu Cabd Allah Halimi — ʿAqīda
+- `openiti-auto-69e49b8f24873ee6` — **al-Fiqh al-Absaṭ** — Abu Hanifa — Fiqh
+- `openiti-auto-0f10311c96216336` — **Tahḏīb al-tahḏīb** — Ibn Ḥajar al-ʿAsqalānī — Hadith
+- `openiti-auto-b44f031d22f2e3b9` — **Anwar Tanzil** — Nasir Din Baydawi — Tafsīr
+- `openiti-auto-4d1ef29136a0ab0d` — **Tabaqat Mufassirin** — Al-Suyūṭī — Sīra et histoire
+- `openiti-auto-fe666ee069554555` — **al-ʾAṣl** — Muhammad Shaybani — Fiqh
+- `openiti-auto-6d6353e03c586c18` — **Macrifat Sahaba** — Abu Nucaym Isbahani — Hadith
+- `openiti-auto-59923883cb28de1e` — **Tafsir Muqatil** — Muqatil Ibn Sulayman — Tafsīr
+- `openiti-auto-14f04fe3bcbb411a` — **Dhayl Tabaqat Huffaz** — Al-Suyūṭī — Sīra et histoire
+- `openiti-auto-0dee550bba7f7fb3` — **al-Kāmil fī maʿrifat ḍuʿafāʾ al-muḥaddiṯīn wa-ʿilal¶ al-ḥadīṯ** — Ibn Cadi Jurjani — Hadith
+- `openiti-auto-bd357a7cf12302b3` — **Tafsir Quran** — Sultan Culama Cizz Din Dimashqi — Tafsīr
+- `openiti-auto-5da1c9e3ad8929a7` — **al-Sulūk li-maʿrifaŧ duwal al-mulūk** — Al-Maqrīzī — Sīra et histoire
+- `openiti-auto-0375784c54ed4528` — **Ḥilyaŧ al-ʿulamāʾ fī maʿrifaŧ maḏāhib al-fuqahāʾ** — Abu Bakr Shashi — Fiqh
+- `openiti-auto-dd61a4c1d243e28f` — **Thiqat** — Ibn Hibban Busti — Hadith
+- `openiti-auto-ab3c98a3fa131f3a` — **Itqan** — Al-Suyūṭī — Tafsīr
+- `openiti-auto-e0e32691b3a034eb` — **Sharh Kitab Tawhid** — Cabd Karim Khudayr — ʿAqīda
+- `openiti-auto-be91d6f09f21967f` — **Muʿjam al-udabāʾ** — Yaqut Hamawi — Sīra et histoire
+- `openiti-auto-875880ca957f7c78` — **Ashbah Wa Nazair** — Taj Din Subki — Fiqh
+- `openiti-auto-cd797ca1e121ae2d` — **Maghani Akhyar** — Badr Din Cayni — Hadith
+- `openiti-auto-c15581350bc95b2d` — **Tafsir Jalalayn** — Al-Suyūṭī — Tafsīr
+- `openiti-auto-924e40a962b5bbd2` — **Tawhid Wa Qurrat Cuyun Muwahhidin** — Ibn Hasan Al Shaykh — ʿAqīda
+- `openiti-auto-5b86f9eb9570f800` — **Tuhfa Latifa** — Sakhawi — Sīra et histoire
+- `openiti-auto-ae408e9530aaad1b` — **Manthur Fi Qawacid** — Badr Din Zarkashi — Fiqh
+- `openiti-auto-30eb530b8fcbbda0` — **Tuhfat Tahsil** — Ibn Ciraqi — Hadith
+- `openiti-auto-a683ae6334ad806a` — **Tafsir** — Sulami — Tafsīr
+- `openiti-auto-fffdd51749e9523a` — **Sifat Rabb Calamin** — Ibn Muhibb Samit — ʿAqīda
+- `openiti-auto-02973caea85cbcaf` — **al-Ḥuǧǧaŧ ʿalá ahl al-Madīnaŧ** — Muhammad Shaybani — Fiqh
+- `openiti-auto-76f076a7037b6c76` — **al-kuná wa-l-asmāʾ** — Muslim — Hadith
+- `openiti-auto-67d26b565f687f32` — **Gharaib Tafsir** — Ibn Hamza Taj Qurra Kirmani — Tafsīr
+- `openiti-auto-b8494f8cb7904d7e` — **Mudhakkirat Tawhid** — Cabd Razzaq Cafifi — ʿAqīda
+- `openiti-auto-00100f763cd36f5f` — **al-ʿIbar fī ḫabar man ġabar** — Al-Dhahabī — Sīra et histoire
+- `openiti-auto-06225b2fe6e4eb8a` — **Ashbah Wa Nazair** — Ibn Ibrahim Ibn Nujaym Misri — Fiqh
+- `openiti-auto-8a607c726157ecac` — **al-ʿuluww** — Al-Dhahabī — Hadith
+- `openiti-auto-70197b0349579071` — **Tafsir** — Ibn Abi Zamanayn Ilbiri — Tafsīr
+- `openiti-auto-7b0c303caa9c72d1` — **Masala Fi Tawhid Falasifa** — Ibn Taymiyyah — ʿAqīda
+- `openiti-auto-90811210e6498c4d` — **Ghayat Nihaya** — Ibn Jazari — Sīra et histoire
+- `openiti-auto-bb84184ef0d80372` — **al-Aḥkām al-sulṭāniyyaŧ** — Abu Hasan Mawardi — Fiqh
+- `openiti-auto-dc09016c5a4979af` — **Lahz Alhaz** — Taqi Din Ibn Fahd — Hadith
+- `openiti-auto-27ab8d868c701499` — **Wajiz Fi Tafsir** — Ibn Ahmad Wahidi Naysaburi — Tafsīr
+- `openiti-auto-112c4fbfa51fcf70` — **Tajrid Tawhid** — Al-Maqrīzī — ʿAqīda
+- `openiti-auto-d0b7fa774adf59d1` — **Tarikh** — Zayn Din Ibn Wardi — Sīra et histoire
+- `openiti-auto-ad0d34fcc41bed93` — **al-Aḥkām al-sulṭāniyyaŧ** — Abu Yacla Ibn Farra — Fiqh
+- `openiti-auto-41bcd1e39f675abe` — **Tārīḫ mūlid al-ʿulamāʾ wa wafayātihim** — Ibn Zabr Rabci — Hadith
+- `openiti-auto-90ee9f89cf83849e` — **Tafsir** — Cabd Razzaq Sancani — Tafsīr
+- `openiti-auto-15b224f075f9dcb0` — **Tawhid** — Ibn Rajab Hanbali — ʿAqīda
+- `openiti-auto-97e42589bcf2a5ed` — **Majallat Ahkam** — Anonymous — Fiqh
+- `openiti-auto-d46aba0b893d7731` — **Ansab Muttafiqa** — Ibn Qaysarani — Hadith
+- `openiti-auto-c92f000c85ce7733` — **Tafsir** — Ibn Carafa Warghami — Tafsīr
+- `openiti-auto-ba24b51120ccd14c` — **Masala Fi Tawhid** — Ibn Mabrid — ʿAqīda
+- `openiti-auto-d0071395a8b5ac0a` — **al-Kawākib al-Sāʾiraŧ bi-aʿyān al-miʾaŧ al-ʿāširaŧ** — Najm Din Ghazzi — Sīra et histoire
+- `openiti-auto-f435a7faa3834d7d` — **Iscaf Awqaf** — Ibn Shaykh Tarabulusi — Fiqh
+- `openiti-auto-70e9040625c9a938` — **Ṭabaqāt al-fuqahāʾ** — Abu Ishaq Shirazi — Fiqh
+- `openiti-auto-cf0a46f942e6f0d3` — **al-Radd ʿalá al-Ǧahmiyyaŧ** — Cuthman Ibn Sacid Darimi — Hadith
+- `openiti-auto-332ea3fd5e466670` — **Asbab Nuzul** — Ibn Ahmad Wahidi Naysaburi — Tafsīr
+- `openiti-auto-1d4f0bbb88d1716e` — **Awthaq Cura Iman** — Sulayman Sibt Ibn Cabd Wahhab — ʿAqīda
+- `openiti-auto-1674cb1afc146fc6` — **al-Maġāzi** — Waqidi — Sīra et histoire
+- `openiti-auto-3f5f3c931c2c1883` — **Bayan Khata** — Bayhaqi — Fiqh
+- `openiti-auto-b4fb1f3e0cdd8954` — **kitāb al-hawātif** — Ibn Abi Dunya — Hadith
+- `openiti-auto-a3153c39fcea6e11` — **Tafsir** — Mujahid Ibn Jabr — Tafsīr
+- `openiti-auto-4561ada31e7666d6` — **Fath Majid** — Ibn Hasan Al Shaykh — ʿAqīda
+- `openiti-auto-8d42780e4d94cdc7` — **Badr Talic** — Shawkani — Sīra et histoire
+- `openiti-auto-b6bab1308698d011` — **al-Ašribaŧ wa ḏikr iḫtilāf al-nās fīhā** — Ibn Qutayba Dinawari — Fiqh
+- `openiti-auto-9263dada44e171d3` — **Alfiyyaŧ fī ʿilm al-ḥadīṯ** — Al-Suyūṭī — Hadith
+- `openiti-auto-d057663abbd70021` — **Lubab Nuqul** — Al-Suyūṭī — Tafsīr
+- `openiti-auto-5c631b002b0672b7` — **Misbah Zalam** — Cabd Latif Al Shaykh — ʿAqīda
+- `openiti-auto-a6b2d7022b06a964` — **Tarikh** — Muhammad Farid Bey — Sīra et histoire
+- `openiti-auto-2f207d88bbc61fd4` — **al-Ǧumʿaŧ** — Nasai — Fiqh
+- `openiti-auto-bc0d5557d59db0da` — **Akhbar Wa Hikayat** — Ibn Fayd Ghassani — Hadith
+- `openiti-auto-40aa6cebf46a1946` — **Tafsir Ayat Min Quran** — Muḥammad ibn ʿAbd al-Wahhāb — Tafsīr
+- `openiti-auto-21bb3486c8a0e085` — **Fath Allah Hamid** — Khayr Din Alusi — ʿAqīda
+- `openiti-auto-2721f0f182b87ab0` — **Kifāyaŧ al-nabīh šarḥ al-Tanbīh fī fiqh al-Imām al-¶ Šāfiʿī** — Ibn Rifca — Fiqh
+- `openiti-auto-7e3315fb45370201` — **Juz** — Ibn Muhammad Madini — Hadith
+- `openiti-auto-79d026267e5e9a25` — **Qanun Tawil** — Ibn Carabi Ishbili — Tafsīr
+- `openiti-auto-ed4513cd1454d397` — **Iqtisad** — Ghazali — ʿAqīda
+- `openiti-auto-efccb0ad4a1ac254` — **Tarikh Khulafa** — Al-Suyūṭī — Sīra et histoire
+- `openiti-auto-69049254d28939c4` — **Qawacid Fiqhiyya** — Zuhayli — Fiqh
+- `openiti-auto-73950f53f2cc13a8` — **Ṭabaqāt al-fuqahāʾ al-šāfiʿīyyin** — Ibn Kathir — Fiqh
+- `openiti-auto-c068dbb501a89dcc` — **Sharh Muqaddimat Tafsir Suyuti** — Cabd Karim Khudayr — Tafsīr
+- `openiti-auto-60a7abe1de6f2b86` — **Tabaqat Shaficiyya** — Ibn Hasan Jamal Din Isnawi — Sīra et histoire
+- `openiti-auto-b75b46871147f81a` — **Taḏkiraŧ al-ḥuffāẓ** — Al-Dhahabī — Hadith
+- `openiti-auto-1036ff7d3c118b9c` — **Tafsir** — Sufyan Thawri — Tafsīr
+- `openiti-auto-705df19facf69d36` — **Tahqiq Tajrid** — Cabd Hadi Ibn Muhammad Cujayli — ʿAqīda
+- `openiti-auto-5fd97614cc3c2ced` — **Rafʿ al-iṣr ʿan quḍāŧ Miṣr** — Ibn Ḥajar al-ʿAsqalānī — Sīra et histoire
+- `openiti-auto-d97771e13c47f311` — **āl-āḥād wa al-maṯānī** — Ibn Abi Casim — Hadith
+- `openiti-auto-8611a96776230d27` — **Ictiqad Khalis** — Ibn Cattar — ʿAqīda
+- `openiti-auto-7a687c273d8d1bad` — **Qawacid Nuraniyya** — Ibn Taymiyyah — Fiqh
+- `openiti-auto-b352e3d43116e59a` — **Mukhtasar Tafsir Surat Anfal** — Muḥammad ibn ʿAbd al-Wahhāb — Tafsīr
+- `openiti-auto-33abc7b51e487910` — **Irshad Thiqat** — Shawkani — ʿAqīda
+- `openiti-auto-7959e7267c0a4c18` — **Ṭabaqāt ṣulaḥāʾ al-Yaman** — Burayhi — Sīra et histoire
+- `openiti-auto-aeec1b338b226077` — **Mashruciyyat Ijtihad** — Khatib Shirbini — ʿAqīda
+- `openiti-auto-d4ccf6f52da049a0` — **Tārīḫ Bayhaq** — Yusuf Hadi — Sīra et histoire
+- `openiti-auto-eaf902bd95ee7aa0` — **Idah Masalik** — Ibn Yahya Wansharisi — Fiqh
+- `openiti-auto-8f55b6b5a2b1b8ef` — **Taqrib Tahdhib** — Ibn Ḥajar al-ʿAsqalānī — Hadith
+- `openiti-auto-4b962b153e28e832` — **Mukhtasar Tafsir Ibn Kathir** — Muhammad Cali Sabuni — Tafsīr
+- `openiti-auto-e9f6404e51902cae` — **Ictiqad Salaf Fi Huruf** — Nawawi — ʿAqīda
+- `openiti-auto-e4d3a47e2b11f6a2` — **Tarikh** — Yahya Ibn Sacid Antaki — Sīra et histoire
+- `openiti-auto-65b6ff1a2488c102` — **Kitāb Faḍā'il al-ṣaḥāba** — Nasai — Hadith
+- `openiti-auto-38ddf90cc1f471df` — **Kunuz Dhahab** — Abu Dharr Sibt Ibn Cajami — Sīra et histoire
+- `openiti-auto-32fa02bba3d5bc51` — **Tafsir Wasit** — Muhammad Sayyid Tantawi — Tafsīr
+- `openiti-auto-0325f269d57a5dc0` — **Ictiqad Qadiri** — Ibn Hasan Baqillani Baghdadi — ʿAqīda
+- `openiti-auto-ce6ba79e6196e98f` — **Tarikh Dawlat Al Saljuq** — Cimad Din Katib Isfahani — Sīra et histoire
+- `openiti-auto-500e022ea71fad78` — **al-Radd ʿalá siyar al-Awzāʿī** — Abu Yusuf Yacqub — Fiqh
+- `openiti-auto-7f97bae9b19b1a36` — **Muḫtaṣar al-Kāmil fī al-ḍuʿafāʾ wa ʿilal al-ḥadīṯ** — Al-Maqrīzī — Hadith
+- `openiti-auto-5d76245d5a8bd8bd` — **Mawrid Latafa** — Ibn Taghribirdi — Sīra et histoire
+- `openiti-auto-f155a24cc9637212` — **Min kalām al-imām ʿAbd Allāh Aḥmad b. Ḥanbal fī ʿilal al-ḥadīṯ wa-maʿrifaŧ al-riǧāl** — Aḥmad ibn Ḥanbal — Hadith
+- `openiti-auto-9148e0f8c7f8412e` — **al-Muġnī fī al-ḍuʿafāʾ** — Al-Dhahabī — Hadith
+- `openiti-auto-6e39e45a2e8cbdc6` — **Tafsir** — Ahmad Mustafa Maraghi — Tafsīr
+- `openiti-auto-b07b4f04bcb6054b` — **Mufid Mustafid** — Muḥammad ibn ʿAbd al-Wahhāb — ʿAqīda
+- `openiti-auto-86e11d30d41fe26d` — **Mulhaq Badr** — Muhammad Sancani — Sīra et histoire
+- `openiti-auto-107d5cdd57ee78f1` — **Wafayat** — Ibn Qunfudh — Sīra et histoire
+- `openiti-auto-481d1841dd4fcde4` — **Tārīḫ Ǧurǧān** — Sahmi — Sīra et histoire
+- `openiti-auto-d0892e564a0ba9f3` — **Iqtisad Fi Ictiqad** — Cabd Ghani Maqdisi — ʿAqīda
+- `openiti-auto-409d0cf1dabd5a2e` — **Wulāt Miṣr** — Muhammad Kindi — Sīra et histoire
+- `openiti-auto-7d8397d7a41091d3` — **al-Arbaʿūn fī al-ḥaṯṯ ʿalá al-ǧihād** — Ibn ʿAsākir — Hadith
+- `openiti-auto-9107bf79591e0cee` — **Ṭabaqāt al-muḥaddiṯīn bi-Iṣbahān wa-al-wāridīn ʿalayhā** — Abu Shaykh Isbahani — Hadith
+- `openiti-auto-d47dc1729ae22e64` — **Ictiqadat** — Fakhr Din Razi — ʿAqīda
+- `openiti-auto-079949fd011cae5e` — **ḏamm al-muskir** — Ibn Abi Dunya — Hadith
+- `openiti-auto-7469784d18329b3e` — **al-Muḫtaṣar al-muḥtāǧ ilayh min Tāriīḫ al-Ḥāfiẓ al-Dubayṯī** — Al-Dhahabī — Hadith
+- `openiti-auto-644eda0af9ec4932` — **Tafsir Mazhari** — Thana Allah Panipati — Tafsīr
+- `openiti-auto-8ac462dbc62ea962` — **Dahd Shubuhat** — Ababutayn — ʿAqīda
+- `openiti-auto-818a37bd28121aca` — **Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ** — Ibn ʿAsākir — Hadith
+- `openiti-auto-59686169d552e5f4` — **Tarikh** — Ibn Khayyat Cusfuri — Sīra et histoire
+- `openiti-auto-96157f9062648678` — **Hashiya Cala Tafsir Baydawi** — Shihab Din Khafaji — Tafsīr
+- `openiti-auto-a1e019ecd09140cf` — **Sifat Munafiqin** — Ibn Qayyim Jawziyya — ʿAqīda
+- `openiti-auto-f1530c592e7e16f0` — **Tarikh** — Basrawi — Sīra et histoire
+- `openiti-auto-166504e567243026` — **Manhaj Muntakhab** — Cali Ibn Qasim Zaqqaq — Fiqh
+

@@ -1,0 +1,126 @@
+{
+  "pipeline": "athar-priority-curation-v1",
+  "targets": 13,
+  "already_present": [],
+  "selected": [
+    {
+      "book_id": "openiti-priority-hanafi-quduri",
+      "title": "Mukhtaṣar al-Qudūrī",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0428AbuHusaynQuduri.Mukhtasar.Sham19Y0124336-ara1",
+      "work_uri": "0428AbuHusaynQuduri.Mukhtasar",
+      "source_char_length": 175553
+    },
+    {
+      "book_id": "openiti-priority-hanafi-mabsut",
+      "title": "Al-Mabsūṭ",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0483IbnAhmadSarakhsi.Mabsut.JK000266-ara1",
+      "work_uri": "0483IbnAhmadSarakhsi.Mabsut",
+      "source_char_length": 10184443
+    },
+    {
+      "book_id": "openiti-priority-hanafi-hidaya",
+      "title": "Al-Hidāyah",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya.JK000242-ara1",
+      "work_uri": "0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya",
+      "source_char_length": 1451031
+    },
+    {
+      "book_id": "openiti-priority-shafii-muhadhdhab",
+      "title": "Al-Muhadhdhab",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0476AbuIshaqShirazi.MuhadhdhabFiFiqh.JK000272-ara1",
+      "work_uri": "0476AbuIshaqShirazi.MuhadhdhabFiFiqh",
+      "source_char_length": 1994736
+    },
+    {
+      "book_id": "openiti-priority-hanbali-kafi",
+      "title": "Al-Kāfī fī fiqh al-Imām Aḥmad",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0620IbnQudamaMaqdisi.KafiFiFiqh.JK000254-ara1",
+      "work_uri": "0620IbnQudamaMaqdisi.KafiFiFiqh",
+      "source_char_length": 1708226
+    },
+    {
+      "book_id": "openiti-priority-hanbali-muqni",
+      "title": "Al-Muqniʿ",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0620IbnQudamaMaqdisi.MuqnicFiFiqh.JK000787BK1-ara1",
+      "work_uri": "0620IbnQudamaMaqdisi.MuqnicFiFiqh",
+      "source_char_length": 1313570
+    },
+    {
+      "book_id": "openiti-priority-hanbali-insaf",
+      "title": "Al-Inṣāf",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "openiti_uri": "0885CalaDinMardawi.Insaf.JK000788-ara1",
+      "work_uri": "0885CalaDinMardawi.Insaf",
+      "source_char_length": 4708689
+    },
+    {
+      "book_id": "openiti-priority-hadith-musnad-ahmad",
+      "title": "Musnad Aḥmad",
+      "madhhab": "Transversal",
+      "discipline": "Hadith",
+      "openiti_uri": "0241IbnHanbal.Musnad.Shamela0025794-ara1",
+      "work_uri": "0241IbnHanbal.Musnad",
+      "source_char_length": 6219636
+    },
+    {
+      "book_id": "openiti-priority-tafsir-qurtubi",
+      "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
+      "madhhab": "Mālikite",
+      "discipline": "Tafsīr",
+      "openiti_uri": "0671AbuCabdAllahQurtubi.JamicLiAhkamQuran.Tafsir01005-ara1",
+      "work_uri": "0671AbuCabdAllahQurtubi.JamicLiAhkamQuran",
+      "source_char_length": 7980130
+    },
+    {
+      "book_id": "openiti-priority-usul-mustasfa",
+      "title": "Al-Mustaṣfā",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Uṣūl al-fiqh",
+      "openiti_uri": "0505Ghazali.Mustasfa.JK000276-ara1",
+      "work_uri": "0505Ghazali.Mustasfa",
+      "source_char_length": 767795
+    },
+    {
+      "book_id": "openiti-priority-usul-ihkam-amidi",
+      "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Uṣūl al-fiqh",
+      "openiti_uri": "0631SayfDinAmidi.IhkamFiUsulAhkam.JK000149-ara1",
+      "work_uri": "0631SayfDinAmidi.IhkamFiUsulAhkam",
+      "source_char_length": 1201976
+    },
+    {
+      "book_id": "openiti-priority-history-tabaqat-ibn-sad",
+      "title": "Al-Ṭabaqāt al-Kubrā",
+      "madhhab": "Transversal",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0230IbnSacd.TabaqatKubra.ShamAY0035884-ara1",
+      "work_uri": "0230IbnSacd.TabaqatKubra",
+      "source_char_length": 4476265
+    },
+    {
+      "book_id": "openiti-priority-history-tabari",
+      "title": "Tārīkh al-Ṭabarī",
+      "madhhab": "Transversal",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0310Tabari.Tarikh.Shamela0009783BK1-ara1",
+      "work_uri": "0310Tabari.Tarikh",
+      "source_char_length": 5904863
+    }
+  ],
+  "missing": [],
+  "resolved": 13
+}
