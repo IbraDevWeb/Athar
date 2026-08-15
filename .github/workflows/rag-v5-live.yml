@@ -67,3 +67,75 @@ jobs:
           assert any('recitation_aloud' in s['matched_concepts'] for s in payload['sources']), payload['sources']
           print('PUBLIC RAG V5 NATURAL FRENCH RETRIEVAL: PASS')
           PY
+
+      - name: Wait for eclipse Query Intelligence deployment
+        run: |
+          python - <<'PY'
+          import json, time, unicodedata, urllib.parse, urllib.request
+
+          base = 'https://athar-rag-ibradevweb.onrender.com'
+          query = "Que dit le Muwatta sur la prière de l'éclipse ?"
+
+          def norm(value):
+              text = unicodedata.normalize('NFKD', str(value or ''))
+              text = ''.join(ch for ch in text if not unicodedata.combining(ch))
+              return ' '.join(text.casefold().replace('’', "'").split())
+
+          last = None
+          for attempt in range(1, 46):
+              try:
+                  url = base + '/api/rag/v5/search?' + urllib.parse.urlencode({'q': query, 'limit': 8})
+                  req = urllib.request.Request(
+                      url,
+                      headers={
+                          'Origin': 'https://ibradevweb.github.io',
+                          'Accept': 'application/json',
+                          'Cache-Control': 'no-cache',
+                          'User-Agent': 'Athar-Eclipse-live-check',
+                      },
+                  )
+                  with urllib.request.urlopen(req, timeout=120) as response:
+                      payload = json.loads(response.read().decode('utf-8'))
+                  last = payload
+                  analysis = payload.get('analysis') or {}
+                  sources = payload.get('sources') or []
+                  intelligence = analysis.get('query_intelligence')
+                  notions = analysis.get('notions') or []
+                  routed = analysis.get('routed_book') or {}
+                  print(
+                      'Attempt', attempt,
+                      'intelligence=', intelligence,
+                      'notions=', notions,
+                      'routed=', routed,
+                      'top=', [(s.get('title'), s.get('chapter'), s.get('page'), s.get('matched_concepts')) for s in sources[:3]],
+                      flush=True,
+                  )
+
+                  # Presence of these fields proves the new runtime, not merely an
+                  # old healthy V5 process, has actually been deployed by Render.
+                  if not isinstance(intelligence, dict) or 'used' not in intelligence:
+                      raise RuntimeError('Query Intelligence runtime not deployed yet')
+                  if not any('eclipse' in norm(item) for item in notions):
+                      raise RuntimeError(f'eclipse notion missing: {notions}')
+                  if 'muwatta' not in norm(routed.get('title')):
+                      raise RuntimeError(f'Muwatta routing missing: {routed}')
+                  if not sources:
+                      raise RuntimeError('no eclipse evidence returned')
+                  if 'muwatta' not in norm(sources[0].get('title')):
+                      raise RuntimeError(f'top evidence is not Muwatta: {sources[0]}')
+                  if not any('eclipse_prayer' in (source.get('matched_concepts') or []) for source in sources[:3]):
+                      raise RuntimeError('eclipse-specific concept did not reach the evidence ranking')
+
+                  print(
+                      'PUBLIC ATHAR ECLIPSE QUERY: PASS —',
+                      'Gemini used=' + str(bool(intelligence.get('used'))),
+                      'fallback=' + str(intelligence.get('fallback')),
+                      'top=' + str(sources[0].get('chapter') or sources[0].get('page')),
+                  )
+                  raise SystemExit(0)
+              except Exception as exc:
+                  last = exc
+                  print(f'Attempt {attempt}/45: {exc}', flush=True)
+                  time.sleep(20)
+          raise SystemExit(f'Eclipse Query Intelligence did not become ready: {last}')
+          PY
