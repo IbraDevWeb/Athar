@@ -40,12 +40,15 @@ html.athar-newtool-local-fullscreen body {
 
 @media (max-width: 900px) {
   .ar5-top-actions .athar-newtool-fullscreen [data-fullscreen-label],
-  .library-topbar-actions .athar-newtool-fullscreen [data-fullscreen-label] {
+  .library-topbar-actions .athar-newtool-fullscreen [data-fullscreen-label],
+  .reader-appbar-right .athar-newtool-fullscreen [data-fullscreen-label] {
     display: none;
   }
 
-  .library-topbar-actions .athar-newtool-fullscreen {
+  .library-topbar-actions .athar-newtool-fullscreen,
+  .reader-appbar-right .athar-newtool-fullscreen {
     width: 42px;
+    min-width: 42px;
     padding: 0;
   }
 }
@@ -56,5 +59,9 @@ html.athar-newtool-local-fullscreen body {
     height: 34px;
     padding: 0;
     justify-content: center;
+  }
+
+  .reader-appbar-right .athar-newtool-fullscreen {
+    display: inline-flex;
   }
 }
