@@ -3,7 +3,7 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from v5_library import get_book, read_book
+from v5_library import get_book, get_toc, read_book, search_book
 
 
 class LibraryReaderTests(unittest.TestCase):
@@ -58,13 +58,20 @@ class LibraryReaderTests(unittest.TestCase):
                 "Auteur",
                 "Fiqh",
                 "Mālikite",
-                2,
+                4,
                 "Description",
                 "https://example.test/book",
-                '{"source":"fixture"}',
+                '{"source":"fixture","edition":"Édition test"}',
             ),
         )
-        for index, page in enumerate((1, 1, 2, 2, 2), start=1):
+        fixtures = (
+            (1, "Kitāb al-ṭahāra", "نص عربي في الطهارة 1", "Texte français sur la purification 1"),
+            (1, "Kitāb al-ṭahāra", "نص عربي في الوضوء 2", ""),
+            (2, "Kitāb al-ṣalāh", "نص عربي في الصلاة 3", "Texte français sur la prière 3"),
+            (2, "Kitāb al-ṣalāh", "نص عربي في الصلاة والجماعة 4", ""),
+            (4, "Kitāb al-safar", "نص عربي في السفر والقصر 5", "Texte français sur le voyage 5"),
+        )
+        for index, (page, chapter, text_ar, text_fr) in enumerate(fixtures, start=1):
             self.connection.execute(
                 """
                 INSERT INTO chunks (
@@ -75,10 +82,10 @@ class LibraryReaderTests(unittest.TestCase):
                 (
                     f"c{index}",
                     page,
-                    f"Chapitre {page}",
-                    f"نص عربي {index}",
-                    f"Texte français {index}" if index % 2 else "",
-                    "kutub_ai_unreviewed" if index % 2 else "arabic_original",
+                    chapter,
+                    text_ar,
+                    text_fr,
+                    "kutub_ai_unreviewed" if text_fr else "arabic_original",
                     f"https://example.test/book/{page}",
                     f"hash-{index}",
                 ),
@@ -88,14 +95,17 @@ class LibraryReaderTests(unittest.TestCase):
     def tearDown(self) -> None:
         self.connection.close()
 
-    def test_book_summary_counts_languages_and_pages(self) -> None:
+    def test_book_summary_counts_languages_pages_and_sections(self) -> None:
         book = get_book(self.connection, "book-1")
         self.assertEqual(book["chunks"], 5)
-        self.assertEqual(book["indexed_pages"], 2)
+        self.assertEqual(book["indexed_pages"], 3)
         self.assertEqual(book["first_page"], 1)
-        self.assertEqual(book["last_page"], 2)
+        self.assertEqual(book["last_page"], 4)
         self.assertEqual(book["arabic_passages"], 5)
         self.assertEqual(book["french_passages"], 3)
+        self.assertEqual(book["indexed_sections"], 3)
+        self.assertTrue(book["has_arabic"])
+        self.assertTrue(book["has_french"])
         self.assertEqual(book["metadata"]["source"], "fixture")
 
     def test_reader_is_bounded_and_paginated(self) -> None:
@@ -108,21 +118,43 @@ class LibraryReaderTests(unittest.TestCase):
         self.assertEqual(second["previous_offset"], 0)
         self.assertEqual(second["passages"][0]["sequence"], 3)
 
-    def test_reader_can_jump_to_an_indexed_page(self) -> None:
+    def test_reader_can_jump_and_exposes_real_page_neighbors(self) -> None:
         page = read_book(self.connection, "book-1", page=2, limit=12)
         self.assertEqual(page["page"], 2)
-        self.assertEqual(page["total"], 3)
+        self.assertEqual(page["total"], 2)
+        self.assertEqual(page["previous_page"], 1)
+        self.assertEqual(page["next_page"], 4)
         self.assertTrue(all(item["page"] == 2 for item in page["passages"]))
+
+    def test_table_of_contents_is_ordered_and_bounded(self) -> None:
+        toc = get_toc(self.connection, "book-1", limit=2)
+        self.assertEqual(toc["total"], 3)
+        self.assertEqual(len(toc["items"]), 2)
+        self.assertTrue(toc["truncated"])
+        self.assertEqual(toc["items"][0]["chapter"], "Kitāb al-ṭahāra")
+        self.assertEqual(toc["items"][0]["first_page"], 1)
+        self.assertEqual(toc["items"][1]["first_page"], 2)
+
+    def test_search_is_scoped_to_the_open_book(self) -> None:
+        result = search_book(self.connection, "book-1", "الصلاة", limit=10)
+        self.assertEqual(result["book"]["id"], "book-1")
+        self.assertEqual(result["count"], 2)
+        self.assertTrue(all(hit["page"] == 2 for hit in result["hits"]))
+        french = search_book(self.connection, "book-1", "voyage", limit=10)
+        self.assertEqual(french["count"], 1)
+        self.assertEqual(french["hits"][0]["page"], 4)
 
     def test_reader_never_returns_unbounded_batches(self) -> None:
         payload = read_book(self.connection, "book-1", limit=999)
         self.assertLessEqual(payload["limit"], 12)
 
-    def test_missing_book_and_page_are_explicit(self) -> None:
+    def test_missing_book_page_and_empty_search_are_explicit(self) -> None:
         with self.assertRaises(LookupError):
             get_book(self.connection, "missing")
         with self.assertRaises(LookupError):
             read_book(self.connection, "book-1", page=99)
+        with self.assertRaises(ValueError):
+            search_book(self.connection, "book-1", "")
 
 
 if __name__ == "__main__":
