@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "hosted": {
     "target_openiti_books": 170,
     "minimum_openiti_books": 170,
@@ -25,7 +25,17 @@
       "IbnDaya.TafsirKitabThamara",
       "HasanHanafi.MinCaqidaIlaThawra",
       "IbnAbiUsaybica.CuyunAnba",
-      "IbnMacsum.SulafaCasr"
+      "IbnMacsum.SulafaCasr",
+      "MuhammadAminMuhibbi.KhulasatAthar",
+      "MuhammadHusaynHaykal.ImanWaMacrifaWaFalsafa",
+      "Tashkuprizadah.ShaqaiqNucmaniyya",
+      "QudamaIbnJacfar.Kharaj",
+      "IbnHakamHibari.Tafsir",
+      "IbnQifti.IkhbarCulama",
+      "MuhassinTanukhi.FarajBacdaShidda",
+      "AbuMansurThacalibi.FiqhLugha",
+      "MujirDinCulaymi.TarikhMuctabar",
+      "NasirMakarimShirazi.AmthalFiTafsir"
     ]
   },
   "sharding": {

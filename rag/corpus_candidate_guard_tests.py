@@ -11,6 +11,10 @@ POLICY = {
             "UsulMinKafi",
             "AhmadTaymurBasha.SamacWaQiyas",
             "IbnDaya.TafsirKitabThamara",
+            "IbnHakamHibari.Tafsir",
+            "NasirMakarimShirazi.AmthalFiTafsir",
+            "AbuMansurThacalibi.FiqhLugha",
+            "QudamaIbnJacfar.Kharaj",
         ],
     }
 }
@@ -96,6 +100,38 @@ class CorpusCandidateGuardTests(unittest.TestCase):
         ok, reason = guard_candidate(item, POLICY)
         self.assertFalse(ok)
         self.assertIn("TafsirKitabThamara", reason)
+
+    def test_shia_tafsir_candidates_are_explicitly_blocked(self) -> None:
+        for work_uri in (
+            "0286IbnHakamHibari.Tafsir",
+            "1450NasirMakarimShirazi.AmthalFiTafsir",
+        ):
+            item = candidate(subject="tafsir", work_uri=work_uri, title="Tafsir", title_ar="تفسير")
+            ok, reason = guard_candidate(item, POLICY)
+            self.assertFalse(ok)
+            self.assertTrue(reason.startswith("excluded_work:"))
+
+    def test_linguistic_fiqh_title_is_explicitly_blocked(self) -> None:
+        item = candidate(
+            subject="fiqh",
+            work_uri="0429AbuMansurThacalibi.FiqhLugha",
+            title="Fiqh al-lugha wa sirr al-arabiyya",
+            title_ar="فقه اللغة وسر العربية",
+        )
+        ok, reason = guard_candidate(item, POLICY)
+        self.assertFalse(ok)
+        self.assertIn("FiqhLugha", reason)
+
+    def test_qudama_administrative_kharaj_is_explicitly_blocked(self) -> None:
+        item = candidate(
+            subject="fiqh",
+            work_uri="0337QudamaIbnJacfar.Kharaj",
+            title="Kitab al-Kharaj",
+            title_ar="كتاب الخراج",
+        )
+        ok, reason = guard_candidate(item, POLICY)
+        self.assertFalse(ok)
+        self.assertIn("QudamaIbnJacfar.Kharaj", reason)
 
     def test_non_usul_subject_is_not_overfiltered(self) -> None:
         item = candidate(subject="hadith", title="Sunan Fixture", title_ar="سنن الاختبار")
