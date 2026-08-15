@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import os
 import re
 import urllib.parse
 import urllib.request
@@ -155,6 +156,7 @@ def translate_arabic_to_french(
     if not segments:
         raise ValueError("Le passage arabe est vide.")
 
+    contact_email = _clean(contact_email or os.getenv("ATHAR_TRANSLATION_EMAIL", ""))
     open_url = opener or urllib.request.urlopen
     translated_parts = [
         _translate_segment(
