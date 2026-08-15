@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sqlite3
 import unittest
 
 from v5_scholar_translation import (
@@ -8,6 +9,7 @@ from v5_scholar_translation import (
     clear_translation_cache,
     translate_passage,
 )
+from v5_server import load_translation_source
 
 
 SOURCE = {
@@ -169,6 +171,73 @@ class ScholarTranslationTests(unittest.TestCase):
         self.assertEqual(1, calls["count"])
         self.assertFalse(first["cache_hit"])
         self.assertTrue(second["cache_hit"])
+
+
+class IndexedSourceLoaderTests(unittest.TestCase):
+    def setUp(self):
+        self.db = sqlite3.connect(":memory:")
+        self.db.row_factory = sqlite3.Row
+        self.db.executescript(
+            """
+            CREATE TABLE books (
+                id TEXT PRIMARY KEY,
+                title TEXT NOT NULL,
+                title_ar TEXT,
+                author TEXT,
+                discipline TEXT,
+                madhhab TEXT
+            );
+            CREATE TABLE chunks (
+                id TEXT PRIMARY KEY,
+                book_id TEXT NOT NULL,
+                page INTEGER,
+                chapter TEXT,
+                text_ar TEXT,
+                text_fr TEXT,
+                translation_status TEXT,
+                source_url TEXT
+            );
+            """
+        )
+        self.db.execute(
+            "INSERT INTO books VALUES(?,?,?,?,?,?)",
+            ("muwatta", "Al-Muwaṭṭaʾ", "الموطأ", "Mālik ibn Anas", "Hadith et fiqh", "Mālikite"),
+        )
+        self.db.execute(
+            "INSERT INTO chunks VALUES(?,?,?,?,?,?,?,?)",
+            (
+                "chunk-1",
+                "muwatta",
+                123,
+                "باب صلاة المسافر",
+                SOURCE["text_ar"],
+                "",
+                "openiti_arabic_source",
+                "https://example.invalid/source",
+            ),
+        )
+        self.db.commit()
+
+    def tearDown(self):
+        self.db.close()
+
+    def test_loader_returns_only_indexed_passage_with_book_context(self):
+        source = load_translation_source(self.db, "chunk-1", book_id="muwatta")
+        self.assertEqual("chunk-1", source["id"])
+        self.assertEqual("muwatta", source["book_id"])
+        self.assertEqual("Al-Muwaṭṭaʾ", source["title"])
+        self.assertEqual("Mālik ibn Anas", source["author"])
+        self.assertEqual(SOURCE["text_ar"], source["text_ar"])
+
+    def test_loader_rejects_unknown_or_wrong_book_source(self):
+        with self.assertRaises(LookupError):
+            load_translation_source(self.db, "does-not-exist", book_id="muwatta")
+        with self.assertRaises(LookupError):
+            load_translation_source(self.db, "chunk-1", book_id="another-book")
+
+    def test_loader_rejects_empty_source_id(self):
+        with self.assertRaisesRegex(ValueError, "Identifiant de passage requis"):
+            load_translation_source(self.db, "")
 
 
 if __name__ == "__main__":
