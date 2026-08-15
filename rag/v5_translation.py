@@ -99,13 +99,18 @@ def _translate_segment(
     *,
     opener: Callable[..., Any],
     timeout: float,
+    contact_email: str = "",
 ) -> str:
-    query = urllib.parse.urlencode({"q": segment, "langpair": "ar|fr", "mt": "1"})
+    params = {"q": segment, "langpair": "ar|fr", "mt": "1"}
+    contact_email = _clean(contact_email)
+    if contact_email:
+        params["de"] = contact_email
+    query = urllib.parse.urlencode(params)
     request = urllib.request.Request(
         f"{MYMEMORY_ENDPOINT}?{query}",
         headers={
             "Accept": "application/json",
-            "User-Agent": "AtharResearch/5.1 (+https://github.com/IbraDevWeb/Athar)",
+            "User-Agent": "AtharResearch/5.2 (+https://github.com/IbraDevWeb/Athar)",
         },
         method="GET",
     )
@@ -123,9 +128,12 @@ def _translate_segment(
     except (TypeError, ValueError):
         status_code = 200
     translated = html.unescape(str((payload.get("responseData") or {}).get("translatedText") or "")).strip()
+    details = _clean(payload.get("responseDetails"))
+    upper_translation = translated.upper()
+    if "MYMEMORY WARNING" in upper_translation or "AVAILABLE FREE TRANSLATION" in upper_translation:
+        raise TranslationError("Le quota gratuit de traduction MyMemory est atteint pour aujourd'hui.")
     if status_code >= 400 or not translated:
-        details = _clean(payload.get("responseDetails")) or "aucune traduction reçue"
-        raise TranslationError(f"Traduction refusée: {details}.")
+        raise TranslationError(f"Traduction refusée: {details or 'aucune traduction reçue'}.")
     if not LATIN_LETTER.search(translated):
         raise TranslationError("Le service n'a pas renvoyé de traduction française exploitable.")
     return translated
@@ -136,6 +144,7 @@ def translate_arabic_to_french(
     *,
     opener: Callable[..., Any] | None = None,
     timeout: float = 12.0,
+    contact_email: str = "",
 ) -> dict[str, Any]:
     """Translate the same bounded Arabic excerpt Athar exposes in a citation."""
     source = _clean(text)
@@ -148,7 +157,12 @@ def translate_arabic_to_french(
 
     open_url = opener or urllib.request.urlopen
     translated_parts = [
-        _translate_segment(segment, opener=open_url, timeout=timeout)
+        _translate_segment(
+            segment,
+            opener=open_url,
+            timeout=timeout,
+            contact_email=contact_email,
+        )
         for segment in segments
     ]
     translated = _clean(" ".join(translated_parts))
