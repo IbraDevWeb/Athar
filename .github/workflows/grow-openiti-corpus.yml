@@ -19,7 +19,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 concurrency:
   group: grow-openiti-corpus
@@ -94,24 +93,16 @@ jobs:
           print(f'Industrialized OpenITI manifest: {len(enabled)} enabled books; {len(ids)} auto-promoted')
           PY
 
-      - name: Commit promotion queue
-        id: commit
+      - name: Commit staged promotion queue
         shell: bash
         run: |
           if [[ -z "$(git status --porcelain -- rag/openiti_books_auto.json rag/corpus_growth_report.json)" ]]; then
             echo "Le palier de production est déjà rempli; aucune nouvelle promotion."
-            echo "changed=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add rag/openiti_books_auto.json rag/corpus_growth_report.json
-          git commit -m "Promouvoir le prochain lot OpenITI dans Athar"
+          git commit -m "Préparer le prochain lot OpenITI pour revue"
           git push origin HEAD:main
-          echo "changed=1" >> "$GITHUB_OUTPUT"
-
-      - name: Trigger guarded hosted corpus build
-        if: steps.commit.outputs.changed == '1'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run build-rag-corpus.yml --ref main
+          echo "Lot préparé. La publication exige désormais une approbation explicite du blob openiti_books_auto.json."
