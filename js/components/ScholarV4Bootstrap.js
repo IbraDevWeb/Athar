@@ -14,7 +14,26 @@
         link.href = 'css/athar-research-translation.css?v=athar-translation-ui-1';
         document.head.appendChild(link);
     };
+
+    const ensureNewToolFullscreen = () => {
+        if (!document.getElementById('athar-new-tools-fullscreen-styles')) {
+            const link = document.createElement('link');
+            link.id = 'athar-new-tools-fullscreen-styles';
+            link.rel = 'stylesheet';
+            link.href = 'css/new-tools-fullscreen.css?v=athar-pro-v37';
+            document.head.appendChild(link);
+        }
+        if (!document.getElementById('athar-new-tools-fullscreen-script')) {
+            const script = document.createElement('script');
+            script.id = 'athar-new-tools-fullscreen-script';
+            script.src = 'js/new-tools-fullscreen.js?v=athar-pro-v37';
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+    };
+
     ensureTranslationStyles();
+    ensureNewToolFullscreen();
 
     const navMarkup = `
         <div data-athar-research-v5-nav-group class="space-y-1">

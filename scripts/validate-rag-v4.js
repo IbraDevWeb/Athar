@@ -95,7 +95,9 @@ const bootstrap = read('js/components/ScholarV4Bootstrap.js');
     "setView('rag_v5')", "viewMode === 'rag_v5'", "'scholar-library-v4-view': window.ScholarLibraryV4View",
     'data-athar-research-v5-nav', 'data-athar-library-reader-nav', 'research-library.html',
     'patchDomTemplate', 'patchHomeView', 'Athar Research · Bibliothèque Savante',
-    'athar-research-translation-styles', 'css/athar-research-translation.css?v=athar-translation-ui-1'
+    'athar-research-translation-styles', 'css/athar-research-translation.css?v=athar-translation-ui-1',
+    'athar-new-tools-fullscreen-styles', 'css/new-tools-fullscreen.css?v=athar-pro-v37',
+    'athar-new-tools-fullscreen-script', 'js/new-tools-fullscreen.js?v=athar-pro-v37'
 ].forEach(token => need(bootstrap, token, 'ScholarV4Bootstrap.js'));
 reject(bootstrap, /Bibliothèque Savante · V4|data-athar-scholar-v4-nav/i, 'ScholarV4Bootstrap.js');
 
@@ -103,9 +105,12 @@ const libraryPage = read('research-library.html');
 [
     'Bibliothèque Athar', 'Lecture savante', 'reader-appbar', 'reader-bookrail', 'reader-navrail',
     'Sommaire indexé', 'Rechercher dans ce livre', 'data-reader-mode="arabic"', 'data-reader-mode="bilingual"',
-    'css/research-library-v2.css?v=athar-reader-v2', 'js/research-library-v2.js?v=athar-reader-v2'
+    'css/research-library-v2.css?v=athar-reader-v2', 'js/research-library-v2.js?v=athar-reader-v2',
+    'css/research-library-ai-tools.css?v=athar-reader-ai-1', 'js/research-library-ai-tools.js?v=athar-reader-ai-1',
+    'css/new-tools-fullscreen.css?v=athar-pro-v37', 'js/new-tools-fullscreen.js?v=athar-pro-v37',
+    'Les traductions IA demandées dans le lecteur restent séparées et non vérifiées.'
 ].forEach(token => need(libraryPage, token, 'research-library.html'));
-reject(libraryPage, /MyMemory|translate_arabic|\/api\/rag\/v5\/translate/i, 'research-library.html');
+reject(libraryPage, /MyMemory|translate_arabic/i, 'research-library.html');
 
 const libraryScript = read('js/research-library-v2.js');
 [
@@ -115,11 +120,40 @@ const libraryScript = read('js/research-library-v2.js');
 ].forEach(token => need(libraryScript, token, 'js/research-library-v2.js'));
 reject(libraryScript, /MyMemory|\/api\/rag\/v5\/translate|translate_arabic/i, 'js/research-library-v2.js');
 
+const readerAi = read('js/research-library-ai-tools.js');
+[
+    '/api/rag/v5/translate', '/api/rag/v5/read', 'source_id: sourceId', 'book_id: bookId',
+    "{ value: 'faithful', label: 'Fidèle' }", "{ value: 'literal', label: 'Littérale' }", "{ value: 'study', label: 'Étude' }",
+    'CONCURRENCY = 2', 'readAllPagePassages', 'translateIndexedPassage', 'translatePage', 'translatePassage',
+    'Traduire ce passage', 'Traduire la page', 'Traduction assistée par IA', 'Non vérifiée',
+    'localStorage.getItem(\'athar-reader-ai-mode\')'
+].forEach(token => need(readerAi, token, 'js/research-library-ai-tools.js'));
+reject(readerAi, /MyMemory|translated\.net|mymemory|text_ar\s*:/i, 'js/research-library-ai-tools.js');
+
 const libraryStyle = read('css/research-library-v2.css');
 [
     '.reader-layout', '.reader-bookrail', '.reader-navrail', '.reader-paper', '.reader-arabic', '.reader-french',
     '.reader-tabs', '.toc-item', '.book-search-hit', 'body.reader-focus', '@media (max-width: 700px)'
 ].forEach(token => need(libraryStyle, token, 'css/research-library-v2.css'));
+
+const readerAiStyle = read('css/research-library-ai-tools.css');
+[
+    '.reader-ai-toolbar', '.reader-ai-page-button', '.reader-ai-passage-button', '.reader-ai-translation',
+    '.reader-ai-terms', '.reader-ai-uncertainties', '.reader-center[data-mode="french"]', '@media (max-width: 760px)'
+].forEach(token => need(readerAiStyle, token, 'css/research-library-ai-tools.css'));
+
+const newToolsFullscreen = read('js/new-tools-fullscreen.js');
+[
+    'requestFullscreen', 'exitFullscreen', 'fullscreenchange', 'AtharFullscreen.toggle',
+    '.ar5-top-actions', '.library-topbar-actions', '.reader-appbar-right',
+    'data-athar-newtool-fullscreen', 'Grand écran', 'Ctrl', 'window.AtharNewToolsFullscreen'
+].forEach(token => need(newToolsFullscreen, token, 'js/new-tools-fullscreen.js'));
+
+const newToolsFullscreenStyle = read('css/new-tools-fullscreen.css');
+[
+    '.athar-newtool-fullscreen', '.ar5-top-actions .athar-newtool-fullscreen',
+    '.library-topbar-actions .athar-newtool-fullscreen', 'athar-newtool-local-fullscreen'
+].forEach(token => need(newToolsFullscreenStyle, token, 'css/new-tools-fullscreen.css'));
 
 const style = read('css/athar-research-v5.css');
 [
@@ -185,4 +219,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Athar V5 sharded RSS', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — sharded Render deployment, professional reader, queryable corpus, low-memory runtime and contextual LLM translation aid.');
+console.log('Athar Research V5 static contract valid — reader translation by passage/page, full-screen access on new tools, sharded Render deployment and contextual LLM safeguards.');

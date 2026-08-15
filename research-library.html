@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#9d5147">
   <title>Bibliothèque Athar — Lecture savante</title>
-  <meta name="description" content="Parcourir, rechercher et lire directement les ouvrages du corpus savant Athar, avec texte arabe, français disponible, sommaire et provenance.">
+  <meta name="description" content="Parcourir, rechercher et lire directement les ouvrages du corpus savant Athar, avec texte arabe, français disponible, traduction IA à la demande, sommaire et provenance.">
   <link rel="stylesheet" href="css/research-library-v2.css?v=athar-reader-v2">
+  <link rel="stylesheet" href="css/research-library-ai-tools.css?v=athar-reader-ai-1">
+  <link rel="stylesheet" href="css/new-tools-fullscreen.css?v=athar-pro-v37">
 </head>
 <body>
   <section id="libraryView" class="library-view" aria-label="Bibliothèque Athar">
@@ -235,7 +237,7 @@
               <button id="continuousReading" class="athar-btn athar-btn-soft" type="button">Passer en lecture continue</button>
             </article>
           </div>
-          <div id="readerProvenance" class="reader-provenance">Chaque passage conserve sa provenance. Le texte arabe reste la référence primaire ; les traductions présentes dans le corpus sont affichées avec leur statut lorsqu’il est connu.</div>
+          <div id="readerProvenance" class="reader-provenance">Chaque passage conserve sa provenance. Le texte arabe reste la référence primaire ; les traductions présentes dans le corpus sont affichées avec leur statut lorsqu’il est connu. Les traductions IA demandées dans le lecteur restent séparées et non vérifiées.</div>
         </section>
       </aside>
     </div>
@@ -243,5 +245,7 @@
 
   <div id="toast" class="athar-toast" role="status" aria-live="polite"></div>
   <script src="js/research-library-v2.js?v=athar-reader-v2" defer></script>
+  <script src="js/research-library-ai-tools.js?v=athar-reader-ai-1" defer></script>
+  <script src="js/new-tools-fullscreen.js?v=athar-pro-v37" defer></script>
 </body>
 </html>

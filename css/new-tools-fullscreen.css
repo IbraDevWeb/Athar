@@ -1,0 +1,67 @@
+/* Grand écran explicite pour Athar Research et la Bibliothèque savante */
+.athar-newtool-fullscreen {
+  white-space: nowrap;
+}
+
+.athar-newtool-fullscreen-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.athar-newtool-fullscreen-icon svg,
+.athar-newtool-fullscreen > svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ar5-top-actions .athar-newtool-fullscreen {
+  border-color: var(--ar5-line-local);
+  background: var(--ar5-surface-local);
+  color: var(--ar5-ink-local);
+}
+
+.ar5-top-actions .athar-newtool-fullscreen:hover {
+  border-color: var(--ar5-line-strong);
+  background: var(--ar5-soft-local);
+}
+
+html.athar-newtool-local-fullscreen,
+html.athar-newtool-local-fullscreen body {
+  width: 100%;
+  min-height: 100%;
+  overflow: auto;
+}
+
+@media (max-width: 900px) {
+  .ar5-top-actions .athar-newtool-fullscreen [data-fullscreen-label],
+  .library-topbar-actions .athar-newtool-fullscreen [data-fullscreen-label],
+  .reader-appbar-right .athar-newtool-fullscreen [data-fullscreen-label] {
+    display: none;
+  }
+
+  .library-topbar-actions .athar-newtool-fullscreen,
+  .reader-appbar-right .athar-newtool-fullscreen {
+    width: 42px;
+    min-width: 42px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .ar5-top-actions .athar-newtool-fullscreen {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .reader-appbar-right .athar-newtool-fullscreen {
+    display: inline-flex;
+  }
+}
