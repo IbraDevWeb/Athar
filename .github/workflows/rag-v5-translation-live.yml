@@ -2,6 +2,10 @@ name: RAG V5 scholar translation live probe
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rag-v5-translation-live.yml'
 
 jobs:
   translate-live:
