@@ -240,19 +240,26 @@ def _attach_intelligence(result: dict[str, Any], hints: dict[str, Any]) -> dict[
     return result
 
 
-def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipline: str = ""):
-    hints = _query_hints(connection, query)
+def _search_once(
+    connection,
+    query: str,
+    *,
+    hints: dict[str, Any],
+    limit: int,
+    madhhab: str,
+    discipline: str,
+) -> dict[str, Any]:
+    """Run the core retriever with one isolated per-thread hint packet."""
     previous = getattr(_QUERY_CONTEXT, "hints", None)
     _QUERY_CONTEXT.hints = hints
     try:
-        result = _original_search(
+        return _original_search(
             connection,
             query,
             limit=limit,
             madhhab=madhhab,
             discipline=discipline,
         )
-        return _attach_intelligence(result, hints)
     finally:
         if previous is None:
             try:
@@ -261,6 +268,39 @@ def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipl
                 pass
         else:
             _QUERY_CONTEXT.hints = previous
+
+
+def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipline: str = ""):
+    hints = _query_hints(connection, query)
+    result = _search_once(
+        connection,
+        query,
+        hints=hints,
+        limit=limit,
+        madhhab=madhhab,
+        discipline=discipline,
+    )
+
+    # LLM vocabulary is an expansion, never an authority. If its extra concepts
+    # over-constrain FTS to zero evidence, repeat the exact original retrieval
+    # without those concepts. This costs no second model call and guarantees that
+    # query intelligence cannot erase evidence the deterministic engine could see.
+    if hints.get("used") and not (result.get("sources") or []):
+        rescue = _search_once(
+            connection,
+            query,
+            hints={},
+            limit=limit,
+            madhhab=madhhab,
+            discipline=discipline,
+        )
+        if rescue.get("sources"):
+            result = rescue
+            analysis = result.get("analysis")
+            if isinstance(analysis, dict):
+                analysis["retrieval_rescue"] = "deterministic"
+
+    return _attach_intelligence(result, hints)
 
 
 # search() resolves these helpers through v5_engine module globals. Patching them
