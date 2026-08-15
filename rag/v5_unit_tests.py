@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sqlite3
 import unittest
+from unittest.mock import patch
 
 from v5_lowmem import ask, normalize_text, search
 from v5_engine import corpus_status, detect_concepts
@@ -23,6 +24,7 @@ PASSAGES = [
     ("c3", "muwatta", 3, "باب الجهر بالقراءة", "كان يجهر بالقراءة في صلاة الصبح ويسمع من خلفه", "", "openiti_arabic_source"),
     ("c4", "muwatta", 4, "باب القراءة", "وكان يسر بالقراءة في صلاة الظهر والعصر", "", "openiti_arabic_source"),
     ("c10", "muwatta", 10, "باب صلاة الكسوف", "صلاة الكسوف إذا كسفت الشمس فزع الناس إلى الصلاة وركع الإمام", "", "openiti_arabic_source"),
+    ("c11", "muwatta", 11, "باب السهو", "إذا شك المصلي في عدد الركعات بنى على اليقين وسجد للسهو", "", "openiti_arabic_source"),
     ("c5", "bidayat", 5, "كتاب الصيام", "واختلفوا في صوم المسافر وهل يفطر المسافر في السفر", "", "openiti_arabic_source"),
     ("c6", "tabari", 6, "تفسير فاتحة الكتاب", "القول في تأويل الحمد لله رب العالمين من فاتحة الكتاب", "", "openiti_arabic_source"),
     ("c7", "ibn-kathir-tafsir", 7, "تفسير آية الكرسي", "الله لا إله إلا هو الحي القيوم وهذه آية الكرسي", "", "openiti_arabic_source"),
@@ -74,6 +76,41 @@ class RagV5Tests(unittest.TestCase):
         self.assertIn("eclipse_prayer", result["analysis"]["concepts"])
         self.assertIn("prière de l’éclipse", result["analysis"]["notions"])
         self.assertIn("eclipse_prayer", result["sources"][0]["matched_concepts"])
+
+    def test_known_precise_query_does_not_spend_llm_quota(self) -> None:
+        with patch("v5_lowmem.analyze_query", side_effect=AssertionError("Gemini must not be called")):
+            result = search(self.db, "dans quelles prières récite-t-on à voix haute ?", limit=5)
+        meta = result["analysis"]["query_intelligence"]
+        self.assertFalse(meta["used"])
+        self.assertEqual("deterministic_sufficient", meta["skipped_reason"])
+        self.assertEqual(0, meta["latency_ms"])
+
+    def test_long_tail_modifier_is_sent_once_to_query_intelligence(self) -> None:
+        semantic = {
+            "used": True,
+            "provider": "google-gemini",
+            "model": "gemini-3.1-flash-lite",
+            "notions": ["doute sur le nombre de rakʿāt", "prosternation de l’oubli"],
+            "concepts": [
+                {
+                    "label": "doute sur le nombre de rakʿāt",
+                    "importance": "primary",
+                    "terms": ["شك في عدد الركعات", "الشك في الصلاة", "عدد الركعات", "سجود السهو"],
+                }
+            ],
+            "fallback": "none",
+            "latency_ms": 120,
+            "cache_hit": False,
+            "error": "",
+            "skipped_reason": "",
+        }
+        with patch("v5_lowmem.analyze_query", return_value=semantic) as mocked:
+            result = search(self.db, "que faire quand on doute du nombre de rakaat dans la prière ?", limit=5)
+        mocked.assert_called_once()
+        self.assertTrue(result["analysis"]["query_intelligence"]["used"])
+        self.assertIn("doute sur le nombre de rakʿāt", result["analysis"]["notions"])
+        self.assertGreater(result["count"], 0, result["analysis"])
+        self.assertEqual("c11", result["sources"][0]["id"], result["sources"])
 
     def test_morphology_prier_is_understood(self) -> None:
         concepts = [item["name"] for item in detect_concepts("comment prier en voyage ?")]
