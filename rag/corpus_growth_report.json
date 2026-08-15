@@ -2,13 +2,13 @@
   "pipeline": "athar-corpus-industrializer-v2",
   "source": "OpenITI/RELEASE",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "catalog_candidate_works": 4174,
+  "catalog_candidate_works": 4172,
   "configured_base_books": 50,
   "hosted_target_openiti_books": 70,
   "requested_batch": 20,
   "target_limited_batch": 20,
   "promoted_books": 20,
-  "promoted_source_chars": 12486233,
+  "promoted_source_chars": 17393047,
   "auto_manifest_books_before": 0,
   "auto_manifest_books_after": 20,
   "selected": [
@@ -40,13 +40,13 @@
       "source_char_length": 4441948
     },
     {
-      "book_id": "openiti-auto-1f2b35326077b482",
-      "title": "Samac Wa Qiyas",
-      "title_ar": "السماع والقياس",
-      "author": "Ahmad Taymur Basha",
+      "book_id": "openiti-auto-50b0c08cfcb94b92",
+      "title": "Naqd Maratib Ijmac",
+      "title_ar": "نقد مراتب الإجماع",
+      "author": "Ibn Taymiyya",
       "discipline": "Uṣūl et qawāʿid",
-      "openiti_uri": "1348AhmadTaymurBasha.SamacWaQiyas.Sham19Y0037477-ara1",
-      "source_char_length": 50022
+      "openiti_uri": "0728IbnTaymiyya.NaqdMaratibIjmac.Shamela0008630-ara1",
+      "source_char_length": 23516
     },
     {
       "book_id": "openiti-auto-0f327c7c607299f2",
@@ -85,22 +85,13 @@
       "source_char_length": 327607
     },
     {
-      "book_id": "openiti-auto-ef45d657f464c232",
-      "title": "Tafsir Kitab Thamara",
-      "title_ar": "Tafsīr Kitāb al-Thamara",
-      "author": "Ibn Daya",
+      "book_id": "openiti-auto-1a612db13565e026",
+      "title": "ʾĪǧāz al-bayān ʿan maʿānī al-Qurʾān",
+      "title_ar": "إيجاز البيان عن معاني القرآن",
+      "author": "Bayan Haqq Naysaburi",
       "discipline": "Tafsīr",
-      "openiti_uri": "0340IbnDaya.TafsirKitabThamara.PAL075601135-ara1",
-      "source_char_length": 64832
-    },
-    {
-      "book_id": "openiti-auto-50b0c08cfcb94b92",
-      "title": "Naqd Maratib Ijmac",
-      "title_ar": "نقد مراتب الإجماع",
-      "author": "Ibn Taymiyya",
-      "discipline": "Uṣūl et qawāʿid",
-      "openiti_uri": "0728IbnTaymiyya.NaqdMaratibIjmac.Shamela0008630-ara1",
-      "source_char_length": 23516
+      "openiti_uri": "0553BayanHaqqNaysaburi.IjazBayan.Shamela0023593-ara1",
+      "source_char_length": 247458
     },
     {
       "book_id": "openiti-auto-359bfbd33aa7aaca",
@@ -139,13 +130,13 @@
       "source_char_length": 233888
     },
     {
-      "book_id": "openiti-auto-1a612db13565e026",
-      "title": "ʾĪǧāz al-bayān ʿan maʿānī al-Qurʾān",
-      "title_ar": "إيجاز البيان عن معاني القرآن",
-      "author": "Bayan Haqq Naysaburi",
+      "book_id": "openiti-auto-06dfda5e85767367",
+      "title": "Tafsir Quran",
+      "title_ar": "تفسير السمعاني",
+      "author": "Ibn Muhammad Samcani",
       "discipline": "Tafsīr",
-      "openiti_uri": "0553BayanHaqqNaysaburi.IjazBayan.Shamela0023593-ara1",
-      "source_char_length": 247458
+      "openiti_uri": "0489IbnMuhammadSamcani.TafsirQuran.JK006476-ara1",
+      "source_char_length": 2646418
     },
     {
       "book_id": "openiti-auto-375122ce638d1b31",
@@ -184,13 +175,22 @@
       "source_char_length": 21402
     },
     {
-      "book_id": "openiti-auto-06dfda5e85767367",
-      "title": "Tafsir Quran",
-      "title_ar": "تفسير السمعاني",
-      "author": "Ibn Muhammad Samcani",
+      "book_id": "openiti-auto-76d977d0559732fb",
+      "title": "Tafsir",
+      "title_ar": "تفسير ابن أبي حاتم",
+      "author": "Ibn Abi Hatim Razi",
       "discipline": "Tafsīr",
-      "openiti_uri": "0489IbnMuhammadSamcani.TafsirQuran.JK006476-ara1",
-      "source_char_length": 2646418
+      "openiti_uri": "0327IbnAbiHatimRazi.Tafsir.JK006474-ara1",
+      "source_char_length": 3247077
+    },
+    {
+      "book_id": "openiti-auto-e778a85aee029803",
+      "title": "Minhaj Fi Shucab Iman",
+      "title_ar": "المنهاج في شعب الإيمان",
+      "author": "Abu Cabd Allah Halimi",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0403AbuCabdAllahHalimi.MinhajFiShucabIman.Sham19Y0018567-ara1",
+      "source_char_length": 1774591
     }
   ],
   "dry_run": false
