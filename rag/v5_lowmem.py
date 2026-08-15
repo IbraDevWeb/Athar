@@ -14,7 +14,11 @@ import threading
 from typing import Any
 
 import v5_engine as _engine
-from v5_query_intelligence import analyze_query, public_metadata
+from v5_query_intelligence import (
+    analyze_query,
+    deterministic_query_intelligence,
+    public_metadata,
+)
 
 MAX_FULL_CANDIDATES = 72
 _original_fetch_fts_candidates = _engine._fetch_fts_candidates
@@ -67,6 +71,21 @@ _DISPLAY_LABELS = {
     "shorten_prayer": "raccourcissement de la prière",
 }
 
+# Tokens that can survive the deterministic trigger stripping even though the
+# underlying notion is already unambiguous. They must not waste free-tier LLM
+# quota. A genuinely new modifier (e.g. "vernis", "doute", "rakaat") still
+# routes to Gemini.
+_ROUTING_NOISE = {
+    "recite",
+    "recitent",
+    "reciter",
+    "recitation",
+    "mentionne",
+    "mentionnent",
+    "parle",
+    "parlent",
+}
+
 
 def _bounded_fetch_fts_candidates(connection, fts_query: str, book_id: str, candidate_limit: int):
     bounded = max(1, min(int(candidate_limit), MAX_FULL_CANDIDATES))
@@ -76,6 +95,27 @@ def _bounded_fetch_fts_candidates(connection, fts_query: str, book_id: str, cand
 def _current_hints() -> dict[str, Any]:
     value = getattr(_QUERY_CONTEXT, "hints", None)
     return value if isinstance(value, dict) else {}
+
+
+def _query_intelligence_needed(connection, query: str) -> tuple[bool, str]:
+    """Spend an LLM request only when deterministic parsing leaves real meaning unresolved."""
+    deterministic = [dict(item) for item in _original_detect_concepts(query)]
+    routed_book = _engine.detect_book(connection, query)
+    raw_terms = _engine._meaningful_terms(query, routed_book, deterministic)
+    unresolved = [term for term in raw_terms if _engine.normalize_text(term) not in _ROUTING_NOISE]
+
+    if not deterministic:
+        return True, "no_deterministic_concept"
+    if unresolved:
+        return True, "unresolved_modifiers"
+    return False, "deterministic_sufficient"
+
+
+def _query_hints(connection, query: str) -> dict[str, Any]:
+    needed, reason = _query_intelligence_needed(connection, query)
+    if not needed:
+        return deterministic_query_intelligence(reason)
+    return analyze_query(query)
 
 
 def _augmented_detect_concepts(query: str) -> list[dict[str, Any]]:
@@ -150,7 +190,7 @@ def _attach_intelligence(result: dict[str, Any], hints: dict[str, Any]) -> dict[
 
 
 def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipline: str = ""):
-    hints = analyze_query(query)
+    hints = _query_hints(connection, query)
     previous = getattr(_QUERY_CONTEXT, "hints", None)
     _QUERY_CONTEXT.hints = hints
     try:
