@@ -1,0 +1,369 @@
+/* Athar Research — traduction savante IA à la demande */
+.ar5-translation-tool {
+    border-top: 1px solid var(--ar5-line-local);
+    margin-top: 16px;
+    padding-top: 16px;
+}
+
+.ar5-translation-tool-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ar5-translation-tool-head > div > span {
+    display: block;
+    color: var(--ar5-gold);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+}
+
+.ar5-translation-tool-head h3 {
+    margin: 4px 0 0;
+    color: var(--ar5-ink-local);
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.ar5-translation-tool-head > b {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid color-mix(in srgb, var(--ar5-gold) 26%, var(--ar5-line-local));
+    border-radius: 999px;
+    padding: 5px 8px;
+    background: var(--ar5-gold-soft);
+    color: var(--ar5-gold);
+    font-size: 8px;
+    font-weight: 750;
+}
+
+.ar5-translation-tool-head > b svg {
+    width: 11px;
+    height: 11px;
+}
+
+.ar5-translation-intro {
+    margin: 9px 0 0;
+    color: var(--ar5-muted-local);
+    font-size: 9px;
+    line-height: 1.65;
+}
+
+.ar5-translation-modes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 12px 0 9px;
+}
+
+.ar5-translation-modes button {
+    min-height: 62px;
+    border: 1px solid var(--ar5-line-local);
+    border-radius: 10px;
+    padding: 9px;
+    background: var(--ar5-soft-local);
+    color: var(--ar5-ink-local);
+    text-align: left;
+    display: grid;
+    align-content: start;
+    gap: 4px;
+    transition: .16s ease;
+}
+
+.ar5-translation-modes button:hover {
+    border-color: var(--ar5-line-strong);
+}
+
+.ar5-translation-modes button.active {
+    border-color: color-mix(in srgb, var(--ar5-gold) 58%, var(--ar5-line-strong));
+    background: var(--ar5-gold-soft);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ar5-gold) 13%, transparent);
+}
+
+.ar5-translation-modes strong {
+    font-size: 9px;
+    font-weight: 750;
+}
+
+.ar5-translation-modes small {
+    color: var(--ar5-muted-local);
+    font-size: 7px;
+    line-height: 1.45;
+}
+
+.ar5-translate-button {
+    width: 100%;
+    min-height: 39px;
+    border: 0;
+    border-radius: 10px;
+    background: #1b1a17;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 12px;
+    font-size: 9px;
+    font-weight: 720;
+    transition: transform .16s ease, opacity .16s ease;
+}
+
+.dark .ar5-translate-button {
+    background: #e8d2a8;
+    color: #1b1812;
+}
+
+.ar5-translate-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.ar5-translate-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ar5-translation-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin: 0 0 9px;
+    border: 1px solid rgba(155, 79, 74, .22);
+    border-radius: 10px;
+    padding: 9px 10px;
+    background: rgba(155, 79, 74, .07);
+    color: var(--ar5-red);
+    font-size: 8px;
+    line-height: 1.55;
+}
+
+.ar5-translation-error svg {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    margin-top: 1px;
+}
+
+.ar5-ai-translation {
+    scroll-margin-top: 16px;
+    margin-top: 12px;
+    border: 1px solid color-mix(in srgb, var(--ar5-gold) 34%, var(--ar5-line-local));
+    border-radius: 14px;
+    padding: 14px;
+    background: color-mix(in srgb, var(--ar5-gold-soft) 62%, var(--ar5-surface-local));
+}
+
+.ar5-ai-translation > header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.ar5-ai-translation > header > div {
+    display: grid;
+    gap: 3px;
+}
+
+.ar5-ai-translation > header span {
+    color: var(--ar5-gold);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+}
+
+.ar5-ai-translation > header strong {
+    color: var(--ar5-ink-local);
+    font-size: 9px;
+    font-weight: 720;
+}
+
+.ar5-ai-translation > header > b {
+    flex: 0 0 auto;
+    border: 1px solid rgba(155, 79, 74, .2);
+    border-radius: 999px;
+    padding: 4px 7px;
+    background: rgba(155, 79, 74, .07);
+    color: var(--ar5-red);
+    font-size: 7px;
+    font-weight: 750;
+}
+
+.ar5-ai-translation-text {
+    margin: 0;
+    white-space: pre-wrap;
+    color: var(--ar5-ink-local);
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 11px;
+    line-height: 1.85;
+}
+
+.ar5-translation-terms {
+    margin-top: 13px;
+    padding-top: 12px;
+    border-top: 1px solid color-mix(in srgb, var(--ar5-gold) 20%, var(--ar5-line-local));
+}
+
+.ar5-translation-terms h4 {
+    margin: 0 0 7px;
+    color: var(--ar5-muted-local);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.ar5-translation-terms dl {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+}
+
+.ar5-translation-terms dl > div {
+    display: grid;
+    grid-template-columns: minmax(105px, .42fr) minmax(0, 1fr);
+    gap: 10px;
+    padding: 9px 10px;
+    border: 1px solid var(--ar5-line-local);
+    border-radius: 10px;
+    background: var(--ar5-surface-local);
+}
+
+.ar5-translation-terms dt {
+    display: grid;
+    align-content: start;
+    gap: 2px;
+}
+
+.ar5-translation-terms dt b {
+    color: var(--ar5-ink-local);
+    font-family: Amiri, serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.ar5-translation-terms dt span {
+    color: var(--ar5-muted-local);
+    font-size: 7px;
+    line-height: 1.4;
+}
+
+.ar5-translation-terms dd {
+    margin: 0;
+    color: var(--ar5-ink-local);
+    font-size: 8px;
+    line-height: 1.6;
+}
+
+.ar5-translation-uncertainties {
+    margin-top: 10px;
+    border: 1px solid rgba(181, 139, 69, .25);
+    border-radius: 10px;
+    padding: 9px 10px;
+    background: color-mix(in srgb, var(--ar5-gold-soft) 42%, var(--ar5-surface-local));
+    color: var(--ar5-muted-local);
+}
+
+.ar5-translation-uncertainties > strong {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ar5-ink-local);
+    font-size: 8px;
+    font-weight: 720;
+}
+
+.ar5-translation-uncertainties > strong svg {
+    width: 12px;
+    height: 12px;
+    color: var(--ar5-gold);
+}
+
+.ar5-translation-uncertainties ul {
+    margin: 7px 0 0;
+    padding-left: 16px;
+    font-size: 8px;
+    line-height: 1.6;
+}
+
+.ar5-translation-uncertainties p {
+    margin: 7px 0 0;
+    font-size: 8px;
+    line-height: 1.6;
+}
+
+.ar5-ai-translation > footer {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid color-mix(in srgb, var(--ar5-gold) 18%, var(--ar5-line-local));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.ar5-ai-translation > footer > span {
+    color: var(--ar5-muted-local);
+    font-size: 7px;
+    line-height: 1.4;
+}
+
+.ar5-ai-translation > footer button {
+    flex: 0 0 auto;
+    border: 1px solid var(--ar5-line-local);
+    border-radius: 8px;
+    padding: 6px 8px;
+    background: var(--ar5-surface-local);
+    color: var(--ar5-ink-local);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8px;
+    font-weight: 650;
+}
+
+.ar5-ai-translation > footer button svg {
+    width: 11px;
+    height: 11px;
+}
+
+.ar5-translation-notice {
+    margin: 10px 0 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    color: var(--ar5-muted-local);
+    font-size: 7.5px;
+    line-height: 1.55;
+}
+
+.ar5-translation-notice svg {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: var(--ar5-gold);
+}
+
+@media (max-width: 767px) {
+    .ar5-translation-modes {
+        grid-template-columns: 1fr;
+    }
+
+    .ar5-translation-modes button {
+        min-height: 0;
+    }
+
+    .ar5-translation-terms dl > div {
+        grid-template-columns: 1fr;
+    }
+}
