@@ -29,6 +29,6 @@ services:
       - key: ATHAR_QUERY_LLM_ENABLED
         value: "1"
       - key: ATHAR_QUERY_LLM_MODEL
-        value: gemini-3.5-flash
+        value: gemini-3.1-flash-lite
       - key: GEMINI_API_KEY
         sync: false
