@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "hosted": {
     "target_openiti_books": 170,
     "minimum_openiti_books": 170,
@@ -36,7 +36,19 @@
       "AbuMansurThacalibi.FiqhLugha",
       "MujirDinCulaymi.TarikhMuctabar",
       "NasirMakarimShirazi.AmthalFiTafsir"
-    ]
+    ],
+    "discipline_overrides": {
+      "Nasai.FadailSahaba": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."
+      },
+      "AbuDharrSibtIbnCajami.KunuzDhahab": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : chronique historique de la ville d'Alep."
+      }
+    }
   },
   "sharding": {
     "enabled": true,
