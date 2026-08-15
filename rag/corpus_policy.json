@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "hosted": {
     "target_openiti_books": 195,
     "minimum_openiti_books": 195,
@@ -78,6 +78,16 @@
         "subject": "hadith",
         "discipline": "Hadith",
         "reason": "Revue bibliographique : recueil de traditions et athar sur les boissons enivrantes."
+      },
+      "IbnCasakir.KashfMughatta": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : ouvrage consacré aux mérites du Muwaṭṭaʾ et aux transmissions rapportées à son sujet."
+      },
+      "IbnKhayyatCusfuri.Tarikh": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : chronique historique de Khalīfa ibn Khayyāṭ sur l'histoire du monde islamique."
       }
     }
   },
