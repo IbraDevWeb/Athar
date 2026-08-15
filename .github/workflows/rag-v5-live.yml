@@ -37,7 +37,7 @@ jobs:
           raise SystemExit(f'V5 did not become live: {last}')
           PY
 
-      - name: Wait for natural-language search endpoints
+      - name: Wait for deterministic-first search endpoints
         run: |
           python - <<'PY'
           import json, time, urllib.parse, urllib.request
@@ -67,10 +67,16 @@ jobs:
                       with urllib.request.urlopen(req, timeout=120) as response:
                           payload = json.loads(response.read().decode('utf-8'))
                           cors = response.headers.get('Access-Control-Allow-Origin')
-                      print(query, '=>', payload.get('count'), payload.get('analysis'), flush=True)
+                      analysis = payload.get('analysis') or {}
+                      intelligence = analysis.get('query_intelligence') or {}
+                      print(query, '=>', payload.get('count'), intelligence, analysis.get('notions'), flush=True)
                       assert cors == 'https://ibradevweb.github.io', cors
                       assert payload.get('engine') == 'rag-v5-hybrid-multilingual', payload
                       assert payload.get('sources'), payload
+                      assert intelligence.get('model') == 'gemini-3.1-flash-lite', intelligence
+                      assert intelligence.get('used') is False, intelligence
+                      assert intelligence.get('skipped_reason') == 'deterministic_sufficient', intelligence
+                      assert int(intelligence.get('latency_ms') or 0) == 0, intelligence
                       payloads.append(payload)
 
                   first = payloads[0]
@@ -78,16 +84,16 @@ jobs:
                   concepts = analysis.get('technical_concepts') or analysis.get('concepts') or []
                   assert 'recitation_aloud' in concepts, analysis
                   assert any('recitation_aloud' in (s.get('matched_concepts') or []) for s in first.get('sources') or []), first
-                  print('PUBLIC RAG V5 NATURAL FRENCH RETRIEVAL: PASS')
+                  print('PUBLIC RAG V5 DETERMINISTIC-FIRST RETRIEVAL: PASS')
                   raise SystemExit(0)
               except Exception as exc:
                   last = exc
-                  print(f'Natural-search attempt {attempt}/30: {exc}', flush=True)
+                  print(f'Deterministic-first attempt {attempt}/30: {exc}', flush=True)
                   time.sleep(15)
-          raise SystemExit(f'Natural-language search endpoints did not become stable: {last}')
+          raise SystemExit(f'Deterministic-first search endpoints did not become stable: {last}')
           PY
 
-      - name: Wait for eclipse Query Intelligence deployment
+      - name: Verify eclipse query without spending LLM quota
         run: |
           python - <<'PY'
           import json, time, unicodedata, urllib.parse, urllib.request
@@ -101,7 +107,7 @@ jobs:
               return ' '.join(text.casefold().replace('’', "'").split())
 
           last = None
-          for attempt in range(1, 46):
+          for attempt in range(1, 31):
               try:
                   url = base + '/api/rag/v5/search?' + urllib.parse.urlencode({'q': query, 'limit': 8})
                   req = urllib.request.Request(
@@ -118,7 +124,7 @@ jobs:
                   last = payload
                   analysis = payload.get('analysis') or {}
                   sources = payload.get('sources') or []
-                  intelligence = analysis.get('query_intelligence')
+                  intelligence = analysis.get('query_intelligence') or {}
                   notions = analysis.get('notions') or []
                   routed = analysis.get('routed_book') or {}
                   print(
@@ -129,11 +135,10 @@ jobs:
                       'top=', [(s.get('title'), s.get('chapter'), s.get('page'), s.get('matched_concepts')) for s in sources[:3]],
                       flush=True,
                   )
-
-                  # Presence of these fields proves the new runtime, not merely an
-                  # old healthy V5 process, has actually been deployed by Render.
-                  if not isinstance(intelligence, dict) or 'used' not in intelligence:
-                      raise RuntimeError('Query Intelligence runtime not deployed yet')
+                  if intelligence.get('model') != 'gemini-3.1-flash-lite':
+                      raise RuntimeError(f'new Flash-Lite runtime not deployed yet: {intelligence}')
+                  if intelligence.get('used') is not False or intelligence.get('skipped_reason') != 'deterministic_sufficient':
+                      raise RuntimeError(f'eclipse should not spend Gemini quota: {intelligence}')
                   if not any('eclipse' in norm(item) for item in notions):
                       raise RuntimeError(f'eclipse notion missing: {notions}')
                   if 'muwatta' not in norm(routed.get('title')):
@@ -144,17 +149,69 @@ jobs:
                       raise RuntimeError(f'top evidence is not Muwatta: {sources[0]}')
                   if not any('eclipse_prayer' in (source.get('matched_concepts') or []) for source in sources[:3]):
                       raise RuntimeError('eclipse-specific concept did not reach the evidence ranking')
-
-                  print(
-                      'PUBLIC ATHAR ECLIPSE QUERY: PASS —',
-                      'Gemini used=' + str(bool(intelligence.get('used'))),
-                      'fallback=' + str(intelligence.get('fallback')),
-                      'top=' + str(sources[0].get('chapter') or sources[0].get('page')),
-                  )
+                  print('PUBLIC ATHAR ECLIPSE QUERY: PASS — deterministic ontology, zero Gemini request')
                   raise SystemExit(0)
               except Exception as exc:
                   last = exc
-                  print(f'Attempt {attempt}/45: {exc}', flush=True)
-                  time.sleep(20)
-          raise SystemExit(f'Eclipse Query Intelligence did not become ready: {last}')
+                  print(f'Attempt {attempt}/30: {exc}', flush=True)
+                  time.sleep(15)
+          raise SystemExit(f'Eclipse deterministic routing did not become ready: {last}')
+          PY
+
+      - name: Prove Gemini on one long-tail scholarly query
+        run: |
+          python - <<'PY'
+          import json, time, urllib.parse, urllib.request
+
+          base = 'https://athar-rag-ibradevweb.onrender.com'
+          query = 'Que dit le Muwatta sur celui qui doute du nombre de rakaat dans sa prière ?'
+          last = None
+          for attempt in range(1, 5):
+              try:
+                  url = base + '/api/rag/v5/search?' + urllib.parse.urlencode({'q': query, 'limit': 8})
+                  req = urllib.request.Request(
+                      url,
+                      headers={
+                          'Origin': 'https://ibradevweb.github.io',
+                          'Accept': 'application/json',
+                          'Cache-Control': 'no-cache',
+                          'User-Agent': 'Athar-Gemini-long-tail-check',
+                      },
+                  )
+                  with urllib.request.urlopen(req, timeout=120) as response:
+                      payload = json.loads(response.read().decode('utf-8'))
+                  analysis = payload.get('analysis') or {}
+                  intelligence = analysis.get('query_intelligence') or {}
+                  notions = analysis.get('notions') or []
+                  sources = payload.get('sources') or []
+                  last = intelligence
+                  print(
+                      f'Gemini attempt {attempt}/4:',
+                      'intelligence=', intelligence,
+                      'notions=', notions,
+                      'top=', [(s.get('title'), s.get('chapter'), s.get('page'), s.get('matched_concepts')) for s in sources[:3]],
+                      flush=True,
+                  )
+                  if intelligence.get('model') != 'gemini-3.1-flash-lite':
+                      raise RuntimeError(f'wrong model/runtime: {intelligence}')
+                  if intelligence.get('used') is True and intelligence.get('fallback') == 'none':
+                      if not notions:
+                          raise RuntimeError('Gemini returned no scholarly notion')
+                      if not sources:
+                          raise RuntimeError('Gemini enriched the query but no evidence was retrieved')
+                      print('PUBLIC ATHAR GEMINI LONG-TAIL QUERY: PASS — used=True, fallback=none')
+                      raise SystemExit(0)
+                  error = str(intelligence.get('error') or '')
+                  if error not in {'HTTP_429', 'ReadTimeout', 'ConnectTimeout'}:
+                      raise RuntimeError(f'Gemini did not activate: {intelligence}')
+              except SystemExit:
+                  raise
+              except Exception as exc:
+                  last = exc
+                  print(f'Gemini long-tail attempt {attempt}/4: {exc}', flush=True)
+              if attempt < 4:
+                  # Failure results are cached briefly to prevent multi-shard quota
+                  # amplification, so wait beyond that TTL before a real retry.
+                  time.sleep(55)
+          raise SystemExit(f'Gemini long-tail Query Intelligence never became active: {last}')
           PY
