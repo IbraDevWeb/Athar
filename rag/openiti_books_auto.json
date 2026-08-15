@@ -2320,32 +2320,6 @@
       }
     },
     {
-      "book_id": "openiti-auto-6fe38be1c0d34290",
-      "kutub_id": null,
-      "title": "Sulafa Casr",
-      "title_ar": "سلافة العصر في محاسن الشعراء بكل مصر",
-      "author": "Ibn Macsum",
-      "discipline": "Sīra et histoire",
-      "madhhab": "",
-      "openiti_uri": "1119IbnMacsum.SulafaCasr.ShamAY0034642-ara1",
-      "work_uri": "1119IbnMacsum.SulafaCasr",
-      "path": "data/1119IbnMacsum/1119IbnMacsum.SulafaCasr/1119IbnMacsum.SulafaCasr.ShamAY0034642-ara1.completed",
-      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
-      "known_issues": "",
-      "enabled": true,
-      "metadata": {
-        "source": "OpenITI",
-        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-        "catalogue_selection": "athar-corpus-industrializer-v2",
-        "classification_status": "automatic_metadata_hint",
-        "classification_subject": "sira",
-        "source_char_length": 694173,
-        "source_token_length": 164078,
-        "source_id": "ShamAY0034642",
-        "date_ah": "1119"
-      }
-    },
-    {
       "book_id": "openiti-auto-2721f0f182b87ab0",
       "kutub_id": null,
       "title": "Kifāyaŧ al-nabīh šarḥ al-Tanbīh fī fiqh al-Imām al-¶ Šāfiʿī",
@@ -2473,6 +2447,32 @@
         "source_token_length": 128971,
         "source_id": "Shamela0011997",
         "date_ah": "0911"
+      }
+    },
+    {
+      "book_id": "openiti-auto-69049254d28939c4",
+      "kutub_id": null,
+      "title": "Qawacid Fiqhiyya",
+      "title_ar": "القواعد الفقهية وتطبيقاتها في المذاهب الأربعة",
+      "author": "Zuhayli",
+      "discipline": "Fiqh",
+      "madhhab": "",
+      "openiti_uri": "1450Zuhayli.QawacidFiqhiyya.Sham20Y0021786-ara1",
+      "work_uri": "1450Zuhayli.QawacidFiqhiyya",
+      "path": "data/1450Zuhayli/1450Zuhayli.QawacidFiqhiyya/1450Zuhayli.QawacidFiqhiyya.Sham20Y0021786-ara1.completed",
+      "quality_status": "PRIMARY_VERSION,CLEANED_VERSION,NO_MAJOR_ISSUES",
+      "known_issues": "",
+      "enabled": true,
+      "metadata": {
+        "source": "OpenITI",
+        "source_release": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+        "catalogue_selection": "athar-corpus-industrializer-v2",
+        "classification_status": "automatic_metadata_hint",
+        "classification_subject": "fiqh",
+        "source_char_length": 825179,
+        "source_token_length": 194747,
+        "source_id": "Sham20Y0021786",
+        "date_ah": "1450"
       }
     }
   ]

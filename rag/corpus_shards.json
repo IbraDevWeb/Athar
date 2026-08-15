@@ -1022,13 +1022,13 @@
     {
       "id": "openiti-004",
       "book_count": 30,
-      "source_chars": 15979503,
+      "source_chars": 16110509,
       "oversize_source": false,
       "subjects": {
         "aqida": 5,
-        "fiqh": 5,
+        "fiqh": 6,
         "hadith": 5,
-        "sira": 5,
+        "sira": 4,
         "tafsir": 10
       },
       "books": [
@@ -1185,14 +1185,6 @@
           "source_chars": 360742
         },
         {
-          "book_id": "openiti-auto-6fe38be1c0d34290",
-          "title": "Sulafa Casr",
-          "title_ar": "سلافة العصر في محاسن الشعراء بكل مصر",
-          "author": "Ibn Macsum",
-          "discipline": "Sīra et histoire",
-          "source_chars": 694173
-        },
-        {
           "book_id": "openiti-auto-2721f0f182b87ab0",
           "title": "Kifāyaŧ al-nabīh šarḥ al-Tanbīh fī fiqh al-Imām al-¶ Šāfiʿī",
           "title_ar": "كفاية النبيه شرح التنبيه في فقه الامام ال¶ شافعي",
@@ -1231,6 +1223,14 @@
           "author": "Suyuti",
           "discipline": "Sīra et histoire",
           "source_chars": 538454
+        },
+        {
+          "book_id": "openiti-auto-69049254d28939c4",
+          "title": "Qawacid Fiqhiyya",
+          "title_ar": "القواعد الفقهية وتطبيقاتها في المذاهب الأربعة",
+          "author": "Zuhayli",
+          "discipline": "Fiqh",
+          "source_chars": 825179
         },
         {
           "book_id": "openiti-baghawi-tafsir",
@@ -1415,12 +1415,12 @@
     "openiti-auto-bc0d5557d59db0da": "openiti-004",
     "openiti-auto-40aa6cebf46a1946": "openiti-004",
     "openiti-auto-21bb3486c8a0e085": "openiti-004",
-    "openiti-auto-6fe38be1c0d34290": "openiti-004",
     "openiti-auto-2721f0f182b87ab0": "openiti-004",
     "openiti-auto-7e3315fb45370201": "openiti-004",
     "openiti-auto-79d026267e5e9a25": "openiti-004",
     "openiti-auto-ed4513cd1454d397": "openiti-004",
     "openiti-auto-efccb0ad4a1ac254": "openiti-004",
+    "openiti-auto-69049254d28939c4": "openiti-004",
     "openiti-baghawi-tafsir": "openiti-004",
     "openiti-zamakhshari-kashshaf": "openiti-004",
     "openiti-razi-mafatih-ghayb": "openiti-004",
