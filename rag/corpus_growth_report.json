@@ -4,33 +4,242 @@
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
   "catalog_candidate_works": 3657,
   "configured_base_books": 50,
-  "hosted_target_openiti_books": 170,
+  "hosted_target_openiti_books": 195,
   "requested_batch": 25,
-  "target_limited_batch": 0,
-  "promoted_books": 0,
-  "promoted_source_chars": 0,
+  "target_limited_batch": 25,
+  "promoted_books": 25,
+  "promoted_source_chars": 34764088,
   "auto_manifest_books_before": 120,
   "auto_manifest_books_pruned": 0,
-  "auto_manifest_books_after": 120,
-  "discipline_overrides_applied": [
+  "auto_manifest_books_after": 145,
+  "discipline_overrides_applied": [],
+  "pruned": [],
+  "selected": [
     {
-      "book_id": "openiti-auto-65b6ff1a2488c102",
-      "work_uri": "0303Nasai.FadailSahaba",
-      "from": "Fiqh",
-      "to": "Hadith",
-      "subject": "hadith",
-      "reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."
+      "book_id": "openiti-auto-500e022ea71fad78",
+      "title": "al-Radd ʿalá siyar al-Awzāʿī",
+      "title_ar": "الرد على سير الأوزاعي",
+      "author": "Abu Yusuf Yacqub",
+      "discipline": "Fiqh",
+      "openiti_uri": "0182AbuYusufYacqub.RaddCalaSiyarAwzaci.Shamela0007225-ara1",
+      "source_char_length": 47543
     },
     {
-      "book_id": "openiti-auto-38ddf90cc1f471df",
-      "work_uri": "0884AbuDharrSibtIbnCajami.KunuzDhahab",
-      "from": "Hadith",
-      "to": "Sīra et histoire",
-      "subject": "sira",
-      "reason": "Revue bibliographique : chronique historique de la ville d'Alep."
+      "book_id": "openiti-auto-7f97bae9b19b1a36",
+      "title": "Muḫtaṣar al-Kāmil fī al-ḍuʿafāʾ wa ʿilal al-ḥadīṯ",
+      "title_ar": "مختصر الكامل في الضعفاء و علل الحديث",
+      "author": "Maqrizi",
+      "discipline": "Hadith",
+      "openiti_uri": "0845Maqrizi.MukhtasarKamil.Shamela0005848-ara1",
+      "source_char_length": 542306
+    },
+    {
+      "book_id": "openiti-auto-bbebd10298701460",
+      "title": "Tafsir Mizan",
+      "title_ar": "الميزان في تفسير القرآن",
+      "author": "Sayyid Tabatabai",
+      "discipline": "Tafsīr",
+      "openiti_uri": "1402SayyidTabatabai.TafsirMizan.Tafsir04056-ara1",
+      "source_char_length": 9777803
+    },
+    {
+      "book_id": "openiti-auto-a6fbcef3f2f749b6",
+      "title": "Surur Ahl Iman",
+      "title_ar": "سرور أهل الإيمان في علامات ظهور صاحب الزمان (عج)",
+      "author": "Baha Din Nili Najafi",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0803BahaDinNiliNajafi.SururAhlIman.Masaha002219-ara1",
+      "source_char_length": 41252
+    },
+    {
+      "book_id": "openiti-auto-5d76245d5a8bd8bd",
+      "title": "Mawrid Latafa",
+      "title_ar": "مورد اللطافة في من ولي السلطنة والخلافة",
+      "author": "Ibn Taghribirdi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0874IbnTaghribirdi.MawridLatafa.Shamela0006669-ara1",
+      "source_char_length": 253851
+    },
+    {
+      "book_id": "openiti-auto-f155a24cc9637212",
+      "title": "Min kalām al-imām ʿAbd Allāh Aḥmad b. Ḥanbal fī ʿilal al-ḥadīṯ wa-maʿrifaŧ al-riǧāl",
+      "title_ar": "من كلام الامام عبد الله أحمد بن حنبل في علل الحديث ومعرفة الرجال",
+      "author": "Ibn Hanbal",
+      "discipline": "Fiqh",
+      "openiti_uri": "0241IbnHanbal.JamicFiCilal.JK000749-ara1",
+      "source_char_length": 42312
+    },
+    {
+      "book_id": "openiti-auto-9148e0f8c7f8412e",
+      "title": "al-Muġnī fī al-ḍuʿafāʾ",
+      "title_ar": "المغني في الضعفاء",
+      "author": "Dhahabi",
+      "discipline": "Hadith",
+      "openiti_uri": "0748Dhahabi.MughniFiDucafa.JK001307-ara1",
+      "source_char_length": 448363
+    },
+    {
+      "book_id": "openiti-auto-6e39e45a2e8cbdc6",
+      "title": "Tafsir",
+      "title_ar": "تفسير المراغي",
+      "author": "Ahmad Mustafa Maraghi",
+      "discipline": "Tafsīr",
+      "openiti_uri": "1371AhmadMustafaMaraghi.Tafsir.Sham19Y0023608-ara1",
+      "source_char_length": 5614148
+    },
+    {
+      "book_id": "openiti-auto-b07b4f04bcb6054b",
+      "title": "Mufid Mustafid",
+      "title_ar": "مفيد المستفيد في كفر تارك التوحيد",
+      "author": "Ibn Cabd Wahhab",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "1206IbnCabdWahhab.MufidMustafid.JK006875-ara1",
+      "source_char_length": 38842
+    },
+    {
+      "book_id": "openiti-auto-86e11d30d41fe26d",
+      "title": "Mulhaq Badr",
+      "title_ar": "ملحق البدر الطالع بمحاسن من بعد القرن السابع ((الملحق التابع للبدر الطالع))",
+      "author": "Muhammad Sancani",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "1381MuhammadSancani.MulhaqBadr.Shamela0006672-ara1",
+      "source_char_length": 226138
+    },
+    {
+      "book_id": "openiti-auto-107d5cdd57ee78f1",
+      "title": "Wafayat",
+      "title_ar": "الوفيات (معجم زمني للصحابة وأعلام المحدثين والفقهاء والمؤلفين)",
+      "author": "Ibn Qunfudh",
+      "discipline": "Fiqh",
+      "openiti_uri": "0809IbnQunfudh.Wafayat.Shamela0010921-ara1",
+      "source_char_length": 38939
+    },
+    {
+      "book_id": "openiti-auto-481d1841dd4fcde4",
+      "title": "Tārīḫ Ǧurǧān",
+      "title_ar": "تاريخ جرجان",
+      "author": "Sahmi",
+      "discipline": "Hadith",
+      "openiti_uri": "0427Sahmi.TarikhJurjan.Shamela0011077BK1-ara1",
+      "source_char_length": 422624
+    },
+    {
+      "book_id": "openiti-auto-f0bdae2fc4474df0",
+      "title": "Tafsir Bayan Sacada",
+      "title_ar": "تفسير بيان السعادة في مقامات العبادة",
+      "author": "Sultan Cali Shah Ganabadhi",
+      "discipline": "Tafsīr",
+      "openiti_uri": "1350SultanCaliShahGanabadhi.TafsirBayanSacada.Tafsir04042-ara1",
+      "source_char_length": 3146213
+    },
+    {
+      "book_id": "openiti-auto-d0892e564a0ba9f3",
+      "title": "Iqtisad Fi Ictiqad",
+      "title_ar": "الاقتصاد في الاعتقاد",
+      "author": "Cabd Ghani Maqdisi",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0600CabdGhaniMaqdisi.IqtisadFiIctiqad.Shamela0007546-ara1",
+      "source_char_length": 26245
+    },
+    {
+      "book_id": "openiti-auto-409d0cf1dabd5a2e",
+      "title": "Wulāt Miṣr",
+      "title_ar": "ولات مصر",
+      "author": "Muhammad Kindi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0350MuhammadKindi.WulatMisr.JK010325-ara1",
+      "source_char_length": 207777
+    },
+    {
+      "book_id": "openiti-auto-7d8397d7a41091d3",
+      "title": "al-Arbaʿūn fī al-ḥaṯṯ ʿalá al-ǧihād",
+      "title_ar": "الأربعون في الحث على الجهاد",
+      "author": "Ibn Casakir",
+      "discipline": "Fiqh",
+      "openiti_uri": "0571IbnCasakir.ArbacunaFiHathth.Shamela0005716-ara1",
+      "source_char_length": 23223
+    },
+    {
+      "book_id": "openiti-auto-9107bf79591e0cee",
+      "title": "Ṭabaqāt al-muḥaddiṯīn bi-Iṣbahān wa-al-wāridīn ʿalayhā",
+      "title_ar": "طبقات المحدثين باصبهان والواردين عليها",
+      "author": "Abu Shaykh Isbahani",
+      "discipline": "Hadith",
+      "openiti_uri": "0369AbuShaykhIsbahani.TabaqatMuhaddithin.JK000520-ara1",
+      "source_char_length": 416615
+    },
+    {
+      "book_id": "openiti-auto-530071d114919ba5",
+      "title": "Taysir Tafsir",
+      "title_ar": "تيسير التفسير",
+      "author": "Qutb Atfayyish",
+      "discipline": "Tafsīr",
+      "openiti_uri": "1332QutbAtfayyish.TaysirTafsir.Tafsir09050-ara1",
+      "source_char_length": 6277609
+    },
+    {
+      "book_id": "openiti-auto-d47dc1729ae22e64",
+      "title": "Ictiqadat",
+      "title_ar": "اعتقادات فرق المسلمين والمشركين",
+      "author": "Fakhr Din Razi",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0606FakhrDinRazi.Ictiqadat.JK000346-ara1",
+      "source_char_length": 21410
+    },
+    {
+      "book_id": "openiti-auto-49e04946d66357a1",
+      "title": "Tabaqat Nahwiyyin Wa Lughawiyyin",
+      "title_ar": "طبقات النحويين واللغويين (سلسلة ذخائر العرب 50)",
+      "author": "Zubaydi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0379Zubaydi.TabaqatNahwiyyinWaLughawiyyin.Sham19Y0013235-ara1",
+      "source_char_length": 204688
+    },
+    {
+      "book_id": "openiti-auto-079949fd011cae5e",
+      "title": "ḏamm al-muskir",
+      "title_ar": "ذم المسكر",
+      "author": "Ibn Abi Dunya",
+      "discipline": "Fiqh",
+      "openiti_uri": "0281IbnAbiDunya.DhammMuskir.JK000635-ara1",
+      "source_char_length": 16156
+    },
+    {
+      "book_id": "openiti-auto-7469784d18329b3e",
+      "title": "al-Muḫtaṣar al-muḥtāǧ ilayh min Tāriīḫ al-Ḥāfiẓ al-Dubayṯī",
+      "title_ar": "المختصر المحتاج اليه من تاريخ الحافظ الدبيثي",
+      "author": "Dhahabi",
+      "discipline": "Hadith",
+      "openiti_uri": "0748Dhahabi.MukhtasarMinDubaythi.JK009161-ara1",
+      "source_char_length": 401267
+    },
+    {
+      "book_id": "openiti-auto-644eda0af9ec4932",
+      "title": "Tafsir Mazhari",
+      "title_ar": "التفسير المظهري",
+      "author": "Thana Allah Panipati",
+      "discipline": "Tafsīr",
+      "openiti_uri": "1225ThanaAllahPanipati.TafsirMazhari.Shamela0021766-ara1",
+      "source_char_length": 6314659
+    },
+    {
+      "book_id": "openiti-auto-8ac462dbc62ea962",
+      "title": "Dahd Shubuhat",
+      "title_ar": "دحض شبهات على التوحيد من سوء الفهم لثلاثة أحاديث",
+      "author": "Ababutayn",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "1282Ababutayn.DahdShubuhat.Shamela0011181-ara1",
+      "source_char_length": 15797
+    },
+    {
+      "book_id": "openiti-auto-0905456ef99c56e7",
+      "title": "Mutalif Wa Mukhtalif",
+      "title_ar": "المؤتلف والمختلف في أسماء الشعراء وكناهم وألقابهم وأنسابهم وبعض شعرهم",
+      "author": "Abu Qasim Amidi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0370AbuQasimAmidi.MutalifWaMukhtalif.Shamela0010913-ara1",
+      "source_char_length": 198308
     }
   ],
-  "pruned": [],
-  "selected": [],
   "dry_run": false
 }
