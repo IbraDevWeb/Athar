@@ -179,6 +179,7 @@ def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipl
 _engine._fetch_fts_candidates = _bounded_fetch_fts_candidates
 _engine.detect_concepts = _augmented_detect_concepts
 _engine.search = search
+search = _engine.search
 
 # v5_engine.ask resolves `search` dynamically, so after the patch above it uses
 # the same LLM-assisted retrieval while still building evidence-only claims.
