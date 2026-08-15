@@ -26,3 +26,9 @@ services:
         value: rag/data/shards
       - key: ATHAR_CORPUS_MANIFEST
         value: rag/corpus_release_v3.json
+      - key: ATHAR_QUERY_LLM_ENABLED
+        value: "1"
+      - key: ATHAR_QUERY_LLM_MODEL
+        value: gemini-3.5-flash
+      - key: GEMINI_API_KEY
+        sync: false

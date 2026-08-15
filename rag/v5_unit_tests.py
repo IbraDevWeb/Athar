@@ -3,7 +3,8 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from v5_engine import ask, corpus_status, detect_concepts, normalize_text, search
+from v5_lowmem import ask, normalize_text, search
+from v5_engine import corpus_status, detect_concepts
 
 BOOKS = [
     ("bukhari", "Sahih al-Bukhari", "", "Al-Bukhari", "Hadith", "Transversal"),
@@ -21,6 +22,7 @@ PASSAGES = [
     ("c2", "muslim", 2, "كتاب الطهارة", "باب الطهارة والوضوء وغسل أعضاء الوضوء", "", "openiti_arabic_source"),
     ("c3", "muwatta", 3, "باب الجهر بالقراءة", "كان يجهر بالقراءة في صلاة الصبح ويسمع من خلفه", "", "openiti_arabic_source"),
     ("c4", "muwatta", 4, "باب القراءة", "وكان يسر بالقراءة في صلاة الظهر والعصر", "", "openiti_arabic_source"),
+    ("c10", "muwatta", 10, "باب صلاة الكسوف", "صلاة الكسوف إذا كسفت الشمس فزع الناس إلى الصلاة وركع الإمام", "", "openiti_arabic_source"),
     ("c5", "bidayat", 5, "كتاب الصيام", "واختلفوا في صوم المسافر وهل يفطر المسافر في السفر", "", "openiti_arabic_source"),
     ("c6", "tabari", 6, "تفسير فاتحة الكتاب", "القول في تأويل الحمد لله رب العالمين من فاتحة الكتاب", "", "openiti_arabic_source"),
     ("c7", "ibn-kathir-tafsir", 7, "تفسير آية الكرسي", "الله لا إله إلا هو الحي القيوم وهذه آية الكرسي", "", "openiti_arabic_source"),
@@ -63,6 +65,15 @@ class RagV5Tests(unittest.TestCase):
         self.assertGreater(result["count"], 0, result["analysis"])
         self.assertEqual("c4", result["sources"][0]["id"], result["sources"])
         self.assertIn("recitation_silent", result["analysis"]["concepts"])
+
+    def test_muwatta_eclipse_is_not_reduced_to_generic_prayer(self) -> None:
+        result = search(self.db, "Que dit le Muwatta sur la prière de l'éclipse ?", limit=5)
+        self.assertEqual("muwatta", result["analysis"]["routed_book"]["id"], result["analysis"])
+        self.assertGreater(result["count"], 0, result["analysis"])
+        self.assertEqual("c10", result["sources"][0]["id"], result["sources"])
+        self.assertIn("eclipse_prayer", result["analysis"]["concepts"])
+        self.assertIn("prière de l’éclipse", result["analysis"]["notions"])
+        self.assertIn("eclipse_prayer", result["sources"][0]["matched_concepts"])
 
     def test_morphology_prier_is_understood(self) -> None:
         concepts = [item["name"] for item in detect_concepts("comment prier en voyage ?")]

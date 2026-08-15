@@ -6,10 +6,15 @@ on:
     paths:
       - 'rag/v5_*.py'
       - '.github/workflows/rag-v5-tests.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'rag/v5_*.py'
+      - '.github/workflows/rag-v5-tests.yml'
   workflow_dispatch:
 
 concurrency:
-  group: rag-v5-rebuild
+  group: rag-v5-rebuild-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -21,13 +26,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install V5 dependencies
+        run: python -m pip install -r rag/requirements.txt
       - name: Compile V5
-        run: python -m py_compile rag/v5_engine.py rag/v5_server.py rag/v5_unit_tests.py rag/v5_corpus_tests.py
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py rag/v5_lowmem.py rag/v5_query_intelligence.py
+          rag/v5_server.py rag/v5_unit_tests.py rag/v5_query_intelligence_tests.py rag/v5_corpus_tests.py
+      - name: Run V5 query-intelligence tests
+        working-directory: rag
+        run: python v5_query_intelligence_tests.py
       - name: Run V5 unit tests
         working-directory: rag
+        env:
+          GEMINI_API_KEY: ''
         run: python v5_unit_tests.py
 
+  # Historical monolithic V2 validation. The production service now uses the
+  # separate V3 sharded/low-memory workflow, which runs on pull requests.
   real-corpus:
+    if: github.event_name != 'pull_request'
     needs: unit
     runs-on: ubuntu-latest
     timeout-minutes: 35
@@ -42,4 +60,6 @@ jobs:
         run: python rag/cache_hosted_corpus.py --output rag/data/v5_test.sqlite
       - name: Validate published corpus with natural French questions
         working-directory: rag
+        env:
+          GEMINI_API_KEY: ''
         run: python v5_corpus_tests.py --db data/v5_test.sqlite
