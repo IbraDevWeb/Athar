@@ -1,0 +1,319 @@
+/* Athar Library — traduction IA à la demande */
+.reader-ai-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reader-ai-mode-select {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 7px 0 9px;
+  border: 1px solid var(--athar-line);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.reader-ai-mode-select > span {
+  color: var(--athar-muted);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.reader-ai-mode-select select {
+  min-height: 28px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--athar-ink);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.reader-ai-page-button,
+.reader-ai-passage-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(157, 81, 71, .22);
+  border-radius: 9px;
+  background: var(--athar-brand-soft);
+  color: var(--athar-brand-dark);
+  cursor: pointer;
+  font-weight: 800;
+  transition: border-color .16s ease, background .16s ease, transform .16s ease;
+}
+
+.reader-ai-page-button {
+  min-height: 36px;
+  padding: 0 10px;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.reader-ai-page-button:hover:not(:disabled),
+.reader-ai-passage-button:hover:not(:disabled) {
+  border-color: rgba(157, 81, 71, .38);
+  background: #f2dfdb;
+  transform: translateY(-1px);
+}
+
+.reader-ai-page-button:disabled,
+.reader-ai-passage-button:disabled {
+  opacity: .48;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reader-ai-page-button svg,
+.reader-ai-passage-button svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.reader-ai-passage-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.reader-ai-passage-button {
+  min-height: 32px;
+  padding: 0 9px;
+  font-size: 8px;
+}
+
+.reader-ai-passage-button.is-loading svg {
+  animation: readerAiPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes readerAiPulse {
+  0%, 100% { opacity: .45; transform: scale(.92); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.reader-ai-translation {
+  margin-top: 14px;
+  padding: 18px 18px 15px;
+  border: 1px solid #eadbcf;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fffaf5 0%, #fff 100%);
+  box-shadow: 0 8px 26px rgba(60, 43, 27, .045);
+}
+
+.reader-ai-translation > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.reader-ai-translation > header > div {
+  display: grid;
+  gap: 3px;
+}
+
+.reader-ai-translation > header span {
+  color: var(--athar-brand);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.reader-ai-translation > header strong {
+  color: var(--athar-ink);
+  font-size: 10px;
+}
+
+.reader-ai-translation > header > b {
+  flex: 0 0 auto;
+  padding: 4px 7px;
+  border: 1px solid rgba(165, 61, 78, .16);
+  border-radius: 999px;
+  background: rgba(165, 61, 78, .06);
+  color: var(--athar-red);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.reader-ai-text {
+  margin: 0;
+  color: #3e444d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--reader-fr-size);
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.reader-ai-terms,
+.reader-ai-uncertainties {
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid #eee5db;
+}
+
+.reader-ai-terms > strong,
+.reader-ai-uncertainties > strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--athar-muted);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.reader-ai-terms dl {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+}
+
+.reader-ai-terms dl > div {
+  display: grid;
+  grid-template-columns: minmax(130px, .38fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 11px;
+  border: 1px solid #ece7e0;
+  border-radius: 9px;
+  background: rgba(255,255,255,.86);
+}
+
+.reader-ai-terms dt {
+  display: grid;
+  gap: 2px;
+}
+
+.reader-ai-terms dt span {
+  direction: rtl;
+  text-align: right;
+  color: #171b24;
+  font-family: "Amiri", "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.reader-ai-terms dt small {
+  color: var(--athar-muted);
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+.reader-ai-terms dd {
+  margin: 0;
+  color: var(--athar-ink-soft);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.reader-ai-uncertainties ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #7b684f;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.reader-ai-warning {
+  margin: 12px 0 0;
+  padding: 10px 11px;
+  border: 1px solid #eadfcf;
+  border-radius: 8px;
+  background: #fff8ec;
+  color: #806a48;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.reader-ai-translation > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid #eee5db;
+}
+
+.reader-ai-translation > footer > span {
+  color: var(--athar-muted);
+  font-size: 8px;
+}
+
+.reader-ai-translation > footer button {
+  min-height: 28px;
+  padding: 0 9px;
+  border: 1px solid var(--athar-line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--athar-ink-soft);
+  cursor: pointer;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.reader-center[data-mode="french"] .reader-ai-passage-actions,
+.reader-center[data-mode="french"] .reader-ai-translation {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .reader-toolbar {
+    flex-wrap: wrap;
+  }
+  .reader-ai-toolbar {
+    order: 4;
+  }
+  .reader-page-form {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .reader-ai-toolbar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .reader-ai-mode-select {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .reader-ai-page-button {
+    width: 100%;
+  }
+  .reader-ai-terms dl > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .reader-ai-toolbar {
+    grid-template-columns: 1fr;
+  }
+  .reader-ai-passage-actions {
+    justify-content: stretch;
+  }
+  .reader-ai-passage-button {
+    width: 100%;
+  }
+  .reader-ai-translation {
+    padding: 14px;
+  }
+}
