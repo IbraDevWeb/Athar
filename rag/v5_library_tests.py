@@ -3,7 +3,7 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from v5_library import get_book, get_toc, read_book, search_book
+from v5_library import get_book, get_toc, list_library_books, read_book, search_book
 
 
 class LibraryReaderTests(unittest.TestCase):
@@ -94,6 +94,18 @@ class LibraryReaderTests(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.connection.close()
+
+    def test_library_catalog_exposes_language_and_section_coverage(self) -> None:
+        books = list_library_books(self.connection)
+        self.assertEqual(len(books), 1)
+        book = books[0]
+        self.assertEqual(book["chunks"], 5)
+        self.assertEqual(book["indexed_pages"], 3)
+        self.assertEqual(book["indexed_sections"], 3)
+        self.assertEqual(book["arabic_passages"], 5)
+        self.assertEqual(book["french_passages"], 3)
+        self.assertTrue(book["has_arabic"])
+        self.assertTrue(book["has_french"])
 
     def test_book_summary_counts_languages_pages_and_sections(self) -> None:
         book = get_book(self.connection, "book-1")
