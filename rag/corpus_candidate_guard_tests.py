@@ -6,7 +6,12 @@ from corpus_candidate_guard import guard_candidate, guard_catalog, has_strong_us
 
 POLICY = {
     "promotion": {
-        "excluded_work_markers": ["IbnYacqubKulayni", "UsulMinKafi"],
+        "excluded_work_markers": [
+            "IbnYacqubKulayni",
+            "UsulMinKafi",
+            "AhmadTaymurBasha.SamacWaQiyas",
+            "IbnDaya.TafsirKitabThamara",
+        ],
     }
 }
 
@@ -62,14 +67,35 @@ class CorpusCandidateGuardTests(unittest.TestCase):
         self.assertTrue(has_strong_usul_context(item))
         self.assertEqual(guard_candidate(item, POLICY), (True, ""))
 
-    def test_qiyas_is_accepted_as_strong_usul_context(self) -> None:
+    def test_qiyas_alone_is_not_sufficient_for_usul(self) -> None:
         item = candidate(
             work_uri="0999Fixture.KitabQiyas",
             title="Kitab al-Qiyas",
             title_ar="كتاب القياس",
         )
-        self.assertTrue(has_strong_usul_context(item))
-        self.assertEqual(guard_candidate(item, POLICY), (True, ""))
+        self.assertFalse(has_strong_usul_context(item))
+        self.assertEqual(guard_candidate(item, POLICY), (False, "ambiguous_usul_context"))
+
+    def test_grammar_samac_wa_qiyas_is_explicitly_blocked(self) -> None:
+        item = candidate(
+            work_uri="1348AhmadTaymurBasha.SamacWaQiyas",
+            title="Samac Wa Qiyas",
+            title_ar="السماع والقياس",
+        )
+        ok, reason = guard_candidate(item, POLICY)
+        self.assertFalse(ok)
+        self.assertIn("SamacWaQiyas", reason)
+
+    def test_ptolemaic_tafsir_is_explicitly_blocked(self) -> None:
+        item = candidate(
+            subject="tafsir",
+            work_uri="0340IbnDaya.TafsirKitabThamara",
+            title="Tafsir Kitab Thamara",
+            title_ar="تفسير كتاب الثمرة",
+        )
+        ok, reason = guard_candidate(item, POLICY)
+        self.assertFalse(ok)
+        self.assertIn("TafsirKitabThamara", reason)
 
     def test_non_usul_subject_is_not_overfiltered(self) -> None:
         item = candidate(subject="hadith", title="Sunan Fixture", title_ar="سنن الاختبار")
