@@ -12,6 +12,9 @@ on:
       - 'rag/corpus_candidate_guard_tests.py'
       - 'rag/corpus_industrializer.py'
       - 'rag/corpus_industrializer_tests.py'
+      - 'rag/corpus_shards.py'
+      - 'rag/corpus_shards_tests.py'
+      - 'rag/corpus_shards.json'
       - 'rag/openiti_books_auto.json'
       - 'rag/ingest_openiti.py'
       - 'rag/build_hosted_corpus.py'
@@ -32,6 +35,9 @@ on:
       - 'rag/corpus_candidate_guard_tests.py'
       - 'rag/corpus_industrializer.py'
       - 'rag/corpus_industrializer_tests.py'
+      - 'rag/corpus_shards.py'
+      - 'rag/corpus_shards_tests.py'
+      - 'rag/corpus_shards.json'
       - 'rag/openiti_books_auto.json'
       - 'rag/ingest_openiti.py'
       - 'rag/build_hosted_corpus.py'
@@ -65,6 +71,8 @@ jobs:
           rag/corpus_candidate_guard.py
           rag/corpus_candidate_guard_tests.py
           rag/corpus_industrializer.py
+          rag/corpus_shards.py
+          rag/corpus_shards_tests.py
           rag/ingest_openiti.py
           rag/build_hosted_corpus.py
           rag/cache_hosted_corpus.py
@@ -72,11 +80,12 @@ jobs:
           rag/corpus_industrializer_tests.py
           rag/corpus_release_cache_tests.py
 
-      - name: Run deterministic catalogue and promotion tests
+      - name: Run deterministic catalogue, promotion and sharding tests
         working-directory: rag
         run: |
           python corpus_industrializer_tests.py
           python corpus_candidate_guard_tests.py
+          python corpus_shards_tests.py
 
       - name: Run compressed release cache tests
         working-directory: rag
@@ -90,6 +99,7 @@ jobs:
           from pathlib import Path
           sys.path.insert(0, 'rag')
           from ingest_openiti import load_industrialized_manifest
+          from corpus_shards import build_registry
 
           policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
           sources = json.loads(Path('rag/corpus_sources.json').read_text(encoding='utf-8'))
@@ -97,7 +107,12 @@ jobs:
           auto = json.loads(Path('rag/openiti_books_auto.json').read_text(encoding='utf-8'))
           assert sources['sources']['kutub']['automation_policy'] == 'respect_robots'
           assert int(policy['hosted']['target_openiti_books']) >= int(policy['hosted']['minimum_openiti_books'])
+          assert int(policy['hosted']['expected_openiti_books_after_tafsir']) >= int(policy['hosted']['target_openiti_books'])
           assert int(policy['hosted']['max_sqlite_bytes']) > 0
+          assert policy['sharding']['enabled'] is True
+          assert int(policy['sharding']['max_books_per_shard']) > 0
+          assert int(policy['sharding']['max_source_chars_per_shard']) > 0
+          assert int(policy['sharding']['future_target_books']) >= 500
           assert 'Zaydiyya' in policy['promotion'].get('excluded_source_markers', [])
           excluded_works = policy['promotion'].get('excluded_work_markers', [])
           assert 'IbnYacqubKulayni' in excluded_works or 'UsulMinKafi' in excluded_works
@@ -110,5 +125,9 @@ jobs:
           uris = [str(book['openiti_uri']) for book in manifest['books'] if book.get('enabled', True)]
           assert len(ids) == len(set(ids))
           assert len(uris) == len(set(uris))
-          print(f'Industrial manifest valid: {len(ids)} enabled OpenITI books')
+          registry = build_registry(manifest, policy)
+          assert registry['total_books'] == len(ids)
+          assert set(registry['book_to_shard']) == set(ids)
+          assert all(int(shard['book_count']) <= int(registry['limits']['max_books_per_shard']) for shard in registry['shards'])
+          print(f'Industrial manifest valid: {len(ids)} enabled OpenITI books, {registry["total_shards"]} planned shard(s)')
           PY
