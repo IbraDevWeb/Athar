@@ -11,6 +11,7 @@ from ingest_openiti import load_industrialized_manifest
 ROOT = Path(__file__).resolve().parents[1]
 RAG_DIR = ROOT / "rag"
 POLICY_PATH = RAG_DIR / "corpus_policy.json"
+TAFSIR_PATH = RAG_DIR / "openiti_books_tafsir.json"
 DEFAULT_OUTPUT = RAG_DIR / "corpus_shards.json"
 
 
@@ -19,6 +20,34 @@ def load_json(path: Path) -> dict[str, Any]:
     if not isinstance(payload, dict):
         raise RuntimeError(f"{path.name} doit contenir un objet JSON.")
     return payload
+
+
+def load_shardable_manifest() -> dict[str, Any]:
+    """Return every OpenITI book that must be routed to a production shard.
+
+    The historical ingestion pipeline keeps the dedicated tafsir batch separate
+    from the industrial queue. Sharded production cannot leave those books
+    outside the routing table, so they are appended deterministically after the
+    industrial manifest. Existing assignments therefore remain stable.
+    """
+    manifest = load_industrialized_manifest()
+    books = [book for book in manifest.get("books") or [] if isinstance(book, dict)]
+    if TAFSIR_PATH.exists():
+        tafsir = load_json(TAFSIR_PATH)
+        extra = tafsir.get("books") or []
+        if not isinstance(extra, list):
+            raise RuntimeError("openiti_books_tafsir.json doit contenir une liste books.")
+        books.extend(book for book in extra if isinstance(book, dict))
+
+    ids = [str(book.get("book_id") or "").strip() for book in books]
+    uris = [str(book.get("openiti_uri") or "").strip() for book in books]
+    if not all(ids) or len(ids) != len(set(ids)):
+        raise RuntimeError("Identifiants OpenITI shardables manquants ou dupliqués.")
+    if not all(uris) or len(uris) != len(set(uris)):
+        raise RuntimeError("URI OpenITI shardables manquants ou dupliqués.")
+    manifest["books"] = books
+    manifest["shardable_supplement"] = str(TAFSIR_PATH.relative_to(ROOT)) if TAFSIR_PATH.exists() else ""
+    return manifest
 
 
 def _source_chars(book: dict[str, Any]) -> int:
@@ -139,14 +168,19 @@ def build_registry(
     for shard in shards:
         for book in shard["books"]:
             mapping[str(book["book_id"])] = str(shard["id"])
+    hosted_target = int(
+        (hosted or {}).get("expected_openiti_books_after_tafsir")
+        or (hosted or {}).get("target_openiti_books")
+        or 0
+    )
     return {
-        "version": 1,
+        "version": 2,
         "strategy": "append-friendly-manifest-order-v1",
-        "source": "Athar OpenITI industrial manifest",
+        "source": "Athar OpenITI industrial + dedicated manifests",
         "release_ref": str(manifest.get("release_commit") or ""),
         "total_books": len(books),
         "total_shards": len(shards),
-        "hosted_target_openiti_books": int((hosted or {}).get("target_openiti_books") or 0),
+        "hosted_target_openiti_books": hosted_target,
         "future_target_books": int((sharding or {}).get("future_target_books") or 500),
         "limits": {
             "max_books_per_shard": max_books,
@@ -158,7 +192,7 @@ def build_registry(
 
 
 def generate(output: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
-    manifest = load_industrialized_manifest()
+    manifest = load_shardable_manifest()
     policy = load_json(POLICY_PATH)
     registry = build_registry(manifest, policy)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -167,7 +201,7 @@ def generate(output: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Planifie les shards du corpus OpenITI Athar sans déplacer les textes.")
+    parser = argparse.ArgumentParser(description="Planifie les shards OpenITI du corpus Athar.")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
     output = args.output if args.output.is_absolute() else ROOT / args.output
