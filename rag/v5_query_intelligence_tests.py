@@ -74,8 +74,9 @@ class QueryIntelligenceTests(unittest.TestCase):
         self.assertIn("gemini-3.5-flash:generateContent", captured["url"])
         self.assertEqual("test-secret", captured["headers"]["x-goog-api-key"])
         generation = captured["json"]["generationConfig"]
-        self.assertEqual("application/json", generation["responseFormat"]["text"]["mimeType"])
-        self.assertEqual("object", generation["responseFormat"]["text"]["schema"]["type"])
+        self.assertEqual("application/json", generation["responseMimeType"])
+        self.assertEqual("object", generation["responseSchema"]["type"])
+        self.assertNotIn("responseFormat", generation)
 
     def test_provider_failure_never_breaks_retrieval_path(self) -> None:
         def fake_post(*args, **kwargs):
