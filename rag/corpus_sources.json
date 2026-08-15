@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "sources": {
+    "openiti": {
+      "enabled": true,
+      "kind": "repository_release",
+      "languages": ["ar"],
+      "repository": "https://github.com/OpenITI/RELEASE",
+      "metadata_path": "metadata/OpenITI_metadata_2025-1-9.tsv",
+      "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+      "license": "CC BY-NC-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "automation_policy": "public_repository",
+      "translation_status": "openiti_arabic_source"
+    },
+    "kutub": {
+      "enabled": true,
+      "kind": "public_pages",
+      "languages": ["ar", "fr"],
+      "base_url": "https://kutub.io/fr",
+      "automation_policy": "respect_robots",
+      "translation_status": "kutub_ai_unreviewed",
+      "note": "L'ingestion automatique ne s'exécute que si robots.txt autorise AtharResearchBot. Aucun contournement."
+    }
+  }
+}
