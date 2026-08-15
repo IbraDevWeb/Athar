@@ -10,7 +10,7 @@ from v5_engine import corpus_status, detect_concepts
 BOOKS = [
     ("bukhari", "Sahih al-Bukhari", "", "Al-Bukhari", "Hadith", "Transversal"),
     ("muslim", "Sahih Muslim", "", "Muslim ibn al-Hajjaj", "Hadith", "Transversal"),
-    ("muwatta", "Al-Muwatta", "الموطأ", "Malik ibn Anas", "Hadith et fiqh", "Malikite"),
+    ("muwatta", "Al-Muwaṭṭaʾ", "الموطأ", "Mālik ibn Anas", "Hadith et fiqh", "Malikite"),
     ("bidayat", "Bidayat al-Mujtahid", "بداية المجتهد", "Ibn Rushd al-Hafid", "Fiqh compare", "Malikite"),
     ("tabari", "Jamic al-Bayan", "جامع البيان", "Al-Tabari", "Tafsir", "Transversal"),
     ("ibn-kathir-tafsir", "Tafsir al-Quran al-Azim", "تفسير القرآن العظيم", "Ibn Kathir", "Tafsir", "Shafiite"),
@@ -68,14 +68,19 @@ class RagV5Tests(unittest.TestCase):
         self.assertEqual("c4", result["sources"][0]["id"], result["sources"])
         self.assertIn("recitation_silent", result["analysis"]["concepts"])
 
-    def test_muwatta_eclipse_is_not_reduced_to_generic_prayer(self) -> None:
-        result = search(self.db, "Que dit le Muwatta sur la prière de l'éclipse ?", limit=5)
+    def test_muwatta_eclipse_is_not_reduced_to_generic_prayer_or_sent_to_llm(self) -> None:
+        with patch("v5_lowmem.analyze_query", side_effect=AssertionError("routed book alias must not trigger Gemini")):
+            result = search(self.db, "Que dit le Muwatta sur la prière de l'éclipse ?", limit=5)
         self.assertEqual("muwatta", result["analysis"]["routed_book"]["id"], result["analysis"])
         self.assertGreater(result["count"], 0, result["analysis"])
         self.assertEqual("c10", result["sources"][0]["id"], result["sources"])
         self.assertIn("eclipse_prayer", result["analysis"]["concepts"])
         self.assertIn("prière de l’éclipse", result["analysis"]["notions"])
         self.assertIn("eclipse_prayer", result["sources"][0]["matched_concepts"])
+        meta = result["analysis"]["query_intelligence"]
+        self.assertFalse(meta["used"])
+        self.assertEqual("deterministic_sufficient", meta["skipped_reason"])
+        self.assertEqual(0, meta["latency_ms"])
 
     def test_known_precise_query_does_not_spend_llm_quota(self) -> None:
         with patch("v5_lowmem.analyze_query", side_effect=AssertionError("Gemini must not be called")):
