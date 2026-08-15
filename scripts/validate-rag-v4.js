@@ -111,9 +111,11 @@ const style = read('css/athar-research-v5.css');
 const render = read('render.yaml');
 [
     'python rag/v5_library_server.py --host 0.0.0.0 --api-only',
-    'python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz',
-    'ATHAR_DB_PATH', 'rag/data/athar_hosted.sqlite.gz', 'healthCheckPath: /healthz'
+    'python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards',
+    'ATHAR_CORPUS_MODE', 'value: sharded', 'ATHAR_SHARD_DIR', 'rag/data/shards',
+    'ATHAR_CORPUS_MANIFEST', 'rag/corpus_release_v3.json', 'healthCheckPath: /healthz'
 ].forEach(token => need(render, token, 'render.yaml'));
+reject(render, /ATHAR_DB_PATH|athar_hosted\.sqlite\.gz/, 'render.yaml');
 
 const config = read('js/config.js');
 [
@@ -144,9 +146,18 @@ const liveWorkflow = read('.github/workflows/rag-v5-live.yml');
     'prier à voix haute', 'PUBLIC RAG V5 NATURAL FRENCH RETRIEVAL: PASS'
 ].forEach(token => need(liveWorkflow, token, 'RAG V5 live workflow'));
 
+const libraryLiveWorkflow = read('.github/workflows/rag-v5-library-live.yml');
+[
+    "Path('rag/corpus_release_v3.json')", "release.get('storage_mode') != 'sharded'",
+    "health.get('storage_mode') != 'sharded'", "status.get('storage_mode') != 'sharded'",
+    "rag.get('storage_mode') != 'sharded'", 'PUBLIC ATHAR SHARDED V3: PASS'
+].forEach(token => need(libraryLiveWorkflow, token, 'RAG V5 sharded library live workflow'));
+
 const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
 [
-    'Hammer lightweight health check', 'Verify natural-language query and bounded candidates', 'Check process memory'
+    'Download published V3 shards', 'ATHAR_CORPUS_MODE=sharded', 'ATHAR_SHARD_DIR=rag/data/v5_lowmem_shards',
+    'Verify natural-language query and bounded per-shard candidates', 'candidate_count <= 72 * shard_count',
+    'Athar V5 sharded RSS', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — professional source reader, sharded routing, queryable corpus and low-memory runtime.');
+console.log('Athar Research V5 static contract valid — sharded Render deployment, professional reader, queryable corpus and low-memory runtime.');

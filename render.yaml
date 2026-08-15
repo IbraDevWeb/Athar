@@ -10,7 +10,7 @@ services:
         - rag/**
         - render.yaml
       ignoredPaths: []
-    buildCommand: python -m pip install -r rag/requirements.txt && python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz
+    buildCommand: python -m pip install -r rag/requirements.txt && python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards
     startCommand: python rag/v5_library_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
@@ -20,5 +20,9 @@ services:
         value: "1"
       - key: ATHAR_CORS_ORIGINS
         value: https://ibradevweb.github.io
-      - key: ATHAR_DB_PATH
-        value: rag/data/athar_hosted.sqlite.gz
+      - key: ATHAR_CORPUS_MODE
+        value: sharded
+      - key: ATHAR_SHARD_DIR
+        value: rag/data/shards
+      - key: ATHAR_CORPUS_MANIFEST
+        value: rag/corpus_release_v3.json

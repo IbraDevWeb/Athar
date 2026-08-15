@@ -50,8 +50,9 @@ jobs:
           python -m py_compile
           rag/core.py rag/v2.py rag/server.py
           rag/v4_engine.py rag/v4_server.py rag/v4_unit_tests.py rag/v4_corpus_tests.py
-          rag/v5_engine.py rag/v5_lowmem.py rag/v5_server.py rag/v5_corpus_tests.py
+          rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py rag/v5_server.py rag/v5_corpus_tests.py
           rag/v5_library.py rag/v5_library_server.py rag/v5_library_tests.py
+          rag/cache_hosted_corpus.py rag/build_sharded_corpus.py
           rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/sync_kutub_batch.py
           rag/prepare_hosted_db.py rag/export_kutub_corpus.py rag/openiti.py rag/ingest_openiti.py
           scripts/validate_rag_ingestion.py scripts/validate_openiti_ingestion.py
@@ -98,15 +99,32 @@ jobs:
           snapshot = json.loads(Path('/tmp/athar-growth-corpus.json').read_text(encoding='utf-8'))
           assert len(snapshot['books']) >= 25
           assert isinstance(snapshot['chunks'], list)
+
+          release = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          assert release['storage_mode'] == 'sharded'
+          assert int(release['books']) >= 100
+          assert int(release['openiti_books']) >= 100
+          assert int(release['chunks']) > int(release['books'])
+          assert int(release['shard_count']) == len(release['shards'])
+          assert release['catalog']['url']
+          assert all(shard.get('url') for shard in release['shards'])
+
           render = Path('render.yaml').read_text(encoding='utf-8')
-          assert 'python rag/cache_hosted_corpus.py --output rag/data/athar_hosted.sqlite.gz' in render
+          assert 'python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards' in render
           assert 'python rag/v5_library_server.py --host 0.0.0.0 --api-only' in render
-          assert 'ATHAR_DB_PATH' in render and 'rag/data/athar_hosted.sqlite.gz' in render
+          assert 'ATHAR_CORPUS_MODE' in render and 'value: sharded' in render
+          assert 'ATHAR_SHARD_DIR' in render and 'rag/data/shards' in render
+          assert 'ATHAR_CORPUS_MANIFEST' in render and 'rag/corpus_release_v3.json' in render
+          assert 'ATHAR_DB_PATH' not in render
+
           workflow = Path('.github/workflows/grow-kutub-corpus.yml').read_text(encoding='utf-8')
           assert 'python rag/ingest_kutub.py sync' in workflow
           assert '--delay 1.75' in workflow
           assert 'git push origin HEAD:main' in workflow
-          print(f"Kutub/OpenITI growth validated: {len(books)} configured catalogue books; production serves the published V5 corpus read-only.")
+          print(
+              f"Kutub/OpenITI growth validated: {len(books)} configured catalogue books; "
+              f"V3 routes {release['books']} books through {release['shard_count']} read-only shards."
+          )
           PY
 
       - name: Validate Ancient Sky interface
