@@ -1,11 +1,11 @@
 {
-  "version": 2,
+  "version": 3,
   "hosted": {
-    "target_openiti_books": 95,
-    "minimum_openiti_books": 95,
-    "expected_openiti_books_after_tafsir": 100,
+    "target_openiti_books": 120,
+    "minimum_openiti_books": 120,
+    "expected_openiti_books_after_tafsir": 125,
     "max_sqlite_bytes": 3221225472,
-    "description": "Palier de transition : 95 ouvrages OpenITI dans le noyau puis 5 tafsirs dédiés, soit 100 ouvrages OpenITI attendus. Le fichier SQLite unique reste plafonné à 3 Gio et ne doit plus être utilisé pour croître au-delà de ce palier."
+    "description": "Premier palier de croissance après la migration sharded : 120 ouvrages OpenITI dans le noyau industriel puis 5 tafsirs dédiés, soit 125 ouvrages OpenITI attendus. La production est distribuée en shards SQLite indépendants ; le plafond monolithique de 3 Gio ne sert plus que de garde-fou historique/fallback."
   },
   "promotion": {
     "default_batch_size": 25,
@@ -32,6 +32,6 @@
     "max_books_per_shard": 40,
     "max_source_chars_per_shard": 40000000,
     "future_target_books": 500,
-    "description": "Le palier 100 reste servi par le noyau SQLite existant. Toute croissance suivante doit être planifiée en shards déterministes afin de conserver des unités de publication, de cache et de lecture bornées."
+    "description": "Le runtime V3 sharded est actif en production. Les nouveaux ouvrages sont ajoutés par lots revus, routés par le catalogue central et répartis en unités de publication/cache bornées avant tout passage vers 500 ouvrages."
   }
 }
