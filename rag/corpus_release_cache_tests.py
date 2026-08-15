@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from cache_hosted_corpus import _decompress_gzip, _reuse_matches, _valid_sqlite
+from fetch_hosted_corpus import materialize_gzip, validate_release_fingerprint
 
 SQLITE_FIXTURE = b"SQLite format 3\x00" + b"athar-corpus-test" * 64
 
@@ -25,6 +26,23 @@ class CorpusReleaseCacheTests(unittest.TestCase):
                 handle.write(SQLITE_FIXTURE)
             _decompress_gzip(asset, output)
             self.assertTrue(_valid_sqlite(output))
+            self.assertEqual(output.read_bytes(), SQLITE_FIXTURE)
+
+    def test_general_fetcher_materializes_and_checks_database_fingerprint(self) -> None:
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            asset = root / "corpus.sqlite.gz"
+            output = root / "runtime.sqlite"
+            with gzip.open(asset, "wb") as handle:
+                handle.write(SQLITE_FIXTURE)
+            materialize_gzip(asset, output)
+            validate_release_fingerprint(
+                output,
+                {
+                    "database_size_bytes": len(SQLITE_FIXTURE),
+                    "database_sha256": digest(SQLITE_FIXTURE),
+                },
+            )
             self.assertEqual(output.read_bytes(), SQLITE_FIXTURE)
 
     def test_reuse_checks_raw_database_fingerprint_for_gzip_release(self) -> None:
