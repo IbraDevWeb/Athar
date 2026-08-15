@@ -4,76 +4,240 @@
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
   "catalog_candidate_works": 3669,
   "configured_base_books": 50,
-  "hosted_target_openiti_books": 95,
+  "hosted_target_openiti_books": 120,
   "requested_batch": 25,
-  "target_limited_batch": 4,
-  "promoted_books": 4,
-  "promoted_source_chars": 2113370,
+  "target_limited_batch": 25,
+  "promoted_books": 25,
+  "promoted_source_chars": 11986257,
   "auto_manifest_books_before": 45,
-  "auto_manifest_books_pruned": 4,
-  "auto_manifest_books_after": 45,
-  "pruned": [
-    {
-      "book_id": "openiti-auto-14e288f107ed119b",
-      "title": "Idah Tawhid",
-      "openiti_uri": "1361SacidIbnNasirGhaythi.IdahTawhid.ShamIbadiyya0000279-ara1",
-      "reason": "excluded_source:Ibadiyya"
-    },
-    {
-      "book_id": "openiti-auto-900fc7e8afbe689e",
-      "title": "Min Caqida Ila Thawra Tawhid",
-      "openiti_uri": "1443HasanHanafi.MinCaqidaIlaThawraTawhid.Hindawi028173195-ara1",
-      "reason": "excluded_work:HasanHanafi.MinCaqidaIlaThawra"
-    },
-    {
-      "book_id": "openiti-auto-6500f803b12204c6",
-      "title": "Qawāʿid al-Aḥkām",
-      "openiti_uri": "0726CallamaHilli.QawacidAhkam.Shia000091Vols-ara1",
-      "reason": "excluded_source:Shia"
-    },
-    {
-      "book_id": "openiti-auto-f94278ad4a09e548",
-      "title": "Min Caqida Ila Thawra Iman",
-      "openiti_uri": "1443HasanHanafi.MinCaqidaIlaThawraIman.Hindawi013042758-ara1",
-      "reason": "excluded_work:HasanHanafi.MinCaqidaIlaThawra"
-    }
-  ],
+  "auto_manifest_books_pruned": 0,
+  "auto_manifest_books_after": 70,
+  "pruned": [],
   "selected": [
     {
-      "book_id": "openiti-auto-ae408e9530aaad1b",
-      "title": "Manthur Fi Qawacid",
-      "title_ar": "المنثور في القواعد الفقهية",
-      "author": "Badr Din Zarkashi",
+      "book_id": "openiti-auto-02973caea85cbcaf",
+      "title": "al-Ḥuǧǧaŧ ʿalá ahl al-Madīnaŧ",
+      "title_ar": "الحجة على أهل المدينة",
+      "author": "Muhammad Shaybani",
       "discipline": "Fiqh",
-      "openiti_uri": "0794BadrDinZarkashi.ManthurFiQawacid.Shamela0021592-ara1",
-      "source_char_length": 776867
+      "openiti_uri": "0189MuhammadShaybani.HujjaCalaAhlMadina.Shamela0006161-ara1",
+      "source_char_length": 492602
     },
     {
-      "book_id": "openiti-auto-30eb530b8fcbbda0",
-      "title": "Tuhfat Tahsil",
-      "title_ar": "تحفة التحصيل في ذكر رواة المراسيل",
-      "author": "Ibn Ciraqi",
+      "book_id": "openiti-auto-76f076a7037b6c76",
+      "title": "al-kuná wa-l-asmāʾ",
+      "title_ar": "الكنى والأسماء",
+      "author": "Muslim",
       "discipline": "Hadith",
-      "openiti_uri": "0826IbnCiraqi.TuhfatTahsil.Shamela0005838-ara1",
-      "source_char_length": 233450
+      "openiti_uri": "0261Muslim.KunaWaAsma.Shamela0007340-ara1",
+      "source_char_length": 230546
     },
     {
-      "book_id": "openiti-auto-a683ae6334ad806a",
-      "title": "Tafsir",
-      "title_ar": "تفسير السلمي وهو حقائق التفسير",
-      "author": "Sulami",
+      "book_id": "openiti-auto-67d26b565f687f32",
+      "title": "Gharaib Tafsir",
+      "title_ar": "غرائب التفسير وعجائب التأويل",
+      "author": "Ibn Hamza Taj Qurra Kirmani",
       "discipline": "Tafsīr",
-      "openiti_uri": "0412Sulami.Tafsir.JK007094-ara1",
-      "source_char_length": 900628
+      "openiti_uri": "0505IbnHamzaTajQurraKirmani.GharaibTafsir.Shamela0012820-ara1",
+      "source_char_length": 841627
     },
     {
-      "book_id": "openiti-auto-fffdd51749e9523a",
-      "title": "Sifat Rabb Calamin",
-      "title_ar": "صفات رب العالمين لابن المحب الصامت، من بداية (باب الرزق)، إلى نهاية (باب نزول الله جل ثناؤه يوم القيامة)",
-      "author": "Ibn Muhibb Samit",
+      "book_id": "openiti-auto-b8494f8cb7904d7e",
+      "title": "Mudhakkirat Tawhid",
+      "title_ar": "مذكرة التوحيد",
+      "author": "Cabd Razzaq Cafifi",
       "discipline": "ʿAqīda",
-      "openiti_uri": "0789IbnMuhibbSamit.SifatRabbCalamin.Sham19Y0132403-ara1",
-      "source_char_length": 202425
+      "openiti_uri": "1415CabdRazzaqCafifi.MudhakkiratTawhid.Sham19Y0030863-ara1",
+      "source_char_length": 85913
+    },
+    {
+      "book_id": "openiti-auto-00100f763cd36f5f",
+      "title": "al-ʿIbar fī ḫabar man ġabar",
+      "title_ar": "العبر في خبر من غبر",
+      "author": "Dhahabi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0748Dhahabi.CibarFiKhabar.Shamela0025841-ara1",
+      "source_char_length": 1168213
+    },
+    {
+      "book_id": "openiti-auto-06225b2fe6e4eb8a",
+      "title": "Ashbah Wa Nazair",
+      "title_ar": "الأشباه والنظائر على مذهب أبي حنيفة النعمان",
+      "author": "Ibn Ibrahim Ibn Nujaym Misri",
+      "discipline": "Fiqh",
+      "openiti_uri": "0970IbnIbrahimIbnNujaymMisri.AshbahWaNazair.Shamela0001666-ara1",
+      "source_char_length": 482919
+    },
+    {
+      "book_id": "openiti-auto-8a607c726157ecac",
+      "title": "al-ʿuluww",
+      "title_ar": "العلو",
+      "author": "Dhahabi",
+      "discipline": "Hadith",
+      "openiti_uri": "0748Dhahabi.Culuww.Shamela0006463-ara1",
+      "source_char_length": 204339
+    },
+    {
+      "book_id": "openiti-auto-70197b0349579071",
+      "title": "Tafsir",
+      "title_ar": "تفسير القرآن العزيز",
+      "author": "Ibn Abi Zamanayn Ilbiri",
+      "discipline": "Tafsīr",
+      "openiti_uri": "0399IbnAbiZamanaynIlbiri.Tafsir.Tafsir02104-ara1",
+      "source_char_length": 833881
+    },
+    {
+      "book_id": "openiti-auto-7b0c303caa9c72d1",
+      "title": "Masala Fi Tawhid Falasifa",
+      "title_ar": "مسألة في توحيد الفلاسفة",
+      "author": "Ibn Taymiyya",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0728IbnTaymiyya.MasalaFiTawhidFalasifa.Sham19Y0147670-ara1",
+      "source_char_length": 80763
+    },
+    {
+      "book_id": "openiti-auto-90811210e6498c4d",
+      "title": "Ghayat Nihaya",
+      "title_ar": "غاية النهاية في طبقات القراء",
+      "author": "Ibn Jazari",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0833IbnJazari.GhayatNihaya.Shamela0012040-ara1",
+      "source_char_length": 1137127
+    },
+    {
+      "book_id": "openiti-auto-bb84184ef0d80372",
+      "title": "al-Aḥkām al-sulṭāniyyaŧ",
+      "title_ar": "الأحكام السلطانية",
+      "author": "Abu Hasan Mawardi",
+      "discipline": "Fiqh",
+      "openiti_uri": "0450AbuHasanMawardi.AhkamSultaniyya.Shamela0022881-ara1",
+      "source_char_length": 359629
+    },
+    {
+      "book_id": "openiti-auto-dc09016c5a4979af",
+      "title": "Lahz Alhaz",
+      "title_ar": "لحظ الألحاظ",
+      "author": "Taqi Din Ibn Fahd",
+      "discipline": "Hadith",
+      "openiti_uri": "0871TaqiDinIbnFahd.LahzAlhaz.JK004502-ara1",
+      "source_char_length": 193682
+    },
+    {
+      "book_id": "openiti-auto-27ab8d868c701499",
+      "title": "Wajiz Fi Tafsir",
+      "title_ar": "الوجيز",
+      "author": "Ibn Ahmad Wahidi Naysaburi",
+      "discipline": "Tafsīr",
+      "openiti_uri": "0468IbnAhmadWahidiNaysaburi.WajizFiTafsir.Tafsir08060-ara1",
+      "source_char_length": 721017
+    },
+    {
+      "book_id": "openiti-auto-112c4fbfa51fcf70",
+      "title": "Tajrid Tawhid",
+      "title_ar": "تجريد التوحيد المفيد",
+      "author": "Maqrizi",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0845Maqrizi.TajridTawhid.Shamela0010045-ara1",
+      "source_char_length": 34830
+    },
+    {
+      "book_id": "openiti-auto-d0b7fa774adf59d1",
+      "title": "Tarikh",
+      "title_ar": "تاريخ ابن الوردي",
+      "author": "Zayn Din Ibn Wardi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0749ZaynDinIbnWardi.Tarikh.Shamela0006624-ara1",
+      "source_char_length": 1089799
+    },
+    {
+      "book_id": "openiti-auto-ad0d34fcc41bed93",
+      "title": "al-Aḥkām al-sulṭāniyyaŧ",
+      "title_ar": "الأحكام السلطانية",
+      "author": "Abu Yacla Ibn Farra",
+      "discipline": "Fiqh",
+      "openiti_uri": "0458AbuYaclaIbnFarra.AhkamSultaniyya.Shamela0022877-ara1",
+      "source_char_length": 311344
+    },
+    {
+      "book_id": "openiti-auto-41bcd1e39f675abe",
+      "title": "Tārīḫ mūlid al-ʿulamāʾ wa wafayātihim",
+      "title_ar": "تاريخ مولد العلماء و وفياتهم",
+      "author": "Ibn Zabr Rabci",
+      "discipline": "Hadith",
+      "openiti_uri": "0379IbnZabrRabci.TarikhMawlidCulama.JK000651-ara1",
+      "source_char_length": 136301
+    },
+    {
+      "book_id": "openiti-auto-90ee9f89cf83849e",
+      "title": "Tafsir",
+      "title_ar": "تفسير الصنعاني",
+      "author": "Cabd Razzaq Sancani",
+      "discipline": "Tafsīr",
+      "openiti_uri": "0211CabdRazzaqSancani.Tafsir.JK000435-ara1",
+      "source_char_length": 540486
+    },
+    {
+      "book_id": "openiti-auto-15b224f075f9dcb0",
+      "title": "Tawhid",
+      "title_ar": "التوحيد لابن رجب - ت شاهين",
+      "author": "Ibn Rajab Hanbali",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0795IbnRajabHanbali.Tawhid.ShamAY0035260-ara1",
+      "source_char_length": 26006
+    },
+    {
+      "book_id": "openiti-auto-f1ee88a266b3a72a",
+      "title": "Cuyun Anba",
+      "title_ar": "عيون الأنباء في طبقات الأطباء",
+      "author": "Ibn Abi Usaybica",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "0668IbnAbiUsaybica.CuyunAnba.Shamela0006687-ara1",
+      "source_char_length": 1081963
+    },
+    {
+      "book_id": "openiti-auto-97e42589bcf2a5ed",
+      "title": "Majallat Ahkam",
+      "title_ar": "مَجَلَّةُ الأَحْكَامِ العَدْلِيَّة",
+      "author": "Anonymous",
+      "discipline": "Fiqh",
+      "openiti_uri": "1300Anonymous.MajallatAhkam.Other0001-ara1",
+      "source_char_length": 299485
+    },
+    {
+      "book_id": "openiti-auto-d46aba0b893d7731",
+      "title": "Ansab Muttafiqa",
+      "title_ar": "المؤتلف والمختلف لابن القيسراني = الأنساب المتفقة في الخط المتماثلة في النقط",
+      "author": "Ibn Qaysarani",
+      "discipline": "Hadith",
+      "openiti_uri": "0507IbnQaysarani.AnsabMuttafiqa.Shamela0005794-ara1",
+      "source_char_length": 125506
+    },
+    {
+      "book_id": "openiti-auto-c92f000c85ce7733",
+      "title": "Tafsir",
+      "title_ar": "تفسير ابن عرفة",
+      "author": "Ibn Carafa Warghami",
+      "discipline": "Tafsīr",
+      "openiti_uri": "0803IbnCarafaWarghami.Tafsir.JK009258-ara1",
+      "source_char_length": 419380
+    },
+    {
+      "book_id": "openiti-auto-ba24b51120ccd14c",
+      "title": "Masala Fi Tawhid",
+      "title_ar": "مسألة في التوحيد وفضل لا إله إلا الله",
+      "author": "Ibn Mabrid",
+      "discipline": "ʿAqīda",
+      "openiti_uri": "0909IbnMabrid.MasalaFiTawhid.ShamAY0033872-ara1",
+      "source_char_length": 25210
+    },
+    {
+      "book_id": "openiti-auto-d0071395a8b5ac0a",
+      "title": "al-Kawākib al-Sāʾiraŧ bi-aʿyān al-miʾaŧ al-ʿāširaŧ",
+      "title_ar": "الكواكب السائرة بأعيان المئة العاشرة",
+      "author": "Najm Din Ghazzi",
+      "discipline": "Sīra et histoire",
+      "openiti_uri": "1061NajmDinGhazzi.KawakibSaira.Shamela0010912-ara1",
+      "source_char_length": 1063689
     }
   ],
   "dry_run": false

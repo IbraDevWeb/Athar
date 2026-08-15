@@ -3,9 +3,9 @@
   "strategy": "append-friendly-manifest-order-v1",
   "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "total_books": 100,
-  "total_shards": 3,
-  "hosted_target_openiti_books": 100,
+  "total_books": 125,
+  "total_shards": 4,
+  "hosted_target_openiti_books": 125,
   "future_target_books": 500,
   "limits": {
     "max_books_per_shard": 40,
@@ -686,14 +686,14 @@
     },
     {
       "id": "openiti-003",
-      "book_count": 20,
-      "source_chars": 18306316,
+      "book_count": 40,
+      "source_chars": 30292573,
       "oversize_source": false,
       "subjects": {
-        "aqida": 3,
-        "fiqh": 3,
-        "hadith": 3,
-        "sira": 3,
+        "aqida": 8,
+        "fiqh": 8,
+        "hadith": 8,
+        "sira": 8,
         "tafsir": 8
       },
       "books": [
@@ -817,6 +817,217 @@
           "discipline": "ʿAqīda",
           "source_chars": 202425
         },
+        {
+          "book_id": "openiti-auto-02973caea85cbcaf",
+          "title": "al-Ḥuǧǧaŧ ʿalá ahl al-Madīnaŧ",
+          "title_ar": "الحجة على أهل المدينة",
+          "author": "Muhammad Shaybani",
+          "discipline": "Fiqh",
+          "source_chars": 492602
+        },
+        {
+          "book_id": "openiti-auto-76f076a7037b6c76",
+          "title": "al-kuná wa-l-asmāʾ",
+          "title_ar": "الكنى والأسماء",
+          "author": "Muslim",
+          "discipline": "Hadith",
+          "source_chars": 230546
+        },
+        {
+          "book_id": "openiti-auto-67d26b565f687f32",
+          "title": "Gharaib Tafsir",
+          "title_ar": "غرائب التفسير وعجائب التأويل",
+          "author": "Ibn Hamza Taj Qurra Kirmani",
+          "discipline": "Tafsīr",
+          "source_chars": 841627
+        },
+        {
+          "book_id": "openiti-auto-b8494f8cb7904d7e",
+          "title": "Mudhakkirat Tawhid",
+          "title_ar": "مذكرة التوحيد",
+          "author": "Cabd Razzaq Cafifi",
+          "discipline": "ʿAqīda",
+          "source_chars": 85913
+        },
+        {
+          "book_id": "openiti-auto-00100f763cd36f5f",
+          "title": "al-ʿIbar fī ḫabar man ġabar",
+          "title_ar": "العبر في خبر من غبر",
+          "author": "Dhahabi",
+          "discipline": "Sīra et histoire",
+          "source_chars": 1168213
+        },
+        {
+          "book_id": "openiti-auto-06225b2fe6e4eb8a",
+          "title": "Ashbah Wa Nazair",
+          "title_ar": "الأشباه والنظائر على مذهب أبي حنيفة النعمان",
+          "author": "Ibn Ibrahim Ibn Nujaym Misri",
+          "discipline": "Fiqh",
+          "source_chars": 482919
+        },
+        {
+          "book_id": "openiti-auto-8a607c726157ecac",
+          "title": "al-ʿuluww",
+          "title_ar": "العلو",
+          "author": "Dhahabi",
+          "discipline": "Hadith",
+          "source_chars": 204339
+        },
+        {
+          "book_id": "openiti-auto-70197b0349579071",
+          "title": "Tafsir",
+          "title_ar": "تفسير القرآن العزيز",
+          "author": "Ibn Abi Zamanayn Ilbiri",
+          "discipline": "Tafsīr",
+          "source_chars": 833881
+        },
+        {
+          "book_id": "openiti-auto-7b0c303caa9c72d1",
+          "title": "Masala Fi Tawhid Falasifa",
+          "title_ar": "مسألة في توحيد الفلاسفة",
+          "author": "Ibn Taymiyya",
+          "discipline": "ʿAqīda",
+          "source_chars": 80763
+        },
+        {
+          "book_id": "openiti-auto-90811210e6498c4d",
+          "title": "Ghayat Nihaya",
+          "title_ar": "غاية النهاية في طبقات القراء",
+          "author": "Ibn Jazari",
+          "discipline": "Sīra et histoire",
+          "source_chars": 1137127
+        },
+        {
+          "book_id": "openiti-auto-bb84184ef0d80372",
+          "title": "al-Aḥkām al-sulṭāniyyaŧ",
+          "title_ar": "الأحكام السلطانية",
+          "author": "Abu Hasan Mawardi",
+          "discipline": "Fiqh",
+          "source_chars": 359629
+        },
+        {
+          "book_id": "openiti-auto-dc09016c5a4979af",
+          "title": "Lahz Alhaz",
+          "title_ar": "لحظ الألحاظ",
+          "author": "Taqi Din Ibn Fahd",
+          "discipline": "Hadith",
+          "source_chars": 193682
+        },
+        {
+          "book_id": "openiti-auto-27ab8d868c701499",
+          "title": "Wajiz Fi Tafsir",
+          "title_ar": "الوجيز",
+          "author": "Ibn Ahmad Wahidi Naysaburi",
+          "discipline": "Tafsīr",
+          "source_chars": 721017
+        },
+        {
+          "book_id": "openiti-auto-112c4fbfa51fcf70",
+          "title": "Tajrid Tawhid",
+          "title_ar": "تجريد التوحيد المفيد",
+          "author": "Maqrizi",
+          "discipline": "ʿAqīda",
+          "source_chars": 34830
+        },
+        {
+          "book_id": "openiti-auto-d0b7fa774adf59d1",
+          "title": "Tarikh",
+          "title_ar": "تاريخ ابن الوردي",
+          "author": "Zayn Din Ibn Wardi",
+          "discipline": "Sīra et histoire",
+          "source_chars": 1089799
+        },
+        {
+          "book_id": "openiti-auto-ad0d34fcc41bed93",
+          "title": "al-Aḥkām al-sulṭāniyyaŧ",
+          "title_ar": "الأحكام السلطانية",
+          "author": "Abu Yacla Ibn Farra",
+          "discipline": "Fiqh",
+          "source_chars": 311344
+        },
+        {
+          "book_id": "openiti-auto-41bcd1e39f675abe",
+          "title": "Tārīḫ mūlid al-ʿulamāʾ wa wafayātihim",
+          "title_ar": "تاريخ مولد العلماء و وفياتهم",
+          "author": "Ibn Zabr Rabci",
+          "discipline": "Hadith",
+          "source_chars": 136301
+        },
+        {
+          "book_id": "openiti-auto-90ee9f89cf83849e",
+          "title": "Tafsir",
+          "title_ar": "تفسير الصنعاني",
+          "author": "Cabd Razzaq Sancani",
+          "discipline": "Tafsīr",
+          "source_chars": 540486
+        },
+        {
+          "book_id": "openiti-auto-15b224f075f9dcb0",
+          "title": "Tawhid",
+          "title_ar": "التوحيد لابن رجب - ت شاهين",
+          "author": "Ibn Rajab Hanbali",
+          "discipline": "ʿAqīda",
+          "source_chars": 26006
+        },
+        {
+          "book_id": "openiti-auto-f1ee88a266b3a72a",
+          "title": "Cuyun Anba",
+          "title_ar": "عيون الأنباء في طبقات الأطباء",
+          "author": "Ibn Abi Usaybica",
+          "discipline": "Sīra et histoire",
+          "source_chars": 1081963
+        },
+        {
+          "book_id": "openiti-auto-97e42589bcf2a5ed",
+          "title": "Majallat Ahkam",
+          "title_ar": "مَجَلَّةُ الأَحْكَامِ العَدْلِيَّة",
+          "author": "Anonymous",
+          "discipline": "Fiqh",
+          "source_chars": 299485
+        },
+        {
+          "book_id": "openiti-auto-d46aba0b893d7731",
+          "title": "Ansab Muttafiqa",
+          "title_ar": "المؤتلف والمختلف لابن القيسراني = الأنساب المتفقة في الخط المتماثلة في النقط",
+          "author": "Ibn Qaysarani",
+          "discipline": "Hadith",
+          "source_chars": 125506
+        },
+        {
+          "book_id": "openiti-auto-c92f000c85ce7733",
+          "title": "Tafsir",
+          "title_ar": "تفسير ابن عرفة",
+          "author": "Ibn Carafa Warghami",
+          "discipline": "Tafsīr",
+          "source_chars": 419380
+        },
+        {
+          "book_id": "openiti-auto-ba24b51120ccd14c",
+          "title": "Masala Fi Tawhid",
+          "title_ar": "مسألة في التوحيد وفضل لا إله إلا الله",
+          "author": "Ibn Mabrid",
+          "discipline": "ʿAqīda",
+          "source_chars": 25210
+        },
+        {
+          "book_id": "openiti-auto-d0071395a8b5ac0a",
+          "title": "al-Kawākib al-Sāʾiraŧ bi-aʿyān al-miʾaŧ al-ʿāširaŧ",
+          "title_ar": "الكواكب السائرة بأعيان المئة العاشرة",
+          "author": "Najm Din Ghazzi",
+          "discipline": "Sīra et histoire",
+          "source_chars": 1063689
+        }
+      ]
+    },
+    {
+      "id": "openiti-004",
+      "book_count": 5,
+      "source_chars": 0,
+      "oversize_source": false,
+      "subjects": {
+        "tafsir": 5
+      },
+      "books": [
         {
           "book_id": "openiti-baghawi-tafsir",
           "title": "Ma'alim al-Tanzil",
@@ -956,10 +1167,35 @@
     "openiti-auto-30eb530b8fcbbda0": "openiti-003",
     "openiti-auto-a683ae6334ad806a": "openiti-003",
     "openiti-auto-fffdd51749e9523a": "openiti-003",
-    "openiti-baghawi-tafsir": "openiti-003",
-    "openiti-zamakhshari-kashshaf": "openiti-003",
-    "openiti-razi-mafatih-ghayb": "openiti-003",
-    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-003",
-    "openiti-abu-hayyan-bahr-muhit": "openiti-003"
+    "openiti-auto-02973caea85cbcaf": "openiti-003",
+    "openiti-auto-76f076a7037b6c76": "openiti-003",
+    "openiti-auto-67d26b565f687f32": "openiti-003",
+    "openiti-auto-b8494f8cb7904d7e": "openiti-003",
+    "openiti-auto-00100f763cd36f5f": "openiti-003",
+    "openiti-auto-06225b2fe6e4eb8a": "openiti-003",
+    "openiti-auto-8a607c726157ecac": "openiti-003",
+    "openiti-auto-70197b0349579071": "openiti-003",
+    "openiti-auto-7b0c303caa9c72d1": "openiti-003",
+    "openiti-auto-90811210e6498c4d": "openiti-003",
+    "openiti-auto-bb84184ef0d80372": "openiti-003",
+    "openiti-auto-dc09016c5a4979af": "openiti-003",
+    "openiti-auto-27ab8d868c701499": "openiti-003",
+    "openiti-auto-112c4fbfa51fcf70": "openiti-003",
+    "openiti-auto-d0b7fa774adf59d1": "openiti-003",
+    "openiti-auto-ad0d34fcc41bed93": "openiti-003",
+    "openiti-auto-41bcd1e39f675abe": "openiti-003",
+    "openiti-auto-90ee9f89cf83849e": "openiti-003",
+    "openiti-auto-15b224f075f9dcb0": "openiti-003",
+    "openiti-auto-f1ee88a266b3a72a": "openiti-003",
+    "openiti-auto-97e42589bcf2a5ed": "openiti-003",
+    "openiti-auto-d46aba0b893d7731": "openiti-003",
+    "openiti-auto-c92f000c85ce7733": "openiti-003",
+    "openiti-auto-ba24b51120ccd14c": "openiti-003",
+    "openiti-auto-d0071395a8b5ac0a": "openiti-003",
+    "openiti-baghawi-tafsir": "openiti-004",
+    "openiti-zamakhshari-kashshaf": "openiti-004",
+    "openiti-razi-mafatih-ghayb": "openiti-004",
+    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-004",
+    "openiti-abu-hayyan-bahr-muhit": "openiti-004"
   }
 }
