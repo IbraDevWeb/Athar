@@ -15,6 +15,9 @@ on:
       - 'css/research-library-v2.css'
       - 'render.yaml'
       - '.github/workflows/rag-v5-library-live.yml'
+  workflow_run:
+    workflows: ['Build hosted RAG corpus']
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -22,11 +25,14 @@ permissions:
 
 jobs:
   verify-library-live:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - name: Checkout expected sharded corpus manifest
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Wait for sharded professional library reader and RAG
         shell: bash
