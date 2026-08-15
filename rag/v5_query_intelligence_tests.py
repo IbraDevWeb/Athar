@@ -31,7 +31,7 @@ class QueryIntelligenceTests(unittest.TestCase):
             called.append((args, kwargs))
             raise AssertionError("network should not be called")
 
-        with patch.dict(os.environ, {"GEMINI_API_KEY": ""}, clear=False):
+        with patch.dict(os.environ, {"GEMINI_API_KEY": "", "ATHAR_QUERY_LLM_MODEL": ""}, clear=False):
             result = analyze_query("Que dit le Muwatta sur l'éclipse ?", http_post=fake_post, use_cache=False)
         self.assertFalse(result["used"])
         self.assertEqual("deterministic", result["fallback"])
@@ -59,23 +59,27 @@ class QueryIntelligenceTests(unittest.TestCase):
             captured.update(kwargs)
             return FakeResponse(model_payload)
 
-        result = analyze_query(
-            "Que dit le Muwatta sur la prière de l'éclipse ?",
-            api_key="test-secret",
-            http_post=fake_post,
-            use_cache=False,
-        )
+        with patch.dict(os.environ, {"ATHAR_QUERY_LLM_MODEL": ""}, clear=False):
+            result = analyze_query(
+                "Que dit le Muwatta sur la prière de l'éclipse ?",
+                api_key="test-secret",
+                http_post=fake_post,
+                use_cache=False,
+            )
         self.assertTrue(result["used"])
         self.assertEqual("none", result["fallback"])
         self.assertEqual(["prière de l’éclipse"], result["notions"])
         self.assertEqual("primary", result["concepts"][0]["importance"])
         self.assertIn("صلاة الكسوف", result["concepts"][0]["terms"])
         self.assertIn("الخسوف", result["concepts"][0]["terms"])
-        self.assertIn("gemini-3.5-flash:generateContent", captured["url"])
+        self.assertIn("gemini-3.1-flash-lite:generateContent", captured["url"])
         self.assertEqual("test-secret", captured["headers"]["x-goog-api-key"])
         generation = captured["json"]["generationConfig"]
         self.assertEqual("application/json", generation["responseMimeType"])
         self.assertEqual("object", generation["responseSchema"]["type"])
+        self.assertEqual("minimal", generation["thinkingConfig"]["thinkingLevel"])
+        self.assertLessEqual(generation["maxOutputTokens"], 450)
+        self.assertNotIn("temperature", generation)
         self.assertNotIn("responseFormat", generation)
 
     def test_provider_failure_never_breaks_retrieval_path(self) -> None:
@@ -87,7 +91,7 @@ class QueryIntelligenceTests(unittest.TestCase):
         self.assertEqual("deterministic", result["fallback"])
         self.assertEqual("RuntimeError", result["error"])
 
-    def test_cache_avoids_second_provider_call(self) -> None:
+    def test_success_cache_avoids_second_provider_call(self) -> None:
         calls = []
         payload = {
             "candidates": [
@@ -110,6 +114,20 @@ class QueryIntelligenceTests(unittest.TestCase):
         first = analyze_query("Que dit Tirmidhi sur le witr ?", api_key="test-secret", http_post=fake_post)
         second = analyze_query("Que dit Tirmidhi sur le witr ?", api_key="test-secret", http_post=fake_post)
         self.assertTrue(first["used"])
+        self.assertTrue(second["cache_hit"])
+        self.assertEqual(1, len(calls))
+
+    def test_failure_cache_prevents_shard_amplification(self) -> None:
+        calls = []
+
+        def fake_post(*args, **kwargs):
+            calls.append(1)
+            return FakeResponse({}, RuntimeError("temporary provider failure"))
+
+        first = analyze_query("question longue inconnue", api_key="test-secret", http_post=fake_post)
+        second = analyze_query("question longue inconnue", api_key="test-secret", http_post=fake_post)
+        self.assertFalse(first["used"])
+        self.assertFalse(second["used"])
         self.assertTrue(second["cache_hit"])
         self.assertEqual(1, len(calls))
 
