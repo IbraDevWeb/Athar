@@ -2,6 +2,9 @@ name: Build hosted RAG corpus
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ['Curate Athar corpus']
+    types: [completed]
   push:
     branches: [main]
     paths:
@@ -31,6 +34,7 @@ concurrency:
 
 jobs:
   build-corpus:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -40,6 +44,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
       - name: Setup Python
         uses: actions/setup-python@v5
