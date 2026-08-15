@@ -163,3 +163,91 @@ jobs:
                   time.sleep(20)
           raise SystemExit(f'Sharded professional library/RAG did not become ready: {last_error}')
           PY
+
+      - name: Verify P1 priorities and reader cleanup live
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          import urllib.parse
+          import urllib.request
+
+          base = 'https://athar-rag-ibradevweb.onrender.com'
+          priority_ids = [
+              'openiti-priority-hanafi-quduri',
+              'openiti-priority-hanafi-mabsut',
+              'openiti-priority-hanafi-hidaya',
+              'openiti-priority-shafii-muhadhdhab',
+              'openiti-priority-hanbali-kafi',
+              'openiti-priority-hanbali-muqni',
+              'openiti-priority-hanbali-insaf',
+              'openiti-priority-hadith-musnad-ahmad',
+              'openiti-priority-tafsir-qurtubi',
+              'openiti-priority-usul-mustasfa',
+              'openiti-priority-usul-ihkam-amidi',
+              'openiti-priority-history-tabaqat-ibn-sad',
+              'openiti-priority-history-tabari',
+          ]
+
+          with urllib.request.urlopen(base + '/api/rag/v5/library-books', timeout=90) as response:
+              catalogue = json.load(response)
+          rows = catalogue.get('books') or []
+          by_id = {str(row.get('id') or ''): row for row in rows}
+          missing = [book_id for book_id in priority_ids if book_id not in by_id]
+          if missing:
+              raise SystemExit(f'P1 priorities missing from public catalogue: {missing}')
+
+          target_id = 'openiti-priority-hanafi-quduri'
+          encoded = urllib.parse.quote(target_id)
+          with urllib.request.urlopen(base + '/api/rag/v5/book?id=' + encoded, timeout=90) as response:
+              info = json.load(response)
+          book = info.get('book') or {}
+          if book.get('id') != target_id or book.get('madhhab') != 'Ḥanafite':
+              raise SystemExit(f'Priority bibliography is not deployed correctly: {book}')
+          if not str(book.get('title_ar') or '').strip() or not str(book.get('author') or '').strip():
+              raise SystemExit(f'Priority bibliography is incomplete: {book}')
+
+          with urllib.request.urlopen(base + '/api/rag/v5/toc?book_id=' + encoded + '&limit=12', timeout=90) as response:
+              toc_payload = json.load(response)
+          toc = toc_payload.get('toc') or {}
+          toc_items = toc.get('items') or []
+          if not toc_items:
+              raise SystemExit('Priority reader has no table-of-contents items.')
+          if not any(int(item.get('level') or 0) >= 1 for item in toc_items):
+              raise SystemExit(f'Priority TOC has no structural levels: {toc_items}')
+
+          read_url = base + '/api/rag/v5/read?book_id=' + encoded + '&limit=12'
+          first_page = book.get('first_page')
+          if first_page:
+              read_url += '&page=' + urllib.parse.quote(str(first_page))
+          with urllib.request.urlopen(read_url, timeout=90) as response:
+              read = json.load(response)
+          passages = read.get('passages') or []
+          if read.get('reader_mode') != 'structured-book-v2' or not read.get('reader_pages') or not passages:
+              raise SystemExit(f'Structured reader payload is missing: {read}')
+
+          forbidden = [
+              re.compile(r'PageV\d{2,3}P\d{3,5}[AB]?'),
+              re.compile(r'###\s*\|*'),
+              re.compile(r'<[^>\n]{1,300}>'),
+              re.compile(r'\bms\d+\b', re.I),
+              re.compile(r'\[\s*(?:ص|صفحة|page)\s*[:：]?\s*[\d٠-٩]+\s*\]', re.I),
+          ]
+          for passage in passages:
+              meta = passage.get('metadata') or {}
+              if meta.get('reader_parser_version') != 'athar-openiti-reader-v2':
+                  raise SystemExit(f'Old parser still served for priority passage: {meta}')
+              text = str(passage.get('text_ar') or passage.get('text_fr') or '')
+              for pattern in forbidden:
+                  if pattern.search(text):
+                      raise SystemExit(f'Technical marker leaked into public reader: {pattern.pattern} :: {text[:300]}')
+
+          if not any((passage.get('section_path') or passage.get('section_title')) for passage in passages):
+              raise SystemExit('Priority passages expose no structural book section metadata.')
+
+          print(
+              'PUBLIC P1 CURATED READER: PASS — '
+              f'{len(priority_ids)}/13 priorities present — {target_id} structured and technical-marker-clean'
+          )
+          PY
