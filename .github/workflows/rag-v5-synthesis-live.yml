@@ -1,0 +1,96 @@
+name: RAG V5 grounded synthesis live verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v5_scholar_synthesis.py'
+      - 'rag/v5_library_server.py'
+      - 'render.yaml'
+      - '.github/workflows/rag-v5-synthesis-live.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-grounded-synthesis-live:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Render and verify grounded synthesis
+        env:
+          ATHAR_URL: https://athar-rag-ibradevweb.onrender.com
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import time
+          import urllib.error
+          import urllib.request
+
+          base = os.environ['ATHAR_URL'].rstrip('/')
+          body = json.dumps({
+              'query': 'Dans quelles prières récite-t-on à voix haute ?',
+              'limit': 12,
+              'madhhab': '',
+              'discipline': ''
+          }, ensure_ascii=False).encode('utf-8')
+
+          last_error = None
+          for attempt in range(1, 25):
+              try:
+                  req = urllib.request.Request(
+                      base + '/api/rag/v5/synthesize',
+                      data=body,
+                      method='POST',
+                      headers={
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json; charset=utf-8',
+                          'Origin': 'https://ibradevweb.github.io',
+                      },
+                  )
+                  with urllib.request.urlopen(req, timeout=90) as response:
+                      payload = json.loads(response.read().decode('utf-8'))
+
+                  if payload.get('engine') != 'rag-v5-hybrid-multilingual':
+                      raise RuntimeError('wrong engine marker')
+                  if int(payload.get('engine_version') or 0) != 5:
+                      raise RuntimeError('wrong engine version')
+
+                  sources = payload.get('sources') or []
+                  if not sources:
+                      raise RuntimeError('no RAG sources returned')
+                  allowed = {str(source.get('citation_id') or '') for source in sources}
+                  allowed.discard('')
+
+                  answer = payload.get('answer') or {}
+                  if answer.get('mode') != 'llm_grounded_synthesis':
+                      detail = answer.get('synthesis_error') or answer.get('summary') or answer.get('mode')
+                      raise RuntimeError(f'synthesis not ready: {detail}')
+                  synthesis = answer.get('synthesis') or {}
+                  if not str(synthesis.get('overview') or '').strip():
+                      raise RuntimeError('empty synthesis overview')
+
+                  used = {str(value) for value in (synthesis.get('source_ids') or []) if str(value)}
+                  if not used or not used.issubset(allowed):
+                      raise RuntimeError(f'invalid synthesis source ids: {sorted(used - allowed)}')
+
+                  for position in synthesis.get('positions') or []:
+                      cited = {str(value) for value in (position.get('source_ids') or []) if str(value)}
+                      if not cited:
+                          raise RuntimeError('uncited synthesized position')
+                      if not cited.issubset(allowed):
+                          raise RuntimeError(f'hallucinated position citation: {sorted(cited - allowed)}')
+
+                  print(
+                      'PUBLIC ATHAR GROUNDED SYNTHESIS: PASS — '
+                      f"{len(sources)} RAG source(s), {len(synthesis.get('positions') or [])} position(s), "
+                      f"status={synthesis.get('position_status')}"
+                  )
+                  break
+              except Exception as exc:
+                  last_error = exc
+                  print(f'Attempt {attempt}/24: {type(exc).__name__}: {exc}', flush=True)
+                  if attempt == 24:
+                      raise
+                  time.sleep(15)
+          else:
+              raise RuntimeError(last_error or 'production synthesis verification failed')
+          PY
