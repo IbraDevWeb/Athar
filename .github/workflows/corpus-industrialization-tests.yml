@@ -13,6 +13,7 @@ on:
       - 'rag/ingest_openiti.py'
       - 'rag/build_hosted_corpus.py'
       - 'rag/cache_hosted_corpus.py'
+      - 'rag/fetch_hosted_corpus.py'
       - 'rag/corpus_release_cache_tests.py'
       - '.github/workflows/grow-openiti-corpus.yml'
       - '.github/workflows/build-rag-corpus.yml'
@@ -29,6 +30,7 @@ on:
       - 'rag/ingest_openiti.py'
       - 'rag/build_hosted_corpus.py'
       - 'rag/cache_hosted_corpus.py'
+      - 'rag/fetch_hosted_corpus.py'
       - 'rag/corpus_release_cache_tests.py'
       - '.github/workflows/grow-openiti-corpus.yml'
       - '.github/workflows/build-rag-corpus.yml'
@@ -58,6 +60,7 @@ jobs:
           rag/ingest_openiti.py
           rag/build_hosted_corpus.py
           rag/cache_hosted_corpus.py
+          rag/fetch_hosted_corpus.py
           rag/corpus_industrializer_tests.py
           rag/corpus_release_cache_tests.py
 
