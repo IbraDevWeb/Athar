@@ -3,9 +3,9 @@
   "strategy": "append-friendly-manifest-order-v1",
   "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "total_books": 125,
+  "total_books": 150,
   "total_shards": 4,
-  "hosted_target_openiti_books": 125,
+  "hosted_target_openiti_books": 150,
   "future_target_books": 500,
   "limits": {
     "max_books_per_shard": 40,
@@ -1021,13 +1021,217 @@
     },
     {
       "id": "openiti-004",
-      "book_count": 5,
-      "source_chars": 0,
+      "book_count": 30,
+      "source_chars": 15979503,
       "oversize_source": false,
       "subjects": {
-        "tafsir": 5
+        "aqida": 5,
+        "fiqh": 5,
+        "hadith": 5,
+        "sira": 5,
+        "tafsir": 10
       },
       "books": [
+        {
+          "book_id": "openiti-auto-70e9040625c9a938",
+          "title": "Ṭabaqāt al-fuqahāʾ",
+          "title_ar": "طبقات الفقهاء",
+          "author": "Abu Ishaq Shirazi",
+          "discipline": "Fiqh",
+          "source_chars": 97647
+        },
+        {
+          "book_id": "openiti-auto-cf0a46f942e6f0d3",
+          "title": "al-Radd ʿalá al-Ǧahmiyyaŧ",
+          "title_ar": "الرد على الجهمية",
+          "author": "Cuthman Ibn Sacid Darimi",
+          "discipline": "Hadith",
+          "source_chars": 117535
+        },
+        {
+          "book_id": "openiti-auto-332ea3fd5e466670",
+          "title": "Asbab Nuzul",
+          "title_ar": "أسباب نزول القرآن",
+          "author": "Ibn Ahmad Wahidi Naysaburi",
+          "discipline": "Tafsīr",
+          "source_chars": 379757
+        },
+        {
+          "book_id": "openiti-auto-1d4f0bbb88d1716e",
+          "title": "Awthaq Cura Iman",
+          "title_ar": "أوثق عرى الإيمان",
+          "author": "Sulayman Sibt Ibn Cabd Wahhab",
+          "discipline": "ʿAqīda",
+          "source_chars": 19894
+        },
+        {
+          "book_id": "openiti-auto-1674cb1afc146fc6",
+          "title": "al-Maġāzi",
+          "title_ar": "المغاز",
+          "author": "Waqidi",
+          "discipline": "Sīra et histoire",
+          "source_chars": 998326
+        },
+        {
+          "book_id": "openiti-auto-3f5f3c931c2c1883",
+          "title": "Bayan Khata",
+          "title_ar": "بيان خطأ من أخطأ على الشافعي",
+          "author": "Bayhaqi",
+          "discipline": "Fiqh",
+          "source_chars": 73080
+        },
+        {
+          "book_id": "openiti-auto-b4fb1f3e0cdd8954",
+          "title": "kitāb al-hawātif",
+          "title_ar": "كتاب الهواتف",
+          "author": "Ibn Abi Dunya",
+          "discipline": "Hadith",
+          "source_chars": 73048
+        },
+        {
+          "book_id": "openiti-auto-a3153c39fcea6e11",
+          "title": "Tafsir",
+          "title_ar": "تفسير مجاهد",
+          "author": "Mujahid Ibn Jabr",
+          "discipline": "Tafsīr",
+          "source_chars": 324423
+        },
+        {
+          "book_id": "openiti-auto-4561ada31e7666d6",
+          "title": "Fath Majid",
+          "title_ar": "فتح المجيد شرح كتاب التوحيد",
+          "author": "Ibn Hasan Al Shaykh",
+          "discipline": "ʿAqīda",
+          "source_chars": 499355
+        },
+        {
+          "book_id": "openiti-auto-8d42780e4d94cdc7",
+          "title": "Badr Talic",
+          "title_ar": "البدر الطالع",
+          "author": "Shawkani",
+          "discipline": "Sīra et histoire",
+          "source_chars": 825852
+        },
+        {
+          "book_id": "openiti-auto-b6bab1308698d011",
+          "title": "al-Ašribaŧ wa ḏikr iḫtilāf al-nās fīhā",
+          "title_ar": "الأشربة و ذكر اختلاف الناس فيها",
+          "author": "Ibn Qutayba Dinawari",
+          "discipline": "Fiqh",
+          "source_chars": 60098
+        },
+        {
+          "book_id": "openiti-auto-9263dada44e171d3",
+          "title": "Alfiyyaŧ fī ʿilm al-ḥadīṯ",
+          "title_ar": "ألفية في علم الحديث",
+          "author": "Suyuti",
+          "discipline": "Hadith",
+          "source_chars": 37257
+        },
+        {
+          "book_id": "openiti-auto-d057663abbd70021",
+          "title": "Lubab Nuqul",
+          "title_ar": "لباب النقول في أسباب النزول",
+          "author": "Suyuti",
+          "discipline": "Tafsīr",
+          "source_chars": 241636
+        },
+        {
+          "book_id": "openiti-auto-5c631b002b0672b7",
+          "title": "Misbah Zalam",
+          "title_ar": "مصباح الظلام في الرد على من كذب الشيخ الإمام ونسبه إلى تكفير أهل الإيمان والإسلام",
+          "author": "Cabd Latif Al Shaykh",
+          "discipline": "ʿAqīda",
+          "source_chars": 370622
+        },
+        {
+          "book_id": "openiti-auto-a6b2d7022b06a964",
+          "title": "Tarikh",
+          "title_ar": "تاريخ الدولة العلية العثمانية",
+          "author": "Muhammad Farid Bey",
+          "discipline": "Sīra et histoire",
+          "source_chars": 722019
+        },
+        {
+          "book_id": "openiti-auto-2f207d88bbc61fd4",
+          "title": "al-Ǧumʿaŧ",
+          "title_ar": "الجمعة",
+          "author": "Nasai",
+          "discipline": "Fiqh",
+          "source_chars": 24310
+        },
+        {
+          "book_id": "openiti-auto-bc0d5557d59db0da",
+          "title": "Akhbar Wa Hikayat",
+          "title_ar": "أخبار وحكايات",
+          "author": "Ibn Fayd Ghassani",
+          "discipline": "Hadith",
+          "source_chars": 31365
+        },
+        {
+          "book_id": "openiti-auto-40aa6cebf46a1946",
+          "title": "Tafsir Ayat Min Quran",
+          "title_ar": "تفسير آيات من القرآن الكريم",
+          "author": "Ibn Cabd Wahhab",
+          "discipline": "Tafsīr",
+          "source_chars": 192742
+        },
+        {
+          "book_id": "openiti-auto-21bb3486c8a0e085",
+          "title": "Fath Allah Hamid",
+          "title_ar": "فتح الله الحميد المجيد في شرح كتاب التوحيد",
+          "author": "Khayr Din Alusi",
+          "discipline": "ʿAqīda",
+          "source_chars": 360742
+        },
+        {
+          "book_id": "openiti-auto-6fe38be1c0d34290",
+          "title": "Sulafa Casr",
+          "title_ar": "سلافة العصر في محاسن الشعراء بكل مصر",
+          "author": "Ibn Macsum",
+          "discipline": "Sīra et histoire",
+          "source_chars": 694173
+        },
+        {
+          "book_id": "openiti-auto-2721f0f182b87ab0",
+          "title": "Kifāyaŧ al-nabīh šarḥ al-Tanbīh fī fiqh al-Imām al-¶ Šāfiʿī",
+          "title_ar": "كفاية النبيه شرح التنبيه في فقه الامام ال¶ شافعي",
+          "author": "Ibn Rifca",
+          "discipline": "Fiqh",
+          "source_chars": 8953855
+        },
+        {
+          "book_id": "openiti-auto-7e3315fb45370201",
+          "title": "Juz",
+          "title_ar": "جزء فيه قول النبي صلى الله عليه وسلم \"نضر الله امرءا سمع مقالتي فأداها\"",
+          "author": "Ibn Muhammad Madini",
+          "discipline": "Hadith",
+          "source_chars": 14939
+        },
+        {
+          "book_id": "openiti-auto-79d026267e5e9a25",
+          "title": "Qanun Tawil",
+          "title_ar": "قانون التأويل",
+          "author": "Ibn Carabi Ishbili",
+          "discipline": "Tafsīr",
+          "source_chars": 145345
+        },
+        {
+          "book_id": "openiti-auto-ed4513cd1454d397",
+          "title": "Iqtisad",
+          "title_ar": "الاقتصاد في الاعتقاد",
+          "author": "Ghazali",
+          "discipline": "ʿAqīda",
+          "source_chars": 183029
+        },
+        {
+          "book_id": "openiti-auto-efccb0ad4a1ac254",
+          "title": "Tarikh Khulafa",
+          "title_ar": "تاريخ الخلفاء",
+          "author": "Suyuti",
+          "discipline": "Sīra et histoire",
+          "source_chars": 538454
+        },
         {
           "book_id": "openiti-baghawi-tafsir",
           "title": "Ma'alim al-Tanzil",
@@ -1192,6 +1396,31 @@
     "openiti-auto-ba24b51120ccd14c": "openiti-003",
     "openiti-auto-d0071395a8b5ac0a": "openiti-003",
     "openiti-auto-f435a7faa3834d7d": "openiti-003",
+    "openiti-auto-70e9040625c9a938": "openiti-004",
+    "openiti-auto-cf0a46f942e6f0d3": "openiti-004",
+    "openiti-auto-332ea3fd5e466670": "openiti-004",
+    "openiti-auto-1d4f0bbb88d1716e": "openiti-004",
+    "openiti-auto-1674cb1afc146fc6": "openiti-004",
+    "openiti-auto-3f5f3c931c2c1883": "openiti-004",
+    "openiti-auto-b4fb1f3e0cdd8954": "openiti-004",
+    "openiti-auto-a3153c39fcea6e11": "openiti-004",
+    "openiti-auto-4561ada31e7666d6": "openiti-004",
+    "openiti-auto-8d42780e4d94cdc7": "openiti-004",
+    "openiti-auto-b6bab1308698d011": "openiti-004",
+    "openiti-auto-9263dada44e171d3": "openiti-004",
+    "openiti-auto-d057663abbd70021": "openiti-004",
+    "openiti-auto-5c631b002b0672b7": "openiti-004",
+    "openiti-auto-a6b2d7022b06a964": "openiti-004",
+    "openiti-auto-2f207d88bbc61fd4": "openiti-004",
+    "openiti-auto-bc0d5557d59db0da": "openiti-004",
+    "openiti-auto-40aa6cebf46a1946": "openiti-004",
+    "openiti-auto-21bb3486c8a0e085": "openiti-004",
+    "openiti-auto-6fe38be1c0d34290": "openiti-004",
+    "openiti-auto-2721f0f182b87ab0": "openiti-004",
+    "openiti-auto-7e3315fb45370201": "openiti-004",
+    "openiti-auto-79d026267e5e9a25": "openiti-004",
+    "openiti-auto-ed4513cd1454d397": "openiti-004",
+    "openiti-auto-efccb0ad4a1ac254": "openiti-004",
     "openiti-baghawi-tafsir": "openiti-004",
     "openiti-zamakhshari-kashshaf": "openiti-004",
     "openiti-razi-mafatih-ghayb": "openiti-004",
