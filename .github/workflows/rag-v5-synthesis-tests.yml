@@ -1,0 +1,58 @@
+name: RAG V5 grounded synthesis tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v5_scholar_synthesis.py'
+      - 'rag/v5_scholar_synthesis_tests.py'
+      - 'rag/v5_library_server.py'
+      - 'js/components/ScholarSynthesisBridge.js'
+      - 'css/athar-research-synthesis.css'
+      - 'js/config.js'
+      - 'service-worker.js'
+      - 'scripts/validate-rag-v4.js'
+      - 'scripts/validate-research-synthesis.js'
+      - '.github/workflows/rag-v5-synthesis-tests.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'rag/v5_scholar_synthesis.py'
+      - 'rag/v5_scholar_synthesis_tests.py'
+      - 'rag/v5_library_server.py'
+      - 'js/components/ScholarSynthesisBridge.js'
+      - 'css/athar-research-synthesis.css'
+      - 'js/config.js'
+      - 'service-worker.js'
+      - 'scripts/validate-rag-v4.js'
+      - 'scripts/validate-research-synthesis.js'
+      - '.github/workflows/rag-v5-synthesis-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  grounded-synthesis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install synthesis dependency
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Compile synthesis modules
+        run: python -m py_compile rag/v5_scholar_synthesis.py rag/v5_scholar_synthesis_tests.py rag/v5_library_server.py
+      - name: Check synthesis JavaScript syntax
+        run: node --check js/components/ScholarSynthesisBridge.js && node --check scripts/validate-research-synthesis.js
+      - name: Run grounded synthesis unit tests
+        working-directory: rag
+        run: python v5_scholar_synthesis_tests.py
+      - name: Validate synthesis UI injection
+        run: node scripts/validate-research-synthesis.js
+      - name: Validate Athar Research contract
+        run: node scripts/validate-rag-v4.js

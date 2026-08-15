@@ -49,7 +49,7 @@ tailwind.config = {
 
 (() => {
     const APP_VERSION = 'athar-pro-v36';
-    const RESEARCH_UI_VERSION = 'athar-research-v5-ui-1';
+    const RESEARCH_UI_VERSION = 'athar-research-v5-ui-2';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -107,8 +107,9 @@ tailwind.config = {
     writeEarlyScript('isnad_data.js', 'athar-golden-chain-data');
     writeEarlyScript('js/components/GoldenChainView.js', 'athar-golden-chain-view');
 
-    /* Athar Research est chargé directement : plus de bootstrap V2 ni de bridge RAG historique. */
+    /* Athar Research : vue, couche de synthèse fondée sur le RAG, puis bootstrap. */
     writeEarlyScript('js/components/ScholarLibraryV4View.js', 'athar-research-v5-view', RESEARCH_UI_VERSION);
+    writeEarlyScript('js/components/ScholarSynthesisBridge.js', 'athar-research-synthesis-bridge', RESEARCH_UI_VERSION);
     writeEarlyScript('js/components/ScholarV4Bootstrap.js', 'athar-research-v5-bootstrap', RESEARCH_UI_VERSION);
     writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
@@ -140,6 +141,7 @@ tailwind.config = {
     ensureStylesheet(`css/golden-chain.css?v=${APP_VERSION}`, 'athar-golden-chain-styles');
     ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
     ensureStylesheet(`css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}`, 'athar-research-v5-styles');
+    ensureStylesheet('css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'athar-research-synthesis-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');

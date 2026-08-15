@@ -1,0 +1,257 @@
+/* Athar Research — synthèse IA fondée sur le corpus */
+.ar5-answer-modes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 0 12px;
+}
+.ar5-answer-modes > button {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    align-items: center;
+    padding: 12px 14px;
+    border: 1px solid var(--ar5-line-local, #e2ddd4);
+    border-radius: 12px;
+    background: var(--ar5-surface-local, #fff);
+    color: var(--ar5-muted-local, #6f6b64);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.ar5-answer-modes > button:hover { transform: translateY(-1px); border-color: #c8b99d; }
+.ar5-answer-modes > button.active {
+    border-color: rgba(166,123,61,.55);
+    background: linear-gradient(135deg, rgba(166,123,61,.08), rgba(157,81,71,.055));
+    box-shadow: 0 8px 22px rgba(36,31,24,.06), inset 0 0 0 1px rgba(166,123,61,.08);
+    color: var(--ar5-ink-local, #201e1a);
+}
+.ar5-answer-modes > button > span {
+    grid-row: 1 / span 2;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: #f4f1eb;
+    color: #8f6a33;
+}
+.ar5-answer-modes > button.active > span { background: #1d1b18; color: #d9b77a; }
+.ar5-answer-modes svg { width: 16px; height: 16px; }
+.ar5-answer-modes strong { align-self: end; font-size: 12px; line-height: 1.2; }
+.ar5-answer-modes small { align-self: start; margin-top: 3px; font-size: 9px; line-height: 1.35; color: #89847b; }
+
+.ar5-synthesis {
+    margin: 18px 0 22px;
+    overflow: hidden;
+    border: 1px solid #ddd6c9;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 92% 5%, rgba(197,160,89,.12), transparent 28%),
+        linear-gradient(180deg, #fffefa 0%, #fff 52%);
+    box-shadow: 0 18px 48px rgba(34,28,20,.07);
+}
+.ar5-synthesis-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 24px 26px 18px;
+    border-bottom: 1px solid #ece7de;
+}
+.ar5-synthesis-head > div:first-child > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #9b6e2f;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+}
+.ar5-synthesis-head svg { width: 15px; height: 15px; }
+.ar5-synthesis-head h3 {
+    margin: 7px 0 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(23px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -.025em;
+}
+.ar5-synthesis-provider {
+    flex: 0 0 auto;
+    min-width: 120px;
+    padding: 10px 12px;
+    border: 1px solid #e7e0d3;
+    border-radius: 10px;
+    background: rgba(255,255,255,.72);
+    text-align: right;
+}
+.ar5-synthesis-provider b { display: block; font-size: 10px; color: #3a372f; }
+.ar5-synthesis-provider small { display: block; margin-top: 2px; color: #9a9489; font-size: 8px; overflow-wrap: anywhere; }
+.ar5-synthesis-overview {
+    margin: 0;
+    padding: 24px 26px 14px;
+    color: #34312c;
+    font: 500 16px/1.8 Georgia, 'Times New Roman', serif;
+}
+.ar5-synthesis-proofline {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0 26px 22px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    background: #f4f8f5;
+    color: #4b6958;
+    font-size: 9px;
+    line-height: 1.5;
+}
+.ar5-synthesis-proofline svg { width: 14px; height: 14px; flex: 0 0 auto; margin-top: 1px; }
+.ar5-position-section { padding: 0 26px 24px; }
+.ar5-synthesis-subhead {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 10px;
+    color: #81796e;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.ar5-synthesis-subhead strong {
+    display: grid;
+    place-items: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #eee8dc;
+    color: #7b6036;
+}
+.ar5-position-grid { display: grid; gap: 9px; }
+.ar5-position-card {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 13px;
+    padding: 16px;
+    border: 1px solid #e8e4dc;
+    border-radius: 12px;
+    background: rgba(255,255,255,.82);
+}
+.ar5-position-index {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #22201d;
+    color: #d9b77a;
+    font: 700 12px/1 Georgia, serif;
+}
+.ar5-position-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ar5-position-title h4 { margin: 0; font: 700 15px/1.3 Georgia, serif; }
+.ar5-position-title span {
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: #f2eee6;
+    color: #866a42;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+.ar5-position-copy p { margin: 8px 0 0; color: #58534c; font-size: 12px; line-height: 1.7; }
+.ar5-position-citations { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.ar5-position-citations button {
+    border: 1px solid #dfd5c4;
+    border-radius: 7px;
+    padding: 5px 8px;
+    background: #fffaf1;
+    color: #9b6e2f;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 900;
+}
+.ar5-position-citations button:hover { background: #f6ead6; border-color: #cfb384; }
+
+.ar5-synthesis-compare {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0 26px 24px;
+}
+.ar5-synthesis-compare article {
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid #e5e6e3;
+    border-radius: 11px;
+    background: #fafbf9;
+}
+.ar5-synthesis-compare article + article { background: #fcfaf8; }
+.ar5-synthesis-compare header,
+.ar5-synthesis-limits header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #4f6458;
+    font-size: 10px;
+}
+.ar5-synthesis-compare article + article header { color: #825b4e; }
+.ar5-synthesis-compare svg,
+.ar5-synthesis-limits svg { width: 14px; height: 14px; }
+.ar5-synthesis-compare ul,
+.ar5-synthesis-limits ul { margin: 10px 0 0; padding-left: 17px; color: #68635b; font-size: 10px; line-height: 1.65; }
+.ar5-synthesis-compare li + li,
+.ar5-synthesis-limits li + li { margin-top: 5px; }
+.ar5-synthesis-limits {
+    margin: 0 26px 22px;
+    padding: 14px 15px;
+    border: 1px solid #eadfca;
+    border-radius: 11px;
+    background: #fffaf1;
+}
+.ar5-synthesis-limits header { color: #8e6a35; }
+.ar5-synthesis-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 15px 26px;
+    border-top: 1px solid #ece7de;
+    background: #f7f5f0;
+    color: #777167;
+    font-size: 9px;
+    line-height: 1.55;
+}
+.ar5-synthesis-notice svg { width: 15px; height: 15px; flex: 0 0 auto; margin-top: 1px; }
+.ar5-synthesis-fallback {
+    display: flex;
+    gap: 12px;
+    margin: 18px 0 22px;
+    padding: 16px 18px;
+    border: 1px solid #eadbc7;
+    border-radius: 12px;
+    background: #fff9ef;
+    color: #735f45;
+}
+.ar5-synthesis-fallback > svg { width: 20px; height: 20px; flex: 0 0 auto; }
+.ar5-synthesis-fallback strong { display: block; font-size: 11px; }
+.ar5-synthesis-fallback p { margin: 4px 0 0; font-size: 10px; line-height: 1.5; }
+.ar5-synthesis-fallback small { display: block; margin-top: 5px; color: #96856d; font-size: 9px; }
+
+@media (max-width: 760px) {
+    .ar5-answer-modes { grid-template-columns: 1fr; }
+    .ar5-answer-modes > button { grid-template-columns: 32px minmax(0, 1fr); padding: 10px 12px; }
+    .ar5-synthesis-head { padding: 18px; }
+    .ar5-synthesis-provider { min-width: 0; }
+    .ar5-synthesis-overview { padding: 18px 18px 12px; font-size: 15px; }
+    .ar5-synthesis-proofline { margin: 0 18px 18px; }
+    .ar5-position-section { padding: 0 18px 18px; }
+    .ar5-position-card { grid-template-columns: 34px minmax(0, 1fr); padding: 13px; }
+    .ar5-position-index { width: 34px; height: 34px; }
+    .ar5-synthesis-compare { grid-template-columns: 1fr; padding: 0 18px 18px; }
+    .ar5-synthesis-limits { margin: 0 18px 18px; }
+    .ar5-synthesis-notice { padding: 13px 18px; }
+}
