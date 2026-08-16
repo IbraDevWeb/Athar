@@ -6,6 +6,8 @@ on:
     paths:
       - 'rag/v63_semantic_index.py'
       - 'rag/v63_semantic_index_tests.py'
+      - 'rag/v63_semantic_release.py'
+      - 'rag/v63_semantic_release_tests.py'
       - 'rag/v63_hybrid.py'
       - 'rag/v63_hybrid_tests.py'
       - 'rag/requirements-v63.txt'
@@ -42,12 +44,15 @@ jobs:
           rag/v63_hybrid_tests.py
           rag/v63_semantic_index.py
           rag/v63_semantic_index_tests.py
+          rag/v63_semantic_release.py
+          rag/v63_semantic_release_tests.py
           rag/cache_hosted_corpus.py
 
       - name: Run semantic unit tests
         run: |
           python rag/v63_hybrid_tests.py
           python rag/v63_semantic_index_tests.py
+          python rag/v63_semantic_release_tests.py
 
       - name: Download one production OpenITI shard
         shell: bash
