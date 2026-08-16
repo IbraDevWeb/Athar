@@ -10,6 +10,7 @@ viewed from disk instead of loaded into process RAM.
 import json
 import os
 import sqlite3
+import time
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -185,6 +186,8 @@ class V64ProductionRuntime:
         self._ann: ViewedGlobalAnnIndex | None = None
         self._runtime: ProductionAnnRuntime | None = None
         self._ann_error = ""
+        self._warmup_ms: float | None = None
+        self._warmup_complete = False
 
     def __getattr__(self, name: str) -> Any:
         return getattr(self.base, name)
@@ -237,6 +240,51 @@ class V64ProductionRuntime:
         if self.configured_engine == "v63c" and runtime is None and not self.fail_open:
             raise RuntimeError(self._ann_error or "V6.3-C production indisponible.")
 
+    def warmup(self) -> dict[str, Any]:
+        """Load ONNX/FastEmbed and execute one real ANN lookup before HTTP readiness."""
+        if self.configured_engine == "v61":
+            self._warmup_complete = True
+            self._warmup_ms = 0.0
+            return {"engine": self.FALLBACK_ENGINE, "warmup_ms": 0.0, "fallback": False}
+        runtime = self._ensure_runtime()
+        if runtime is None:
+            self._warmup_complete = True
+            return {
+                "engine": self.FALLBACK_ENGINE,
+                "warmup_ms": self._warmup_ms,
+                "fallback": True,
+                "reason": self._ann_error,
+            }
+        started = time.perf_counter()
+        try:
+            qvec = runtime._embed_query("Athar semantic production warmup tayammum الصلاة")
+            # Exercise both the disk-view graph and SQLite sidecar so the first
+            # user request does not pay lazy initialization/page-fault costs.
+            rows = runtime.ann.search(qvec, top_k=min(8, runtime.config.ann_oversample))
+            if not rows:
+                raise RuntimeError("Warmup ANN sans résultat.")
+            self._warmup_ms = (time.perf_counter() - started) * 1000.0
+            self._warmup_complete = True
+            return {
+                "engine": self.ENGINE,
+                "warmup_ms": round(self._warmup_ms, 2),
+                "fallback": False,
+                "ann_hits": len(rows),
+            }
+        except Exception as exc:
+            self._warmup_ms = (time.perf_counter() - started) * 1000.0
+            self._warmup_complete = True
+            self._ann_error = f"warmup {type(exc).__name__}: {exc}"
+            self.close_ann(reset_error=False)
+            if not self.fail_open:
+                raise
+            return {
+                "engine": self.FALLBACK_ENGINE,
+                "warmup_ms": round(self._warmup_ms, 2),
+                "fallback": True,
+                "reason": self._ann_error,
+            }
+
     def _fallback(self, method: str, query: str, *, limit: int, madhhab: str, discipline: str) -> dict[str, Any]:
         call = getattr(self.base, method)
         result = call(query, limit=limit, madhhab=madhhab, discipline=discipline)
@@ -287,7 +335,7 @@ class V64ProductionRuntime:
             if not self.fail_open:
                 raise
             self._ann_error = f"{type(exc).__name__}: {exc}"
-            self.close_ann()
+            self.close_ann(reset_error=False)
             return self._fallback("search", query, limit=limit, madhhab=madhhab, discipline=discipline)
 
     def ask(self, query: str, *, limit: int = 8, madhhab: str = "", discipline: str = "") -> dict[str, Any]:
@@ -302,7 +350,7 @@ class V64ProductionRuntime:
             if not self.fail_open:
                 raise
             self._ann_error = f"{type(exc).__name__}: {exc}"
-            self.close_ann()
+            self.close_ann(reset_error=False)
             return self._fallback("ask", query, limit=limit, madhhab=madhhab, discipline=discipline)
 
     def operational_status(self) -> dict[str, Any]:
@@ -318,6 +366,8 @@ class V64ProductionRuntime:
             "retrieval_fallback_reason": self._ann_error,
             "ann_storage_mode": "disk_view" if runtime is not None else "unavailable",
             "ann_vectors": int(self._ann.manifest.get("vectors") or 0) if self._ann else 0,
+            "semantic_warmup_complete": self._warmup_complete,
+            "semantic_warmup_ms": round(self._warmup_ms, 2) if self._warmup_ms is not None else None,
         }
 
     def status(self) -> dict[str, Any]:
@@ -325,10 +375,12 @@ class V64ProductionRuntime:
         payload.update(self.operational_status())
         return payload
 
-    def close_ann(self) -> None:
+    def close_ann(self, *, reset_error: bool = False) -> None:
         ann = self._ann
         self._runtime = None
         self._ann = None
+        if reset_error:
+            self._ann_error = ""
         if ann is not None:
             ann.close()
 
