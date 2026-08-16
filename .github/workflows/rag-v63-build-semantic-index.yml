@@ -1,0 +1,143 @@
+name: Athar RAG V6.3-B full semantic index build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-shards:
+    strategy:
+      fail-fast: false
+      max-parallel: 11
+      matrix:
+        shard:
+          - openiti-001
+          - openiti-002
+          - openiti-003
+          - openiti-004
+          - openiti-005
+          - openiti-006
+          - openiti-007
+          - openiti-008
+          - openiti-009
+          - openiti-010
+          - core-001
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      PYTHONPATH: rag
+      SHARD_ID: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3 dependencies
+        run: python -m pip install -r rag/requirements-v63.txt
+
+      - name: Download selected production shard
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from cache_hosted_corpus import _cache_entry
+
+          shard_id = os.environ['SHARD_ID']
+          manifest = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          entry = next(row for row in manifest['shards'] if row['id'] == shard_id)
+          result = _cache_entry(entry, Path('rag/data/v63-full-shard'))
+          Path('rag/data/v63-selected.json').write_text(json.dumps(entry, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(result, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Build complete semantic shard index
+        shell: bash
+        run: |
+          DB_NAME=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          print(json.loads(Path('rag/data/v63-selected.json').read_text())['database'])
+          PY
+          )
+          python rag/v63_semantic_index.py build \
+            --shard-db "rag/data/v63-full-shard/${DB_NAME}" \
+            --output-dir rag/data/v63-semantic-full \
+            --shard-id "${SHARD_ID}" \
+            --batch-size 128
+
+      - name: Validate complete shard index
+        run: >-
+          python rag/v63_semantic_index.py validate
+          --manifest "rag/data/v63-semantic-full/${SHARD_ID}.semantic.json"
+
+      - name: Assert corpus/index identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          shard_id = os.environ['SHARD_ID']
+          source = json.loads(Path('rag/data/v63-selected.json').read_text(encoding='utf-8'))
+          semantic = json.loads(Path(f'rag/data/v63-semantic-full/{shard_id}.semantic.json').read_text(encoding='utf-8'))
+          assert semantic['complete'] is True
+          assert semantic['max_chunks'] == 0
+          assert semantic['source_database_sha256'] == source['database_sha256']
+          assert semantic['indexed_count'] == source['chunks']
+          assert semantic['target_count'] == source['chunks']
+          print(f"{shard_id}: {semantic['indexed_count']} vecteurs validés")
+          PY
+
+      - name: Upload complete semantic shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-v63-semantic-${{ matrix.shard }}
+          path: |
+            rag/data/v63-semantic-full/${{ matrix.shard }}.semantic.json
+            rag/data/v63-semantic-full/${{ matrix.shard }}.vectors.f16.npy
+            rag/data/v63-semantic-full/${{ matrix.shard }}.meta.sqlite
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 1
+
+  assemble-release:
+    needs: build-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3 dependencies
+        run: python -m pip install -r rag/requirements-v63.txt
+
+      - name: Download all semantic shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: athar-v63-semantic-*
+          path: rag/data/v63-semantic-release
+          merge-multiple: true
+
+      - name: Build and validate semantic release manifest
+        run: >-
+          python rag/v63_semantic_release.py
+          --corpus-manifest rag/corpus_release_v3.json
+          --index-dir rag/data/v63-semantic-release
+          --output rag/data/v63-semantic-release/semantic_release_v1.json
+
+      - name: Upload complete semantic release
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 1
