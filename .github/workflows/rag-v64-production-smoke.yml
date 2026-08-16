@@ -5,6 +5,17 @@ on:
     workflows: ['Athar RAG V6.4 publish ANN release']
     types: [completed]
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/cache_v63c_ann_release.py'
+      - 'rag/cache_fastembed_model.py'
+      - 'rag/requirements-v64.txt'
+      - 'rag/v64_production.py'
+      - 'rag/v64_library_server.py'
+      - 'rag/v64_tests.py'
+      - 'rag/v64_production_smoke.py'
+      - '.github/workflows/rag-v64-production-smoke.yml'
 
 concurrency:
   group: rag-v64-production-smoke
@@ -14,6 +25,7 @@ jobs:
   smoke:
     if: >-
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
       (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 120
