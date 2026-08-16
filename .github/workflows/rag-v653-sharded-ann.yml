@@ -1,0 +1,259 @@
+name: Athar RAG V6.5.3 sharded ANN
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v653_sharded_ann.py'
+      - 'rag/v653_semantic_server.py'
+      - 'rag/v653_sharded_benchmark.py'
+      - '.github/workflows/rag-v653-sharded-ann.yml'
+
+concurrency:
+  group: rag-v653-sharded-ann
+  cancel-in-progress: true
+
+jobs:
+  build-benchmark-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      actions: read
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: rag
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      FASTEMBED_CACHE_PATH: rag/data/fastembed-cache
+      ATHAR_FASTEMBED_LOCAL_ONLY: '1'
+      ATHAR_ANN_VERIFY_SHA: '1'
+      ATHAR_SEMANTIC_TOKEN: v653-ci-token
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install ANN dependencies
+        run: python -m pip install -r rag/requirements-v64.txt
+
+      - name: Compile V6.5.3
+        run: >-
+          python -m py_compile
+          rag/v653_sharded_ann.py rag/v653_semantic_server.py rag/v653_sharded_benchmark.py
+          rag/v651_remote_smoke.py rag/v65_remote_smoke.py rag/v65_semantic_server.py
+
+      - name: Resolve complete V6.3-B semantic source
+        id: semantic
+        shell: bash
+        run: |
+          RUN_ID=$(gh run list --workflow rag-v63-build-semantic-index.yml \
+            --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          test -n "$RUN_ID" && test "$RUN_ID" != "null"
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download V6.3-B semantic source
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.semantic.outputs.run_id }}
+
+      - name: Build 11 sequential f16 HNSW shards
+        run: >-
+          python rag/v653_sharded_ann.py build
+          --corpus-manifest rag/corpus_release_v3.json
+          --semantic-index-dir rag/data/v63-semantic-release
+          --output-dir rag/data/v653-ann
+          --connectivity 16
+          --expansion-add 256
+          --expansion-search 1024
+          --batch-size 8192
+
+      - name: Validate serialized sharded ANN
+        run: >-
+          python rag/v653_sharded_ann.py validate
+          --manifest rag/data/v653-ann/athar-v653-sharded.ann.json
+
+      - name: Assert bounded working set and footprint
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          corpus=json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          ann=json.loads(Path('rag/data/v653-ann/athar-v653-sharded.ann.json').read_text(encoding='utf-8'))
+          assert ann['version']=='athar-sharded-ann-usearch-f16-v1'
+          assert ann['dtype']=='f16' and ann['metric']=='cos'
+          assert int(ann['vectors'])==int(corpus['chunks'])==574461
+          assert ann['corpus_source_sha']==corpus['source_sha']
+          assert int(ann['shards'])==11
+          assert int(ann['connectivity'])==16
+          assert ann['serving_mode']=='sequential-shard-disk-view'
+          total=int(ann['index_size_bytes'])+int(ann['metadata_size_bytes'])
+          largest=int(ann['largest_shard_index_bytes'])
+          assert largest < 100_000_000, largest
+          assert total < 575_000_000, total
+          print(json.dumps({
+            'vectors':ann['vectors'],'indexes':ann['shards'],
+            'index_bytes':ann['index_size_bytes'],'metadata_bytes':ann['metadata_size_bytes'],
+            'total_bytes':total,'largest_shard_bytes':largest,
+          },indent=2))
+          PY
+
+      - name: Cache query model
+        run: >-
+          python rag/cache_fastembed_model.py
+          --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+          --cache-dir rag/data/fastembed-cache
+
+      - name: Generate fixed dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Cache corpus shards
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v653-shards
+
+      - name: Benchmark sharded f16 against dense exact
+        run: >-
+          python rag/v653_sharded_benchmark.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/v653-shards
+          --semantic-index-dir rag/data/v63-semantic-release
+          --ann-manifest rag/data/v653-ann/athar-v653-sharded.ann.json
+          --candidate-limit 20
+          --ann-limit 40
+          --ann-oversample 160
+          --ann-recall-cases 30
+          --ann-recall-k 10
+          --min-ann-recall 0.95
+          --output-json rag/data/benchmark-v653-sharded.json
+          --fail-on-regression
+
+      - name: Cache accepted global f16 ANN
+        run: >-
+          python rag/cache_v63c_ann_release.py
+          --corpus-manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v63c-ann
+
+      - name: Prove fused rankings equal accepted global f16 V6.3-C
+        shell: bash
+        env:
+          ATHAR_ANN_MANIFEST: rag/data/v63c-ann/athar-v63c-global.ann.json
+        run: |
+          set -euo pipefail
+          python rag/v653_semantic_server.py --host 127.0.0.1 --port 8765 \
+            --ann-manifest rag/data/v653-ann/athar-v653-sharded.ann.json \
+            > rag/data/v653-semantic.log 2>&1 &
+          SEM_PID=$!
+          trap 'kill $SEM_PID >/dev/null 2>&1 || true' EXIT
+          python - <<'PY'
+          import json,time,urllib.request
+          for _ in range(180):
+              try:
+                  with urllib.request.urlopen('http://127.0.0.1:8765/healthz',timeout=5) as response:
+                      p=json.load(response)
+                  if p.get('ready') and int(p.get('ann_vectors') or 0)==574461:
+                      print('sharded sidecar ready:',p); break
+              except Exception: pass
+              time.sleep(1)
+          else: raise SystemExit('sharded semantic sidecar did not become ready')
+          PY
+          python rag/v651_remote_smoke.py \
+            --dataset rag/data/benchmark-v61.json \
+            --manifest rag/corpus_release_v3.json \
+            --shard-dir rag/data/v653-shards \
+            --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json \
+            --semantic-url http://127.0.0.1:8765 \
+            --semantic-token "$ATHAR_SEMANTIC_TOKEN" \
+            --output-json rag/data/benchmark-v653-f16-equivalence.json \
+            --output-md rag/data/BENCHMARK_V653_F16_EQUIVALENCE.md
+
+      - name: Derive release tag
+        id: release
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          corpus=json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          print(f"tag=rag-ann-v653-sharded-f16-{corpus['source_sha'][:12]}")
+          print(f"source_sha={corpus['source_sha']}")
+          PY
+
+      - name: Publish sharded f16 ANN release
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          SOURCE_SHA: ${{ steps.release.outputs.source_sha }}
+        run: |
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --target main \
+              --title "Athar V6.5.3 sharded f16 ANN · ${SOURCE_SHA:0:12}" \
+              --notes "Low-working-set production ANN: 11 sequential f16 HNSW indexes with compact metadata. Gated against dense exact and the human-approved global V6.3-C fused ranking."
+          fi
+          gh release upload "$TAG" \
+            rag/data/v653-ann/athar-v653-*.f16.usearch \
+            rag/data/v653-ann/athar-v653-sharded.meta.sqlite \
+            rag/data/v653-ann/athar-v653-sharded.ann.json \
+            --clobber
+
+      - name: Verify published assets
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          gh release view "$TAG" --json tagName,assets > rag/data/v653-release.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('rag/data/v653-release.json').read_text(encoding='utf-8'))
+          assets={a['name']:int(a.get('size') or 0) for a in data.get('assets') or []}
+          usearch=[name for name in assets if name.endswith('.f16.usearch')]
+          assert len(usearch)==11, usearch
+          assert assets.get('athar-v653-sharded.meta.sqlite',0)>0
+          assert assets.get('athar-v653-sharded.ann.json',0)>0
+          print(json.dumps({'tag':data['tagName'],'asset_count':len(assets),'bytes':sum(assets.values())},indent=2))
+          PY
+
+      - name: Add summary
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          for name in ['benchmark-v653-sharded.json','benchmark-v653-f16-equivalence.json']:
+              p=Path('rag/data')/name
+              if p.exists():
+                  d=json.loads(p.read_text(encoding='utf-8'))
+                  print('##',name)
+                  if 'ann_exact_recall' in d:
+                      a=d['ann_exact_recall']; print(f"- Recall@{a['top_k']}: {a['mean_recall_at_k']:.2%}")
+                      print(f"- Top-1 exact: {a['top1_accuracy']:.2%}")
+                  if 'mismatches' in d: print('- mismatches:',len(d['mismatches']))
+          PY
+
+      - name: Upload V6.5.3 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v653-sharded-ann
+          path: |
+            rag/data/benchmark-v653-sharded.json
+            rag/data/benchmark-v653-f16-equivalence.json
+            rag/data/BENCHMARK_V653_F16_EQUIVALENCE.md
+            rag/data/v653-release.json
+            rag/data/v653-semantic.log
+            rag/data/v653-ann/athar-v653-sharded.ann.json
+          if-no-files-found: warn
+          retention-days: 90
