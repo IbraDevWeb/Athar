@@ -21,9 +21,13 @@ import numpy as np
 from v63_semantic_release import build_release
 
 ANN_VERSION = "athar-global-ann-usearch-v1"
-DEFAULT_CONNECTIVITY = 16
-DEFAULT_EXPANSION_ADD = 128
-DEFAULT_EXPANSION_SEARCH = 128
+# The first real 574k-vector build used 16 / 128 / 128 and achieved only
+# 78% mean Recall@10 against exact dense search. We intentionally keep the
+# acceptance threshold at 95% and spend more of the available latency budget
+# on graph quality and query depth instead of weakening the benchmark.
+DEFAULT_CONNECTIVITY = 32
+DEFAULT_EXPANSION_ADD = 256
+DEFAULT_EXPANSION_SEARCH = 1024
 
 
 def sha256(path: Path) -> str:
@@ -111,6 +115,10 @@ def build_ann(
     if total <= 0 or dim <= 0:
         raise RuntimeError("Release sémantique vide ou dimension invalide.")
 
+    connectivity = max(4, int(connectivity))
+    expansion_add = max(16, int(expansion_add))
+    expansion_search = max(16, int(expansion_search))
+
     index_path = output_dir / "athar-v63c-global.usearch"
     meta_path = output_dir / "athar-v63c-global.meta.sqlite"
     manifest_path = output_dir / "athar-v63c-global.ann.json"
@@ -121,9 +129,9 @@ def build_ann(
         ndim=dim,
         metric="cos",
         dtype="f16",
-        connectivity=max(4, int(connectivity)),
-        expansion_add=max(16, int(expansion_add)),
-        expansion_search=max(16, int(expansion_search)),
+        connectivity=connectivity,
+        expansion_add=expansion_add,
+        expansion_search=expansion_search,
         multi=False,
     )
     if hasattr(index, "reserve"):
@@ -195,9 +203,15 @@ def build_ann(
     if first_vector is None:
         raise RuntimeError("Aucun vecteur n'a été indexé.")
 
-    # Reload from disk and query a vector that is known to be present. This
-    # validates serialization independently of the in-memory builder instance.
-    check = Index(ndim=dim, metric="cos", dtype="f16")
+    # Reload from disk with the same query-depth contract used at runtime.
+    # Without this explicit expansion_search, USearch falls back to its loader
+    # default and the persisted manifest would not describe actual query behavior.
+    check = Index(
+        ndim=dim,
+        metric="cos",
+        dtype="f16",
+        expansion_search=expansion_search,
+    )
     check.load(str(index_path))
     matches = check.search(first_vector, 1)
     if not len(matches) or int(matches[0].key) != int(first_key):
@@ -216,9 +230,9 @@ def build_ann(
         "vectors": total,
         "shards": int(semantic_release["shard_count"]),
         "usearch_version": _usearch_version(),
-        "connectivity": max(4, int(connectivity)),
-        "expansion_add": max(16, int(expansion_add)),
-        "expansion_search": max(16, int(expansion_search)),
+        "connectivity": connectivity,
+        "expansion_add": expansion_add,
+        "expansion_search": expansion_search,
         "index_file": index_path.name,
         "index_size_bytes": index_path.stat().st_size,
         "index_sha256": sha256(index_path),
@@ -247,7 +261,12 @@ class GlobalAnnIndex:
         if sha256(self.meta_path) != self.manifest.get("metadata_sha256"):
             raise RuntimeError("SHA des métadonnées ANN invalide.")
         self.index = Index(
-            ndim=int(self.manifest["dimension"]), metric=str(self.manifest["metric"]), dtype="f16"
+            ndim=int(self.manifest["dimension"]),
+            metric=str(self.manifest["metric"]),
+            dtype="f16",
+            expansion_search=max(
+                16, int(self.manifest.get("expansion_search") or DEFAULT_EXPANSION_SEARCH)
+            ),
         )
         self.index.load(str(self.index_path))
         self.meta = _open_ro(self.meta_path)
