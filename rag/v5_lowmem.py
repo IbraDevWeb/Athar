@@ -16,11 +16,20 @@ import unicodedata
 from typing import Any
 
 import v5_engine as _engine
+from v61_reliability import (
+    apply_engine_reliability_patches,
+    enrich_deterministic_concepts,
+)
 from v5_query_intelligence import (
     analyze_query,
     deterministic_query_intelligence,
     public_metadata,
 )
+
+# Apply stable synonym and exact-book patches before capturing deterministic
+# helpers. Arabic enrichment itself is called explicitly below, so behaviour no
+# longer depends on Python module import order.
+apply_engine_reliability_patches(_engine)
 
 MAX_FULL_CANDIDATES = 72
 _original_fetch_fts_candidates = _engine._fetch_fts_candidates
@@ -100,6 +109,11 @@ def _current_hints() -> dict[str, Any]:
     return value if isinstance(value, dict) else {}
 
 
+def _deterministic_concepts(query: str) -> list[dict[str, Any]]:
+    found = [dict(item) for item in _original_detect_concepts(query)]
+    return enrich_deterministic_concepts(_engine, query, found)
+
+
 def _route_key(value: Any) -> str:
     """Collapse scholarly Latin transliteration to an ASCII comparison key.
 
@@ -133,8 +147,6 @@ def _routed_book_noise(routed_book: dict[str, Any] | None) -> set[str]:
             if len(key) < 3:
                 continue
             result.add(key)
-            # Classical titles very often use the Arabic article attached with a
-            # hyphen (al-Muwaṭṭaʾ, al-Bukhārī). Users usually omit it.
             if key.startswith("al") and len(key) >= 6:
                 result.add(key[2:])
     return result
@@ -142,7 +154,7 @@ def _routed_book_noise(routed_book: dict[str, Any] | None) -> set[str]:
 
 def _query_intelligence_needed(connection, query: str) -> tuple[bool, str]:
     """Spend an LLM request only when deterministic parsing leaves real meaning unresolved."""
-    deterministic = [dict(item) for item in _original_detect_concepts(query)]
+    deterministic = _deterministic_concepts(query)
     routed_book = _engine.detect_book(connection, query)
     raw_terms = _engine._meaningful_terms(query, routed_book, deterministic)
     route_noise = _routed_book_noise(routed_book)
@@ -170,7 +182,7 @@ def _query_hints(connection, query: str) -> dict[str, Any]:
 
 
 def _augmented_detect_concepts(query: str) -> list[dict[str, Any]]:
-    found = [dict(item) for item in _original_detect_concepts(query)]
+    found = _deterministic_concepts(query)
     hints = _current_hints()
     existing_names = {str(item.get("name") or "").casefold() for item in found}
     for raw in hints.get("concepts") or []:
@@ -233,8 +245,6 @@ def _attach_intelligence(result: dict[str, Any], hints: dict[str, Any]) -> dict[
     analysis["query_intelligence"] = public_metadata(hints)
     analysis["notions"] = _analysis_notions(analysis, hints)
     if hints.get("used") and analysis["notions"]:
-        # Keep technical concepts separately for debugging/backwards compatibility,
-        # but expose human notions in the UI-facing `concepts` field.
         analysis["technical_concepts"] = list(analysis.get("concepts") or [])
         analysis["concepts"] = list(analysis["notions"])
     return result
@@ -281,10 +291,6 @@ def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipl
         discipline=discipline,
     )
 
-    # LLM vocabulary is an expansion, never an authority. If its extra concepts
-    # over-constrain FTS to zero evidence, repeat the exact original retrieval
-    # without those concepts. This costs no second model call and guarantees that
-    # query intelligence cannot erase evidence the deterministic engine could see.
     if hints.get("used") and not (result.get("sources") or []):
         rescue = _search_once(
             connection,
@@ -303,17 +309,11 @@ def search(connection, query: str, *, limit: int = 8, madhhab: str = "", discipl
     return _attach_intelligence(result, hints)
 
 
-# search() resolves these helpers through v5_engine module globals. Patching them
-# here preserves V5 retrieval/ranking semantics, adds bounded RAM use and lets a
-# per-thread semantic concept packet participate in the existing deterministic
-# FTS/reranking pipeline.
 _engine._fetch_fts_candidates = _bounded_fetch_fts_candidates
 _engine.detect_concepts = _augmented_detect_concepts
 _engine.search = search
 search = _engine.search
 
-# v5_engine.ask resolves `search` dynamically, so after the patch above it uses
-# the same LLM-assisted retrieval while still building evidence-only claims.
 ask = _engine.ask
 corpus_status = _engine.corpus_status
 list_books = _engine.list_books
