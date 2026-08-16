@@ -1,0 +1,281 @@
+name: Athar RAG V6.5.2 quantized ANN
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v652_quantized_ann.py'
+      - 'rag/v652_semantic_server.py'
+      - 'rag/v652_quantized_benchmark.py'
+      - '.github/workflows/rag-v652-quantized-ann.yml'
+
+concurrency:
+  group: rag-v652-quantized-ann
+  cancel-in-progress: true
+
+jobs:
+  build-benchmark-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      actions: read
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: rag
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      FASTEMBED_CACHE_PATH: rag/data/fastembed-cache
+      ATHAR_FASTEMBED_LOCAL_ONLY: '1'
+      ATHAR_ANN_VERIFY_SHA: '1'
+      ATHAR_SEMANTIC_TOKEN: v652-ci-token
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install ANN dependencies
+        run: python -m pip install -r rag/requirements-v64.txt
+
+      - name: Compile compact ANN layer
+        run: >-
+          python -m py_compile
+          rag/v652_quantized_ann.py rag/v652_semantic_server.py
+          rag/v652_quantized_benchmark.py rag/v651_remote_smoke.py
+          rag/v65_remote_smoke.py rag/v65_semantic_server.py
+
+      - name: Resolve latest complete V6.3-B semantic release
+        id: semantic
+        shell: bash
+        run: |
+          RUN_ID=$(gh run list \
+            --workflow rag-v63-build-semantic-index.yml \
+            --branch main --status success --limit 1 \
+            --json databaseId --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucune release sémantique V6.3-B complète." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Semantic source run: $RUN_ID"
+
+      - name: Download V6.3-B semantic source
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.semantic.outputs.run_id }}
+
+      - name: Build compact cosine-i8 ANN
+        run: >-
+          python rag/v652_quantized_ann.py build
+          --corpus-manifest rag/corpus_release_v3.json
+          --semantic-index-dir rag/data/v63-semantic-release
+          --output-dir rag/data/v652-ann
+          --connectivity 32
+          --expansion-add 256
+          --expansion-search 1024
+          --batch-size 8192
+
+      - name: Validate compact serialized ANN
+        run: >-
+          python rag/v652_quantized_ann.py validate
+          --manifest rag/data/v652-ann/athar-v652-global-i8.ann.json
+
+      - name: Assert compact ANN identity and footprint
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          corpus=json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          ann=json.loads(Path('rag/data/v652-ann/athar-v652-global-i8.ann.json').read_text(encoding='utf-8'))
+          assert ann['version']=='athar-global-ann-usearch-i8-v1'
+          assert ann['dtype']=='i8'
+          assert ann['metric']=='cos'
+          assert int(ann['vectors'])==int(corpus['chunks'])==574461
+          assert ann['corpus_source_sha']==corpus['source_sha']
+          assert int(ann['dimension'])==384
+          assert int(ann['connectivity'])==32
+          assert int(ann['expansion_add'])==256
+          assert int(ann['expansion_search'])==1024
+          assert ann['metadata_layout']=='primary-key-only-v1'
+          total=int(ann['index_size_bytes'])+int(ann['metadata_size_bytes'])
+          # V6.3-C f16 release was ~693 MB for index+mapping. Require a real
+          # footprint win, not merely a different serialization.
+          assert total < 550_000_000, total
+          print(json.dumps({
+            'vectors':ann['vectors'], 'dtype':ann['dtype'],
+            'index_bytes':ann['index_size_bytes'],
+            'metadata_bytes':ann['metadata_size_bytes'],
+            'total_bytes':total,
+          }, indent=2))
+          PY
+
+      - name: Cache query model
+        run: >-
+          python rag/cache_fastembed_model.py
+          --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+          --cache-dir rag/data/fastembed-cache
+
+      - name: Generate fixed 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Cache immutable corpus shards
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v652-shards
+
+      - name: Benchmark i8 ANN against exact dense search
+        run: >-
+          python rag/v652_quantized_benchmark.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/v652-shards
+          --semantic-index-dir rag/data/v63-semantic-release
+          --ann-manifest rag/data/v652-ann/athar-v652-global-i8.ann.json
+          --candidate-limit 20
+          --ann-limit 40
+          --ann-oversample 160
+          --ann-recall-cases 30
+          --ann-recall-k 10
+          --min-ann-recall 0.95
+          --output-json rag/data/benchmark-v652-i8.json
+          --output-md rag/data/BENCHMARK_V652_I8.md
+          --fail-on-regression
+
+      - name: Cache accepted f16 ANN for ranking equivalence
+        run: >-
+          python rag/cache_v63c_ann_release.py
+          --corpus-manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v63c-ann
+
+      - name: Prove fused i8 rankings equal human-approved f16 V6.3-C
+        shell: bash
+        env:
+          ATHAR_ANN_MANIFEST: rag/data/v63c-ann/athar-v63c-global.ann.json
+        run: |
+          set -euo pipefail
+          python rag/v652_semantic_server.py \
+            --host 127.0.0.1 --port 8765 \
+            --ann-manifest rag/data/v652-ann/athar-v652-global-i8.ann.json \
+            > rag/data/v652-semantic.log 2>&1 &
+          SEM_PID=$!
+          trap 'kill $SEM_PID >/dev/null 2>&1 || true' EXIT
+
+          python - <<'PY'
+          import json,time,urllib.request
+          for _ in range(180):
+              try:
+                  with urllib.request.urlopen('http://127.0.0.1:8765/healthz',timeout=3) as response:
+                      payload=json.load(response)
+                  if payload.get('ready') and int(payload.get('ann_vectors') or 0)==574461:
+                      print('quantized sidecar ready:',payload)
+                      break
+              except Exception:
+                  pass
+              time.sleep(1)
+          else:
+              raise SystemExit('quantized semantic sidecar did not become ready')
+          PY
+
+          python rag/v651_remote_smoke.py \
+            --dataset rag/data/benchmark-v61.json \
+            --manifest rag/corpus_release_v3.json \
+            --shard-dir rag/data/v652-shards \
+            --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json \
+            --semantic-url http://127.0.0.1:8765 \
+            --semantic-token "$ATHAR_SEMANTIC_TOKEN" \
+            --output-json rag/data/benchmark-v652-f16-equivalence.json \
+            --output-md rag/data/BENCHMARK_V652_F16_EQUIVALENCE.md
+
+      - name: Derive immutable compact release tag
+        id: release
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          corpus=json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          ann=json.loads(Path('rag/data/v652-ann/athar-v652-global-i8.ann.json').read_text(encoding='utf-8'))
+          assert ann['corpus_source_sha']==corpus['source_sha']
+          print(f"tag=rag-ann-v652-i8-{corpus['source_sha'][:12]}")
+          print(f"source_sha={corpus['source_sha']}")
+          print(f"vectors={ann['vectors']}")
+          PY
+
+      - name: Publish compact ANN GitHub release
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          SOURCE_SHA: ${{ steps.release.outputs.source_sha }}
+          VECTORS: ${{ steps.release.outputs.vectors }}
+        run: |
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --target main \
+              --title "Athar V6.5.2 compact i8 ANN · ${SOURCE_SHA:0:12}" \
+              --notes "Compact production ANN for Athar corpus ${SOURCE_SHA}. ${VECTORS} vectors, 384 dimensions, cosine i8, HNSW 32/256/1024. Built from the accepted V6.3-B embeddings and gated against dense exact + V6.3-C f16 fused rankings."
+          fi
+          gh release upload "$TAG" \
+            rag/data/v652-ann/athar-v652-global-i8.usearch \
+            rag/data/v652-ann/athar-v652-global-i8.meta.sqlite \
+            rag/data/v652-ann/athar-v652-global-i8.ann.json \
+            --clobber
+
+      - name: Verify published compact assets
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          gh release view "$TAG" --json tagName,assets > rag/data/v652-release.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('rag/data/v652-release.json').read_text(encoding='utf-8'))
+          assets={a['name']:int(a.get('size') or 0) for a in data.get('assets') or []}
+          required={
+            'athar-v652-global-i8.usearch',
+            'athar-v652-global-i8.meta.sqlite',
+            'athar-v652-global-i8.ann.json',
+          }
+          assert required <= set(assets), assets
+          assert all(assets[x] > 0 for x in required), assets
+          print(json.dumps({'tag':data['tagName'],'assets':assets},indent=2))
+          PY
+
+      - name: Add V6.5.2 summary
+        if: always()
+        run: |
+          for file in rag/data/BENCHMARK_V652_I8.md rag/data/BENCHMARK_V652_F16_EQUIVALENCE.md; do
+            if [ -f "$file" ]; then cat "$file" >> "$GITHUB_STEP_SUMMARY"; fi
+          done
+          if [ -f rag/data/v652-semantic.log ]; then
+            echo '### Quantized semantic log' >> "$GITHUB_STEP_SUMMARY"
+            echo '```text' >> "$GITHUB_STEP_SUMMARY"
+            tail -n 40 rag/data/v652-semantic.log >> "$GITHUB_STEP_SUMMARY" || true
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload V6.5.2 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v652-quantized-ann
+          path: |
+            rag/data/benchmark-v652-i8.json
+            rag/data/BENCHMARK_V652_I8.md
+            rag/data/benchmark-v652-f16-equivalence.json
+            rag/data/BENCHMARK_V652_F16_EQUIVALENCE.md
+            rag/data/v652-release.json
+            rag/data/v652-semantic.log
+            rag/data/v652-ann/athar-v652-global-i8.ann.json
+          if-no-files-found: warn
+          retention-days: 90
