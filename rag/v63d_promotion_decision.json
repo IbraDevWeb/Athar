@@ -1,0 +1,18 @@
+{
+  "version": "6.3-d-promotion-decision-1",
+  "recorded_at": "2026-08-16T19:10:00+02:00",
+  "decision": "promote_v63c_fused",
+  "human_evaluation_result": "v63c_fused_better_than_v61",
+  "decision_source": "project_owner_reported_human_verdict",
+  "numeric_metrics_archived": false,
+  "qrels_archived_in_repository": false,
+  "production_policy": {
+    "keep_v61_fallback": true,
+    "preserve_v61_abstention_authority": true,
+    "preserve_book_routing": true,
+    "preserve_madhhab_filtering": true,
+    "preserve_canonical_citations": true,
+    "require_reversible_rollout": true
+  },
+  "note": "Le verdict humain a été déclaré favorable à V6.3-C fused. Les métriques/qrels exacts n'étaient pas présents dans GitHub au moment de l'enregistrement ; aucune valeur numérique n'est inventée dans ce fichier."
+}
