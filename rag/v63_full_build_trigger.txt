@@ -1,0 +1,4 @@
+Athar V6.3-B full semantic build trigger
+Date: 2026-08-16
+Corpus: rag/corpus_release_v3.json
+Target: 574461 passages / 11 shards
