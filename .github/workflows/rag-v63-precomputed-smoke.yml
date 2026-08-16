@@ -1,0 +1,121 @@
+name: Athar RAG V6.3-B precomputed semantic smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v63_semantic_index.py'
+      - 'rag/v63_semantic_index_tests.py'
+      - 'rag/v63_hybrid.py'
+      - 'rag/v63_hybrid_tests.py'
+      - 'rag/requirements-v63.txt'
+      - 'rag/corpus_release_v3.json'
+      - '.github/workflows/rag-v63-precomputed-smoke.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v63-precomputed-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3 dependencies
+        run: python -m pip install -r rag/requirements-v63.txt
+
+      - name: Compile precomputed semantic pipeline
+        run: >-
+          python -m py_compile
+          rag/v63_hybrid.py
+          rag/v63_hybrid_tests.py
+          rag/v63_semantic_index.py
+          rag/v63_semantic_index_tests.py
+          rag/cache_hosted_corpus.py
+
+      - name: Run semantic unit tests
+        run: |
+          python rag/v63_hybrid_tests.py
+          python rag/v63_semantic_index_tests.py
+
+      - name: Download one production OpenITI shard
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from cache_hosted_corpus import _cache_entry
+
+          manifest = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          entry = next(row for row in manifest['shards'] if row['id'] == 'openiti-002')
+          result = _cache_entry(entry, Path('rag/data/v63-smoke-shard'))
+          print(json.dumps(result, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Build real 512-passage precomputed index
+        run: >-
+          python rag/v63_semantic_index.py build
+          --shard-db rag/data/v63-smoke-shard/athar_openiti-002.sqlite
+          --output-dir rag/data/v63-semantic-smoke
+          --shard-id openiti-002
+          --batch-size 64
+          --max-chunks 512
+
+      - name: Validate real semantic index
+        run: >-
+          python rag/v63_semantic_index.py validate
+          --manifest rag/data/v63-semantic-smoke/openiti-002.semantic.json
+
+      - name: Assert smoke-index invariants
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          import numpy as np
+
+          root = Path('rag/data/v63-semantic-smoke')
+          manifest = json.loads((root / 'openiti-002.semantic.json').read_text(encoding='utf-8'))
+          assert manifest['complete'] is True
+          assert manifest['indexed_count'] == 512
+          assert manifest['dtype'] == 'float16'
+          assert manifest['dimension'] > 0
+          vectors = np.load(root / manifest['vectors_file'], mmap_mode='r')
+          assert vectors.shape == (512, manifest['dimension'])
+          db = sqlite3.connect(root / manifest['metadata_file'])
+          try:
+              count = db.execute('SELECT COUNT(*) FROM semantic_rows').fetchone()[0]
+              assert count == 512
+          finally:
+              db.close()
+          raw_float32 = 512 * manifest['dimension'] * 4
+          assert manifest['vectors_size_bytes'] < raw_float32 * 0.6
+          print(json.dumps({
+              'indexed': manifest['indexed_count'],
+              'dimension': manifest['dimension'],
+              'vectors_size_bytes': manifest['vectors_size_bytes'],
+              'float32_equivalent_bytes': raw_float32,
+          }, indent=2))
+          PY
+
+      - name: Upload smoke semantic index
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-v63-precomputed-smoke
+          path: |
+            rag/data/v63-semantic-smoke/openiti-002.semantic.json
+            rag/data/v63-semantic-smoke/openiti-002.vectors.f16.npy
+            rag/data/v63-semantic-smoke/openiti-002.meta.sqlite
+          if-no-files-found: error
+          retention-days: 14
