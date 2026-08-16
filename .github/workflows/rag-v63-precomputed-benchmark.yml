@@ -1,0 +1,139 @@
+name: Athar RAG V6.3-B precomputed benchmark
+
+on:
+  workflow_run:
+    workflows: ['Athar RAG V6.3-B full semantic index build']
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v63-precomputed-benchmark
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      actions: read
+      contents: read
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3 dependencies
+        run: python -m pip install -r rag/requirements-v63.txt
+
+      - name: Compile V6.3-B benchmark
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py
+          rag/v5_lowmem.py
+          rag/v5_sharded.py
+          rag/v61_reliability.py
+          rag/v61_benchmark.py
+          rag/v63_hybrid.py
+          rag/v63_semantic_index.py
+          rag/v63_semantic_release.py
+          rag/v63_benchmark.py
+          rag/v63_precomputed_benchmark.py
+          rag/benchmark_v61_dataset.py
+          rag/benchmark_v61_apply_gold.py
+
+      - name: Resolve source semantic-build run
+        id: source
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_RUN_ID: ${{ github.event.workflow_run.id }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            RUN_ID="$EVENT_RUN_ID"
+          else
+            RUN_ID=$(gh run list \
+              --workflow rag-v63-build-semantic-index.yml \
+              --branch main \
+              --status success \
+              --limit 1 \
+              --json databaseId \
+              --jq '.[0].databaseId')
+          fi
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucun build sémantique complet réussi n'a été trouvé." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Semantic build source run: $RUN_ID"
+
+      - name: Download complete semantic release from source run
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.source.outputs.run_id }}
+
+      - name: Validate semantic release against current corpus manifest
+        run: >-
+          python rag/v63_semantic_release.py
+          --corpus-manifest rag/corpus_release_v3.json
+          --index-dir rag/data/v63-semantic-release
+          --output rag/data/v63-semantic-release/semantic_release_revalidated.json
+
+      - name: Generate versioned 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Apply 50 semantically reviewed gold chunks
+        run: python rag/benchmark_v61_apply_gold.py --dataset rag/data/benchmark-v61.json
+
+      - name: Cache published sharded corpus
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/benchmark-shards
+
+      - name: Run V6.1 versus V6.3-A versus V6.3-B benchmark
+        run: >-
+          python rag/v63_precomputed_benchmark.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/benchmark-shards
+          --semantic-index-dir rag/data/v63-semantic-release
+          --candidate-limit 20
+          --output-json rag/data/benchmark-v63b-report.json
+          --output-md rag/data/BENCHMARK_V63B_REPORT.md
+          --fail-on-regression
+
+      - name: Add benchmark summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f rag/data/BENCHMARK_V63B_REPORT.md ]; then
+            cat rag/data/BENCHMARK_V63B_REPORT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload V6.3-B benchmark reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v63b-precomputed-benchmark
+          path: |
+            rag/data/benchmark-v63b-report.json
+            rag/data/BENCHMARK_V63B_REPORT.md
+            rag/data/v63-semantic-release/semantic_release_revalidated.json
+          if-no-files-found: warn
+          retention-days: 30
