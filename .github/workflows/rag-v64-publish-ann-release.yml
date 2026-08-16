@@ -1,0 +1,143 @@
+name: Athar RAG V6.4 publish ANN release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v64_release_trigger.txt'
+      - '.github/workflows/rag-v64-publish-ann-release.yml'
+
+concurrency:
+  group: rag-v64-publish-ann-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      actions: read
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Resolve latest accepted V6.3-C ANN build
+        id: source
+        shell: bash
+        run: |
+          RUN_ID=$(gh run list \
+            --workflow rag-v63c-build-ann.yml \
+            --branch main \
+            --status success \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucun build ANN V6.3-C réussi." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Source ANN run: $RUN_ID"
+
+      - name: Download accepted ANN artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63c-global-ann
+          path: rag/data/v63c-ann-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.source.outputs.run_id }}
+
+      - name: Validate release identity and derive immutable tag
+        id: release
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          corpus = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          ann = json.loads(Path('rag/data/v63c-ann-release/athar-v63c-global.ann.json').read_text(encoding='utf-8'))
+          assert ann['version'] == 'athar-global-ann-usearch-v1'
+          assert ann['corpus_source_sha'] == corpus['source_sha']
+          assert int(ann['vectors']) == int(corpus['chunks']) == 574461
+          assert int(ann['dimension']) == 384
+          assert ann['metric'] == 'cos'
+          assert ann['dtype'] == 'f16'
+          print(f"tag=rag-ann-v63c-{corpus['source_sha'][:12]}")
+          print(f"vectors={ann['vectors']}")
+          print(f"source_sha={corpus['source_sha']}")
+          PY
+
+      - name: Create or update immutable corpus-scoped release
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          VECTORS: ${{ steps.release.outputs.vectors }}
+          SOURCE_SHA: ${{ steps.release.outputs.source_sha }}
+        run: |
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" \
+              --target main \
+              --title "Athar V6.3-C ANN · ${SOURCE_SHA:0:12}" \
+              --notes "Production ANN release for Athar corpus source ${SOURCE_SHA}. ${VECTORS} vectors, 384 dimensions, cosine f16, HNSW 32/256/1024."
+          fi
+          gh release upload "$TAG" \
+            rag/data/v63c-ann-release/athar-v63c-global.usearch \
+            rag/data/v63c-ann-release/athar-v63c-global.meta.sqlite \
+            rag/data/v63c-ann-release/athar-v63c-global.ann.json \
+            --clobber
+
+      - name: Verify published release assets
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          gh release view "$TAG" --json tagName,assets > rag/data/v64-ann-release.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('rag/data/v64-ann-release.json').read_text(encoding='utf-8'))
+          assets = {a['name']: int(a.get('size') or 0) for a in data.get('assets') or []}
+          required = {
+              'athar-v63c-global.usearch',
+              'athar-v63c-global.meta.sqlite',
+              'athar-v63c-global.ann.json',
+          }
+          missing = sorted(required - set(assets))
+          if missing:
+              raise SystemExit(f'Assets ANN publiés manquants: {missing}')
+          if any(assets[name] <= 0 for name in required):
+              raise SystemExit(f'Asset ANN vide: {assets}')
+          print(json.dumps({'tag': data['tagName'], 'assets': assets}, indent=2))
+          PY
+
+      - name: Verify public manifest endpoint
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          tag = os.environ['TAG']
+          url = f'https://github.com/IbraDevWeb/Athar/releases/download/{tag}/athar-v63c-global.ann.json'
+          with urllib.request.urlopen(url, timeout=30) as response:
+              payload = json.load(response)
+          assert payload['version'] == 'athar-global-ann-usearch-v1'
+          assert int(payload['vectors']) == 574461
+          print({'public_manifest': url, 'vectors': payload['vectors']})
+          PY
+
+      - name: Upload publication receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-v64-ann-publication-receipt
+          path: rag/data/v64-ann-release.json
+          if-no-files-found: error
+          retention-days: 90
