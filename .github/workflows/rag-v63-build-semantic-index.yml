@@ -2,6 +2,14 @@ name: Athar RAG V6.3-B full semantic index build
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v63_full_build_trigger.txt'
+
+concurrency:
+  group: rag-v63-full-semantic-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build-shards:
@@ -67,7 +75,7 @@ jobs:
             --shard-db "rag/data/v63-full-shard/${DB_NAME}" \
             --output-dir rag/data/v63-semantic-full \
             --shard-id "${SHARD_ID}" \
-            --batch-size 128
+            --batch-size 256
 
       - name: Validate complete shard index
         run: >-
