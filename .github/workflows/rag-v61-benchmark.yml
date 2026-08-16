@@ -7,6 +7,8 @@ on:
       - 'rag/v5_engine.py'
       - 'rag/v5_lowmem.py'
       - 'rag/v5_sharded.py'
+      - 'rag/v61_reliability.py'
+      - 'rag/v61_reliability_tests.py'
       - 'rag/v6_benchmark.py'
       - 'rag/v61_benchmark.py'
       - 'rag/benchmark_v61_dataset.py'
@@ -39,8 +41,12 @@ jobs:
         run: >-
           python -m py_compile
           rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
+          rag/v61_reliability.py rag/v61_reliability_tests.py
           rag/v6_benchmark.py rag/v61_benchmark.py
           rag/benchmark_v61_dataset.py rag/benchmark_v61_apply_gold.py
+
+      - name: Run V6.1 reliability regression tests
+        run: python rag/v61_reliability_tests.py
 
       - name: Generate versioned 200-case dataset
         run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
