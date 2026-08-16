@@ -86,6 +86,10 @@ def main() -> int:
     parser.add_argument("--api-only", action="store_true")
     args = parser.parse_args()
 
+    # Bind the socket early but do not enter serve_forever until the semantic
+    # encoder + one disk-view ANN lookup have been warmed. This keeps Render's
+    # health endpoint from declaring the service ready while the first user
+    # request would still pay ONNX/model initialization costs.
     server = AtharThreadingHTTPServer((args.host, args.port), Handler)
     configure_server_corpus(
         server,
@@ -98,6 +102,7 @@ def main() -> int:
     base_runtime = server.shard_runtime
     production_runtime = build_production_runtime(base_runtime)
     production_runtime.validate()
+    warmup = production_runtime.warmup()
     server.shard_runtime = production_runtime
 
     server.cors_origins = allowed_origins()
@@ -126,6 +131,7 @@ def main() -> int:
                 "ann_manifest": str(production_runtime.ann_manifest),
                 "fallback_engine": production_runtime.FALLBACK_ENGINE,
                 "fail_open": production_runtime.fail_open,
+                "semantic_warmup": warmup,
                 "library_read_limit": 12,
                 "library_toc_limit": 360,
                 "library_search_limit": 16,
