@@ -1,0 +1,100 @@
+name: Athar RAG V6.3 hybrid semantic benchmark
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v63_hybrid.py'
+      - 'rag/v63_hybrid_tests.py'
+      - 'rag/v63_benchmark.py'
+      - 'rag/requirements-v63.txt'
+      - 'rag/v5_engine.py'
+      - 'rag/v5_lowmem.py'
+      - 'rag/v5_sharded.py'
+      - 'rag/v61_reliability.py'
+      - 'rag/v61_benchmark.py'
+      - 'rag/benchmark_v61_dataset.py'
+      - 'rag/benchmark_v61_apply_gold.py'
+      - 'rag/corpus_release_v3.json'
+      - '.github/workflows/rag-v63-hybrid.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v63-hybrid-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3 dependencies
+        run: python -m pip install -r rag/requirements-v63.txt
+
+      - name: Compile V6.3
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py
+          rag/v5_lowmem.py
+          rag/v5_sharded.py
+          rag/v61_reliability.py
+          rag/v61_benchmark.py
+          rag/v63_hybrid.py
+          rag/v63_hybrid_tests.py
+          rag/v63_benchmark.py
+          rag/benchmark_v61_dataset.py
+          rag/benchmark_v61_apply_gold.py
+
+      - name: Run V6.3 safety tests
+        run: python rag/v63_hybrid_tests.py
+
+      - name: Generate versioned 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Apply 50 semantically reviewed gold chunks
+        run: python rag/benchmark_v61_apply_gold.py --dataset rag/data/benchmark-v61.json
+
+      - name: Cache published sharded corpus
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/benchmark-shards
+
+      - name: Run V6.1 versus V6.3-A benchmark
+        run: >-
+          python rag/v63_benchmark.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/benchmark-shards
+          --candidate-limit 20
+          --output-json rag/data/benchmark-v63-report.json
+          --output-md rag/data/BENCHMARK_V63_REPORT.md
+          --fail-on-regression
+
+      - name: Add benchmark summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f rag/data/BENCHMARK_V63_REPORT.md ]; then
+            cat rag/data/BENCHMARK_V63_REPORT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload benchmark reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v63-hybrid-benchmark
+          path: |
+            rag/data/benchmark-v63-report.json
+            rag/data/BENCHMARK_V63_REPORT.md
+          if-no-files-found: warn
+          retention-days: 30
