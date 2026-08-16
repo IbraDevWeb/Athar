@@ -23,14 +23,21 @@ from v64_production import V64ProductionRuntime, build_production_runtime
 class Handler(V5LibraryHandler):
     server_version = "AtharRAG/6.4-v63c-fused"
 
-    def _active_engine(self) -> str:
+    def _production_runtime(self) -> V64ProductionRuntime | None:
         runtime = getattr(self.server, "shard_runtime", None)
-        if isinstance(runtime, V64ProductionRuntime):
+        return runtime if isinstance(runtime, V64ProductionRuntime) else None
+
+    def _active_engine(self) -> str:
+        runtime = self._production_runtime()
+        if runtime is not None:
             return runtime.active_engine
         return "rag-v6.1-hybrid-multilingual"
 
     def _compat_payload(self, payload: dict[str, Any]) -> dict[str, Any]:
+        # Put compatibility metadata last so a legacy `engine` field coming from
+        # the underlying V6.1 status cannot overwrite the promoted V6.4 engine.
         return {
+            **payload,
             "ok": True,
             "server": "athar-rag-v4",
             "api_version": 4,
@@ -38,8 +45,17 @@ class Handler(V5LibraryHandler):
             "engine_version": 6,
             "runtime_profile": "low-memory-disk-view",
             "storage_mode": str(getattr(self.server, "storage_mode", "monolith")),
-            **payload,
         }
+
+    def _status_payload(self) -> dict[str, Any]:
+        # The V5 handler caches corpus status. Keep that cheap immutable portion,
+        # but refresh V6.4 operational fields on every request so an ANN failure
+        # and automatic V6.1 fallback are immediately observable.
+        payload = dict(super()._status_payload())
+        runtime = self._production_runtime()
+        if runtime is not None:
+            payload.update(runtime.operational_status())
+        return payload
 
     def send_json(self, payload: dict[str, Any], status: int = HTTPStatus.OK) -> bool:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
