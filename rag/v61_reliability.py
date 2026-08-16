@@ -7,6 +7,7 @@ query understanding and exact catalogue routing before evidence retrieval.
 """
 
 import re
+import unicodedata
 from typing import Any
 
 _ARABIC = re.compile(r"[\u0600-\u06FF]")
@@ -45,6 +46,19 @@ def _contains_alias(engine: Any, query_norm: str, alias: str) -> bool:
     return bool(alias_norm and f" {alias_norm} " in f" {query_norm} ")
 
 
+def _strip_unicode_punctuation(value: str) -> str:
+    """Replace punctuation with spaces before V5 normalization.
+
+    V5 intentionally preserves the whole Arabic Unicode block, which also
+    contains punctuation such as the Arabic question mark. For query concept
+    detection, punctuation is a boundary, not part of the lexical token.
+    """
+    return "".join(
+        " " if unicodedata.category(ch).startswith("P") else ch
+        for ch in str(value or "")
+    )
+
+
 def _extend_triggers(engine: Any) -> None:
     for name, additions in _TRIGGER_EXTENSIONS.items():
         spec = engine.CONCEPTS.get(name)
@@ -67,15 +81,14 @@ def enrich_deterministic_concepts(
 ) -> list[dict[str, Any]]:
     """Add concepts found through curated Arabic retrieval vocabulary.
 
-    This is deliberately a pure enrichment step instead of a monkey-patch. It is
-    called by v5_lowmem after the original V5 detector, which makes behaviour
-    independent of module import order.
+    This is a pure enrichment step called by v5_lowmem after the original V5
+    detector, so behaviour is independent of module import order.
     """
     result = [dict(item) for item in found]
     if not _ARABIC.search(str(query or "")):
         return result
 
-    query_norm = engine.normalize_text(query)
+    query_norm = engine.normalize_text(_strip_unicode_punctuation(query))
     existing = {str(item.get("name") or "") for item in result}
     for name, spec in engine.CONCEPTS.items():
         if name in existing:
@@ -84,7 +97,7 @@ def enrich_deterministic_concepts(
             str(term)
             for term in (spec.get("terms") or ())
             if _ARABIC.search(str(term))
-            and engine._contains_phrase(query_norm, str(term))
+            and engine._contains_phrase(query_norm, _strip_unicode_punctuation(str(term)))
         ]
         if not matched:
             continue
