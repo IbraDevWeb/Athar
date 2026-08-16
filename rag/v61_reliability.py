@@ -21,8 +21,35 @@ _TRIGGER_EXTENSIONS: dict[str, tuple[str, ...]] = {
         "salam qui termine la priere",
         "salam final de la salat",
     ),
+    "iqama": (
+        "etablissement de la priere",
+        "établissement de la prière",
+    ),
+    "prayer_times": (
+        "temps de la salat",
+        "temps de salat",
+        "horaires des prieres",
+        "horaires des prières",
+        "temps des prieres",
+        "temps des prières",
+    ),
+    "combine_prayers": (
+        "jam des salat",
+        "jam des salats",
+    ),
     "riba": ("interet usuraire", "interets usuraires"),
     "ayat_al_kursi": ("verset du trone", "verset du trône"),
+}
+
+# Precise sub-concepts that necessarily carry the generic prayer context. Adding
+# the parent concept is useful for analysis/reranking without broadening the FTS
+# vocabulary beyond concepts already present in the user request.
+_PRAYER_CONTEXT_CONCEPTS = {
+    "recitation_aloud",
+    "recitation_silent",
+    "friday_prayer",
+    "combine_prayers",
+    "prayer_times",
 }
 
 _CANONICAL_BOOK_ALIASES: tuple[tuple[tuple[str, ...], str], ...] = (
@@ -47,12 +74,6 @@ def _contains_alias(engine: Any, query_norm: str, alias: str) -> bool:
 
 
 def _strip_unicode_punctuation(value: str) -> str:
-    """Replace punctuation with spaces before V5 normalization.
-
-    V5 intentionally preserves the whole Arabic Unicode block, which also
-    contains punctuation such as the Arabic question mark. For query concept
-    detection, punctuation is a boundary, not part of the lexical token.
-    """
     return "".join(
         " " if unicodedata.category(ch).startswith("P") else ch
         for ch in str(value or "")
@@ -74,44 +95,56 @@ def _extend_triggers(engine: Any) -> None:
         spec["triggers"] = tuple(current)
 
 
+def _append_parent_prayer_concept(engine: Any, result: list[dict[str, Any]]) -> None:
+    names = {str(item.get("name") or "") for item in result}
+    if "prayer" in names or not (names & _PRAYER_CONTEXT_CONCEPTS):
+        return
+    spec = engine.CONCEPTS.get("prayer") or {}
+    result.append(
+        {
+            "name": "prayer",
+            "terms": list(spec.get("terms") or ()),
+            "specificity": int(spec.get("specificity", 1)),
+            "matched_triggers": ["implicit_prayer_context"],
+            "source": "deterministic_parent_context",
+        }
+    )
+
+
 def enrich_deterministic_concepts(
     engine: Any,
     query: str,
     found: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Add concepts found through curated Arabic retrieval vocabulary.
-
-    This is a pure enrichment step called by v5_lowmem after the original V5
-    detector, so behaviour is independent of module import order.
-    """
+    """Enrich deterministic V5 concepts with Arabic and parent context."""
     result = [dict(item) for item in found]
-    if not _ARABIC.search(str(query or "")):
-        return result
 
-    query_norm = engine.normalize_text(_strip_unicode_punctuation(query))
-    existing = {str(item.get("name") or "") for item in result}
-    for name, spec in engine.CONCEPTS.items():
-        if name in existing:
-            continue
-        matched = [
-            str(term)
-            for term in (spec.get("terms") or ())
-            if _ARABIC.search(str(term))
-            and engine._contains_phrase(query_norm, _strip_unicode_punctuation(str(term)))
-        ]
-        if not matched:
-            continue
-        result.append(
-            {
-                "name": name,
-                "terms": list(spec.get("terms") or ()),
-                "specificity": int(spec.get("specificity", 1)),
-                "matched_triggers": matched,
-                "source": "arabic_curated_vocabulary",
-            }
-        )
-        existing.add(name)
+    if _ARABIC.search(str(query or "")):
+        query_norm = engine.normalize_text(_strip_unicode_punctuation(query))
+        existing = {str(item.get("name") or "") for item in result}
+        for name, spec in engine.CONCEPTS.items():
+            if name in existing:
+                continue
+            matched = [
+                str(term)
+                for term in (spec.get("terms") or ())
+                if _ARABIC.search(str(term))
+                and engine._contains_phrase(query_norm, _strip_unicode_punctuation(str(term)))
+            ]
+            if not matched:
+                continue
+            result.append(
+                {
+                    "name": name,
+                    "terms": list(spec.get("terms") or ()),
+                    "specificity": int(spec.get("specificity", 1)),
+                    "matched_triggers": matched,
+                    "source": "arabic_curated_vocabulary",
+                }
+            )
+            existing.add(name)
 
+    _append_parent_prayer_concept(engine, result)
     result.sort(
         key=lambda item: (
             int(item.get("specificity") or 1),
@@ -147,7 +180,6 @@ def _patch_detect_book(engine: Any) -> None:
 
 
 def apply_engine_reliability_patches(engine: Any) -> None:
-    """Apply stable deterministic trigger and catalogue patches once."""
     if bool(getattr(engine, _PATCH_FLAG, False)):
         return
     _extend_triggers(engine)
