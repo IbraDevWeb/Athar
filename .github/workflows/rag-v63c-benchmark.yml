@@ -40,9 +40,9 @@ jobs:
         run: >-
           python -m py_compile
           rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
-          rag/v61_reliability.py rag/v61_benchmark.py
+          rag/v61_reliability.py rag/v61_benchmark.py rag/v62_human_gold.py
           rag/v63_hybrid.py rag/v63_benchmark.py rag/v63_semantic_release.py
-          rag/v63c_ann_index.py rag/v63c_shadow.py rag/v63c_benchmark.py
+          rag/v63c_ann_index.py rag/v63c_shadow.py rag/v63c_benchmark.py rag/v63c_human_pool.py
           rag/benchmark_v61_dataset.py rag/benchmark_v61_apply_gold.py
 
       - name: Resolve source ANN build
@@ -137,6 +137,19 @@ jobs:
           --output-md rag/data/BENCHMARK_V63C_REPORT.md
           --fail-on-regression
 
+      - name: Build blind V6.1 plus ANN human-review pool
+        run: >-
+          python rag/v63c_human_pool.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/benchmark-shards
+          --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json
+          --output-csv rag/data/human-gold-v63c-pool.csv
+          --output-json rag/data/human-gold-v63c-pool.json
+          --audit-json rag/data/human-gold-v63c-origin-audit.json
+          --lexical-limit 10
+          --ann-limit 10
+
       - name: Add benchmark summary
         if: always()
         shell: bash
@@ -153,5 +166,25 @@ jobs:
           path: |
             rag/data/benchmark-v63c-report.json
             rag/data/BENCHMARK_V63C_REPORT.md
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload blind pooled human-review pack
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-human-gold-v63c-pooled-review
+          path: |
+            rag/data/human-gold-v63c-pool.csv
+            rag/data/human-gold-v63c-pool.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload pool origin audit separately
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-human-gold-v63c-origin-audit-private
+          path: rag/data/human-gold-v63c-origin-audit.json
           if-no-files-found: warn
           retention-days: 30
