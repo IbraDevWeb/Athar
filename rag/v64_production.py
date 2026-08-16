@@ -37,10 +37,9 @@ def _repo_path(value: str | Path) -> Path:
 
 
 def _open_ro(path: Path) -> sqlite3.Connection:
-    # The ThreadingHTTPServer can initialize the ANN sidecar on /status and then
-    # query it from another request thread. The connection is immutable/read-only
-    # and retrieval is serialized by the server's heavy_gate, so cross-thread use
-    # is safe here and avoids one SQLite connection per ANN lookup.
+    # ThreadingHTTPServer may initialize the ANN sidecar on /status and query it
+    # from another request thread. The sidecar is immutable/read-only and the
+    # heavy retrieval path is serialized by the HTTP server gate.
     conn = sqlite3.connect(
         f"file:{path.resolve().as_posix()}?mode=ro&immutable=1",
         uri=True,
@@ -306,19 +305,24 @@ class V64ProductionRuntime:
             self.close_ann()
             return self._fallback("ask", query, limit=limit, madhhab=madhhab, discipline=discipline)
 
+    def operational_status(self) -> dict[str, Any]:
+        runtime = self._ensure_runtime()
+        active = self.active_engine
+        return {
+            "engine": active,
+            "semantic_embeddings": runtime is not None,
+            "semantic_model": runtime.model_name if runtime is not None else "",
+            "retrieval_engine_configured": self.configured_engine,
+            "retrieval_engine_active": active,
+            "retrieval_fallback": bool(self._ann_error),
+            "retrieval_fallback_reason": self._ann_error,
+            "ann_storage_mode": "disk_view" if runtime is not None else "unavailable",
+            "ann_vectors": int(self._ann.manifest.get("vectors") or 0) if self._ann else 0,
+        }
+
     def status(self) -> dict[str, Any]:
         payload = dict(self.base.status())
-        self._ensure_runtime()
-        payload.update(
-            {
-                "retrieval_engine_configured": self.configured_engine,
-                "retrieval_engine_active": self.active_engine,
-                "retrieval_fallback": bool(self._ann_error),
-                "retrieval_fallback_reason": self._ann_error,
-                "ann_storage_mode": "disk_view" if self._runtime is not None else "unavailable",
-                "ann_vectors": int(self._ann.manifest.get("vectors") or 0) if self._ann else 0,
-            }
-        )
+        payload.update(self.operational_status())
         return payload
 
     def close_ann(self) -> None:
