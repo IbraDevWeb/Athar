@@ -6,6 +6,13 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator
 
+import v5_engine as _engine
+from v61_reliability import apply_engine_reliability_patches
+
+# Apply deterministic Arabic/synonym/book-routing patches before v5_lowmem
+# captures the core engine helpers.
+apply_engine_reliability_patches(_engine)
+
 from v5_engine import detect_book, normalize_text
 from v5_lowmem import search as search_one_shard
 
@@ -13,11 +20,25 @@ SQLITE_HEADER = b"SQLite format 3\x00"
 
 # Canonical aliases whose corpus IDs are curated and stable in corpus_release_v3.
 # Resolve them at catalogue level before generic scoring so a partial shard
-# cannot accidentally route an explicit tafsir request to another exegete.
+# cannot accidentally route an explicit request to another work by the author.
 CANONICAL_BOOK_ALIASES: tuple[tuple[tuple[str, ...], str], ...] = (
     (("tafsir tabari", "tafsir al tabari"), "openiti-tabari-tafsir"),
     (("tafsir ibn kathir",), "openiti-ibn-kathir-tafsir"),
+    (
+        (
+            "sunan nasai",
+            "sunan al nasai",
+            "sunan an nasai",
+            "sunan al-nasai",
+            "sunan an-nasai",
+            "sunan nasa'i",
+            "sunan al nasa'i",
+        ),
+        "openiti-sunan-nasai",
+    ),
 )
+
+_MADHHAB_ALL = {"", "all", "tous", "toutes", "toutes les ecoles", "toutes les écoles"}
 
 
 def open_readonly(path: Path) -> sqlite3.Connection:
@@ -68,7 +89,26 @@ def _contains_alias(query_norm: str, alias: str) -> bool:
 
 def _raw_match_count(source: dict[str, Any]) -> int:
     """Count distinct terms matched by a raw-only retrieval result."""
-    return len({normalize_text(term) for term in source.get("matched_terms") or [] if normalize_text(term)})
+    return len(
+        {
+            normalize_text(term)
+            for term in source.get("matched_terms") or []
+            if normalize_text(term)
+        }
+    )
+
+
+def _strict_madhhab_requested(value: str) -> bool:
+    return normalize_text(value) not in {normalize_text(item) for item in _MADHHAB_ALL}
+
+
+def _madhhab_matches(source: dict[str, Any], wanted: str) -> bool:
+    """Accept only explicitly metadata-backed sources for a requested school."""
+    wanted_norm = normalize_text(wanted)
+    if wanted_norm in {normalize_text(item) for item in _MADHHAB_ALL}:
+        return True
+    actual_norm = normalize_text(source.get("madhhab", ""))
+    return bool(actual_norm and wanted_norm in actual_norm)
 
 
 class ShardedCorpusRuntime:
@@ -237,13 +277,14 @@ class ShardedCorpusRuntime:
     ) -> tuple[list[dict[str, Any]], bool]:
         """Reject weak raw-only matches that are likely out-of-domain noise.
 
-        Concept-backed queries keep the existing behaviour. For a query with no
-        recognised concept and no explicit book route, a multi-term request must
-        match at least two distinct raw terms in the same passage. This prevents a
-        generic token such as ``kitab`` or an isolated proper name from creating
-        evidence for a fabricated/out-of-domain question.
+        Concept-backed queries keep the existing behaviour. Without a recognised
+        concept, an unrouted multi-term request must match at least two distinct
+        raw terms in one passage. A routed book receives the same guard only when
+        three or more unresolved subject terms remain; this catches a real title
+        combined with a clearly out-of-domain modern topic without suppressing
+        ordinary one-term lookups inside a requested book.
         """
-        if routed_book or not selected:
+        if not selected:
             return selected, False
         concept_names = {
             str(name)
@@ -259,7 +300,8 @@ class ShardedCorpusRuntime:
             for term in (analysis.get("raw_terms") or [])
             if normalize_text(term)
         }
-        if len(raw_terms) < 2:
+        minimum_raw_terms = 3 if routed_book else 2
+        if len(raw_terms) < minimum_raw_terms:
             return selected, False
         guarded = [item for item in selected if _raw_match_count(item) >= 2]
         return guarded, len(guarded) != len(selected)
@@ -282,11 +324,14 @@ class ShardedCorpusRuntime:
         else:
             shard_ids = list(self.shard_paths)
         retrieval_query = self._routed_query(query, routed_book)
+        strict_madhhab = _strict_madhhab_requested(madhhab)
 
         merged: list[dict[str, Any]] = []
         analyses: list[dict[str, Any]] = []
         shard_errors: list[str] = []
-        per_shard_limit = max(parsed_limit, min(12, parsed_limit * 2))
+        # School filtering happens after shard retrieval, so ask each shard for a
+        # wider result window when a strict madhhab was requested.
+        per_shard_limit = 20 if strict_madhhab else max(parsed_limit, min(12, parsed_limit * 2))
         for shard_id in shard_ids:
             try:
                 with open_readonly(self.shard_paths[shard_id]) as connection:
@@ -307,6 +352,9 @@ class ShardedCorpusRuntime:
                     merged.append(item)
             except Exception as exc:
                 shard_errors.append(f"{shard_id}: {type(exc).__name__}: {exc}")
+
+        if strict_madhhab:
+            merged = [item for item in merged if _madhhab_matches(item, madhhab)]
 
         merged.sort(
             key=lambda item: (
@@ -367,6 +415,7 @@ class ShardedCorpusRuntime:
                 + shard_errors,
                 "semantic_embeddings": False,
                 "abstention_guard": "raw_multi_term" if abstention_guard_applied else "none",
+                "madhhab_filter": "strict_metadata" if strict_madhhab else "none",
             }
         )
         return {
