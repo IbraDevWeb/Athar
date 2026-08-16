@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'rag/v63c_human_pool.py'
+      - 'rag/v63d_assign.py'
       - 'rag/v63d_review_app.py'
       - 'rag/v63d_qrels.py'
       - 'rag/v63d_human_benchmark.py'
@@ -31,6 +32,7 @@ jobs:
       - name: Compile V6.3-D tooling
         run: >-
           python -m py_compile
+          rag/v63d_assign.py
           rag/v63d_review_app.py
           rag/v63d_qrels.py
           rag/v63d_human_benchmark.py
@@ -65,7 +67,7 @@ jobs:
           rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
           rag/v61_reliability.py rag/v61_benchmark.py rag/v62_human_gold.py
           rag/v63_hybrid.py rag/v63c_ann_index.py rag/v63c_shadow.py
-          rag/v63c_human_pool.py
+          rag/v63c_human_pool.py rag/v63d_assign.py
 
       - name: Resolve latest accepted ANN build
         id: ann
@@ -117,6 +119,14 @@ jobs:
           --lexical-limit 10
           --ann-limit 10
 
+      - name: Split review into balanced blind batches
+        run: >-
+          python rag/v63d_assign.py
+          --pool rag/data/human-gold-v63d-pool.csv
+          --output-dir rag/data/v63d-review-batches
+          --batches 8
+          --calibration-cases 20
+
       - name: Verify reviewer blindness and private rankings
         shell: bash
         run: |
@@ -156,7 +166,20 @@ jobs:
               raise SystemExit(f'Nombre de cas audit inattendu: {len(cases)}')
           if not all('expect_no_evidence' in case and 'category' in case for case in cases):
               raise SystemExit('Métadonnées privées manquantes dans audit.')
-          print({'rows': len(rows), 'cases': len(cases), 'status': 'blind-pack-valid'})
+
+          assignment = json.loads(Path('rag/data/v63d-review-batches/v63d-review-assignment.json').read_text(encoding='utf-8'))
+          if assignment.get('pool') != {'cases': 200, 'rows': len(rows)}:
+              raise SystemExit(f'Assignment incomplet: {assignment.get("pool")}')
+          if assignment.get('load', {}).get('spread_rows', 999999) > 20:
+              raise SystemExit(f'Lots trop déséquilibrés: {assignment.get("load")}')
+          print({
+              'rows': len(rows),
+              'cases': len(cases),
+              'batches': len(assignment.get('batches') or []),
+              'load': assignment.get('load'),
+              'calibration': assignment.get('calibration'),
+              'status': 'blind-pack-valid',
+          })
           PY
 
       - name: Upload blind reviewer pack
@@ -166,6 +189,14 @@ jobs:
           path: |
             rag/data/human-gold-v63d-pool.csv
             rag/data/human-gold-v63d-pool.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload balanced reviewer batches
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-human-gold-v63d-review-batches
+          path: rag/data/v63d-review-batches/
           if-no-files-found: error
           retention-days: 30
 
