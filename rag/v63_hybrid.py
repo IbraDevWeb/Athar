@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-"""Athar Research V6.3-A: guarded multilingual semantic reranking.
+"""Athar Research V6.3: guarded multilingual semantic reranking.
 
-The production V6.1 retriever remains authoritative for candidate generation,
-book routing, strict madhhab filtering and abstention. V6.3 only reorders the
-already accepted candidate pool with multilingual dense embeddings and a
-weighted Reciprocal Rank Fusion (RRF). This keeps the experiment reversible and
-prevents the embedding model from inventing citations or bypassing safety gates.
+V6.1 remains authoritative for candidate generation, book routing, strict
+madhhab filtering and abstention. Semantic embeddings only reorder candidates
+already admitted by V6.1. V6.3-A encodes passages online; V6.3-B can inject a
+precomputed embedding store and therefore encode only the query at request time.
 """
 
 from dataclasses import dataclass
@@ -61,10 +60,12 @@ class HybridSemanticRuntime:
         *,
         model_name: str = DEFAULT_MODEL,
         config: FusionConfig | None = None,
+        embedding_store: Any | None = None,
     ) -> None:
         self.base = base
         self.model_name = model_name
         self.config = config or FusionConfig()
+        self.embedding_store = embedding_store
         self._model: Any | None = None
 
     def validate(self) -> None:
@@ -97,13 +98,32 @@ class HybridSemanticRuntime:
             raise RuntimeError("Nombre d'embeddings de passages incohérent.")
         return np.asarray(vectors, dtype=np.float32)
 
-    def _rerank(self, query: str, sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
-        if len(sources) <= 1:
-            return [dict(item) for item in sources]
+    def _candidate_vectors(self, sources: list[dict[str, Any]]) -> tuple[np.ndarray, str, int]:
+        if self.embedding_store is not None:
+            mapping = self.embedding_store.get_source_vectors(sources)
+            ordered: list[np.ndarray] = []
+            complete = True
+            for source in sources:
+                vector = mapping.get(str(source.get("id") or ""))
+                if vector is None:
+                    complete = False
+                    break
+                ordered.append(np.asarray(vector, dtype=np.float32))
+            if complete and ordered:
+                return np.stack(ordered), "precomputed", len(ordered)
 
         texts = [_candidate_text(item) for item in sources]
+        return self._embed_passages(texts), "online", 0
+
+    def _rerank(self, query: str, sources: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        if len(sources) <= 1:
+            return [dict(item) for item in sources], {
+                "semantic_vector_source": "skipped_single_candidate",
+                "precomputed_embedding_hits": 0,
+            }
+
         qvec = self._embed_query(query)
-        dvecs = self._embed_passages(texts)
+        dvecs, vector_source, precomputed_hits = self._candidate_vectors(sources)
         similarities = _cosine(qvec, dvecs)
 
         semantic_order = sorted(range(len(sources)), key=lambda i: float(similarities[i]), reverse=True)
@@ -136,17 +156,21 @@ class HybridSemanticRuntime:
                 ),
                 reverse=True,
             )
-            return [anchor, *tail]
-
-        return sorted(
-            scored,
-            key=lambda item: (
-                float(item.get("rrf_score") or 0.0),
-                float(item.get("semantic_similarity") or 0.0),
-                -int(item.get("lexical_rank") or 9999),
-            ),
-            reverse=True,
-        )
+            final = [anchor, *tail]
+        else:
+            final = sorted(
+                scored,
+                key=lambda item: (
+                    float(item.get("rrf_score") or 0.0),
+                    float(item.get("semantic_similarity") or 0.0),
+                    -int(item.get("lexical_rank") or 9999),
+                ),
+                reverse=True,
+            )
+        return final, {
+            "semantic_vector_source": vector_source,
+            "precomputed_embedding_hits": precomputed_hits,
+        }
 
     def search(
         self,
@@ -167,31 +191,34 @@ class HybridSemanticRuntime:
         candidates = [dict(item) for item in base.get("sources") or []]
 
         # Crucial safety property: embeddings never rescue a query that V6.1
-        # abstained on. Global semantic recall comes later in V6.3-B, after a
-        # dedicated ANN benchmark and human qrels exist.
+        # abstained on. Global semantic recall is a later experiment and must
+        # pass its own benchmark/human qrels before it can enter this path.
         if not candidates:
             analysis = dict(base.get("analysis") or {})
             analysis.update(
                 {
-                    "engine": "rag-v6.3a-hybrid-semantic-rerank",
+                    "engine": "rag-v6.3-hybrid-semantic-rerank",
                     "semantic_embeddings": True,
                     "semantic_model": self.model_name,
                     "semantic_stage": "candidate_rerank_only",
                     "fusion": "weighted_rrf",
                     "semantic_candidate_count": 0,
                     "semantic_skipped": "base_abstention_or_no_candidates",
+                    "semantic_vector_source": "none",
+                    "precomputed_embedding_hits": 0,
                 }
             )
             return {**base, "analysis": analysis}
 
-        reranked = self._rerank(query, candidates)[:parsed_limit]
+        reranked, semantic_meta = self._rerank(query, candidates)
+        reranked = reranked[:parsed_limit]
         for index, item in enumerate(reranked, 1):
             item["citation_id"] = f"S{index}"
 
         analysis = dict(base.get("analysis") or {})
         analysis.update(
             {
-                "engine": "rag-v6.3a-hybrid-semantic-rerank",
+                "engine": "rag-v6.3-hybrid-semantic-rerank",
                 "semantic_embeddings": True,
                 "semantic_model": self.model_name,
                 "semantic_stage": "candidate_rerank_only",
@@ -201,6 +228,7 @@ class HybridSemanticRuntime:
                 "rrf_semantic_weight": self.config.semantic_weight,
                 "anchor_lexical_top1": self.config.anchor_lexical_top1,
                 "semantic_candidate_count": len(candidates),
+                **semantic_meta,
             }
         )
         return {
