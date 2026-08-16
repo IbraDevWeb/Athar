@@ -1,0 +1,109 @@
+name: Athar RAG V6.2 human gold pack
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v62_human_gold.py'
+      - 'rag/v62_human_gold_benchmark.py'
+      - 'rag/HUMAN_GOLD_V62.md'
+      - 'rag/benchmark_v61_dataset.py'
+      - 'rag/corpus_release_v3.json'
+      - '.github/workflows/rag-v62-human-gold.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v62-human-gold-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prepare-review-pack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install RAG dependencies
+        run: python -m pip install -r rag/requirements.txt
+
+      - name: Compile V6.2 tooling
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
+          rag/v61_benchmark.py rag/benchmark_v61_dataset.py
+          rag/v62_human_gold.py rag/v62_human_gold_benchmark.py
+
+      - name: Generate versioned 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Cache published sharded corpus
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v62-review-shards
+
+      - name: Generate blind human review pack
+        run: >-
+          python rag/v62_human_gold.py prepare
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/v62-review-shards
+          --output-csv rag/data/human-gold-v62-review.csv
+          --output-json rag/data/human-gold-v62-review.json
+          --limit 10
+          --max-cases 200
+
+      - name: Validate blindness and coverage
+        shell: python
+        run: |
+          import csv, json
+          from pathlib import Path
+
+          csv_path = Path('rag/data/human-gold-v62-review.csv')
+          json_path = Path('rag/data/human-gold-v62-review.json')
+          with csv_path.open(encoding='utf-8-sig', newline='') as handle:
+              rows = list(csv.DictReader(handle))
+          payload = json.loads(json_path.read_text(encoding='utf-8'))
+          forbidden = {'retrieval_rank', 'relevance', 'score', 'matched_terms', 'matched_concepts'}
+          if forbidden.intersection(rows[0].keys() if rows else set()):
+              raise SystemExit('Le pack expose un signal de ranking interdit.')
+          cases = payload.get('cases') or []
+          if len(cases) < 180:
+              raise SystemExit(f'Couverture trop faible: {len(cases)} cas.')
+          if any(int(case.get('candidate_count') or 0) <= 0 for case in cases):
+              missing = [case['case_id'] for case in cases if int(case.get('candidate_count') or 0) <= 0]
+              raise SystemExit(f'Cas positifs sans candidat: {missing[:10]}')
+          if len(rows) < len(cases) * 5:
+              raise SystemExit(f'Pool de passages trop petit: {len(rows)} lignes pour {len(cases)} cas.')
+          print(f'Pack valide: {len(cases)} cas, {len(rows)} passages, ranking masqué.')
+
+      - name: Add review-pack summary
+        shell: python
+        run: |
+          import json, os
+          from pathlib import Path
+          payload = json.loads(Path('rag/data/human-gold-v62-review.json').read_text(encoding='utf-8'))
+          cases = payload.get('cases') or []
+          rows = payload.get('rows') or []
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as handle:
+              handle.write('# Athar Human Gold V6.2\n\n')
+              handle.write(f'- Questions positives à relire : **{len(cases)}**\n')
+              handle.write(f'- Passages candidats : **{len(rows)}**\n')
+              handle.write('- Rang et score du moteur : **masqués**\n')
+              handle.write('- Grades attendus : **0 / 1 / 2**\n')
+
+      - name: Upload blind review pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-human-gold-v62-review-pack
+          path: |
+            rag/data/human-gold-v62-review.csv
+            rag/data/human-gold-v62-review.json
+          if-no-files-found: error
+          retention-days: 30
