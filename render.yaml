@@ -11,17 +11,15 @@ services:
         - render.yaml
       ignoredPaths: []
     buildCommand: >-
-      python -m pip install -r rag/requirements-v64.txt &&
-      python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards &&
-      python rag/cache_v63c_ann_release.py --corpus-manifest rag/corpus_release_v3.json --output-dir rag/data/v63c-ann &&
-      python rag/cache_fastembed_model.py --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --cache-dir rag/data/fastembed-cache
-    startCommand: python rag/v64_library_server.py --host 0.0.0.0 --api-only
+      python -m pip install -r rag/requirements.txt &&
+      python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards
+    startCommand: python rag/v5_library_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.13"
       - key: ATHAR_PRODUCTION_REVISION
-        value: v6.4.2
+        value: v6.1-emergency-rollback
       - key: ATHAR_API_ONLY
         value: "1"
       - key: ATHAR_CORS_ORIGINS
@@ -32,24 +30,6 @@ services:
         value: rag/data/shards
       - key: ATHAR_CORPUS_MANIFEST
         value: rag/corpus_release_v3.json
-      - key: ATHAR_RETRIEVAL_ENGINE
-        value: v63c
-      - key: ATHAR_ANN_MANIFEST
-        value: rag/data/v63c-ann/athar-v63c-global.ann.json
-      - key: ATHAR_ANN_FAIL_OPEN
-        value: "1"
-      - key: ATHAR_ANN_DEBUG
-        value: "0"
-      - key: ATHAR_ANN_VERIFY_SHA
-        value: "0"
-      - key: ATHAR_ANN_LIMIT
-        value: "40"
-      - key: ATHAR_ANN_OVERSAMPLE
-        value: "160"
-      - key: FASTEMBED_CACHE_PATH
-        value: rag/data/fastembed-cache
-      - key: ATHAR_FASTEMBED_LOCAL_ONLY
-        value: "1"
       - key: ATHAR_QUERY_LLM_ENABLED
         value: "1"
       - key: ATHAR_QUERY_LLM_MODEL
