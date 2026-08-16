@@ -67,19 +67,13 @@ def _contains_alias(engine: Any, query_norm: str, alias: str) -> bool:
 
 
 def _extend_triggers(engine: Any) -> None:
-    """Add reviewed synonyms and Arabic source vocabulary as query triggers."""
-    for name, spec in engine.CONCEPTS.items():
+    """Add reviewed natural-language synonyms to deterministic triggers."""
+    for name, additions in _TRIGGER_EXTENSIONS.items():
+        spec = engine.CONCEPTS.get(name)
+        if not isinstance(spec, dict):
+            continue
         current = list(spec.get("triggers") or ())
         seen = {engine.normalize_text(value) for value in current if str(value).strip()}
-
-        additions = list(_TRIGGER_EXTENSIONS.get(name, ()))
-        # The corpus is overwhelmingly Arabic. Arabic terms already curated as
-        # retrieval vocabulary are safe deterministic triggers for Arabic queries.
-        additions.extend(
-            str(term)
-            for term in (spec.get("terms") or ())
-            if _ARABIC.search(str(term))
-        )
         for value in additions:
             key = engine.normalize_text(value)
             if not key or key in seen:
@@ -87,6 +81,56 @@ def _extend_triggers(engine: Any) -> None:
             seen.add(key)
             current.append(value)
         spec["triggers"] = tuple(current)
+
+
+def _patch_detect_concepts(engine: Any) -> None:
+    """Recognise curated Arabic retrieval vocabulary as Arabic query concepts.
+
+    French/transliterated detection remains delegated to the V5 engine. For an
+    Arabic query we additionally match Arabic terms already curated inside each
+    concept specification. This avoids maintaining a second Arabic ontology and
+    keeps retrieval vocabulary and query understanding aligned.
+    """
+    original = engine.detect_concepts
+
+    def detect_concepts_v61(query: str):
+        found = [dict(item) for item in original(query)]
+        if not _ARABIC.search(str(query or "")):
+            return found
+
+        query_norm = engine.normalize_text(query)
+        existing = {str(item.get("name") or "") for item in found}
+        for name, spec in engine.CONCEPTS.items():
+            if name in existing:
+                continue
+            matched = [
+                str(term)
+                for term in (spec.get("terms") or ())
+                if _ARABIC.search(str(term))
+                and engine._contains_phrase(query_norm, str(term))
+            ]
+            if not matched:
+                continue
+            found.append(
+                {
+                    "name": name,
+                    "terms": list(spec.get("terms") or ()),
+                    "specificity": int(spec.get("specificity", 1)),
+                    "matched_triggers": matched,
+                    "source": "arabic_curated_vocabulary",
+                }
+            )
+            existing.add(name)
+        found.sort(
+            key=lambda item: (
+                int(item.get("specificity") or 1),
+                len(str((item.get("matched_triggers") or [""])[0])),
+            ),
+            reverse=True,
+        )
+        return found
+
+    engine.detect_concepts = detect_concepts_v61
 
 
 def _patch_detect_book(engine: Any) -> None:
@@ -118,6 +162,7 @@ def apply_engine_reliability_patches(engine: Any) -> None:
     if bool(getattr(engine, _PATCH_FLAG, False)):
         return
     _extend_triggers(engine)
+    _patch_detect_concepts(engine)
     _patch_detect_book(engine)
     setattr(engine, _PATCH_FLAG, True)
 
