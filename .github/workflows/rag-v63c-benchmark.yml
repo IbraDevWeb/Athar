@@ -135,7 +135,6 @@ jobs:
           --min-ann-recall 0.95
           --output-json rag/data/benchmark-v63c-report.json
           --output-md rag/data/BENCHMARK_V63C_REPORT.md
-          --fail-on-regression
 
       - name: Build blind V6.1 plus ANN human-review pool
         run: >-
@@ -149,6 +148,29 @@ jobs:
           --audit-json rag/data/human-gold-v63c-origin-audit.json
           --lexical-limit 10
           --ann-limit 10
+
+      - name: Gate V6.3-C quality
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          path = Path('rag/data/benchmark-v63c-report.json')
+          report = json.loads(path.read_text(encoding='utf-8'))
+          failures = list(report.get('regressions') or [])
+          ann = report.get('ann_exact_recall') or {}
+          recall = float(ann.get('mean_recall_at_k') or 0.0)
+          if recall < 0.95:
+              failures.append(f"ANN Recall@{ann.get('top_k', 10)} {recall:.3f} < 0.950")
+          if failures:
+              print('V6.3-C refusée:')
+              for failure in failures:
+                  print(f'- {failure}')
+              sys.exit(2)
+          print(f"V6.3-C acceptée: ANN Recall@{ann.get('top_k', 10)}={recall:.3f}, aucune régression.")
+          PY
 
       - name: Add benchmark summary
         if: always()
@@ -177,7 +199,7 @@ jobs:
           path: |
             rag/data/human-gold-v63c-pool.csv
             rag/data/human-gold-v63c-pool.json
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 30
 
       - name: Upload pool origin audit separately
@@ -186,5 +208,5 @@ jobs:
         with:
           name: athar-human-gold-v63c-origin-audit-private
           path: rag/data/human-gold-v63c-origin-audit.json
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 30
