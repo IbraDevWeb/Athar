@@ -1,0 +1,122 @@
+name: Athar RAG V6.3-C global ANN build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/requirements-v63c.txt'
+      - 'rag/v63c_ann_index.py'
+      - 'rag/v63c_shadow.py'
+      - 'rag/v63c_ann_tests.py'
+      - 'rag/corpus_release_v3.json'
+      - '.github/workflows/rag-v63c-build-ann.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v63c-global-ann-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      actions: read
+      contents: read
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3-C dependencies
+        run: python -m pip install -r rag/requirements-v63c.txt
+
+      - name: Compile and test ANN layer
+        run: |
+          python -m py_compile rag/v63c_ann_index.py rag/v63c_shadow.py rag/v63c_ann_tests.py
+          python rag/v63c_ann_tests.py
+
+      - name: Resolve latest complete V6.3-B semantic release
+        id: semantic
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID=$(gh run list \
+            --workflow rag-v63-build-semantic-index.yml \
+            --branch main \
+            --status success \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucune release sémantique V6.3-B complète." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "Semantic source run: $RUN_ID"
+
+      - name: Download complete V6.3-B semantic release
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.semantic.outputs.run_id }}
+
+      - name: Build global HNSW ANN index
+        run: >-
+          python rag/v63c_ann_index.py build
+          --corpus-manifest rag/corpus_release_v3.json
+          --semantic-index-dir rag/data/v63-semantic-release
+          --output-dir rag/data/v63c-ann
+          --connectivity 16
+          --expansion-add 128
+          --expansion-search 128
+          --batch-size 8192
+
+      - name: Validate serialized ANN index
+        run: >-
+          python rag/v63c_ann_index.py validate
+          --manifest rag/data/v63c-ann/athar-v63c-global.ann.json
+
+      - name: Assert global ANN invariants
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          corpus = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          ann = json.loads(Path('rag/data/v63c-ann/athar-v63c-global.ann.json').read_text(encoding='utf-8'))
+          assert ann['vectors'] == corpus['chunks'] == 574461
+          assert ann['corpus_source_sha'] == corpus['source_sha']
+          assert ann['dimension'] == 384
+          assert ann['metric'] == 'cos'
+          assert ann['dtype'] == 'f16'
+          assert ann['index_size_bytes'] > 0
+          assert ann['metadata_size_bytes'] > 0
+          print(json.dumps({
+              'vectors': ann['vectors'],
+              'index_bytes': ann['index_size_bytes'],
+              'metadata_bytes': ann['metadata_size_bytes'],
+              'usearch_version': ann['usearch_version'],
+          }, indent=2))
+          PY
+
+      - name: Upload V6.3-C global ANN
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-v63c-global-ann
+          path: |
+            rag/data/v63c-ann/athar-v63c-global.usearch
+            rag/data/v63c-ann/athar-v63c-global.meta.sqlite
+            rag/data/v63c-ann/athar-v63c-global.ann.json
+          if-no-files-found: error
+          retention-days: 30
