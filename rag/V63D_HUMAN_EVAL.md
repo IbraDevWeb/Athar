@@ -40,7 +40,25 @@ Un fichier `v63d-review-calibration-double.csv` contient **20 questions / 355 pa
 
 Décompresse l'artifact `athar-human-gold-v63d-review-batches` dans `rag/data/v63d-review-batches/`.
 
-Pour commencer par le lot 1 :
+Le moyen le plus simple pour commencer le lot 1 est :
+
+```powershell
+.\rag\start_v63d_review.ps1 -Batch 1 -Reviewer avishka
+```
+
+Le script choisit automatiquement :
+
+- `rag/data/v63d-review-batches/v63d-review-batch-01.csv` ;
+- `rag/data/v63d-review-01.sqlite` pour la reprise ;
+- `rag/data/v63d-annotations-01.csv` pour l'export.
+
+Pour le lot suivant :
+
+```powershell
+.\rag\start_v63d_review.ps1 -Batch 2 -Reviewer avishka
+```
+
+La commande Python complète reste disponible si besoin :
 
 ```powershell
 python rag\v63d_review_app.py `
@@ -50,19 +68,11 @@ python rag\v63d_review_app.py `
   --output rag\data\v63d-annotations-01.csv
 ```
 
-Le navigateur s'ouvre sur :
+Le navigateur s'ouvre sur `http://127.0.0.1:8765/`.
 
-```text
-http://127.0.0.1:8765/
-```
-
-Chaque passage affiche la question, les métadonnées bibliographiques, le texte arabe/français et trois boutons `0 / 1 / 2`.
-
-Raccourcis clavier : `0`, `1`, `2`.
+Chaque passage affiche la question, les métadonnées bibliographiques, le texte arabe/français et trois boutons `0 / 1 / 2`. Les mêmes chiffres servent de raccourcis clavier.
 
 La progression est écrite après chaque clic. Tu peux fermer le serveur avec `Ctrl+C` et reprendre plus tard avec exactement la même commande.
-
-Pour les lots suivants, change simplement `01` en `02`, `03`, etc., dans les trois chemins.
 
 ## 3. Répartir le travail entre plusieurs reviewers
 
@@ -83,11 +93,9 @@ python rag\v63d_review_app.py `
 
 Le découpage est déterministe et préserve l'aveuglement : aucune origine moteur, rang, score, catégorie ou indication de cas négatif n'est ajoutée aux lots.
 
-## 4. Reconstituer le CSV annoté complet
+## 4. Construire les qrels humains
 
 `v63d_qrels.py` accepte plusieurs fichiers d'annotations. Il n'est donc pas nécessaire de concaténer manuellement les huit CSV : répète simplement `--annotations` pour tous les lots terminés.
-
-Exemple :
 
 ```powershell
 python rag\v63d_qrels.py `
@@ -112,23 +120,7 @@ Le script :
 - refuse automatiquement les désaccords non résolus ;
 - produit `rag/data/v63d-disagreements.csv` lorsqu'une adjudication est nécessaire.
 
-Après adjudication :
-
-```powershell
-python rag\v63d_qrels.py `
-  --pool rag\data\human-gold-v63d-pool.csv `
-  --annotations rag\data\v63d-annotations-01.csv `
-  --annotations rag\data\v63d-annotations-02.csv `
-  --annotations rag\data\v63d-annotations-03.csv `
-  --annotations rag\data\v63d-annotations-04.csv `
-  --annotations rag\data\v63d-annotations-05.csv `
-  --annotations rag\data\v63d-annotations-06.csv `
-  --annotations rag\data\v63d-annotations-07.csv `
-  --annotations rag\data\v63d-annotations-08.csv `
-  --annotations rag\data\v63d-annotations-calibration.csv `
-  --adjudication rag\data\v63d-disagreements.csv `
-  --output-qrels rag\data\human-qrels-v63d.json
-```
+Après adjudication, relance avec `--adjudication rag/data/v63d-disagreements.csv`.
 
 ## 5. Benchmark humain final
 
@@ -140,7 +132,7 @@ Il récupère l'audit privé du pack V6.3-D puis compare sur les mêmes jugement
 - ANN global seul ;
 - V6.3-C fusion V6.1 + ANN.
 
-Métriques :
+Les métriques de classement sont calculées **uniquement sur les questions pour lesquelles le review humain a trouvé au moins un passage pertinent** :
 
 - NDCG@10 ;
 - Recall@10 ;
@@ -149,6 +141,8 @@ Métriques :
 - MRR ;
 - nombre de questions gagnées / perdues / ex æquo ;
 - différence V6.3-C vs V6.1 avec intervalle de confiance bootstrap à 95 %.
+
+Les questions sans passage pertinent dans le pool sont analysées séparément. Les cas négatifs conçus dans le benchmark ne sont révélés qu'après la fin du review ; lorsqu'ils sont confirmés par les jugements humains, le benchmark mesure séparément le taux d'abstention de V6.1 et de V6.3-C fused. Cela évite de confondre qualité de ranking et qualité d'abstention.
 
 ## Règle de promotion
 
