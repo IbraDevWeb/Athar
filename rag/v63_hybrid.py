@@ -47,7 +47,7 @@ def _cosine(query: np.ndarray, matrix: np.ndarray) -> np.ndarray:
 class FusionConfig:
     candidate_limit: int = 20
     rrf_k: int = 60
-    lexical_weight: float = 2.0
+    lexical_weight: float = 1.0
     semantic_weight: float = 1.0
     anchor_lexical_top1: bool = True
 
