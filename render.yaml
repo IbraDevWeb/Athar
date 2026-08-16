@@ -21,7 +21,7 @@ services:
       - key: PYTHON_VERSION
         value: "3.12.13"
       - key: ATHAR_PRODUCTION_REVISION
-        value: v6.4.1
+        value: v6.4.2
       - key: ATHAR_API_ONLY
         value: "1"
       - key: ATHAR_CORS_ORIGINS
