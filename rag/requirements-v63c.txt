@@ -1,0 +1,2 @@
+-r requirements-v63.txt
+usearch==2.26.0
