@@ -24,25 +24,30 @@ Le grade évalue le **passage par rapport à la question**, pas le prestige de l
 
 ## 1. Récupérer le pack reviewer
 
-Le workflow `.github/workflows/rag-v63d-review-pack.yml` produit :
+Le workflow `.github/workflows/rag-v63d-review-pack.yml` produit trois artifacts :
 
-- artifact public : `athar-human-gold-v63d-pooled-review` ;
-- artifact privé : `athar-human-gold-v63d-origin-audit-private`.
+- `athar-human-gold-v63d-pooled-review` : pool complet public ;
+- `athar-human-gold-v63d-review-batches` : lots équilibrés publics ;
+- `athar-human-gold-v63d-origin-audit-private` : audit privé à ne pas montrer aux reviewers.
 
-Le reviewer ne doit utiliser que l'artifact public.
+Le reviewer ne doit utiliser que les artifacts publics.
 
-Place le CSV public dans :
+Le pool validé contient **200 questions et 3 689 passages**. La génération de lots répartit les 200 questions en **8 lots primaires de 25 questions**, sans couper une question entre deux lots. Sur le pool courant, chaque lot contient entre **459 et 463 passages**.
 
-```text
-rag/data/human-gold-v63d-pool.csv
-```
+Un fichier `v63d-review-calibration-double.csv` contient **20 questions / 355 passages** sélectionnés de façon déterministe. Il est optionnel et sert à une seconde annotation indépendante afin de mesurer l'accord inter-reviewers.
 
 ## 2. Lancer l'interface de review sous Windows / VS Code
 
-Depuis la racine du projet Athar :
+Décompresse l'artifact `athar-human-gold-v63d-review-batches` dans `rag/data/v63d-review-batches/`.
+
+Pour commencer par le lot 1 :
 
 ```powershell
-python rag\v63d_review_app.py --pool rag\data\human-gold-v63d-pool.csv --reviewer avishka
+python rag\v63d_review_app.py `
+  --pool rag\data\v63d-review-batches\v63d-review-batch-01.csv `
+  --reviewer avishka `
+  --db rag\data\v63d-review-01.sqlite `
+  --output rag\data\v63d-annotations-01.csv
 ```
 
 Le navigateur s'ouvre sur :
@@ -55,53 +60,54 @@ Chaque passage affiche la question, les métadonnées bibliographiques, le texte
 
 Raccourcis clavier : `0`, `1`, `2`.
 
-La progression est écrite après chaque clic dans :
+La progression est écrite après chaque clic. Tu peux fermer le serveur avec `Ctrl+C` et reprendre plus tard avec exactement la même commande.
 
-```text
-rag/data/v63d-review.sqlite
-rag/data/v63d-annotations.csv
-```
+Pour les lots suivants, change simplement `01` en `02`, `03`, etc., dans les trois chemins.
 
-Tu peux fermer le serveur avec `Ctrl+C` et reprendre plus tard avec exactement la même commande.
+## 3. Répartir le travail entre plusieurs reviewers
 
-## 3. Plusieurs reviewers
+Chaque lot primaire est indépendant. On peut donc confier par exemple :
 
-Pour un second reviewer, utilise une base et une sortie distinctes :
+- reviewer A : lots 01 à 04 ;
+- reviewer B : lots 05 à 08.
+
+Pour mesurer l'accord inter-reviewers, un second reviewer peut aussi annoter le lot de calibration :
 
 ```powershell
 python rag\v63d_review_app.py `
-  --pool rag\data\human-gold-v63d-pool.csv `
+  --pool rag\data\v63d-review-batches\v63d-review-calibration-double.csv `
   --reviewer reviewer-2 `
-  --db rag\data\v63d-review-2.sqlite `
-  --output rag\data\v63d-annotations-2.csv
+  --db rag\data\v63d-review-calibration.sqlite `
+  --output rag\data\v63d-annotations-calibration.csv
 ```
 
-V6.3-D accepte un seul jugement par passage, mais calcule aussi l'accord inter-reviewers dès que certains passages ont été doublement annotés.
+Le découpage est déterministe et préserve l'aveuglement : aucune origine moteur, rang, score, catégorie ou indication de cas négatif n'est ajoutée aux lots.
 
-## 4. Construire les qrels humains
+## 4. Reconstituer le CSV annoté complet
 
-Avec un seul reviewer :
+`v63d_qrels.py` accepte plusieurs fichiers d'annotations. Il n'est donc pas nécessaire de concaténer manuellement les huit CSV : répète simplement `--annotations` pour tous les lots terminés.
+
+Exemple :
 
 ```powershell
 python rag\v63d_qrels.py `
   --pool rag\data\human-gold-v63d-pool.csv `
-  --annotations rag\data\v63d-annotations.csv `
-  --output-qrels rag\data\human-qrels-v63d.json
-```
-
-Avec plusieurs reviewers, répète `--annotations` :
-
-```powershell
-python rag\v63d_qrels.py `
-  --pool rag\data\human-gold-v63d-pool.csv `
-  --annotations rag\data\v63d-annotations.csv `
-  --annotations rag\data\v63d-annotations-2.csv `
+  --annotations rag\data\v63d-annotations-01.csv `
+  --annotations rag\data\v63d-annotations-02.csv `
+  --annotations rag\data\v63d-annotations-03.csv `
+  --annotations rag\data\v63d-annotations-04.csv `
+  --annotations rag\data\v63d-annotations-05.csv `
+  --annotations rag\data\v63d-annotations-06.csv `
+  --annotations rag\data\v63d-annotations-07.csv `
+  --annotations rag\data\v63d-annotations-08.csv `
+  --annotations rag\data\v63d-annotations-calibration.csv `
   --output-qrels rag\data\human-qrels-v63d.json
 ```
 
 Le script :
 
-- exige que tout le pool soit annoté au moins une fois ;
+- exige que tout le pool primaire soit annoté au moins une fois ;
+- accepte les jugements supplémentaires du lot de calibration ;
 - calcule l'accord exact et le kappa de Cohen pour les passages doublement annotés ;
 - refuse automatiquement les désaccords non résolus ;
 - produit `rag/data/v63d-disagreements.csv` lorsqu'une adjudication est nécessaire.
@@ -111,8 +117,15 @@ Après adjudication :
 ```powershell
 python rag\v63d_qrels.py `
   --pool rag\data\human-gold-v63d-pool.csv `
-  --annotations rag\data\v63d-annotations.csv `
-  --annotations rag\data\v63d-annotations-2.csv `
+  --annotations rag\data\v63d-annotations-01.csv `
+  --annotations rag\data\v63d-annotations-02.csv `
+  --annotations rag\data\v63d-annotations-03.csv `
+  --annotations rag\data\v63d-annotations-04.csv `
+  --annotations rag\data\v63d-annotations-05.csv `
+  --annotations rag\data\v63d-annotations-06.csv `
+  --annotations rag\data\v63d-annotations-07.csv `
+  --annotations rag\data\v63d-annotations-08.csv `
+  --annotations rag\data\v63d-annotations-calibration.csv `
   --adjudication rag\data\v63d-disagreements.csv `
   --output-qrels rag\data\human-qrels-v63d.json
 ```
