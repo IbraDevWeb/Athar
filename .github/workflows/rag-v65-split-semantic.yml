@@ -1,0 +1,254 @@
+name: Athar RAG V6.5 split semantic
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v65_semantic_server.py'
+      - 'rag/v65_remote_fusion.py'
+      - 'rag/v65_library_server.py'
+      - 'rag/v65_remote_smoke.py'
+      - '.github/workflows/rag-v65-split-semantic.yml'
+
+concurrency:
+  group: rag-v65-split-semantic
+  cancel-in-progress: true
+
+jobs:
+  split-semantic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    permissions:
+      contents: read
+    env:
+      PYTHONPATH: rag
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      FASTEMBED_CACHE_PATH: rag/data/fastembed-cache
+      ATHAR_FASTEMBED_LOCAL_ONLY: '1'
+      ATHAR_ANN_VERIFY_SHA: '1'
+      ATHAR_SEMANTIC_TOKEN: v65-ci-token
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.5 test dependencies
+        run: python -m pip install -r rag/requirements-v64.txt
+
+      - name: Compile split semantic architecture
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py rag/v5_sharded.py rag/v5_library_server.py
+          rag/v63c_shadow.py rag/v64_production.py
+          rag/v65_semantic_server.py rag/v65_remote_fusion.py
+          rag/v65_library_server.py rag/v65_remote_smoke.py
+
+      - name: Cache immutable ANN release
+        run: >-
+          python rag/cache_v63c_ann_release.py
+          --corpus-manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v63c-ann
+
+      - name: Cache semantic query model
+        run: >-
+          python rag/cache_fastembed_model.py
+          --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+          --cache-dir rag/data/fastembed-cache
+
+      - name: Generate fixed 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Cache immutable corpus shards
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/v65-shards
+
+      - name: Run 200-case local versus remote semantic equivalence
+        shell: bash
+        env:
+          ATHAR_ANN_MANIFEST: rag/data/v63c-ann/athar-v63c-global.ann.json
+        run: |
+          set -euo pipefail
+          python rag/v65_semantic_server.py \
+            --host 127.0.0.1 \
+            --port 8765 \
+            --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json \
+            > rag/data/v65-semantic.log 2>&1 &
+          SEM_PID=$!
+          trap 'kill $SEM_PID >/dev/null 2>&1 || true' EXIT
+
+          python - <<'PY'
+          import json, time, urllib.request
+          url='http://127.0.0.1:8765/healthz'
+          for attempt in range(180):
+              try:
+                  with urllib.request.urlopen(url,timeout=3) as response:
+                      payload=json.load(response)
+                  if payload.get('ready'):
+                      print('semantic sidecar ready:', payload)
+                      break
+              except Exception:
+                  pass
+              time.sleep(1)
+          else:
+              raise SystemExit('V6.5 semantic sidecar did not become ready')
+          PY
+
+          python rag/v65_remote_smoke.py \
+            --dataset rag/data/benchmark-v61.json \
+            --manifest rag/corpus_release_v3.json \
+            --shard-dir rag/data/v65-shards \
+            --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json \
+            --semantic-url http://127.0.0.1:8765 \
+            --semantic-token "$ATHAR_SEMANTIC_TOKEN" \
+            --output-json rag/data/benchmark-v65-split.json \
+            --output-md rag/data/BENCHMARK_V65_SPLIT.md
+
+          echo "## Process memory after equivalence" >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          ps -o pid,rss,vsz,etime,cmd -p "$SEM_PID" >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Prove HTTP fail-open by killing semantic service
+        shell: bash
+        env:
+          ATHAR_CORPUS_MODE: sharded
+          ATHAR_SHARD_DIR: rag/data/v65-shards
+          ATHAR_CORPUS_MANIFEST: rag/corpus_release_v3.json
+          ATHAR_SEMANTIC_URL: http://127.0.0.1:8767
+          ATHAR_SEMANTIC_TOKEN: v65-http-token
+          ATHAR_SEMANTIC_FAIL_OPEN: '1'
+          ATHAR_SEMANTIC_CONNECT_TIMEOUT: '0.3'
+          ATHAR_SEMANTIC_READ_TIMEOUT: '2.0'
+          ATHAR_SEMANTIC_LIMIT: '40'
+          ATHAR_SEMANTIC_OVERSAMPLE: '160'
+        run: |
+          set -euo pipefail
+          ATHAR_SEMANTIC_TOKEN=v65-http-token \
+          python rag/v65_semantic_server.py \
+            --host 127.0.0.1 --port 8767 \
+            --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json \
+            > rag/data/v65-http-semantic.log 2>&1 &
+          SEM_PID=$!
+
+          python rag/v65_library_server.py \
+            --host 127.0.0.1 --port 8766 --api-only \
+            > rag/data/v65-main.log 2>&1 &
+          MAIN_PID=$!
+          trap 'kill $SEM_PID $MAIN_PID >/dev/null 2>&1 || true' EXIT
+
+          python - <<'PY'
+          import json, time, urllib.request
+          for url in ('http://127.0.0.1:8767/healthz','http://127.0.0.1:8766/healthz'):
+              for _ in range(180):
+                  try:
+                      with urllib.request.urlopen(url,timeout=3) as response:
+                          payload=json.load(response)
+                      if payload.get('ok'):
+                          print(url, payload)
+                          break
+                  except Exception:
+                      pass
+                  time.sleep(1)
+              else:
+                  raise SystemExit(f'endpoint not ready: {url}')
+          PY
+
+          python - <<'PY'
+          import json, urllib.request
+          payload={'query': "Quelles sont les règles du tayammum lorsqu'on ne peut pas utiliser l'eau ?", 'limit': 8}
+          request=urllib.request.Request(
+              'http://127.0.0.1:8766/api/rag/v5/ask',
+              data=json.dumps(payload).encode('utf-8'),
+              headers={'Content-Type':'application/json'}, method='POST')
+          with urllib.request.urlopen(request,timeout=30) as response:
+              result=json.load(response)
+          analysis=result.get('analysis') or {}
+          assert result.get('engine') == 'rag-v6.5-remote-semantic-fused', result
+          assert analysis.get('semantic_remote_fallback') is False, analysis
+          assert analysis.get('semantic_remote_available') is True, analysis
+          assert result.get('sources'), result
+          print({'phase':'semantic-up','count':result.get('count'),'remote_ms':analysis.get('semantic_remote_ms')})
+          PY
+
+          kill "$SEM_PID"
+          wait "$SEM_PID" 2>/dev/null || true
+          sleep 1
+
+          python - <<'PY'
+          import json, urllib.request
+          payload={'query': "Quelles sont les règles du tayammum lorsqu'on ne peut pas utiliser l'eau ?", 'limit': 8}
+          request=urllib.request.Request(
+              'http://127.0.0.1:8766/api/rag/v5/ask',
+              data=json.dumps(payload).encode('utf-8'),
+              headers={'Content-Type':'application/json'}, method='POST')
+          with urllib.request.urlopen(request,timeout=30) as response:
+              result=json.load(response)
+          analysis=result.get('analysis') or {}
+          assert result.get('engine') == 'rag-v6.5-remote-semantic-fused', result
+          assert analysis.get('semantic_remote_fallback') is True, analysis
+          assert analysis.get('semantic_remote_available') is False, analysis
+          assert result.get('sources'), result
+          assert int(result.get('count') or 0) <= 8, result
+          assert len(result.get('sources') or []) <= 8, result
+          print({'phase':'semantic-down','count':result.get('count'),'error':analysis.get('semantic_remote_error')})
+          PY
+
+          python - <<'PY'
+          import json, urllib.request
+          payload={'query': 'Comment configurer Ethernet sur une station spatiale dans Sahih al-Bukhari ?', 'limit': 8}
+          request=urllib.request.Request(
+              'http://127.0.0.1:8766/api/rag/v5/ask',
+              data=json.dumps(payload).encode('utf-8'),
+              headers={'Content-Type':'application/json'}, method='POST')
+          with urllib.request.urlopen(request,timeout=30) as response:
+              result=json.load(response)
+          analysis=result.get('analysis') or {}
+          assert not (result.get('sources') or []), result
+          assert (result.get('answer') or {}).get('verdict') == 'insufficient', result
+          assert analysis.get('semantic_remote_called') is False, analysis
+          print({'phase':'abstention-sidecar-down','count':result.get('count')})
+          PY
+
+          echo "## Split-process memory" >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          ps -o pid,rss,vsz,etime,cmd -p "$MAIN_PID" >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Add V6.5 benchmark summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f rag/data/BENCHMARK_V65_SPLIT.md ]; then
+            cat rag/data/BENCHMARK_V65_SPLIT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          for file in rag/data/v65-semantic.log rag/data/v65-http-semantic.log rag/data/v65-main.log; do
+            if [ -f "$file" ]; then
+              echo '' >> "$GITHUB_STEP_SUMMARY"
+              echo "### $(basename "$file") tail" >> "$GITHUB_STEP_SUMMARY"
+              echo '```text' >> "$GITHUB_STEP_SUMMARY"
+              tail -n 20 "$file" >> "$GITHUB_STEP_SUMMARY" || true
+              echo '```' >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+      - name: Upload V6.5 split semantic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v65-split-semantic
+          path: |
+            rag/data/benchmark-v65-split.json
+            rag/data/BENCHMARK_V65_SPLIT.md
+            rag/data/v65-semantic.log
+            rag/data/v65-http-semantic.log
+            rag/data/v65-main.log
+          if-no-files-found: warn
+          retention-days: 90
