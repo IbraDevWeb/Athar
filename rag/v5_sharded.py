@@ -11,6 +11,14 @@ from v5_lowmem import search as search_one_shard
 
 SQLITE_HEADER = b"SQLite format 3\x00"
 
+# Canonical aliases whose corpus IDs are curated and stable in corpus_release_v3.
+# Resolve them at catalogue level before generic scoring so a partial shard
+# cannot accidentally route an explicit tafsir request to another exegete.
+CANONICAL_BOOK_ALIASES: tuple[tuple[tuple[str, ...], str], ...] = (
+    (("tafsir tabari", "tafsir al tabari"), "openiti-tabari-tafsir"),
+    (("tafsir ibn kathir",), "openiti-ibn-kathir-tafsir"),
+)
+
 
 def open_readonly(path: Path) -> sqlite3.Connection:
     resolved = path.resolve().as_posix()
@@ -49,6 +57,18 @@ def _validate_sqlite(path: Path, required_tables: set[str]) -> None:
 def _trim(value: str, limit: int = 700) -> str:
     clean = " ".join(str(value or "").split())
     return clean if len(clean) <= limit else clean[:limit].rstrip() + "…"
+
+
+def _contains_alias(query_norm: str, alias: str) -> bool:
+    alias_norm = normalize_text(alias)
+    if not alias_norm:
+        return False
+    return f" {alias_norm} " in f" {query_norm} "
+
+
+def _raw_match_count(source: dict[str, Any]) -> int:
+    """Count distinct terms matched by a raw-only retrieval result."""
+    return len({normalize_text(term) for term in source.get("matched_terms") or [] if normalize_text(term)})
 
 
 class ShardedCorpusRuntime:
@@ -179,9 +199,70 @@ class ShardedCorpusRuntime:
         finally:
             connection.close()
 
+    def _canonical_route(self, connection: sqlite3.Connection, query: str) -> dict[str, Any] | None:
+        query_norm = normalize_text(query)
+        for aliases, book_id in CANONICAL_BOOK_ALIASES:
+            if not any(_contains_alias(query_norm, alias) for alias in aliases):
+                continue
+            row = connection.execute(
+                "SELECT id, title, title_ar, author, discipline, madhhab, pages, source_url FROM books WHERE id=?",
+                (book_id,),
+            ).fetchone()
+            if row is not None:
+                return {**dict(row), "route_score": 100, "route_reason": "canonical_alias"}
+        return None
+
     def _route_book(self, query: str) -> dict[str, Any] | None:
         with open_readonly(self.catalog_path) as connection:
+            canonical = self._canonical_route(connection, query)
+            if canonical:
+                return canonical
             return detect_book(connection, query)
+
+    @staticmethod
+    def _routed_query(query: str, routed_book: dict[str, Any] | None) -> str:
+        """Anchor shard-local routing with the exact canonical catalogue title."""
+        if not routed_book:
+            return query
+        title = str(routed_book.get("title") or "").strip()
+        if not title or normalize_text(title) in normalize_text(query):
+            return query
+        return f"{title} — {query}"
+
+    @staticmethod
+    def _apply_raw_abstention_guard(
+        selected: list[dict[str, Any]],
+        analyses: list[dict[str, Any]],
+        routed_book: dict[str, Any] | None,
+    ) -> tuple[list[dict[str, Any]], bool]:
+        """Reject weak raw-only matches that are likely out-of-domain noise.
+
+        Concept-backed queries keep the existing behaviour. For a query with no
+        recognised concept and no explicit book route, a multi-term request must
+        match at least two distinct raw terms in the same passage. This prevents a
+        generic token such as ``kitab`` or an isolated proper name from creating
+        evidence for a fabricated/out-of-domain question.
+        """
+        if routed_book or not selected:
+            return selected, False
+        concept_names = {
+            str(name)
+            for analysis in analyses
+            for name in (analysis.get("technical_concepts") or analysis.get("concepts") or [])
+            if str(name).strip()
+        }
+        if concept_names:
+            return selected, False
+        raw_terms = {
+            normalize_text(term)
+            for analysis in analyses
+            for term in (analysis.get("raw_terms") or [])
+            if normalize_text(term)
+        }
+        if len(raw_terms) < 2:
+            return selected, False
+        guarded = [item for item in selected if _raw_match_count(item) >= 2]
+        return guarded, len(guarded) != len(selected)
 
     def search(
         self,
@@ -200,6 +281,7 @@ class ShardedCorpusRuntime:
             shard_ids = [self.shard_for_book(str(routed_book["id"]))]
         else:
             shard_ids = list(self.shard_paths)
+        retrieval_query = self._routed_query(query, routed_book)
 
         merged: list[dict[str, Any]] = []
         analyses: list[dict[str, Any]] = []
@@ -210,7 +292,7 @@ class ShardedCorpusRuntime:
                 with open_readonly(self.shard_paths[shard_id]) as connection:
                     result = search_one_shard(
                         connection,
-                        query,
+                        retrieval_query,
                         limit=per_shard_limit,
                         madhhab=madhhab,
                         discipline=discipline,
@@ -249,10 +331,19 @@ class ShardedCorpusRuntime:
             selected.append(item)
             if len(selected) >= parsed_limit:
                 break
+
+        selected, abstention_guard_applied = self._apply_raw_abstention_guard(
+            selected,
+            analyses,
+            routed_book,
+        )
         for index, item in enumerate(selected, 1):
             item["citation_id"] = f"S{index}"
 
         base_analysis = next((dict(item) for item in analyses if item), {})
+        # A shard-local catalogue is not authoritative for global routing. Expose
+        # only the route decided from the complete catalogue.
+        base_analysis["routed_book"] = None
         if routed_book:
             base_analysis["routed_book"] = {
                 "id": routed_book.get("id"),
@@ -275,6 +366,7 @@ class ShardedCorpusRuntime:
                 ]
                 + shard_errors,
                 "semantic_embeddings": False,
+                "abstention_guard": "raw_multi_term" if abstention_guard_applied else "none",
             }
         )
         return {
