@@ -11,6 +11,7 @@ on:
       - 'rag/v5_engine.py'
       - 'rag/v5_lowmem.py'
       - 'rag/v5_sharded.py'
+      - 'rag/v61_reliability.py'
       - '.github/workflows/rag-v6-benchmark.yml'
   workflow_dispatch:
 
@@ -41,6 +42,7 @@ jobs:
           rag/v5_engine.py
           rag/v5_lowmem.py
           rag/v5_sharded.py
+          rag/v61_reliability.py
           rag/v6_benchmark.py
 
       - name: Cache published sharded corpus
