@@ -77,9 +77,9 @@ jobs:
           --corpus-manifest rag/corpus_release_v3.json
           --semantic-index-dir rag/data/v63-semantic-release
           --output-dir rag/data/v63c-ann
-          --connectivity 16
-          --expansion-add 128
-          --expansion-search 128
+          --connectivity 32
+          --expansion-add 256
+          --expansion-search 1024
           --batch-size 8192
 
       - name: Validate serialized ANN index
@@ -100,6 +100,9 @@ jobs:
           assert ann['dimension'] == 384
           assert ann['metric'] == 'cos'
           assert ann['dtype'] == 'f16'
+          assert ann['connectivity'] == 32
+          assert ann['expansion_add'] == 256
+          assert ann['expansion_search'] == 1024
           assert ann['index_size_bytes'] > 0
           assert ann['metadata_size_bytes'] > 0
           print(json.dumps({
@@ -107,6 +110,9 @@ jobs:
               'index_bytes': ann['index_size_bytes'],
               'metadata_bytes': ann['metadata_size_bytes'],
               'usearch_version': ann['usearch_version'],
+              'connectivity': ann['connectivity'],
+              'expansion_add': ann['expansion_add'],
+              'expansion_search': ann['expansion_search'],
           }, indent=2))
           PY
 
