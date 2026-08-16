@@ -30,12 +30,16 @@ class FakeBase:
 
 
 class FakeModel:
+    def __init__(self, *, forbid_passages: bool = False):
+        self.forbid_passages = forbid_passages
+
     def query_embed(self, values):
         for _ in values:
             yield np.array([1.0, 0.0], dtype=np.float32)
 
     def passage_embed(self, values):
-        # Semantic ranking deliberately prefers the last candidate.
+        if self.forbid_passages:
+            raise AssertionError("passage_embed ne doit pas être appelé avec un index pré-calculé complet")
         vectors = [
             np.array([0.1, 0.9], dtype=np.float32),
             np.array([0.2, 0.8], dtype=np.float32),
@@ -43,6 +47,16 @@ class FakeModel:
         ]
         for index, _ in enumerate(values):
             yield vectors[index % len(vectors)]
+
+
+class FakeStore:
+    def get_source_vectors(self, sources):
+        vectors = {
+            "chunk-1": np.array([0.1, 0.9], dtype=np.float32),
+            "chunk-2": np.array([0.2, 0.8], dtype=np.float32),
+            "chunk-3": np.array([1.0, 0.0], dtype=np.float32),
+        }
+        return {str(row["id"]): vectors[str(row["id"])] for row in sources if str(row["id"]) in vectors}
 
 
 def source(i: int):
@@ -62,12 +76,13 @@ def source(i: int):
 
 
 class HybridSemanticTests(unittest.TestCase):
-    def runtime(self, sources):
+    def runtime(self, sources, *, store=None, forbid_passages=False):
         runtime = HybridSemanticRuntime(
             FakeBase(sources),
             config=FusionConfig(candidate_limit=3, anchor_lexical_top1=True),
+            embedding_store=store,
         )
-        runtime._model = FakeModel()
+        runtime._model = FakeModel(forbid_passages=forbid_passages)
         return runtime
 
     def test_semantic_reranking_never_rescues_base_abstention(self):
@@ -102,6 +117,17 @@ class HybridSemanticTests(unittest.TestCase):
         self.assertEqual("candidate_rerank_only", analysis["semantic_stage"])
         self.assertEqual("weighted_rrf", analysis["fusion"])
         self.assertEqual("strict_metadata", analysis["madhhab_filter"])
+
+    def test_precomputed_store_avoids_passage_encoding(self):
+        runtime = self.runtime(
+            [source(1), source(2), source(3)],
+            store=FakeStore(),
+            forbid_passages=True,
+        )
+        result = runtime.search("question", limit=3)
+        self.assertEqual("precomputed", result["analysis"]["semantic_vector_source"])
+        self.assertEqual(3, result["analysis"]["precomputed_embedding_hits"])
+        self.assertEqual("chunk-3", result["sources"][1]["id"])
 
 
 if __name__ == "__main__":
