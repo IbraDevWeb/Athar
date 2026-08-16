@@ -1,0 +1,89 @@
+name: Athar RAG V6.3-D human qrels evaluation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/data/human-qrels-v63d.json'
+
+concurrency:
+  group: rag-v63d-human-qrels-eval
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: read
+    env:
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile V6.3-D evaluator
+        run: python -m py_compile rag/v63d_human_benchmark.py
+
+      - name: Require frozen human qrels
+        shell: bash
+        run: |
+          test -f rag/data/human-qrels-v63d.json || {
+            echo "rag/data/human-qrels-v63d.json absent: termine et fusionne les annotations avant ce workflow." >&2
+            exit 2
+          }
+
+      - name: Resolve latest successful V6.3-D review pack
+        id: review
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID=$(gh run list \
+            --workflow rag-v63d-review-pack.yml \
+            --branch main \
+            --status success \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucun pack V6.3-D réussi." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download private ranking audit
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-human-gold-v63d-origin-audit-private
+          path: rag/data/v63d-audit
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.review.outputs.run_id }}
+
+      - name: Evaluate V6.1 versus V6.3-C on human qrels
+        run: >-
+          python rag/v63d_human_benchmark.py
+          --qrels rag/data/human-qrels-v63d.json
+          --audit rag/data/v63d-audit/human-gold-v63d-origin-audit.json
+          --output-json rag/data/benchmark-v63d-human.json
+          --output-md rag/data/BENCHMARK_V63D_HUMAN.md
+
+      - name: Add human evaluation summary
+        shell: bash
+        run: cat rag/data/BENCHMARK_V63D_HUMAN.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload V6.3-D human evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v63d-human-evaluation
+          path: |
+            rag/data/benchmark-v63d-human.json
+            rag/data/BENCHMARK_V63D_HUMAN.md
+          if-no-files-found: error
+          retention-days: 90
