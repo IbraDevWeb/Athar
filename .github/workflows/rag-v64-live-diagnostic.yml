@@ -1,0 +1,31 @@
+name: Athar RAG V6.4 live diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rag-v64-live-diagnostic.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Print public health and status
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          base='https://athar-rag-ibradevweb.onrender.com'
+          headers={'Cache-Control':'no-cache','User-Agent':'Athar-V6.4-diagnostic'}
+          for path in ('/healthz','/api/rag/v5/status'):
+              try:
+                  req=urllib.request.Request(base+path,headers=headers)
+                  with urllib.request.urlopen(req,timeout=60) as r:
+                      body=r.read().decode('utf-8')
+                  print('\n###',path)
+                  print(json.dumps(json.loads(body),ensure_ascii=False,indent=2))
+              except Exception as exc:
+                  print('\n###',path,'ERROR',repr(exc))
+          PY
