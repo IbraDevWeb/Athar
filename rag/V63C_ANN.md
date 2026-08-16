@@ -32,9 +32,9 @@ Question
 - Structure : HNSW.
 - Métrique : cosine.
 - Stockage des vecteurs ANN : `f16`.
-- Connectivité : 16.
-- `expansion_add` : 128.
-- `expansion_search` : 128.
+- Connectivité : 32.
+- `expansion_add` : 256.
+- `expansion_search` : 1024.
 - Clés ANN : entiers globaux reliés par SQLite à `chunk_id`, `book_id`, shard, discipline et madhhab.
 
 Fichiers produits :
@@ -43,7 +43,7 @@ Fichiers produits :
 - `athar-v63c-global.meta.sqlite`
 - `athar-v63c-global.ann.json`
 
-Le manifeste contient les SHA-256 de l'index et du sidecar ainsi que le SHA du corpus V3 afin d'empêcher un mélange entre deux releases.
+Le manifeste contient les SHA-256 de l'index et du sidecar ainsi que le SHA du corpus V3 afin d'empêcher un mélange entre deux releases. Le runtime recharge explicitement `expansion_search` depuis ce manifeste afin que la profondeur de recherche utilisée après sérialisation soit reproductible.
 
 ## Benchmark
 
@@ -57,6 +57,12 @@ Le workflow échoue si :
 - une métrique de qualité surveillée régresse ;
 - le Recall ANN moyen contre la recherche dense exacte descend sous 95 %.
 
+### Tuning documenté
+
+Le premier index réel utilisait `connectivity=16`, `expansion_add=128`, `expansion_search=128`. Il a conservé 100/100 sur le benchmark applicatif et n'a introduit aucune régression, mais son Recall@10 ANN contre la recherche dense exacte n'était que de 78 %. Cette configuration a donc été refusée, sans abaisser le seuil de 95 %.
+
+La configuration suivante renforce le graphe et la profondeur de recherche à `32 / 256 / 1024`. Elle doit repasser le même benchmark avant d'être considérée comme acceptable.
+
 ## Human Gold pooled
 
 Après le benchmark, un pool aveugle mélange :
@@ -66,10 +72,12 @@ Après le benchmark, un pool aveugle mélange :
 
 Les doublons sont supprimés puis l'ordre est mélangé de manière déterministe. Le reviewer ne voit ni l'origine moteur, ni le rang, ni le score. L'audit d'origine est exporté dans un artifact séparé qui ne doit pas être montré aux reviewers avant la fin de l'annotation.
 
+Le benchmark et le gate qualité sont séparés : le pool Human Gold est donc produit même si la configuration ANN est ensuite refusée par le seuil technique.
+
 ## Workflows
 
 - `.github/workflows/rag-v63c-build-ann.yml` : construit et valide l'index global.
-- `.github/workflows/rag-v63c-benchmark.yml` : benchmark V6.1/V6.3-C, Recall ANN exact et pool Human Gold.
+- `.github/workflows/rag-v63c-benchmark.yml` : benchmark V6.1/V6.3-C, Recall ANN exact, pool Human Gold puis gate de qualité.
 
 ## Statut production
 
