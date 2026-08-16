@@ -37,7 +37,16 @@ def _repo_path(value: str | Path) -> Path:
 
 
 def _open_ro(path: Path) -> sqlite3.Connection:
-    conn = sqlite3.connect(f"file:{path.resolve().as_posix()}?mode=ro&immutable=1", uri=True, timeout=15)
+    # The ThreadingHTTPServer can initialize the ANN sidecar on /status and then
+    # query it from another request thread. The connection is immutable/read-only
+    # and retrieval is serialized by the server's heavy_gate, so cross-thread use
+    # is safe here and avoids one SQLite connection per ANN lookup.
+    conn = sqlite3.connect(
+        f"file:{path.resolve().as_posix()}?mode=ro&immutable=1",
+        uri=True,
+        timeout=15,
+        check_same_thread=False,
+    )
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA query_only=ON")
     conn.execute("PRAGMA mmap_size=0")
