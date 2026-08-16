@@ -1,0 +1,178 @@
+name: Athar RAG V6.3-D blind human review pack
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v63c_human_pool.py'
+      - 'rag/v63d_review_app.py'
+      - 'rag/v63d_qrels.py'
+      - 'rag/v63d_human_benchmark.py'
+      - 'rag/v63d_tests.py'
+      - '.github/workflows/rag-v63d-review-pack.yml'
+
+concurrency:
+  group: rag-v63d-human-review-pack
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile V6.3-D tooling
+        run: >-
+          python -m py_compile
+          rag/v63d_review_app.py
+          rag/v63d_qrels.py
+          rag/v63d_human_benchmark.py
+          rag/v63d_tests.py
+      - name: Run deterministic V6.3-D tests
+        run: python rag/v63d_tests.py
+
+  review-pack:
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      actions: read
+      contents: read
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3-C dependencies
+        run: python -m pip install -r rag/requirements-v63c.txt
+
+      - name: Compile pooled review generator
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
+          rag/v61_reliability.py rag/v61_benchmark.py rag/v62_human_gold.py
+          rag/v63_hybrid.py rag/v63c_ann_index.py rag/v63c_shadow.py
+          rag/v63c_human_pool.py
+
+      - name: Resolve latest accepted ANN build
+        id: ann
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID=$(gh run list \
+            --workflow rag-v63c-build-ann.yml \
+            --branch main \
+            --status success \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucun build ANN V6.3-C réussi." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download global ANN artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63c-global-ann
+          path: rag/data/v63c-ann
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.ann.outputs.run_id }}
+
+      - name: Generate fixed 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Cache immutable corpus shards
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/benchmark-shards
+
+      - name: Build genuinely blind V6.3-D review pack
+        run: >-
+          python rag/v63c_human_pool.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/benchmark-shards
+          --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json
+          --output-csv rag/data/human-gold-v63d-pool.csv
+          --output-json rag/data/human-gold-v63d-pool.json
+          --audit-json rag/data/human-gold-v63d-origin-audit.json
+          --lexical-limit 10
+          --ann-limit 10
+
+      - name: Verify reviewer blindness and private rankings
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+
+          csv_path = Path('rag/data/human-gold-v63d-pool.csv')
+          with csv_path.open('r', encoding='utf-8-sig', newline='') as handle:
+              reader = csv.DictReader(handle)
+              fields = set(reader.fieldnames or [])
+              rows = list(reader)
+
+          forbidden = {
+              'category', 'expect_no_evidence', 'retrieval_origin',
+              'lexical_rank', 'semantic_rank', 'ann_rank', 'ann_similarity',
+              'ann_distance', 'rrf_score',
+          }
+          leaked = sorted(fields & forbidden)
+          if leaked:
+              raise SystemExit(f'Fuite dans le pack reviewer: {leaked}')
+
+          public = json.loads(Path('rag/data/human-gold-v63d-pool.json').read_text(encoding='utf-8'))
+          policy = public.get('pool_policy') or {}
+          for key in ('per_candidate_origin_hidden', 'engine_rank_hidden',
+                      'benchmark_category_hidden', 'negative_case_flag_hidden'):
+              if policy.get(key) is not True:
+                  raise SystemExit(f'Blind policy invalide: {key}')
+
+          audit = json.loads(Path('rag/data/human-gold-v63d-origin-audit.json').read_text(encoding='utf-8'))
+          systems = set(audit.get('systems') or [])
+          required = {'v61', 'v63c-ann', 'v63c-fused'}
+          if not required <= systems:
+              raise SystemExit(f'Audit incomplet: {systems}')
+          cases = audit.get('cases') or []
+          if len(cases) != 200:
+              raise SystemExit(f'Nombre de cas audit inattendu: {len(cases)}')
+          if not all('expect_no_evidence' in case and 'category' in case for case in cases):
+              raise SystemExit('Métadonnées privées manquantes dans audit.')
+          print({'rows': len(rows), 'cases': len(cases), 'status': 'blind-pack-valid'})
+          PY
+
+      - name: Upload blind reviewer pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-human-gold-v63d-pooled-review
+          path: |
+            rag/data/human-gold-v63d-pool.csv
+            rag/data/human-gold-v63d-pool.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload private ranking audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-human-gold-v63d-origin-audit-private
+          path: rag/data/human-gold-v63d-origin-audit.json
+          if-no-files-found: error
+          retention-days: 30
