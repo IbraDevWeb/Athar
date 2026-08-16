@@ -1,0 +1,157 @@
+name: Athar RAG V6.3-C global ANN benchmark
+
+on:
+  workflow_run:
+    workflows: ['Athar RAG V6.3-C global ANN build']
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v63c-global-ann-benchmark
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      actions: read
+      contents: read
+    env:
+      ATHAR_QUERY_LLM_ENABLED: '0'
+      GEMINI_API_KEY: ''
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install V6.3-C dependencies
+        run: python -m pip install -r rag/requirements-v63c.txt
+
+      - name: Compile V6.3-C benchmark
+        run: >-
+          python -m py_compile
+          rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
+          rag/v61_reliability.py rag/v61_benchmark.py
+          rag/v63_hybrid.py rag/v63_benchmark.py rag/v63_semantic_release.py
+          rag/v63c_ann_index.py rag/v63c_shadow.py rag/v63c_benchmark.py
+          rag/benchmark_v61_dataset.py rag/benchmark_v61_apply_gold.py
+
+      - name: Resolve source ANN build
+        id: ann
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_RUN_ID: ${{ github.event.workflow_run.id }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            RUN_ID="$EVENT_RUN_ID"
+          else
+            RUN_ID=$(gh run list \
+              --workflow rag-v63c-build-ann.yml \
+              --branch main \
+              --status success \
+              --limit 1 \
+              --json databaseId \
+              --jq '.[0].databaseId')
+          fi
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucun build ANN V6.3-C réussi." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download global ANN artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63c-global-ann
+          path: rag/data/v63c-ann
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.ann.outputs.run_id }}
+
+      - name: Resolve latest complete V6.3-B semantic release
+        id: semantic
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID=$(gh run list \
+            --workflow rag-v63-build-semantic-index.yml \
+            --branch main \
+            --status success \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "Aucune release sémantique V6.3-B complète." >&2
+            exit 2
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download complete V6.3-B semantic release
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.semantic.outputs.run_id }}
+
+      - name: Generate fixed 200-case dataset
+        run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Apply 50 reviewed gold chunks
+        run: python rag/benchmark_v61_apply_gold.py --dataset rag/data/benchmark-v61.json
+
+      - name: Cache immutable corpus shards
+        run: >-
+          python rag/cache_hosted_corpus.py
+          --manifest rag/corpus_release_v3.json
+          --output-dir rag/data/benchmark-shards
+
+      - name: Run V6.1 versus V6.3-C shadow benchmark
+        run: >-
+          python rag/v63c_benchmark.py
+          --dataset rag/data/benchmark-v61.json
+          --manifest rag/corpus_release_v3.json
+          --shard-dir rag/data/benchmark-shards
+          --semantic-index-dir rag/data/v63-semantic-release
+          --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json
+          --candidate-limit 20
+          --ann-limit 40
+          --ann-oversample 160
+          --ann-recall-cases 30
+          --ann-recall-k 10
+          --min-ann-recall 0.95
+          --output-json rag/data/benchmark-v63c-report.json
+          --output-md rag/data/BENCHMARK_V63C_REPORT.md
+          --fail-on-regression
+
+      - name: Add benchmark summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f rag/data/BENCHMARK_V63C_REPORT.md ]; then
+            cat rag/data/BENCHMARK_V63C_REPORT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload V6.3-C benchmark reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v63c-global-ann-benchmark
+          path: |
+            rag/data/benchmark-v63c-report.json
+            rag/data/BENCHMARK_V63C_REPORT.md
+          if-no-files-found: warn
+          retention-days: 30
