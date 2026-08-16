@@ -44,6 +44,7 @@ jobs:
           rag/cache_v63c_ann_release.py
           rag/cache_fastembed_model.py
           rag/v64_production.py
+          rag/v64_library_server.py
           rag/v64_tests.py
           rag/v64_production_smoke.py
 
@@ -81,12 +82,67 @@ jobs:
           --output-json rag/data/benchmark-v64-production-smoke.json
           --output-md rag/data/BENCHMARK_V64_PRODUCTION_SMOKE.md
 
+      - name: Smoke V6.4 HTTP server
+        shell: bash
+        env:
+          ATHAR_CORPUS_MODE: sharded
+          ATHAR_SHARD_DIR: rag/data/v64-smoke-shards
+          ATHAR_CORPUS_MANIFEST: rag/corpus_release_v3.json
+          ATHAR_RETRIEVAL_ENGINE: v63c
+          ATHAR_ANN_MANIFEST: rag/data/v63c-ann/athar-v63c-global.ann.json
+          ATHAR_ANN_FAIL_OPEN: '0'
+          ATHAR_ANN_DEBUG: '0'
+        run: |
+          python rag/v64_library_server.py --host 127.0.0.1 --port 8764 --api-only > rag/data/v64-server.log 2>&1 &
+          PID=$!
+          trap 'kill $PID >/dev/null 2>&1 || true' EXIT
+          python - <<'PY'
+          import json, time, urllib.request
+
+          base = 'http://127.0.0.1:8764'
+          for _ in range(120):
+              try:
+                  with urllib.request.urlopen(base + '/healthz', timeout=2) as response:
+                      health = json.load(response)
+                  break
+              except Exception:
+                  time.sleep(1)
+          else:
+              raise SystemExit('Serveur V6.4 non prêt.')
+          assert health['engine'] == 'rag-v6.4-v63c-fused-production', health
+
+          with urllib.request.urlopen(base + '/api/rag/v5/status', timeout=20) as response:
+              status = json.load(response)
+          assert status['retrieval_engine_active'] == 'rag-v6.4-v63c-fused-production', status
+          assert status['retrieval_fallback'] is False, status
+          assert int(status['ann_vectors']) == 574461, status
+
+          body = json.dumps({'query': 'Quelles sont les règles du tayammum ?', 'limit': 8}).encode('utf-8')
+          request = urllib.request.Request(
+              base + '/api/rag/v5/ask', data=body,
+              headers={'Content-Type': 'application/json'}, method='POST'
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              answer = json.load(response)
+          assert answer['engine'] == 'rag-v6.4-v63c-fused-production', answer
+          assert answer['analysis']['retrieval_fallback'] is False, answer
+          assert 'shadow_ann_sources' not in answer and 'shadow_ann_only_sources' not in answer
+          print({'health_engine': health['engine'], 'sources': answer.get('count'), 'ann_vectors': status['ann_vectors']})
+          PY
+
       - name: Add smoke summary
         if: always()
         shell: bash
         run: |
           if [ -f rag/data/BENCHMARK_V64_PRODUCTION_SMOKE.md ]; then
             cat rag/data/BENCHMARK_V64_PRODUCTION_SMOKE.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f rag/data/v64-server.log ]; then
+            echo '' >> "$GITHUB_STEP_SUMMARY"
+            echo '## Server tail' >> "$GITHUB_STEP_SUMMARY"
+            echo '```text' >> "$GITHUB_STEP_SUMMARY"
+            tail -n 20 rag/data/v64-server.log >> "$GITHUB_STEP_SUMMARY" || true
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload V6.4 production smoke
@@ -97,5 +153,6 @@ jobs:
           path: |
             rag/data/benchmark-v64-production-smoke.json
             rag/data/BENCHMARK_V64_PRODUCTION_SMOKE.md
+            rag/data/v64-server.log
           if-no-files-found: warn
           retention-days: 90
