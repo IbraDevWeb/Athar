@@ -1,17 +1,16 @@
 from __future__ import annotations
 
-"""Download and verify the immutable V6.3-C ANN release for production.
+"""Download and verify the corpus-scoped V6.3-C ANN release for production.
 
-The public GitHub release tag is derived from the corpus source SHA, so a corpus
-change naturally produces a different ANN release URL. The internal ANN
-manifest remains the authority for file sizes and SHA-256 digests.
+Large GitHub Release assets can be interrupted by intermediate proxies. Downloads
+therefore use a deterministic `.part` file and HTTP Range resume across retries.
+The internal ANN manifest remains the authority for sizes and SHA-256 digests.
 """
 
 import argparse
 import json
 import os
-import shutil
-import tempfile
+import time
 from pathlib import Path
 from typing import Any
 
@@ -29,25 +28,81 @@ def _rooted(path: Path) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
-def _download(url: str, target: Path, *, expected_size: int | None = None) -> None:
+def _download(
+    url: str,
+    target: Path,
+    *,
+    expected_size: int | None = None,
+    attempts: int = 10,
+) -> None:
+    """Download with resumable Range requests and atomic final rename."""
+
     target.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile(prefix=target.name + ".", suffix=".part", dir=target.parent, delete=False) as tmp:
-        temp = Path(tmp.name)
-    try:
-        with requests.get(url, stream=True, timeout=(15, 180), allow_redirects=True) as response:
-            response.raise_for_status()
-            with temp.open("wb") as handle:
-                for chunk in response.iter_content(chunk_size=1024 * 1024):
-                    if chunk:
-                        handle.write(chunk)
-        if expected_size is not None and temp.stat().st_size != int(expected_size):
-            raise RuntimeError(
-                f"Taille téléchargée invalide pour {target.name}: "
-                f"{temp.stat().st_size}/{expected_size}"
+    temp = target.with_name(target.name + ".part")
+    expected = int(expected_size) if expected_size is not None else None
+    last_error: Exception | None = None
+
+    for attempt in range(1, max(1, int(attempts)) + 1):
+        if expected is not None and temp.exists() and temp.stat().st_size > expected:
+            temp.unlink(missing_ok=True)
+
+        start = temp.stat().st_size if temp.exists() else 0
+        headers = {"Accept-Encoding": "identity", "User-Agent": "Athar-RAG-V6.4"}
+        if start > 0:
+            headers["Range"] = f"bytes={start}-"
+
+        try:
+            with requests.get(
+                url,
+                headers=headers,
+                stream=True,
+                timeout=(20, 180),
+                allow_redirects=True,
+            ) as response:
+                response.raise_for_status()
+
+                # A resumed request must be 206. If the origin ignored Range and
+                # returned 200, restart from zero instead of appending duplicates.
+                resumed = start > 0 and response.status_code == 206
+                if start > 0 and not resumed:
+                    start = 0
+                    temp.unlink(missing_ok=True)
+
+                mode = "ab" if resumed else "wb"
+                with temp.open(mode) as handle:
+                    for chunk in response.iter_content(chunk_size=4 * 1024 * 1024):
+                        if chunk:
+                            handle.write(chunk)
+
+            size = temp.stat().st_size if temp.exists() else 0
+            if expected is not None and size < expected:
+                raise RuntimeError(
+                    f"Téléchargement partiel pour {target.name}: {size}/{expected} octets"
+                )
+            if expected is not None and size > expected:
+                temp.unlink(missing_ok=True)
+                raise RuntimeError(
+                    f"Téléchargement trop grand pour {target.name}: {size}/{expected} octets"
+                )
+
+            temp.replace(target)
+            return
+        except (requests.RequestException, OSError, RuntimeError) as exc:
+            last_error = exc
+            current = temp.stat().st_size if temp.exists() else 0
+            if attempt >= attempts:
+                break
+            delay = min(2 ** (attempt - 1), 20)
+            print(
+                f"[ANN] téléchargement interrompu {target.name}: "
+                f"{current}/{expected or '?'} octets · reprise {attempt + 1}/{attempts} dans {delay}s",
+                flush=True,
             )
-        temp.replace(target)
-    finally:
-        temp.unlink(missing_ok=True)
+            time.sleep(delay)
+
+    raise RuntimeError(
+        f"Échec du téléchargement ANN après {attempts} tentative(s): {target.name}: {last_error}"
+    ) from last_error
 
 
 def _release_tag(corpus: dict[str, Any]) -> str:
