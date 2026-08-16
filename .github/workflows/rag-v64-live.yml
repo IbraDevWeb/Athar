@@ -1,6 +1,9 @@
 name: Athar RAG V6.4 live production gate
 
 on:
+  workflow_run:
+    workflows: ['Athar RAG V6.4 production smoke']
+    types: [completed]
   workflow_dispatch:
   push:
     branches: [main]
@@ -13,6 +16,10 @@ concurrency:
 
 jobs:
   verify-live-v64:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     permissions:
@@ -66,6 +73,8 @@ jobs:
           assert status.get('retrieval_engine_active') == 'rag-v6.4-v63c-fused-production', status
           assert status.get('retrieval_engine_configured') == 'v63c', status
           assert status.get('retrieval_fallback') is False, status
+          assert status.get('semantic_embeddings') is True, status
+          assert status.get('semantic_model') == 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', status
           assert status.get('ann_storage_mode') == 'disk_view', status
           assert int(status.get('ann_vectors') or 0) == 574461, status
           assert int(status.get('chunks') or 0) == 574461, status
