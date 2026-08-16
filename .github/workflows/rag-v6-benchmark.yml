@@ -8,6 +8,9 @@ on:
       - 'rag/v6_benchmark.py'
       - 'rag/BENCHMARK.md'
       - 'rag/corpus_release_v3.json'
+      - 'rag/v5_engine.py'
+      - 'rag/v5_lowmem.py'
+      - 'rag/v5_sharded.py'
       - '.github/workflows/rag-v6-benchmark.yml'
   workflow_dispatch:
 
