@@ -10,6 +10,7 @@ on:
       - 'rag/v6_benchmark.py'
       - 'rag/v61_benchmark.py'
       - 'rag/benchmark_v61_dataset.py'
+      - 'rag/benchmark_v61_apply_gold.py'
       - 'rag/corpus_release_v3.json'
       - '.github/workflows/rag-v61-benchmark.yml'
   workflow_dispatch:
@@ -38,10 +39,14 @@ jobs:
         run: >-
           python -m py_compile
           rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py
-          rag/v6_benchmark.py rag/v61_benchmark.py rag/benchmark_v61_dataset.py
+          rag/v6_benchmark.py rag/v61_benchmark.py
+          rag/benchmark_v61_dataset.py rag/benchmark_v61_apply_gold.py
 
       - name: Generate versioned 200-case dataset
         run: python rag/benchmark_v61_dataset.py --output rag/data/benchmark-v61.json
+
+      - name: Apply 50 semantically reviewed gold chunks
+        run: python rag/benchmark_v61_apply_gold.py --dataset rag/data/benchmark-v61.json
 
       - name: Cache published sharded corpus
         run: >-
