@@ -7,8 +7,10 @@
   const ROOT_CLASS = 'athar-ux-v39';
   const PERSIST_KEY = 'athar_immersive_intent_v39';
   const LOCAL_CLASS = 'athar-newtool-local-fullscreen';
+  const RELEVANT_SELECTOR = '#athar-fullscreen-toggle, #athar-fullscreen-exit, [data-athar-newtool-fullscreen], [data-athar-research-v5-route], .ar5-shell';
   let observer = null;
   let bootTimer = null;
+  let syncRuns = 0;
 
   const root = document.documentElement;
   root.classList.add(ROOT_CLASS);
@@ -71,6 +73,21 @@
     if (button.hidden) button.hidden = false;
   };
 
+  const nodeTouchesRelevantUi = node => {
+    if (!(node instanceof Element)) return false;
+    return node.matches(RELEVANT_SELECTOR) || Boolean(node.querySelector(RELEVANT_SELECTOR));
+  };
+
+  const mutationNeedsSync = mutation => {
+    if (mutation.type === 'childList') {
+      return [...mutation.addedNodes].some(nodeTouchesRelevantUi)
+        || [...mutation.removedNodes].some(nodeTouchesRelevantUi);
+    }
+    if (mutation.type !== 'attributes') return false;
+    const target = mutation.target;
+    return target instanceof Element && target.matches(RELEVANT_SELECTOR);
+  };
+
   function syncResearchChrome() {
     const researchVisible = Boolean(document.querySelector('[data-athar-research-v5-route] .ar5-shell'));
     if (!researchVisible) return;
@@ -79,6 +96,7 @@
   }
 
   function syncFullscreenControls() {
+    syncRuns += 1;
     const globalButton = document.getElementById('athar-fullscreen-toggle');
     const locals = [...document.querySelectorAll('[data-athar-newtool-fullscreen]')];
 
@@ -163,7 +181,13 @@
   const start = () => {
     syncFullscreenControls();
     applyPersistentMode();
-    observer = new MutationObserver(() => syncFullscreenControls());
+
+    // Important : l'application possède d'autres contrôleurs qui mutent souvent
+    // (notamment le dock mobile, même sur desktop). V39 ne doit jamais se réveiller
+    // pour ces mutations sans rapport avec le plein écran / Research.
+    observer = new MutationObserver(records => {
+      if (records.some(mutationNeedsSync)) syncFullscreenControls();
+    });
     observer.observe(document.body, {
       childList: true,
       subtree: true,
@@ -195,6 +219,7 @@
     immersiveIntent: readIntent,
     setImmersiveIntent: writeIntent,
     syncFullscreenControls,
-    applyPersistentMode
+    applyPersistentMode,
+    getSyncRuns: () => syncRuns
   };
 })();
