@@ -63,8 +63,12 @@ const css = read('css/athar-lens.css');
 if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) fail('Athar Lens CSS braces are unbalanced.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v36'", "writeEarlyScript('js/components/AtharLensBridge.js'", "writeEarlyScript('js/components/AtharLens.js'", 'css/athar-lens.css?v=${APP_VERSION}', "writeEarlyScript('js/components/AstronomyBootstrap.js'"].forEach(token => need(config, token, 'config.js'));
+const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1] || '';
+if (!/^athar-pro-v\d+(?:-[a-z0-9-]+)*$/i.test(appVersion)) fail(`Invalid application version: ${appVersion || 'missing'}`);
+["writeEarlyScript('js/components/AtharLensBridge.js'", "writeEarlyScript('js/components/AtharLens.js'", 'css/athar-lens.css?v=${APP_VERSION}', "writeEarlyScript('js/components/AstronomyBootstrap.js'"].forEach(token => need(config, token, 'config.js'));
 if (config.indexOf('AtharLensBridge.js') > config.indexOf('AstronomyBootstrap.js')) fail('Lens bridge must load before ToolView bootstrap.');
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v36'", './js/components/AtharLensBridge.js?v=athar-pro-v36', './js/components/AtharLens.js?v=athar-pro-v36', './css/athar-lens.css?v=athar-pro-v36'].forEach(token => need(worker, token, 'service worker'));
-console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache v36.`);
+const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1] || '';
+if (cacheVersion !== appVersion) fail(`Application/cache version mismatch: ${appVersion} / ${cacheVersion}`);
+[`./js/components/AtharLensBridge.js?v=${appVersion}`, `./js/components/AtharLens.js?v=${appVersion}`, `./css/athar-lens.css?v=${appVersion}`].forEach(token => need(worker, token, 'service worker'));
+console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache ${appVersion}.`);
