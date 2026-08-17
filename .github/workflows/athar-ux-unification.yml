@@ -30,6 +30,11 @@ jobs:
       - name: Apply global UX unification
         run: python scripts/apply_ux_unification.py
 
+      - name: Normalize generated UX validator
+        shell: bash
+        run: |
+          sed -i "s/data\.atharNewtoolFullscreen = 'shared'/button.dataset.atharNewtoolFullscreen = 'shared'/g" scripts/validate-ux-consistency.js
+
       - name: Check changed JavaScript syntax
         shell: bash
         run: |
@@ -107,7 +112,7 @@ jobs:
                   assert 'js/new-tools-fullscreen.js?v=athar-pro-v38' in page
                   assert "const APP_VERSION = 'athar-pro-v38'" in config
                   assert "const PERSIST_KEY = 'athar_immersive_enabled'" in local
-                  assert "data.atharNewtoolFullscreen = 'shared'" in local
+                  assert "button.dataset.atharNewtoolFullscreen = 'shared'" in local
                   assert "const PERSIST_KEY = 'athar_immersive_enabled'" in global_ui
                   assert 'athar-global-content' in global_ui
                   assert 'html.athar-app-fullscreen [data-athar-newtool-fullscreen]' in css
