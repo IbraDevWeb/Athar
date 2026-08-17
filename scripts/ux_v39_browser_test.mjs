@@ -50,8 +50,13 @@ async function startHiddenMutationProbe(page) {
 }
 
 async function assertResearchVisible(page, label) {
-  await page.waitForSelector('.ar5-shell', { state: 'visible', timeout: 20_000 });
-  await page.waitForFunction(() => document.querySelector('.ar5-shell')?.innerText?.includes('Athar Research'), { timeout: 20_000 });
+  const shell = page.locator('[data-athar-research-v5-route] .ar5-shell');
+  await shell.waitFor({ state: 'visible', timeout: 20_000 });
+  await shell.locator('.ar5-topbar').waitFor({ state: 'visible', timeout: 10_000 });
+  await shell.getByRole('textbox', { name: 'Question à Athar Research' }).waitFor({ state: 'visible', timeout: 10_000 });
+  await shell.getByRole('heading', { name: /Chercher dans les textes/i }).waitFor({ state: 'visible', timeout: 10_000 });
+  const box = await shell.boundingBox();
+  assert.ok(box && box.width > 500 && box.height > 300, `${label}: la vue Research doit occuper la zone principale`);
   await page.waitForTimeout(700);
   await assertHealthy(page, label);
   const mutations = await page.evaluate(() => window.__atharUxHiddenMutations || 0);
