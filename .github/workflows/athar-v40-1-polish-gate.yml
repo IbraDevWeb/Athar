@@ -1,0 +1,130 @@
+name: Athar V40.1 Research Library polish gate
+
+on:
+  push:
+    branches: [refactor/athar-v40-1-polish]
+    paths:
+      - 'css/athar-v40-polish.css'
+      - 'js/ux-v40-polish.js'
+      - 'scripts/ux_v401_browser_test.mjs'
+      - '.github/workflows/athar-v40-1-polish-gate.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-v40-1-polish
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  integrate-and-test:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/athar-v40-1-polish
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Integrate V40.1 polish assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          config = Path('js/config.js')
+          text = config.read_text(encoding='utf-8')
+          css_anchor = "    ensureStylesheet('css/athar-research-library-v40.css?v=athar-v40-research-library-1', 'athar-v40-research-library-styles');"
+          css_line = "    ensureStylesheet('css/athar-v40-polish.css?v=athar-v40-polish-1', 'athar-v40-polish-styles');"
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = "    ensureScript('js/ux-v40-research-library.js?v=athar-v40-research-library-1', 'athar-v40-research-library-bridge');"
+          js_line = "    ensureScript('js/ux-v40-polish.js?v=athar-v40-polish-1', 'athar-v40-polish-bridge');"
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          config.write_text(text, encoding='utf-8')
+
+          library = Path('research-library.html')
+          text = library.read_text(encoding='utf-8')
+          css_anchor = '  <link rel="stylesheet" href="css/athar-research-library-v40.css?v=athar-v40-research-library-1">'
+          css_line = '  <link rel="stylesheet" href="css/athar-v40-polish.css?v=athar-v40-polish-1">'
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = '  <script src="js/ux-v40-research-library.js?v=athar-v40-research-library-1" defer></script>'
+          js_line = '  <script src="js/ux-v40-polish.js?v=athar-v40-polish-1" defer></script>'
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          library.write_text(text, encoding='utf-8')
+
+          worker = Path('service-worker.js')
+          text = worker.read_text(encoding='utf-8')
+          css_anchor = "    './css/athar-research-library-v40.css?v=athar-v40-research-library-1',"
+          css_line = "    './css/athar-v40-polish.css?v=athar-v40-polish-1',"
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = "    './js/ux-v40-research-library.js?v=athar-v40-research-library-1',"
+          js_line = "    './js/ux-v40-polish.js?v=athar-v40-polish-1',"
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          worker.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Validate source contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check js/ux-v40-research-library.js
+          node --check js/ux-v40-polish.js
+          node --check js/components/ScholarLibraryV4View.js
+          node scripts/validate-interactions.js
+          node scripts/validate-rag-v4.js
+          python - <<'PY'
+          from pathlib import Path
+          css = Path('css/athar-v40-polish.css').read_text(encoding='utf-8')
+          assert css.count('{') == css.count('}'), 'V40.1 CSS braces are unbalanced'
+          config = Path('js/config.js').read_text(encoding='utf-8')
+          library = Path('research-library.html').read_text(encoding='utf-8')
+          worker = Path('service-worker.js').read_text(encoding='utf-8')
+          for needle in ['athar-v40-polish.css', 'ux-v40-polish.js']:
+              assert needle in config, f'{needle} missing from config'
+              assert needle in library, f'{needle} missing from library'
+              assert needle in worker, f'{needle} missing from service worker'
+          print('Athar V40.1 static contracts: PASS')
+          PY
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run V40 and V40.1 browser journeys
+        shell: bash
+        run: |
+          python -m http.server 4173 >/tmp/athar-v401-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:4173/index.html >/dev/null && break
+            sleep 1
+          done
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_v40_browser_test.mjs
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_v401_browser_test.mjs
+
+      - name: Commit integrated V40.1 polish
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'V40.1 integration already committed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/config.js research-library.html service-worker.js
+          git commit -m 'Integrate Athar V40.1 professional polish'
+          git push origin HEAD:refactor/athar-v40-1-polish
