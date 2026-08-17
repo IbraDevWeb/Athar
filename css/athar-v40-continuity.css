@@ -1,0 +1,145 @@
+/* Athar V40.3 — continuity shelf + passage-to-Research actions. */
+.ar402-recents {
+  margin: 18px 0 0;
+  padding: 16px;
+  border: 1px solid #e5ded2;
+  border-radius: 18px;
+  background: rgba(255, 254, 250, .9);
+  box-shadow: 0 7px 24px rgba(31, 25, 18, .045);
+  scroll-margin-top: 82px;
+}
+.ar402-recents-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 11px;
+}
+.ar402-recents-head span {
+  display: block;
+  margin-bottom: 4px;
+  color: #a67b3d;
+  font: 800 9px/1.2 Inter, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.ar402-recents-head h2 {
+  margin: 0;
+  color: #171813;
+  font: 500 21px/1.2 Georgia, serif;
+}
+.ar402-recents-head button {
+  border: 0;
+  background: transparent;
+  color: #7b7972;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font: 700 10px/1 Inter, sans-serif;
+  cursor: pointer;
+}
+.ar402-recents-head button:hover { background: #f3efe7; color: #171813; }
+.ar402-recents-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.ar402-recent-card {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  position: relative;
+  min-height: 106px;
+  padding: 13px 13px 29px;
+  border: 1px solid #e9e3d9;
+  border-radius: 14px;
+  background: #fff;
+  color: #171813;
+  text-decoration: none;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.ar402-recent-card:hover,
+.ar402-recent-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: #ccb993;
+  box-shadow: 0 10px 25px rgba(30, 24, 16, .07);
+  outline: none;
+}
+.ar402-recent-index {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #f3ead9;
+  color: #9c7638;
+  font: 800 9px/1 Inter, sans-serif;
+}
+.ar402-recent-copy { min-width: 0; display: grid; align-content: start; gap: 3px; }
+.ar402-recent-copy small { color: #8a877f; font: 650 9px/1.3 Inter, sans-serif; }
+.ar402-recent-copy strong {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font: 650 12px/1.35 Inter, sans-serif;
+}
+.ar402-recent-copy em {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #7d7970;
+  font: 500 9px/1.3 Inter, sans-serif;
+  font-style: normal;
+}
+.ar402-recent-action {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: #a67b3d;
+  font: 800 9px/1 Inter, sans-serif;
+  letter-spacing: .04em;
+}
+
+.ar402-ask-passage {
+  margin-left: auto;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #e1dacd;
+  border-radius: 8px;
+  background: #fffefa;
+  color: #655f54;
+  padding: 0 8px;
+  font: 700 9px/1 Inter, sans-serif;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease, color .15s ease;
+}
+.ar402-ask-passage:hover,
+.ar402-ask-passage:focus-visible {
+  border-color: #c7ad7e;
+  background: #f5edde;
+  color: #7e5c27;
+  outline: none;
+}
+.ar402-ask-passage > span:first-child { font-size: 14px; line-height: 1; }
+
+body.athar-v40-library .reader-reference:has(.ar402-ask-passage) {
+  flex-wrap: wrap;
+}
+body.athar-v40-library .library-nav [data-ar402-recents-link] {
+  color: #8b6632;
+}
+
+@media (max-width: 1180px) {
+  .ar402-recents-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .ar402-recents { margin-top: 12px; padding: 12px; border-radius: 15px; }
+  .ar402-recents-head h2 { font-size: 18px; }
+  .ar402-recents-track { grid-template-columns: 1fr; }
+  .ar402-recent-card { min-height: 94px; }
+  .ar402-ask-passage { width: 100%; margin: 7px 0 0; justify-content: center; }
+}
