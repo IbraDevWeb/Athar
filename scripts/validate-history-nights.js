@@ -26,8 +26,13 @@ const css = read('css/history-nights.css');
 need(read('css/history-nights-scroll.css'),'overflow-y: auto','History scroll CSS');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v36'","writeEarlyScript('history_nights_data.js'",'css/history-nights.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1];
+if (!appVersion) fail('config.js does not declare APP_VERSION.');
+["writeEarlyScript('history_nights_data.js'",'css/history-nights.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v36'",'./history_nights_data.js?v=athar-pro-v36','./css/history-nights-scroll.css?v=athar-pro-v36'].forEach(t => need(worker,t,'service worker'));
+const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1];
+if (!cacheVersion) fail('service-worker.js does not declare CACHE_VERSION.');
+if (cacheVersion !== appVersion) fail(`Version mismatch: APP_VERSION=${appVersion}, CACHE_VERSION=${cacheVersion}.`);
+[`./history_nights_data.js?v=${appVersion}`,`./css/history-nights-scroll.css?v=${appVersion}`].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Récits historiques immersifs, sourcés','metadata');
-console.log(`History Nights validated: ${data.stories.length} stories, ${chapters} chapters and cache v36.`);
+console.log(`History Nights validated: ${data.stories.length} stories, ${chapters} chapters and cache ${cacheVersion}.`);
