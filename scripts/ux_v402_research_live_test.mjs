@@ -40,8 +40,9 @@ try {
   }
 
   const query = "Quelles sont les règles du tayammum lorsqu'une personne ne peut pas utiliser l'eau ?";
-  await page.locator('.ar5-composer textarea').fill(query);
-  await page.locator('.ar5-composer button').filter({ hasText: 'Rechercher' }).click();
+  const composer = page.locator('.ar5-composer textarea');
+  await composer.fill(query);
+  await composer.press('Control+Enter');
 
   await page.waitForFunction(() => {
     const results = document.querySelector('.ar5-results');
