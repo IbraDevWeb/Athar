@@ -1,0 +1,100 @@
+name: Athar UX v39 safe gate
+
+on:
+  push:
+    branches: [agent/ux-v39-safe]
+    paths:
+      - '.github/workflows/athar-ux-v39-safe.yml'
+      - 'js/ux-v39-safe.js'
+      - 'css/ux-v39-safe.css'
+      - 'scripts/apply_ux_v39_safe.py'
+      - 'scripts/ux_v39_browser_test.mjs'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-ux-v39-safe
+  cancel-in-progress: true
+
+jobs:
+  browser-gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/ux-v39-safe
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply non-invasive UX layer
+        run: python scripts/apply_ux_v39_safe.py
+
+      - name: Guard core navigation files
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only)"
+          echo "$changed"
+          if echo "$changed" | grep -Eq '^(js/app\.js|js/components/GlobalFullscreen\.js)$'; then
+            echo 'V39 is not allowed to rewrite the Vue navigation or GlobalFullscreen runtime.'
+            exit 1
+          fi
+
+      - name: Static syntax and contract checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check js/ux-v39-safe.js
+          node --check js/config.js
+          node --check service-worker.js
+          python -m py_compile scripts/apply_ux_v39_safe.py
+          grep -q "athar-ux-v39-safe-1" js/config.js
+          grep -q "athar-ux-v39-safe-1" research-library.html
+          grep -q "athar-pro-v39-safe-1" service-worker.js
+          grep -q "athar_immersive_intent_v39" js/ux-v39-safe.js
+          git diff --check
+
+      - name: Install browser test runtime
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local Athar server
+        shell: bash
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/athar-v39-http.log 2>&1 &
+          echo $! > /tmp/athar-v39-http.pid
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/athar-v39-http.log
+          exit 1
+
+      - name: Real browser navigation gate
+        env:
+          ATHAR_E2E_BASE: http://127.0.0.1:4173
+        run: node scripts/ux_v39_browser_test.mjs
+
+      - name: Commit gated integration on branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo 'Integration already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/config.js research-library.html service-worker.js
+          git commit -m 'Integrate safe Athar UX v39 layer'
+          git push origin HEAD:agent/ux-v39-safe
