@@ -125,8 +125,8 @@ const libraryPage = read('research-library.html');
 [
     'Bibliothèque Athar', 'Lecture savante', 'reader-appbar', 'reader-bookrail', 'reader-navrail',
     'Sommaire indexé', 'Rechercher dans ce livre', 'data-reader-mode="arabic"', 'data-reader-mode="bilingual"',
-    'css/research-library-v2.css?v=athar-reader-v2', 'js/research-library-v2.js?v=athar-reader-v2',
-    'css/research-library-ai-tools.css?v=athar-reader-ai-1', 'js/research-library-ai-tools.js?v=athar-reader-ai-1',
+    'css/research-library-v2.css?v=athar-reader-v3', 'js/research-library-v2.js?v=athar-reader-v3',
+    'css/research-library-ai-tools.css?v=athar-reader-ai-2', 'js/research-library-ai-tools.js?v=athar-reader-ai-2',
     'css/new-tools-fullscreen.css?v=athar-pro-v37', 'js/new-tools-fullscreen.js?v=athar-pro-v37',
     'Les traductions IA demandées dans le lecteur restent séparées et non vérifiées.'
 ].forEach(token => need(libraryPage, token, 'research-library.html'));
@@ -221,8 +221,8 @@ need(worker, './css/athar-research-synthesis.css?v=athar-research-synthesis-1', 
 need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v6-ui-1', 'service-worker.js');
 need(worker, './js/components/ScholarSynthesisBridge.js?v=athar-research-v6-ui-1', 'service-worker.js');
 need(worker, './research-library.html', 'service-worker.js');
-need(worker, './css/research-library-v2.css?v=athar-reader-v2', 'service-worker.js');
-need(worker, './js/research-library-v2.js?v=athar-reader-v2', 'service-worker.js');
+need(worker, './css/research-library-v2.css?v=athar-reader-v3', 'service-worker.js');
+need(worker, './js/research-library-v2.js?v=athar-reader-v3', 'service-worker.js');
 reject(worker, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js/i, 'service-worker.js');
 
 const remote = read('rag/remote.json');

@@ -65,8 +65,12 @@
       let payload = null;
       try { payload = await response.json(); } catch (_) { payload = {}; }
       if (!response.ok || payload?.error) throw new Error(payload?.error || `Erreur HTTP ${response.status}`);
-      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {
-        throw new Error('Le serveur Athar Research attendu n’est pas disponible.');
+      if (payload?.engine) {
+        const engineVersion = Number(payload?.engine_version || 0);
+        const engineName = String(payload.engine || '');
+        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {
+          throw new Error('Le serveur Athar Research compatible n’est pas disponible.');
+        }
       }
       return payload;
     } catch (error) {
