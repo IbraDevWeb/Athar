@@ -1,4 +1,4 @@
-// Athar Research V6 — branchement racine autonome
+// Athar Research V5 — branchement racine autonome
 (() => {
     if (!window.Vue || typeof window.Vue.createApp !== 'function') return;
 
@@ -20,13 +20,13 @@
             const link = document.createElement('link');
             link.id = 'athar-new-tools-fullscreen-styles';
             link.rel = 'stylesheet';
-            link.href = 'css/new-tools-fullscreen.css?v=athar-pro-v38';
+            link.href = 'css/new-tools-fullscreen.css?v=athar-pro-v37';
             document.head.appendChild(link);
         }
         if (!document.getElementById('athar-new-tools-fullscreen-script')) {
             const script = document.createElement('script');
             script.id = 'athar-new-tools-fullscreen-script';
-            script.src = 'js/new-tools-fullscreen.js?v=athar-pro-v38';
+            script.src = 'js/new-tools-fullscreen.js?v=athar-pro-v37';
             script.defer = true;
             document.head.appendChild(script);
         }
@@ -45,7 +45,7 @@
             >
                 <span class="ar5-nav-mark"><i data-lucide="scan-search"></i></span>
                 <span class="ar5-nav-copy"><small>Moteur documentaire</small><strong>Athar Research</strong></span>
-                <span class="ar5-nav-version">V6</span>
+                <span class="ar5-nav-version">V5</span>
             </button>
             <button
                 type="button"
@@ -79,7 +79,7 @@
                     <span>Architecture actuelle</span>
                     <strong>Preuves avant conclusion</strong>
                     <dl>
-                        <div><dt>Moteur</dt><dd>RAG V6 hybride</dd></div>
+                        <div><dt>Moteur</dt><dd>RAG V5</dd></div>
                         <div><dt>Corpus</dt><dd>Ouvrages indexés</dd></div>
                         <div><dt>Accès</dt><dd>Recherche + lecture</dd></div>
                     </dl>
