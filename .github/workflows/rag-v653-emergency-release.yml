@@ -1,0 +1,148 @@
+name: Athar RAG V6.5.3 emergency release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rag-v653-emergency-release.yml'
+
+concurrency:
+  group: rag-v653-emergency-release
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      actions: read
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: rag
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install ANN dependencies
+        run: python -m pip install -r rag/requirements-v64.txt
+
+      - name: Compile V6.5.3 release stack
+        run: python -m py_compile rag/v653_sharded_ann.py rag/v653_semantic_server.py rag/cache_v653_ann_release.py
+
+      - name: Resolve complete V6.3-B semantic source
+        id: semantic
+        shell: bash
+        run: |
+          RUN_ID=$(gh run list --workflow rag-v63-build-semantic-index.yml --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          test -n "$RUN_ID" && test "$RUN_ID" != "null"
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download V6.3-B semantic source
+        uses: actions/download-artifact@v4
+        with:
+          name: athar-v63-semantic-release
+          path: rag/data/v63-semantic-release
+          github-token: ${{ github.token }}
+          repository: IbraDevWeb/Athar
+          run-id: ${{ steps.semantic.outputs.run_id }}
+
+      - name: Build V6.5.3 sharded f16 conn32 ANN
+        run: >-
+          python rag/v653_sharded_ann.py build
+          --corpus-manifest rag/corpus_release_v3.json
+          --semantic-index-dir rag/data/v63-semantic-release
+          --output-dir rag/data/v653-ann
+          --connectivity 32
+          --expansion-add 256
+          --expansion-search 1024
+          --batch-size 8192
+
+      - name: Validate release identity and bounded working set
+        shell: bash
+        run: |
+          python rag/v653_sharded_ann.py validate --manifest rag/data/v653-ann/athar-v653-sharded.ann.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          corpus=json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          ann=json.loads(Path('rag/data/v653-ann/athar-v653-sharded.ann.json').read_text(encoding='utf-8'))
+          assert ann['version']=='athar-sharded-ann-usearch-f16-v1'
+          assert ann['dtype']=='f16' and ann['metric']=='cos'
+          assert int(ann['vectors'])==int(corpus['chunks'])==574461
+          assert ann['corpus_source_sha']==corpus['source_sha']
+          assert int(ann['shards'])==11
+          assert int(ann['connectivity'])==32
+          assert int(ann['largest_shard_index_bytes']) < 120_000_000
+          assert int(ann['index_size_bytes']) + int(ann['metadata_size_bytes']) < 700_000_000
+          print(json.dumps({
+            'vectors': ann['vectors'],
+            'shards': ann['shards'],
+            'connectivity': ann['connectivity'],
+            'largest_live_shard_bytes': ann['largest_shard_index_bytes'],
+            'total_disk_bytes': int(ann['index_size_bytes'])+int(ann['metadata_size_bytes'])
+          }, indent=2))
+          PY
+
+      - name: Derive immutable release tag
+        id: release
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          corpus=json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
+          print(f"tag=rag-ann-v653-sharded-f16-{corpus['source_sha'][:12]}")
+          print(f"source_sha={corpus['source_sha']}")
+          PY
+
+      - name: Publish emergency V6.5.3 ANN release
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          SOURCE_SHA: ${{ steps.release.outputs.source_sha }}
+        run: |
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --target main \
+              --title "Athar V6.5.3 sharded f16 ANN · ${SOURCE_SHA:0:12}" \
+              --notes "Emergency availability release authorized for Athar Research recovery. 11 sequential f16 HNSW indexes, connectivity 32, compact metadata. Prior dense-exact V6.5.3 gate passed; strict monolithic-rank equivalence did not fully pass, so V6.1 fail-open remains mandatory in production."
+          fi
+          gh release upload "$TAG" \
+            rag/data/v653-ann/athar-v653-*.f16.usearch \
+            rag/data/v653-ann/athar-v653-sharded.meta.sqlite \
+            rag/data/v653-ann/athar-v653-sharded.ann.json \
+            --clobber
+
+      - name: Verify all persistent release assets
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          gh release view "$TAG" --json tagName,assets > rag/data/v653-emergency-release.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('rag/data/v653-emergency-release.json').read_text(encoding='utf-8'))
+          assets={x['name']:int(x.get('size') or 0) for x in d.get('assets') or []}
+          indexes=[x for x in assets if x.endswith('.f16.usearch')]
+          assert len(indexes)==11, indexes
+          assert assets.get('athar-v653-sharded.meta.sqlite',0)>0
+          assert assets.get('athar-v653-sharded.ann.json',0)>0
+          print(json.dumps({'tag':d['tagName'],'asset_count':len(assets),'bytes':sum(assets.values())},indent=2))
+          PY
+
+      - name: Upload emergency publication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: athar-rag-v653-emergency-release
+          path: |
+            rag/data/v653-emergency-release.json
+            rag/data/v653-ann/athar-v653-sharded.ann.json
+          if-no-files-found: warn
+          retention-days: 90
