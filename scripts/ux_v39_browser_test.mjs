@@ -57,10 +57,16 @@ async function assertResearchVisible(page, label) {
   await shell.getByRole('heading', { name: /Chercher dans les textes/i }).waitFor({ state: 'visible', timeout: 10_000 });
   const box = await shell.boundingBox();
   assert.ok(box && box.width > 500 && box.height > 300, `${label}: la vue Research doit occuper la zone principale`);
-  await page.waitForTimeout(700);
+  await page.waitForTimeout(500);
   await assertHealthy(page, label);
-  const mutations = await page.evaluate(() => window.__atharUxHiddenMutations || 0);
-  assert.ok(mutations < 10, `${label}: boucle de mutations hidden détectée (${mutations})`);
+
+  // Les transitions Vue génèrent normalement plusieurs attributs hidden au montage.
+  // On mesure donc uniquement la phase stable : l'ancienne V39 continuait à basculer
+  // le bouton plein écran Research sans fin, tandis que la V39-safe-2 doit se calmer.
+  await startHiddenMutationProbe(page);
+  await page.waitForTimeout(500);
+  const stableMutations = await page.evaluate(() => window.__atharUxHiddenMutations || 0);
+  assert.ok(stableMutations <= 2, `${label}: mutations hidden persistantes détectées après stabilisation (${stableMutations})`);
 }
 
 async function openFreshAndClick(page, label) {
@@ -81,7 +87,6 @@ async function desktopFlow() {
   await page.goto(`${base}/index.html?uxv39=research`, { waitUntil: 'domcontentloaded', timeout: 90_000 });
   await waitForApp(page);
   assert.equal(await page.evaluate(() => window.AtharUX.version), 'athar-ux-v39-safe-2');
-  await startHiddenMutationProbe(page);
   const researchNav = page.locator('[data-athar-research-v5-nav]').first();
   await researchNav.waitFor({ state: 'visible', timeout: 20_000 });
   await researchNav.click();
@@ -112,7 +117,6 @@ async function desktopFlow() {
   assert.equal(await page.evaluate(() => localStorage.getItem('athar_immersive_intent_v39')), '1');
 
   // Régression V39 : ouvrir Research depuis l'accueil alors que l'intention immersive est active.
-  await startHiddenMutationProbe(page);
   const homeResearch = page.getByRole('button', { name: /Interroger Athar Research/i }).first();
   await homeResearch.waitFor({ state: 'visible', timeout: 15_000 });
   await homeResearch.click();
