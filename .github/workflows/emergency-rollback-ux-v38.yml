@@ -28,20 +28,17 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          if git log --format=%H --all | grep -qx 'd35138353277cd5163350632c6a57198fbb75b8d'; then
-            git revert --no-edit d35138353277cd5163350632c6a57198fbb75b8d
-            git push origin HEAD:main
-          else
-            echo 'Target UX commit not found; refusing unsafe rollback.'
-            exit 1
-          fi
+          git cat-file -e d35138353277cd5163350632c6a57198fbb75b8d^{commit}
+          git revert --no-edit d35138353277cd5163350632c6a57198fbb75b8d
+          git push origin HEAD:main
 
       - name: Confirm restored runtime files
         shell: bash
         run: |
           set -euo pipefail
+          test "$(git show HEAD:js/config.js | grep -c "const APP_VERSION = 'athar-pro-v36'")" -ge 1
+          test "$(git show HEAD:service-worker.js | grep -c "const CACHE_VERSION = 'athar-pro-v36'")" -ge 1
           git show HEAD:js/app.js >/dev/null
           git show HEAD:js/components/GlobalFullscreen.js >/dev/null
-          git show HEAD:js/config.js >/dev/null
           git show HEAD:research-library.html >/dev/null
-          echo 'Rollback commit created and core runtime files restored.'
+          echo 'Rollback commit created and pre-v38 runtime restored.'
