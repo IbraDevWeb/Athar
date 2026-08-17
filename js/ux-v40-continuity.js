@@ -236,6 +236,11 @@
     if (clear) {
       writeRecents([]);
       renderRecentShelf();
+      return;
+    }
+    if (event.target.closest('#closeReader')) {
+      rememberCurrentRead();
+      window.setTimeout(schedule, 0);
     }
   }, true);
 
