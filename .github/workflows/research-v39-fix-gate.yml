@@ -1,0 +1,89 @@
+name: Athar Research V39 fix gate
+
+on:
+  push:
+    branches: ['fix/research-v39-blank']
+    paths:
+      - 'js/ux-v39-safe.js'
+      - 'scripts/apply_ux_v39_safe.py'
+      - 'scripts/ux_v39_browser_test.mjs'
+      - '.github/workflows/research-v39-fix-gate.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-research-v39-fix
+  cancel-in-progress: true
+
+jobs:
+  browser-gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/research-v39-blank
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply V39 Research fix versions
+        run: python scripts/apply_ux_v39_safe.py
+
+      - name: Static regression checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check js/ux-v39-safe.js
+          node --check js/config.js
+          node --check service-worker.js
+          node --check scripts/ux_v39_browser_test.mjs
+          python -m py_compile scripts/apply_ux_v39_safe.py
+          grep -q "athar-ux-v39-safe-2" js/config.js
+          grep -q "athar-ux-v39-safe-2" research-library.html
+          grep -q "athar-pro-v39-safe-2" service-worker.js
+          grep -q "setUxHidden" js/ux-v39-safe.js
+          grep -q "Athar Research immersif" scripts/ux_v39_browser_test.mjs
+          git diff --check
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local Athar server
+        shell: bash
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/athar-v39-research.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/athar-v39-research.log
+          exit 1
+
+      - name: Research + navigation real browser gate
+        env:
+          ATHAR_E2E_BASE: http://127.0.0.1:4173
+        run: node scripts/ux_v39_browser_test.mjs
+
+      - name: Commit generated cache-bust integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo 'Generated integration already committed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/config.js research-library.html service-worker.js
+          git commit -m 'Integrate Athar Research UX v39 safe v2'
+          git push origin HEAD:fix/research-v39-blank
