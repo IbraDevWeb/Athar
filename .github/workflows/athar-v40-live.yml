@@ -1,0 +1,66 @@
+name: Athar V40 Research Library live browser gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'research-library.html'
+      - 'js/config.js'
+      - 'js/components/ScholarLibraryV4View.js'
+      - 'js/components/ScholarSynthesisBridge.js'
+      - 'js/components/ScholarV4Bootstrap.js'
+      - 'js/ux-v40-research-library.js'
+      - 'css/athar-research-v5.css'
+      - 'css/athar-research-synthesis.css'
+      - 'css/athar-research-library-v40.css'
+      - 'css/research-library-v2.css'
+      - 'scripts/ux_v40_public_test.mjs'
+      - '.github/workflows/athar-v40-live.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-v40-live
+  cancel-in-progress: true
+
+jobs:
+  public-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Wait until V40 assets are public
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://ibradevweb.github.io/Athar'
+          for attempt in $(seq 1 60); do
+            config="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/config.js?v40=$attempt" || true)"
+            bridge="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v40-research-library.js?v40=$attempt" || true)"
+            library="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/research-library.html?v40=$attempt" || true)"
+            if grep -q 'athar-research-v40-ui-1' <<<"$config" \
+              && grep -q 'athar-v40-research-library-1' <<<"$bridge" \
+              && grep -q 'athar-research-library-v40.css?v=athar-v40-research-library-1' <<<"$library"; then
+              echo "Athar V40 assets are public on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt/60: waiting for GitHub Pages V40 propagation..."
+            sleep 10
+          done
+          echo 'V40 assets never became visible on GitHub Pages.'
+          exit 1
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run public Research Library journey
+        env:
+          ATHAR_E2E_BASE: https://ibradevweb.github.io/Athar
+        run: node scripts/ux_v40_public_test.mjs
