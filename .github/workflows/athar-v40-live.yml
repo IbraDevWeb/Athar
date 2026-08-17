@@ -11,11 +11,15 @@ on:
       - 'js/components/ScholarSynthesisBridge.js'
       - 'js/components/ScholarV4Bootstrap.js'
       - 'js/ux-v40-research-library.js'
+      - 'js/ux-v40-polish.js'
       - 'css/athar-research-v5.css'
       - 'css/athar-research-synthesis.css'
       - 'css/athar-research-library-v40.css'
+      - 'css/athar-v40-polish.css'
       - 'css/research-library-v2.css'
       - 'scripts/ux_v40_public_test.mjs'
+      - 'scripts/ux_v401_browser_test.mjs'
+      - '.nojekyll'
       - '.github/workflows/athar-v40-live.yml'
   workflow_dispatch:
 
@@ -41,11 +45,13 @@ jobs:
           for attempt in $(seq 1 60); do
             config="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/config.js?v40=$attempt" || true)"
             bridge="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v40-research-library.js?v40=$attempt" || true)"
+            polish="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v40-polish.js?v40=$attempt" || true)"
             library="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/research-library.html?v40=$attempt" || true)"
             if grep -q 'athar-research-v40-ui-1' <<<"$config" \
               && grep -q 'athar-v40-research-library-1' <<<"$bridge" \
-              && grep -q 'athar-research-library-v40.css?v=athar-v40-research-library-1' <<<"$library"; then
-              echo "Athar V40 assets are public on attempt $attempt."
+              && grep -q 'athar-v40-polish-1' <<<"$polish" \
+              && grep -q 'athar-v40-polish.css?v=athar-v40-polish-1' <<<"$library"; then
+              echo "Athar V40/V40.1 assets are public on attempt $attempt."
               exit 0
             fi
             echo "Attempt $attempt/60: waiting for GitHub Pages V40 propagation..."
@@ -60,7 +66,10 @@ jobs:
           npm install --no-save --no-package-lock playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Run public Research Library journey
+      - name: Run public Research Library journeys
         env:
           ATHAR_E2E_BASE: https://ibradevweb.github.io/Athar
-        run: node scripts/ux_v40_public_test.mjs
+        shell: bash
+        run: |
+          node scripts/ux_v40_public_test.mjs
+          node scripts/ux_v401_browser_test.mjs
