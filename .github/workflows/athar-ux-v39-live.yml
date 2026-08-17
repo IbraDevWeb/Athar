@@ -1,0 +1,54 @@
+name: Athar UX v39 live browser gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/athar-ux-v39-live.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-ux-v39-live
+  cancel-in-progress: true
+
+jobs:
+  live-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Wait until V39 assets are public
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://ibradevweb.github.io/Athar'
+          for attempt in $(seq 1 40); do
+            config="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/config.js?live=$attempt" || true)"
+            ux="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v39-safe.js?live=$attempt" || true)"
+            library="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/research-library.html?live=$attempt" || true)"
+            if grep -q "athar-pro-v39-safe-1" <<<"$config" \
+              && grep -q "athar-ux-v39-safe-1" <<<"$ux" \
+              && grep -q "ux-v39-safe.js?v=athar-ux-v39-safe-1" <<<"$library"; then
+              echo "Athar UX V39 assets are public on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt/40: waiting for GitHub Pages V39 propagation..."
+            sleep 10
+          done
+          echo 'V39 assets never became visible on GitHub Pages.'
+          exit 1
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run real public navigation test
+        env:
+          ATHAR_E2E_BASE: https://ibradevweb.github.io/Athar
+        run: node scripts/ux_v39_browser_test.mjs
