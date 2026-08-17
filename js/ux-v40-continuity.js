@@ -145,6 +145,21 @@
     return true;
   }
 
+  function resumeRecent(link) {
+    const bookId = link?.dataset.ar402RecentBook || '';
+    const item = readRecents().find(entry => entry.book_id === bookId);
+    if (!item) return false;
+    if (window.AtharResearchLibrary?.openBook) {
+      window.AtharResearchLibrary.openBook(item.book_id, {
+        page: Number(item.page || 0) || null,
+        offset: Number(item.offset || 0) || 0
+      });
+      return true;
+    }
+    location.href = recentHref(item);
+    return true;
+  }
+
   const cleanExcerpt = value => String(value || '')
     .replace(/\s+/g, ' ')
     .trim()
@@ -246,6 +261,12 @@
       askPassage(ask);
       return;
     }
+    const recent = event.target.closest('[data-ar402-recent-book]');
+    if (recent) {
+      event.preventDefault();
+      resumeRecent(recent);
+      return;
+    }
     const clear = event.target.closest('[data-ar402-clear-recents]');
     if (clear) {
       writeRecents([]);
@@ -278,6 +299,7 @@
       readRecents,
       rememberCurrentRead,
       renderRecentShelf,
+      resumeRecent,
       passageContext
     });
   }
