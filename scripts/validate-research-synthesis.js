@@ -52,4 +52,40 @@ const bridge = fs.readFileSync(bridgePath, 'utf8');
 if (!bridge.includes("'/api/rag/v5/synthesize'")) throw new Error('Endpoint de synthèse non appelé.');
 if (/body:\s*JSON\.stringify\([^)]*sources/i.test(bridge)) throw new Error('Le navigateur ne doit jamais fournir les sources à synthétiser.');
 
-console.log('Athar Research grounded synthesis UI validée : mode IA, injection Vue, citations cliquables et absence de sources client.');
+// Regression guard: the public synthesis API path is legacy-compatible, but the
+// response engine is now V6.x. Never pin the browser to the historical V5 identity.
+if (bridge.includes('Number(data?.engine_version || 0) !== 5')) {
+    throw new Error('La synthèse ne doit plus exiger engine_version === 5.');
+}
+if (bridge.includes("data?.engine !== 'rag-v5-hybrid-multilingual'")) {
+    throw new Error('La synthèse ne doit plus exiger l’identité exacte du moteur V5.');
+}
+if (!bridge.includes('engineVersion >= 5')) {
+    throw new Error('Le bridge doit vérifier une compatibilité de protocole V5+ / V6+.');
+}
+if (!bridge.includes('/^(?:rag|athar)-v/i')) {
+    throw new Error('Le bridge doit accepter les identités de runtime rag-v* et athar-v*.');
+}
+if (!bridge.includes("Le moteur de synthèse Athar n’est pas disponible.")) {
+    throw new Error('Le message d’erreur ne doit plus annoncer à tort un moteur V5 requis.');
+}
+if (!bridge.includes('engine_version: Number(payload?.engine_version')) {
+    throw new Error('Le statut UI doit reprendre la version réellement renvoyée par le serveur.');
+}
+
+const compatibility = context.window.AtharScholarSynthesis?.isCompatibleEngine;
+if (typeof compatibility !== 'function') throw new Error('Le test de compatibilité moteur n’est pas exporté.');
+if (!compatibility({ ok: true, engine_version: 5, engine: 'rag-v5-hybrid-multilingual' })) {
+    throw new Error('La compatibilité V5 historique doit rester acceptée.');
+}
+if (!compatibility({ ok: true, engine_version: 6, engine: 'rag-v6.5.1-remote-semantic-fused' })) {
+    throw new Error('Le runtime RAG V6 doit être accepté.');
+}
+if (!compatibility({ ok: true, engine_version: 6, engine: 'athar-v6.5.3-remote-semantic-fusion' })) {
+    throw new Error('Le runtime Athar V6.5.3 doit être accepté.');
+}
+if (compatibility({ ok: false, engine_version: 6, engine: 'athar-v6.5.3-remote-semantic-fusion' })) {
+    throw new Error('Une réponse non-ok ne doit jamais être considérée compatible.');
+}
+
+console.log('Athar Research grounded synthesis UI validée : V5+/V6+, injection Vue, citations cliquables et absence de sources client.');
