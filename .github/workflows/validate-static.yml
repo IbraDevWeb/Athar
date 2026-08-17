@@ -111,7 +111,7 @@ jobs:
 
           render = Path('render.yaml').read_text(encoding='utf-8')
           assert 'python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards' in render
-          assert 'python rag/v5_library_server.py --host 0.0.0.0 --api-only' in render
+          assert 'python rag/v653_library_server.py --host 0.0.0.0 --api-only' in render
           assert 'ATHAR_CORPUS_MODE' in render and 'value: sharded' in render
           assert 'ATHAR_SHARD_DIR' in render and 'rag/data/shards' in render
           assert 'ATHAR_CORPUS_MANIFEST' in render and 'rag/corpus_release_v3.json' in render
