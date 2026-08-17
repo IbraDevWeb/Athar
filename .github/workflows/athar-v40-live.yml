@@ -7,18 +7,22 @@ on:
       - 'index.html'
       - 'research-library.html'
       - 'js/config.js'
+      - 'js/research-library-v2.js'
       - 'js/components/ScholarLibraryV4View.js'
       - 'js/components/ScholarSynthesisBridge.js'
       - 'js/components/ScholarV4Bootstrap.js'
       - 'js/ux-v40-research-library.js'
       - 'js/ux-v40-polish.js'
+      - 'js/ux-v40-continuity.js'
       - 'css/athar-research-v5.css'
       - 'css/athar-research-synthesis.css'
       - 'css/athar-research-library-v40.css'
       - 'css/athar-v40-polish.css'
+      - 'css/athar-v40-continuity.css'
       - 'css/research-library-v2.css'
       - 'scripts/ux_v40_public_test.mjs'
       - 'scripts/ux_v401_browser_test.mjs'
+      - 'scripts/ux_v402_browser_test.mjs'
       - 'scripts/ux_v402_research_live_test.mjs'
       - '.nojekyll'
       - '.github/workflows/athar-v40-live.yml'
@@ -48,13 +52,16 @@ jobs:
             config="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/config.js?v40=$attempt" || true)"
             bridge="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v40-research-library.js?v40=$attempt" || true)"
             polish="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v40-polish.js?v40=$attempt" || true)"
+            continuity="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/js/ux-v40-continuity.js?v40=$attempt" || true)"
             library="$(curl -fsSL -H 'Cache-Control: no-cache' "$base/research-library.html?v40=$attempt" || true)"
             if grep -q 'athar-research-v40-ui-1' <<<"$config" \
               && grep -q 'athar-v40-research-library-1' <<<"$bridge" \
               && grep -q 'athar-v40-polish-1' <<<"$polish" \
               && grep -q 'athar-v40-runtime-truth-1' <<<"$polish" \
-              && grep -q 'athar-v40-polish.css?v=athar-v40-polish-1' <<<"$library"; then
-              echo "Athar V40/V40.1/V40.2 assets are public on attempt $attempt."
+              && grep -q 'athar-v40-continuity-1' <<<"$continuity" \
+              && grep -q 'athar-v40-continuity.css?v=athar-v40-continuity-1' <<<"$library" \
+              && grep -q 'ux-v40-continuity.js?v=athar-v40-continuity-1' <<<"$library"; then
+              echo "Athar V40 through V40.3 assets are public on attempt $attempt."
               exit 0
             fi
             echo "Attempt $attempt/60: waiting for GitHub Pages V40 propagation..."
@@ -76,4 +83,5 @@ jobs:
         run: |
           node scripts/ux_v40_public_test.mjs
           node scripts/ux_v401_browser_test.mjs
+          node scripts/ux_v402_browser_test.mjs
           node scripts/ux_v402_research_live_test.mjs
