@@ -204,7 +204,7 @@ reject(render, /ATHAR_DB_PATH|athar_hosted\.sqlite\.gz/, 'render.yaml');
 
 const config = read('js/config.js');
 [
-    "const APP_VERSION = 'athar-pro-v39-safe-1'",
+    "const APP_VERSION = 'athar-pro-v39-safe-2'",
     "const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1'",
     "writeEarlyScript('js/components/ScholarLibraryV4View.js'",
     "writeEarlyScript('js/components/ScholarSynthesisBridge.js'",
@@ -215,7 +215,7 @@ const config = read('js/config.js');
 reject(config, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js|scholar-library-v2\.css|scholar-v2-integration\.css/i, 'js/config.js');
 
 const worker = read('service-worker.js');
-need(worker, "const CACHE_VERSION = 'athar-pro-v39-safe-1'", 'service-worker.js');
+need(worker, "const CACHE_VERSION = 'athar-pro-v39-safe-2'", 'service-worker.js');
 need(worker, './css/athar-research-v5.css?v=athar-research-v6-ui-1', 'service-worker.js');
 need(worker, './css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'service-worker.js');
 need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v6-ui-1', 'service-worker.js');

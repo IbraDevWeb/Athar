@@ -92,16 +92,18 @@ if (source.config.includes('cdn.jsdelivr.net/npm/leaflet') || source.config.incl
     fail('Leaflet must not be injected cross-site through document.write in config.js');
 }
 
-const configVersion = Number(source.config.match(/const APP_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
-const workerVersion = Number(source.worker.match(/const CACHE_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
-if (configVersion !== workerVersion || configVersion < 27) {
-    fail(`inconsistent or stale application cache: config v${configVersion}, worker v${workerVersion}`);
+const configVersion = source.config.match(/const APP_VERSION = '([^']+)'/)?.[1] || '';
+const workerVersion = source.worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1] || '';
+const configMajor = Number(configVersion.match(/^athar-pro-v(\d+)/)?.[1] || 0);
+const validVersion = /^athar-pro-v\d+(?:-[a-z0-9-]+)*$/i.test(configVersion);
+if (!validVersion || configVersion !== workerVersion || configMajor < 27) {
+    fail(`inconsistent or stale application cache: config ${configVersion || 'missing'}, worker ${workerVersion || 'missing'}`);
 }
 
 for (const asset of [
-    `css/interaction-stability.css?v=athar-pro-v${workerVersion}`,
-    `js/components/VueSafeIcons.js?v=athar-pro-v${workerVersion}`,
-    `js/components/TransmissionView.js?v=athar-pro-v${workerVersion}`
+    `css/interaction-stability.css?v=${workerVersion}`,
+    `js/components/VueSafeIcons.js?v=${workerVersion}`,
+    `js/components/TransmissionView.js?v=${workerVersion}`
 ]) {
     if (!source.worker.includes(asset)) fail(`interaction asset missing from cache: ${asset}`);
 }
@@ -122,5 +124,5 @@ if (failures.length) {
 
 console.log(
     `Interaction stability valid — Vue-safe Lucide hosts, MutationObserver refresh, quiz clicks, ` +
-    `overlay pointer guards, responsive min-width protections and cache v${workerVersion}.`
+    `overlay pointer guards, responsive min-width protections and cache ${workerVersion}.`
 );
