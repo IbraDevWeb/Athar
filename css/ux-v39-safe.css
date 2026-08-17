@@ -1,0 +1,159 @@
+/* Athar UX v39 — harmonisation visuelle non destructive. */
+html.athar-ux-v39 {
+  --athar-ux-bg: #f9f7f2;
+  --athar-ux-surface: #fffdf8;
+  --athar-ux-surface-strong: #ffffff;
+  --athar-ux-text: #191816;
+  --athar-ux-muted: #6f6a61;
+  --athar-ux-line: rgba(35, 31, 24, .10);
+  --athar-ux-gold: #b8924f;
+  --athar-ux-gold-soft: rgba(184, 146, 79, .10);
+  --athar-ux-radius-sm: 10px;
+  --athar-ux-radius-md: 16px;
+  --athar-ux-radius-lg: 24px;
+  --athar-ux-shadow-soft: 0 12px 36px rgba(30, 25, 18, .06);
+}
+
+html.dark.athar-ux-v39 {
+  --athar-ux-bg: #070707;
+  --athar-ux-surface: #11110f;
+  --athar-ux-surface-strong: #171714;
+  --athar-ux-text: #f2eee6;
+  --athar-ux-muted: #aaa59d;
+  --athar-ux-line: rgba(255,255,255,.10);
+  --athar-ux-gold-soft: rgba(184, 146, 79, .14);
+  --athar-ux-shadow-soft: 0 14px 40px rgba(0,0,0,.22);
+}
+
+/* Focus clavier identique partout. */
+html.athar-ux-v39 :is(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--athar-ux-gold) 35%, transparent);
+  outline-offset: 2px;
+}
+
+/* Shell principal : on ne change aucune structure Vue, seulement la finition. */
+html.athar-ux-v39 #app > header {
+  border-bottom-color: var(--athar-ux-line) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.42), 0 8px 30px rgba(30,25,18,.025) !important;
+}
+
+html.athar-ux-v39 #app > div > aside,
+html.athar-ux-v39 #app aside.w-72 {
+  border-right-color: var(--athar-ux-line) !important;
+}
+
+html.athar-ux-v39 #app aside button {
+  min-height: 40px;
+  border-radius: 11px !important;
+}
+
+html.athar-ux-v39 #app main {
+  scrollbar-gutter: stable;
+}
+
+/* Les vues documentaires partagent les mêmes volumes et la même densité. */
+html.athar-ux-v39 .ar5-topbar,
+html.athar-ux-v39 .library-topbar,
+html.athar-ux-v39 .reader-appbar {
+  min-height: 64px;
+  border-bottom-color: var(--athar-ux-line) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.38);
+}
+
+html.athar-ux-v39 .library-view,
+html.athar-ux-v39 .reader-view,
+html.athar-ux-v39 .ar5-shell {
+  --athar-bg: var(--athar-ux-bg);
+  --athar-paper: var(--athar-ux-surface);
+  --athar-paper-strong: var(--athar-ux-surface-strong);
+  --athar-line: var(--athar-ux-line);
+}
+
+html.athar-ux-v39 .library-hero,
+html.athar-ux-v39 .catalog-sidebar,
+html.athar-ux-v39 .book-card,
+html.athar-ux-v39 .reader-paper,
+html.athar-ux-v39 .ar5-composer,
+html.athar-ux-v39 .ar5-source-card,
+html.athar-ux-v39 .ar5-evidence,
+html.athar-ux-v39 .ar5-method-card,
+html.athar-ux-v39 .ar5-book-card {
+  border-radius: var(--athar-ux-radius-md) !important;
+}
+
+html.athar-ux-v39 .library-hero {
+  border-radius: var(--athar-ux-radius-lg) !important;
+}
+
+html.athar-ux-v39 .book-card,
+html.athar-ux-v39 .catalog-sidebar,
+html.athar-ux-v39 .reader-paper,
+html.athar-ux-v39 .ar5-source-card,
+html.athar-ux-v39 .ar5-method-card,
+html.athar-ux-v39 .ar5-book-card {
+  border-color: var(--athar-ux-line) !important;
+}
+
+html.athar-ux-v39 .athar-btn,
+html.athar-ux-v39 .ar5-ghost,
+html.athar-ux-v39 .ar5-primary {
+  min-height: 40px;
+  border-radius: 11px !important;
+}
+
+/* Un seul contrôle de grand écran doit rester visible. */
+html.athar-ux-v39 [data-athar-newtool-fullscreen][hidden],
+html.athar-ux-v39 [data-athar-ux-hidden] {
+  display: none !important;
+}
+
+/* Le bouton de concentration du lecteur n'est pas un deuxième bouton plein écran. */
+html.athar-ux-v39 #focusMode {
+  position: relative;
+}
+html.athar-ux-v39 #focusMode::after {
+  content: 'Lecture';
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: #171614;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font: 700 10px/1 Inter, sans-serif;
+  transition: opacity .15s ease;
+  white-space: nowrap;
+  z-index: 20;
+}
+html.athar-ux-v39 #focusMode:hover::after,
+html.athar-ux-v39 #focusMode:focus-visible::after { opacity: 1; }
+
+/* La persistance entre documents est un mode immersif CSS si le navigateur
+   ne peut pas ré-entrer dans le fullscreen natif sans geste utilisateur. */
+html.athar-ux-v39.athar-newtool-local-fullscreen .library-view,
+html.athar-ux-v39.athar-newtool-local-fullscreen .reader-view,
+html.athar-ux-v39.athar-newtool-local-fullscreen .ar5-shell {
+  min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+  html.athar-ux-v39 .library-topbar,
+  html.athar-ux-v39 .reader-appbar,
+  html.athar-ux-v39 .ar5-topbar { min-height: 58px; }
+
+  html.athar-ux-v39 .athar-btn,
+  html.athar-ux-v39 .ar5-ghost,
+  html.athar-ux-v39 .ar5-primary { min-height: 42px; }
+
+  html.athar-ux-v39 #focusMode::after { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.athar-ux-v39 *,
+  html.athar-ux-v39 *::before,
+  html.athar-ux-v39 *::after {
+    scroll-behavior: auto !important;
+  }
+}
