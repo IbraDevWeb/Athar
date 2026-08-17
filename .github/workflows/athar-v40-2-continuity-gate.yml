@@ -1,0 +1,129 @@
+name: Athar V40.2 continuity gate
+
+on:
+  push:
+    branches: [refactor/athar-v40-2-continuity]
+    paths:
+      - 'css/athar-v40-continuity.css'
+      - 'js/ux-v40-continuity.js'
+      - 'scripts/ux_v402_browser_test.mjs'
+      - '.github/workflows/athar-v40-2-continuity-gate.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-v40-2-continuity
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  integrate-and-test:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/athar-v40-2-continuity
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Integrate V40.2 assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          config = Path('js/config.js')
+          text = config.read_text(encoding='utf-8')
+          css_anchor = "    ensureStylesheet('css/athar-v40-polish.css?v=athar-v40-polish-1', 'athar-v40-polish-styles');"
+          css_line = "    ensureStylesheet('css/athar-v40-continuity.css?v=athar-v40-continuity-1', 'athar-v40-continuity-styles');"
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = "    ensureScript('js/ux-v40-polish.js?v=athar-v40-polish-1', 'athar-v40-polish-bridge');"
+          js_line = "    ensureScript('js/ux-v40-continuity.js?v=athar-v40-continuity-1', 'athar-v40-continuity-bridge');"
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          config.write_text(text, encoding='utf-8')
+
+          library = Path('research-library.html')
+          text = library.read_text(encoding='utf-8')
+          css_anchor = '  <link rel="stylesheet" href="css/athar-v40-polish.css?v=athar-v40-polish-1">'
+          css_line = '  <link rel="stylesheet" href="css/athar-v40-continuity.css?v=athar-v40-continuity-1">'
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = '  <script src="js/ux-v40-polish.js?v=athar-v40-polish-1" defer></script>'
+          js_line = '  <script src="js/ux-v40-continuity.js?v=athar-v40-continuity-1" defer></script>'
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          library.write_text(text, encoding='utf-8')
+
+          worker = Path('service-worker.js')
+          text = worker.read_text(encoding='utf-8')
+          css_anchor = "    './css/athar-v40-polish.css?v=athar-v40-polish-1',"
+          css_line = "    './css/athar-v40-continuity.css?v=athar-v40-continuity-1',"
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = "    './js/ux-v40-polish.js?v=athar-v40-polish-1',"
+          js_line = "    './js/ux-v40-continuity.js?v=athar-v40-continuity-1',"
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          worker.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Validate source contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check js/ux-v40-research-library.js
+          node --check js/ux-v40-polish.js
+          node --check js/ux-v40-continuity.js
+          node --check js/components/ScholarLibraryV4View.js
+          node scripts/validate-interactions.js
+          node scripts/validate-rag-v4.js
+          python - <<'PY'
+          from pathlib import Path
+          css = Path('css/athar-v40-continuity.css').read_text(encoding='utf-8')
+          assert css.count('{') == css.count('}'), 'V40.2 CSS braces are unbalanced'
+          for rel in ['js/config.js', 'research-library.html', 'service-worker.js']:
+              text = Path(rel).read_text(encoding='utf-8')
+              assert 'athar-v40-continuity.css' in text, f'continuity CSS missing from {rel}'
+              assert 'ux-v40-continuity.js' in text, f'continuity JS missing from {rel}'
+          print('Athar V40.2 static contracts: PASS')
+          PY
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run complete V40 browser journeys
+        shell: bash
+        run: |
+          python -m http.server 4173 >/tmp/athar-v402-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:4173/index.html >/dev/null && break
+            sleep 1
+          done
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_v40_browser_test.mjs
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_v401_browser_test.mjs
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_v402_browser_test.mjs
+
+      - name: Commit integrated V40.2
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'V40.2 integration already committed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/config.js research-library.html service-worker.js
+          git commit -m 'Integrate Athar V40.2 reading continuity'
+          git push origin HEAD:refactor/athar-v40-2-continuity
