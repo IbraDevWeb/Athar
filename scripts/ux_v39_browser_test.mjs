@@ -121,9 +121,16 @@ async function mobileFlow() {
   const menu = page.locator('#app > header button').filter({ has: page.locator('[data-lucide="menu"]') }).last();
   await menu.waitFor({ state: 'visible', timeout: 15_000 });
   await menu.click();
-  await page.waitForTimeout(200);
 
-  const hadithButton = page.locator('button').filter({ hasText: 'Hadiths' }).last();
+  // Le SPA et MobileExperience contiennent tous deux des boutons « Hadiths ».
+  // On cible explicitement le panneau de menu Vue visible au premier plan.
+  const mobileOverlay = page
+    .locator('#app div[class*="absolute"][class*="inset-0"][class*="z-50"]')
+    .filter({ hasText: 'Menu' })
+    .first();
+  await mobileOverlay.waitFor({ state: 'visible', timeout: 10_000 });
+
+  const hadithButton = mobileOverlay.locator('button').filter({ hasText: 'Hadiths' }).first();
   await hadithButton.waitFor({ state: 'visible', timeout: 10_000 });
   await hadithButton.click();
   await page.waitForTimeout(350);
