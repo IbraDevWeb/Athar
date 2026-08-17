@@ -13,13 +13,13 @@ services:
     buildCommand: >-
       python -m pip install -r rag/requirements.txt &&
       python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards
-    startCommand: python rag/v651_library_server.py --host 0.0.0.0 --api-only
+    startCommand: python rag/v653_library_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.13"
       - key: ATHAR_PRODUCTION_REVISION
-        value: v6.5.1-split-semantic
+        value: v6.5.3-split-sharded-semantic
       - key: ATHAR_API_ONLY
         value: "1"
       - key: ATHAR_CORS_ORIGINS
@@ -67,11 +67,11 @@ services:
       ignoredPaths: []
     buildCommand: >-
       python -m pip install -r rag/requirements-v64.txt &&
-      python rag/cache_v63c_ann_release.py --corpus-manifest rag/corpus_release_v3.json --output-dir rag/data/v63c-ann &&
+      python rag/cache_v653_ann_release.py --corpus-manifest rag/corpus_release_v3.json --output-dir rag/data/v653-ann &&
       python rag/cache_fastembed_model.py --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --cache-dir rag/data/fastembed-cache
     startCommand: >-
-      python rag/v65_semantic_server.py --host 0.0.0.0
-      --ann-manifest rag/data/v63c-ann/athar-v63c-global.ann.json
+      python rag/v653_semantic_server.py --host 0.0.0.0
+      --ann-manifest rag/data/v653-ann/athar-v653-sharded.ann.json
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
@@ -82,6 +82,8 @@ services:
         value: "1"
       - key: ATHAR_ANN_VERIFY_SHA
         value: "0"
+      - key: ATHAR_ANN_SHARDED_RELEASE_TAG
+        value: rag-ann-v653-sharded-f16-6f8bfac81d61
       - key: ATHAR_SEMANTIC_MODEL
         value: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
       - key: ATHAR_SEMANTIC_TOKEN
