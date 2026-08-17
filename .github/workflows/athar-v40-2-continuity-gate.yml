@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Integrate V40.2 assets
+      - name: Integrate V40.2 assets and Library runtime bridge
         shell: bash
         run: |
           python - <<'PY'
@@ -72,6 +72,16 @@ jobs:
           if js_line not in text:
               text = text.replace(js_anchor, js_anchor + '\n' + js_line)
           worker.write_text(text, encoding='utf-8')
+
+          reader = Path('js/research-library-v2.js')
+          text = reader.read_text(encoding='utf-8')
+          anchor = "  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });"
+          bridge = "  window.AtharResearchLibrary = Object.freeze({ openBook, closeReader, loadPage, loadContinuous, searchInsideBook, setReaderMode });\n\n"
+          if 'window.AtharResearchLibrary = Object.freeze' not in text:
+              if anchor not in text:
+                  raise SystemExit('Library init anchor not found')
+              text = text.replace(anchor, bridge + anchor)
+          reader.write_text(text, encoding='utf-8')
           PY
 
       - name: Validate source contracts
@@ -81,6 +91,7 @@ jobs:
           node --check js/ux-v40-research-library.js
           node --check js/ux-v40-polish.js
           node --check js/ux-v40-continuity.js
+          node --check js/research-library-v2.js
           node --check js/components/ScholarLibraryV4View.js
           node scripts/validate-interactions.js
           node scripts/validate-rag-v4.js
@@ -92,6 +103,8 @@ jobs:
               text = Path(rel).read_text(encoding='utf-8')
               assert 'athar-v40-continuity.css' in text, f'continuity CSS missing from {rel}'
               assert 'ux-v40-continuity.js' in text, f'continuity JS missing from {rel}'
+          reader = Path('js/research-library-v2.js').read_text(encoding='utf-8')
+          assert 'window.AtharResearchLibrary = Object.freeze' in reader
           print('Athar V40.2 static contracts: PASS')
           PY
 
@@ -124,6 +137,6 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add js/config.js research-library.html service-worker.js
+          git add js/config.js research-library.html service-worker.js js/research-library-v2.js
           git commit -m 'Integrate Athar V40.2 reading continuity'
           git push origin HEAD:refactor/athar-v40-2-continuity
