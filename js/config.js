@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v39-safe-1';
+    const APP_VERSION = 'athar-pro-v39-safe-2';
     const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1';
 
     const setMeta = (selector, content) => {
@@ -133,7 +133,7 @@ tailwind.config = {
     ensureStylesheet(`css/library-immersive-fix.css?v=${APP_VERSION}`, 'athar-library-immersive-fix');
     ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
     ensureStylesheet(`css/interaction-stability.css?v=${APP_VERSION}`, 'athar-interaction-stability');
-    ensureStylesheet('css/ux-v39-safe.css?v=athar-ux-v39-safe-1', 'athar-ux-v39-safe');
+    ensureStylesheet('css/ux-v39-safe.css?v=athar-ux-v39-safe-2', 'athar-ux-v39-safe');
     ensureStylesheet(`css/ancient-sky.css?v=${APP_VERSION}`, 'athar-ancient-sky-styles');
     ensureStylesheet(`css/history-nights.css?v=${APP_VERSION}`, 'athar-history-nights-styles');
     ensureStylesheet(`css/history-nights-scroll.css?v=${APP_VERSION}`, 'athar-history-nights-scroll');
@@ -163,7 +163,7 @@ tailwind.config = {
     ensureScript(`js/components/ScholarAtlasExpansionPatch.js?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion-patch');
     ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
-    ensureScript('js/ux-v39-safe.js?v=athar-ux-v39-safe-1', 'athar-ux-v39-safe-bridge');
+    ensureScript('js/ux-v39-safe.js?v=athar-ux-v39-safe-2', 'athar-ux-v39-safe-bridge');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
     ensureScript(`js/components/ThemeBridge.js?v=${APP_VERSION}`, 'athar-theme-bridge');
 
