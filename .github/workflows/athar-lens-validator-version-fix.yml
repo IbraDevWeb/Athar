@@ -1,0 +1,65 @@
+name: Repair Athar Lens version validator
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/athar-lens-validator-version-fix.yml'
+  workflow_dispatch:
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Make Athar Lens cache checks version-aware
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/validate-athar-lens.js')
+          text = p.read_text(encoding='utf-8')
+          old = """const config = read('js/config.js');
+          [\"const APP_VERSION = 'athar-pro-v36'\", \"writeEarlyScript('js/components/AtharLensBridge.js'\", \"writeEarlyScript('js/components/AtharLens.js'\", 'css/athar-lens.css?v=${APP_VERSION}', \"writeEarlyScript('js/components/AstronomyBootstrap.js'\"].forEach(token => need(config, token, 'config.js'));
+          if (config.indexOf('AtharLensBridge.js') > config.indexOf('AstronomyBootstrap.js')) fail('Lens bridge must load before ToolView bootstrap.');
+          const worker = read('service-worker.js');
+          [\"const CACHE_VERSION = 'athar-pro-v36'\", './js/components/AtharLensBridge.js?v=athar-pro-v36', './js/components/AtharLens.js?v=athar-pro-v36', './css/athar-lens.css?v=athar-pro-v36'].forEach(token => need(worker, token, 'service worker'));
+          console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache v36.`);"""
+          new = """const config = read('js/config.js');
+          const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1] || '';
+          if (!/^athar-pro-v\\d+(?:-[a-z0-9-]+)*$/i.test(appVersion)) fail(`Invalid application version: ${appVersion || 'missing'}`);
+          [\"writeEarlyScript('js/components/AtharLensBridge.js'\", \"writeEarlyScript('js/components/AtharLens.js'\", 'css/athar-lens.css?v=${APP_VERSION}', \"writeEarlyScript('js/components/AstronomyBootstrap.js'\"].forEach(token => need(config, token, 'config.js'));
+          if (config.indexOf('AtharLensBridge.js') > config.indexOf('AstronomyBootstrap.js')) fail('Lens bridge must load before ToolView bootstrap.');
+          const worker = read('service-worker.js');
+          const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1] || '';
+          if (cacheVersion !== appVersion) fail(`Application/cache version mismatch: ${appVersion} / ${cacheVersion}`);
+          [`./js/components/AtharLensBridge.js?v=${appVersion}`, `./js/components/AtharLens.js?v=${appVersion}`, `./css/athar-lens.css?v=${appVersion}`].forEach(token => need(worker, token, 'service worker'));
+          console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache ${appVersion}.`);"""
+          if old not in text:
+              raise SystemExit('Athar Lens stale version block not found')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Validate Athar Lens
+        run: |
+          node --check scripts/validate-athar-lens.js
+          node scripts/validate-athar-lens.js
+
+      - name: Commit validator repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/validate-athar-lens.js
+          git commit -m 'Make Athar Lens validator cache-version aware'
+          git push origin HEAD:main
