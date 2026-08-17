@@ -1,0 +1,63 @@
+name: Athar V39 validator compatibility hotfix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/athar-v39-validator-hotfix.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-v39-validator-hotfix
+  cancel-in-progress: true
+
+jobs:
+  patch-validator:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Update stale UI version assertions only
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/validate-rag-v4.js')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              '"const APP_VERSION = \'athar-pro-v36\'",': '"const APP_VERSION = \'athar-pro-v39-safe-1\'",',
+              'need(worker, "const CACHE_VERSION = \'athar-pro-v36\'", \'service-worker.js\');': 'need(worker, "const CACHE_VERSION = \'athar-pro-v39-safe-1\'", \'service-worker.js\');',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Stale validator token not found: {old}')
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Verify validator and Research contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check scripts/validate-rag-v4.js
+          node scripts/validate-rag-v4.js
+          git diff --check
+
+      - name: Commit compatibility fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/validate-rag-v4.js
+          git commit -m 'Allow Athar UX v39 in Research validator'
+          git push origin HEAD:main
