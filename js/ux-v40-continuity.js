@@ -67,9 +67,12 @@
     if (!current) return false;
     const recents = readRecents();
     const previous = recents.find(item => item.book_id === current.book_id) || {};
+    const samePosition = previous.book_id === current.book_id
+      && String(previous.page || '') === String(current.page || '')
+      && String(previous.offset || '') === String(current.offset || '');
+    if (samePosition && previous.title === current.title && previous.author === current.author) return true;
     const next = [{ ...previous, ...current }, ...recents.filter(item => item.book_id !== current.book_id)];
     writeRecents(next);
-    renderRecentShelf();
     return true;
   }
 
@@ -109,6 +112,10 @@
       return false;
     }
 
+    const visibleRecents = recents.slice(0, 4);
+    const signature = JSON.stringify(visibleRecents.map(item => [item.book_id, item.page || '', item.offset || '', item.updated_at || '']));
+    if (section?.dataset.ar402Signature === signature) return true;
+
     if (!section) {
       section = document.createElement('section');
       section.id = 'ar402RecentReads';
@@ -123,7 +130,7 @@
         <button type="button" data-ar402-clear-recents>Effacer</button>
       </header>
       <div class="ar402-recents-track">
-        ${recents.slice(0, 4).map((item, index) => `
+        ${visibleRecents.map((item, index) => `
           <a class="ar402-recent-card" href="${escapeHTML(recentHref(item))}" data-ar402-recent-book="${escapeHTML(item.book_id)}">
             <span class="ar402-recent-index">${String(index + 1).padStart(2, '0')}</span>
             <span class="ar402-recent-copy">
@@ -134,6 +141,7 @@
             <span class="ar402-recent-action">Reprendre →</span>
           </a>`).join('')}
       </div>`;
+    section.dataset.ar402Signature = signature;
     return true;
   }
 
@@ -209,13 +217,13 @@
   function enhance() {
     queued = false;
     document.documentElement.dataset.atharV40Continuity = VERSION;
-    if (document.body.classList.contains('athar-v40-library')) {
-      renderRecentShelf();
-      addLibraryRecentNav();
-      if (document.getElementById('readerView') && !document.getElementById('readerView').hidden) {
-        rememberCurrentRead();
-        addPassageResearchActions();
-      }
+    if (!document.body.classList.contains('athar-v40-library')) return;
+    renderRecentShelf();
+    addLibraryRecentNav();
+    const reader = document.getElementById('readerView');
+    if (reader && !reader.hidden) {
+      rememberCurrentRead();
+      addPassageResearchActions();
     }
   }
 
@@ -224,6 +232,12 @@
     queued = true;
     requestAnimationFrame(enhance);
   }
+
+  const nodeContainsPassage = node => node instanceof Element
+    && (node.matches('.reader-passage, .reader-page-block') || Boolean(node.querySelector('.reader-passage')));
+
+  const mutationNeedsEnhance = record => record.type === 'childList'
+    && [...record.addedNodes].some(nodeContainsPassage);
 
   document.addEventListener('click', event => {
     const ask = event.target.closest('[data-ar402-research-passage]');
@@ -240,7 +254,10 @@
     }
     if (event.target.closest('#closeReader')) {
       rememberCurrentRead();
-      window.setTimeout(schedule, 0);
+      window.setTimeout(() => {
+        renderRecentShelf();
+        schedule();
+      }, 0);
     }
   }, true);
 
@@ -253,7 +270,7 @@
   function start() {
     enhance();
     observer = new MutationObserver(records => {
-      if (records.some(record => record.type === 'childList' && record.addedNodes.length)) schedule();
+      if (records.some(mutationNeedsEnhance)) schedule();
     });
     observer.observe(document.body, { childList: true, subtree: true });
     window.AtharV40Continuity = Object.freeze({
