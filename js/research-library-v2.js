@@ -731,6 +731,8 @@
     loadCatalogue();
   }
 
+  window.AtharResearchLibrary = Object.freeze({ openBook, closeReader, loadPage, loadContinuous, searchInsideBook, setReaderMode });
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
   else init();
 })();
