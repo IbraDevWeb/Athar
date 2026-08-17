@@ -1,0 +1,155 @@
+name: Athar V40 Research Library refactor gate
+
+on:
+  push:
+    branches: ['refactor/athar-v40-research-library']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: athar-v40-research-library
+  cancel-in-progress: true
+
+jobs:
+  integrate-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/athar-v40-research-library
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Integrate V40 assets and Research Library bridge
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          version_old = 'athar-research-v6-ui-1'
+          version_new = 'athar-research-v40-ui-1'
+
+          # Research UI version: component, bootstrap, service worker and static contracts move together.
+          for rel in ['js/config.js', 'service-worker.js', 'scripts/validate-rag-v4.js']:
+              path = Path(rel)
+              text = path.read_text(encoding='utf-8')
+              text = text.replace(version_old, version_new)
+              path.write_text(text, encoding='utf-8')
+
+          config = Path('js/config.js')
+          text = config.read_text(encoding='utf-8')
+          css_anchor = "    ensureStylesheet('css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'athar-research-synthesis-styles');"
+          css_line = "    ensureStylesheet('css/athar-research-library-v40.css?v=athar-v40-research-library-1', 'athar-v40-research-library-styles');"
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = "    ensureScript('js/ux-v39-safe.js?v=athar-ux-v39-safe-2', 'athar-ux-v39-safe-bridge');"
+          js_line = "    ensureScript('js/ux-v40-research-library.js?v=athar-v40-research-library-1', 'athar-v40-research-library-bridge');"
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          config.write_text(text, encoding='utf-8')
+
+          index = Path('index.html')
+          text = index.read_text(encoding='utf-8')
+          text = text.replace('<script src="js/config.js"></script>', '<script src="js/config.js?v=athar-v40-research-library-1"></script>')
+          index.write_text(text, encoding='utf-8')
+
+          library = Path('research-library.html')
+          text = library.read_text(encoding='utf-8')
+          css_anchor = '  <link rel="stylesheet" href="css/ux-v39-safe.css?v=athar-ux-v39-safe-2">'
+          css_line = '  <link rel="stylesheet" href="css/athar-research-library-v40.css?v=athar-v40-research-library-1">'
+          if css_line not in text:
+              text = text.replace(css_anchor, css_anchor + '\n' + css_line)
+          js_anchor = '  <script src="js/ux-v39-safe.js?v=athar-ux-v39-safe-2" defer></script>'
+          js_line = '  <script src="js/ux-v40-research-library.js?v=athar-v40-research-library-1" defer></script>'
+          if js_line not in text:
+              text = text.replace(js_anchor, js_anchor + '\n' + js_line)
+          library.write_text(text, encoding='utf-8')
+
+          worker = Path('service-worker.js')
+          text = worker.read_text(encoding='utf-8')
+          css_line = "    './css/athar-research-library-v40.css?v=athar-v40-research-library-1',"
+          if css_line not in text:
+              text = text.replace("    './css/athar-research-synthesis.css?v=athar-research-synthesis-1',", "    './css/athar-research-synthesis.css?v=athar-research-synthesis-1',\n" + css_line)
+          js_line = "    './js/ux-v40-research-library.js?v=athar-v40-research-library-1',"
+          if js_line not in text:
+              text = text.replace("    './js/ux-v39-safe.js?v=athar-ux-v39-safe-2',", "    './js/ux-v39-safe.js?v=athar-ux-v39-safe-2',\n" + js_line)
+          worker.write_text(text, encoding='utf-8')
+
+          research = Path('js/components/ScholarLibraryV4View.js')
+          text = research.read_text(encoding='utf-8')
+          text = text.replace(
+              'class="ar5-source-card" :class="{ active: selectedSourceId === source.citation_id }" @click="selectSource(source)"',
+              'class="ar5-source-card" :class="{ active: selectedSourceId === source.citation_id }" :data-book-id="source.book_id || \'\'" :data-book-page="source.page || \'\'" @click="selectSource(source)"'
+          )
+          text = text.replace(
+              'class="ar5-book-card"><div class="ar5-book-card-top">',
+              'class="ar5-book-card" :data-book-id="book.id"><div class="ar5-book-card-top">'
+          )
+          text = text.replace(
+              'L’index plein texte remonte un ensemble borné de candidats qui sont ensuite reclassés selon leur proximité documentaire.',
+              'La recherche hybride combine index lexical, notions multilingues et candidats sémantiques, puis reclasse les passages sans contourner les filtres de corpus.'
+          )
+          text = text.replace(
+              '<div><span>Moteur</span><strong>RAG V5 multilingue</strong></div>',
+              '<div><span>Moteur</span><strong>{{ engineLabel }} · hybride multilingue</strong></div>'
+          )
+          research.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Validate V40 source contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check js/ux-v40-research-library.js
+          node --check js/components/ScholarLibraryV4View.js
+          node scripts/validate-interactions.js
+          node scripts/validate-rag-v4.js
+          python - <<'PY'
+          from pathlib import Path
+          css = Path('css/athar-research-library-v40.css').read_text(encoding='utf-8')
+          assert css.count('{') == css.count('}'), 'V40 CSS braces are unbalanced'
+          research = Path('js/components/ScholarLibraryV4View.js').read_text(encoding='utf-8')
+          assert ':data-book-id="source.book_id' in research
+          assert ':data-book-id="book.id"' in research
+          config = Path('js/config.js').read_text(encoding='utf-8')
+          assert 'athar-v40-research-library-1' in config
+          library = Path('research-library.html').read_text(encoding='utf-8')
+          assert 'athar-research-library-v40.css' in library and 'ux-v40-research-library.js' in library
+          print('Athar V40 static contracts: PASS')
+          PY
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run V40 browser journey
+        shell: bash
+        run: |
+          python -m http.server 4173 >/tmp/athar-v40-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:4173/index.html >/dev/null && break
+            sleep 1
+          done
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_v40_browser_test.mjs
+
+      - name: Commit integrated V40 refactor
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'V40 integration already committed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html research-library.html service-worker.js js/config.js js/components/ScholarLibraryV4View.js scripts/validate-rag-v4.js
+          git commit -m 'Integrate Athar V40 Research and Library refactor'
+          git push origin HEAD:refactor/athar-v40-research-library
