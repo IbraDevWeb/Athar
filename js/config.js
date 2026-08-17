@@ -49,7 +49,7 @@ tailwind.config = {
 
 (() => {
     const APP_VERSION = 'athar-pro-v36';
-    const RESEARCH_UI_VERSION = 'athar-research-v5-ui-2';
+    const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

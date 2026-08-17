@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const read = path => fs.readFileSync(path, 'utf8');
-const fail = message => { console.error(`Athar Research V5 validation failed: ${message}`); process.exit(1); };
+const fail = message => { console.error(`Athar Research validation failed: ${message}`); process.exit(1); };
 const need = (source, token, label) => { if (!source.includes(token)) fail(`${label} is missing: ${token}`); };
 const reject = (source, pattern, label) => { if (pattern.test(source)) fail(`${label} contains forbidden legacy behavior: ${pattern}`); };
 
@@ -93,7 +93,7 @@ const builder = read('rag/build_sharded_corpus.py');
 const view = read('js/components/ScholarLibraryV4View.js');
 [
     "name: 'AtharResearchView'", '/api/rag/v5/status', '/api/rag/v5/books', '/api/rag/v5/ask', '/api/rag/v5/translate',
-    "payload?.engine !== 'rag-v5-hybrid-multilingual'", 'REQUEST_TIMEOUT_MS = 120000',
+    'const validateEngine = payload =>', 'engineVersion < 5', 'REQUEST_TIMEOUT_MS = 120000',
     'Athar Research', 'Questions naturelles', 'Les ouvrages indexés', 'Historique local',
     'Pertinence documentaire ≠ certitude religieuse', 'routed_book', 'matched_concepts',
     'Traduction IA à la demande', 'Fidèle', 'Littérale', 'Étude', 'Traduction assistée par IA', 'Non vérifiée',
@@ -195,7 +195,7 @@ const synthesisStyle = read('css/athar-research-synthesis.css');
 
 const render = read('render.yaml');
 [
-    'python rag/v5_library_server.py --host 0.0.0.0 --api-only',
+    'python rag/v653_library_server.py --host 0.0.0.0 --api-only',
     'python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards',
     'ATHAR_CORPUS_MODE', 'value: sharded', 'ATHAR_SHARD_DIR', 'rag/data/shards',
     'ATHAR_CORPUS_MANIFEST', 'rag/corpus_release_v3.json', 'healthCheckPath: /healthz'
@@ -205,7 +205,7 @@ reject(render, /ATHAR_DB_PATH|athar_hosted\.sqlite\.gz/, 'render.yaml');
 const config = read('js/config.js');
 [
     "const APP_VERSION = 'athar-pro-v36'",
-    "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-2'",
+    "const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1'",
     "writeEarlyScript('js/components/ScholarLibraryV4View.js'",
     "writeEarlyScript('js/components/ScholarSynthesisBridge.js'",
     "writeEarlyScript('js/components/ScholarV4Bootstrap.js'",
@@ -216,10 +216,10 @@ reject(config, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js
 
 const worker = read('service-worker.js');
 need(worker, "const CACHE_VERSION = 'athar-pro-v36'", 'service-worker.js');
-need(worker, './css/athar-research-v5.css?v=athar-research-v5-ui-2', 'service-worker.js');
+need(worker, './css/athar-research-v5.css?v=athar-research-v6-ui-1', 'service-worker.js');
 need(worker, './css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'service-worker.js');
-need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v5-ui-2', 'service-worker.js');
-need(worker, './js/components/ScholarSynthesisBridge.js?v=athar-research-v5-ui-2', 'service-worker.js');
+need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v6-ui-1', 'service-worker.js');
+need(worker, './js/components/ScholarSynthesisBridge.js?v=athar-research-v6-ui-1', 'service-worker.js');
 need(worker, './research-library.html', 'service-worker.js');
 need(worker, './css/research-library-v2.css?v=athar-reader-v2', 'service-worker.js');
 need(worker, './js/research-library-v2.js?v=athar-reader-v2', 'service-worker.js');
@@ -249,4 +249,4 @@ const lowmemWorkflow = read('.github/workflows/rag-v5-lowmem.yml');
     'Athar V5 sharded RSS', 'Check process memory'
 ].forEach(token => need(lowmemWorkflow, token, 'RAG V5 low-memory workflow'));
 
-console.log('Athar Research V5 static contract valid — grounded AI synthesis after RAG retrieval, cited positions, reader translation, full-screen access and sharded low-memory deployment.');
+console.log('Athar Research static contract valid — V6-compatible frontend, grounded AI synthesis, cited positions, reader translation and sharded deployment.');

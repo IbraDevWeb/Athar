@@ -1,4 +1,4 @@
-// Athar Research — interface documentaire V5
+// Athar Research — interface documentaire V6-compatible
 // Espace autonome de recherche dans le corpus savant. Aucun fallback vers la bibliothèque classique.
 window.ScholarLibraryV4View = {
     name: 'AtharResearchView',
@@ -79,7 +79,7 @@ window.ScholarLibraryV4View = {
             if (!count) return 'Aucun passage suffisamment pertinent';
             return count + ' passage' + (count > 1 ? 's' : '') + ' retrouvé' + (count > 1 ? 's' : '');
         });
-        const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? 'RAG V5' : 'RAG');
+        const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? `RAG V${Number(status.value.engine_version || 0)}` : 'RAG');
         const runtimeLabel = computed(() => status.value.runtime_profile === 'low-memory' ? 'Production optimisée' : 'Production');
         const conceptLabel = value => conceptLabels[String(value || '')] || String(value || '').replaceAll('_', ' ');
         const displayedNotions = computed(() => {
@@ -113,7 +113,7 @@ window.ScholarLibraryV4View = {
             if (apiOrigin.value) return apiOrigin.value;
             try {
                 const url = new URL(REMOTE_CONFIG, window.location.href);
-                url.searchParams.set('v', 'rag-v5-ui');
+                url.searchParams.set('v', 'rag-v6-ui');
                 const request = await window.fetch(url.href, { cache: 'no-store', headers: { Accept: 'application/json' } });
                 if (request.ok) {
                     const configured = validOrigin((await request.json())?.origin);
@@ -135,9 +135,11 @@ window.ScholarLibraryV4View = {
             } finally { window.clearTimeout(timeout); }
         };
 
-        const validateV5 = payload => {
+        const validateEngine = payload => {
             if (!payload?.ok) throw new Error(payload?.error || 'Réponse API invalide.');
-            if (Number(payload?.engine_version || 0) !== 5 || payload?.engine !== 'rag-v5-hybrid-multilingual') throw new Error('Le moteur documentaire V5 n’est pas encore actif.');
+            const engineVersion = Number(payload?.engine_version || 0);
+            const engineName = String(payload?.engine || '');
+            if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) throw new Error('Le moteur documentaire Athar n’est pas disponible.');
             return payload;
         };
 
@@ -146,10 +148,10 @@ window.ScholarLibraryV4View = {
             try {
                 const health = await apiFetch('/healthz', {}, 90000);
                 if (!health.ok) throw new Error('HTTP ' + health.status);
-                validateV5(await health.json());
+                validateEngine(await health.json());
                 const request = await apiFetch('/api/rag/v5/status');
                 if (!request.ok) throw new Error('HTTP ' + request.status);
-                status.value = { ...validateV5(await request.json()), connected: true };
+                status.value = { ...validateEngine(await request.json()), connected: true };
             } catch (connectionError) {
                 status.value = { connected: false, books: 0, chunks: 0, substantive_passages: 0, fts_ready: false, engine_version: 0 };
                 error.value = connectionError?.name === 'AbortError' ? 'Le moteur met trop de temps à répondre.' : 'Moteur documentaire indisponible : ' + (connectionError?.message || 'connexion impossible');
@@ -178,9 +180,9 @@ window.ScholarLibraryV4View = {
                 const request = await apiFetch('/api/rag/v5/ask', { method: 'POST', body: JSON.stringify({ query: value, limit: 8, madhhab: madhhab.value, discipline: discipline.value }) });
                 const payload = await request.json().catch(() => ({}));
                 if (!request.ok) throw new Error(payload?.error || 'HTTP ' + request.status);
-                validateV5(payload);
+                validateEngine(payload);
                 response.value = payload;
-                status.value = { ...status.value, connected: true, engine_version: 5 };
+                status.value = { ...status.value, connected: true, engine_version: Number(payload?.engine_version || status.value.engine_version || 0), engine: payload?.engine || status.value.engine || '' };
                 selectedSourceId.value = payload.sources?.[0]?.citation_id || '';
                 saveHistory(payload);
                 nextTick(() => document.querySelector('.ar5-results')?.scrollIntoView?.({ behavior: 'smooth', block: 'start' }));
@@ -196,7 +198,7 @@ window.ScholarLibraryV4View = {
                 const request = await apiFetch('/api/rag/v5/books');
                 const payload = await request.json().catch(() => ({}));
                 if (!request.ok) throw new Error(payload?.error || 'HTTP ' + request.status);
-                books.value = validateV5(payload).books || [];
+                books.value = validateEngine(payload).books || [];
             } catch (bookError) { error.value = 'Impossible de charger les ouvrages : ' + (bookError?.message || 'erreur inconnue'); }
             finally { booksLoading.value = false; }
         };
@@ -223,7 +225,7 @@ window.ScholarLibraryV4View = {
                 }, 45000);
                 const payload = await request.json().catch(() => ({}));
                 if (!request.ok) throw new Error(payload?.error || 'HTTP ' + request.status);
-                validateV5(payload);
+                validateEngine(payload);
                 if (!payload?.translation?.text_fr) throw new Error('Aucune traduction exploitable n’a été reçue.');
                 translations.value = { ...translations.value, [key]: payload.translation };
                 nextTick(() => document.querySelector('.ar5-ai-translation')?.scrollIntoView?.({ behavior: 'smooth', block: 'nearest' }));
@@ -319,7 +321,7 @@ window.ScholarLibraryV4View = {
 
                     <section v-if="response && answer" class="ar5-results">
                         <div class="ar5-result-head"><div><span>Résultat documentaire</span><h2>{{ resultTitle }}</h2><p>{{ answer.summary }}</p></div><button type="button" class="ar5-new-search" @click="reset"><i data-lucide="plus"></i>Nouvelle recherche</button></div>
-                        <div class="ar5-analysis"><div><span>Moteur</span><strong>RAG V5</strong></div><div><span>Mode</span><strong>{{ routedBook ? 'Ouvrage ciblé' : 'Corpus général' }}</strong></div><div v-if="routedBook"><span>Ouvrage détecté</span><strong>{{ routedBook.title }}</strong></div><div><span>Notions</span><strong>{{ displayedNotions.join(' · ') || 'Recherche lexicale' }}</strong></div></div>
+                        <div class="ar5-analysis"><div><span>Moteur</span><strong>{{ engineLabel }}</strong></div><div><span>Mode</span><strong>{{ routedBook ? 'Ouvrage ciblé' : 'Corpus général' }}</strong></div><div v-if="routedBook"><span>Ouvrage détecté</span><strong>{{ routedBook.title }}</strong></div><div><span>Notions</span><strong>{{ displayedNotions.join(' · ') || 'Recherche lexicale' }}</strong></div></div>
 
                         <div v-if="sources.length" class="ar5-result-layout">
                             <div class="ar5-source-list">
