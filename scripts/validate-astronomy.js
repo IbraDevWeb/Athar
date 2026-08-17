@@ -22,8 +22,14 @@ const css = read('css/ancient-sky.css');
 ['.sky5-shell','.sky5-planisphere','.sky5-inspector','.sky5-guides','html.athar-app-fullscreen .sky5-frame','@media (max-width: 640px)','touch-action: manipulation'].forEach(t => need(css,t,'Astronomy CSS'));
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v36'","writeEarlyScript('astronomy_data.js'","writeEarlyScript('js/components/AncientSkyView.js'",'css/ancient-sky.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1];
+if (!appVersion) fail('config.js does not declare APP_VERSION.');
+['writeEarlyScript(\'astronomy_data.js\'','writeEarlyScript(\'js/components/AncientSkyView.js\'','css/ancient-sky.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v36'",'./astronomy_data.js?v=athar-pro-v36','./js/components/AncientSkyView.js?v=athar-pro-v36','./css/ancient-sky.css?v=athar-pro-v36'].forEach(t => need(worker,t,'service worker'));
+const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1];
+if (!cacheVersion) fail('service-worker.js does not declare CACHE_VERSION.');
+if (cacheVersion !== appVersion) fail(`Version mismatch: APP_VERSION=${appVersion}, CACHE_VERSION=${cacheVersion}.`);
+[`./astronomy_data.js?v=${appVersion}`,`./js/components/AncientSkyView.js?v=${appVersion}`,`./css/ancient-sky.css?v=${appVersion}`].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Planisphère pédagogique','metadata');
-console.log(`Astronomy validated: ${data.objects.length} objects and cache v36.`);
+console.log(`Astronomy validated: ${data.objects.length} objects and cache ${cacheVersion}.`);
