@@ -9,7 +9,7 @@ const visibleFullscreenCount = page => page.evaluate(() => {
   return nodes.filter(node => {
     if (node.hidden || node.closest('[hidden]')) return false;
     const style = getComputedStyle(node);
-    return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
+    return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0' && node.getClientRects().length > 0;
   }).length;
 });
 
@@ -38,6 +38,26 @@ async function assertHealthy(page, label) {
   assert.ok(controls <= 1, `${label}: ${controls} contrôles grand écran visibles`);
 }
 
+async function startHiddenMutationProbe(page) {
+  await page.evaluate(() => {
+    window.__atharUxHiddenMutations = 0;
+    window.__atharUxMutationProbe?.disconnect?.();
+    window.__atharUxMutationProbe = new MutationObserver(records => {
+      window.__atharUxHiddenMutations += records.filter(record => record.type === 'attributes' && record.attributeName === 'hidden').length;
+    });
+    window.__atharUxMutationProbe.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
+  });
+}
+
+async function assertResearchVisible(page, label) {
+  await page.waitForSelector('.ar5-shell', { state: 'visible', timeout: 20_000 });
+  await page.waitForFunction(() => document.querySelector('.ar5-shell')?.innerText?.includes('Athar Research'), { timeout: 20_000 });
+  await page.waitForTimeout(700);
+  await assertHealthy(page, label);
+  const mutations = await page.evaluate(() => window.__atharUxHiddenMutations || 0);
+  assert.ok(mutations < 10, `${label}: boucle de mutations hidden détectée (${mutations})`);
+}
+
 async function openFreshAndClick(page, label) {
   await page.goto(`${base}/index.html?uxv39=${encodeURIComponent(label)}`, { waitUntil: 'domcontentloaded', timeout: 90_000 });
   await waitForApp(page);
@@ -52,6 +72,15 @@ async function desktopFlow() {
   const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
   const pageErrors = [];
   page.on('pageerror', error => pageErrors.push(String(error?.stack || error)));
+
+  await page.goto(`${base}/index.html?uxv39=research`, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await waitForApp(page);
+  assert.equal(await page.evaluate(() => window.AtharUX.version), 'athar-ux-v39-safe-2');
+  await startHiddenMutationProbe(page);
+  const researchNav = page.locator('[data-athar-research-v5-nav]').first();
+  await researchNav.waitFor({ state: 'visible', timeout: 20_000 });
+  await researchNav.click();
+  await assertResearchVisible(page, 'Athar Research');
 
   const sections = [
     'Bibliothèque',
@@ -68,7 +97,7 @@ async function desktopFlow() {
 
   await page.goto(`${base}/index.html?uxv39=immersive`, { waitUntil: 'domcontentloaded', timeout: 90_000 });
   await waitForApp(page);
-  assert.equal(await page.evaluate(() => window.AtharUX.version), 'athar-ux-v39-safe-1');
+  assert.equal(await page.evaluate(() => window.AtharUX.version), 'athar-ux-v39-safe-2');
 
   const fullscreen = page.locator('#athar-fullscreen-toggle');
   await fullscreen.waitFor({ state: 'visible', timeout: 20_000 });
@@ -76,6 +105,14 @@ async function desktopFlow() {
   await fullscreen.click();
   await page.waitForFunction(() => Boolean(document.fullscreenElement) || document.documentElement.classList.contains('athar-app-fullscreen'), { timeout: 10_000 });
   assert.equal(await page.evaluate(() => localStorage.getItem('athar_immersive_intent_v39')), '1');
+
+  // Régression V39 : ouvrir Research depuis l'accueil alors que l'intention immersive est active.
+  await startHiddenMutationProbe(page);
+  const homeResearch = page.getByRole('button', { name: /Interroger Athar Research/i }).first();
+  await homeResearch.waitFor({ state: 'visible', timeout: 15_000 });
+  await homeResearch.click();
+  await assertResearchVisible(page, 'Athar Research immersif');
+  await page.waitForFunction(() => document.querySelector('#athar-immersive-current span')?.textContent === 'Athar Research', { timeout: 10_000 });
 
   const immersiveMenu = page.locator('#athar-immersive-menu');
   await immersiveMenu.waitFor({ state: 'visible', timeout: 10_000 });
@@ -122,8 +159,6 @@ async function mobileFlow() {
   await menu.waitFor({ state: 'visible', timeout: 15_000 });
   await menu.click();
 
-  // Le SPA et MobileExperience contiennent tous deux des boutons « Hadiths ».
-  // On cible explicitement le panneau de menu Vue visible au premier plan.
   const mobileOverlay = page
     .locator('#app div[class*="absolute"][class*="inset-0"][class*="z-50"]')
     .filter({ hasText: 'Menu' })
