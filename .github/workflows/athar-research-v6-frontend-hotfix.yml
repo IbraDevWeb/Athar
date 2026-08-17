@@ -29,7 +29,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
-          def replace(path, old, new, *, required=True):
+          def replace(path, old, new, required=True):
               p = Path(path)
               text = p.read_text(encoding='utf-8')
               if old not in text:
@@ -41,57 +41,23 @@ jobs:
 
           view = 'js/components/ScholarLibraryV4View.js'
           replace(view, '// Athar Research — interface documentaire V5', '// Athar Research — interface documentaire V6-compatible')
-          replace(
-              view,
-              "const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? 'RAG V5' : 'RAG');",
-              "const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? `RAG V${Number(status.value.engine_version || 0)}` : 'RAG');"
-          )
+          replace(view, "const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? 'RAG V5' : 'RAG');", "const engineLabel = computed(() => Number(status.value.engine_version || 0) >= 5 ? `RAG V${Number(status.value.engine_version || 0)}` : 'RAG');")
           replace(view, "url.searchParams.set('v', 'rag-v5-ui');", "url.searchParams.set('v', 'rag-v6-ui');")
-          replace(
-              view,
-              """        const validateV5 = payload => {
-            if (!payload?.ok) throw new Error(payload?.error || 'Réponse API invalide.');
-            if (Number(payload?.engine_version || 0) !== 5 || payload?.engine !== 'rag-v5-hybrid-multilingual') throw new Error('Le moteur documentaire V5 n’est pas encore actif.');
-            return payload;
-        };""",
-              """        const validateEngine = payload => {
-            if (!payload?.ok) throw new Error(payload?.error || 'Réponse API invalide.');
-            const engineVersion = Number(payload?.engine_version || 0);
-            const engineName = String(payload?.engine || '');
-            if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {
-                throw new Error('Le moteur documentaire Athar n’est pas disponible.');
-            }
-            return payload;
-        };"""
-          )
+          replace(view, 'const validateV5 = payload => {', 'const validateEngine = payload => {')
+          replace(view, "            if (Number(payload?.engine_version || 0) !== 5 || payload?.engine !== 'rag-v5-hybrid-multilingual') throw new Error('Le moteur documentaire V5 n’est pas encore actif.');", "            const engineVersion = Number(payload?.engine_version || 0);\n            const engineName = String(payload?.engine || '');\n            if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) throw new Error('Le moteur documentaire Athar n’est pas disponible.');")
           replace(view, 'validateV5(', 'validateEngine(')
-          replace(
-              view,
-              'status.value = { ...status.value, connected: true, engine_version: 5 };',
-              "status.value = { ...status.value, connected: true, engine_version: Number(payload?.engine_version || status.value.engine_version || 0), engine: payload?.engine || status.value.engine || '' };"
-          )
+          replace(view, 'status.value = { ...status.value, connected: true, engine_version: 5 };', "status.value = { ...status.value, connected: true, engine_version: Number(payload?.engine_version || status.value.engine_version || 0), engine: payload?.engine || status.value.engine || '' };")
           replace(view, '<div class="ar5-analysis"><div><span>Moteur</span><strong>RAG V5</strong></div>', '<div class="ar5-analysis"><div><span>Moteur</span><strong>{{ engineLabel }}</strong></div>')
 
-          config = 'js/config.js'
-          replace(config, "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-2';", "const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1';")
-
-          worker = 'service-worker.js'
-          replace(worker, 'athar-research-v5-ui-2', 'athar-research-v6-ui-1')
+          replace('js/config.js', "const RESEARCH_UI_VERSION = 'athar-research-v5-ui-2';", "const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1';")
+          replace('service-worker.js', 'athar-research-v5-ui-2', 'athar-research-v6-ui-1')
 
           validator = 'scripts/validate-rag-v4.js'
           replace(validator, 'Athar Research V5 validation failed:', 'Athar Research validation failed:')
-          replace(
-              validator,
-              '"payload?.engine !== \'rag-v5-hybrid-multilingual\'", \'REQUEST_TIMEOUT_MS = 120000\'',
-              "'const validateEngine = payload =>', 'engineVersion < 5', 'REQUEST_TIMEOUT_MS = 120000'"
-          )
+          replace(validator, '"payload?.engine !== \'rag-v5-hybrid-multilingual\'", \'REQUEST_TIMEOUT_MS = 120000\'', "'const validateEngine = payload =>', 'engineVersion < 5', 'REQUEST_TIMEOUT_MS = 120000'")
           replace(validator, "'python rag/v5_library_server.py --host 0.0.0.0 --api-only',", "'python rag/v653_library_server.py --host 0.0.0.0 --api-only',")
           replace(validator, 'athar-research-v5-ui-2', 'athar-research-v6-ui-1')
-          replace(
-              validator,
-              "console.log('Athar Research V5 static contract valid — grounded AI synthesis after RAG retrieval, cited positions, reader translation, full-screen access and sharded low-memory deployment.');",
-              "console.log('Athar Research static contract valid — V6-compatible frontend, grounded AI synthesis, cited positions, reader translation and sharded deployment.');"
-          )
+          replace(validator, "console.log('Athar Research V5 static contract valid — grounded AI synthesis after RAG retrieval, cited positions, reader translation, full-screen access and sharded low-memory deployment.');", "console.log('Athar Research static contract valid — V6-compatible frontend, grounded AI synthesis, cited positions, reader translation and sharded deployment.');")
 
           print('Athar Research V6 frontend compatibility patch applied.')
           PY
