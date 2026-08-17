@@ -1,0 +1,47 @@
+name: Emergency rollback UX v38
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/emergency-rollback-ux-v38.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-emergency-rollback-v38
+  cancel-in-progress: true
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Revert broken UX v38 runtime commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git log --format=%H --all | grep -qx 'd35138353277cd5163350632c6a57198fbb75b8d'; then
+            git revert --no-edit d35138353277cd5163350632c6a57198fbb75b8d
+            git push origin HEAD:main
+          else
+            echo 'Target UX commit not found; refusing unsafe rollback.'
+            exit 1
+          fi
+
+      - name: Confirm restored runtime files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git show HEAD:js/app.js >/dev/null
+          git show HEAD:js/components/GlobalFullscreen.js >/dev/null
+          git show HEAD:js/config.js >/dev/null
+          git show HEAD:research-library.html >/dev/null
+          echo 'Rollback commit created and core runtime files restored.'
