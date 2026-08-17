@@ -1,0 +1,126 @@
+name: Athar UX v38 unification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/athar-ux-unification.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-ux-v38-unification
+  cancel-in-progress: true
+
+jobs:
+  unify-and-verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply global UX unification
+        run: python scripts/apply_ux_unification.py
+
+      - name: Check changed JavaScript syntax
+        shell: bash
+        run: |
+          node --check js/components/GlobalFullscreen.js
+          node --check js/new-tools-fullscreen.js
+          node --check js/app.js
+          node --check js/components/ScholarV4Bootstrap.js
+          node --check js/config.js
+          node --check service-worker.js
+          node --check scripts/validate-ux-consistency.js
+          node --check scripts/validate-rag-v4.js
+
+      - name: Validate UX contracts
+        shell: bash
+        run: |
+          node scripts/validate-ux-consistency.js
+          node scripts/validate-fullscreen-timeline.js
+          node scripts/validate-immersive-adhkar.js
+          node scripts/validate-immersive-theme.js
+          node scripts/validate-mobile-ux.js
+          node scripts/validate-interactions.js
+          node scripts/validate-rag-v4.js
+
+      - name: Commit UX v38
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'No UX changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            js/components/GlobalFullscreen.js \
+            js/new-tools-fullscreen.js \
+            js/app.js \
+            js/components/ScholarV4Bootstrap.js \
+            research-library.html \
+            css/new-tools-fullscreen.css \
+            css/ux-consistency.css \
+            js/config.js \
+            service-worker.js \
+            scripts/validate-rag-v4.js \
+            scripts/validate-ux-consistency.js
+          git commit -m 'Unify Athar ergonomics and immersive navigation'
+          git push origin HEAD:main
+
+      - name: Verify GitHub Pages UX v38
+        shell: bash
+        run: |
+          python - <<'PY'
+          import time
+          import urllib.request
+
+          site = 'https://ibradevweb.github.io/Athar/'
+
+          def get(path):
+              req = urllib.request.Request(
+                  site + path,
+                  headers={'Cache-Control':'no-cache', 'User-Agent':'Athar-UX-v38-live'}
+              )
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  return response.read().decode('utf-8')
+
+          last = None
+          for attempt in range(1, 37):
+              try:
+                  page = get(f'research-library.html?ux={attempt}')
+                  config = get(f'js/config.js?ux={attempt}')
+                  local = get(f'js/new-tools-fullscreen.js?v=athar-pro-v38&ux={attempt}')
+                  global_ui = get(f'js/components/GlobalFullscreen.js?v=athar-pro-v38&ux={attempt}')
+                  css = get(f'css/ux-consistency.css?v=athar-pro-v38&ux={attempt}')
+
+                  assert 'css/ux-consistency.css?v=athar-pro-v38' in page
+                  assert 'js/new-tools-fullscreen.js?v=athar-pro-v38' in page
+                  assert "const APP_VERSION = 'athar-pro-v38'" in config
+                  assert "const PERSIST_KEY = 'athar_immersive_enabled'" in local
+                  assert "data.atharNewtoolFullscreen = 'shared'" in local
+                  assert "const PERSIST_KEY = 'athar_immersive_enabled'" in global_ui
+                  assert 'athar-global-content' in global_ui
+                  assert 'html.athar-app-fullscreen [data-athar-newtool-fullscreen]' in css
+                  assert '--athar-ux-topbar: 68px' in css
+
+                  print('ATHAR UX V38 LIVE: PASS')
+                  break
+              except Exception as exc:
+                  last = exc
+                  print(f'Attempt {attempt}/36: {type(exc).__name__}: {exc}', flush=True)
+                  if attempt == 36:
+                      raise
+                  time.sleep(10)
+          else:
+              raise RuntimeError(last or 'UX live verification failed')
+          PY
