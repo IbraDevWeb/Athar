@@ -22,8 +22,13 @@ const css = read('css/scriptorium.css');
 if ((css.match(/{/g)||[]).length !== (css.match(/}/g)||[]).length) fail('Unbalanced CSS braces.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v36'","writeEarlyScript('scriptorium_data.js'",'css/scriptorium.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1];
+if (!appVersion) fail('config.js does not declare APP_VERSION.');
+["writeEarlyScript('scriptorium_data.js'",'css/scriptorium.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v36'",'./scriptorium_data.js?v=athar-pro-v36','./css/scriptorium.css?v=athar-pro-v36'].forEach(t => need(worker,t,'service worker'));
+const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1];
+if (!cacheVersion) fail('service-worker.js does not declare CACHE_VERSION.');
+if (cacheVersion !== appVersion) fail(`Version mismatch: APP_VERSION=${appVersion}, CACHE_VERSION=${cacheVersion}.`);
+[`./scriptorium_data.js?v=${appVersion}`,`./css/scriptorium.css?v=${appVersion}`].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Galerie interactive des écritures, supports et rythmes','metadata');
-console.log(`Scriptorium validated: ${data.folios.length} folios and cache v36.`);
+console.log(`Scriptorium validated: ${data.folios.length} folios and cache ${cacheVersion}.`);

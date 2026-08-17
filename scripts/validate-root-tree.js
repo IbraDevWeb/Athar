@@ -31,8 +31,13 @@ const css = read('css/root-tree.css');
 if ((css.match(/{/g)||[]).length !== (css.match(/}/g)||[]).length) fail('Unbalanced CSS braces.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v36'","writeEarlyScript('roots_data.js'",'css/root-tree.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
+const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1];
+if (!appVersion) fail('config.js does not declare APP_VERSION.');
+["writeEarlyScript('roots_data.js'",'css/root-tree.css?v=${APP_VERSION}'].forEach(t => need(config,t,'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v36'",'./roots_data.js?v=athar-pro-v36','./css/root-tree.css?v=athar-pro-v36'].forEach(t => need(worker,t,'service worker'));
+const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1];
+if (!cacheVersion) fail('service-worker.js does not declare CACHE_VERSION.');
+if (cacheVersion !== appVersion) fail(`Version mismatch: APP_VERSION=${appVersion}, CACHE_VERSION=${cacheVersion}.`);
+[`./roots_data.js?v=${appVersion}`,`./css/root-tree.css?v=${appVersion}`].forEach(t => need(worker,t,'service worker'));
 need(read('extensions_data.js'),'Explorateur visuel des racines arabes','metadata');
-console.log(`Root Tree validated: ${data.roots.length} roots, ${derivativeIds.size} derivatives and cache v36.`);
+console.log(`Root Tree validated: ${data.roots.length} roots, ${derivativeIds.size} derivatives and cache ${cacheVersion}.`);

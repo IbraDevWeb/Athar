@@ -158,10 +158,12 @@ const openBraces = (css.match(/{/g) || []).length;
 const closeBraces = (css.match(/}/g) || []).length;
 if (openBraces !== closeBraces) fail(`unbalanced CSS braces: ${openBraces} opening / ${closeBraces} closing`);
 
-const configVersion = Number(config.match(/const APP_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
-const workerVersion = Number(worker.match(/const CACHE_VERSION = 'athar-pro-v(\d+)'/)?.[1] || 0);
-if (configVersion !== workerVersion || configVersion < 26) {
-    fail(`inconsistent or stale application cache: config v${configVersion}, worker v${workerVersion}`);
+const configVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1] || '';
+const workerVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1] || '';
+const configMajor = Number(configVersion.match(/^athar-pro-v(\d+)/)?.[1] || 0);
+const workerMajor = Number(workerVersion.match(/^athar-pro-v(\d+)/)?.[1] || 0);
+if (!configVersion || configVersion !== workerVersion || configMajor !== workerMajor || configMajor < 26) {
+    fail(`inconsistent or stale application cache: config ${configVersion || 'missing'}, worker ${workerVersion || 'missing'}`);
 }
 
 for (const legacy of [
@@ -175,9 +177,9 @@ for (const legacy of [
 }
 
 for (const asset of [
-    `css/transmission.css?v=athar-pro-v${workerVersion}`,
-    `js/components/TransmissionView.js?v=athar-pro-v${workerVersion}`,
-    `transmission_data.js?v=athar-pro-v${workerVersion}`
+    `css/transmission.css?v=${workerVersion}`,
+    `js/components/TransmissionView.js?v=${workerVersion}`,
+    `transmission_data.js?v=${workerVersion}`
 ]) {
     if (!worker.includes(asset)) fail(`Transmission asset missing from cache: ${asset}`);
 }
@@ -192,5 +194,5 @@ const counts = requiredGroups
     .join(', ');
 console.log(
     `Transmission Editorial valid — ${SILSILA_DATA.nodes.length} profiles, ${SILSILA_DATA.edges.length} links, ` +
-    `${SILSILA_JOURNEYS.length} journeys (${counts}); portrait, lineage rail, command palette, profile, journeys, review, mobile and immersive v${workerVersion}.`
+    `${SILSILA_JOURNEYS.length} journeys (${counts}); portrait, lineage rail, command palette, profile, journeys, review, mobile and immersive ${workerVersion}.`
 );
