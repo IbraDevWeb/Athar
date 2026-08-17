@@ -1,8 +1,10 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "athar-ux-v39-safe-1"
-APP_VERSION = "athar-pro-v39-safe-1"
+VERSION = "athar-ux-v39-safe-2"
+APP_VERSION = "athar-pro-v39-safe-2"
+PREVIOUS_VERSION = "athar-ux-v39-safe-1"
+PREVIOUS_APP_VERSION = "athar-pro-v39-safe-1"
 
 
 def read(path: str) -> str:
@@ -21,9 +23,13 @@ def replace_required(text: str, old: str, new: str, label: str) -> str:
     return text.replace(old, new, 1)
 
 
+def migrate_versions(text: str) -> str:
+    return text.replace(PREVIOUS_APP_VERSION, APP_VERSION).replace(PREVIOUS_VERSION, VERSION)
+
+
 def patch_config() -> None:
     path = "js/config.js"
-    text = read(path)
+    text = migrate_versions(read(path))
     text = replace_required(
         text,
         "const APP_VERSION = 'athar-pro-v36';",
@@ -50,7 +56,7 @@ def patch_config() -> None:
 
 def patch_library() -> None:
     path = "research-library.html"
-    text = read(path)
+    text = migrate_versions(read(path))
 
     css_line = f'  <link rel="stylesheet" href="css/ux-v39-safe.css?v={VERSION}">'
     if css_line not in text:
@@ -71,7 +77,7 @@ def patch_library() -> None:
 
 def patch_service_worker() -> None:
     path = "service-worker.js"
-    text = read(path)
+    text = migrate_versions(read(path))
     text = text.replace("athar-pro-v36", APP_VERSION)
 
     css_entry = f"    './css/ux-v39-safe.css?v={VERSION}',"
@@ -105,6 +111,8 @@ def validate() -> None:
         "worker cache": f"const CACHE_VERSION = '{APP_VERSION}';" in worker,
         "worker css": f"css/ux-v39-safe.css?v={VERSION}" in worker,
         "worker js": f"js/ux-v39-safe.js?v={VERSION}" in worker,
+        "old ux removed": PREVIOUS_VERSION not in config + library + worker,
+        "old app removed": PREVIOUS_APP_VERSION not in config + worker,
     }
     failed = [name for name, ok in checks.items() if not ok]
     if failed:
@@ -116,4 +124,4 @@ if __name__ == "__main__":
     patch_library()
     patch_service_worker()
     validate()
-    print("Athar UX v39 safe patch applied.")
+    print("Athar UX v39 safe patch v2 applied.")
