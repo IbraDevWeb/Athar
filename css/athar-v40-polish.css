@@ -1,0 +1,237 @@
+/* Athar V40.1 — professional polish for Research + Library. */
+:root {
+  --a401-control-h: 40px;
+}
+
+/* Research lives inside the Athar shell: do not repeat the global brand/navigation. */
+.athar-v40 .ar5-topbar {
+  height: 52px;
+  flex-basis: 52px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 0 16px;
+  background: color-mix(in srgb, var(--a40-surface-local) 97%, transparent);
+  box-shadow: none;
+}
+.athar-v40 .ar5-topbar .ar5-brand { display: none !important; }
+.athar-v40 .ar5-runtime {
+  justify-self: start;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 0;
+  background: transparent;
+}
+.athar-v40 .ar5-top-actions { grid-column: 2; }
+.athar-v40 .ar5-top-actions .ar5-ghost { display: none !important; }
+.athar-v40 .ar40-library-link {
+  min-height: 36px;
+  border-radius: 10px;
+  padding-inline: 12px;
+  background: var(--a40-card-local);
+}
+
+/* A denser research workspace leaves more room to the actual evidence. */
+.athar-v40 .ar5-frame { grid-template-columns: 204px minmax(0, 1fr); }
+.athar-v40 .ar5-rail { padding: 14px 10px 12px; }
+.athar-v40 .ar5-rail-intro { padding: 2px 9px 12px; }
+.athar-v40 .ar5-rail-intro p { max-width: 170px; }
+.athar-v40 .ar5-rail nav button { min-height: 48px; }
+.athar-v40 .ar5-classic-link { display: none; }
+.athar-v40 .ar5-main { padding-top: 22px; }
+.athar-v40 .ar5-main > * { max-width: 1380px; }
+.athar-v40 .ar5-hero { padding-top: 4px; }
+.athar-v40 .ar5-hero h1 { font-size: clamp(36px, 4.2vw, 58px); max-width: 880px; }
+.athar-v40 .ar5-hero > p { max-width: 850px; }
+.athar-v40 .ar5-answer-modes { margin-bottom: 8px; }
+.athar-v40 .ar5-composer,
+.athar-v40 .ar5-filters,
+.athar-v40 .ar40-composer-hint { max-width: 1180px; }
+
+/* Results: source list as navigator, evidence as primary reading surface. */
+.athar-v40 .ar5-result-layout {
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+  gap: 16px;
+}
+.athar-v40 .ar5-source-list {
+  position: sticky;
+  top: 8px;
+  max-height: calc(100vh - 92px);
+  overflow: auto;
+  padding-right: 3px;
+  scrollbar-width: thin;
+}
+.athar-v40 .ar5-source-card { padding: 12px 13px; }
+.athar-v40 .ar5-evidence {
+  top: 8px;
+  max-height: calc(100vh - 92px);
+}
+.athar-v40 .ar5-synthesis { padding: clamp(18px, 2vw, 26px); }
+.athar-v40 .ar5-position-grid { gap: 10px; }
+
+/* Corpus cards become more clearly actionable. */
+.athar-v40 .ar5-book-card[data-book-id] {
+  cursor: pointer;
+  position: relative;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.athar-v40 .ar5-book-card[data-book-id]::after {
+  content: 'Lire';
+  position: absolute;
+  right: 13px;
+  bottom: 12px;
+  color: var(--a40-gold-local);
+  font: 750 9px/1 Inter, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .72;
+}
+.athar-v40 .ar5-book-card[data-book-id]:hover,
+.athar-v40 .ar5-book-card[data-book-id]:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--a40-gold) 40%, var(--a40-line-strong));
+  box-shadow: var(--a40-shadow-soft);
+}
+
+/* ---------- Scholarly Library ---------- */
+body.athar-v40-library {
+  background: #f4f1ea;
+}
+body.athar-v40-library .library-topbar {
+  height: 64px;
+  gap: 20px;
+  padding-inline: max(18px, calc((100vw - 1520px) / 2));
+  background: rgba(255, 254, 250, .96);
+  border-bottom-color: #e5ded2;
+  box-shadow: 0 1px 0 rgba(25, 20, 14, .025);
+}
+body.athar-v40-library .library-brand { min-width: 176px; }
+body.athar-v40-library .library-brand-mark { width: 36px; height: 36px; border-radius: 11px; }
+body.athar-v40-library .library-nav a:first-child { display: none; }
+body.athar-v40-library .library-nav a {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10px;
+}
+body.athar-v40-library .library-topbar-actions > a { display: none; }
+body.athar-v40-library .library-status {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid #e5ded2;
+  border-radius: 999px;
+  background: #fff;
+}
+body.athar-v40-library .library-shell {
+  width: min(1520px, calc(100% - 36px));
+  padding-top: 22px;
+}
+body.athar-v40-library .library-hero {
+  min-height: 286px;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+  gap: 32px;
+  padding: clamp(32px, 4vw, 48px);
+  border-radius: 22px;
+}
+body.athar-v40-library .library-hero h1 { font-size: clamp(36px, 4.4vw, 58px); }
+body.athar-v40-library .library-hero p { margin-top: 14px; }
+body.athar-v40-library .hero-search { margin-top: 22px; }
+body.athar-v40-library .catalog-layout {
+  grid-template-columns: 236px minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+body.athar-v40-library .catalog-sidebar {
+  top: 78px;
+  border-radius: 16px;
+}
+body.athar-v40-library .catalog-toolbar {
+  position: sticky;
+  top: 72px;
+  z-index: 12;
+  padding: 13px 14px;
+  border: 1px solid #e5ded2;
+  border-radius: 16px;
+  background: rgba(255, 254, 250, .94);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 6px 22px rgba(28, 23, 17, .045);
+}
+body.athar-v40-library .catalog-grid { margin-top: 12px; }
+body.athar-v40-library .book-card {
+  border-radius: 17px;
+  box-shadow: none;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+body.athar-v40-library .book-card:hover,
+body.athar-v40-library .book-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: #cdbb9d;
+  box-shadow: 0 12px 30px rgba(30, 24, 17, .075);
+}
+
+/* Reader: app-like top bar, stable tools, quieter paper. */
+body.athar-v40-library .reader-appbar {
+  min-height: 64px;
+  border-bottom-color: #e5ded2;
+  background: rgba(255, 254, 250, .97);
+}
+body.athar-v40-library .reader-toolbar {
+  position: sticky;
+  top: 8px;
+  z-index: 15;
+  border: 1px solid #e5ded2;
+  border-radius: 14px;
+  background: rgba(255, 254, 250, .95);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 7px 22px rgba(28, 23, 17, .055);
+}
+body.athar-v40-library .reader-paper {
+  border-radius: 18px;
+  box-shadow: 0 16px 45px rgba(30, 24, 17, .075);
+}
+body.athar-v40-library .reader-reference { gap: 7px; }
+body.athar-v40-library .ar40-reader-research {
+  min-width: 168px;
+  white-space: nowrap;
+}
+body.athar-v40-library .ar40-reader-research svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+@media (min-width: 1500px) {
+  .athar-v40 .ar5-result-layout { grid-template-columns: 380px minmax(0, 1fr); }
+  body.athar-v40-library .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1100px) {
+  .athar-v40 .ar5-frame { grid-template-columns: 184px minmax(0, 1fr); }
+  .athar-v40 .ar5-result-layout { grid-template-columns: 320px minmax(0, 1fr); }
+  body.athar-v40-library .library-hero { grid-template-columns: 1fr; }
+  body.athar-v40-library .library-hero-stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .athar-v40 .ar5-topbar { grid-template-columns: 1fr auto; padding-inline: 10px; }
+  .athar-v40 .ar5-frame { display: block; }
+  .athar-v40 .ar5-rail { display: none; }
+  .athar-v40 .ar5-main { padding: 18px 14px 58px; }
+  .athar-v40 .ar5-result-layout { grid-template-columns: 1fr; }
+  .athar-v40 .ar5-source-list,
+  .athar-v40 .ar5-evidence { position: static; max-height: none; }
+  body.athar-v40-library .catalog-layout { grid-template-columns: 1fr; }
+  body.athar-v40-library .catalog-sidebar { position: static; }
+}
+
+@media (max-width: 640px) {
+  .athar-v40 .ar5-topbar { height: 48px; flex-basis: 48px; }
+  .athar-v40 .ar5-runtime small { display: none; }
+  .athar-v40 .ar40-library-link span { display: none; }
+  .athar-v40 .ar40-library-link { width: 36px; padding: 0; justify-content: center; }
+  .athar-v40 .ar5-hero h1 { font-size: 34px; }
+  .athar-v40 .ar5-answer-modes { width: 100%; grid-template-columns: 1fr 1fr; }
+  .athar-v40 .ar5-filters { grid-template-columns: 1fr; }
+  body.athar-v40-library .library-shell { width: min(100% - 20px, 1520px); }
+  body.athar-v40-library .library-topbar { padding-inline: 10px; }
+  body.athar-v40-library .library-nav { display: none; }
+  body.athar-v40-library .library-status { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  body.athar-v40-library .library-hero { padding: 28px 20px; }
+  body.athar-v40-library .library-hero-stats { grid-template-columns: 1fr 1fr; }
+  body.athar-v40-library .catalog-toolbar { position: static; }
+}
