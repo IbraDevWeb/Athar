@@ -3,7 +3,7 @@
 (() => {
   'use strict';
 
-  const VERSION = 'athar-ux-v39-safe-1';
+  const VERSION = 'athar-ux-v39-safe-2';
   const ROOT_CLASS = 'athar-ux-v39';
   const PERSIST_KEY = 'athar_immersive_intent_v39';
   const LOCAL_CLASS = 'athar-newtool-local-fullscreen';
@@ -35,10 +35,11 @@
 
   const elementVisible = element => {
     if (!element || element.hidden) return false;
-    const hiddenAncestor = element.closest('[hidden]');
+    const hiddenAncestor = element.parentElement?.closest?.('[hidden]');
     if (hiddenAncestor) return false;
     const style = window.getComputedStyle(element);
-    return style.display !== 'none' && style.visibility !== 'hidden';
+    if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;
+    return element.getClientRects().length > 0;
   };
 
   const fullscreenPriority = button => {
@@ -49,28 +50,59 @@
     return 0;
   };
 
+  const eligibleLocalControl = button => {
+    if (!button) return false;
+    if (button.hidden && !button.dataset.atharUxHidden) return false;
+    if (button.parentElement?.closest?.('[hidden]')) return false;
+    if (button.dataset.atharUxHidden) return true;
+    return elementVisible(button);
+  };
+
+  const setUxHidden = (button, reason = '') => {
+    if (!button) return;
+    const currentReason = button.dataset.atharUxHidden || '';
+    if (reason) {
+      if (currentReason !== reason) button.dataset.atharUxHidden = reason;
+      if (!button.hidden) button.hidden = true;
+      return;
+    }
+    if (!currentReason) return;
+    button.removeAttribute('data-athar-ux-hidden');
+    if (button.hidden) button.hidden = false;
+  };
+
+  function syncResearchChrome() {
+    const researchVisible = Boolean(document.querySelector('[data-athar-research-v5-route] .ar5-shell'));
+    if (!researchVisible) return;
+    const badge = document.querySelector('#athar-immersive-current span');
+    if (badge && badge.textContent !== 'Athar Research') badge.textContent = 'Athar Research';
+  }
+
   function syncFullscreenControls() {
     const globalButton = document.getElementById('athar-fullscreen-toggle');
     const locals = [...document.querySelectorAll('[data-athar-newtool-fullscreen]')];
 
-    locals.forEach(button => {
-      button.removeAttribute('data-athar-ux-hidden');
-      button.hidden = false;
-    });
-
-    if (elementVisible(globalButton)) {
-      locals.forEach(button => {
-        button.hidden = true;
-        button.dataset.atharUxHidden = 'global-controller';
-      });
+    // En mode immersif, ou lorsque le contrôleur global est réellement visible,
+    // il reste l'unique autorité. Surtout, on ne ré-affiche plus les boutons locaux
+    // avant de les remasquer : cette ancienne séquence créait une boucle MutationObserver
+    // au montage d'Athar Research.
+    if (globalActive() || elementVisible(globalButton)) {
+      locals.forEach(button => setUxHidden(button, 'global-controller'));
+      syncResearchChrome();
       return;
     }
 
-    const visible = locals.filter(elementVisible).sort((a, b) => fullscreenPriority(b) - fullscreenPriority(a));
-    visible.slice(1).forEach(button => {
-      button.hidden = true;
-      button.dataset.atharUxHidden = 'duplicate';
+    const candidates = locals
+      .filter(eligibleLocalControl)
+      .sort((a, b) => fullscreenPriority(b) - fullscreenPriority(a));
+    const winner = candidates[0] || null;
+
+    locals.forEach(button => {
+      if (button === winner) setUxHidden(button, '');
+      else if (candidates.includes(button)) setUxHidden(button, 'duplicate');
+      else if (button.dataset.atharUxHidden) setUxHidden(button, '');
     });
+    syncResearchChrome();
   }
 
   function applyPersistentMode() {
