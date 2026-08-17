@@ -40,28 +40,12 @@ jobs:
               p.write_text(text.replace(old, new), encoding='utf-8')
               return True
 
-          strict_reader = """      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {
-        throw new Error('Le serveur Athar Research attendu n’est pas disponible.');
-      }"""
-          compat_reader = """      if (payload?.engine) {
-        const engineVersion = Number(payload?.engine_version || 0);
-        const engineName = String(payload.engine || '');
-        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {
-          throw new Error('Le serveur Athar Research compatible n’est pas disponible.');
-        }
-      }"""
+          strict_reader = "      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {\n        throw new Error('Le serveur Athar Research attendu n’est pas disponible.');\n      }"
+          compat_reader = "      if (payload?.engine) {\n        const engineVersion = Number(payload?.engine_version || 0);\n        const engineName = String(payload.engine || '');\n        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {\n          throw new Error('Le serveur Athar Research compatible n’est pas disponible.');\n        }\n      }"
           replace('js/research-library-v2.js', strict_reader, compat_reader)
 
-          strict_ai = """      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {
-        throw new Error('Le moteur Athar Research attendu n’est pas disponible.');
-      }"""
-          compat_ai = """      if (payload?.engine) {
-        const engineVersion = Number(payload?.engine_version || 0);
-        const engineName = String(payload.engine || '');
-        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {
-          throw new Error('Le moteur Athar Research compatible n’est pas disponible.');
-        }
-      }"""
+          strict_ai = "      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {\n        throw new Error('Le moteur Athar Research attendu n’est pas disponible.');\n      }"
+          compat_ai = "      if (payload?.engine) {\n        const engineVersion = Number(payload?.engine_version || 0);\n        const engineName = String(payload.engine || '');\n        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {\n          throw new Error('Le moteur Athar Research compatible n’est pas disponible.');\n        }\n      }"
           replace('js/research-library-ai-tools.js', strict_ai, compat_ai)
 
           replace('research-library.html', 'athar-reader-v2', 'athar-reader-v3')
@@ -151,9 +135,8 @@ jobs:
                   if not book_id:
                       raise RuntimeError('first catalog book has no id')
 
-                  params = urllib.parse.urlencode({'book_id': book_id, 'offset': 0, 'limit': 3})
                   opened = get_json(api + '/api/rag/v5/book?' + urllib.parse.urlencode({'book_id': book_id}))
-                  read = get_json(api + '/api/rag/v5/read?' + params)
+                  read = get_json(api + '/api/rag/v5/read?' + urllib.parse.urlencode({'book_id': book_id, 'offset': 0, 'limit': 3}))
                   if not (opened.get('book') or opened.get('id') or opened.get('title')):
                       raise RuntimeError('book metadata endpoint returned no book')
                   if not (read.get('passages') or []):
