@@ -1,0 +1,183 @@
+name: Athar Library V6 compatibility hotfix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/athar-library-v6-hotfix.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: athar-library-v6-hotfix
+  cancel-in-progress: true
+
+jobs:
+  patch-and-verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Patch library reader for V5+/V6+ runtimes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path, old, new, required=True):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              if old not in text:
+                  if required:
+                      raise SystemExit(f'Missing expected token in {path}: {old!r}')
+                  return False
+              p.write_text(text.replace(old, new), encoding='utf-8')
+              return True
+
+          strict_reader = """      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {
+        throw new Error('Le serveur Athar Research attendu n’est pas disponible.');
+      }"""
+          compat_reader = """      if (payload?.engine) {
+        const engineVersion = Number(payload?.engine_version || 0);
+        const engineName = String(payload.engine || '');
+        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {
+          throw new Error('Le serveur Athar Research compatible n’est pas disponible.');
+        }
+      }"""
+          replace('js/research-library-v2.js', strict_reader, compat_reader)
+
+          strict_ai = """      if (payload?.engine && payload.engine !== 'rag-v5-hybrid-multilingual') {
+        throw new Error('Le moteur Athar Research attendu n’est pas disponible.');
+      }"""
+          compat_ai = """      if (payload?.engine) {
+        const engineVersion = Number(payload?.engine_version || 0);
+        const engineName = String(payload.engine || '');
+        if (engineVersion < 5 || !/^(?:rag|athar)-v/i.test(engineName)) {
+          throw new Error('Le moteur Athar Research compatible n’est pas disponible.');
+        }
+      }"""
+          replace('js/research-library-ai-tools.js', strict_ai, compat_ai)
+
+          replace('research-library.html', 'athar-reader-v2', 'athar-reader-v3')
+          replace('research-library.html', 'athar-reader-ai-1', 'athar-reader-ai-2')
+          replace('service-worker.js', 'athar-reader-v2', 'athar-reader-v3')
+
+          validator = 'scripts/validate-rag-v4.js'
+          replace(validator, 'athar-reader-v2', 'athar-reader-v3')
+          replace(validator, 'athar-reader-ai-1', 'athar-reader-ai-2')
+
+          print('Athar Library V6 compatibility patch applied.')
+          PY
+
+      - name: Validate reader JavaScript and contracts
+        run: |
+          node --check js/research-library-v2.js
+          node --check js/research-library-ai-tools.js
+          node --check service-worker.js
+          node --check scripts/validate-rag-v4.js
+          node scripts/validate-rag-v4.js
+          if grep -F "payload.engine !== 'rag-v5-hybrid-multilingual'" js/research-library-v2.js js/research-library-ai-tools.js; then
+            echo 'Legacy V5-only engine gate still present.'
+            exit 1
+          fi
+          grep -F 'engineVersion < 5' js/research-library-v2.js
+          grep -F 'engineVersion < 5' js/research-library-ai-tools.js
+          grep -F 'athar-reader-v3' research-library.html
+          grep -F 'athar-reader-ai-2' research-library.html
+
+      - name: Commit library hotfix
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'No changes required.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add js/research-library-v2.js js/research-library-ai-tools.js research-library.html service-worker.js scripts/validate-rag-v4.js
+            git commit -m 'Fix Athar book library for V6 runtime'
+            git push origin HEAD:main
+          fi
+
+      - name: Verify deployed library end to end
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import time
+          import urllib.parse
+          import urllib.request
+
+          site = 'https://ibradevweb.github.io/Athar/'
+          api = 'https://athar-rag-ibradevweb.onrender.com'
+
+          def get_text(url, timeout=60):
+              req = urllib.request.Request(url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Athar-Library-V6-live'})
+              with urllib.request.urlopen(req, timeout=timeout) as response:
+                  return response.read().decode('utf-8')
+
+          def get_json(url, timeout=90):
+              return json.loads(get_text(url, timeout))
+
+          last = None
+          for attempt in range(1, 37):
+              try:
+                  page = get_text(site + f'research-library.html?live={attempt}')
+                  reader = get_text(site + f'js/research-library-v2.js?v=athar-reader-v3&live={attempt}')
+                  ai = get_text(site + f'js/research-library-ai-tools.js?v=athar-reader-ai-2&live={attempt}')
+                  if 'athar-reader-v3' not in page or 'athar-reader-ai-2' not in page:
+                      raise RuntimeError('GitHub Pages still serves the previous reader version')
+                  if 'engineVersion < 5' not in reader or 'engineVersion < 5' not in ai:
+                      raise RuntimeError('V6-compatible reader assets not deployed yet')
+                  if "payload.engine !== 'rag-v5-hybrid-multilingual'" in reader or "payload.engine !== 'rag-v5-hybrid-multilingual'" in ai:
+                      raise RuntimeError('legacy V5-only gate is still deployed')
+
+                  catalog = get_json(api + '/api/rag/v5/library-books')
+                  if int(catalog.get('engine_version') or 0) < 5:
+                      raise RuntimeError('unexpected engine version')
+                  if not str(catalog.get('engine') or '').lower().startswith(('rag-v', 'athar-v')):
+                      raise RuntimeError('unexpected engine name')
+                  books = catalog.get('books') or []
+                  if not books:
+                      raise RuntimeError('catalog returned no books')
+
+                  book = next((b for b in books if int(b.get('chunks') or 0) > 0), books[0])
+                  book_id = str(book.get('id') or '')
+                  if not book_id:
+                      raise RuntimeError('first catalog book has no id')
+
+                  params = urllib.parse.urlencode({'book_id': book_id, 'offset': 0, 'limit': 3})
+                  opened = get_json(api + '/api/rag/v5/book?' + urllib.parse.urlencode({'book_id': book_id}))
+                  read = get_json(api + '/api/rag/v5/read?' + params)
+                  if not (opened.get('book') or opened.get('id') or opened.get('title')):
+                      raise RuntimeError('book metadata endpoint returned no book')
+                  if not (read.get('passages') or []):
+                      raise RuntimeError('reader endpoint returned no passages')
+
+                  print(json.dumps({
+                      'status': 'PASS',
+                      'engine': catalog.get('engine'),
+                      'engine_version': catalog.get('engine_version'),
+                      'books': len(books),
+                      'tested_book_id': book_id,
+                      'tested_book_title': book.get('title'),
+                      'passages_read': len(read.get('passages') or []),
+                      'reader_version': 'athar-reader-v3',
+                      'ai_tools_version': 'athar-reader-ai-2'
+                  }, ensure_ascii=False, indent=2))
+                  print('ATHAR BOOK LIBRARY END-TO-END: PASS')
+                  break
+              except Exception as exc:
+                  last = exc
+                  print(f'Attempt {attempt}/36: {type(exc).__name__}: {exc}', flush=True)
+                  if attempt == 36:
+                      raise
+                  time.sleep(10)
+          else:
+              raise RuntimeError(last or 'library live verification failed')
+          PY
