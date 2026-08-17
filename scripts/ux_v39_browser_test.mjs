@@ -38,15 +38,16 @@ async function assertHealthy(page, label) {
   assert.ok(controls <= 1, `${label}: ${controls} contrôles grand écran visibles`);
 }
 
-async function startHiddenMutationProbe(page) {
-  await page.evaluate(() => {
-    window.__atharUxHiddenMutations = 0;
-    window.__atharUxMutationProbe?.disconnect?.();
-    window.__atharUxMutationProbe = new MutationObserver(records => {
-      window.__atharUxHiddenMutations += records.filter(record => record.type === 'attributes' && record.attributeName === 'hidden').length;
-    });
-    window.__atharUxMutationProbe.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
-  });
+async function assertUxObserverSettles(page, label) {
+  // Le bootstrap V39 effectue volontairement quelques synchronisations pendant ~1,8 s.
+  // Après cette fenêtre, le dock mobile peut continuer à muter, mais il ne doit plus
+  // réveiller l'observateur V39 ni provoquer de boucle de rendu Research.
+  await page.waitForTimeout(2200);
+  const before = await page.evaluate(() => window.AtharUX?.getSyncRuns?.() ?? -1);
+  assert.ok(before >= 0, `${label}: compteur V39 indisponible`);
+  await page.waitForTimeout(600);
+  const after = await page.evaluate(() => window.AtharUX?.getSyncRuns?.() ?? -1);
+  assert.ok(after - before <= 2, `${label}: l'observateur V39 continue à tourner (${after - before} synchronisations en 600 ms)`);
 }
 
 async function assertResearchVisible(page, label) {
@@ -57,16 +58,8 @@ async function assertResearchVisible(page, label) {
   await shell.getByRole('heading', { name: /Chercher dans les textes/i }).waitFor({ state: 'visible', timeout: 10_000 });
   const box = await shell.boundingBox();
   assert.ok(box && box.width > 500 && box.height > 300, `${label}: la vue Research doit occuper la zone principale`);
-  await page.waitForTimeout(500);
   await assertHealthy(page, label);
-
-  // Les transitions Vue génèrent normalement plusieurs attributs hidden au montage.
-  // On mesure donc uniquement la phase stable : l'ancienne V39 continuait à basculer
-  // le bouton plein écran Research sans fin, tandis que la V39-safe-2 doit se calmer.
-  await startHiddenMutationProbe(page);
-  await page.waitForTimeout(500);
-  const stableMutations = await page.evaluate(() => window.__atharUxHiddenMutations || 0);
-  assert.ok(stableMutations <= 2, `${label}: mutations hidden persistantes détectées après stabilisation (${stableMutations})`);
+  await assertUxObserverSettles(page, label);
 }
 
 async function openFreshAndClick(page, label) {
@@ -116,7 +109,7 @@ async function desktopFlow() {
   await page.waitForFunction(() => Boolean(document.fullscreenElement) || document.documentElement.classList.contains('athar-app-fullscreen'), { timeout: 10_000 });
   assert.equal(await page.evaluate(() => localStorage.getItem('athar_immersive_intent_v39')), '1');
 
-  // Régression V39 : ouvrir Research depuis l'accueil alors que l'intention immersive est active.
+  // Régression exacte signalée : ouvrir Research alors que le shell immersif est actif.
   const homeResearch = page.getByRole('button', { name: /Interroger Athar Research/i }).first();
   await homeResearch.waitFor({ state: 'visible', timeout: 15_000 });
   await homeResearch.click();
