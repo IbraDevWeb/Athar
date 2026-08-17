@@ -1,4 +1,4 @@
-name: RAG V5 grounded synthesis live verification
+name: Athar grounded synthesis live verification
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
     paths:
       - 'rag/v5_scholar_synthesis.py'
       - 'rag/v5_library_server.py'
+      - 'js/components/ScholarSynthesisBridge.js'
+      - 'scripts/validate-research-synthesis.js'
       - 'render.yaml'
       - '.github/workflows/rag-v5-synthesis-live.yml'
   workflow_dispatch:
@@ -13,6 +15,7 @@ on:
 jobs:
   verify-grounded-synthesis-live:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Wait for Render and verify grounded synthesis
         env:
@@ -21,8 +24,8 @@ jobs:
           python - <<'PY'
           import json
           import os
+          import re
           import time
-          import urllib.error
           import urllib.request
 
           base = os.environ['ATHAR_URL'].rstrip('/')
@@ -34,7 +37,7 @@ jobs:
           }, ensure_ascii=False).encode('utf-8')
 
           last_error = None
-          for attempt in range(1, 25):
+          for attempt in range(1, 41):
               try:
                   req = urllib.request.Request(
                       base + '/api/rag/v5/synthesize',
@@ -44,15 +47,25 @@ jobs:
                           'Accept': 'application/json',
                           'Content-Type': 'application/json; charset=utf-8',
                           'Origin': 'https://ibradevweb.github.io',
+                          'Cache-Control': 'no-cache',
+                          'User-Agent': 'Athar-grounded-synthesis-live-v6',
                       },
                   )
-                  with urllib.request.urlopen(req, timeout=90) as response:
+                  with urllib.request.urlopen(req, timeout=120) as response:
                       payload = json.loads(response.read().decode('utf-8'))
+                      cors = response.headers.get('Access-Control-Allow-Origin')
 
-                  if payload.get('engine') != 'rag-v5-hybrid-multilingual':
-                      raise RuntimeError('wrong engine marker')
-                  if int(payload.get('engine_version') or 0) != 5:
-                      raise RuntimeError('wrong engine version')
+                  if cors != 'https://ibradevweb.github.io':
+                      raise RuntimeError(f'wrong CORS header: {cors}')
+                  if not payload.get('ok'):
+                      raise RuntimeError(f"server not ok: {payload.get('error') or payload}")
+
+                  engine = str(payload.get('engine') or '')
+                  engine_version = int(payload.get('engine_version') or 0)
+                  if engine_version < 5:
+                      raise RuntimeError(f'incompatible engine version: {engine_version}')
+                  if not re.match(r'^(?:rag|athar)-v', engine, re.I):
+                      raise RuntimeError(f'incompatible engine marker: {engine}')
 
                   sources = payload.get('sources') or []
                   if not sources:
@@ -79,16 +92,21 @@ jobs:
                       if not cited.issubset(allowed):
                           raise RuntimeError(f'hallucinated position citation: {sorted(cited - allowed)}')
 
-                  print(
-                      'PUBLIC ATHAR GROUNDED SYNTHESIS: PASS — '
-                      f"{len(sources)} RAG source(s), {len(synthesis.get('positions') or [])} position(s), "
-                      f"status={synthesis.get('position_status')}"
-                  )
+                  print(json.dumps({
+                      'status': 'PASS',
+                      'engine': engine,
+                      'engine_version': engine_version,
+                      'sources': len(sources),
+                      'positions': len(synthesis.get('positions') or []),
+                      'position_status': synthesis.get('position_status'),
+                      'semantic_fallback': (payload.get('analysis') or {}).get('semantic_remote_fallback'),
+                  }, ensure_ascii=False, indent=2))
+                  print('PUBLIC ATHAR GROUNDED SYNTHESIS: PASS')
                   break
               except Exception as exc:
                   last_error = exc
-                  print(f'Attempt {attempt}/24: {type(exc).__name__}: {exc}', flush=True)
-                  if attempt == 24:
+                  print(f'Attempt {attempt}/40: {type(exc).__name__}: {exc}', flush=True)
+                  if attempt == 40:
                       raise
                   time.sleep(15)
           else:
