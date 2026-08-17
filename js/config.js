@@ -49,7 +49,7 @@ tailwind.config = {
 
 (() => {
     const APP_VERSION = 'athar-pro-v39-safe-2';
-    const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1';
+    const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -143,6 +143,7 @@ tailwind.config = {
     ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
     ensureStylesheet(`css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}`, 'athar-research-v5-styles');
     ensureStylesheet('css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'athar-research-synthesis-styles');
+    ensureStylesheet('css/athar-research-library-v40.css?v=athar-v40-research-library-1', 'athar-v40-research-library-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
@@ -164,6 +165,7 @@ tailwind.config = {
     ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript('js/ux-v39-safe.js?v=athar-ux-v39-safe-2', 'athar-ux-v39-safe-bridge');
+    ensureScript('js/ux-v40-research-library.js?v=athar-v40-research-library-1', 'athar-v40-research-library-bridge');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
     ensureScript(`js/components/ThemeBridge.js?v=${APP_VERSION}`, 'athar-theme-bridge');
 
