@@ -40,8 +40,13 @@ const css = read('css/golden-chain.css');
 if ((css.match(/{/g)||[]).length !== (css.match(/}/g)||[]).length) fail('Unbalanced CSS braces.');
 
 const config = read('js/config.js');
-["const APP_VERSION = 'athar-pro-v36'","writeEarlyScript('isnad_data.js'","writeEarlyScript('js/components/GoldenChainView.js'",'css/golden-chain.css?v=${APP_VERSION}'].forEach(token => need(config, token, 'config.js'));
+const appVersion = config.match(/const APP_VERSION = '([^']+)'/)?.[1];
+if (!appVersion) fail('config.js does not declare APP_VERSION.');
+["writeEarlyScript('isnad_data.js'","writeEarlyScript('js/components/GoldenChainView.js'",'css/golden-chain.css?v=${APP_VERSION}'].forEach(token => need(config, token, 'config.js'));
 const worker = read('service-worker.js');
-["const CACHE_VERSION = 'athar-pro-v36'",'./isnad_data.js?v=athar-pro-v36','./js/components/GoldenChainView.js?v=athar-pro-v36','./css/golden-chain.css?v=athar-pro-v36'].forEach(token => need(worker, token, 'service worker'));
+const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1];
+if (!cacheVersion) fail('service-worker.js does not declare CACHE_VERSION.');
+if (cacheVersion !== appVersion) fail(`Version mismatch: APP_VERSION=${appVersion}, CACHE_VERSION=${cacheVersion}.`);
+[`./isnad_data.js?v=${appVersion}`,`./js/components/GoldenChainView.js?v=${appVersion}`,`./css/golden-chain.css?v=${appVersion}`].forEach(token => need(worker, token, 'service worker'));
 need(read('extensions_data.js'),'Explorateur pédagogique des isnāds','metadata');
-console.log(`Golden Chain validated: ${data.chains.length} chains, ${data.narrators.length} narrators and cache v36.`);
+console.log(`Golden Chain validated: ${data.chains.length} chains, ${data.narrators.length} narrators and cache ${cacheVersion}.`);
