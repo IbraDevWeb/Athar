@@ -1,8 +1,9 @@
-// Athar V40.1 — semantic labels and final Research/Library polish.
+// Athar V40.2 — semantic labels, runtime truth and final Research/Library polish.
 (() => {
   'use strict';
 
   const VERSION = 'athar-v40-polish-1';
+  const RUNTIME_TRUTH_VERSION = 'athar-v40-runtime-truth-1';
   let observer = null;
   let queued = false;
 
@@ -10,11 +11,17 @@
     if (node && node.textContent !== value) node.textContent = value;
   };
 
+  const connectedRuntimeLabel = shell => {
+    const label = shell?.querySelector('.ar5-runtime strong')?.textContent?.trim() || '';
+    return /^RAG V\d+(?:\.\d+){0,2}$/i.test(label) ? label : 'RAG';
+  };
+
   function polishResearch() {
     const shell = document.querySelector('.ar5-shell');
     if (!shell) return false;
 
     document.documentElement.dataset.atharV40Polish = VERSION;
+    document.documentElement.dataset.atharV40RuntimeTruth = RUNTIME_TRUTH_VERSION;
 
     // Remove stale user-facing V5 wording without touching internal route identifiers.
     document.querySelectorAll('.ar5-nav-version').forEach(node => setText(node, 'V6'));
@@ -26,11 +33,16 @@
       setText(intro.querySelector('p'), 'Recherche, synthèse sourcée et accès direct aux ouvrages du corpus.');
     }
 
-    // Keep the home presentation aligned with the current runtime.
+    // Never claim a minor backend release that the connected runtime has not exposed.
+    // ScholarLibraryV4View derives this label from the live API engine_version.
+    const runtimeLabel = connectedRuntimeLabel(shell);
     document.querySelectorAll('.ar5-home-side dl > div').forEach(row => {
       const key = row.querySelector('dt')?.textContent?.trim().toLowerCase();
       const value = row.querySelector('dd');
-      if (key === 'moteur') setText(value, 'RAG V6.5.3');
+      if (key === 'moteur') {
+        setText(value, runtimeLabel);
+        if (value) value.dataset.atharRuntimeSource = runtimeLabel === 'RAG' ? 'pending' : 'connected';
+      }
       if (key === 'accès') setText(value, 'Recherche · synthèse · lecture');
     });
 
@@ -82,14 +94,17 @@
   function start() {
     run();
     observer = new MutationObserver(records => {
-      if (records.some(record => record.type === 'childList' && record.addedNodes.length)) schedule();
+      if (records.some(record =>
+        (record.type === 'childList' && record.addedNodes.length)
+        || record.type === 'characterData'
+      )) schedule();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
   }
 
   window.addEventListener('beforeunload', () => observer?.disconnect(), { once: true });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
 
-  window.AtharV40Polish = Object.freeze({ version: VERSION, polishResearch, polishLibrary });
+  window.AtharV40Polish = Object.freeze({ version: VERSION, runtimeTruthVersion: RUNTIME_TRUTH_VERSION, polishResearch, polishLibrary });
 })();
