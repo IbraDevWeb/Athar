@@ -26,7 +26,7 @@
         if (cachedOrigin) return cachedOrigin;
         try {
             const url = new URL(REMOTE_CONFIG, window.location.href);
-            url.searchParams.set('v', 'rag-v5-synthesis');
+            url.searchParams.set('v', 'rag-v6-synthesis');
             const request = await window.fetch(url.href, { cache: 'no-store', headers: { Accept: 'application/json' } });
             if (request.ok) {
                 const configured = validOrigin((await request.json())?.origin);
@@ -34,6 +34,12 @@
             }
         } catch (_) {}
         return (cachedOrigin = DEFAULT_ORIGIN);
+    };
+
+    const isCompatibleEngine = data => {
+        const engineVersion = Number(data?.engine_version || 0);
+        const engineName = String(data?.engine || '');
+        return Boolean(data?.ok && engineVersion >= 5 && /^(?:rag|athar)-v/i.test(engineName));
     };
 
     const fetchSynthesis = async payload => {
@@ -50,8 +56,8 @@
             });
             const data = await request.json().catch(() => ({}));
             if (!request.ok) throw new Error(data?.error || `HTTP ${request.status}`);
-            if (!data?.ok || Number(data?.engine_version || 0) !== 5 || data?.engine !== 'rag-v5-hybrid-multilingual') {
-                throw new Error('Le moteur de synthèse Athar V5 n’est pas disponible.');
+            if (!isCompatibleEngine(data)) {
+                throw new Error('Le moteur de synthèse Athar n’est pas disponible.');
             }
             return data;
         } finally {
@@ -116,7 +122,14 @@
                 }, 900);
                 const payload = await pending;
                 base.response.value = payload;
-                if (base.status) base.status.value = { ...base.status.value, connected: true, engine_version: 5 };
+                if (base.status) {
+                    base.status.value = {
+                        ...base.status.value,
+                        connected: true,
+                        engine_version: Number(payload?.engine_version || base.status.value?.engine_version || 0),
+                        engine: payload?.engine || base.status.value?.engine || ''
+                    };
+                }
                 base.selectedSourceId.value = payload.sources?.[0]?.citation_id || '';
                 storeHistory(value, payload);
                 synthesisStage.value = payload?.answer?.synthesis
@@ -243,5 +256,5 @@
     }
 
     component.__atharGroundedSynthesis = true;
-    window.AtharScholarSynthesis = { resolveOrigin, fetchSynthesis };
+    window.AtharScholarSynthesis = { resolveOrigin, fetchSynthesis, isCompatibleEngine };
 })();
