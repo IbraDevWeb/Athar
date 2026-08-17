@@ -19,6 +19,7 @@ on:
       - 'css/research-library-v2.css'
       - 'scripts/ux_v40_public_test.mjs'
       - 'scripts/ux_v401_browser_test.mjs'
+      - 'scripts/ux_v402_research_live_test.mjs'
       - '.nojekyll'
       - '.github/workflows/athar-v40-live.yml'
   workflow_dispatch:
@@ -30,6 +31,7 @@ concurrency:
 jobs:
   public-browser:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -50,8 +52,9 @@ jobs:
             if grep -q 'athar-research-v40-ui-1' <<<"$config" \
               && grep -q 'athar-v40-research-library-1' <<<"$bridge" \
               && grep -q 'athar-v40-polish-1' <<<"$polish" \
+              && grep -q 'athar-v40-runtime-truth-1' <<<"$polish" \
               && grep -q 'athar-v40-polish.css?v=athar-v40-polish-1' <<<"$library"; then
-              echo "Athar V40/V40.1 assets are public on attempt $attempt."
+              echo "Athar V40/V40.1/V40.2 assets are public on attempt $attempt."
               exit 0
             fi
             echo "Attempt $attempt/60: waiting for GitHub Pages V40 propagation..."
@@ -73,3 +76,4 @@ jobs:
         run: |
           node scripts/ux_v40_public_test.mjs
           node scripts/ux_v401_browser_test.mjs
+          node scripts/ux_v402_research_live_test.mjs
