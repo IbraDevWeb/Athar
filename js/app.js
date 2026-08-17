@@ -98,7 +98,8 @@ const app = createApp({
         }
 
         // --- ÉTATS RÉACTIFS ---
-        const viewMode = ref('home');
+        const requestedView = new URLSearchParams(window.location.search).get('view');
+        const viewMode = ref(requestedView === 'rag_v5' ? 'rag_v5' : 'home');
         const headerSearchQuery = ref('');
         const currentChapter = ref(null);
         const currentHadith = ref(null);
@@ -257,7 +258,16 @@ const app = createApp({
             viewMode.value = mode;
             if (!['glossary', 'library', 'hadiths'].includes(mode)) headerSearchQuery.value = '';
             mobileMenuOpen.value = false;
+            const url = new URL(window.location.href);
+            if (mode === 'rag_v5') url.searchParams.set('view', 'rag_v5');
+            else if (url.searchParams.get('view') === 'rag_v5') url.searchParams.delete('view');
+            history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
             window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+                const content = document.querySelector('.athar-global-mainframe > main');
+                if (content) content.scrollTop = 0;
+            });
+            window.dispatchEvent(new CustomEvent('athar:view-changed', { detail: { view: mode } }));
             refreshIcons();
         };
 

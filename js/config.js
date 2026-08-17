@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v36';
+    const APP_VERSION = 'athar-pro-v38';
     const RESEARCH_UI_VERSION = 'athar-research-v6-ui-1';
 
     const setMeta = (selector, content) => {
@@ -142,6 +142,7 @@ tailwind.config = {
     ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
     ensureStylesheet(`css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}`, 'athar-research-v5-styles');
     ensureStylesheet('css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'athar-research-synthesis-styles');
+    ensureStylesheet(`css/ux-consistency.css?v=${APP_VERSION}`, 'athar-ux-consistency');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');

@@ -2,6 +2,7 @@
 (() => {
     const ROOT_CLASS = 'athar-app-fullscreen';
     const STORAGE_KEY = 'athar_immersive_last_view';
+    const PERSIST_KEY = 'athar_immersive_enabled';
     const SETTINGS_KEY = 'athar_settings';
     const SAFE_MODE = new URLSearchParams(window.location.search).get('immersive') === 'off';
     const NAV_GROUPS = [
@@ -37,7 +38,7 @@
         }
     ];
 
-    let fallbackActive = false;
+    let fallbackActive = localStorage.getItem(PERSIST_KEY) === '1';
     let button = null;
     let exitButton = null;
     let menuButton = null;
@@ -50,7 +51,8 @@
     let themeObserver = null;
 
     const refreshIcons = () => setTimeout(() => window.lucide?.createIcons(), 20);
-    const isActive = () => Boolean(document.fullscreenElement) || fallbackActive;
+    const isPersisted = () => localStorage.getItem(PERSIST_KEY) === '1';
+    const isActive = () => Boolean(document.fullscreenElement) || fallbackActive || isPersisted();
     const isDark = () => document.documentElement.classList.contains('dark');
     const normalize = value => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
     const allItems = NAV_GROUPS.flatMap(group => group.items.map(item => ({ view: item[0], label: item[1], icon: item[2] })));
@@ -114,9 +116,11 @@
         const header = app.querySelector(':scope > header');
         const frame = header?.nextElementSibling;
         const sidebar = frame?.querySelector(':scope > aside');
+        const content = frame?.querySelector(':scope > main');
         header?.classList.add('athar-global-header');
         frame?.classList.add('athar-global-mainframe');
         sidebar?.classList.add('athar-global-sidebar');
+        content?.classList.add('athar-global-content');
         return Boolean(header && frame);
     };
 
@@ -205,6 +209,7 @@
     };
 
     const exit = async () => {
+        localStorage.removeItem(PERSIST_KEY);
         fallbackActive = false;
         closeDrawer();
         if (document.fullscreenElement && document.exitFullscreen) {
@@ -214,19 +219,21 @@
     };
 
     const enter = async () => {
+        localStorage.setItem(PERSIST_KEY, '1');
+        fallbackActive = true;
         markLayout();
         syncCurrentFromApp();
         renderThemeState();
+        renderState();
         try {
-            if (document.documentElement.requestFullscreen) {
+            if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
                 await document.documentElement.requestFullscreen({ navigationUI: 'hide' });
-                fallbackActive = false;
-            } else {
-                fallbackActive = true;
             }
         } catch (_) {
-            fallbackActive = true;
+            // Native fullscreen requires a user gesture and cannot survive a document navigation.
+            // The persisted Athar immersive layout remains active as the reliable fallback.
         }
+        fallbackActive = true;
         renderState();
     };
 
@@ -330,7 +337,7 @@
     };
 
     document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement) fallbackActive = false;
+        if (!document.fullscreenElement) fallbackActive = isPersisted();
         renderState();
     });
 
@@ -356,15 +363,27 @@
     });
 
     window.addEventListener('athar:theme-changed', renderThemeState);
+    window.addEventListener('athar:view-changed', event => {
+        const view = event.detail?.view;
+        if (view) setCurrentView(view);
+        setTimeout(() => { markLayout(); renderState(); }, 0);
+    });
     window.addEventListener('storage', event => {
         if (event.key === SETTINGS_KEY) renderThemeState();
+        if (event.key === PERSIST_KEY) {
+            fallbackActive = event.newValue === '1';
+            renderState();
+        }
     });
 
     const start = (attempt = 0) => {
         if (SAFE_MODE) {
+            localStorage.removeItem(PERSIST_KEY);
+            fallbackActive = false;
             document.documentElement.classList.remove(ROOT_CLASS, 'athar-immersive-menu-open');
             return;
         }
+        fallbackActive = isPersisted();
         if (inject()) {
             if (!themeObserver) {
                 themeObserver = new MutationObserver(mutations => {
@@ -384,5 +403,5 @@
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => start(), { once: true });
     else start();
 
-    window.AtharFullscreen = { toggle, enter, exit, isActive, openMenu: openDrawer, navigate, toggleTheme };
+    window.AtharFullscreen = { toggle, enter, exit, isActive, openMenu: openDrawer, navigate, toggleTheme, persistenceKey: PERSIST_KEY };
 })();

@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#9d5147">
+  <meta name="theme-color" content="#b58b45">
   <title>Bibliothèque Athar — Lecture savante</title>
   <meta name="description" content="Parcourir, rechercher et lire directement les ouvrages du corpus savant Athar, avec texte arabe, français disponible, traduction IA à la demande, sommaire et provenance.">
   <link rel="stylesheet" href="css/research-library-v2.css?v=athar-reader-v3">
   <link rel="stylesheet" href="css/research-library-ai-tools.css?v=athar-reader-ai-2">
-  <link rel="stylesheet" href="css/new-tools-fullscreen.css?v=athar-pro-v37">
+  <link rel="stylesheet" href="css/new-tools-fullscreen.css?v=athar-pro-v38">
+  <link rel="stylesheet" href="css/ux-consistency.css?v=athar-pro-v38">
 </head>
 <body>
   <section id="libraryView" class="library-view" aria-label="Bibliothèque Athar">
@@ -19,7 +20,7 @@
       </a>
       <nav class="library-nav" aria-label="Navigation principale">
         <a href="index.html">Encyclopédie</a>
-        <a href="index.html">Athar Research</a>
+        <a href="index.html?view=rag_v5">Athar Research</a>
         <a href="#catalogue">Catalogue</a>
       </nav>
       <div class="library-topbar-actions">
@@ -115,10 +116,10 @@
         <span id="readerCompactMeta">Athar Library</span>
       </div>
       <div class="reader-appbar-right">
-        <button id="focusMode" class="athar-btn athar-btn-ghost athar-btn-icon reader-wide-only" type="button" title="Mode lecture sans distraction" aria-label="Mode lecture sans distraction">
-          <svg class="athar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+        <button id="focusMode" class="athar-btn athar-btn-ghost athar-btn-icon reader-wide-only" type="button" title="Masquer les panneaux du lecteur" aria-label="Mode lecture sans distraction">
+          <svg class="athar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM9 5v14M15 5v14"/></svg>
         </button>
-        <a id="openResearch" class="athar-btn athar-btn-soft reader-wide-only" href="index.html">Athar Research</a>
+        <a id="openResearch" class="athar-btn athar-btn-soft reader-wide-only" href="index.html?view=rag_v5">Athar Research</a>
         <button id="mobileNavigatorToggle" class="athar-btn athar-btn-soft athar-btn-icon reader-mobile-nav" type="button" aria-label="Ouvrir le navigateur du livre">
           <svg class="athar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -246,6 +247,6 @@
   <div id="toast" class="athar-toast" role="status" aria-live="polite"></div>
   <script src="js/research-library-v2.js?v=athar-reader-v3" defer></script>
   <script src="js/research-library-ai-tools.js?v=athar-reader-ai-2" defer></script>
-  <script src="js/new-tools-fullscreen.js?v=athar-pro-v37" defer></script>
+  <script src="js/new-tools-fullscreen.js?v=athar-pro-v38" defer></script>
 </body>
 </html>
