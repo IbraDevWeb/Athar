@@ -13,13 +13,13 @@ services:
     buildCommand: >-
       python -m pip install -r rag/requirements.txt &&
       python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards
-    startCommand: python rag/v653_library_server.py --host 0.0.0.0 --api-only
+    startCommand: python rag/v654_library_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.13"
       - key: ATHAR_PRODUCTION_REVISION
-        value: v6.5.3-split-sharded-semantic
+        value: v6.5.4-expanded-evidence
       - key: ATHAR_API_ONLY
         value: "1"
       - key: ATHAR_CORS_ORIGINS
