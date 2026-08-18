@@ -1,0 +1,97 @@
+name: RAG V6.5.4 expanded evidence gate
+
+on:
+  pull_request:
+    paths:
+      - 'rag/v654_library_server.py'
+      - 'rag/test_v654_contract.py'
+      - 'rag/v5_library_server.py'
+      - 'rag/v651_remote_fusion.py'
+      - 'rag/v65_remote_fusion.py'
+      - 'render.yaml'
+      - '.github/workflows/rag-v654-expanded-evidence.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'rag/v654_library_server.py'
+      - 'rag/test_v654_contract.py'
+      - 'rag/v5_library_server.py'
+      - 'rag/v651_remote_fusion.py'
+      - 'rag/v65_remote_fusion.py'
+      - 'render.yaml'
+      - '.github/workflows/rag-v654-expanded-evidence.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: rag-v654-expanded-evidence-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate expanded evidence contract
+        run: python rag/test_v654_contract.py
+
+  production-evidence:
+    if: github.event_name != 'pull_request'
+    needs: contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Wait for V6.5.4 and verify citations beyond S12
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://athar-rag-ibradevweb.onrender.com'
+          for attempt in $(seq 1 60); do
+            health="$(curl -fsSL --max-time 30 -H 'Cache-Control: no-cache' "$base/healthz?release=v654-$attempt" || true)"
+            if grep -q 'athar-v6.5.4-expanded-evidence-fusion' <<<"$health"; then
+              echo "V6.5.4 is live on attempt $attempt."
+              break
+            fi
+            if [ "$attempt" -eq 60 ]; then
+              echo 'V6.5.4 never became visible on Render.'
+              exit 1
+            fi
+            sleep 10
+          done
+
+          python - <<'PY'
+          import json
+          import urllib.request
+
+          base = 'https://athar-rag-ibradevweb.onrender.com'
+          query = 'Que disent les sources sur la prière et ses règles ?'
+
+          def ask(limit):
+              body = json.dumps({'query': query, 'limit': limit}).encode('utf-8')
+              request = urllib.request.Request(
+                  base + '/api/rag/v5/ask',
+                  data=body,
+                  method='POST',
+                  headers={
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json; charset=utf-8',
+                      'Cache-Control': 'no-cache',
+                  },
+              )
+              with urllib.request.urlopen(request, timeout=120) as response:
+                  return json.load(response)
+
+          for legacy_limit in (8, 12):
+              payload = ask(legacy_limit)
+              assert payload.get('ok') is True, payload
+              assert payload.get('engine') == 'athar-v6.5.4-expanded-evidence-fusion', payload.get('engine')
+              sources = payload.get('sources') or []
+              assert len(sources) > 12, f'legacy limit {legacy_limit} returned only {len(sources)} source(s)'
+              assert len(sources) <= 20, len(sources)
+              ids = [source.get('citation_id') for source in sources]
+              assert 'S13' in ids, ids
+              assert ids == [f'S{i}' for i in range(1, len(ids) + 1)], ids
+              print(f'V6.5.4 LIVE: legacy limit {legacy_limit} -> {len(sources)} sources, through {ids[-1]}')
+          PY

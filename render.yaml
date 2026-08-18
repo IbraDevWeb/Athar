@@ -19,7 +19,7 @@ services:
       - key: PYTHON_VERSION
         value: "3.12.13"
       - key: ATHAR_PRODUCTION_REVISION
-        value: v6.5.3-split-sharded-semantic
+        value: v6.5.4-expanded-evidence
       - key: ATHAR_API_ONLY
         value: "1"
       - key: ATHAR_CORS_ORIGINS
