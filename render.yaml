@@ -13,7 +13,7 @@ services:
     buildCommand: >-
       python -m pip install -r rag/requirements.txt &&
       python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards
-    startCommand: python rag/v654_library_server.py --host 0.0.0.0 --api-only
+    startCommand: python rag/v653_library_server.py --host 0.0.0.0 --api-only
     healthCheckPath: /healthz
     envVars:
       - key: PYTHON_VERSION
