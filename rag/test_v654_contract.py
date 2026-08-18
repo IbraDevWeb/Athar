@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = ROOT / "rag" / "v654_library_server.py"
+LAUNCHER = ROOT / "rag" / "v653_library_server.py"
 SYNTHESIS_SERVER = ROOT / "rag" / "v5_library_server.py"
 RENDER = ROOT / "render.yaml"
 
@@ -49,11 +50,14 @@ assert Handler._limit("bad", 8) == 20
 assert fake_server.Handler is Handler
 assert FusionRuntime.ENGINE == "athar-v6.5.4-expanded-evidence-fusion"
 
+launcher_source = LAUNCHER.read_text(encoding="utf-8")
+assert "from v654_library_server import Handler, server" in launcher_source
+
 synthesis_source = SYNTHESIS_SERVER.read_text(encoding="utf-8")
 assert "select_synthesis_sources(sources, routed_book=routed, limit=10)" in synthesis_source
 
 render_source = RENDER.read_text(encoding="utf-8")
-assert "startCommand: python rag/v654_library_server.py" in render_source
+assert "startCommand: python rag/v653_library_server.py" in render_source
 assert "value: v6.5.4-expanded-evidence" in render_source
 
 print("RAG V6.5.4 contract: PASS — legacy 8/12 depths expand to 20; synthesis remains capped at 10 selected sources.")
