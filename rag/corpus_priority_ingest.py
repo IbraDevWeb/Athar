@@ -19,6 +19,7 @@ DEFAULT_MANIFEST = RAG_DIR / "openiti_books_priority.json"
 DEFAULT_REPORT = RAG_DIR / "corpus_priority_report.json"
 ARA_VERSION_RE = re.compile(r"-ara\d+$", re.I)
 SUPPORTED_PRIORITIES = {"P1", "P2"}
+MIN_TITLE_FALLBACK_KEY = 8
 
 
 def load_json(path: Path, default: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -67,6 +68,26 @@ def _uri_author_segment(value: Any) -> str:
     return clean(value).split(".", 1)[0]
 
 
+def _title_matches(target: dict[str, Any], title: str, title_ar: str, work_uri: str, version_uri: str) -> bool:
+    """Prefer canonical titles and reject dangerously short fallback tokens.
+
+    Generic tokens such as ``Minhaj`` or ``Fatawa`` are useful discovery hints,
+    but are too weak to prove bibliographic identity on their own. The canonical
+    target title/title_ar may match at any length; fallback title markers must be
+    sufficiently specific.
+    """
+    values = (title, title_ar, work_uri, version_uri)
+    canonical = [target.get("title"), target.get("title_ar")]
+    if _markers_match(canonical, *values):
+        return True
+    fallback = [
+        marker
+        for marker in target.get("title_markers") or []
+        if len(marker_key(marker)) >= MIN_TITLE_FALLBACK_KEY
+    ]
+    return _markers_match(fallback, *values)
+
+
 def target_matches(
     target: dict[str, Any],
     work_uri: str = "",
@@ -99,8 +120,7 @@ def target_matches(
         _uri_author_segment(work_uri),
         _uri_author_segment(version_uri),
     )
-    title_match = _markers_match(title_markers, title, title_ar, work_uri, version_uri)
-    return author_match and title_match
+    return author_match and _title_matches(target, title, title_ar, work_uri, version_uri)
 
 
 def source_blocked(row: dict[str, Any], markers: list[str]) -> str:
