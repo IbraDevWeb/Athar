@@ -9,6 +9,9 @@ on:
       - 'rag/corpus_approval.json'
       - 'rag/corpus_reference_checklist.json'
       - 'rag/corpus_priority_targets.json'
+      - 'rag/madhhab_scholar_targets.json'
+      - 'rag/topic_plurality_benchmark.json'
+      - 'rag/madhhab_corpus_expansion_tests.py'
       - 'rag/corpus_curation_rules.json'
       - 'rag/corpus_priority_ingest.py'
       - 'rag/corpus_priority_ingest_tests.py'
@@ -47,6 +50,7 @@ on:
       - '.github/workflows/build-rag-corpus.yml'
       - '.github/workflows/corpus-coverage-audit.yml'
       - '.github/workflows/corpus-industrialization-tests.yml'
+      - '.github/workflows/madhhab-corpus-expansion.yml'
   push:
     branches: [main]
     paths:
@@ -55,6 +59,9 @@ on:
       - 'rag/corpus_approval.json'
       - 'rag/corpus_reference_checklist.json'
       - 'rag/corpus_priority_targets.json'
+      - 'rag/madhhab_scholar_targets.json'
+      - 'rag/topic_plurality_benchmark.json'
+      - 'rag/madhhab_corpus_expansion_tests.py'
       - 'rag/corpus_curation_rules.json'
       - 'rag/corpus_priority_ingest.py'
       - 'rag/corpus_priority_ingest_tests.py'
@@ -93,6 +100,7 @@ on:
       - '.github/workflows/build-rag-corpus.yml'
       - '.github/workflows/corpus-coverage-audit.yml'
       - '.github/workflows/corpus-industrialization-tests.yml'
+      - '.github/workflows/madhhab-corpus-expansion.yml'
   workflow_dispatch:
 
 jobs:
@@ -116,6 +124,7 @@ jobs:
           rag/corpus_priority_ingest_tests.py
           rag/corpus_curator.py
           rag/corpus_curator_tests.py
+          rag/madhhab_corpus_expansion_tests.py
           rag/openiti_reader_tests.py
           rag/corpus_candidate_guard.py
           rag/corpus_candidate_guard_tests.py
@@ -142,6 +151,7 @@ jobs:
         run: |
           python corpus_priority_ingest_tests.py
           python corpus_curator_tests.py
+          python madhhab_corpus_expansion_tests.py
           python openiti_reader_tests.py
           python v5_library_reader_tests.py
           python corpus_industrializer_tests.py
@@ -179,12 +189,28 @@ jobs:
           assert policy['curation']['freeze_generic_growth'] is True
           assert policy['curation']['priority_only_growth'] is True
           assert int(policy['curation']['required_priority_p1']) == 13
+          assert int(policy['curation']['optional_priority_p2_targets']) == 40
           assert policy['curation']['reader_parser_version'] == 'athar-openiti-reader-v2'
           assert int(policy['sharding']['future_target_books']) >= 500
           assert len(checklist.get('works', [])) >= 40
-          assert len(targets.get('targets', [])) == 13
-          assert all(item.get('work_markers') for item in targets.get('targets', []))
-          assert all(item.get('priority') == 'P1' for item in targets.get('targets', []))
+
+          target_rows = [
+              item for item in targets.get('targets', [])
+              if isinstance(item, dict) and item.get('enabled', True)
+          ]
+          p1 = [item for item in target_rows if item.get('priority') == 'P1']
+          p2 = [item for item in target_rows if item.get('priority') == 'P2']
+          assert len(p1) == int(policy['curation']['required_priority_p1']) == 13
+          assert len(p2) == int(policy['curation']['optional_priority_p2_targets']) == 40
+          assert len(target_rows) == len(p1) + len(p2) == 53
+          assert all(item.get('work_markers') for item in p1)
+          assert all(
+              item.get('work_markers')
+              or (item.get('author_markers') and item.get('title_markers'))
+              for item in p2
+          )
+          assert all(item.get('required') is False for item in p2)
+
           assert all(not str(book.get('madhhab') or '').strip() for book in auto.get('books', []))
           approved_blob = str(approval.get('approved_auto_manifest_blob') or '')
           assert not approved_blob or re.fullmatch(r'[0-9a-f]{40}', approved_blob)
@@ -199,5 +225,9 @@ jobs:
           registry = build_registry(shardable, policy)
           assert registry['total_books'] == len(ids); assert set(registry['book_to_shard']) == set(ids)
           assert all(int(shard['book_count']) <= int(registry['limits']['max_books_per_shard']) for shard in registry['shards'])
-          print(f'Industrial manifest valid: {len(industrial_ids)} industrial + {len(ids) - len(industrial_ids)} dedicated = {len(ids)} shardable OpenITI books, {registry["total_shards"]} planned shard(s)')
+          print(
+              f'Industrial manifest valid: {len(p1)} P1 + {len(p2)} P2 targets; '
+              f'{len(industrial_ids)} industrial + {len(ids) - len(industrial_ids)} dedicated = '
+              f'{len(ids)} shardable OpenITI books, {registry["total_shards"]} planned shard(s)'
+          )
           PY
