@@ -190,7 +190,21 @@ def main() -> None:
         title="Aḥkām al-Qurʾān",
         author="Other Author",
     )
-    print("Priority ingestion tests: OK — P1 required, P2 optional and author+title matched.")
+
+    # Regression: an author's name inside another author's work title must not
+    # count as author evidence. This was caught by the real OpenITI PR gate.
+    tahawi_target = {
+        "author_markers": ["Tahawi", "الطحاوي"],
+        "title_markers": ["MukhtasarTahawi", "مختصر الطحاوي"],
+    }
+    assert not target_matches(
+        tahawi_target,
+        "0370IbnCaliJassas.SharhMukhtasarTahawi",
+        "0370IbnCaliJassas.SharhMukhtasarTahawi.Sham-ara1",
+        title="Sharh Mukhtasar al-Tahawi",
+        author="Abu Bakr al-Jassas",
+    )
+    print("Priority ingestion tests: OK — P1 required, P2 optional, author and title boundaries enforced.")
 
 
 if __name__ == "__main__":
