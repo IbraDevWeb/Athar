@@ -3,9 +3,9 @@
   "strategy": "append-friendly-manifest-order-v1",
   "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "total_books": 213,
-  "total_shards": 10,
-  "hosted_target_openiti_books": 213,
+  "total_books": 233,
+  "total_shards": 11,
+  "hosted_target_openiti_books": 233,
   "future_target_books": 500,
   "limits": {
     "max_books_per_shard": 40,
@@ -173,12 +173,12 @@
     },
     {
       "id": "openiti-003",
-      "book_count": 14,
-      "source_chars": 39083373,
+      "book_count": 16,
+      "source_chars": 39207352,
       "oversize_source": false,
       "subjects": {
         "aqida": 2,
-        "fiqh": 7,
+        "fiqh": 9,
         "hadith": 3,
         "other": 1,
         "sira": 1
@@ -287,6 +287,22 @@
           "author": "Muslim ibn al-Hajjaj",
           "discipline": "Hadith",
           "source_chars": 1945463
+        },
+        {
+          "book_id": "openiti-fakihani-mawrid-mawlid",
+          "title": "Al-Mawrid fi Amal al-Mawlid",
+          "title_ar": "المورد في عمل المولد",
+          "author": "Taj al-Din al-Fakihani",
+          "discipline": "Fiqh et bid'a",
+          "source_chars": 2316
+        },
+        {
+          "book_id": "openiti-abu-shama-baith",
+          "title": "Al-Ba'ith 'ala Inkar al-Bida' wa-l-Hawadith",
+          "title_ar": "الباعث على إنكار البدع والحوادث",
+          "author": "Abu Shama al-Maqdisi",
+          "discipline": "Fiqh et bid'a",
+          "source_chars": 121663
         },
         {
           "book_id": "openiti-sunan-abu-dawud",
@@ -1790,12 +1806,14 @@
     },
     {
       "id": "openiti-010",
-      "book_count": 7,
-      "source_chars": 10381128,
+      "book_count": 10,
+      "source_chars": 38435230,
       "oversize_source": false,
       "subjects": {
+        "fiqh": 6,
         "sira": 2,
-        "tafsir": 5
+        "tafsir": 1,
+        "usul": 1
       },
       "books": [
         {
@@ -1813,6 +1831,165 @@
           "author": "Al-Ṭabarī",
           "discipline": "Sīra et histoire",
           "source_chars": 5904863
+        },
+        {
+          "book_id": "openiti-priority-hanafi-tahawi-maani",
+          "title": "Sharḥ Maʿānī al-Āthār",
+          "title_ar": "شرح معاني الآثار",
+          "author": "Al-Ṭaḥāwī",
+          "discipline": "Hadith et fiqh",
+          "source_chars": 2184017
+        },
+        {
+          "book_id": "openiti-priority-hanafi-jassas-ahkam",
+          "title": "Aḥkām al-Qurʾān",
+          "title_ar": "أحكام القرآن",
+          "author": "Abū Bakr al-Jaṣṣāṣ",
+          "discipline": "Tafsīr et fiqh",
+          "source_chars": 3022203
+        },
+        {
+          "book_id": "openiti-priority-hanafi-mawsili-ikhtiyar",
+          "title": "Al-Ikhtiyār li-Taʿlīl al-Mukhtār",
+          "title_ar": "الاختيار لتعليل المختار",
+          "author": "Al-Mawṣilī",
+          "discipline": "Fiqh",
+          "source_chars": 1164127
+        },
+        {
+          "book_id": "openiti-priority-hanafi-zaylai-tabyin",
+          "title": "Tabyīn al-Ḥaqāʾiq",
+          "title_ar": "تبيين الحقائق",
+          "author": "Fakhr al-Dīn al-Zaylaʿī",
+          "discipline": "Fiqh",
+          "source_chars": 3712180
+        },
+        {
+          "book_id": "openiti-priority-hanafi-samarqandi-tuhfa",
+          "title": "Tuḥfat al-Fuqahāʾ",
+          "title_ar": "تحفة الفقهاء",
+          "author": "ʿAlāʾ al-Dīn al-Samarqandī",
+          "discipline": "Fiqh",
+          "source_chars": 801810
+        },
+        {
+          "book_id": "openiti-priority-hanafi-sarakhsi-usul",
+          "title": "Uṣūl al-Sarakhsī",
+          "title_ar": "أصول السرخسي",
+          "author": "Al-Sarakhsī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 940759
+        },
+        {
+          "book_id": "openiti-priority-maliki-baji-muntaqa",
+          "title": "Al-Muntaqā",
+          "title_ar": "المنتقى",
+          "author": "Abū al-Walīd al-Bājī",
+          "discipline": "Hadith et fiqh",
+          "source_chars": 5135600
+        },
+        {
+          "book_id": "openiti-priority-shafii-mawardi-hawi",
+          "title": "Al-Ḥāwī al-Kabīr",
+          "title_ar": "الحاوي الكبير",
+          "author": "Al-Māwardī",
+          "discipline": "Fiqh",
+          "source_chars": 11093406
+        }
+      ]
+    },
+    {
+      "id": "openiti-011",
+      "book_count": 15,
+      "source_chars": 35131594,
+      "oversize_source": false,
+      "subjects": {
+        "fiqh": 6,
+        "hadith": 2,
+        "sira": 1,
+        "tafsir": 5,
+        "usul": 1
+      },
+      "books": [
+        {
+          "book_id": "openiti-priority-shafii-juwayni-nihaya",
+          "title": "Nihāyat al-Maṭlab",
+          "title_ar": "نهاية المطلب",
+          "author": "Imām al-Ḥaramayn al-Juwaynī",
+          "discipline": "Fiqh",
+          "source_chars": 9402856
+        },
+        {
+          "book_id": "openiti-priority-shafii-nawawi-rawda",
+          "title": "Rawḍat al-Ṭālibīn",
+          "title_ar": "روضة الطالبين",
+          "author": "Al-Nawawī",
+          "discipline": "Fiqh",
+          "source_chars": 4527439
+        },
+        {
+          "book_id": "openiti-priority-shafii-nawawi-minhaj",
+          "title": "Minhāj al-Ṭālibīn",
+          "title_ar": "منهاج الطالبين",
+          "author": "Al-Nawawī",
+          "discipline": "Fiqh",
+          "source_chars": 315650
+        },
+        {
+          "book_id": "openiti-priority-shafii-bayhaqi-sunan",
+          "title": "Al-Sunan al-Kubrā",
+          "title_ar": "السنن الكبرى",
+          "author": "Al-Bayhaqī",
+          "discipline": "Hadith et fiqh",
+          "source_chars": 8039951
+        },
+        {
+          "book_id": "openiti-priority-shafii-subki-fatawa",
+          "title": "Fatāwā al-Subkī",
+          "title_ar": "فتاوى السبكي",
+          "author": "Taqī al-Dīn al-Subkī",
+          "discipline": "Fatāwā et fiqh",
+          "source_chars": 1719570
+        },
+        {
+          "book_id": "openiti-priority-hanbali-rawdat-nazir",
+          "title": "Rawḍat al-Nāẓir",
+          "title_ar": "روضة الناظر",
+          "author": "Ibn Qudāmah al-Maqdisī",
+          "discipline": "Uṣūl al-fiqh",
+          "source_chars": 295559
+        },
+        {
+          "book_id": "openiti-priority-hanbali-ibn-qayyim-zad",
+          "title": "Zād al-Maʿād",
+          "title_ar": "زاد المعاد",
+          "author": "Ibn al-Qayyim",
+          "discipline": "Sīra et fiqh",
+          "source_chars": 2266893
+        },
+        {
+          "book_id": "openiti-priority-hanbali-ibn-rajab-jami",
+          "title": "Jāmiʿ al-ʿUlūm wa-l-Ḥikam",
+          "title_ar": "جامع العلوم والحكم",
+          "author": "Ibn Rajab al-Ḥanbalī",
+          "discipline": "Hadith et fiqh",
+          "source_chars": 758153
+        },
+        {
+          "book_id": "openiti-priority-hanbali-ibn-muflih-furu",
+          "title": "Al-Furūʿ",
+          "title_ar": "الفروع",
+          "author": "Ibn Mufliḥ",
+          "discipline": "Fiqh",
+          "source_chars": 3331767
+        },
+        {
+          "book_id": "openiti-priority-hanbali-bahuti-kashshaf",
+          "title": "Kashshāf al-Qināʿ",
+          "title_ar": "كشاف القناع",
+          "author": "Al-Bahūtī",
+          "discipline": "Fiqh",
+          "source_chars": 4473756
         },
         {
           "book_id": "openiti-baghawi-tafsir",
@@ -1888,6 +2065,8 @@
     "openiti-jamic-bayan-cilm": "openiti-003",
     "openiti-sahih-bukhari": "openiti-003",
     "openiti-sahih-muslim": "openiti-003",
+    "openiti-fakihani-mawrid-mawlid": "openiti-003",
+    "openiti-abu-shama-baith": "openiti-003",
     "openiti-sunan-abu-dawud": "openiti-003",
     "openiti-sunan-tirmidhi": "openiti-004",
     "openiti-sunan-ibn-maja": "openiti-004",
@@ -2066,10 +2245,28 @@
     "openiti-priority-usul-ihkam-amidi": "openiti-009",
     "openiti-priority-history-tabaqat-ibn-sad": "openiti-010",
     "openiti-priority-history-tabari": "openiti-010",
-    "openiti-baghawi-tafsir": "openiti-010",
-    "openiti-zamakhshari-kashshaf": "openiti-010",
-    "openiti-razi-mafatih-ghayb": "openiti-010",
-    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-010",
-    "openiti-abu-hayyan-bahr-muhit": "openiti-010"
+    "openiti-priority-hanafi-tahawi-maani": "openiti-010",
+    "openiti-priority-hanafi-jassas-ahkam": "openiti-010",
+    "openiti-priority-hanafi-mawsili-ikhtiyar": "openiti-010",
+    "openiti-priority-hanafi-zaylai-tabyin": "openiti-010",
+    "openiti-priority-hanafi-samarqandi-tuhfa": "openiti-010",
+    "openiti-priority-hanafi-sarakhsi-usul": "openiti-010",
+    "openiti-priority-maliki-baji-muntaqa": "openiti-010",
+    "openiti-priority-shafii-mawardi-hawi": "openiti-010",
+    "openiti-priority-shafii-juwayni-nihaya": "openiti-011",
+    "openiti-priority-shafii-nawawi-rawda": "openiti-011",
+    "openiti-priority-shafii-nawawi-minhaj": "openiti-011",
+    "openiti-priority-shafii-bayhaqi-sunan": "openiti-011",
+    "openiti-priority-shafii-subki-fatawa": "openiti-011",
+    "openiti-priority-hanbali-rawdat-nazir": "openiti-011",
+    "openiti-priority-hanbali-ibn-qayyim-zad": "openiti-011",
+    "openiti-priority-hanbali-ibn-rajab-jami": "openiti-011",
+    "openiti-priority-hanbali-ibn-muflih-furu": "openiti-011",
+    "openiti-priority-hanbali-bahuti-kashshaf": "openiti-011",
+    "openiti-baghawi-tafsir": "openiti-011",
+    "openiti-zamakhshari-kashshaf": "openiti-011",
+    "openiti-razi-mafatih-ghayb": "openiti-011",
+    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-011",
+    "openiti-abu-hayyan-bahr-muhit": "openiti-011"
   }
 }
