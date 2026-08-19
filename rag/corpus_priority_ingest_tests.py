@@ -191,9 +191,11 @@ def main() -> None:
         author="Other Author",
     )
 
-    # Regression: an author's name inside another author's work title must not
+    # Regression 1: an author's name inside another author's work title must not
     # count as author evidence. This was caught by the real OpenITI PR gate.
     tahawi_target = {
+        "title": "Mukhtaṣar al-Ṭaḥāwī",
+        "title_ar": "مختصر الطحاوي",
         "author_markers": ["Tahawi", "الطحاوي"],
         "title_markers": ["MukhtasarTahawi", "مختصر الطحاوي"],
     }
@@ -203,6 +205,29 @@ def main() -> None:
         "0370IbnCaliJassas.SharhMukhtasarTahawi.Sham-ara1",
         title="Sharh Mukhtasar al-Tahawi",
         author="Abu Bakr al-Jassas",
+    )
+
+    # Regression 2: a generic title token must not turn another book by the same
+    # author into the target. "Minhaj" alone cannot identify Minhaj al-Talibin.
+    nawawi_minhaj = {
+        "title": "Minhāj al-Ṭālibīn",
+        "title_ar": "منهاج الطالبين",
+        "author_markers": ["Nawawi", "النووي"],
+        "title_markers": ["MinhajTalibin", "Minhaj", "منهاج الطالبين"],
+    }
+    assert not target_matches(
+        nawawi_minhaj,
+        "0676Nawawi.MinhajFiSharhMuslim",
+        "0676Nawawi.MinhajFiSharhMuslim.JK-ara1",
+        title="Al-Minhaj fi Sharh Sahih Muslim",
+        author="Al-Nawawi",
+    )
+    assert target_matches(
+        nawawi_minhaj,
+        "0676Nawawi.MinhajTalibin",
+        "0676Nawawi.MinhajTalibin.JK-ara1",
+        title="Minhaj al-Talibin",
+        author="Al-Nawawi",
     )
     print("Priority ingestion tests: OK — P1 required, P2 optional, author and title boundaries enforced.")
 
