@@ -3,9 +3,9 @@
   "strategy": "append-friendly-manifest-order-v1",
   "source": "Athar OpenITI industrial + dedicated manifests",
   "release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
-  "total_books": 233,
-  "total_shards": 11,
-  "hosted_target_openiti_books": 233,
+  "total_books": 267,
+  "total_shards": 14,
+  "hosted_target_openiti_books": 267,
   "future_target_books": 500,
   "limits": {
     "max_books_per_shard": 40,
@@ -1900,14 +1900,13 @@
     },
     {
       "id": "openiti-011",
-      "book_count": 15,
+      "book_count": 10,
       "source_chars": 35131594,
       "oversize_source": false,
       "subjects": {
         "fiqh": 6,
         "hadith": 2,
         "sira": 1,
-        "tafsir": 5,
         "usul": 1
       },
       "books": [
@@ -1990,6 +1989,312 @@
           "author": "Al-Bahūtī",
           "discipline": "Fiqh",
           "source_chars": 4473756
+        }
+      ]
+    },
+    {
+      "id": "openiti-012",
+      "book_count": 9,
+      "source_chars": 38325769,
+      "oversize_source": false,
+      "subjects": {
+        "fiqh": 9
+      },
+      "books": [
+        {
+          "book_id": "openiti-priority-wave2-hanafi-ibn-nujaym-bahr",
+          "title": "Al-Baḥr al-Rāʾiq Sharḥ Kanz al-Daqāʾiq",
+          "title_ar": "البحر الرائق شرح كنز الدقائق",
+          "author": "Ibn Nujaym",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 5440628
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-ibn-humam-fath-qadir",
+          "title": "Fatḥ al-Qadīr",
+          "title_ar": "فتح القدير",
+          "author": "Ibn al-Humām",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 8681662
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-ayni-binaya",
+          "title": "Al-Bināyah Sharḥ al-Hidāyah",
+          "title_ar": "البناية شرح الهداية",
+          "author": "Badr al-Dīn al-ʿAynī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 9212496
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-babarti-inaya",
+          "title": "Al-ʿInāyah Sharḥ al-Hidāyah",
+          "title_ar": "العناية شرح الهداية",
+          "author": "Akmal al-Dīn al-Bābartī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 3488134
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-haskafi-durr",
+          "title": "Al-Durr al-Mukhtār",
+          "title_ar": "الدر المختار",
+          "author": "Al-Ḥaṣkafī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 1285162
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-fatawa-hindiyya",
+          "title": "Al-Fatāwā al-Hindiyyah",
+          "title_ar": "الفتاوى الهندية",
+          "author": "Niẓām al-Dīn al-Balkhī et comité",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 6984019
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-nasafi-kanz",
+          "title": "Kanz al-Daqāʾiq",
+          "title_ar": "كنز الدقائق",
+          "author": "Al-Nasafī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 152285
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-mulla-khusraw-durar",
+          "title": "Durar al-Ḥukkām fī Sharḥ Ghurar al-Aḥkām",
+          "title_ar": "درر الحكام في شرح غرر الأحكام",
+          "author": "Mullā Khusraw",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 2635583
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanafi-jassas-fusul",
+          "title": "Al-Fuṣūl fī al-Uṣūl",
+          "title_ar": "الفصول في الأصول",
+          "author": "Abū Bakr al-Jaṣṣāṣ",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 445800
+        }
+      ]
+    },
+    {
+      "id": "openiti-013",
+      "book_count": 14,
+      "source_chars": 38391123,
+      "oversize_source": false,
+      "subjects": {
+        "fiqh": 14
+      },
+      "books": [
+        {
+          "book_id": "openiti-priority-wave2-hanafi-quduri-tajrid",
+          "title": "Al-Tajrīd",
+          "title_ar": "التجريد",
+          "author": "Al-Qudūrī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 3924291
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-wansharisi-miyar",
+          "title": "Al-Miʿyār al-Muʿrib",
+          "title_ar": "المعيار المعرب",
+          "author": "Al-Wansharīsī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 6562283
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-qarafi-ihkam-fatawa",
+          "title": "Al-Iḥkām fī Tamyīz al-Fatāwā ʿan al-Aḥkām",
+          "title_ar": "الإحكام في تمييز الفتاوى عن الأحكام",
+          "author": "Al-Qarāfī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 104607
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-ibn-farhun-tabsira",
+          "title": "Tabṣirat al-Ḥukkām",
+          "title_ar": "تبصرة الحكام",
+          "author": "Ibn Farḥūn",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 1004939
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-ibn-juzayy-qawanin",
+          "title": "Al-Qawānīn al-Fiqhiyyah",
+          "title_ar": "القوانين الفقهية",
+          "author": "Ibn Juzayy al-Kalbī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 474822
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-lakhmi-tabsira",
+          "title": "Al-Tabṣirah",
+          "title_ar": "التبصرة",
+          "author": "Al-Lakhmī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 3894304
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-dardir-sharh-kabir",
+          "title": "Al-Sharḥ al-Kabīr",
+          "title_ar": "الشرح الكبير",
+          "author": "Al-Dardīr",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 1910389
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-dasuqi-hashiya",
+          "title": "Ḥāshiyat al-Dasūqī ʿalā al-Sharḥ al-Kabīr",
+          "title_ar": "حاشية الدسوقي على الشرح الكبير",
+          "author": "Al-Dasūqī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 4707495
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-mayyara-durr-thamin",
+          "title": "Al-Durr al-Thamīn wa-l-Mawrid al-Maʿīn",
+          "title_ar": "الدر الثمين والمورد المعين",
+          "author": "Mayyāra",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 933433
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-qadi-iyad-ikmal",
+          "title": "Ikmāl al-Muʿlim bi-Fawāʾid Muslim",
+          "title_ar": "إكمال المعلم بفوائد مسلم",
+          "author": "Qāḍī ʿIyāḍ",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 5152702
+        },
+        {
+          "book_id": "openiti-priority-wave2-maliki-ibn-hajib-jami-ummahat",
+          "title": "Jāmiʿ al-Ummahāt",
+          "title_ar": "جامع الأمهات",
+          "author": "Ibn al-Ḥājib",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 447745
+        },
+        {
+          "book_id": "openiti-priority-wave2-shafii-ghazali-wasit",
+          "title": "Al-Wasīṭ fī al-Madhhab",
+          "title_ar": "الوسيط في المذهب",
+          "author": "Al-Ghazālī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 1679885
+        },
+        {
+          "book_id": "openiti-priority-wave2-shafii-haytami-tuhfa",
+          "title": "Tuḥfat al-Muḥtāj fī Sharḥ al-Minhāj",
+          "title_ar": "تحفة المحتاج في شرح المنهاج",
+          "author": "Ibn Ḥajar al-Haytamī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 4184296
+        },
+        {
+          "book_id": "openiti-priority-wave2-shafii-haytami-fatawa-kubra",
+          "title": "Al-Fatāwā al-Fiqhiyyah al-Kubrā",
+          "title_ar": "الفتاوى الفقهية الكبرى",
+          "author": "Ibn Ḥajar al-Haytamī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 3409932
+        }
+      ]
+    },
+    {
+      "id": "openiti-014",
+      "book_count": 16,
+      "source_chars": 21135759,
+      "oversize_source": false,
+      "subjects": {
+        "fiqh": 11,
+        "tafsir": 5
+      },
+      "books": [
+        {
+          "book_id": "openiti-priority-wave2-shafii-ramli-nihaya",
+          "title": "Nihāyat al-Muḥtāj ilā Sharḥ al-Minhāj",
+          "title_ar": "نهاية المحتاج إلى شرح المنهاج",
+          "author": "Shams al-Dīn al-Ramlī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 4158697
+        },
+        {
+          "book_id": "openiti-priority-wave2-shafii-zakariya-asna",
+          "title": "Asnā al-Maṭālib fī Sharḥ Rawḍ al-Ṭālib",
+          "title_ar": "أسنى المطالب في شرح روض الطالب",
+          "author": "Zakariyyā al-Anṣārī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 4732249
+        },
+        {
+          "book_id": "openiti-priority-wave2-shafii-suyuti-hawi-fatawi",
+          "title": "Al-Ḥāwī li-l-Fatāwī",
+          "title_ar": "الحاوي للفتاوي",
+          "author": "Al-Suyūṭī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 1249111
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-ibn-muflih-adab",
+          "title": "Al-Ādāb al-Sharʿiyyah",
+          "title_ar": "الآداب الشرعية",
+          "author": "Ibn Mufliḥ",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 1469439
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-bahuti-sharh-muntaha",
+          "title": "Sharḥ Muntahā al-Irādāt",
+          "title_ar": "شرح منتهى الإرادات",
+          "author": "Al-Bahūtī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 2658410
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-karmi-ghaya",
+          "title": "Ghāyat al-Muntahā fī Jamʿ al-Iqnāʿ wa-l-Muntahā",
+          "title_ar": "غاية المنتهى في جمع الإقناع والمنتهى",
+          "author": "Marʿī al-Karmī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 871964
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-ibn-taymiyya-fatawa-kubra",
+          "title": "Al-Fatāwā al-Kubrā",
+          "title_ar": "الفتاوى الكبرى",
+          "author": "Taqī al-Dīn Ibn Taymiyyah",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 3400877
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-ibn-qayyim-turuq",
+          "title": "Al-Ṭuruq al-Ḥukmiyyah",
+          "title_ar": "الطرق الحكمية",
+          "author": "Ibn al-Qayyim",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 347574
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-ibn-rajab-qawaid",
+          "title": "Al-Qawāʿid",
+          "title_ar": "القواعد",
+          "author": "Ibn Rajab al-Ḥanbalī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 715146
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-jilani-ghunya",
+          "title": "Al-Ghunyah li-Ṭālibī Ṭarīq al-Ḥaqq",
+          "title_ar": "الغنية لطالبي طريق الحق",
+          "author": "ʿAbd al-Qādir al-Jīlānī",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 772423
+        },
+        {
+          "book_id": "openiti-priority-wave2-hanbali-abu-yala-udda",
+          "title": "Al-ʿUddah fī Uṣūl al-Fiqh",
+          "title_ar": "العدة في أصول الفقه",
+          "author": "Al-Qāḍī Abū Yaʿlā",
+          "discipline": "Fiqh appliqué",
+          "source_chars": 759869
         },
         {
           "book_id": "openiti-baghawi-tafsir",
@@ -2263,10 +2568,44 @@
     "openiti-priority-hanbali-ibn-rajab-jami": "openiti-011",
     "openiti-priority-hanbali-ibn-muflih-furu": "openiti-011",
     "openiti-priority-hanbali-bahuti-kashshaf": "openiti-011",
-    "openiti-baghawi-tafsir": "openiti-011",
-    "openiti-zamakhshari-kashshaf": "openiti-011",
-    "openiti-razi-mafatih-ghayb": "openiti-011",
-    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-011",
-    "openiti-abu-hayyan-bahr-muhit": "openiti-011"
+    "openiti-priority-wave2-hanafi-ibn-nujaym-bahr": "openiti-012",
+    "openiti-priority-wave2-hanafi-ibn-humam-fath-qadir": "openiti-012",
+    "openiti-priority-wave2-hanafi-ayni-binaya": "openiti-012",
+    "openiti-priority-wave2-hanafi-babarti-inaya": "openiti-012",
+    "openiti-priority-wave2-hanafi-haskafi-durr": "openiti-012",
+    "openiti-priority-wave2-hanafi-fatawa-hindiyya": "openiti-012",
+    "openiti-priority-wave2-hanafi-nasafi-kanz": "openiti-012",
+    "openiti-priority-wave2-hanafi-mulla-khusraw-durar": "openiti-012",
+    "openiti-priority-wave2-hanafi-jassas-fusul": "openiti-012",
+    "openiti-priority-wave2-hanafi-quduri-tajrid": "openiti-013",
+    "openiti-priority-wave2-maliki-wansharisi-miyar": "openiti-013",
+    "openiti-priority-wave2-maliki-qarafi-ihkam-fatawa": "openiti-013",
+    "openiti-priority-wave2-maliki-ibn-farhun-tabsira": "openiti-013",
+    "openiti-priority-wave2-maliki-ibn-juzayy-qawanin": "openiti-013",
+    "openiti-priority-wave2-maliki-lakhmi-tabsira": "openiti-013",
+    "openiti-priority-wave2-maliki-dardir-sharh-kabir": "openiti-013",
+    "openiti-priority-wave2-maliki-dasuqi-hashiya": "openiti-013",
+    "openiti-priority-wave2-maliki-mayyara-durr-thamin": "openiti-013",
+    "openiti-priority-wave2-maliki-qadi-iyad-ikmal": "openiti-013",
+    "openiti-priority-wave2-maliki-ibn-hajib-jami-ummahat": "openiti-013",
+    "openiti-priority-wave2-shafii-ghazali-wasit": "openiti-013",
+    "openiti-priority-wave2-shafii-haytami-tuhfa": "openiti-013",
+    "openiti-priority-wave2-shafii-haytami-fatawa-kubra": "openiti-013",
+    "openiti-priority-wave2-shafii-ramli-nihaya": "openiti-014",
+    "openiti-priority-wave2-shafii-zakariya-asna": "openiti-014",
+    "openiti-priority-wave2-shafii-suyuti-hawi-fatawi": "openiti-014",
+    "openiti-priority-wave2-hanbali-ibn-muflih-adab": "openiti-014",
+    "openiti-priority-wave2-hanbali-bahuti-sharh-muntaha": "openiti-014",
+    "openiti-priority-wave2-hanbali-karmi-ghaya": "openiti-014",
+    "openiti-priority-wave2-hanbali-ibn-taymiyya-fatawa-kubra": "openiti-014",
+    "openiti-priority-wave2-hanbali-ibn-qayyim-turuq": "openiti-014",
+    "openiti-priority-wave2-hanbali-ibn-rajab-qawaid": "openiti-014",
+    "openiti-priority-wave2-hanbali-jilani-ghunya": "openiti-014",
+    "openiti-priority-wave2-hanbali-abu-yala-udda": "openiti-014",
+    "openiti-baghawi-tafsir": "openiti-014",
+    "openiti-zamakhshari-kashshaf": "openiti-014",
+    "openiti-razi-mafatih-ghayb": "openiti-014",
+    "openiti-ibn-atiyya-muharrar-wajiz": "openiti-014",
+    "openiti-abu-hayyan-bahr-muhit": "openiti-014"
   }
 }
