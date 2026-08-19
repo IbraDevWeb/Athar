@@ -1,1045 +1,1026 @@
 {
-  "pipeline": "athar-corpus-curator-v1",
+  "pipeline": "athar-corpus-curator-v2",
   "phase": "quality-first-v1",
   "parser_version": "athar-openiti-reader-v2",
-  "books_reviewed": 213,
+  "books_reviewed": 231,
   "manifest_counts": {
     "openiti_books.json": 23,
     "openiti_books_auto.json": 145,
     "openiti_books_extra.json": 7,
     "openiti_books_extra_40.json": 20,
-    "openiti_books_priority.json": 13,
+    "openiti_books_priority.json": 31,
     "openiti_books_tafsir.json": 5
   },
   "coverage": {
-    "title": 213,
-    "title_ar": 213,
-    "author": 213,
-    "discipline": 213,
-    "madhhab": 68,
-    "madhhab_unresolved": 145,
-    "source_metadata_matched": 213,
+    "title": 231,
+    "title_ar": 231,
+    "author": 231,
+    "discipline": 231,
+    "madhhab": 89,
+    "madhhab_from_priority_target": 3,
+    "madhhab_unresolved": 142,
+    "source_metadata_matched": 231,
     "source_metadata_unmatched": 0
   },
   "unresolved_madhhab": [
-    {
-      "book_id": "openiti-auto-1f9d22598f30cb14",
-      "title": "Ashbah",
-      "author": "Al-Suyūṭī",
-      "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
-    },
     {
       "book_id": "openiti-auto-527961a94dfb5581",
       "title": "Alqab Sahaba",
       "author": "Abu Cali Jayyani",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b6a5898e3a08d131",
       "title": "al-Kašf wa-l-bayān",
       "author": "Abu Ishaq Thaclabi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-50b0c08cfcb94b92",
       "title": "Naqd Maratib Ijmac",
       "author": "Ibn Taymiyyah",
       "discipline": "Uṣūl et qawāʿid",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-0f327c7c607299f2",
       "title": "Kitāb al-Milal wa-al-Niḥal",
       "author": "Shahrastani",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-730a50b4808a7aaa",
       "title": "Dhayl Tarikh Baghdad",
       "author": "Ibn Dubaythi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-0729b70b8ea70f8d",
       "title": "Qawacid Ahkam",
       "author": "Sultan Culama Cizz Din Dimashqi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b76e61a11c767b35",
       "title": "al-ʾIršād fī maʿrifaŧ ʿulamāʾ al-ḥadīṯ",
       "author": "Abu Yacla Khalili",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-1a612db13565e026",
       "title": "ʾĪǧāz al-bayān ʿan maʿānī al-Qurʾān",
       "author": "Bayan Haqq Naysaburi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-359bfbd33aa7aaca",
       "title": "Tabyīn kaḏib al-muftarī fīmā nusiba ilá al-ʾImām Abī al-Ḥasan¶ al-Ašʿarī",
       "author": "Ibn ʿAsākir",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-e317943c26236039",
       "title": "Tārīḫ Ibn Yūnus al-Ṣadafī",
       "author": "Ibn Yunus Sadafi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-146eb215ed126a3b",
       "title": "Masāʾil al-imām Aḥmad b. Ḥanbal riwāyaŧ Ibn Abī al-¶ Faḍl Ṣāliḥ",
       "author": "Aḥmad ibn Ḥanbal",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d64d6ef5626286ed",
       "title": "Muqaddimat Culum Hadith",
       "author": "Ibn Salah Shahrazuri",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-06dfda5e85767367",
       "title": "Tafsir Quran",
       "author": "Ibn Muhammad Samcani",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-375122ce638d1b31",
       "title": "Hawadith",
       "author": "Ibn Walid Turtushi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-503e4d085d6c01c1",
       "title": "Tarikh Culama Ahl Misr",
       "author": "Ibn Tahhan",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-2f803e3aa191dc97",
       "title": "Risālatān lahu aǧāb fīhimā ʿan risālatayn suʾila fīhimā suʾāl al-taʿnīf",
       "author": "Ibn Hazm",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-20c7ee8bab1dd806",
       "title": "Adab al-muǧālasaŧ wa-ḥamd al-lisān wa-faḍl al-bayān¶ wa-ḏamm al-ʿiyy wa-taʿlīm al-iʿrāb",
       "author": "Ibn Cabd Barr",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-76d977d0559732fb",
       "title": "Tafsir",
       "author": "Ibn Abi Hatim Razi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-e778a85aee029803",
       "title": "Minhaj Fi Shucab Iman",
       "author": "Abu Cabd Allah Halimi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-69e49b8f24873ee6",
       "title": "al-Fiqh al-Absaṭ",
       "author": "Abu Hanifa",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-0f10311c96216336",
       "title": "Tahḏīb al-tahḏīb",
       "author": "Ibn Ḥajar al-ʿAsqalānī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b44f031d22f2e3b9",
       "title": "Anwar Tanzil",
       "author": "Nasir Din Baydawi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-4d1ef29136a0ab0d",
       "title": "Tabaqat Mufassirin",
       "author": "Al-Suyūṭī",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-fe666ee069554555",
       "title": "al-ʾAṣl",
       "author": "Muhammad Shaybani",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-6d6353e03c586c18",
       "title": "Macrifat Sahaba",
       "author": "Abu Nucaym Isbahani",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-59923883cb28de1e",
       "title": "Tafsir Muqatil",
       "author": "Muqatil Ibn Sulayman",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-14f04fe3bcbb411a",
       "title": "Dhayl Tabaqat Huffaz",
       "author": "Al-Suyūṭī",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-0dee550bba7f7fb3",
       "title": "al-Kāmil fī maʿrifat ḍuʿafāʾ al-muḥaddiṯīn wa-ʿilal¶ al-ḥadīṯ",
       "author": "Ibn Cadi Jurjani",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-bd357a7cf12302b3",
       "title": "Tafsir Quran",
       "author": "Sultan Culama Cizz Din Dimashqi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-5da1c9e3ad8929a7",
       "title": "al-Sulūk li-maʿrifaŧ duwal al-mulūk",
       "author": "Al-Maqrīzī",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-0375784c54ed4528",
       "title": "Ḥilyaŧ al-ʿulamāʾ fī maʿrifaŧ maḏāhib al-fuqahāʾ",
       "author": "Abu Bakr Shashi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-dd61a4c1d243e28f",
       "title": "Thiqat",
       "author": "Ibn Hibban Busti",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-ab3c98a3fa131f3a",
       "title": "Itqan",
       "author": "Al-Suyūṭī",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-e0e32691b3a034eb",
       "title": "Sharh Kitab Tawhid",
       "author": "Cabd Karim Khudayr",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-be91d6f09f21967f",
       "title": "Muʿjam al-udabāʾ",
       "author": "Yaqut Hamawi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-875880ca957f7c78",
       "title": "Ashbah Wa Nazair",
       "author": "Taj Din Subki",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-cd797ca1e121ae2d",
       "title": "Maghani Akhyar",
       "author": "Badr Din Cayni",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-c15581350bc95b2d",
       "title": "Tafsir Jalalayn",
       "author": "Al-Suyūṭī",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-924e40a962b5bbd2",
       "title": "Tawhid Wa Qurrat Cuyun Muwahhidin",
       "author": "Ibn Hasan Al Shaykh",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-5b86f9eb9570f800",
       "title": "Tuhfa Latifa",
       "author": "Sakhawi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-ae408e9530aaad1b",
       "title": "Manthur Fi Qawacid",
       "author": "Badr Din Zarkashi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-30eb530b8fcbbda0",
       "title": "Tuhfat Tahsil",
       "author": "Ibn Ciraqi",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-a683ae6334ad806a",
       "title": "Tafsir",
       "author": "Sulami",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-fffdd51749e9523a",
       "title": "Sifat Rabb Calamin",
       "author": "Ibn Muhibb Samit",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-02973caea85cbcaf",
       "title": "al-Ḥuǧǧaŧ ʿalá ahl al-Madīnaŧ",
       "author": "Muhammad Shaybani",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-76f076a7037b6c76",
       "title": "al-kuná wa-l-asmāʾ",
       "author": "Muslim",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-67d26b565f687f32",
       "title": "Gharaib Tafsir",
       "author": "Ibn Hamza Taj Qurra Kirmani",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b8494f8cb7904d7e",
       "title": "Mudhakkirat Tawhid",
       "author": "Cabd Razzaq Cafifi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-00100f763cd36f5f",
       "title": "al-ʿIbar fī ḫabar man ġabar",
       "author": "Al-Dhahabī",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
-    },
-    {
-      "book_id": "openiti-auto-06225b2fe6e4eb8a",
-      "title": "Ashbah Wa Nazair",
-      "author": "Ibn Ibrahim Ibn Nujaym Misri",
-      "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-8a607c726157ecac",
       "title": "al-ʿuluww",
       "author": "Al-Dhahabī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-70197b0349579071",
       "title": "Tafsir",
       "author": "Ibn Abi Zamanayn Ilbiri",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7b0c303caa9c72d1",
       "title": "Masala Fi Tawhid Falasifa",
       "author": "Ibn Taymiyyah",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-90811210e6498c4d",
       "title": "Ghayat Nihaya",
       "author": "Ibn Jazari",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-bb84184ef0d80372",
       "title": "al-Aḥkām al-sulṭāniyyaŧ",
       "author": "Abu Hasan Mawardi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-dc09016c5a4979af",
       "title": "Lahz Alhaz",
       "author": "Taqi Din Ibn Fahd",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-27ab8d868c701499",
       "title": "Wajiz Fi Tafsir",
       "author": "Ibn Ahmad Wahidi Naysaburi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-112c4fbfa51fcf70",
       "title": "Tajrid Tawhid",
       "author": "Al-Maqrīzī",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d0b7fa774adf59d1",
       "title": "Tarikh",
       "author": "Zayn Din Ibn Wardi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
-    },
-    {
-      "book_id": "openiti-auto-ad0d34fcc41bed93",
-      "title": "al-Aḥkām al-sulṭāniyyaŧ",
-      "author": "Abu Yacla Ibn Farra",
-      "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-41bcd1e39f675abe",
       "title": "Tārīḫ mūlid al-ʿulamāʾ wa wafayātihim",
       "author": "Ibn Zabr Rabci",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-90ee9f89cf83849e",
       "title": "Tafsir",
       "author": "Cabd Razzaq Sancani",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-15b224f075f9dcb0",
       "title": "Tawhid",
       "author": "Ibn Rajab Hanbali",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-97e42589bcf2a5ed",
       "title": "Majallat Ahkam",
       "author": "Anonymous",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d46aba0b893d7731",
       "title": "Ansab Muttafiqa",
       "author": "Ibn Qaysarani",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-c92f000c85ce7733",
       "title": "Tafsir",
       "author": "Ibn Carafa Warghami",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-ba24b51120ccd14c",
       "title": "Masala Fi Tawhid",
       "author": "Ibn Mabrid",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d0071395a8b5ac0a",
       "title": "al-Kawākib al-Sāʾiraŧ bi-aʿyān al-miʾaŧ al-ʿāširaŧ",
       "author": "Najm Din Ghazzi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-f435a7faa3834d7d",
       "title": "Iscaf Awqaf",
       "author": "Ibn Shaykh Tarabulusi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-70e9040625c9a938",
       "title": "Ṭabaqāt al-fuqahāʾ",
       "author": "Abu Ishaq Shirazi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-cf0a46f942e6f0d3",
       "title": "al-Radd ʿalá al-Ǧahmiyyaŧ",
       "author": "Cuthman Ibn Sacid Darimi",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-332ea3fd5e466670",
       "title": "Asbab Nuzul",
       "author": "Ibn Ahmad Wahidi Naysaburi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-1d4f0bbb88d1716e",
       "title": "Awthaq Cura Iman",
       "author": "Sulayman Sibt Ibn Cabd Wahhab",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-1674cb1afc146fc6",
       "title": "al-Maġāzi",
       "author": "Waqidi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-3f5f3c931c2c1883",
       "title": "Bayan Khata",
       "author": "Bayhaqi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b4fb1f3e0cdd8954",
       "title": "kitāb al-hawātif",
       "author": "Ibn Abi Dunya",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-a3153c39fcea6e11",
       "title": "Tafsir",
       "author": "Mujahid Ibn Jabr",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-4561ada31e7666d6",
       "title": "Fath Majid",
       "author": "Ibn Hasan Al Shaykh",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-8d42780e4d94cdc7",
       "title": "Badr Talic",
       "author": "Shawkani",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b6bab1308698d011",
       "title": "al-Ašribaŧ wa ḏikr iḫtilāf al-nās fīhā",
       "author": "Ibn Qutayba Dinawari",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-9263dada44e171d3",
       "title": "Alfiyyaŧ fī ʿilm al-ḥadīṯ",
       "author": "Al-Suyūṭī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d057663abbd70021",
       "title": "Lubab Nuqul",
       "author": "Al-Suyūṭī",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-5c631b002b0672b7",
       "title": "Misbah Zalam",
       "author": "Cabd Latif Al Shaykh",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-a6b2d7022b06a964",
       "title": "Tarikh",
       "author": "Muhammad Farid Bey",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-2f207d88bbc61fd4",
       "title": "al-Ǧumʿaŧ",
       "author": "Nasai",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-bc0d5557d59db0da",
       "title": "Akhbar Wa Hikayat",
       "author": "Ibn Fayd Ghassani",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-40aa6cebf46a1946",
       "title": "Tafsir Ayat Min Quran",
       "author": "Muḥammad ibn ʿAbd al-Wahhāb",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-21bb3486c8a0e085",
       "title": "Fath Allah Hamid",
       "author": "Khayr Din Alusi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-2721f0f182b87ab0",
       "title": "Kifāyaŧ al-nabīh šarḥ al-Tanbīh fī fiqh al-Imām al-¶ Šāfiʿī",
       "author": "Ibn Rifca",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7e3315fb45370201",
       "title": "Juz",
       "author": "Ibn Muhammad Madini",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-79d026267e5e9a25",
       "title": "Qanun Tawil",
       "author": "Ibn Carabi Ishbili",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-ed4513cd1454d397",
       "title": "Iqtisad",
       "author": "Ghazali",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-efccb0ad4a1ac254",
       "title": "Tarikh Khulafa",
       "author": "Al-Suyūṭī",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-69049254d28939c4",
       "title": "Qawacid Fiqhiyya",
       "author": "Zuhayli",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-73950f53f2cc13a8",
       "title": "Ṭabaqāt al-fuqahāʾ al-šāfiʿīyyin",
       "author": "Ibn Kathir",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-c068dbb501a89dcc",
       "title": "Sharh Muqaddimat Tafsir Suyuti",
       "author": "Cabd Karim Khudayr",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-60a7abe1de6f2b86",
       "title": "Tabaqat Shaficiyya",
       "author": "Ibn Hasan Jamal Din Isnawi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b75b46871147f81a",
       "title": "Taḏkiraŧ al-ḥuffāẓ",
       "author": "Al-Dhahabī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-1036ff7d3c118b9c",
       "title": "Tafsir",
       "author": "Sufyan Thawri",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-705df19facf69d36",
       "title": "Tahqiq Tajrid",
       "author": "Cabd Hadi Ibn Muhammad Cujayli",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-5fd97614cc3c2ced",
       "title": "Rafʿ al-iṣr ʿan quḍāŧ Miṣr",
       "author": "Ibn Ḥajar al-ʿAsqalānī",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d97771e13c47f311",
       "title": "āl-āḥād wa al-maṯānī",
       "author": "Ibn Abi Casim",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-8611a96776230d27",
       "title": "Ictiqad Khalis",
       "author": "Ibn Cattar",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7a687c273d8d1bad",
       "title": "Qawacid Nuraniyya",
       "author": "Ibn Taymiyyah",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b352e3d43116e59a",
       "title": "Mukhtasar Tafsir Surat Anfal",
       "author": "Muḥammad ibn ʿAbd al-Wahhāb",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-33abc7b51e487910",
       "title": "Irshad Thiqat",
       "author": "Shawkani",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7959e7267c0a4c18",
       "title": "Ṭabaqāt ṣulaḥāʾ al-Yaman",
       "author": "Burayhi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-aeec1b338b226077",
       "title": "Mashruciyyat Ijtihad",
       "author": "Khatib Shirbini",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d4ccf6f52da049a0",
       "title": "Tārīḫ Bayhaq",
       "author": "Yusuf Hadi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-eaf902bd95ee7aa0",
       "title": "Idah Masalik",
       "author": "Ibn Yahya Wansharisi",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-8f55b6b5a2b1b8ef",
       "title": "Taqrib Tahdhib",
       "author": "Ibn Ḥajar al-ʿAsqalānī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-4b962b153e28e832",
       "title": "Mukhtasar Tafsir Ibn Kathir",
       "author": "Muhammad Cali Sabuni",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-e9f6404e51902cae",
       "title": "Ictiqad Salaf Fi Huruf",
       "author": "Nawawi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-e4d3a47e2b11f6a2",
       "title": "Tarikh",
       "author": "Yahya Ibn Sacid Antaki",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-65b6ff1a2488c102",
       "title": "Kitāb Faḍā'il al-ṣaḥāba",
       "author": "Nasai",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-38ddf90cc1f471df",
       "title": "Kunuz Dhahab",
       "author": "Abu Dharr Sibt Ibn Cajami",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-32fa02bba3d5bc51",
       "title": "Tafsir Wasit",
       "author": "Muhammad Sayyid Tantawi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-0325f269d57a5dc0",
       "title": "Ictiqad Qadiri",
       "author": "Ibn Hasan Baqillani Baghdadi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-ce6ba79e6196e98f",
       "title": "Tarikh Dawlat Al Saljuq",
       "author": "Cimad Din Katib Isfahani",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-500e022ea71fad78",
       "title": "al-Radd ʿalá siyar al-Awzāʿī",
       "author": "Abu Yusuf Yacqub",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7f97bae9b19b1a36",
       "title": "Muḫtaṣar al-Kāmil fī al-ḍuʿafāʾ wa ʿilal al-ḥadīṯ",
       "author": "Al-Maqrīzī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-5d76245d5a8bd8bd",
       "title": "Mawrid Latafa",
       "author": "Ibn Taghribirdi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-f155a24cc9637212",
       "title": "Min kalām al-imām ʿAbd Allāh Aḥmad b. Ḥanbal fī ʿilal al-ḥadīṯ wa-maʿrifaŧ al-riǧāl",
       "author": "Aḥmad ibn Ḥanbal",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-9148e0f8c7f8412e",
       "title": "al-Muġnī fī al-ḍuʿafāʾ",
       "author": "Al-Dhahabī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-6e39e45a2e8cbdc6",
       "title": "Tafsir",
       "author": "Ahmad Mustafa Maraghi",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-b07b4f04bcb6054b",
       "title": "Mufid Mustafid",
       "author": "Muḥammad ibn ʿAbd al-Wahhāb",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-86e11d30d41fe26d",
       "title": "Mulhaq Badr",
       "author": "Muhammad Sancani",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-107d5cdd57ee78f1",
       "title": "Wafayat",
       "author": "Ibn Qunfudh",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-481d1841dd4fcde4",
       "title": "Tārīḫ Ǧurǧān",
       "author": "Sahmi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d0892e564a0ba9f3",
       "title": "Iqtisad Fi Ictiqad",
       "author": "Cabd Ghani Maqdisi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-409d0cf1dabd5a2e",
       "title": "Wulāt Miṣr",
       "author": "Muhammad Kindi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7d8397d7a41091d3",
       "title": "al-Arbaʿūn fī al-ḥaṯṯ ʿalá al-ǧihād",
       "author": "Ibn ʿAsākir",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-9107bf79591e0cee",
       "title": "Ṭabaqāt al-muḥaddiṯīn bi-Iṣbahān wa-al-wāridīn ʿalayhā",
       "author": "Abu Shaykh Isbahani",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-d47dc1729ae22e64",
       "title": "Ictiqadat",
       "author": "Fakhr Din Razi",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-079949fd011cae5e",
       "title": "ḏamm al-muskir",
       "author": "Ibn Abi Dunya",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-7469784d18329b3e",
       "title": "al-Muḫtaṣar al-muḥtāǧ ilayh min Tāriīḫ al-Ḥāfiẓ al-Dubayṯī",
       "author": "Al-Dhahabī",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-644eda0af9ec4932",
       "title": "Tafsir Mazhari",
       "author": "Thana Allah Panipati",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-8ac462dbc62ea962",
       "title": "Dahd Shubuhat",
       "author": "Ababutayn",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-818a37bd28121aca",
       "title": "Kašf al-muġaṭṭaʾ fī faḍl al-Muwaṭṭaʾ",
       "author": "Ibn ʿAsākir",
       "discipline": "Hadith",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-59686169d552e5f4",
       "title": "Tarikh",
       "author": "Ibn Khayyat Cusfuri",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-96157f9062648678",
       "title": "Hashiya Cala Tafsir Baydawi",
       "author": "Shihab Din Khafaji",
       "discipline": "Tafsīr",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-a1e019ecd09140cf",
       "title": "Sifat Munafiqin",
       "author": "Ibn Qayyim Jawziyya",
       "discipline": "ʿAqīda",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-f1530c592e7e16f0",
       "title": "Tarikh",
       "author": "Basrawi",
       "discipline": "Sīra et histoire",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     },
     {
       "book_id": "openiti-auto-166504e567243026",
       "title": "Manhaj Muntakhab",
       "author": "Cali Ibn Qasim Zaqqaq",
       "discipline": "Fiqh",
-      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar"
+      "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue"
     }
   ],
   "principles": [
     "Aucune école juridique n'est déduite automatiquement du seul nom d'un auteur.",
+    "Une école peut être renseignée depuis une cible éditoriale revue uniquement si l'ouvrage correspond sans ambiguïté par marqueur OpenITI ou paire auteur+titre.",
     "Les champs non documentés restent explicitement non résolus.",
     "Les marqueurs techniques sont nettoyés pour la lecture sans supprimer les nombres sémantiques du texte."
   ]

@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "phase": "quality-first-v1",
   "parser_version": "athar-openiti-reader-v2",
-  "books_reviewed": 213,
+  "books_reviewed": 231,
   "books": {
     "kutub-28107": {
       "book_id": "kutub-28107",
@@ -22,8 +22,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-muwatta",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -48,8 +49,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-risala-ibn-abi-zayd",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -76,6 +78,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -100,8 +103,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-tamhid",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -128,6 +132,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -154,6 +159,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -178,8 +184,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-khalil-mukhtasar",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -206,6 +213,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -230,8 +238,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-hattab-mawahib",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -258,6 +267,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -282,8 +292,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-mudawwana",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -308,8 +319,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-bayan-tahsil",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -334,8 +346,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-umm",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -360,8 +373,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-kasani-badai",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -386,8 +400,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-mughni",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -414,6 +429,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -440,6 +456,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -464,8 +481,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-ibn-taymiyya-fatawa",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -490,8 +508,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-ibn-taymiyya-iqtida",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -518,6 +537,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -542,8 +562,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-ibn-qayyim-ilam",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -570,6 +591,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -596,6 +618,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books.json"
@@ -620,8 +643,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-istidhkar",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -648,6 +672,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -674,6 +699,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -700,6 +726,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -726,6 +753,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -752,6 +780,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -778,6 +807,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra.json"
@@ -804,6 +834,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -830,6 +861,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -856,6 +888,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -882,6 +915,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -908,6 +942,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -934,6 +969,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -960,6 +996,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -986,6 +1023,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1012,6 +1050,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1038,6 +1077,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1062,8 +1102,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-qarafi-dhakhira",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1090,6 +1131,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1116,6 +1158,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1142,6 +1185,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1168,6 +1212,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1192,8 +1237,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-risala",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1218,8 +1264,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_manifest",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-nawawi-majmu",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1246,6 +1293,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1272,6 +1320,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1298,6 +1347,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_extra_40.json"
@@ -1310,7 +1360,7 @@
       "title_ar": "الأشباه والنظائر",
       "author": "Al-Suyūṭī",
       "discipline": "Fiqh",
-      "madhhab": "",
+      "madhhab": "Shāfiʿite",
       "metadata": {
         "author_ar": "جلال الدين السيوطي",
         "date_ah": "0911",
@@ -1322,8 +1372,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "automatic_metadata_hint",
-          "madhhab_status": "unresolved",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "reviewed_priority_target",
+          "madhhab_reference_id": "shafii-suyuti-ashbah",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1350,6 +1401,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1376,6 +1428,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1402,6 +1455,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1428,6 +1482,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1454,6 +1509,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1480,6 +1536,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1506,6 +1563,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1532,6 +1590,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1558,6 +1617,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1584,6 +1644,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1610,6 +1671,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1636,6 +1698,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1662,6 +1725,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1688,6 +1752,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1714,6 +1779,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1740,6 +1806,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1766,6 +1833,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1792,6 +1860,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1818,6 +1887,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1844,6 +1914,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1870,6 +1941,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1896,6 +1968,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1922,6 +1995,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1948,6 +2022,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -1974,6 +2049,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2000,6 +2076,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2026,6 +2103,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2052,6 +2130,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2078,6 +2157,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2104,6 +2184,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2130,6 +2211,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2156,6 +2238,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2182,6 +2265,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2208,6 +2292,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2234,6 +2319,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2260,6 +2346,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2286,6 +2373,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2312,6 +2400,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2338,6 +2427,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2364,6 +2454,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2390,6 +2481,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2416,6 +2508,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2442,6 +2535,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2468,6 +2562,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2494,6 +2589,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2520,6 +2616,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2546,6 +2643,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2572,6 +2670,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2598,6 +2697,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2610,7 +2710,7 @@
       "title_ar": "الأشباه والنظائر على مذهب أبي حنيفة النعمان",
       "author": "Ibn Ibrahim Ibn Nujaym Misri",
       "discipline": "Fiqh",
-      "madhhab": "",
+      "madhhab": "Ḥanafite",
       "metadata": {
         "author_ar": "ابن ابراهيم بن نجيم المصري",
         "date_ah": "0970",
@@ -2622,8 +2722,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "automatic_metadata_hint",
-          "madhhab_status": "unresolved",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "reviewed_priority_target",
+          "madhhab_reference_id": "hanafi-ibn-nujaym-ashbah",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2650,6 +2751,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2676,6 +2778,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2702,6 +2805,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2728,6 +2832,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2754,6 +2859,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2780,6 +2886,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2806,6 +2913,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2832,6 +2940,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2858,6 +2967,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2870,7 +2980,7 @@
       "title_ar": "الأحكام السلطانية",
       "author": "Abu Yacla Ibn Farra",
       "discipline": "Fiqh",
-      "madhhab": "",
+      "madhhab": "Ḥanbalite",
       "metadata": {
         "author_ar": "ابن الفراء",
         "date_ah": "0458",
@@ -2882,8 +2992,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "automatic_metadata_hint",
-          "madhhab_status": "unresolved",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "reviewed_priority_target",
+          "madhhab_reference_id": "hanbali-abu-yala-ahkam",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2910,6 +3021,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2936,6 +3048,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2962,6 +3075,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -2988,6 +3102,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3014,6 +3129,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3040,6 +3156,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3066,6 +3183,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3092,6 +3210,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3118,6 +3237,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3144,6 +3264,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3170,6 +3291,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3196,6 +3318,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3222,6 +3345,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3248,6 +3372,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3274,6 +3399,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3300,6 +3426,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3326,6 +3453,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3352,6 +3480,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3378,6 +3507,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3404,6 +3534,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3430,6 +3561,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3456,6 +3588,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3482,6 +3615,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3508,6 +3642,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3534,6 +3669,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3560,6 +3696,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3586,6 +3723,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3612,6 +3750,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3638,6 +3777,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3664,6 +3804,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3690,6 +3831,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3716,6 +3858,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3742,6 +3885,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3768,6 +3912,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3794,6 +3939,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3820,6 +3966,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3846,6 +3993,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3872,6 +4020,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3898,6 +4047,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3924,6 +4074,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3950,6 +4101,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -3976,6 +4128,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4002,6 +4155,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4028,6 +4182,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4054,6 +4209,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4080,6 +4236,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4106,6 +4263,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4132,6 +4290,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4158,6 +4317,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4184,6 +4344,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4210,6 +4371,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4236,6 +4398,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4262,6 +4425,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4288,6 +4452,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4314,6 +4479,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4340,6 +4506,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4366,6 +4533,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4392,6 +4560,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4418,6 +4587,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4444,6 +4614,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4470,6 +4641,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4496,6 +4668,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4522,6 +4695,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4548,6 +4722,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4574,6 +4749,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4600,6 +4776,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4626,6 +4803,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4652,6 +4830,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4678,6 +4857,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4704,6 +4884,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4730,6 +4911,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4756,6 +4938,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4782,6 +4965,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4808,6 +4992,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4834,6 +5019,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4860,6 +5046,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4886,6 +5073,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4912,6 +5100,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4938,6 +5127,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4964,6 +5154,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_policy_override",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -4990,6 +5181,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -5016,6 +5208,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -5042,6 +5235,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -5068,6 +5262,7 @@
           "identity_status": "source_backed",
           "discipline_status": "automatic_metadata_hint",
           "madhhab_status": "unresolved",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_auto.json"
@@ -5092,8 +5287,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-quduri",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5118,8 +5314,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-mabsut",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5144,8 +5341,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-hidaya",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5170,8 +5368,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-muhadhdhab",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5196,8 +5395,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-kafi",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5222,8 +5422,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-muqni",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5248,8 +5449,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-insaf",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5274,8 +5476,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hadith-musnad-ahmad",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5300,8 +5503,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "tafsir-qurtubi",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5326,8 +5530,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "usul-mustasfa",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5352,8 +5557,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "usul-ihkam-amidi",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5378,8 +5584,9 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "history-tabaqat-ibn-sad",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5404,8 +5611,495 @@
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
           "identity_status": "source_backed",
-          "discipline_status": "reviewed_reference_checklist",
+          "discipline_status": "reviewed_priority_target",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "history-tabari",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanafi-tahawi-maani": {
+      "book_id": "openiti-priority-hanafi-tahawi-maani",
+      "title": "Sharḥ Maʿānī al-Āthār",
+      "title_ar": "شرح معاني الآثار",
+      "author": "Al-Ṭaḥāwī",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Ḥanafite",
+      "metadata": {
+        "author_ar": "الطحاوي",
+        "date_ah": "0321",
+        "source_id": "JK000469",
+        "source_char_length": 2184017,
+        "source_token_length": 583698,
+        "source_tags": "GAL@hanafis :: _SUNNI :: GAL@fiqh :: GAL@literature-islamic :: CENT0400 :: GAL@0750-1000CE :: GAL@literature-arabic :: GAL@period-classical :: _FIQH :: _HADITH :: Shia@مصادر الحديث السنية ـ القسم العام :: JK@فقه الحديث والمذاهب الأخرى :: JK@فقه الحديث ومذاهب أخرى :: JK@كتب الفقه الإسلامي :: JK@كتب المصنفات والآثار :: Shamela@متون الحديث :: born@Misr_RE :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-tahawi-maani",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanafi-jassas-ahkam": {
+      "book_id": "openiti-priority-hanafi-jassas-ahkam",
+      "title": "Aḥkām al-Qurʾān",
+      "title_ar": "أحكام القرآن",
+      "author": "Abū Bakr al-Jaṣṣāṣ",
+      "discipline": "Tafsīr et fiqh",
+      "madhhab": "Ḥanafite",
+      "metadata": {
+        "author_ar": "الجساس",
+        "date_ah": "0370",
+        "source_id": "JK000871",
+        "source_char_length": 3022203,
+        "source_token_length": 743451,
+        "source_tags": "GAL@quran-sciences :: _SUNNI :: _CULUM :: _AHKAM :: GAL@literature-islamic :: CENT0400 :: GAL@0750-1000CE :: GAL@quran :: GAL@literature-arabic :: GAL@period-classical :: GAL@quran-tafsir :: _QURAN :: _TAFSIR :: _GHARIB :: Shamela@علوم القرآن :: JK@أحكام القرآن :: JK@أحكام القرآن وغريبه :: JK@التفاسير :: JK@كتب التفاسير وعلوم القرآن :: Shia@مصادر التفسير عند السنة :: born@Jibal_RE_Auto :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-jassas-ahkam",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanafi-mawsili-ikhtiyar": {
+      "book_id": "openiti-priority-hanafi-mawsili-ikhtiyar",
+      "title": "Al-Ikhtiyār li-Taʿlīl al-Mukhtār",
+      "title_ar": "الاختيار لتعليل المختار",
+      "author": "Al-Mawṣilī",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanafite",
+      "metadata": {
+        "author_ar": "ابن محمود مجد الدين الموصلي",
+        "date_ah": "0683",
+        "source_id": "JK009404",
+        "source_char_length": 1164127,
+        "source_token_length": 276698,
+        "source_tags": "GAL@hanafis :: GAL@1000-1258CE :: CENT0700 :: GAL@fiqh :: GAL@literature-islamic :: _HANAFI :: GAL@literature-arabic :: _FIQH :: GAL@period-postclassical :: JK@الفقه الحنفي :: JK@كتب الفقه الإسلامي :: ShamAY@فقه حنفي :: Shamela@فقه حنفي :: born@Aqur_RE_Auto :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-mawsili-ikhtiyar",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanafi-zaylai-tabyin": {
+      "book_id": "openiti-priority-hanafi-zaylai-tabyin",
+      "title": "Tabyīn al-Ḥaqāʾiq",
+      "title_ar": "تبيين الحقائق",
+      "author": "Fakhr al-Dīn al-Zaylaʿī",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanafite",
+      "metadata": {
+        "author_ar": "الزيلعي الحنفي",
+        "date_ah": "0743",
+        "source_id": "JK005200",
+        "source_char_length": 3712180,
+        "source_token_length": 898471,
+        "source_tags": "GAL@hanafis :: GAL@1258-1517CE :: GAL@fiqh :: GAL@literature-islamic :: _HANAFI :: GAL@period-postmongol :: _FIQH :: GAL@period-mamluk :: CENT0800 :: GAL@period-decline :: JK@الفقه الحنفي :: JK@كتب الفقه الإسلامي :: Shamela@فقه حنفي :: born@ZAYLAXXXYYY :: died@QAHIRA_312E300N_S :: resided@QAHIRA_312E300N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-zaylai-tabyin",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanafi-samarqandi-tuhfa": {
+      "book_id": "openiti-priority-hanafi-samarqandi-tuhfa",
+      "title": "Tuḥfat al-Fuqahāʾ",
+      "title_ar": "تحفة الفقهاء",
+      "author": "ʿAlāʾ al-Dīn al-Samarqandī",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanafite",
+      "metadata": {
+        "author_ar": "علاء الدين السمرقندي",
+        "date_ah": "0540",
+        "source_id": "JK000220",
+        "source_char_length": 801810,
+        "source_token_length": 195437,
+        "source_tags": "CENT0600 :: GAL@hanafis :: GAL@1000-1258CE :: GAL@fiqh :: GAL@literature-islamic :: _HANAFI :: GAL@literature-arabic :: _FIQH :: GAL@period-postclassical :: Shia@فقه المذهب الحنفي :: JK@الفقه الحنفي :: JK@كتب الفقه الإسلامي :: Shamela@فقه حنفي :: born@Mawarannahr_RE_Auto :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-samarqandi-tuhfa",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanafi-sarakhsi-usul": {
+      "book_id": "openiti-priority-hanafi-sarakhsi-usul",
+      "title": "Uṣūl al-Sarakhsī",
+      "title_ar": "أصول السرخسي",
+      "author": "Al-Sarakhsī",
+      "discipline": "Uṣūl al-fiqh",
+      "madhhab": "Ḥanafite",
+      "metadata": {
+        "author_ar": "ابن أحمد السرخسي",
+        "date_ah": "0483",
+        "source_id": "JK000211",
+        "source_char_length": 940759,
+        "source_token_length": 224621,
+        "source_tags": "GAL@hanafis :: _SUNNI :: GAL@1000-1258CE :: _QAWACID :: GAL@literature-islamic :: GAL@fiqh :: GAL@literature-arabic :: _FIQH :: _USUL :: CENT0500 :: GAL@period-postclassical :: Shamela@أصول الفقه والقواعد الفقهية :: Shia@أصول الفقه عند المذاهب السنية :: JK@أصول الفقه :: JK@الكتب الجامعة لأصول الفقه :: JK@كتب أصول الفقه الإسلامي :: born@Mawarannahr_RE :: died@FARGHANA_720E403N_R :: resided@UZJAND_733E408N_S :: resided@FARGHANA_720E403N_R :: resided@Mawarannahr_RE :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanafi-sarakhsi-usul",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-maliki-baji-muntaqa": {
+      "book_id": "openiti-priority-maliki-baji-muntaqa",
+      "title": "Al-Muntaqā",
+      "title_ar": "المنتقى",
+      "author": "Abū al-Walīd al-Bājī",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Mālikite",
+      "metadata": {
+        "author_ar": "ابن خلف الباجي",
+        "date_ah": "0474",
+        "source_id": "Sham19Y0006684",
+        "source_char_length": 5135600,
+        "source_token_length": 1298626,
+        "source_tags": "GAL@1000-1258CE :: GAL@fiqh :: GAL@literature-islamic :: GAL@malikis :: GAL@literature-arabic :: _SHARH :: _HADITH :: CENT0500 :: GAL@period-postclassical :: Shamela@شروح الحديث :: Sham@شروح الحديث :: born@BATALYUS_069W388N_S :: born@Andalus_RE_Auto :: died@MARIYYA_025W368N_S :: resided@BATALYUS_069W388N_S :: resided@BAJA_078W380N_S :: resided@QURTUBA_047W379N_S :: resided@HALAB_371E361N_S :: resided@JaziratArab_RE :: resided@BAGHDAD_443E333N_S :: resided@SARAQUSA_009W416N_S :: resided@BALANSIYYA_004W394N_S :: resided@MURSIYA_011W379N_S :: resided@URYULAXXXYYY :: resided@DANIYA_001E388N_S :: resided@MAYURQAXXXYYY :: resided@MARIYYA_025W368N_S :: visited@DIMASHQ_363E335N_S :: visited@MAWSIL_431E363N_S :: visited@Misr_RE :: TEXT_QUALITY :: REVIEW_NEEDED :: PRIMARY_VERSION :: CLEANED_VERSION :: MARKDOWN",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "maliki-baji-muntaqa",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-shafii-mawardi-hawi": {
+      "book_id": "openiti-priority-shafii-mawardi-hawi",
+      "title": "Al-Ḥāwī al-Kabīr",
+      "title_ar": "الحاوي الكبير",
+      "author": "Al-Māwardī",
+      "discipline": "Fiqh",
+      "madhhab": "Shāfiʿite",
+      "metadata": {
+        "author_ar": "الماوردي",
+        "date_ah": "0450",
+        "source_id": "JK009139",
+        "source_char_length": 11093406,
+        "source_token_length": 2679239,
+        "source_tags": "ShamAY@فقه شافعي :: JK@الفقه الشافعي :: JK@كتب الفقه الإسلامي :: Shamela@فقه شافعي :: born@BASRA_477E304N_S :: born@Iraq_RE :: died@BAGHDAD_443E333N_S :: resided@BASRA_477E304N_S :: resided@BAGHDAD_443E333N_S :: resided@NAYSABUR_587E361N_R :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-mawardi-hawi",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-shafii-juwayni-nihaya": {
+      "book_id": "openiti-priority-shafii-juwayni-nihaya",
+      "title": "Nihāyat al-Maṭlab",
+      "title_ar": "نهاية المطلب",
+      "author": "Imām al-Ḥaramayn al-Juwaynī",
+      "discipline": "Fiqh",
+      "madhhab": "Shāfiʿite",
+      "metadata": {
+        "author_ar": "امام الحرمين الجويني",
+        "date_ah": "0478",
+        "source_id": "Shamela0009851",
+        "source_char_length": 9402856,
+        "source_token_length": 2224471,
+        "source_tags": "GAL@shafiis :: GAL@1000-1258CE :: GAL@fiqh :: GAL@literature-islamic :: GAL@literature-arabic :: _SHAFICI :: _FIQH :: CENT0500 :: GAL@period-postclassical :: Shamela@فقه شافعي :: born@NAYSABUR_587E361N_S :: born@Khurasan_RE :: died@NAYSABUR_587E361N_S :: resided@NAYSABUR_587E361N_S :: resided@BAGHDAD_443E333N_S :: resided@MAKKA_398E213N_S :: resided@MADINA_396E244N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-juwayni-nihaya",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-shafii-nawawi-rawda": {
+      "book_id": "openiti-priority-shafii-nawawi-rawda",
+      "title": "Rawḍat al-Ṭālibīn",
+      "title_ar": "روضة الطالبين",
+      "author": "Al-Nawawī",
+      "discipline": "Fiqh",
+      "madhhab": "Shāfiʿite",
+      "metadata": {
+        "author_ar": "النووي",
+        "date_ah": "0676",
+        "source_id": "JK000192",
+        "source_char_length": 4527439,
+        "source_token_length": 1075230,
+        "source_tags": "GAL@shafiis :: GAL@1000-1258CE :: CENT0700 :: GAL@fiqh :: GAL@literature-islamic :: GAL@literature-arabic :: _SHAFICI :: _FIQH :: GAL@period-postclassical :: Shamela@فقه شافعي :: JK@الفقه الشافعي :: JK@كتب الفقه الإسلامي :: Shia@فقه المذهب الشافعي :: ShamAY@فقه شافعي :: born@NAWA_360E328N_S :: born@Sham_RE :: died@NAWA_360E328N_S :: resided@NAWA_360E328N_S :: resided@DIMASHQ_363E335N_S :: visited@MAKKA_398E213N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-nawawi-rawda",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-shafii-nawawi-minhaj": {
+      "book_id": "openiti-priority-shafii-nawawi-minhaj",
+      "title": "Minhāj al-Ṭālibīn",
+      "title_ar": "منهاج الطالبين",
+      "author": "Al-Nawawī",
+      "discipline": "Fiqh",
+      "madhhab": "Shāfiʿite",
+      "metadata": {
+        "author_ar": "النووي",
+        "date_ah": "0676",
+        "source_id": "JK001168",
+        "source_char_length": 315650,
+        "source_token_length": 76818,
+        "source_tags": "ShamAY@فقه شافعي :: Shamela@فقه شافعي :: JK@الفقه الشافعي :: JK@كتب الفقه الإسلامي :: born@NAWA_360E328N_S :: born@Sham_RE :: died@NAWA_360E328N_S :: resided@NAWA_360E328N_S :: resided@DIMASHQ_363E335N_S :: visited@MAKKA_398E213N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-nawawi-minhaj",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-shafii-bayhaqi-sunan": {
+      "book_id": "openiti-priority-shafii-bayhaqi-sunan",
+      "title": "Al-Sunan al-Kubrā",
+      "title_ar": "السنن الكبرى",
+      "author": "Al-Bayhaqī",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Shāfiʿite",
+      "metadata": {
+        "author_ar": "البيهقي",
+        "date_ah": "0458",
+        "source_id": "JK000484",
+        "source_char_length": 8039951,
+        "source_token_length": 2103015,
+        "source_tags": "ShamAY@متون الحديث :: Sham@متون الحديث :: JK@السنن :: JK@فقه الحديث والمذاهب الأخرى :: JK@كتب الحديث النبوي الشريف وتراجم الرواة :: Shia@مصادر الحديث السنية ـ قسم الفقه :: Shamela@متون الحديث :: born@BAYHAQ_576E360N_R :: born@Khurasan_RE :: died@BAYHAQ_576E360N_R :: resided@BAYHAQ_576E360N_R :: resided@NAYSABUR_587E361N_S :: resided@TUS_594E364N_S :: visited@Iraq_RE :: visited@JaziratArab_RE :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-bayhaqi-sunan",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-shafii-subki-fatawa": {
+      "book_id": "openiti-priority-shafii-subki-fatawa",
+      "title": "Fatāwā al-Subkī",
+      "title_ar": "فتاوى السبكي",
+      "author": "Taqī al-Dīn al-Subkī",
+      "discipline": "Fatāwā et fiqh",
+      "madhhab": "Shāfiʿite",
+      "metadata": {
+        "author_ar": "تقي الدين السبكي",
+        "date_ah": "0756",
+        "source_id": "JK007121",
+        "source_char_length": 1719570,
+        "source_token_length": 414418,
+        "source_tags": "GAL@shafiis :: GAL@syria :: GAL@1258-1517CE :: GAL@egypt :: GAL@literature-islamic :: GAL@fiqh :: GAL@period-postmongol :: _SHAFICI :: _FIQH :: _FATAWA :: GAL@period-mamluk :: CENT0800 :: GAL@period-decline :: JK@الفقه الشافعي :: JK@كتب الفقه الإسلامي :: Shamela@الفتاوى :: born@Misr_RE :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "shafii-subki-fatawa",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanbali-rawdat-nazir": {
+      "book_id": "openiti-priority-hanbali-rawdat-nazir",
+      "title": "Rawḍat al-Nāẓir",
+      "title_ar": "روضة الناظر",
+      "author": "Ibn Qudāmah al-Maqdisī",
+      "discipline": "Uṣūl al-fiqh",
+      "madhhab": "Ḥanbalite",
+      "metadata": {
+        "author_ar": "ابن قدامة المقدسي",
+        "date_ah": "0620",
+        "source_id": "JK000156",
+        "source_char_length": 295559,
+        "source_token_length": 69635,
+        "source_tags": "GAL@1000-1258CE :: CENT0700 :: _QAWACID :: GAL@literature-islamic :: GAL@fiqh :: GAL@hanbalis :: GAL@literature-arabic :: _FIQH :: _USUL :: GAL@period-postclassical :: JK@أصول الفقه :: JK@الكتب الجامعة لأصول الفقه :: JK@كتب أصول الفقه الإسلامي :: Shamela@أصول الفقه والقواعد الفقهية :: ShamAY@أصول الفقه والقواعد الفقهية :: born@BAYTMAQDIS_352E317N_S :: born@Sham_RE :: died@DIMASHQ_363E335N_S :: resided@DIMASHQ_363E335N_S :: resided@BAGHDAD_443E333N_S :: visited@MAKKA_398E213N_S :: visited@BAYTMAQDIS_352E317N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-rawdat-nazir",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanbali-ibn-qayyim-zad": {
+      "book_id": "openiti-priority-hanbali-ibn-qayyim-zad",
+      "title": "Zād al-Maʿād",
+      "title_ar": "زاد المعاد",
+      "author": "Ibn al-Qayyim",
+      "discipline": "Sīra et fiqh",
+      "madhhab": "Ḥanbalite",
+      "metadata": {
+        "author_ar": "ابن القيم الجوزية",
+        "date_ah": "0751",
+        "source_id": "JK000105",
+        "source_char_length": 2266893,
+        "source_token_length": 552307,
+        "source_tags": "_IBNQAYYIM :: GAL@syria :: _ASHAB :: GAL@1258-1517CE :: GAL@literature-islamic :: GAL@egypt :: GAL@fiqh :: GAL@period-postmongol :: GAL@hanbalis :: _SIRA :: GAL@period-mamluk :: CENT0800 :: GAL@period-decline :: JK@سيرة النبي صلى الله عليه وسلم :: JK@كتب سيرة النبي صلى الله عليه وسلم وأصحابه :: Shamela@كتب ابن القيم :: born@Sham_RE :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-ibn-qayyim-zad",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanbali-ibn-rajab-jami": {
+      "book_id": "openiti-priority-hanbali-ibn-rajab-jami",
+      "title": "Jāmiʿ al-ʿUlūm wa-l-Ḥikam",
+      "title_ar": "جامع العلوم والحكم",
+      "author": "Ibn Rajab al-Ḥanbalī",
+      "discipline": "Hadith et fiqh",
+      "madhhab": "Ḥanbalite",
+      "metadata": {
+        "author_ar": "زين الدين أبو الفرج عبد الرحمان بن أحمد بن رجب عبد الرحمان بن الحسن بن محمد بن أبي البركات مسعود البغدادي السلامي الدمشقي",
+        "date_ah": "0795",
+        "source_id": "JK000071",
+        "source_char_length": 758153,
+        "source_token_length": 187110,
+        "source_tags": "ShamAY@شروح الحديث :: JK@كتب الأخلاق والسلوك :: JK@مجموعات حديثية في الأخلاق والتزكية :: JK@مجموعات ومنتخبات وزوائد حديثية :: Shamela@شروح الحديث :: born@BAGHDAD_443E333N_S :: born@Iraq_RE :: resided@DIMASHQ_363E335N_S :: visited@QAHIRA_312E300N_S :: visited@MAKKA_398E213N_S :: visited@MADINA_396E244N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-ibn-rajab-jami",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanbali-ibn-muflih-furu": {
+      "book_id": "openiti-priority-hanbali-ibn-muflih-furu",
+      "title": "Al-Furūʿ",
+      "title_ar": "الفروع",
+      "author": "Ibn Mufliḥ",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanbalite",
+      "metadata": {
+        "author_ar": "ابن مفلح",
+        "date_ah": "0763",
+        "source_id": "JK000302",
+        "source_char_length": 3331767,
+        "source_token_length": 800854,
+        "source_tags": "_HANBALI :: GAL@syria :: GAL@1258-1517CE :: GAL@egypt :: GAL@literature-islamic :: GAL@fiqh :: GAL@period-postmongol :: GAL@hanbalis :: _FIQH :: GAL@period-mamluk :: CENT0800 :: GAL@period-decline :: JK@الفقه الحنبلي :: JK@كتب الفقه الإسلامي :: ShamAY@فقه حنبلي :: Shamela@فقه حنبلي :: born@Sham_RE_Auto :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-ibn-muflih-furu",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_priority.json"
+        }
+      }
+    },
+    "openiti-priority-hanbali-bahuti-kashshaf": {
+      "book_id": "openiti-priority-hanbali-bahuti-kashshaf",
+      "title": "Kashshāf al-Qināʿ",
+      "title_ar": "كشاف القناع",
+      "author": "Al-Bahūtī",
+      "discipline": "Fiqh",
+      "madhhab": "Ḥanbalite",
+      "metadata": {
+        "author_ar": "البهوتي",
+        "date_ah": "1051",
+        "source_id": "JK000148",
+        "source_char_length": 4473756,
+        "source_token_length": 1101024,
+        "source_tags": "GAL@1518-1798CE :: CENT1100 :: _HANBALI :: GAL@syria :: GAL@egypt :: GAL@fiqh :: GAL@literature-islamic :: GAL@hanbalis :: _FIQH :: GAL@period-ottoman :: GAL@period-decline :: JK@الفقه الحنبلي :: JK@كتب الفقه الإسلامي :: Shamela@فقه حنبلي :: ShamAY@فقه حنبلي :: Shia@فقه المذهب الحنبلي :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_priority_target",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "hanbali-bahuti-kashshaf",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_priority.json"
@@ -5432,6 +6126,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_tafsir.json"
@@ -5458,6 +6153,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_tafsir.json"
@@ -5484,6 +6180,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_tafsir.json"
@@ -5510,6 +6207,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_tafsir.json"
@@ -5536,6 +6234,7 @@
           "identity_status": "source_backed",
           "discipline_status": "reviewed_manifest",
           "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
           "reader_structure_status": "structured_parser_v2",
           "text_cleanup_version": "athar-openiti-reader-v2",
           "source_manifest": "openiti_books_tafsir.json"

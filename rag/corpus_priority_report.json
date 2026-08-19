@@ -1,126 +1,728 @@
 {
-  "pipeline": "athar-priority-curation-v1",
+  "pipeline": "athar-priority-curation-v2",
   "targets": 13,
-  "already_present": [],
+  "required_targets": 13,
+  "optional_targets": 40,
+  "all_targets": 53,
+  "already_present": [
+    {
+      "id": "hanafi-kasani-badai",
+      "title": "Badāʾiʿ al-Ṣanāʾiʿ",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-8183",
+      "openiti_uri": "0587IbnMascudCalaDinKasani.BadaicSanaic.JK000150-ara1"
+    },
+    {
+      "id": "hanafi-ibn-nujaym-ashbah",
+      "title": "Al-Ashbāh wa-l-Naẓāʾir",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-auto-06225b2fe6e4eb8a",
+      "openiti_uri": "0970IbnIbrahimIbnNujaymMisri.AshbahWaNazair.Shamela0001666-ara1"
+    },
+    {
+      "id": "maliki-muwatta",
+      "title": "Al-Muwaṭṭaʾ",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-28107",
+      "openiti_uri": "0179MalikIbnAnas.Muwatta.Shamela0028107-ara1"
+    },
+    {
+      "id": "maliki-mudawwana",
+      "title": "Al-Mudawwanah al-Kubrā",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-587",
+      "openiti_uri": "0240SahnunIbnSacid.MudawwanaKubra.JK000227-ara1"
+    },
+    {
+      "id": "maliki-risala-ibn-abi-zayd",
+      "title": "Al-Risālah",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-11373",
+      "openiti_uri": "0386IbnAbiZaydQayrawani.Risala.JK000171-ara1"
+    },
+    {
+      "id": "maliki-tamhid",
+      "title": "Al-Tamhīd",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-236",
+      "openiti_uri": "0463IbnCabdBarr.TamhidMuwatta.JK000585-ara1"
+    },
+    {
+      "id": "maliki-istidhkar",
+      "title": "Al-Istidhkār",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-istidhkar",
+      "openiti_uri": "0463IbnCabdBarr.IstidhkarJamic.JK001503-ara1"
+    },
+    {
+      "id": "maliki-bayan-tahsil",
+      "title": "Al-Bayān wa-l-Taḥṣīl",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-21751",
+      "openiti_uri": "0520IbnRushdJadd.BayanWaTahsil.Shamela0021751-ara1"
+    },
+    {
+      "id": "maliki-qarafi-dhakhira",
+      "title": "Al-Dhakhīrah",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-qarafi-dhakhira",
+      "openiti_uri": "0684ShihabDinQarafi.Dhakhira.Shamela0001717-ara1"
+    },
+    {
+      "id": "maliki-khalil-mukhtasar",
+      "title": "Mukhtaṣar Khalīl",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-11355",
+      "openiti_uri": "0767KhalilIbnIshaq.MukhtasarKhalil.JK000255-ara1"
+    },
+    {
+      "id": "maliki-hattab-mawahib",
+      "title": "Mawāhib al-Jalīl",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-569",
+      "openiti_uri": "0954HattabRucayniMaghribi.MawahibJalil.JK000281-ara1"
+    },
+    {
+      "id": "shafii-umm",
+      "title": "Kitāb al-Umm",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-1655",
+      "openiti_uri": "0204Shafici.Umm.JK000147-ara1"
+    },
+    {
+      "id": "shafii-risala",
+      "title": "Al-Risālah",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-shafici-risala",
+      "openiti_uri": "0204Shafici.Risala.LAL2013020402-ara2"
+    },
+    {
+      "id": "shafii-nawawi-majmu",
+      "title": "Al-Majmūʿ Sharḥ al-Muhadhdhab",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-nawawi-majmuc",
+      "openiti_uri": "0676Nawawi.Majmuc.JK000913-ara1"
+    },
+    {
+      "id": "shafii-suyuti-ashbah",
+      "title": "Al-Ashbāh wa-l-Naẓāʾir",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-auto-1f9d22598f30cb14",
+      "openiti_uri": "0911Suyuti.Ashbah.Shamela0021719-ara1"
+    },
+    {
+      "id": "hanbali-mughni",
+      "title": "Al-Mughnī",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-6910",
+      "openiti_uri": "0620IbnQudamaMaqdisi.Mughni.JK000154-ara1"
+    },
+    {
+      "id": "hanbali-abu-yala-ahkam",
+      "title": "Al-Aḥkām al-Sulṭāniyyah",
+      "priority": "P2",
+      "required": false,
+      "book_id": "openiti-auto-ad0d34fcc41bed93",
+      "openiti_uri": "0458AbuYaclaIbnFarra.AhkamSultaniyya.Shamela0022877-ara1"
+    },
+    {
+      "id": "hanbali-ibn-taymiyya-iqtida",
+      "title": "Iqtiḍāʾ al-Ṣirāṭ al-Mustaqīm",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-11620",
+      "openiti_uri": "0728IbnTaymiyya.IqtidaSirat.JK000367-ara1"
+    },
+    {
+      "id": "hanbali-ibn-taymiyya-fatawa",
+      "title": "Majmūʿ al-Fatāwā",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-7289",
+      "openiti_uri": "0728IbnTaymiyya.MajmucFatawa.JK000381-ara1"
+    },
+    {
+      "id": "hanbali-ibn-qayyim-ilam",
+      "title": "Iʿlām al-Muwaqqiʿīn",
+      "priority": "P2",
+      "required": false,
+      "book_id": "kutub-17798",
+      "openiti_uri": "0751IbnQayyimJawziyya.AclamMuwaqqicin.JK000094-ara1"
+    }
+  ],
   "selected": [
     {
       "book_id": "openiti-priority-hanafi-quduri",
+      "reference_id": "hanafi-quduri",
       "title": "Mukhtaṣar al-Qudūrī",
       "madhhab": "Ḥanafite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0428AbuHusaynQuduri.Mukhtasar.Sham19Y0124336-ara1",
       "work_uri": "0428AbuHusaynQuduri.Mukhtasar",
       "source_char_length": 175553
     },
     {
       "book_id": "openiti-priority-hanafi-mabsut",
+      "reference_id": "hanafi-mabsut",
       "title": "Al-Mabsūṭ",
       "madhhab": "Ḥanafite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0483IbnAhmadSarakhsi.Mabsut.JK000266-ara1",
       "work_uri": "0483IbnAhmadSarakhsi.Mabsut",
       "source_char_length": 10184443
     },
     {
       "book_id": "openiti-priority-hanafi-hidaya",
+      "reference_id": "hanafi-hidaya",
       "title": "Al-Hidāyah",
       "madhhab": "Ḥanafite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya.JK000242-ara1",
       "work_uri": "0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya",
       "source_char_length": 1451031
     },
     {
       "book_id": "openiti-priority-shafii-muhadhdhab",
+      "reference_id": "shafii-muhadhdhab",
       "title": "Al-Muhadhdhab",
       "madhhab": "Shāfiʿite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0476AbuIshaqShirazi.MuhadhdhabFiFiqh.JK000272-ara1",
       "work_uri": "0476AbuIshaqShirazi.MuhadhdhabFiFiqh",
       "source_char_length": 1994736
     },
     {
       "book_id": "openiti-priority-hanbali-kafi",
+      "reference_id": "hanbali-kafi",
       "title": "Al-Kāfī fī fiqh al-Imām Aḥmad",
       "madhhab": "Ḥanbalite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0620IbnQudamaMaqdisi.KafiFiFiqh.JK000254-ara1",
       "work_uri": "0620IbnQudamaMaqdisi.KafiFiFiqh",
       "source_char_length": 1708226
     },
     {
       "book_id": "openiti-priority-hanbali-muqni",
+      "reference_id": "hanbali-muqni",
       "title": "Al-Muqniʿ",
       "madhhab": "Ḥanbalite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0620IbnQudamaMaqdisi.MuqnicFiFiqh.JK000787BK1-ara1",
       "work_uri": "0620IbnQudamaMaqdisi.MuqnicFiFiqh",
       "source_char_length": 1313570
     },
     {
       "book_id": "openiti-priority-hanbali-insaf",
+      "reference_id": "hanbali-insaf",
       "title": "Al-Inṣāf",
       "madhhab": "Ḥanbalite",
       "discipline": "Fiqh",
+      "priority": "P1",
       "openiti_uri": "0885CalaDinMardawi.Insaf.JK000788-ara1",
       "work_uri": "0885CalaDinMardawi.Insaf",
       "source_char_length": 4708689
     },
     {
       "book_id": "openiti-priority-hadith-musnad-ahmad",
+      "reference_id": "hadith-musnad-ahmad",
       "title": "Musnad Aḥmad",
       "madhhab": "Transversal",
       "discipline": "Hadith",
+      "priority": "P1",
       "openiti_uri": "0241IbnHanbal.Musnad.Shamela0025794-ara1",
       "work_uri": "0241IbnHanbal.Musnad",
       "source_char_length": 6219636
     },
     {
       "book_id": "openiti-priority-tafsir-qurtubi",
+      "reference_id": "tafsir-qurtubi",
       "title": "Al-Jāmiʿ li-Aḥkām al-Qurʾān",
       "madhhab": "Mālikite",
       "discipline": "Tafsīr",
+      "priority": "P1",
       "openiti_uri": "0671AbuCabdAllahQurtubi.JamicLiAhkamQuran.Tafsir01005-ara1",
       "work_uri": "0671AbuCabdAllahQurtubi.JamicLiAhkamQuran",
       "source_char_length": 7980130
     },
     {
       "book_id": "openiti-priority-usul-mustasfa",
+      "reference_id": "usul-mustasfa",
       "title": "Al-Mustaṣfā",
       "madhhab": "Shāfiʿite",
       "discipline": "Uṣūl al-fiqh",
+      "priority": "P1",
       "openiti_uri": "0505Ghazali.Mustasfa.JK000276-ara1",
       "work_uri": "0505Ghazali.Mustasfa",
       "source_char_length": 767795
     },
     {
       "book_id": "openiti-priority-usul-ihkam-amidi",
+      "reference_id": "usul-ihkam-amidi",
       "title": "Al-Iḥkām fī Uṣūl al-Aḥkām",
       "madhhab": "Shāfiʿite",
       "discipline": "Uṣūl al-fiqh",
+      "priority": "P1",
       "openiti_uri": "0631SayfDinAmidi.IhkamFiUsulAhkam.JK000149-ara1",
       "work_uri": "0631SayfDinAmidi.IhkamFiUsulAhkam",
       "source_char_length": 1201976
     },
     {
       "book_id": "openiti-priority-history-tabaqat-ibn-sad",
+      "reference_id": "history-tabaqat-ibn-sad",
       "title": "Al-Ṭabaqāt al-Kubrā",
       "madhhab": "Transversal",
       "discipline": "Sīra et histoire",
+      "priority": "P1",
       "openiti_uri": "0230IbnSacd.TabaqatKubra.ShamAY0035884-ara1",
       "work_uri": "0230IbnSacd.TabaqatKubra",
       "source_char_length": 4476265
     },
     {
       "book_id": "openiti-priority-history-tabari",
+      "reference_id": "history-tabari",
       "title": "Tārīkh al-Ṭabarī",
       "madhhab": "Transversal",
       "discipline": "Sīra et histoire",
+      "priority": "P1",
       "openiti_uri": "0310Tabari.Tarikh.Shamela0009783BK1-ara1",
       "work_uri": "0310Tabari.Tarikh",
       "source_char_length": 5904863
+    },
+    {
+      "book_id": "openiti-priority-hanafi-tahawi-maani",
+      "reference_id": "hanafi-tahawi-maani",
+      "title": "Sharḥ Maʿānī al-Āthār",
+      "madhhab": "Ḥanafite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0321Tahawi.SharhMacaniAthar.JK000469-ara1",
+      "work_uri": "0321Tahawi.SharhMacaniAthar",
+      "source_char_length": 2184017
+    },
+    {
+      "book_id": "openiti-priority-hanafi-jassas-ahkam",
+      "reference_id": "hanafi-jassas-ahkam",
+      "title": "Aḥkām al-Qurʾān",
+      "madhhab": "Ḥanafite",
+      "discipline": "Tafsīr et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0370IbnCaliJassas.AhkamQuran.JK000871-ara1",
+      "work_uri": "0370IbnCaliJassas.AhkamQuran",
+      "source_char_length": 3022203
+    },
+    {
+      "book_id": "openiti-priority-hanafi-mawsili-ikhtiyar",
+      "reference_id": "hanafi-mawsili-ikhtiyar",
+      "title": "Al-Ikhtiyār li-Taʿlīl al-Mukhtār",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0683IbnMahmudMajdDinMawsili.IkhtiyarLiTaclil.JK009404-ara1",
+      "work_uri": "0683IbnMahmudMajdDinMawsili.IkhtiyarLiTaclil",
+      "source_char_length": 1164127
+    },
+    {
+      "book_id": "openiti-priority-hanafi-zaylai-tabyin",
+      "reference_id": "hanafi-zaylai-tabyin",
+      "title": "Tabyīn al-Ḥaqāʾiq",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0743FakhrDinZaylaci.TabyinHaqaiq.JK005200-ara1",
+      "work_uri": "0743FakhrDinZaylaci.TabyinHaqaiq",
+      "source_char_length": 3712180
+    },
+    {
+      "book_id": "openiti-priority-hanafi-samarqandi-tuhfa",
+      "reference_id": "hanafi-samarqandi-tuhfa",
+      "title": "Tuḥfat al-Fuqahāʾ",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0540IbnAhmadCalaDinSamarqandi.TuhfatFuqaha.JK000220-ara1",
+      "work_uri": "0540IbnAhmadCalaDinSamarqandi.TuhfatFuqaha",
+      "source_char_length": 801810
+    },
+    {
+      "book_id": "openiti-priority-hanafi-sarakhsi-usul",
+      "reference_id": "hanafi-sarakhsi-usul",
+      "title": "Uṣūl al-Sarakhsī",
+      "madhhab": "Ḥanafite",
+      "discipline": "Uṣūl al-fiqh",
+      "priority": "P2",
+      "openiti_uri": "0483IbnAhmadSarakhsi.Usul.JK000211-ara1",
+      "work_uri": "0483IbnAhmadSarakhsi.Usul",
+      "source_char_length": 940759
+    },
+    {
+      "book_id": "openiti-priority-maliki-baji-muntaqa",
+      "reference_id": "maliki-baji-muntaqa",
+      "title": "Al-Muntaqā",
+      "madhhab": "Mālikite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0474IbnKhalafBaji.MuntaqaSharhMuwatta.Sham19Y0006684-ara1",
+      "work_uri": "0474IbnKhalafBaji.MuntaqaSharhMuwatta",
+      "source_char_length": 5135600
+    },
+    {
+      "book_id": "openiti-priority-shafii-mawardi-hawi",
+      "reference_id": "shafii-mawardi-hawi",
+      "title": "Al-Ḥāwī al-Kabīr",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0450AbuHasanMawardi.HawiKabir.JK009139-ara1",
+      "work_uri": "0450AbuHasanMawardi.HawiKabir",
+      "source_char_length": 11093406
+    },
+    {
+      "book_id": "openiti-priority-shafii-juwayni-nihaya",
+      "reference_id": "shafii-juwayni-nihaya",
+      "title": "Nihāyat al-Maṭlab",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0478ImamHaramaynJuwayni.NihayatMatlab.Shamela0009851-ara1",
+      "work_uri": "0478ImamHaramaynJuwayni.NihayatMatlab",
+      "source_char_length": 9402856
+    },
+    {
+      "book_id": "openiti-priority-shafii-nawawi-rawda",
+      "reference_id": "shafii-nawawi-rawda",
+      "title": "Rawḍat al-Ṭālibīn",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0676Nawawi.RawdatTalibin.JK000192-ara1",
+      "work_uri": "0676Nawawi.RawdatTalibin",
+      "source_char_length": 4527439
+    },
+    {
+      "book_id": "openiti-priority-shafii-nawawi-minhaj",
+      "reference_id": "shafii-nawawi-minhaj",
+      "title": "Minhāj al-Ṭālibīn",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0676Nawawi.MinhajTalibin.JK001168-ara1",
+      "work_uri": "0676Nawawi.MinhajTalibin",
+      "source_char_length": 315650
+    },
+    {
+      "book_id": "openiti-priority-shafii-bayhaqi-sunan",
+      "reference_id": "shafii-bayhaqi-sunan",
+      "title": "Al-Sunan al-Kubrā",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0458Bayhaqi.SunanKubra.JK000484-ara1",
+      "work_uri": "0458Bayhaqi.SunanKubra",
+      "source_char_length": 8039951
+    },
+    {
+      "book_id": "openiti-priority-shafii-subki-fatawa",
+      "reference_id": "shafii-subki-fatawa",
+      "title": "Fatāwā al-Subkī",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fatāwā et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0756TaqiDinSubki.Fatawa.JK007121-ara1",
+      "work_uri": "0756TaqiDinSubki.Fatawa",
+      "source_char_length": 1719570
+    },
+    {
+      "book_id": "openiti-priority-hanbali-rawdat-nazir",
+      "reference_id": "hanbali-rawdat-nazir",
+      "title": "Rawḍat al-Nāẓir",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Uṣūl al-fiqh",
+      "priority": "P2",
+      "openiti_uri": "0620IbnQudamaMaqdisi.RawdatNazir.JK000156-ara1",
+      "work_uri": "0620IbnQudamaMaqdisi.RawdatNazir",
+      "source_char_length": 295559
+    },
+    {
+      "book_id": "openiti-priority-hanbali-ibn-qayyim-zad",
+      "reference_id": "hanbali-ibn-qayyim-zad",
+      "title": "Zād al-Maʿād",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Sīra et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0751IbnQayyimJawziyya.ZadMacad.JK000105-ara1",
+      "work_uri": "0751IbnQayyimJawziyya.ZadMacad",
+      "source_char_length": 2266893
+    },
+    {
+      "book_id": "openiti-priority-hanbali-ibn-rajab-jami",
+      "reference_id": "hanbali-ibn-rajab-jami",
+      "title": "Jāmiʿ al-ʿUlūm wa-l-Ḥikam",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0795IbnRajabHanbali.JamicCulumWaHikam.JK000071-ara1",
+      "work_uri": "0795IbnRajabHanbali.JamicCulumWaHikam",
+      "source_char_length": 758153
+    },
+    {
+      "book_id": "openiti-priority-hanbali-ibn-muflih-furu",
+      "reference_id": "hanbali-ibn-muflih-furu",
+      "title": "Al-Furūʿ",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0763IbnMuflihMaqdisi.FurucWaTashihFuruc.JK000302-ara1",
+      "work_uri": "0763IbnMuflihMaqdisi.FurucWaTashihFuruc",
+      "source_char_length": 3331767
+    },
+    {
+      "book_id": "openiti-priority-hanbali-bahuti-kashshaf",
+      "reference_id": "hanbali-bahuti-kashshaf",
+      "title": "Kashshāf al-Qināʿ",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "1051IbnYunusBuhutiHanbali.KashshafQinac.JK000148-ara1",
+      "work_uri": "1051IbnYunusBuhutiHanbali.KashshafQinac",
+      "source_char_length": 4473756
+    }
+  ],
+  "optional_selected": 38,
+  "optional_selected_books": [
+    {
+      "book_id": "openiti-priority-hanafi-tahawi-maani",
+      "reference_id": "hanafi-tahawi-maani",
+      "title": "Sharḥ Maʿānī al-Āthār",
+      "madhhab": "Ḥanafite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0321Tahawi.SharhMacaniAthar.JK000469-ara1",
+      "work_uri": "0321Tahawi.SharhMacaniAthar",
+      "source_char_length": 2184017
+    },
+    {
+      "book_id": "openiti-priority-hanafi-jassas-ahkam",
+      "reference_id": "hanafi-jassas-ahkam",
+      "title": "Aḥkām al-Qurʾān",
+      "madhhab": "Ḥanafite",
+      "discipline": "Tafsīr et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0370IbnCaliJassas.AhkamQuran.JK000871-ara1",
+      "work_uri": "0370IbnCaliJassas.AhkamQuran",
+      "source_char_length": 3022203
+    },
+    {
+      "book_id": "openiti-priority-hanafi-mawsili-ikhtiyar",
+      "reference_id": "hanafi-mawsili-ikhtiyar",
+      "title": "Al-Ikhtiyār li-Taʿlīl al-Mukhtār",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0683IbnMahmudMajdDinMawsili.IkhtiyarLiTaclil.JK009404-ara1",
+      "work_uri": "0683IbnMahmudMajdDinMawsili.IkhtiyarLiTaclil",
+      "source_char_length": 1164127
+    },
+    {
+      "book_id": "openiti-priority-hanafi-zaylai-tabyin",
+      "reference_id": "hanafi-zaylai-tabyin",
+      "title": "Tabyīn al-Ḥaqāʾiq",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0743FakhrDinZaylaci.TabyinHaqaiq.JK005200-ara1",
+      "work_uri": "0743FakhrDinZaylaci.TabyinHaqaiq",
+      "source_char_length": 3712180
+    },
+    {
+      "book_id": "openiti-priority-hanafi-samarqandi-tuhfa",
+      "reference_id": "hanafi-samarqandi-tuhfa",
+      "title": "Tuḥfat al-Fuqahāʾ",
+      "madhhab": "Ḥanafite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0540IbnAhmadCalaDinSamarqandi.TuhfatFuqaha.JK000220-ara1",
+      "work_uri": "0540IbnAhmadCalaDinSamarqandi.TuhfatFuqaha",
+      "source_char_length": 801810
+    },
+    {
+      "book_id": "openiti-priority-hanafi-sarakhsi-usul",
+      "reference_id": "hanafi-sarakhsi-usul",
+      "title": "Uṣūl al-Sarakhsī",
+      "madhhab": "Ḥanafite",
+      "discipline": "Uṣūl al-fiqh",
+      "priority": "P2",
+      "openiti_uri": "0483IbnAhmadSarakhsi.Usul.JK000211-ara1",
+      "work_uri": "0483IbnAhmadSarakhsi.Usul",
+      "source_char_length": 940759
+    },
+    {
+      "book_id": "openiti-priority-maliki-baji-muntaqa",
+      "reference_id": "maliki-baji-muntaqa",
+      "title": "Al-Muntaqā",
+      "madhhab": "Mālikite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0474IbnKhalafBaji.MuntaqaSharhMuwatta.Sham19Y0006684-ara1",
+      "work_uri": "0474IbnKhalafBaji.MuntaqaSharhMuwatta",
+      "source_char_length": 5135600
+    },
+    {
+      "book_id": "openiti-priority-shafii-mawardi-hawi",
+      "reference_id": "shafii-mawardi-hawi",
+      "title": "Al-Ḥāwī al-Kabīr",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0450AbuHasanMawardi.HawiKabir.JK009139-ara1",
+      "work_uri": "0450AbuHasanMawardi.HawiKabir",
+      "source_char_length": 11093406
+    },
+    {
+      "book_id": "openiti-priority-shafii-juwayni-nihaya",
+      "reference_id": "shafii-juwayni-nihaya",
+      "title": "Nihāyat al-Maṭlab",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0478ImamHaramaynJuwayni.NihayatMatlab.Shamela0009851-ara1",
+      "work_uri": "0478ImamHaramaynJuwayni.NihayatMatlab",
+      "source_char_length": 9402856
+    },
+    {
+      "book_id": "openiti-priority-shafii-nawawi-rawda",
+      "reference_id": "shafii-nawawi-rawda",
+      "title": "Rawḍat al-Ṭālibīn",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0676Nawawi.RawdatTalibin.JK000192-ara1",
+      "work_uri": "0676Nawawi.RawdatTalibin",
+      "source_char_length": 4527439
+    },
+    {
+      "book_id": "openiti-priority-shafii-nawawi-minhaj",
+      "reference_id": "shafii-nawawi-minhaj",
+      "title": "Minhāj al-Ṭālibīn",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0676Nawawi.MinhajTalibin.JK001168-ara1",
+      "work_uri": "0676Nawawi.MinhajTalibin",
+      "source_char_length": 315650
+    },
+    {
+      "book_id": "openiti-priority-shafii-bayhaqi-sunan",
+      "reference_id": "shafii-bayhaqi-sunan",
+      "title": "Al-Sunan al-Kubrā",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0458Bayhaqi.SunanKubra.JK000484-ara1",
+      "work_uri": "0458Bayhaqi.SunanKubra",
+      "source_char_length": 8039951
+    },
+    {
+      "book_id": "openiti-priority-shafii-subki-fatawa",
+      "reference_id": "shafii-subki-fatawa",
+      "title": "Fatāwā al-Subkī",
+      "madhhab": "Shāfiʿite",
+      "discipline": "Fatāwā et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0756TaqiDinSubki.Fatawa.JK007121-ara1",
+      "work_uri": "0756TaqiDinSubki.Fatawa",
+      "source_char_length": 1719570
+    },
+    {
+      "book_id": "openiti-priority-hanbali-rawdat-nazir",
+      "reference_id": "hanbali-rawdat-nazir",
+      "title": "Rawḍat al-Nāẓir",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Uṣūl al-fiqh",
+      "priority": "P2",
+      "openiti_uri": "0620IbnQudamaMaqdisi.RawdatNazir.JK000156-ara1",
+      "work_uri": "0620IbnQudamaMaqdisi.RawdatNazir",
+      "source_char_length": 295559
+    },
+    {
+      "book_id": "openiti-priority-hanbali-ibn-qayyim-zad",
+      "reference_id": "hanbali-ibn-qayyim-zad",
+      "title": "Zād al-Maʿād",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Sīra et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0751IbnQayyimJawziyya.ZadMacad.JK000105-ara1",
+      "work_uri": "0751IbnQayyimJawziyya.ZadMacad",
+      "source_char_length": 2266893
+    },
+    {
+      "book_id": "openiti-priority-hanbali-ibn-rajab-jami",
+      "reference_id": "hanbali-ibn-rajab-jami",
+      "title": "Jāmiʿ al-ʿUlūm wa-l-Ḥikam",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Hadith et fiqh",
+      "priority": "P2",
+      "openiti_uri": "0795IbnRajabHanbali.JamicCulumWaHikam.JK000071-ara1",
+      "work_uri": "0795IbnRajabHanbali.JamicCulumWaHikam",
+      "source_char_length": 758153
+    },
+    {
+      "book_id": "openiti-priority-hanbali-ibn-muflih-furu",
+      "reference_id": "hanbali-ibn-muflih-furu",
+      "title": "Al-Furūʿ",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "0763IbnMuflihMaqdisi.FurucWaTashihFuruc.JK000302-ara1",
+      "work_uri": "0763IbnMuflihMaqdisi.FurucWaTashihFuruc",
+      "source_char_length": 3331767
+    },
+    {
+      "book_id": "openiti-priority-hanbali-bahuti-kashshaf",
+      "reference_id": "hanbali-bahuti-kashshaf",
+      "title": "Kashshāf al-Qināʿ",
+      "madhhab": "Ḥanbalite",
+      "discipline": "Fiqh",
+      "priority": "P2",
+      "openiti_uri": "1051IbnYunusBuhutiHanbali.KashshafQinac.JK000148-ara1",
+      "work_uri": "1051IbnYunusBuhutiHanbali.KashshafQinac",
+      "source_char_length": 4473756
     }
   ],
   "missing": [],
-  "resolved": 13
+  "optional_missing": [
+    {
+      "id": "hanafi-tahawi-mukhtasar",
+      "title": "Mukhtaṣar al-Ṭaḥāwī",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "hanafi-abu-yusuf-kharaj",
+      "title": "Kitāb al-Kharāj",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    }
+  ],
+  "resolved": 13,
+  "resolved_total": 51
 }

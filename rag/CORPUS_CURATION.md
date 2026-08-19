@@ -1,28 +1,29 @@
 # Curation du corpus Athar
 
-> Rapport généré à partir des manifestes Athar et des métadonnées officielles OpenITI.
+> Rapport généré à partir des manifestes Athar, de la grille de priorités revue et des métadonnées officielles OpenITI.
 
 ## État
 
-- **213 ouvrages OpenITI** passés dans la chaîne de curation.
-- Titre renseigné : **213 / 213**.
-- Titre arabe renseigné : **213 / 213**.
-- Auteur renseigné : **213 / 213**.
-- Discipline renseignée : **213 / 213**.
-- Métadonnées OpenITI appariées : **213 / 213**.
-- Madhhab explicitement renseigné : **68 / 213**.
-- Madhhab restant non résolu : **145**.
+- **231 ouvrages OpenITI** passés dans la chaîne de curation.
+- Titre renseigné : **231 / 231**.
+- Titre arabe renseigné : **231 / 231**.
+- Auteur renseigné : **231 / 231**.
+- Discipline renseignée : **231 / 231**.
+- Métadonnées OpenITI appariées : **231 / 231**.
+- Madhhab explicitement renseigné : **89 / 231**.
+- Dont madhhab restauré par cible auteur+titre revue : **3**.
+- Madhhab restant non résolu : **142**.
 
 ## Principes de qualité
 
-- Athar n'invente pas un madhhab à partir du nom de l'auteur.
+- Athar n'invente pas un madhhab à partir du seul nom de l'auteur.
+- Une attribution issue de la grille savante exige un ouvrage identifié sans ambiguïté.
 - La lecture utilise le parseur structuré `athar-openiti-reader-v2`.
 - Les marqueurs OpenITI, balises HTML résiduelles et repères éditoriaux explicitement identifiés sont retirés de l'affichage.
 - Les nombres ayant un sens dans la source (hadith, verset, date, quantité, numéro cité dans le texte) sont conservés.
 
 ## Madhhab à documenter
 
-- `openiti-auto-1f9d22598f30cb14` — **Ashbah** — Al-Suyūṭī — Fiqh
 - `openiti-auto-527961a94dfb5581` — **Alqab Sahaba** — Abu Cali Jayyani — Hadith
 - `openiti-auto-b6a5898e3a08d131` — **al-Kašf wa-l-bayān** — Abu Ishaq Thaclabi — Tafsīr
 - `openiti-auto-50b0c08cfcb94b92` — **Naqd Maratib Ijmac** — Ibn Taymiyyah — Uṣūl et qawāʿid
@@ -72,7 +73,6 @@
 - `openiti-auto-67d26b565f687f32` — **Gharaib Tafsir** — Ibn Hamza Taj Qurra Kirmani — Tafsīr
 - `openiti-auto-b8494f8cb7904d7e` — **Mudhakkirat Tawhid** — Cabd Razzaq Cafifi — ʿAqīda
 - `openiti-auto-00100f763cd36f5f` — **al-ʿIbar fī ḫabar man ġabar** — Al-Dhahabī — Sīra et histoire
-- `openiti-auto-06225b2fe6e4eb8a` — **Ashbah Wa Nazair** — Ibn Ibrahim Ibn Nujaym Misri — Fiqh
 - `openiti-auto-8a607c726157ecac` — **al-ʿuluww** — Al-Dhahabī — Hadith
 - `openiti-auto-70197b0349579071` — **Tafsir** — Ibn Abi Zamanayn Ilbiri — Tafsīr
 - `openiti-auto-7b0c303caa9c72d1` — **Masala Fi Tawhid Falasifa** — Ibn Taymiyyah — ʿAqīda
@@ -82,7 +82,6 @@
 - `openiti-auto-27ab8d868c701499` — **Wajiz Fi Tafsir** — Ibn Ahmad Wahidi Naysaburi — Tafsīr
 - `openiti-auto-112c4fbfa51fcf70` — **Tajrid Tawhid** — Al-Maqrīzī — ʿAqīda
 - `openiti-auto-d0b7fa774adf59d1` — **Tarikh** — Zayn Din Ibn Wardi — Sīra et histoire
-- `openiti-auto-ad0d34fcc41bed93` — **al-Aḥkām al-sulṭāniyyaŧ** — Abu Yacla Ibn Farra — Fiqh
 - `openiti-auto-41bcd1e39f675abe` — **Tārīḫ mūlid al-ʿulamāʾ wa wafayātihim** — Ibn Zabr Rabci — Hadith
 - `openiti-auto-90ee9f89cf83849e` — **Tafsir** — Cabd Razzaq Sancani — Tafsīr
 - `openiti-auto-15b224f075f9dcb0` — **Tawhid** — Ibn Rajab Hanbali — ʿAqīda
