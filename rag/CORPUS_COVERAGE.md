@@ -4,7 +4,7 @@
 
 ## Vue d’ensemble
 
-- **231 ouvrages OpenITI** audités.
+- **233 ouvrages OpenITI** audités.
 - **215 ouvrages** et **574461 passages** annoncés par le manifeste de production.
 - **11 shards** en production.
 - **0 ouvrage(s) complémentaire(s)** hors OpenITI exclus du calcul des écoles juridiques.
@@ -13,12 +13,12 @@
 
 | Discipline normalisée | Ouvrages | Part |
 |---|---|---|
-| Fiqh | 61 | 26.41 % |
-| Hadith | 50 | 21.65 % |
-| Sīra et histoire | 37 | 16.02 % |
-| Tafsīr | 37 | 16.02 % |
-| ʿAqīda | 31 | 13.42 % |
-| Uṣūl et qawāʿid | 14 | 6.06 % |
+| Fiqh | 63 | 27.04 % |
+| Hadith | 50 | 21.46 % |
+| Sīra et histoire | 37 | 15.88 % |
+| Tafsīr | 37 | 15.88 % |
+| ʿAqīda | 31 | 13.3 % |
+| Uṣūl et qawāʿid | 14 | 6.01 % |
 | Autres | 1 | 0.43 % |
 
 ## Écoles juridiques
@@ -27,9 +27,9 @@ Les chiffres ci-dessous utilisent uniquement les métadonnées explicitement pr�
 
 | École / statut | Ouvrages de fiqh associés |
 |---|---|
-| Mālikite | 21 |
+| Mālikite | 22 |
 | Ḥanafite | 11 |
-| Shāfiʿite | 14 |
+| Shāfiʿite | 15 |
 | Ḥanbalite | 13 |
 | Non renseigné (fiqh) | 23 |
 
@@ -39,27 +39,27 @@ Les chiffres ci-dessous utilisent uniquement les métadonnées explicitement pr�
 
 | Auteur | Ouvrages | Part du corpus |
 |---|---|---|
-| Al-Suyūṭī | 8 | 3.46 % |
-| Ibn ʿAbd al-Barr | 5 | 2.16 % |
-| Ibn Taymiyyah | 5 | 2.16 % |
-| Abū al-Walīd al-Bājī | 5 | 2.16 % |
-| Al-Dhahabī | 5 | 2.16 % |
-| Ibn Qudāmah al-Maqdisī | 4 | 1.73 % |
-| Ibn Ḥajar al-ʿAsqalānī | 4 | 1.73 % |
-| Ibn al-Qayyim | 4 | 1.73 % |
-| Ibn Kathīr | 3 | 1.3 % |
-| Al-Nawawi | 3 | 1.3 % |
-| Ibn ʿAsākir | 3 | 1.3 % |
-| Aḥmad ibn Ḥanbal | 3 | 1.3 % |
-| Al-Maqrīzī | 3 | 1.3 % |
-| Muḥammad ibn ʿAbd al-Wahhāb | 3 | 1.3 % |
-| Al-Qarāfī | 2 | 0.87 % |
+| Al-Suyūṭī | 8 | 3.43 % |
+| Ibn ʿAbd al-Barr | 5 | 2.15 % |
+| Ibn Taymiyyah | 5 | 2.15 % |
+| Abū al-Walīd al-Bājī | 5 | 2.15 % |
+| Al-Dhahabī | 5 | 2.15 % |
+| Ibn Qudāmah al-Maqdisī | 4 | 1.72 % |
+| Ibn Ḥajar al-ʿAsqalānī | 4 | 1.72 % |
+| Ibn al-Qayyim | 4 | 1.72 % |
+| Ibn Kathīr | 3 | 1.29 % |
+| Al-Nawawi | 3 | 1.29 % |
+| Ibn ʿAsākir | 3 | 1.29 % |
+| Aḥmad ibn Ḥanbal | 3 | 1.29 % |
+| Al-Maqrīzī | 3 | 1.29 % |
+| Muḥammad ibn ʿAbd al-Wahhāb | 3 | 1.29 % |
+| Al-Qarāfī | 2 | 0.86 % |
 
 Seuil de concentration automatique : **10 ouvrages**. Les auteurs au-dessus de ce seuil sont signalés pour revue, pas automatiquement considérés comme indésirables.
 
 ## Qualité des métadonnées
 
-- Madhhab renseigné : **89 / 231 (38.53 %)**.
+- Madhhab renseigné : **91 / 233 (39.06 %)**.
 - Madhhab non renseigné : **142**.
 - Classification issue d’un indice automatique : **136**.
 - Discipline absente : **0**.
