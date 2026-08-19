@@ -1,417 +1,422 @@
 {
   "version": 1,
   "scope": {
-    "audited_openiti_books": 233,
-    "production_books": 215,
-    "production_chunks": 574461,
-    "production_shards": 11,
+    "audited_openiti_books": 267,
+    "production_books": 235,
+    "production_chunks": 664760,
+    "production_shards": 12,
     "complementary_non_openiti_books_excluded": 0,
     "note": "L'audit de couverture savante porte sur les manifestes OpenITI shardables. Les ouvrages complémentaires du shard core ne sont pas utilisés pour mesurer les écoles juridiques."
   },
   "subjects": [
     {
       "label": "Fiqh",
-      "books": 63,
-      "share_pct": 27.04
+      "books": 97,
+      "share_pct": 36.33
     },
     {
       "label": "Hadith",
       "books": 50,
-      "share_pct": 21.46
+      "share_pct": 18.73
     },
     {
       "label": "Sīra et histoire",
       "books": 37,
-      "share_pct": 15.88
+      "share_pct": 13.86
     },
     {
       "label": "Tafsīr",
       "books": 37,
-      "share_pct": 15.88
+      "share_pct": 13.86
     },
     {
       "label": "ʿAqīda",
       "books": 31,
-      "share_pct": 13.3
+      "share_pct": 11.61
     },
     {
       "label": "Uṣūl et qawāʿid",
       "books": 14,
-      "share_pct": 6.01
+      "share_pct": 5.24
     },
     {
       "label": "Autres",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     }
   ],
   "exact_disciplines": [
     {
       "label": "Fiqh",
       "books": 53,
-      "share_pct": 22.75
+      "share_pct": 19.85
     },
     {
       "label": "Hadith",
       "books": 40,
-      "share_pct": 17.17
+      "share_pct": 14.98
+    },
+    {
+      "label": "Fiqh appliqué",
+      "books": 34,
+      "share_pct": 12.73
     },
     {
       "label": "Sīra et histoire",
       "books": 34,
-      "share_pct": 14.59
+      "share_pct": 12.73
     },
     {
       "label": "Tafsīr",
       "books": 31,
-      "share_pct": 13.3
+      "share_pct": 11.61
     },
     {
       "label": "ʿAqīda",
       "books": 29,
-      "share_pct": 12.45
+      "share_pct": 10.86
     },
     {
       "label": "Uṣūl al-fiqh",
       "books": 9,
-      "share_pct": 3.86
+      "share_pct": 3.37
     },
     {
       "label": "Hadith et fiqh",
       "books": 7,
-      "share_pct": 3.0
+      "share_pct": 2.62
     },
     {
       "label": "Fiqh comparé",
       "books": 4,
-      "share_pct": 1.72
+      "share_pct": 1.5
     },
     {
       "label": "Fiqh et bid'a",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "label": "Tafsir",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "label": "Tafsir et langue arabe",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "label": "Adab et conseil",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Fatāwā et fiqh",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Fiqh et croyance",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Fiqh et usul",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Fiqh, ʿaqīda et uṣūl",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Hadith et fiqh comparé",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Hadith et rijal",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Hadith et sira",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Qawāʿid et fiqh",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Science et transmission",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Sira, hadith et fada'il",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Sīra et fiqh",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Tafsir et kalam",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Tafsīr et fiqh",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Uṣūl al-fiqh et maqāṣid",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Uṣūl et fiqh",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Uṣūl et qawāʿid",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "ʿAqīda et comportement",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Ṭabaqāt et fiqh",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Ṭabaqāt et histoire du madhhab",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     }
   ],
   "madhhab_all_books": [
     {
       "label": "Non renseigné",
-      "books": 142,
-      "share_pct": 60.94
+      "books": 138,
+      "share_pct": 51.69
     },
     {
       "label": "Mālikite",
-      "books": 29,
-      "share_pct": 12.45
+      "books": 39,
+      "share_pct": 14.61
     },
     {
       "label": "Shāfiʿite",
-      "books": 20,
-      "share_pct": 8.58
+      "books": 28,
+      "share_pct": 10.49
     },
     {
       "label": "Ḥanbalite",
-      "books": 15,
-      "share_pct": 6.44
+      "books": 24,
+      "share_pct": 8.99
+    },
+    {
+      "label": "Ḥanafite",
+      "books": 22,
+      "share_pct": 8.24
     },
     {
       "label": "Transversal",
       "books": 13,
-      "share_pct": 5.58
-    },
-    {
-      "label": "Ḥanafite",
-      "books": 11,
-      "share_pct": 4.72
+      "share_pct": 4.87
     },
     {
       "label": "Comparatif",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "label": "Linguistique",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     },
     {
       "label": "Ẓāhirite",
       "books": 1,
-      "share_pct": 0.43
+      "share_pct": 0.37
     }
   ],
   "fiqh_madhhab": [
     {
-      "label": "Non renseigné",
-      "books": 23,
-      "share_pct": 26.44
-    },
-    {
       "label": "Mālikite",
-      "books": 22,
-      "share_pct": 25.29
+      "books": 32,
+      "share_pct": 26.45
     },
     {
       "label": "Shāfiʿite",
-      "books": 15,
-      "share_pct": 17.24
-    },
-    {
-      "label": "Ḥanbalite",
-      "books": 13,
-      "share_pct": 14.94
+      "books": 23,
+      "share_pct": 19.01
     },
     {
       "label": "Ḥanafite",
-      "books": 11,
-      "share_pct": 12.64
+      "books": 22,
+      "share_pct": 18.18
+    },
+    {
+      "label": "Ḥanbalite",
+      "books": 22,
+      "share_pct": 18.18
+    },
+    {
+      "label": "Non renseigné",
+      "books": 19,
+      "share_pct": 15.7
     },
     {
       "label": "Comparatif",
       "books": 2,
-      "share_pct": 2.3
+      "share_pct": 1.65
     },
     {
       "label": "Ẓāhirite",
       "books": 1,
-      "share_pct": 1.15
+      "share_pct": 0.83
     }
   ],
   "fiqh_school_gap": {
     "counts": {
-      "Mālikite": 22,
-      "Ḥanafite": 11,
-      "Shāfiʿite": 15,
-      "Ḥanbalite": 13
+      "Mālikite": 32,
+      "Ḥanafite": 22,
+      "Shāfiʿite": 23,
+      "Ḥanbalite": 22
     },
     "missing_schools": [],
     "below_known_median": [
       "Ḥanafite",
       "Ḥanbalite"
     ],
-    "known_median_books": 15,
-    "spread_books": 11
+    "known_median_books": 23,
+    "spread_books": 10
   },
   "authors_top": [
     {
       "author": "Al-Suyūṭī",
-      "books": 8,
-      "share_pct": 3.43
+      "books": 9,
+      "share_pct": 3.37
     },
     {
       "author": "Ibn ʿAbd al-Barr",
       "books": 5,
-      "share_pct": 2.15
+      "share_pct": 1.87
     },
     {
       "author": "Ibn Taymiyyah",
       "books": 5,
-      "share_pct": 2.15
+      "share_pct": 1.87
+    },
+    {
+      "author": "Ibn al-Qayyim",
+      "books": 5,
+      "share_pct": 1.87
     },
     {
       "author": "Abū al-Walīd al-Bājī",
       "books": 5,
-      "share_pct": 2.15
+      "share_pct": 1.87
     },
     {
       "author": "Al-Dhahabī",
       "books": 5,
-      "share_pct": 2.15
+      "share_pct": 1.87
     },
     {
       "author": "Ibn Qudāmah al-Maqdisī",
       "books": 4,
-      "share_pct": 1.72
+      "share_pct": 1.5
     },
     {
       "author": "Ibn Ḥajar al-ʿAsqalānī",
       "books": 4,
-      "share_pct": 1.72
+      "share_pct": 1.5
     },
     {
-      "author": "Ibn al-Qayyim",
-      "books": 4,
-      "share_pct": 1.72
+      "author": "Al-Qarāfī",
+      "books": 3,
+      "share_pct": 1.12
     },
     {
       "author": "Ibn Kathīr",
       "books": 3,
-      "share_pct": 1.29
+      "share_pct": 1.12
+    },
+    {
+      "author": "Qāḍī ʿIyāḍ",
+      "books": 3,
+      "share_pct": 1.12
     },
     {
       "author": "Al-Nawawi",
       "books": 3,
-      "share_pct": 1.29
+      "share_pct": 1.12
     },
     {
       "author": "Ibn ʿAsākir",
       "books": 3,
-      "share_pct": 1.29
+      "share_pct": 1.12
     },
     {
       "author": "Aḥmad ibn Ḥanbal",
       "books": 3,
-      "share_pct": 1.29
+      "share_pct": 1.12
     },
     {
       "author": "Al-Maqrīzī",
       "books": 3,
-      "share_pct": 1.29
+      "share_pct": 1.12
     },
     {
       "author": "Muḥammad ibn ʿAbd al-Wahhāb",
       "books": 3,
-      "share_pct": 1.29
-    },
-    {
-      "author": "Al-Qarāfī",
-      "books": 2,
-      "share_pct": 0.86
+      "share_pct": 1.12
     },
     {
       "author": "Ibn Rushd al-Jadd",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "author": "Al-Shāṭibī",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "author": "Al-Tirmidhi",
       "books": 2,
-      "share_pct": 0.86
-    },
-    {
-      "author": "Qāḍī ʿIyāḍ",
-      "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     },
     {
       "author": "Imam al-Haramayn al-Juwayni",
       "books": 2,
-      "share_pct": 0.86
+      "share_pct": 0.75
     }
   ],
   "author_concentration": {
-    "threshold_books": 10,
-    "threshold_share_pct": 4.29,
+    "threshold_books": 11,
+    "threshold_share_pct": 4.12,
     "flagged": []
   },
   "metadata_quality": {
-    "madhhab_known_books": 91,
-    "madhhab_unknown_books": 142,
-    "madhhab_known_pct": 39.06,
+    "madhhab_known_books": 129,
+    "madhhab_unknown_books": 138,
+    "madhhab_known_pct": 48.31,
     "automatic_classification_books": 136,
     "books_without_discipline": 0
   },
@@ -1095,7 +1100,7 @@
     {
       "priority": 3,
       "action": "Enrichir les métadonnées de madhhab des ouvrages déjà présents avant d'utiliser le compteur d'école comme vérité exhaustive.",
-      "books": 142
+      "books": 138
     }
   ]
 }

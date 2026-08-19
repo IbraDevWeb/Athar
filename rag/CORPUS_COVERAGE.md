@@ -4,22 +4,22 @@
 
 ## Vue d’ensemble
 
-- **233 ouvrages OpenITI** audités.
-- **215 ouvrages** et **574461 passages** annoncés par le manifeste de production.
-- **11 shards** en production.
+- **267 ouvrages OpenITI** audités.
+- **235 ouvrages** et **664760 passages** annoncés par le manifeste de production.
+- **12 shards** en production.
 - **0 ouvrage(s) complémentaire(s)** hors OpenITI exclus du calcul des écoles juridiques.
 
 ## Disciplines
 
 | Discipline normalisée | Ouvrages | Part |
 |---|---|---|
-| Fiqh | 63 | 27.04 % |
-| Hadith | 50 | 21.46 % |
-| Sīra et histoire | 37 | 15.88 % |
-| Tafsīr | 37 | 15.88 % |
-| ʿAqīda | 31 | 13.3 % |
-| Uṣūl et qawāʿid | 14 | 6.01 % |
-| Autres | 1 | 0.43 % |
+| Fiqh | 97 | 36.33 % |
+| Hadith | 50 | 18.73 % |
+| Sīra et histoire | 37 | 13.86 % |
+| Tafsīr | 37 | 13.86 % |
+| ʿAqīda | 31 | 11.61 % |
+| Uṣūl et qawāʿid | 14 | 5.24 % |
+| Autres | 1 | 0.37 % |
 
 ## Écoles juridiques
 
@@ -27,11 +27,11 @@ Les chiffres ci-dessous utilisent uniquement les métadonnées explicitement pr�
 
 | École / statut | Ouvrages de fiqh associés |
 |---|---|
-| Mālikite | 22 |
-| Ḥanafite | 11 |
-| Shāfiʿite | 15 |
-| Ḥanbalite | 13 |
-| Non renseigné (fiqh) | 23 |
+| Mālikite | 32 |
+| Ḥanafite | 22 |
+| Shāfiʿite | 23 |
+| Ḥanbalite | 22 |
+| Non renseigné (fiqh) | 19 |
 
 Écoles sous la médiane connue actuelle : **Ḥanafite, Ḥanbalite**.
 
@@ -39,28 +39,28 @@ Les chiffres ci-dessous utilisent uniquement les métadonnées explicitement pr�
 
 | Auteur | Ouvrages | Part du corpus |
 |---|---|---|
-| Al-Suyūṭī | 8 | 3.43 % |
-| Ibn ʿAbd al-Barr | 5 | 2.15 % |
-| Ibn Taymiyyah | 5 | 2.15 % |
-| Abū al-Walīd al-Bājī | 5 | 2.15 % |
-| Al-Dhahabī | 5 | 2.15 % |
-| Ibn Qudāmah al-Maqdisī | 4 | 1.72 % |
-| Ibn Ḥajar al-ʿAsqalānī | 4 | 1.72 % |
-| Ibn al-Qayyim | 4 | 1.72 % |
-| Ibn Kathīr | 3 | 1.29 % |
-| Al-Nawawi | 3 | 1.29 % |
-| Ibn ʿAsākir | 3 | 1.29 % |
-| Aḥmad ibn Ḥanbal | 3 | 1.29 % |
-| Al-Maqrīzī | 3 | 1.29 % |
-| Muḥammad ibn ʿAbd al-Wahhāb | 3 | 1.29 % |
-| Al-Qarāfī | 2 | 0.86 % |
+| Al-Suyūṭī | 9 | 3.37 % |
+| Ibn ʿAbd al-Barr | 5 | 1.87 % |
+| Ibn Taymiyyah | 5 | 1.87 % |
+| Ibn al-Qayyim | 5 | 1.87 % |
+| Abū al-Walīd al-Bājī | 5 | 1.87 % |
+| Al-Dhahabī | 5 | 1.87 % |
+| Ibn Qudāmah al-Maqdisī | 4 | 1.5 % |
+| Ibn Ḥajar al-ʿAsqalānī | 4 | 1.5 % |
+| Al-Qarāfī | 3 | 1.12 % |
+| Ibn Kathīr | 3 | 1.12 % |
+| Qāḍī ʿIyāḍ | 3 | 1.12 % |
+| Al-Nawawi | 3 | 1.12 % |
+| Ibn ʿAsākir | 3 | 1.12 % |
+| Aḥmad ibn Ḥanbal | 3 | 1.12 % |
+| Al-Maqrīzī | 3 | 1.12 % |
 
-Seuil de concentration automatique : **10 ouvrages**. Les auteurs au-dessus de ce seuil sont signalés pour revue, pas automatiquement considérés comme indésirables.
+Seuil de concentration automatique : **11 ouvrages**. Les auteurs au-dessus de ce seuil sont signalés pour revue, pas automatiquement considérés comme indésirables.
 
 ## Qualité des métadonnées
 
-- Madhhab renseigné : **91 / 233 (39.06 %)**.
-- Madhhab non renseigné : **142**.
+- Madhhab renseigné : **129 / 267 (48.31 %)**.
+- Madhhab non renseigné : **138**.
 - Classification issue d’un indice automatique : **136**.
 - Discipline absente : **0**.
 
@@ -75,7 +75,7 @@ La grille éditoriale contient **57 références** : **54 présentes**, **3 abse
 ## Priorités proposées pour le prochain lot
 
 2. Rééquilibrer le fiqh vers les écoles sous la médiane actuelle, à qualité documentaire comparable. — Ḥanafite, Ḥanbalite
-3. Enrichir les métadonnées de madhhab des ouvrages déjà présents avant d'utiliser le compteur d'école comme vérité exhaustive. — 142 ouvrage(s) concerné(s)
+3. Enrichir les métadonnées de madhhab des ouvrages déjà présents avant d'utiliser le compteur d'école comme vérité exhaustive. — 138 ouvrage(s) concerné(s)
 
 ## Méthode et limites
 
