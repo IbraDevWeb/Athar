@@ -2,24 +2,24 @@
   "pipeline": "athar-corpus-curator-v2",
   "phase": "quality-first-v1",
   "parser_version": "athar-openiti-reader-v2",
-  "books_reviewed": 231,
+  "books_reviewed": 233,
   "manifest_counts": {
     "openiti_books.json": 23,
     "openiti_books_auto.json": 145,
-    "openiti_books_extra.json": 7,
+    "openiti_books_extra.json": 9,
     "openiti_books_extra_40.json": 20,
     "openiti_books_priority.json": 31,
     "openiti_books_tafsir.json": 5
   },
   "coverage": {
-    "title": 231,
-    "title_ar": 231,
-    "author": 231,
-    "discipline": 231,
-    "madhhab": 89,
+    "title": 233,
+    "title_ar": 233,
+    "author": 233,
+    "discipline": 233,
+    "madhhab": 91,
     "madhhab_from_priority_target": 3,
     "madhhab_unresolved": 142,
-    "source_metadata_matched": 231,
+    "source_metadata_matched": 233,
     "source_metadata_unmatched": 0
   },
   "unresolved_madhhab": [

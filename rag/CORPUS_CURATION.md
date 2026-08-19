@@ -4,13 +4,13 @@
 
 ## État
 
-- **231 ouvrages OpenITI** passés dans la chaîne de curation.
-- Titre renseigné : **231 / 231**.
-- Titre arabe renseigné : **231 / 231**.
-- Auteur renseigné : **231 / 231**.
-- Discipline renseignée : **231 / 231**.
-- Métadonnées OpenITI appariées : **231 / 231**.
-- Madhhab explicitement renseigné : **89 / 231**.
+- **233 ouvrages OpenITI** passés dans la chaîne de curation.
+- Titre renseigné : **233 / 233**.
+- Titre arabe renseigné : **233 / 233**.
+- Auteur renseigné : **233 / 233**.
+- Discipline renseignée : **233 / 233**.
+- Métadonnées OpenITI appariées : **233 / 233**.
+- Madhhab explicitement renseigné : **91 / 233**.
 - Dont madhhab restauré par cible auteur+titre revue : **3**.
 - Madhhab restant non résolu : **142**.
 

@@ -2,7 +2,7 @@
   "version": 2,
   "phase": "quality-first-v1",
   "parser_version": "athar-openiti-reader-v2",
-  "books_reviewed": 231,
+  "books_reviewed": 233,
   "books": {
     "kutub-28107": {
       "book_id": "kutub-28107",
@@ -801,6 +801,60 @@
         "source_char_length": 1945463,
         "source_token_length": 505827,
         "source_tags": "_TARAJIM :: GAL@hadith :: _SUNNI :: GAL@literature-islamic :: _SAHIH :: GAL@0750-1000CE :: GAL@literature-arabic :: GAL@period-classical :: _FIQH :: _HADITH :: CENT0300 :: Shia@مصادر الحديث السنية ـ قسم الفقه :: ShamAY@متون الحديث :: JK@الصحاح :: JK@فقه الحديث والمذاهب الأخرى :: JK@كتب الحديث النبوي الشريف وتراجم الرواة :: born@Khurasan_RE :: PAGINATION :: PRIMARY_VERSION :: CLEANED_VERSION :: MARKDOWN",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_manifest",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_extra.json"
+        }
+      }
+    },
+    "openiti-fakihani-mawrid-mawlid": {
+      "book_id": "openiti-fakihani-mawrid-mawlid",
+      "title": "Al-Mawrid fi Amal al-Mawlid",
+      "title_ar": "المورد في عمل المولد",
+      "author": "Taj al-Din al-Fakihani",
+      "discipline": "Fiqh et bid'a",
+      "madhhab": "Malikite",
+      "metadata": {
+        "author_ar": "عمر بن علي بن سالم بن صدقة اللخمي الإسكندري، تاج الدين الفاكهاني (المتوفى: 734هـ)",
+        "date_ah": "0734",
+        "source_id": "Shamela0036626",
+        "source_char_length": 2316,
+        "source_token_length": 522,
+        "source_tags": "_CAQAID :: CENT0800 :: GAL@nodata :: Shamela@العقيدة :: PRIMARY_VERSION :: CLEANED_VERSION",
+        "curation": {
+          "phase": "quality-first-v1",
+          "bibliography_status": "openiti_metadata_matched",
+          "identity_status": "source_backed",
+          "discipline_status": "reviewed_manifest",
+          "madhhab_status": "explicit_manifest",
+          "madhhab_reference_id": "",
+          "reader_structure_status": "structured_parser_v2",
+          "text_cleanup_version": "athar-openiti-reader-v2",
+          "source_manifest": "openiti_books_extra.json"
+        }
+      }
+    },
+    "openiti-abu-shama-baith": {
+      "book_id": "openiti-abu-shama-baith",
+      "title": "Al-Ba'ith 'ala Inkar al-Bida' wa-l-Hawadith",
+      "title_ar": "الباعث على إنكار البدع والحوادث",
+      "author": "Abu Shama al-Maqdisi",
+      "discipline": "Fiqh et bid'a",
+      "madhhab": "Shafi'ite",
+      "metadata": {
+        "author_ar": "أبو شامة",
+        "date_ah": "0665",
+        "source_id": "JK000873",
+        "source_char_length": 121663,
+        "source_token_length": 29711,
+        "source_tags": "_CAQAID :: GAL@1000-1258CE :: CENT0700 :: GAL@literature-islamic :: GAL@biography :: _MILAL :: _FIRAQ :: GAL@history :: GAL@literature-arabic :: _FIQH :: GAL@biography-individuals :: GAL@historiography :: _MASAIL :: GAL@biography-collective :: GAL@period-postclassical :: Shamela@العقيدة :: JK@الفرق والملل :: JK@كتب الفقه الإسلامي :: JK@مسائل فقهية :: born@Sham_RE :: born@DIMASHQ_363E335N_S :: PRIMARY_VERSION :: CLEANED_VERSION",
         "curation": {
           "phase": "quality-first-v1",
           "bibliography_status": "openiti_metadata_matched",
