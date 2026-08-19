@@ -5,6 +5,7 @@ import csv
 import io
 import json
 import re
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,8 @@ POLICY_PATH = RAG_DIR / "corpus_policy.json"
 DEFAULT_MANIFEST = RAG_DIR / "openiti_books_priority.json"
 DEFAULT_REPORT = RAG_DIR / "corpus_priority_report.json"
 ARA_VERSION_RE = re.compile(r"-ara\d+$", re.I)
+SUPPORTED_PRIORITIES = {"P1", "P2"}
+MIN_TITLE_FALLBACK_KEY = 8
 
 
 def load_json(path: Path, default: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -47,10 +50,77 @@ def first_variant(value: Any) -> str:
     return clean(str(value or "").split("::", 1)[0])
 
 
-def target_matches(target: dict[str, Any], work_uri: str, version_uri: str) -> bool:
-    haystack = f"{work_uri} {version_uri}".casefold()
-    markers = [clean(item).casefold() for item in target.get("work_markers") or [] if clean(item)]
-    return any(marker in haystack for marker in markers)
+def marker_key(value: Any) -> str:
+    """Normalize transliteration/Arabic markers without inventing fuzzy matches."""
+    folded = unicodedata.normalize("NFKD", clean(value).casefold())
+    return "".join(char for char in folded if char.isalnum())
+
+
+def _markers_match(markers: list[Any], *values: Any) -> bool:
+    haystack = marker_key(" ".join(clean(value) for value in values))
+    if not haystack:
+        return False
+    return any(marker_key(marker) in haystack for marker in markers if marker_key(marker))
+
+
+def _uri_author_segment(value: Any) -> str:
+    """Return only the OpenITI author segment, never the work-title segment."""
+    return clean(value).split(".", 1)[0]
+
+
+def _title_matches(target: dict[str, Any], title: str, title_ar: str, work_uri: str, version_uri: str) -> bool:
+    """Prefer canonical titles and reject dangerously short fallback tokens.
+
+    Generic tokens such as ``Minhaj`` or ``Fatawa`` are useful discovery hints,
+    but are too weak to prove bibliographic identity on their own. The canonical
+    target title/title_ar may match at any length; fallback title markers must be
+    sufficiently specific.
+    """
+    values = (title, title_ar, work_uri, version_uri)
+    canonical = [target.get("title"), target.get("title_ar")]
+    if _markers_match(canonical, *values):
+        return True
+    fallback = [
+        marker
+        for marker in target.get("title_markers") or []
+        if len(marker_key(marker)) >= MIN_TITLE_FALLBACK_KEY
+    ]
+    return _markers_match(fallback, *values)
+
+
+def target_matches(
+    target: dict[str, Any],
+    work_uri: str = "",
+    version_uri: str = "",
+    *,
+    title: str = "",
+    title_ar: str = "",
+    author: str = "",
+    author_ar: str = "",
+) -> bool:
+    """Match either an explicit OpenITI work marker or a reviewed author+title pair.
+
+    Author markers are deliberately checked only against bibliographic author fields
+    and the URI author segment. Searching the complete work URI would let an author's
+    name occurring inside a *title* create a false attribution (for example a sharh
+    of Mukhtasar al-Tahawi written by al-Jassas).
+    """
+    work_markers = list(target.get("work_markers") or [])
+    if work_markers and _markers_match(work_markers, work_uri, version_uri):
+        return True
+
+    author_markers = list(target.get("author_markers") or [])
+    title_markers = list(target.get("title_markers") or [])
+    if not author_markers or not title_markers:
+        return False
+    author_match = _markers_match(
+        author_markers,
+        author,
+        author_ar,
+        _uri_author_segment(work_uri),
+        _uri_author_segment(version_uri),
+    )
+    return author_match and _title_matches(target, title, title_ar, work_uri, version_uri)
 
 
 def source_blocked(row: dict[str, Any], markers: list[str]) -> str:
@@ -131,7 +201,15 @@ def parse_priority_candidates(
             "token_length": as_int(raw.get("tok_length")),
         }
         for target in targets:
-            if target_matches(target, work_uri, version_uri):
+            if target_matches(
+                target,
+                work_uri,
+                version_uri,
+                title=normalized["title"],
+                title_ar=normalized["title_ar"],
+                author=normalized["author"],
+                author_ar=normalized["author_ar"],
+            ):
                 grouped[str(target["id"])].append(normalized)
     for rows in grouped.values():
         rows.sort(key=candidate_rank, reverse=True)
@@ -157,10 +235,15 @@ def _existing_books() -> list[dict[str, Any]]:
 
 def _existing_target(target: dict[str, Any], books: list[dict[str, Any]]) -> dict[str, Any] | None:
     for book in books:
+        metadata = book.get("metadata") if isinstance(book.get("metadata"), dict) else {}
         if target_matches(
             target,
             clean(book.get("work_uri")),
             clean(book.get("openiti_uri")),
+            title=clean(book.get("title")),
+            title_ar=clean(book.get("title_ar")),
+            author=clean(book.get("author")),
+            author_ar=clean(metadata.get("author_ar")),
         ):
             return book
     return None
@@ -169,6 +252,7 @@ def _existing_target(target: dict[str, Any], books: list[dict[str, Any]]) -> dic
 def priority_book(target: dict[str, Any], candidate: dict[str, Any], release_ref: str) -> dict[str, Any]:
     flags = [str(flag) for flag in candidate.get("quality_flags") or []]
     target_id = clean(target["id"]).replace("_", "-")
+    priority = clean(target.get("priority")) or "P1"
     return {
         "book_id": f"openiti-priority-{target_id}",
         "kutub_id": None,
@@ -186,11 +270,12 @@ def priority_book(target: dict[str, Any], candidate: dict[str, Any], release_ref
         "metadata": {
             "source": "OpenITI",
             "source_release": release_ref,
-            "catalogue_selection": "athar-priority-curation-v1",
+            "catalogue_selection": "athar-priority-curation-v2",
             "classification_status": "reviewed_reference_checklist",
             "classification_subject": clean(target.get("subject")),
-            "priority": clean(target.get("priority")) or "P1",
+            "priority": priority,
             "reference_id": clean(target.get("id")),
+            "focus_topics": [clean(item) for item in target.get("focus_topics") or [] if clean(item)],
             "source_char_length": int(candidate.get("char_length") or 0),
             "source_token_length": int(candidate.get("token_length") or 0),
             "source_id": clean(candidate.get("source_id")),
@@ -199,6 +284,17 @@ def priority_book(target: dict[str, Any], candidate: dict[str, Any], release_ref
             "curation_status": "priority_reviewed",
         },
     }
+
+
+def _target_priority(target: dict[str, Any]) -> str:
+    priority = clean(target.get("priority")).upper() or "P1"
+    return priority if priority in SUPPORTED_PRIORITIES else ""
+
+
+def _target_required(target: dict[str, Any]) -> bool:
+    if "required" in target:
+        return bool(target.get("required"))
+    return _target_priority(target) == "P1"
 
 
 def build_priority_manifest(
@@ -213,10 +309,15 @@ def build_priority_manifest(
     policy = policy or load_json(POLICY_PATH)
     targets = [
         item for item in targets_payload.get("targets") or []
-        if isinstance(item, dict) and str(item.get("priority") or "P1") == "P1"
+        if isinstance(item, dict)
+        and item.get("enabled", True)
+        and _target_priority(item) in SUPPORTED_PRIORITIES
     ]
-    if not targets:
-        raise RuntimeError("Aucune priorité P1 n'est configurée.")
+    required_targets = [item for item in targets if _target_required(item)]
+    optional_targets = [item for item in targets if not _target_required(item)]
+    if not required_targets:
+        raise RuntimeError("Aucune priorité P1 obligatoire n'est configurée.")
+
     curation = policy.get("curation") or {}
     promotion = policy.get("promotion") or {}
     max_chars = int(curation.get("priority_max_source_chars_per_book") or 0)
@@ -237,58 +338,90 @@ def build_priority_manifest(
         release_ref = str(source_config().get("release_ref") or "")
 
     selected: list[dict[str, Any]] = []
-    already_present: list[dict[str, str]] = []
+    already_present: list[dict[str, Any]] = []
     missing: list[dict[str, str]] = []
+    optional_missing: list[dict[str, str]] = []
+    resolved_required_ids: set[str] = set()
+    resolved_optional_ids: set[str] = set()
+
     for target in targets:
         target_id = str(target["id"])
+        priority = _target_priority(target)
+        required = _target_required(target)
         present = _existing_target(target, configured)
         if present:
             already_present.append({
                 "id": target_id,
                 "title": clean(target.get("title")),
+                "priority": priority,
+                "required": required,
                 "book_id": clean(present.get("book_id")),
                 "openiti_uri": clean(present.get("openiti_uri")),
             })
+            (resolved_required_ids if required else resolved_optional_ids).add(target_id)
             continue
+
         candidates = grouped.get(target_id) or []
         if not candidates:
-            missing.append({
+            row = {
                 "id": target_id,
                 "title": clean(target.get("title")),
                 "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée",
-            })
+            }
+            if required:
+                missing.append(row)
+            else:
+                optional_missing.append(row)
             continue
+
         selected.append(priority_book(target, candidates[0], release_ref))
+        (resolved_required_ids if required else resolved_optional_ids).add(target_id)
+
+    selected_summary = [
+        {
+            "book_id": book["book_id"],
+            "reference_id": clean((book.get("metadata") or {}).get("reference_id")),
+            "title": book["title"],
+            "madhhab": book["madhhab"],
+            "discipline": book["discipline"],
+            "priority": clean((book.get("metadata") or {}).get("priority")) or "P1",
+            "openiti_uri": book["openiti_uri"],
+            "work_uri": book["work_uri"],
+            "source_char_length": int((book.get("metadata") or {}).get("source_char_length") or 0),
+        }
+        for book in selected
+    ]
+    optional_selected_books = [
+        item for item in selected_summary if clean(item.get("priority")).upper() == "P2"
+    ]
 
     manifest = {
-        "version": "1.0",
-        "source": "OpenITI priority curation",
+        "version": "2.0",
+        "source": "OpenITI scholarly priority curation",
         "source_repository": "https://github.com/OpenITI/RELEASE",
         "release_commit": release_ref,
         "notice": (
-            "Ouvrages P1 explicitement sélectionnés depuis la grille éditoriale Athar. "
-            "Le madhhab et la discipline proviennent de cette grille revue ; le texte provient d'une version OpenITI primaire/nettoyée."
+            "Les P1 restent les références obligatoires du socle Athar. "
+            "Les P2 sont des extensions savantes optionnelles, ajoutées uniquement lorsqu'une version "
+            "OpenITI arabe, primaire et nettoyée est résolue. Le madhhab et la discipline proviennent "
+            "de la grille éditoriale revue ; le texte provient d'OpenITI."
         ),
         "books": selected,
     }
     report = {
-        "pipeline": "athar-priority-curation-v1",
-        "targets": len(targets),
+        "pipeline": "athar-priority-curation-v2",
+        "targets": len(required_targets),
+        "required_targets": len(required_targets),
+        "optional_targets": len(optional_targets),
+        "all_targets": len(targets),
         "already_present": already_present,
-        "selected": [
-            {
-                "book_id": book["book_id"],
-                "title": book["title"],
-                "madhhab": book["madhhab"],
-                "discipline": book["discipline"],
-                "openiti_uri": book["openiti_uri"],
-                "work_uri": book["work_uri"],
-                "source_char_length": int((book.get("metadata") or {}).get("source_char_length") or 0),
-            }
-            for book in selected
-        ],
+        "selected": selected_summary,
+        "optional_selected": len(resolved_optional_ids),
+        "optional_selected_books": optional_selected_books,
         "missing": missing,
-        "resolved": len(already_present) + len(selected),
+        "optional_missing": optional_missing,
+        "resolved": len(resolved_required_ids),
+        "resolved_total": len(resolved_required_ids) + len(resolved_optional_ids),
     }
     if require_all and missing:
         names = ", ".join(item["title"] for item in missing)
@@ -297,7 +430,9 @@ def build_priority_manifest(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Résout et prépare les priorités P1 Athar depuis les métadonnées OpenITI.")
+    parser = argparse.ArgumentParser(
+        description="Résout les priorités P1 obligatoires et les extensions savantes P2 depuis les métadonnées OpenITI."
+    )
     parser.add_argument("--metadata", type=Path, help="TSV OpenITI local. Sans ce paramètre, le TSV officiel est téléchargé.")
     parser.add_argument("--targets", type=Path, default=TARGETS_PATH)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)

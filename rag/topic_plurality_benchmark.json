@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "mode": "diagnostic",
+  "purpose": "Mesurer si le corpus et la récupération Athar offrent assez de pluralité documentaire pour les questions de fiqh du quotidien, sans forcer artificiellement une symétrie doctrinale.",
+  "principles": [
+    "Les textes sont classés et cités selon leur source; le benchmark n'impose aucune conclusion religieuse.",
+    "Quand des sources pertinentes de plusieurs écoles existent dans le corpus, le diagnostic attend plusieurs auteurs et plusieurs madhhabs dans la fenêtre de preuves.",
+    "L'absence d'une position n'est jamais compensée par une citation inventée ou hors sujet."
+  ],
+  "default_goals": {
+    "max_citations": 20,
+    "min_unique_authors_when_available": 4,
+    "min_madhhabs_when_available": 3
+  },
+  "topics": [
+    {
+      "id": "mawlid",
+      "label": "Mawlid",
+      "queries_fr": [
+        "Quel est le jugement des savants sur la célébration du Mawlid ?",
+        "Quels arguments les juristes classiques donnent-ils au sujet du Mawlid ?"
+      ],
+      "queries_ar": [
+        "ما حكم الاحتفال بالمولد النبوي؟",
+        "ما أقوال العلماء في عمل المولد؟"
+      ],
+      "lexical_hints_ar": [
+        "المولد",
+        "مولد النبي",
+        "عمل المولد",
+        "الاحتفال بالمولد"
+      ],
+      "goals": {
+        "min_unique_authors_when_available": 5,
+        "min_madhhabs_when_available": 3
+      },
+      "note": "Chercher une pluralité de sources pertinentes et laisser apparaître les accords, désaccords et nuances réellement présents dans les textes."
+    },
+    {
+      "id": "wudu",
+      "label": "Wuḍūʾ et pureté",
+      "queries_fr": ["Qu'est-ce qui annule les ablutions ?"],
+      "queries_ar": ["ما نواقض الوضوء؟"],
+      "lexical_hints_ar": ["نواقض الوضوء", "الوضوء", "الحدث"]
+    },
+    {
+      "id": "prayer-travel",
+      "label": "Prière du voyageur",
+      "queries_fr": ["Quand peut-on raccourcir et regrouper les prières en voyage ?"],
+      "queries_ar": ["متى يقصر المسافر الصلاة ويجمع؟"],
+      "lexical_hints_ar": ["قصر الصلاة", "الجمع بين الصلاتين", "المسافر"]
+    },
+    {
+      "id": "witr",
+      "label": "Witr",
+      "queries_fr": ["Quel est le statut du witr et comment le prier ?"],
+      "queries_ar": ["ما حكم الوتر وكيف يصلى؟"],
+      "lexical_hints_ar": ["الوتر", "صلاة الوتر"]
+    },
+    {
+      "id": "fasting",
+      "label": "Jeûne",
+      "queries_fr": ["Qu'est-ce qui invalide le jeûne ?"],
+      "queries_ar": ["ما مفسدات الصوم؟"],
+      "lexical_hints_ar": ["مفسدات الصوم", "الصيام", "الفطر"]
+    },
+    {
+      "id": "zakat",
+      "label": "Zakāt",
+      "queries_fr": ["Sur quels biens la zakat est-elle obligatoire ?"],
+      "queries_ar": ["في أي الأموال تجب الزكاة؟"],
+      "lexical_hints_ar": ["الزكاة", "الأموال", "النصاب"]
+    },
+    {
+      "id": "marriage",
+      "label": "Mariage",
+      "queries_fr": ["Quelles sont les conditions de validité du mariage ?"],
+      "queries_ar": ["ما شروط صحة النكاح؟"],
+      "lexical_hints_ar": ["شروط النكاح", "النكاح", "الولي", "الشهود"]
+    },
+    {
+      "id": "divorce",
+      "label": "Divorce",
+      "queries_fr": ["Quelles sont les règles du divorce prononcé ?"],
+      "queries_ar": ["ما أحكام الطلاق؟"],
+      "lexical_hints_ar": ["الطلاق", "أحكام الطلاق"]
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "queries_fr": ["Quelles ventes sont interdites à cause du gharar ou du riba ?"],
+      "queries_ar": ["ما البيوع المحرمة بسبب الغرر أو الربا؟"],
+      "lexical_hints_ar": ["البيوع", "الغرر", "الربا"]
+    },
+    {
+      "id": "food",
+      "label": "Alimentation",
+      "queries_fr": ["Quels aliments sont licites ou interdits ?"],
+      "queries_ar": ["ما حكم الأطعمة والأشربة؟"],
+      "lexical_hints_ar": ["الأطعمة", "الأشربة", "الحلال", "الحرام"]
+    },
+    {
+      "id": "customs",
+      "label": "Coutumes et innovations",
+      "queries_fr": ["Comment les juristes distinguent-ils coutume permise et innovation religieuse ?"],
+      "queries_ar": ["كيف يفرق الفقهاء بين العادة والبدعة؟"],
+      "lexical_hints_ar": ["العادة", "العرف", "البدعة"]
+    }
+  ]
+}

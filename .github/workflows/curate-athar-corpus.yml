@@ -7,9 +7,14 @@ on:
       - 'rag/corpus_policy.json'
       - 'rag/corpus_reference_checklist.json'
       - 'rag/corpus_priority_targets.json'
+      - 'rag/madhhab_scholar_targets.json'
+      - 'rag/topic_plurality_benchmark.json'
       - 'rag/corpus_curation_rules.json'
       - 'rag/corpus_priority_ingest.py'
+      - 'rag/corpus_priority_ingest_tests.py'
+      - 'rag/madhhab_corpus_expansion_tests.py'
       - 'rag/corpus_curator.py'
+      - 'rag/corpus_curator_tests.py'
       - 'rag/openiti.py'
       - 'rag/ingest_openiti.py'
       - '.github/workflows/curate-athar-corpus.yml'
@@ -48,6 +53,7 @@ jobs:
           python -m py_compile corpus_priority_ingest.py corpus_curator.py openiti.py ingest_openiti.py v5_library.py
           python corpus_priority_ingest_tests.py
           python corpus_curator_tests.py
+          python madhhab_corpus_expansion_tests.py
           python openiti_reader_tests.py
           python v5_library_reader_tests.py
 
@@ -59,10 +65,10 @@ jobs:
           sys.path.insert(0, 'rag')
           from openiti_catalog import fetch_metadata
           Path('/tmp/openiti_metadata.tsv').write_text(fetch_metadata(), encoding='utf-8')
-          print('OpenITI metadata cached for priority selection and curation.')
+          print('OpenITI metadata cached for P1/P2 selection and curation.')
           PY
 
-      - name: Resolve all P1 priorities
+      - name: Resolve P1 and optional P2 priorities
         run: >-
           python rag/corpus_priority_ingest.py
           --metadata /tmp/openiti_metadata.tsv
@@ -75,6 +81,7 @@ jobs:
           python rag/corpus_curator.py
           --metadata /tmp/openiti_metadata.tsv
           --rules rag/corpus_curation_rules.json
+          --targets rag/corpus_priority_targets.json
           --output rag/corpus_book_curation.json
           --report rag/corpus_curation_report.json
           --markdown rag/CORPUS_CURATION.md
@@ -90,26 +97,39 @@ jobs:
           from pathlib import Path
           sys.path.insert(0, 'rag')
           from corpus_shards import load_shardable_manifest
+
           policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
           priority = json.loads(Path('rag/corpus_priority_report.json').read_text(encoding='utf-8'))
           curation = json.loads(Path('rag/corpus_book_curation.json').read_text(encoding='utf-8'))
+          curation_report = json.loads(Path('rag/corpus_curation_report.json').read_text(encoding='utf-8'))
           manifest = load_shardable_manifest()
           enabled = [b for b in manifest.get('books', []) if isinstance(b, dict) and b.get('enabled', True)]
           cfg = policy['curation']
+
           assert cfg['freeze_generic_growth'] is True
           assert priority['resolved'] == int(cfg['required_priority_p1']), priority
           assert not priority['missing'], priority['missing']
+          assert priority['optional_targets'] == int(cfg['optional_priority_p2_targets']), priority
+          assert priority['resolved_total'] >= priority['resolved'], priority
           assert int(curation['books_reviewed']) == len(enabled), (curation['books_reviewed'], len(enabled))
           assert len(enabled) >= int(cfg['required_curated_openiti_books'])
           assert curation['parser_version'] == cfg['reader_parser_version']
+
           for book in enabled:
               row = curation['books'].get(str(book['book_id']))
               assert row, f"curation absente: {book['book_id']}"
               assert row.get('title') and row.get('author') and row.get('discipline')
               status = ((row.get('metadata') or {}).get('curation') or {})
               assert status.get('text_cleanup_version') == cfg['reader_parser_version']
-              assert status.get('madhhab_status') in {'explicit_manifest', 'unresolved'}
-          print(f"Quality gate: {len(enabled)} OpenITI books curated; {priority['resolved']} P1 priorities resolved.")
+              assert status.get('madhhab_status') in {'explicit_manifest', 'reviewed_priority_target', 'unresolved'}
+
+          restored = int((curation_report.get('coverage') or {}).get('madhhab_from_priority_target') or 0)
+          print(
+              f"Quality gate: {len(enabled)} OpenITI books curated; "
+              f"{priority['resolved']} P1 resolved; "
+              f"{priority['optional_selected']} P2 resolved; "
+              f"{restored} madhhab labels restored."
+          )
           PY
 
       - name: Commit curated corpus descriptors
@@ -127,6 +147,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'Curated corpus descriptors already current.'
           else
-            git commit -m 'Publier la curation quality-first du corpus'
+            git commit -m 'Publier la curation P1/P2 du corpus'
             git push origin HEAD:main
           fi
