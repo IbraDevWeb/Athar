@@ -86,8 +86,8 @@ jobs:
           --report rag/corpus_curation_report.json
           --markdown rag/CORPUS_CURATION.md
 
-      - name: Generate deterministic shard registry
-        run: python rag/corpus_shards.py --output rag/corpus_shards.json
+      - name: Validate deterministic shard registry
+        run: python rag/corpus_shards.py --output /tmp/corpus_shards.json
 
       - name: Enforce quality-first gate
         shell: bash
@@ -142,11 +142,12 @@ jobs:
             rag/corpus_priority_report.json \
             rag/corpus_book_curation.json \
             rag/corpus_curation_report.json \
-            rag/CORPUS_CURATION.md \
-            rag/corpus_shards.json
+            rag/CORPUS_CURATION.md
           if git diff --cached --quiet; then
             echo 'Curated corpus descriptors already current.'
           else
             git commit -m 'Publier la curation P1/P2 du corpus'
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           fi
