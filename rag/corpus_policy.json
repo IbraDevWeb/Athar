@@ -1,11 +1,11 @@
 {
-  "version": 12,
+  "version": 13,
   "hosted": {
     "target_openiti_books": 208,
     "minimum_openiti_books": 208,
-    "expected_openiti_books_after_tafsir": 231,
+    "expected_openiti_books_after_tafsir": 233,
     "max_sqlite_bytes": 3221225472,
-    "description": "Socle vérifié : 195 ouvrages industriels + 13 références P1, puis 5 tafsirs dédiés. La première extension P2 résout 38/40 cibles, dont 18 ouvrages uniques supplémentaires, pour un jalon curaté de 231 ouvrages OpenITI."
+    "description": "Socle vérifié : 195 ouvrages industriels + 13 références P1, puis 5 tafsirs dédiés. L'extension P2 résout 38/40 cibles (18 ouvrages uniques supplémentaires) et le lot thématique Mawlid ajoute 2 sources primaires revues, pour un jalon curaté de 233 ouvrages OpenITI."
   },
   "promotion": {
     "default_batch_size": 25,
@@ -101,7 +101,7 @@
     "max_books_per_shard": 40,
     "max_source_chars_per_shard": 40000000,
     "future_target_books": 500,
-    "description": "Le runtime V3 reste shardé. La croissance générique reste gelée, mais les références P1 obligatoires et P2 savantes revues peuvent être ajoutées de façon append-friendly."
+    "description": "Le runtime V3 reste shardé. La croissance générique reste gelée, mais les références P1 obligatoires, P2 savantes et sources thématiques revues peuvent être ajoutées de façon append-friendly."
   },
   "curation": {
     "phase": "quality-first-v1",
@@ -109,12 +109,12 @@
     "priority_only_growth": true,
     "required_priority_p1": 13,
     "optional_priority_p2_targets": 40,
-    "required_curated_openiti_books": 231,
+    "required_curated_openiti_books": 233,
     "priority_max_source_chars_per_book": 40000000,
     "max_raw_file_bytes": 100663296,
     "reader_parser_version": "athar-openiti-reader-v2",
     "require_metadata_review": true,
     "require_reader_cleanup": true,
-    "description": "Athar conserve 13 P1 obligatoires et ouvre une extension P2 équilibrée entre les quatre madhhabs. Les 38 P2 résolus doivent porter le corpus curaté à au moins 231 ouvrages OpenITI avant publication V3."
+    "description": "Athar conserve 13 P1 obligatoires, 38 P2 résolus et ajoute deux sources primaires revues pour le Mawlid. Le corpus doit atteindre au moins 233 ouvrages OpenITI curatés avant publication V3."
   }
 }
