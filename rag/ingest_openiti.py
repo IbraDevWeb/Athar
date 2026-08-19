@@ -75,7 +75,7 @@ def load_industrialized_manifest(*, apply_curation: bool = True) -> dict[str, An
     if not all(ids) or len(ids) != len(set(ids)):
         raise RuntimeError("Identifiants OpenITI industriels manquants ou dupliqués.")
     if not all(uris) or len(uris) != len(set(uris)):
-        raise RuntimeError("URI OpenITI industriels manquants ou dupliqués.")
+        raise RuntimeError("URI OpenITI industriels manquantes ou dupliquées.")
 
     curation = _load_curation() if apply_curation else {}
     if apply_curation and curation:
@@ -131,6 +131,31 @@ def fetch_with_retry(raw_url: str, attempts: int = 3) -> str:
     raise last_error
 
 
+def apply_source_text_policy(book: dict[str, object], text: str) -> str:
+    """Apply explicit, reviewed source boundaries before OpenITI chunking.
+
+    Some otherwise valid digital editions append modern fatwas, introductions or
+    other editorial material to a classical work. A manifest may declare an exact
+    boundary string with ``source_text_end_before``. Athar then indexes only the
+    text before that marker. Missing markers are fatal: silently ingesting the
+    contaminated edition would be worse than skipping the book.
+    """
+    end_before = str(book.get("source_text_end_before") or "").strip()
+    if not end_before:
+        return text
+    index = text.find(end_before)
+    if index < 0:
+        raise RuntimeError(
+            f"source_text_end_before introuvable pour {book.get('book_id') or book.get('openiti_uri')}"
+        )
+    sliced = text[:index].rstrip()
+    if len(sliced) < 1000:
+        raise RuntimeError(
+            f"source_text_end_before produit un texte anormalement court pour {book.get('book_id') or book.get('openiti_uri')}"
+        )
+    return sliced + "\n"
+
+
 def sync_books(
     db_path: Path,
     manifest: dict[str, Any],
@@ -159,7 +184,8 @@ def sync_books(
     def download(book: dict[str, object]) -> tuple[dict[str, object], str]:
         raw_url, _ = urls(manifest, book)
         print(f"[OpenITI] {book['title']} : téléchargement…", flush=True)
-        return book, fetch_with_retry(raw_url)
+        text = fetch_with_retry(raw_url)
+        return book, apply_source_text_policy(book, text)
 
     try:
         with ThreadPoolExecutor(max_workers=worker_count, thread_name_prefix="openiti") as pool:
