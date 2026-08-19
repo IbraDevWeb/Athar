@@ -4,15 +4,15 @@
 
 ## État
 
-- **233 ouvrages OpenITI** passés dans la chaîne de curation.
-- Titre renseigné : **233 / 233**.
-- Titre arabe renseigné : **233 / 233**.
-- Auteur renseigné : **233 / 233**.
-- Discipline renseignée : **233 / 233**.
-- Métadonnées OpenITI appariées : **233 / 233**.
-- Madhhab explicitement renseigné : **91 / 233**.
-- Dont madhhab restauré par cible auteur+titre revue : **3**.
-- Madhhab restant non résolu : **142**.
+- **267 ouvrages OpenITI** passés dans la chaîne de curation.
+- Titre renseigné : **267 / 267**.
+- Titre arabe renseigné : **267 / 267**.
+- Auteur renseigné : **267 / 267**.
+- Discipline renseignée : **267 / 267**.
+- Métadonnées OpenITI appariées : **267 / 267**.
+- Madhhab explicitement renseigné : **129 / 267**.
+- Dont madhhab restauré par cible auteur+titre revue : **7**.
+- Madhhab restant non résolu : **138**.
 
 ## Principes de qualité
 
@@ -47,7 +47,6 @@
 - `openiti-auto-0f10311c96216336` — **Tahḏīb al-tahḏīb** — Ibn Ḥajar al-ʿAsqalānī — Hadith
 - `openiti-auto-b44f031d22f2e3b9` — **Anwar Tanzil** — Nasir Din Baydawi — Tafsīr
 - `openiti-auto-4d1ef29136a0ab0d` — **Tabaqat Mufassirin** — Al-Suyūṭī — Sīra et histoire
-- `openiti-auto-fe666ee069554555` — **al-ʾAṣl** — Muhammad Shaybani — Fiqh
 - `openiti-auto-6d6353e03c586c18` — **Macrifat Sahaba** — Abu Nucaym Isbahani — Hadith
 - `openiti-auto-59923883cb28de1e` — **Tafsir Muqatil** — Muqatil Ibn Sulayman — Tafsīr
 - `openiti-auto-14f04fe3bcbb411a` — **Dhayl Tabaqat Huffaz** — Al-Suyūṭī — Sīra et histoire
@@ -59,12 +58,10 @@
 - `openiti-auto-ab3c98a3fa131f3a` — **Itqan** — Al-Suyūṭī — Tafsīr
 - `openiti-auto-e0e32691b3a034eb` — **Sharh Kitab Tawhid** — Cabd Karim Khudayr — ʿAqīda
 - `openiti-auto-be91d6f09f21967f` — **Muʿjam al-udabāʾ** — Yaqut Hamawi — Sīra et histoire
-- `openiti-auto-875880ca957f7c78` — **Ashbah Wa Nazair** — Taj Din Subki — Fiqh
 - `openiti-auto-cd797ca1e121ae2d` — **Maghani Akhyar** — Badr Din Cayni — Hadith
 - `openiti-auto-c15581350bc95b2d` — **Tafsir Jalalayn** — Al-Suyūṭī — Tafsīr
 - `openiti-auto-924e40a962b5bbd2` — **Tawhid Wa Qurrat Cuyun Muwahhidin** — Ibn Hasan Al Shaykh — ʿAqīda
 - `openiti-auto-5b86f9eb9570f800` — **Tuhfa Latifa** — Sakhawi — Sīra et histoire
-- `openiti-auto-ae408e9530aaad1b` — **Manthur Fi Qawacid** — Badr Din Zarkashi — Fiqh
 - `openiti-auto-30eb530b8fcbbda0` — **Tuhfat Tahsil** — Ibn Ciraqi — Hadith
 - `openiti-auto-a683ae6334ad806a` — **Tafsir** — Sulami — Tafsīr
 - `openiti-auto-fffdd51749e9523a` — **Sifat Rabb Calamin** — Ibn Muhibb Samit — ʿAqīda
@@ -125,7 +122,6 @@
 - `openiti-auto-5fd97614cc3c2ced` — **Rafʿ al-iṣr ʿan quḍāŧ Miṣr** — Ibn Ḥajar al-ʿAsqalānī — Sīra et histoire
 - `openiti-auto-d97771e13c47f311` — **āl-āḥād wa al-maṯānī** — Ibn Abi Casim — Hadith
 - `openiti-auto-8611a96776230d27` — **Ictiqad Khalis** — Ibn Cattar — ʿAqīda
-- `openiti-auto-7a687c273d8d1bad` — **Qawacid Nuraniyya** — Ibn Taymiyyah — Fiqh
 - `openiti-auto-b352e3d43116e59a` — **Mukhtasar Tafsir Surat Anfal** — Muḥammad ibn ʿAbd al-Wahhāb — Tafsīr
 - `openiti-auto-33abc7b51e487910` — **Irshad Thiqat** — Shawkani — ʿAqīda
 - `openiti-auto-7959e7267c0a4c18` — **Ṭabaqāt ṣulaḥāʾ al-Yaman** — Burayhi — Sīra et histoire

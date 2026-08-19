@@ -1,0 +1,543 @@
+{
+  "pipeline": "athar-wave2-p3-v1",
+  "targets": 60,
+  "resolved_targets": 47,
+  "already_present": [
+    {
+      "id": "wave2-hanafi-shaybani-asl",
+      "title": "Al-Aṣl",
+      "madhhab": "Ḥanafite",
+      "source_type": "masa_il",
+      "book_id": "openiti-auto-fe666ee069554555",
+      "openiti_uri": "0189MuhammadShaybani.Asl.Sham19Y0014285-ara1"
+    },
+    {
+      "id": "wave2-maliki-qarafi-furuq",
+      "title": "Al-Furūq",
+      "madhhab": "Mālikite",
+      "source_type": "usul_qawaid",
+      "book_id": "kutub-2215",
+      "openiti_uri": "0684ShihabDinQarafi.Furuq.Shamela0002215BK1-ara1"
+    },
+    {
+      "id": "wave2-maliki-ibn-abd-barr-kafi",
+      "title": "Al-Kāfī fī Fiqh Ahl al-Madīnah",
+      "madhhab": "Mālikite",
+      "source_type": "manual",
+      "book_id": "kutub-7367",
+      "openiti_uri": "0463IbnCabdBarr.KafiFiFiqh.JK000881-ara1"
+    },
+    {
+      "id": "wave2-shafii-mawardi-hawi",
+      "title": "Al-Ḥāwī al-Kabīr",
+      "madhhab": "Shāfiʿite",
+      "source_type": "encyclopedic_fiqh",
+      "book_id": "openiti-priority-shafii-mawardi-hawi",
+      "openiti_uri": "0450AbuHasanMawardi.HawiKabir.JK009139-ara1"
+    },
+    {
+      "id": "wave2-shafii-juwayni-nihaya",
+      "title": "Nihāyat al-Maṭlab fī Dirāyat al-Madhhab",
+      "madhhab": "Shāfiʿite",
+      "source_type": "encyclopedic_fiqh",
+      "book_id": "openiti-priority-shafii-juwayni-nihaya",
+      "openiti_uri": "0478ImamHaramaynJuwayni.NihayatMatlab.Shamela0009851-ara1"
+    },
+    {
+      "id": "wave2-shafii-nawawi-rawda",
+      "title": "Rawḍat al-Ṭālibīn",
+      "madhhab": "Shāfiʿite",
+      "source_type": "manual_commentary",
+      "book_id": "openiti-priority-shafii-nawawi-rawda",
+      "openiti_uri": "0676Nawawi.RawdatTalibin.JK000192-ara1"
+    },
+    {
+      "id": "wave2-shafii-taqi-subki-fatawa",
+      "title": "Fatāwā al-Subkī",
+      "madhhab": "Shāfiʿite",
+      "source_type": "fatwa",
+      "book_id": "openiti-priority-shafii-subki-fatawa",
+      "openiti_uri": "0756TaqiDinSubki.Fatawa.JK007121-ara1"
+    },
+    {
+      "id": "wave2-shafii-taj-subki-ashbah",
+      "title": "Al-Ashbāh wa-l-Naẓāʾir",
+      "madhhab": "Shāfiʿite",
+      "source_type": "usul_qawaid",
+      "book_id": "openiti-auto-875880ca957f7c78",
+      "openiti_uri": "0771TajDinSubki.AshbahWaNazair.Shamela0008634-ara1"
+    },
+    {
+      "id": "wave2-shafii-zarkashi-manthur",
+      "title": "Al-Manthūr fī al-Qawāʿid al-Fiqhiyyah",
+      "madhhab": "Shāfiʿite",
+      "source_type": "usul_qawaid",
+      "book_id": "openiti-auto-ae408e9530aaad1b",
+      "openiti_uri": "0794BadrDinZarkashi.ManthurFiQawacid.Shamela0021592-ara1"
+    },
+    {
+      "id": "wave2-hanbali-ibn-muflih-furu",
+      "title": "Al-Furūʿ",
+      "madhhab": "Ḥanbalite",
+      "source_type": "encyclopedic_fiqh",
+      "book_id": "openiti-priority-hanbali-ibn-muflih-furu",
+      "openiti_uri": "0763IbnMuflihMaqdisi.FurucWaTashihFuruc.JK000302-ara1"
+    },
+    {
+      "id": "wave2-hanbali-ibn-taymiyya-qawaid-nuraniyya",
+      "title": "Al-Qawāʿid al-Nūrāniyyah al-Fiqhiyyah",
+      "madhhab": "Ḥanbalite",
+      "source_type": "usul_qawaid",
+      "book_id": "openiti-auto-7a687c273d8d1bad",
+      "openiti_uri": "0728IbnTaymiyya.QawacidNuraniyya.Shamela0021729-ara1"
+    },
+    {
+      "id": "wave2-hanbali-ibn-qayyim-zad",
+      "title": "Zād al-Maʿād",
+      "madhhab": "Ḥanbalite",
+      "source_type": "topic_fiqh_sira",
+      "book_id": "openiti-priority-hanbali-ibn-qayyim-zad",
+      "openiti_uri": "0751IbnQayyimJawziyya.ZadMacad.JK000105-ara1"
+    },
+    {
+      "id": "wave2-hanbali-ibn-qudama-rawda",
+      "title": "Rawḍat al-Nāẓir wa-Junnat al-Munāẓir",
+      "madhhab": "Ḥanbalite",
+      "source_type": "usul_qawaid",
+      "book_id": "openiti-priority-hanbali-rawdat-nazir",
+      "openiti_uri": "0620IbnQudamaMaqdisi.RawdatNazir.JK000156-ara1"
+    }
+  ],
+  "new_books": 34,
+  "selected": [
+    {
+      "book_id": "openiti-priority-wave2-hanafi-ibn-nujaym-bahr",
+      "reference_id": "wave2-hanafi-ibn-nujaym-bahr",
+      "title": "Al-Baḥr al-Rāʾiq Sharḥ Kanz al-Daqāʾiq",
+      "madhhab": "Ḥanafite",
+      "source_type": "commentary",
+      "openiti_uri": "0970IbnIbrahimIbnNujaymMisri.BahrRaiq.JK000189BK1-ara1",
+      "source_char_length": 5440628
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-ibn-humam-fath-qadir",
+      "reference_id": "wave2-hanafi-ibn-humam-fath-qadir",
+      "title": "Fatḥ al-Qadīr",
+      "madhhab": "Ḥanafite",
+      "source_type": "commentary",
+      "openiti_uri": "0861IbnHumam.FathQadir.Shamela0021744-ara1",
+      "source_char_length": 8681662
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-ayni-binaya",
+      "reference_id": "wave2-hanafi-ayni-binaya",
+      "title": "Al-Bināyah Sharḥ al-Hidāyah",
+      "madhhab": "Ḥanafite",
+      "source_type": "commentary",
+      "openiti_uri": "0855BadrDinCayni.BinayaSharhHidaya.Shamela0000427BK2-ara1",
+      "source_char_length": 9212496
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-babarti-inaya",
+      "reference_id": "wave2-hanafi-babarti-inaya",
+      "title": "Al-ʿInāyah Sharḥ al-Hidāyah",
+      "madhhab": "Ḥanafite",
+      "source_type": "commentary",
+      "openiti_uri": "0786IbnMuhammadBabarti.CinayaSharhHidaya.JK011690BK2-ara1",
+      "source_char_length": 3488134
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-haskafi-durr",
+      "reference_id": "wave2-hanafi-haskafi-durr",
+      "title": "Al-Durr al-Mukhtār",
+      "madhhab": "Ḥanafite",
+      "source_type": "commentary",
+      "openiti_uri": "1088IbnCaliHaskafi.DurrMukhtar.JK000176-ara1",
+      "source_char_length": 1285162
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-fatawa-hindiyya",
+      "reference_id": "wave2-hanafi-fatawa-hindiyya",
+      "title": "Al-Fatāwā al-Hindiyyah",
+      "madhhab": "Ḥanafite",
+      "source_type": "fatwa",
+      "openiti_uri": "1090NizamDinBalkhi.FatawaHindiyya.JK007073-ara1",
+      "source_char_length": 6984019
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-nasafi-kanz",
+      "reference_id": "wave2-hanafi-nasafi-kanz",
+      "title": "Kanz al-Daqāʾiq",
+      "madhhab": "Ḥanafite",
+      "source_type": "manual",
+      "openiti_uri": "0710IbnAhmadHafizDinNasafi.KanzDaqaiq.Sham19Y0014262-ara1",
+      "source_char_length": 152285
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-mulla-khusraw-durar",
+      "reference_id": "wave2-hanafi-mulla-khusraw-durar",
+      "title": "Durar al-Ḥukkām fī Sharḥ Ghurar al-Aḥkām",
+      "madhhab": "Ḥanafite",
+      "source_type": "commentary",
+      "openiti_uri": "0885IbnFaramurzMullaKhusraw.DurarHukkam.JK011703-ara1",
+      "source_char_length": 2635583
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-jassas-fusul",
+      "reference_id": "wave2-hanafi-jassas-fusul",
+      "title": "Al-Fuṣūl fī al-Uṣūl",
+      "madhhab": "Ḥanafite",
+      "source_type": "usul_qawaid",
+      "openiti_uri": "0370IbnCaliJassas.FusulFiUsul.JK000286-ara1",
+      "source_char_length": 445800
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanafi-quduri-tajrid",
+      "reference_id": "wave2-hanafi-quduri-tajrid",
+      "title": "Al-Tajrīd",
+      "madhhab": "Ḥanafite",
+      "source_type": "comparative_fiqh",
+      "openiti_uri": "0428AbuHusaynQuduri.Tajrid.Sham19Y0017768-ara1",
+      "source_char_length": 3924291
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-wansharisi-miyar",
+      "reference_id": "wave2-maliki-wansharisi-miyar",
+      "title": "Al-Miʿyār al-Muʿrib",
+      "madhhab": "Mālikite",
+      "source_type": "nawazil_fatwa",
+      "openiti_uri": "0914IbnYahyaWansharisi.Micyar.ShamAY0034230-ara1",
+      "source_char_length": 6562283
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-qarafi-ihkam-fatawa",
+      "reference_id": "wave2-maliki-qarafi-ihkam-fatawa",
+      "title": "Al-Iḥkām fī Tamyīz al-Fatāwā ʿan al-Aḥkām",
+      "madhhab": "Mālikite",
+      "source_type": "fatwa_usul",
+      "openiti_uri": "0684ShihabDinQarafi.IhkamFiTamyizFatawa.Sham19Y0014218-ara1",
+      "source_char_length": 104607
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-ibn-farhun-tabsira",
+      "reference_id": "wave2-maliki-ibn-farhun-tabsira",
+      "title": "Tabṣirat al-Ḥukkām",
+      "madhhab": "Mālikite",
+      "source_type": "judiciary_fiqh",
+      "openiti_uri": "0799IbnFarhun.TabsiratHukkam.JK007089-ara1",
+      "source_char_length": 1004939
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-ibn-juzayy-qawanin",
+      "reference_id": "wave2-maliki-ibn-juzayy-qawanin",
+      "title": "Al-Qawānīn al-Fiqhiyyah",
+      "madhhab": "Mālikite",
+      "source_type": "comparative_fiqh",
+      "openiti_uri": "0741IbnAhmadGharnatiKalbi.QawaninFiqhiyya.JK000253-ara1",
+      "source_char_length": 474822
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-lakhmi-tabsira",
+      "reference_id": "wave2-maliki-lakhmi-tabsira",
+      "title": "Al-Tabṣirah",
+      "madhhab": "Mālikite",
+      "source_type": "fiqh_commentary",
+      "openiti_uri": "0478AbuHasanLakhmi.Tabsira.Sham19Y0014591-ara1",
+      "source_char_length": 3894304
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-dardir-sharh-kabir",
+      "reference_id": "wave2-maliki-dardir-sharh-kabir",
+      "title": "Al-Sharḥ al-Kabīr",
+      "madhhab": "Mālikite",
+      "source_type": "commentary",
+      "openiti_uri": "1201AhmadDardirAbuBarakat.SharhKabir.JK000193-ara1",
+      "source_char_length": 1910389
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-dasuqi-hashiya",
+      "reference_id": "wave2-maliki-dasuqi-hashiya",
+      "title": "Ḥāshiyat al-Dasūqī ʿalā al-Sharḥ al-Kabīr",
+      "madhhab": "Mālikite",
+      "source_type": "hashiya",
+      "openiti_uri": "1230IbnAhmadDasuqi.HashiyatCalaSharhKabir.JK000241-ara1",
+      "source_char_length": 4707495
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-mayyara-durr-thamin",
+      "reference_id": "wave2-maliki-mayyara-durr-thamin",
+      "title": "Al-Durr al-Thamīn wa-l-Mawrid al-Maʿīn",
+      "madhhab": "Mālikite",
+      "source_type": "commentary",
+      "openiti_uri": "1072IbnAhmadMayyaraFasi.DurrThamin.Sham19Y0014249-ara1",
+      "source_char_length": 933433
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-qadi-iyad-ikmal",
+      "reference_id": "wave2-maliki-qadi-iyad-ikmal",
+      "title": "Ikmāl al-Muʿlim bi-Fawāʾid Muslim",
+      "madhhab": "Mālikite",
+      "source_type": "hadith_commentary",
+      "openiti_uri": "0544QadiCiyad.IkmalMuclim.Sham19Y0122406-ara1",
+      "source_char_length": 5152702
+    },
+    {
+      "book_id": "openiti-priority-wave2-maliki-ibn-hajib-jami-ummahat",
+      "reference_id": "wave2-maliki-ibn-hajib-jami-ummahat",
+      "title": "Jāmiʿ al-Ummahāt",
+      "madhhab": "Mālikite",
+      "source_type": "manual",
+      "openiti_uri": "0646IbnCumarIbnHajibKurdi.JamicUmmahat.JK006903-ara1",
+      "source_char_length": 447745
+    },
+    {
+      "book_id": "openiti-priority-wave2-shafii-ghazali-wasit",
+      "reference_id": "wave2-shafii-ghazali-wasit",
+      "title": "Al-Wasīṭ fī al-Madhhab",
+      "madhhab": "Shāfiʿite",
+      "source_type": "manual_commentary",
+      "openiti_uri": "0505Ghazali.Wasit.JK000309-ara1",
+      "source_char_length": 1679885
+    },
+    {
+      "book_id": "openiti-priority-wave2-shafii-haytami-tuhfa",
+      "reference_id": "wave2-shafii-haytami-tuhfa",
+      "title": "Tuḥfat al-Muḥtāj fī Sharḥ al-Minhāj",
+      "madhhab": "Shāfiʿite",
+      "source_type": "commentary",
+      "openiti_uri": "0974IbnHajarHaytami.TuhfatMuhtaj.Shamela0009059BK1-ara1",
+      "source_char_length": 4184296
+    },
+    {
+      "book_id": "openiti-priority-wave2-shafii-haytami-fatawa-kubra",
+      "reference_id": "wave2-shafii-haytami-fatawa-kubra",
+      "title": "Al-Fatāwā al-Fiqhiyyah al-Kubrā",
+      "madhhab": "Shāfiʿite",
+      "source_type": "fatwa",
+      "openiti_uri": "0974IbnHajarHaytami.FatawaKubra.JK007074-ara1",
+      "source_char_length": 3409932
+    },
+    {
+      "book_id": "openiti-priority-wave2-shafii-ramli-nihaya",
+      "reference_id": "wave2-shafii-ramli-nihaya",
+      "title": "Nihāyat al-Muḥtāj ilā Sharḥ al-Minhāj",
+      "madhhab": "Shāfiʿite",
+      "source_type": "commentary",
+      "openiti_uri": "1004ShamsDinRamli.NihayatMuhtaj.JK007135-ara1",
+      "source_char_length": 4158697
+    },
+    {
+      "book_id": "openiti-priority-wave2-shafii-zakariya-asna",
+      "reference_id": "wave2-shafii-zakariya-asna",
+      "title": "Asnā al-Maṭālib fī Sharḥ Rawḍ al-Ṭālib",
+      "madhhab": "Shāfiʿite",
+      "source_type": "commentary",
+      "openiti_uri": "0926ZakariyyaAnsari.AsnaMatalib.JK007113-ara1",
+      "source_char_length": 4732249
+    },
+    {
+      "book_id": "openiti-priority-wave2-shafii-suyuti-hawi-fatawi",
+      "reference_id": "wave2-shafii-suyuti-hawi-fatawi",
+      "title": "Al-Ḥāwī li-l-Fatāwī",
+      "madhhab": "Shāfiʿite",
+      "source_type": "fatwa",
+      "openiti_uri": "0911Suyuti.HawiLiFatawi.JK009241-ara1",
+      "source_char_length": 1249111
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-ibn-muflih-adab",
+      "reference_id": "wave2-hanbali-ibn-muflih-adab",
+      "title": "Al-Ādāb al-Sharʿiyyah",
+      "madhhab": "Ḥanbalite",
+      "source_type": "topic_treatise",
+      "openiti_uri": "0763IbnMuflihMaqdisi.AdabSharciyya.JK007054-ara1",
+      "source_char_length": 1469439
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-bahuti-sharh-muntaha",
+      "reference_id": "wave2-hanbali-bahuti-sharh-muntaha",
+      "title": "Sharḥ Muntahā al-Irādāt",
+      "madhhab": "Ḥanbalite",
+      "source_type": "commentary",
+      "openiti_uri": "1051IbnYunusBuhutiHanbali.SharhMuntahaIradat.JK000225-ara1",
+      "source_char_length": 2658410
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-karmi-ghaya",
+      "reference_id": "wave2-hanbali-karmi-ghaya",
+      "title": "Ghāyat al-Muntahā fī Jamʿ al-Iqnāʿ wa-l-Muntahā",
+      "madhhab": "Ḥanbalite",
+      "source_type": "manual_commentary",
+      "openiti_uri": "1033MarciKarmi.GhayatMuntaha.Sham19Y0020589-ara1",
+      "source_char_length": 871964
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-ibn-taymiyya-fatawa-kubra",
+      "reference_id": "wave2-hanbali-ibn-taymiyya-fatawa-kubra",
+      "title": "Al-Fatāwā al-Kubrā",
+      "madhhab": "Ḥanbalite",
+      "source_type": "fatwa",
+      "openiti_uri": "0728IbnTaymiyya.FatawaKubra.JK001414-ara1",
+      "source_char_length": 3400877
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-ibn-qayyim-turuq",
+      "reference_id": "wave2-hanbali-ibn-qayyim-turuq",
+      "title": "Al-Ṭuruq al-Ḥukmiyyah",
+      "madhhab": "Ḥanbalite",
+      "source_type": "judiciary_fiqh",
+      "openiti_uri": "0751IbnQayyimJawziyya.TuruqHukmiyya.JK000104-ara1",
+      "source_char_length": 347574
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-ibn-rajab-qawaid",
+      "reference_id": "wave2-hanbali-ibn-rajab-qawaid",
+      "title": "Al-Qawāʿid",
+      "madhhab": "Ḥanbalite",
+      "source_type": "usul_qawaid",
+      "openiti_uri": "0795IbnRajabHanbali.Qawacid.Shamela0021730-ara1",
+      "source_char_length": 715146
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-jilani-ghunya",
+      "reference_id": "wave2-hanbali-jilani-ghunya",
+      "title": "Al-Ghunyah li-Ṭālibī Ṭarīq al-Ḥaqq",
+      "madhhab": "Ḥanbalite",
+      "source_type": "topic_treatise",
+      "openiti_uri": "0561CabdQadirJilani.Ghunya.Sham19Y0017817-ara1",
+      "source_char_length": 772423
+    },
+    {
+      "book_id": "openiti-priority-wave2-hanbali-abu-yala-udda",
+      "reference_id": "wave2-hanbali-abu-yala-udda",
+      "title": "Al-ʿUddah fī Uṣūl al-Fiqh",
+      "madhhab": "Ḥanbalite",
+      "source_type": "usul_qawaid",
+      "openiti_uri": "0458AbuYaclaIbnFarra.CuddaFiUsulFiqh.ShamAY0038640-ara1",
+      "source_char_length": 759869
+    }
+  ],
+  "missing": [
+    {
+      "id": "wave2-hanafi-ibn-abidin-radd-muhtar",
+      "title": "Radd al-Muḥtār ʿalā al-Durr al-Mukhtār",
+      "madhhab": "Ḥanafite",
+      "source_type": "hashiya",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-hanafi-ibn-abidin-nashr-urf",
+      "title": "Nashr al-ʿUrf fī Bināʾ Baʿḍ al-Aḥkām ʿalā al-ʿUrf",
+      "madhhab": "Ḥanafite",
+      "source_type": "topic_treatise",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-hanafi-tahtawi-maraqi",
+      "title": "Ḥāshiyat al-Ṭaḥṭāwī ʿalā Marāqī al-Falāḥ",
+      "madhhab": "Ḥanafite",
+      "source_type": "hashiya",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-hanafi-tahawi-mukhtalaf",
+      "title": "Mukhtaṣar Ikhtilāf al-ʿUlamāʾ",
+      "madhhab": "Ḥanafite",
+      "source_type": "comparative_fiqh",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-maliki-ibn-rushd-fatawa",
+      "title": "Fatāwā Ibn Rushd",
+      "madhhab": "Mālikite",
+      "source_type": "fatwa",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-maliki-dardir-sharh-saghir",
+      "title": "Al-Sharḥ al-Ṣaghīr",
+      "madhhab": "Mālikite",
+      "source_type": "commentary",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-maliki-amir-iklil",
+      "title": "Al-Iklīl Sharḥ Mukhtaṣar Khalīl",
+      "madhhab": "Mālikite",
+      "source_type": "commentary",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-shafii-ghazali-wajiz",
+      "title": "Al-Wajīz fī Fiqh al-Imām al-Shāfiʿī",
+      "madhhab": "Shāfiʿite",
+      "source_type": "manual",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-shafii-rafii-aziz",
+      "title": "Al-ʿAzīz Sharḥ al-Wajīz",
+      "madhhab": "Shāfiʿite",
+      "source_type": "commentary",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-shafii-suyuti-husn-maqsid",
+      "title": "Ḥusn al-Maqṣid fī ʿAmal al-Mawlid",
+      "madhhab": "Shāfiʿite",
+      "source_type": "topic_treatise",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-hanbali-salih-masail-ahmad",
+      "title": "Masāʾil al-Imām Aḥmad — Riwāyat Ṣāliḥ",
+      "madhhab": "Ḥanbalite",
+      "source_type": "masa_il",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-hanbali-abdallah-masail-ahmad",
+      "title": "Masāʾil al-Imām Aḥmad — Riwāyat ʿAbd Allāh",
+      "madhhab": "Ḥanbalite",
+      "source_type": "masa_il",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    },
+    {
+      "id": "wave2-hanbali-futuhi-muntaha",
+      "title": "Muntahā al-Irādāt",
+      "madhhab": "Ḥanbalite",
+      "source_type": "manual",
+      "reason": "aucune version OpenITI primaire/nettoyée admissible trouvée"
+    }
+  ],
+  "resolved_by_madhhab": {
+    "Mālikite": 12,
+    "Shāfiʿite": 12,
+    "Ḥanafite": 11,
+    "Ḥanbalite": 12
+  },
+  "new_books_by_madhhab": {
+    "Mālikite": 10,
+    "Shāfiʿite": 6,
+    "Ḥanafite": 10,
+    "Ḥanbalite": 8
+  },
+  "resolved_source_types": {
+    "commentary": 12,
+    "comparative_fiqh": 2,
+    "encyclopedic_fiqh": 3,
+    "fatwa": 5,
+    "fatwa_usul": 1,
+    "fiqh_commentary": 1,
+    "hadith_commentary": 1,
+    "hashiya": 1,
+    "judiciary_fiqh": 2,
+    "manual": 3,
+    "manual_commentary": 3,
+    "masa_il": 1,
+    "nawazil_fatwa": 1,
+    "topic_fiqh_sira": 1,
+    "topic_treatise": 2,
+    "usul_qawaid": 8
+  }
+}
