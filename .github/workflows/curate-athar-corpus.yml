@@ -7,11 +7,18 @@ on:
       - 'rag/corpus_policy.json'
       - 'rag/corpus_reference_checklist.json'
       - 'rag/corpus_priority_targets.json'
+      - 'rag/corpus_wave2_targets.json'
+      - 'rag/corpus_wave2_hanafi.json'
+      - 'rag/corpus_wave2_maliki.json'
+      - 'rag/corpus_wave2_shafii.json'
+      - 'rag/corpus_wave2_hanbali.json'
       - 'rag/madhhab_scholar_targets.json'
       - 'rag/topic_plurality_benchmark.json'
       - 'rag/corpus_curation_rules.json'
       - 'rag/corpus_priority_ingest.py'
       - 'rag/corpus_priority_ingest_tests.py'
+      - 'rag/corpus_wave2_ingest.py'
+      - 'rag/corpus_wave2_ingest_tests.py'
       - 'rag/madhhab_corpus_expansion_tests.py'
       - 'rag/corpus_curator.py'
       - 'rag/corpus_curator_tests.py'
@@ -31,7 +38,7 @@ jobs:
   curate:
     if: github.repository == 'IbraDevWeb/Athar' && github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -50,8 +57,9 @@ jobs:
       - name: Validate curation code
         working-directory: rag
         run: |
-          python -m py_compile corpus_priority_ingest.py corpus_curator.py openiti.py ingest_openiti.py v5_library.py
+          python -m py_compile corpus_priority_ingest.py corpus_wave2_ingest.py corpus_curator.py openiti.py ingest_openiti.py v5_library.py
           python corpus_priority_ingest_tests.py
+          python corpus_wave2_ingest_tests.py
           python corpus_curator_tests.py
           python madhhab_corpus_expansion_tests.py
           python openiti_reader_tests.py
@@ -65,7 +73,7 @@ jobs:
           sys.path.insert(0, 'rag')
           from openiti_catalog import fetch_metadata
           Path('/tmp/openiti_metadata.tsv').write_text(fetch_metadata(), encoding='utf-8')
-          print('OpenITI metadata cached for P1/P2 selection and curation.')
+          print('OpenITI metadata cached for P1/P2/P3 selection and curation.')
           PY
 
       - name: Resolve P1 and optional P2 priorities
@@ -76,12 +84,21 @@ jobs:
           --manifest rag/openiti_books_priority.json
           --report rag/corpus_priority_report.json
 
+      - name: Resolve Wave 2 optional P3 sources
+        run: >-
+          python rag/corpus_wave2_ingest.py
+          --metadata /tmp/openiti_metadata.tsv
+          --index rag/corpus_wave2_targets.json
+          --manifest rag/openiti_books_priority.json
+          --report rag/corpus_wave2_report.json
+          --combined-targets /tmp/corpus_all_targets.json
+
       - name: Curate every configured OpenITI book
         run: >-
           python rag/corpus_curator.py
           --metadata /tmp/openiti_metadata.tsv
           --rules rag/corpus_curation_rules.json
-          --targets rag/corpus_priority_targets.json
+          --targets /tmp/corpus_all_targets.json
           --output rag/corpus_book_curation.json
           --report rag/corpus_curation_report.json
           --markdown rag/CORPUS_CURATION.md
@@ -100,6 +117,7 @@ jobs:
 
           policy = json.loads(Path('rag/corpus_policy.json').read_text(encoding='utf-8'))
           priority = json.loads(Path('rag/corpus_priority_report.json').read_text(encoding='utf-8'))
+          wave2 = json.loads(Path('rag/corpus_wave2_report.json').read_text(encoding='utf-8'))
           curation = json.loads(Path('rag/corpus_book_curation.json').read_text(encoding='utf-8'))
           curation_report = json.loads(Path('rag/corpus_curation_report.json').read_text(encoding='utf-8'))
           manifest = load_shardable_manifest()
@@ -111,6 +129,8 @@ jobs:
           assert not priority['missing'], priority['missing']
           assert priority['optional_targets'] == int(cfg['optional_priority_p2_targets']), priority
           assert priority['resolved_total'] >= priority['resolved'], priority
+          assert int(wave2['targets']) == 60, wave2
+          assert int(wave2['resolved_targets']) + len(wave2.get('missing') or []) == 60, wave2
           assert int(curation['books_reviewed']) == len(enabled), (curation['books_reviewed'], len(enabled))
           assert len(enabled) >= int(cfg['required_curated_openiti_books'])
           assert curation['parser_version'] == cfg['reader_parser_version']
@@ -128,6 +148,7 @@ jobs:
               f"Quality gate: {len(enabled)} OpenITI books curated; "
               f"{priority['resolved']} P1 resolved; "
               f"{priority['optional_selected']} P2 resolved; "
+              f"{wave2['resolved_targets']}/60 P3 resolved ({wave2['new_books']} new); "
               f"{restored} madhhab labels restored."
           )
           PY
@@ -140,13 +161,14 @@ jobs:
           git add \
             rag/openiti_books_priority.json \
             rag/corpus_priority_report.json \
+            rag/corpus_wave2_report.json \
             rag/corpus_book_curation.json \
             rag/corpus_curation_report.json \
             rag/CORPUS_CURATION.md
           if git diff --cached --quiet; then
             echo 'Curated corpus descriptors already current.'
           else
-            git commit -m 'Publier la curation P1/P2 du corpus'
+            git commit -m 'Publier la curation P1/P2/P3 du corpus'
             git fetch origin main
             git rebase origin/main
             git push origin HEAD:main

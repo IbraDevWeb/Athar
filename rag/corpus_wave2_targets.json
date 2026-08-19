@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "wave": "P3-wave2-applied-scholarly-corpus",
+  "purpose": "Vague 2 : fatāwā, nawāzil, commentaires, gloses, qawāʿid et traités thématiques des 100 autorités suivies. Une cible P3 peut rester non résolue ; Athar préfère l'absence à une attribution incertaine.",
+  "release_commit": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
+  "target_count": 60,
+  "per_madhhab_target": 15,
+  "files": [
+    "corpus_wave2_hanafi.json",
+    "corpus_wave2_maliki.json",
+    "corpus_wave2_shafii.json",
+    "corpus_wave2_hanbali.json"
+  ]
+}
