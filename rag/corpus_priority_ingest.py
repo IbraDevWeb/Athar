@@ -62,6 +62,11 @@ def _markers_match(markers: list[Any], *values: Any) -> bool:
     return any(marker_key(marker) in haystack for marker in markers if marker_key(marker))
 
 
+def _uri_author_segment(value: Any) -> str:
+    """Return only the OpenITI author segment, never the work-title segment."""
+    return clean(value).split(".", 1)[0]
+
+
 def target_matches(
     target: dict[str, Any],
     work_uri: str = "",
@@ -72,7 +77,13 @@ def target_matches(
     author: str = "",
     author_ar: str = "",
 ) -> bool:
-    """Match either an explicit OpenITI work marker or a reviewed author+title pair."""
+    """Match either an explicit OpenITI work marker or a reviewed author+title pair.
+
+    Author markers are deliberately checked only against bibliographic author fields
+    and the URI author segment. Searching the complete work URI would let an author's
+    name occurring inside a *title* create a false attribution (for example a sharh
+    of Mukhtasar al-Tahawi written by al-Jassas).
+    """
     work_markers = list(target.get("work_markers") or [])
     if work_markers and _markers_match(work_markers, work_uri, version_uri):
         return True
@@ -81,7 +92,13 @@ def target_matches(
     title_markers = list(target.get("title_markers") or [])
     if not author_markers or not title_markers:
         return False
-    author_match = _markers_match(author_markers, author, author_ar, work_uri, version_uri)
+    author_match = _markers_match(
+        author_markers,
+        author,
+        author_ar,
+        _uri_author_segment(work_uri),
+        _uri_author_segment(version_uri),
+    )
     title_match = _markers_match(title_markers, title, title_ar, work_uri, version_uri)
     return author_match and title_match
 
