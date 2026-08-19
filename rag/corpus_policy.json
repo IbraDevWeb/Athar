@@ -1,11 +1,11 @@
 {
-  "version": 10,
+  "version": 11,
   "hosted": {
     "target_openiti_books": 208,
     "minimum_openiti_books": 208,
     "expected_openiti_books_after_tafsir": 213,
     "max_sqlite_bytes": 3221225472,
-    "description": "Phase de curation prioritaire : 195 ouvrages industriels existants + 13 références P1, puis 5 tafsirs dédiés, soit 213 ouvrages OpenITI attendus avant toute nouvelle densification."
+    "description": "Socle vérifié : 195 ouvrages industriels + 13 références P1, puis 5 tafsirs dédiés. Les extensions P2 des quatre madhhabs peuvent porter le corpus au-delà de 213 ouvrages sans abaisser ce minimum."
   },
   "promotion": {
     "default_batch_size": 25,
@@ -17,7 +17,11 @@
     "require_primary": true,
     "require_cleaned": true,
     "exclude_uncorrected_ocr": true,
-    "excluded_source_markers": ["Zaydiyya", "Shia", "Ibadiyya"],
+    "excluded_source_markers": [
+      "Zaydiyya",
+      "Shia",
+      "Ibadiyya"
+    ],
     "excluded_work_markers": [
       "IbnYacqubKulayni",
       "UsulMinKafi",
@@ -44,15 +48,51 @@
       "AbuQasimAmidi.MutalifWaMukhtalif"
     ],
     "discipline_overrides": {
-      "Nasai.FadailSahaba": {"subject": "hadith", "discipline": "Hadith", "reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."},
-      "AbuDharrSibtIbnCajami.KunuzDhahab": {"subject": "sira", "discipline": "Sīra et histoire", "reason": "Revue bibliographique : chronique historique de la ville d'Alep."},
-      "IbnHanbal.JamicFiCilal": {"subject": "hadith", "discipline": "Hadith", "reason": "Revue bibliographique : ouvrage sur les défauts des hadiths et la connaissance des transmetteurs."},
-      "IbnQunfudh.Wafayat": {"subject": "sira", "discipline": "Sīra et histoire", "reason": "Revue bibliographique : dictionnaire chronologique de décès de Compagnons, traditionnistes, juristes et auteurs."},
-      "Sahmi.TarikhJurjan": {"subject": "sira", "discipline": "Sīra et histoire", "reason": "Revue bibliographique : histoire et biographies savantes de Jurjan."},
-      "IbnCasakir.ArbacunaFiHathth": {"subject": "hadith", "discipline": "Hadith", "reason": "Revue bibliographique : recueil de quarante traditions."},
-      "IbnAbiDunya.DhammMuskir": {"subject": "hadith", "discipline": "Hadith", "reason": "Revue bibliographique : recueil de traditions et athar sur les boissons enivrantes."},
-      "IbnCasakir.KashfMughatta": {"subject": "hadith", "discipline": "Hadith", "reason": "Revue bibliographique : ouvrage consacré aux mérites du Muwaṭṭaʾ et aux transmissions rapportées à son sujet."},
-      "IbnKhayyatCusfuri.Tarikh": {"subject": "sira", "discipline": "Sīra et histoire", "reason": "Revue bibliographique : chronique historique de Khalīfa ibn Khayyāṭ sur l'histoire du monde islamique."}
+      "Nasai.FadailSahaba": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : recueil de hadiths sur les vertus et mérites des Compagnons."
+      },
+      "AbuDharrSibtIbnCajami.KunuzDhahab": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : chronique historique de la ville d'Alep."
+      },
+      "IbnHanbal.JamicFiCilal": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : ouvrage sur les défauts des hadiths et la connaissance des transmetteurs."
+      },
+      "IbnQunfudh.Wafayat": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : dictionnaire chronologique de décès de Compagnons, traditionnistes, juristes et auteurs."
+      },
+      "Sahmi.TarikhJurjan": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : histoire et biographies savantes de Jurjan."
+      },
+      "IbnCasakir.ArbacunaFiHathth": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : recueil de quarante traditions."
+      },
+      "IbnAbiDunya.DhammMuskir": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : recueil de traditions et athar sur les boissons enivrantes."
+      },
+      "IbnCasakir.KashfMughatta": {
+        "subject": "hadith",
+        "discipline": "Hadith",
+        "reason": "Revue bibliographique : ouvrage consacré aux mérites du Muwaṭṭaʾ et aux transmissions rapportées à son sujet."
+      },
+      "IbnKhayyatCusfuri.Tarikh": {
+        "subject": "sira",
+        "discipline": "Sīra et histoire",
+        "reason": "Revue bibliographique : chronique historique de Khalīfa ibn Khayyāṭ sur l'histoire du monde islamique."
+      }
     }
   },
   "sharding": {
@@ -61,19 +101,20 @@
     "max_books_per_shard": 40,
     "max_source_chars_per_shard": 40000000,
     "future_target_books": 500,
-    "description": "Le runtime V3 reste shardé. Pendant la phase quality-first, seuls les ouvrages P1 revus sont ajoutés; la croissance générique reste gelée jusqu'au franchissement du quality gate."
+    "description": "Le runtime V3 reste shardé. La croissance générique reste gelée, mais les références P1 obligatoires et P2 savantes revues peuvent être ajoutées de façon append-friendly."
   },
   "curation": {
     "phase": "quality-first-v1",
     "freeze_generic_growth": true,
     "priority_only_growth": true,
     "required_priority_p1": 13,
+    "optional_priority_p2_targets": 40,
     "required_curated_openiti_books": 213,
     "priority_max_source_chars_per_book": 40000000,
     "max_raw_file_bytes": 100663296,
     "reader_parser_version": "athar-openiti-reader-v2",
     "require_metadata_review": true,
     "require_reader_cleanup": true,
-    "description": "Athar perfectionne le corpus existant et les références P1 avant toute reprise de la croissance générique."
+    "description": "Athar conserve 13 P1 obligatoires et ouvre une extension P2 équilibrée entre les quatre madhhabs. Un P2 manquant n'échoue pas le build; un P2 trouvé doit satisfaire les mêmes exigences OpenITI de qualité."
   }
 }
