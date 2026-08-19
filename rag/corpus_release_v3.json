@@ -1,8 +1,8 @@
 {
   "version": 3,
   "storage_mode": "sharded",
-  "source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3",
-  "built_at": "2026-08-15T22:12:53+00:00",
+  "source_sha": "2a919fd20df6fac70d6749cb85980956af08660c",
+  "built_at": "2026-08-19T20:58:02+00:00",
   "shard_build_version": "athar-openiti-sqlite-v1",
   "openiti_release_ref": "cfc4157a3cf2054c0888f133970a4eaa3e22e58c",
   "books": 215,
@@ -12,17 +12,17 @@
   "arabic_passages": 574461,
   "french_passages": 3,
   "shard_count": 11,
-  "reused_shards": 0,
-  "rebuilt_shards": 11,
+  "reused_shards": 10,
+  "rebuilt_shards": 1,
   "catalog": {
     "id": "catalog",
     "database": "athar_catalog.sqlite",
     "asset": "athar_catalog.sqlite.gz",
     "compression": "gzip",
-    "sha256": "f86c8793651ca9b27556108705332be8270c3aa11115667e42f2296b9c423ec1",
-    "size_bytes": 64700,
-    "database_sha256": "29d444c486880a955d59e177eb292a8006f23f3a506d3c234623166dea46a1de",
-    "database_size_bytes": 540672,
+    "sha256": "84be3b8685b3777c082ccb82f1ba17bf8bfde6fbf2ea14151b3c6b4cde1ce31c",
+    "size_bytes": 64555,
+    "database_sha256": "8b7cab48afea3d96f68860377ba66225522e90fc49cc214366716f79134634f2",
+    "database_size_bytes": 548864,
     "books": 215,
     "chunks": 574461,
     "openiti_books": 213,
@@ -46,8 +46,9 @@
       "substantive_passages": 50937,
       "source_signature": "a92495f334575a0c5379d92fa2a7eb822552d8c6ca138d921935a10f2bc7c840",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-001.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-001.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-002",
@@ -64,8 +65,9 @@
       "substantive_passages": 28872,
       "source_signature": "657f9f95934c4c52ae1a91bd21b0f75b8d4ceb9c3d042beae417a64786d2cdf6",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-002.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-002.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-003",
@@ -82,8 +84,9 @@
       "substantive_passages": 60198,
       "source_signature": "371ef97abfca76fc5391b86947bc889e3ad1dca7a998d288e7f899badff05449",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-003.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-003.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-004",
@@ -100,8 +103,9 @@
       "substantive_passages": 55183,
       "source_signature": "73b74fcf6fad2714ff17216d63331718b2bc9d24970450234433ac932cc0a29c",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-004.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-004.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-005",
@@ -118,8 +122,9 @@
       "substantive_passages": 59284,
       "source_signature": "9c9fda2620b6b9611bb660e395f6034ac869cbf1deb0c859ced327ba7f880227",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-005.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-005.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-006",
@@ -136,8 +141,9 @@
       "substantive_passages": 63404,
       "source_signature": "7ab964960c3f642c54e2b785e7c99cde65e000ce11b8d623ba9f66ecca45c066",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-006.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-006.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-007",
@@ -154,8 +160,9 @@
       "substantive_passages": 33545,
       "source_signature": "e6ea76a151fe8f7a33d7f642c8a616010bbb6713d348923cd5e8cebdef6309bc",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-007.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-007.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-008",
@@ -172,8 +179,9 @@
       "substantive_passages": 48889,
       "source_signature": "db7d3a185209c1a1ef4238045c756666797d947af999504d27513594ddd74d47",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-008.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-008.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-009",
@@ -190,8 +198,9 @@
       "substantive_passages": 56162,
       "source_signature": "a9fecac5ad6d99b386dbb56e1b06530016b0c8520292c3e05c14c629b4b2b3fa",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-009.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-009.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "openiti-010",
@@ -208,17 +217,18 @@
       "substantive_passages": 60813,
       "source_signature": "2f505814eda0de8c837b0d0d958788c6d5aef64b2de750663f9c6e3cc92ec474",
       "shard_build_version": "athar-openiti-sqlite-v1",
-      "reuse_status": "rebuilt",
-      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-010.sqlite.gz"
+      "reuse_status": "reused",
+      "url": "https://github.com/IbraDevWeb/Athar/releases/download/rag-corpus-v3/athar_openiti-010.sqlite.gz",
+      "reused_from_source_sha": "6f8bfac81d612e33ee0a44b1e6296d81a41341a3"
     },
     {
       "id": "core-001",
       "database": "athar_core-001.sqlite",
       "asset": "athar_core-001.sqlite.gz",
       "compression": "gzip",
-      "sha256": "b4571da4fd106c8b23a3b41f0e1ab737f9556fd65091f03a87494ca7d4af8cc7",
-      "size_bytes": 3345,
-      "database_sha256": "79c1f0b8aae54995321c117d325096c9ac3b51148122fc75a7040a8de3dda277",
+      "sha256": "cbd938ddd1865fd7deff30d964d9877500928d33bf258110e16414cc015627f1",
+      "size_bytes": 3344,
+      "database_sha256": "219b55b16eabe17d7f9ec6e9c71287492c7d0814e0e37b5843f2627647c41237",
       "database_size_bytes": 49152,
       "books": 2,
       "chunks": 3,
