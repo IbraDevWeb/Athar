@@ -8,9 +8,12 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from corpus_priority_ingest import target_matches
+
 ROOT = Path(__file__).resolve().parents[1]
 RAG_DIR = ROOT / "rag"
 RULES_PATH = RAG_DIR / "corpus_curation_rules.json"
+TARGETS_PATH = RAG_DIR / "corpus_priority_targets.json"
 DEFAULT_OUTPUT = RAG_DIR / "corpus_book_curation.json"
 DEFAULT_REPORT = RAG_DIR / "corpus_curation_report.json"
 DEFAULT_MARKDOWN = RAG_DIR / "CORPUS_CURATION.md"
@@ -125,14 +128,51 @@ def canonical(value: str, aliases: dict[str, Any]) -> str:
     return clean_value
 
 
+def _reviewed_target(
+    book: dict[str, Any],
+    source: dict[str, str] | None,
+    targets: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Return one unambiguous reviewed priority target for this exact work."""
+    source = source or {}
+    matches: list[dict[str, Any]] = []
+    for target in targets:
+        if not isinstance(target, dict) or not clean(target.get("madhhab")):
+            continue
+        if target_matches(
+            target,
+            clean(book.get("work_uri")) or clean(source.get("book")),
+            clean(book.get("openiti_uri")) or clean(source.get("version_uri")),
+            title=clean(book.get("title")) or first_variant(source.get("title_lat")),
+            title_ar=clean(book.get("title_ar")) or first_variant(source.get("title_ar")),
+            author=clean(book.get("author")) or first_variant(source.get("author_lat")),
+            author_ar=first_variant(source.get("author_ar")),
+        ):
+            matches.append(target)
+    if len(matches) == 1:
+        return matches[0]
+    if len(matches) > 1:
+        identities = {(clean(row.get("madhhab")), clean(row.get("author")), clean(row.get("title"))) for row in matches}
+        if len(identities) == 1:
+            return matches[0]
+    return None
+
+
 def build_curation(
     metadata_text: str,
     *,
     books: list[dict[str, Any]] | None = None,
     rules: dict[str, Any] | None = None,
+    targets_payload: dict[str, Any] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any], str]:
     books = books if books is not None else _raw_books()
     rules = rules or load_json(RULES_PATH)
+    targets_payload = targets_payload if targets_payload is not None else load_json(TARGETS_PATH, {"targets": []})
+    priority_targets = [
+        row for row in targets_payload.get("targets") or []
+        if isinstance(row, dict) and row.get("enabled", True)
+    ]
+
     by_version, by_work = metadata_indexes(metadata_text)
     author_aliases = rules.get("author_aliases") if isinstance(rules.get("author_aliases"), dict) else {}
     discipline_aliases = rules.get("discipline_aliases") if isinstance(rules.get("discipline_aliases"), dict) else {}
@@ -149,13 +189,27 @@ def build_curation(
         source = choose_metadata(book, by_version, by_work)
         metadata = book.get("metadata") if isinstance(book.get("metadata"), dict) else {}
         title_override = title_overrides.get(book_id) if isinstance(title_overrides.get(book_id), dict) else {}
+        reviewed = _reviewed_target(book, source, priority_targets)
 
         title = clean(title_override.get("title")) or clean(book.get("title")) or (first_variant(source.get("title_lat")) if source else "")
         title_ar = clean(title_override.get("title_ar")) or clean(book.get("title_ar")) or (first_variant(source.get("title_ar")) if source else "")
         author_source = clean(book.get("author")) or (first_variant(source.get("author_lat")) if source else "") or (first_variant(source.get("author_ar")) if source else "")
         author = canonical(author_source, author_aliases)
-        discipline = canonical(clean(book.get("discipline")), discipline_aliases)
-        madhhab = clean(book.get("madhhab"))
+
+        manifest_discipline = clean(book.get("discipline"))
+        reviewed_discipline = clean((reviewed or {}).get("discipline"))
+        discipline = canonical(manifest_discipline or reviewed_discipline, discipline_aliases)
+
+        manifest_madhhab = clean(book.get("madhhab"))
+        reviewed_madhhab = clean((reviewed or {}).get("madhhab"))
+        madhhab = manifest_madhhab or reviewed_madhhab
+        madhhab_status = (
+            "explicit_manifest"
+            if manifest_madhhab
+            else "reviewed_priority_target"
+            if reviewed_madhhab
+            else "unresolved"
+        )
 
         if title:
             stats["title"] += 1
@@ -173,15 +227,19 @@ def build_curation(
                 "title": title,
                 "author": author,
                 "discipline": discipline,
-                "reason": "aucune affiliation juridique explicitement documentée dans le manifeste Athar",
+                "reason": "aucune affiliation juridique explicitement documentée dans le manifeste ou la grille de priorités revue",
             })
+        if madhhab_status == "reviewed_priority_target":
+            stats["madhhab_from_priority_target"] += 1
         if source:
             stats["source_metadata_matched"] += 1
         else:
             stats["source_metadata_unmatched"] += 1
 
         classification_status = clean(metadata.get("classification_status"))
-        if not classification_status:
+        if reviewed:
+            classification_status = "reviewed_priority_target"
+        elif not classification_status:
             classification_status = "reviewed_manifest" if book.get("_manifest") != "openiti_books_auto.json" else "automatic_metadata_hint"
 
         record = {
@@ -211,7 +269,8 @@ def build_curation(
                     "bibliography_status": "openiti_metadata_matched" if source else "manifest_only",
                     "identity_status": "source_backed",
                     "discipline_status": classification_status,
-                    "madhhab_status": "explicit_manifest" if madhhab else "unresolved",
+                    "madhhab_status": madhhab_status,
+                    "madhhab_reference_id": clean((reviewed or {}).get("id")),
                     "reader_structure_status": "structured_parser_v2",
                     "text_cleanup_version": PARSER_VERSION,
                     "source_manifest": clean(book.get("_manifest")),
@@ -222,7 +281,7 @@ def build_curation(
 
     total = len(books)
     report = {
-        "pipeline": "athar-corpus-curator-v1",
+        "pipeline": "athar-corpus-curator-v2",
         "phase": "quality-first-v1",
         "parser_version": PARSER_VERSION,
         "books_reviewed": total,
@@ -233,6 +292,7 @@ def build_curation(
             "author": stats["author"],
             "discipline": stats["discipline"],
             "madhhab": stats["madhhab"],
+            "madhhab_from_priority_target": stats["madhhab_from_priority_target"],
             "madhhab_unresolved": len(unresolved_madhhab),
             "source_metadata_matched": stats["source_metadata_matched"],
             "source_metadata_unmatched": stats["source_metadata_unmatched"],
@@ -240,12 +300,13 @@ def build_curation(
         "unresolved_madhhab": unresolved_madhhab,
         "principles": [
             "Aucune école juridique n'est déduite automatiquement du seul nom d'un auteur.",
+            "Une école peut être renseignée depuis une cible éditoriale revue uniquement si l'ouvrage correspond sans ambiguïté par marqueur OpenITI ou paire auteur+titre.",
             "Les champs non documentés restent explicitement non résolus.",
             "Les marqueurs techniques sont nettoyés pour la lecture sans supprimer les nombres sémantiques du texte.",
         ],
     }
     overlay = {
-        "version": 1,
+        "version": 2,
         "phase": "quality-first-v1",
         "parser_version": PARSER_VERSION,
         "books_reviewed": total,
@@ -255,7 +316,7 @@ def build_curation(
     lines = [
         "# Curation du corpus Athar",
         "",
-        "> Rapport généré à partir des manifestes Athar et des métadonnées officielles OpenITI.",
+        "> Rapport généré à partir des manifestes Athar, de la grille de priorités revue et des métadonnées officielles OpenITI.",
         "",
         "## État",
         "",
@@ -266,11 +327,13 @@ def build_curation(
         f"- Discipline renseignée : **{stats['discipline']} / {total}**.",
         f"- Métadonnées OpenITI appariées : **{stats['source_metadata_matched']} / {total}**.",
         f"- Madhhab explicitement renseigné : **{stats['madhhab']} / {total}**.",
+        f"- Dont madhhab restauré par cible auteur+titre revue : **{stats['madhhab_from_priority_target']}**.",
         f"- Madhhab restant non résolu : **{len(unresolved_madhhab)}**.",
         "",
         "## Principes de qualité",
         "",
-        "- Athar n'invente pas un madhhab à partir du nom de l'auteur.",
+        "- Athar n'invente pas un madhhab à partir du seul nom de l'auteur.",
+        "- Une attribution issue de la grille savante exige un ouvrage identifié sans ambiguïté.",
         "- La lecture utilise le parseur structuré `athar-openiti-reader-v2`.",
         "- Les marqueurs OpenITI, balises HTML résiduelles et repères éditoriaux explicitement identifiés sont retirés de l'affichage.",
         "- Les nombres ayant un sens dans la source (hadith, verset, date, quantité, numéro cité dans le texte) sont conservés.",
@@ -293,13 +356,18 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Produit l'overlay de curation bibliographique du corpus Athar.")
     parser.add_argument("--metadata", type=Path, required=True)
     parser.add_argument("--rules", type=Path, default=RULES_PATH)
+    parser.add_argument("--targets", type=Path, default=TARGETS_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
     parser.add_argument("--markdown", type=Path, default=DEFAULT_MARKDOWN)
     args = parser.parse_args()
 
     metadata_text = args.metadata.read_text(encoding="utf-8-sig")
-    overlay, report, markdown = build_curation(metadata_text, rules=load_json(args.rules))
+    overlay, report, markdown = build_curation(
+        metadata_text,
+        rules=load_json(args.rules),
+        targets_payload=load_json(args.targets, {"targets": []}),
+    )
     args.output.write_text(json.dumps(overlay, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     args.markdown.write_text(markdown + "\n", encoding="utf-8")
