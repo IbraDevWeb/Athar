@@ -4,15 +4,26 @@ on:
   pull_request:
     paths:
       - '.github/workflows/rag-production-diagnostic.yml'
-      - 'js/rag-fetch-resilience.js'
-      - 'js/config.js'
+      - 'js/components/ScholarV4Bootstrap.js'
       - 'scripts/rag_fetch_resilience_test.mjs'
-      - 'scripts/rag_production_smoke.py'
       - 'render.yaml'
   workflow_dispatch:
 
 jobs:
+  resilience-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate browser retry layer
+        run: |
+          node --check js/components/ScholarV4Bootstrap.js
+          node scripts/rag_fetch_resilience_test.mjs
+
   production-probe:
+    needs: resilience-contract
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
