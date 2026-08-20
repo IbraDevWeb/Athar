@@ -1,5 +1,114 @@
 // Athar Research V5 — branchement racine autonome
 (() => {
+    const RAG_RESILIENCE_VERSION = 'athar-rag-fetch-resilience-1';
+    const RAG_ORIGIN = 'https://athar-rag-ibradevweb.onrender.com';
+    const RETRYABLE_PATHS = new Set([
+        '/healthz',
+        '/api/rag/v4/status',
+        '/api/rag/v5/status',
+        '/api/rag/v4/books',
+        '/api/rag/v5/books'
+    ]);
+    const RETRYABLE_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
+    const DEFAULT_RETRY_DELAYS_MS = [500, 1000, 2000, 4000, 6000, 8000, 10000, 12000, 14000];
+
+    const installRagFetchResilience = () => {
+        if (window.AtharRagFetchResilience?.installed) return window.AtharRagFetchResilience;
+        if (typeof window.fetch !== 'function') return null;
+
+        const nativeFetch = window.fetch.bind(window);
+        const abortError = () => {
+            try { return new DOMException('The operation was aborted.', 'AbortError'); }
+            catch (_) { const error = new Error('The operation was aborted.'); error.name = 'AbortError'; return error; }
+        };
+        const requestUrl = input => {
+            try {
+                const raw = typeof input === 'string' || input instanceof URL ? input : input?.url;
+                return new URL(String(raw || ''), window.location?.href || 'https://ibradevweb.github.io/Athar/');
+            } catch (_) { return null; }
+        };
+        const requestMethod = (input, options = {}) => String(options?.method || input?.method || 'GET').toUpperCase();
+        const requestSignal = (input, options = {}) => options?.signal || input?.signal || null;
+        const shouldRetryRequest = (input, options = {}) => {
+            const url = requestUrl(input);
+            return Boolean(url && url.origin === RAG_ORIGIN && requestMethod(input, options) === 'GET' && RETRYABLE_PATHS.has(url.pathname));
+        };
+        const isNetworkFailure = error => error?.name === 'TypeError'
+            || /failed to fetch|networkerror|network request failed|load failed/i.test(String(error?.message || ''));
+        const retryDelays = () => {
+            const override = window.__ATHAR_RAG_RETRY_DELAYS_MS__;
+            return Array.isArray(override)
+                ? override.map(value => Math.max(0, Number(value) || 0)).slice(0, 20)
+                : DEFAULT_RETRY_DELAYS_MS;
+        };
+        const wait = (ms, signal) => new Promise((resolve, reject) => {
+            if (signal?.aborted) { reject(abortError()); return; }
+            let settled = false;
+            const finish = callback => value => {
+                if (settled) return;
+                settled = true;
+                if (signal) signal.removeEventListener('abort', onAbort);
+                callback(value);
+            };
+            const onResolve = finish(resolve);
+            const onReject = finish(reject);
+            const timer = window.setTimeout(() => onResolve(), ms);
+            const onAbort = () => {
+                window.clearTimeout(timer);
+                onReject(abortError());
+            };
+            if (signal) signal.addEventListener('abort', onAbort, { once: true });
+        });
+
+        const resilientFetch = async (input, options = {}) => {
+            if (!shouldRetryRequest(input, options)) return nativeFetch(input, options);
+
+            const signal = requestSignal(input, options);
+            const delays = retryDelays();
+            let lastError = null;
+            let lastResponse = null;
+
+            for (let attempt = 0; attempt <= delays.length; attempt += 1) {
+                if (signal?.aborted) throw abortError();
+                try {
+                    const response = await nativeFetch(input, options);
+                    if (!RETRYABLE_STATUSES.has(Number(response?.status || 0))) return response;
+                    lastResponse = response;
+                    lastError = null;
+                } catch (error) {
+                    if (signal?.aborted || error?.name === 'AbortError') throw error;
+                    if (!isNetworkFailure(error)) throw error;
+                    lastError = error;
+                    lastResponse = null;
+                }
+
+                if (attempt >= delays.length) break;
+                try {
+                    window.dispatchEvent?.(new CustomEvent('athar:rag-retry', {
+                        detail: { attempt: attempt + 1, delay_ms: delays[attempt], path: requestUrl(input)?.pathname || '' }
+                    }));
+                } catch (_) {}
+                await wait(delays[attempt], signal);
+            }
+
+            if (lastResponse) return lastResponse;
+            throw lastError || new TypeError('Failed to fetch');
+        };
+
+        window.fetch = resilientFetch;
+        window.AtharRagFetchResilience = Object.freeze({
+            installed: true,
+            version: RAG_RESILIENCE_VERSION,
+            origin: RAG_ORIGIN,
+            retryablePaths: [...RETRYABLE_PATHS],
+            shouldRetryRequest,
+            nativeFetch
+        });
+        return window.AtharRagFetchResilience;
+    };
+
+    installRagFetchResilience();
+
     if (!window.Vue || typeof window.Vue.createApp !== 'function') return;
 
     const PATCH_FLAG = Symbol.for('athar.research.v5.root.patched');
