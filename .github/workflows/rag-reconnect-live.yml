@@ -1,0 +1,52 @@
+name: RAG reconnect live browser gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/rag-reconnect-live.yml'
+      - 'scripts/ux_rag_reconnect_live_test.mjs'
+  push:
+    branches: [main]
+    paths:
+      - 'js/components/ScholarV4Bootstrap.js'
+      - '.github/workflows/rag-reconnect-live.yml'
+      - 'scripts/ux_rag_reconnect_live_test.mjs'
+  workflow_dispatch:
+
+jobs:
+  public-reconnect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Wait for merged resilience code on GitHub Pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://ibradevweb.github.io/Athar/js/components/ScholarV4Bootstrap.js'
+          for attempt in $(seq 1 60); do
+            body="$(curl -fsSL --max-time 20 -H 'Cache-Control: no-cache' "$url?reconnect=${GITHUB_RUN_ID}-${attempt}" || true)"
+            if grep -q 'athar-rag-fetch-resilience-1' <<<"$body"; then
+              echo "Resilience code is public on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt/60: waiting for GitHub Pages propagation..."
+            sleep 10
+          done
+          echo 'Merged RAG resilience code never became visible on GitHub Pages.'
+          exit 1
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Force first health failure and verify recovery
+        env:
+          ATHAR_E2E_BASE: https://ibradevweb.github.io/Athar
+        run: node scripts/ux_rag_reconnect_live_test.mjs
