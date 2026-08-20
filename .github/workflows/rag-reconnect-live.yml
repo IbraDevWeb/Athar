@@ -5,6 +5,12 @@ on:
     paths:
       - '.github/workflows/rag-reconnect-live.yml'
       - 'scripts/ux_rag_reconnect_live_test.mjs'
+  push:
+    branches: [main]
+    paths:
+      - 'js/components/ScholarV4Bootstrap.js'
+      - '.github/workflows/rag-reconnect-live.yml'
+      - 'scripts/ux_rag_reconnect_live_test.mjs'
   workflow_dispatch:
 
 jobs:
