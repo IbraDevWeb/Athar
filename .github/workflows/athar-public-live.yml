@@ -1,0 +1,72 @@
+name: Athar public release browser gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'js/**'
+      - 'css/**'
+      - 'research-library.html'
+      - 'service-worker.js'
+      - 'scripts/ux_public_release_browser_test.mjs'
+      - '.github/workflows/athar-public-live.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'js/**'
+      - 'css/**'
+      - 'research-library.html'
+      - 'service-worker.js'
+      - 'scripts/ux_public_release_browser_test.mjs'
+      - '.github/workflows/athar-public-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Test the seven public sections locally
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/athar-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" || true' EXIT
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/ux_public_release_browser_test.mjs
+      - name: Wait for the GitHub Pages publication
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://ibradevweb.github.io/Athar'
+          for attempt in $(seq 1 60); do
+            config="$(curl -fsSL --max-time 15 -H 'Cache-Control: no-cache' "$base/js/config.js?release=$attempt" || true)"
+            fullscreen="$(curl -fsSL --max-time 15 -H 'Cache-Control: no-cache' "$base/js/components/GlobalFullscreen.js?release=$attempt" || true)"
+            if grep -q "athar-pro-v42-public-2" <<<"$config" && grep -q "PUBLISHED_VIEWS" <<<"$fullscreen"; then
+              echo "La nouvelle version est publiée sur GitHub Pages."
+              exit 0
+            fi
+            echo "Publication en cours ($attempt/60)..."
+            sleep 10
+          done
+          echo "La nouvelle version est absente de GitHub Pages."
+          exit 1
+      - name: Test the live GitHub Pages site
+        if: github.event_name == 'push'
+        env:
+          ATHAR_E2E_BASE: https://ibradevweb.github.io/Athar
+        run: node scripts/ux_public_release_browser_test.mjs
