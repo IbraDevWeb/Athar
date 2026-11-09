@@ -40,9 +40,15 @@ async function checkLanding(page) {
     nodes => nodes.map(node => node.getAttribute('data-athar-view')).sort()
   );
   assert.deepEqual(immersive, [...allowed].sort(), 'Le menu immersif affiche des rubriques non publiées.');
-  await page.waitForFunction(() => Boolean(window.AtharLens?.search), { timeout: 20000 });
-  const lensViews = await page.evaluate(() => window.AtharLens.search('Transmission', 100).map(item => item.route.view));
-  assert.ok(lensViews.every(view => allowed.includes(view)), 'Athar Lens expose des fonctionnalités en préparation.');
+  assert.equal(await page.locator('#athar-lens').count(), 0, 'Le lanceur Athar Lens reste visible.');
+  assert.equal(await page.evaluate(() => Boolean(window.AtharLens)), false, 'Le moteur Athar Lens ne doit plus être initialisé.');
+  await page.keyboard.press('Control+k');
+  assert.equal(await page.locator('#athar-lens').count(), 0, 'Le raccourci Ctrl+K réactive Athar Lens.');
+  const carousel = page.locator('.ap-hadith-panel');
+  await carousel.waitFor({ state: 'visible', timeout: 15000 });
+  assert.ok((await carousel.locator('.ap-hadith-quote').innerText()).trim().length > 35, 'Aucun texte dans le carrousel.');
+  assert.ok((await carousel.locator('.ap-hadith-source').innerText()).trim().length > 0, 'La référence du hadith est absente.');
+  assert.ok(await carousel.locator('.ap-hadith-dot').count() >= 2, 'Les contrôles du carrousel sont absents.');
 }
 
 async function desktop() {
@@ -51,6 +57,20 @@ async function desktop() {
   page.on('pageerror', error => errors.push(String(error?.message || error)));
   await page.goto(base + '/index.html?release=desktop', { waitUntil: 'domcontentloaded', timeout: 90000 });
   await checkLanding(page);
+
+  const firstHadithTitle = (await page.locator('.ap-hadith-slide h3').innerText()).trim();
+  await page.locator('.ap-hadith-next').click();
+  await page.waitForFunction(title => {
+    const current = document.querySelector('.ap-hadith-slide h3')?.textContent?.trim();
+    return Boolean(current && current !== title);
+  }, firstHadithTitle, { timeout: 8000 });
+  await page.locator('.ap-hadith-previous').click();
+  await page.waitForFunction(title => document.querySelector('.ap-hadith-slide h3')?.textContent?.trim() === title, firstHadithTitle, { timeout: 8000 });
+  await page.locator('.ap-hadith-read').click();
+  await page.locator('.hadith-reader-pro').waitFor({ state: 'visible', timeout: 15000 });
+  assert.equal((await page.locator('.hadith-reader-hero h1').innerText()).trim(), firstHadithTitle, 'La fiche ouverte ne correspond pas à la carte.');
+  await page.locator('#app > header [title="Retour à l\'accueil"]').click();
+  await ready(page);
 
   const labels = (await page.locator('#app aside.w-72 div.p-4.space-y-1 button').allTextContents()).map(x => x.trim());
   assert.deepEqual(labels, ['Accueil', ...sections.map(item => item[1])], 'Navigation latérale incorrecte.');
@@ -81,6 +101,11 @@ async function mobile() {
   await page.goto(base + '/index.html?release=mobile', { waitUntil: 'domcontentloaded', timeout: 90000 });
   await ready(page);
   assert.equal(await page.locator('.ap-launch-grid button').count(), 7);
+  assert.equal(await page.locator('#athar-lens').count(), 0);
+  const mobileQuote = page.locator('.ap-hadith-quote');
+  assert.ok((await mobileQuote.innerText()).trim().length > 35, 'Carrousel vide sur mobile.');
+  await page.locator('.ap-hadith-next').click();
+  assert.ok((await page.locator('.ap-hadith-count').innerText()).includes('2 /'), 'Le carrousel mobile ne défile pas.');
 
   const dock = page.locator('#athar-mobile-dock');
   await dock.waitFor({ state: 'visible', timeout: 20000 });
@@ -100,7 +125,7 @@ async function mobile() {
 try {
   await desktop();
   await mobile();
-  console.log('ATHAR PUBLIC RELEASE BROWSER GATE: PASS (7 rubriques, menu mobile, immersion, Lens, redirection).');
+  console.log('ATHAR PUBLIC RELEASE BROWSER GATE: PASS (7 rubriques, carrousel de hadiths, menu mobile, absence de Lens, immersion, redirection).');
 } finally {
   await browser.close();
 }
