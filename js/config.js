@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v42-public-2';
+    const APP_VERSION = 'athar-pro-v43-hadith-carousel-1';
     const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
 
     const setMeta = (selector, content) => {
@@ -94,8 +94,8 @@ tailwind.config = {
 
     /* Ponts chargés avant le montage de Vue. */
     writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
+    // Le pont d'événements est utile aux menus, sans le lanceur Athar Lens.
     writeEarlyScript('js/components/AtharLensBridge.js', 'athar-lens-bridge');
-    writeEarlyScript('js/components/AtharLens.js', 'athar-lens-engine');
     writeEarlyScript('astronomy_data.js', 'athar-astronomy-data');
     writeEarlyScript('js/components/AncientSkyView.js', 'athar-ancient-sky-view');
     writeEarlyScript('history_nights_data.js', 'athar-history-nights-data');
@@ -138,13 +138,12 @@ tailwind.config = {
     ensureStylesheet(`css/scriptorium.css?v=${APP_VERSION}`, 'athar-scriptorium-styles');
     ensureStylesheet(`css/root-tree.css?v=${APP_VERSION}`, 'athar-root-tree-styles');
     ensureStylesheet(`css/golden-chain.css?v=${APP_VERSION}`, 'athar-golden-chain-styles');
-    ensureStylesheet(`css/athar-lens.css?v=${APP_VERSION}`, 'athar-lens-styles');
     ensureStylesheet(`css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}`, 'athar-research-v5-styles');
     ensureStylesheet('css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'athar-research-synthesis-styles');
     ensureStylesheet('css/athar-research-library-v40.css?v=athar-v40-research-library-1', 'athar-v40-research-library-styles');
     ensureStylesheet('css/athar-v40-polish.css?v=athar-v40-polish-1', 'athar-v40-polish-styles');
     ensureStylesheet('css/athar-v40-continuity.css?v=athar-v40-continuity-1', 'athar-v40-continuity-styles');
-    ensureStylesheet('css/athar-launch.css?v=athar-public-1', 'athar-launch-styles');
+    ensureStylesheet('css/athar-launch.css?v=athar-public-3', 'athar-launch-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');

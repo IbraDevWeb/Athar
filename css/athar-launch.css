@@ -44,3 +44,50 @@
 .dark .ap-launch-card-icon { background: #302a21; color: #e0bf83; }
 @media (max-width: 1090px) { .ap-launch-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .ap-launch-art { flex-basis: 125px; width: 125px; height: 125px; margin-right: 0; } .ap-launch-art span { font-size: 54px; } }
 @media (max-width: 620px) { .ap-launch { padding: 16px 14px 28px; } .ap-launch-hero { border-radius: 19px; padding: 28px 23px; } .ap-launch-art { display: none; } .ap-launch-arabic { margin-top: 16px; } .ap-launch-actions { flex-direction: column; } .ap-launch-actions button { width: 100%; } .ap-launch-section-head { margin: 27px 0 15px; } .ap-launch-grid { grid-template-columns: 1fr; gap: 11px; } .ap-launch-card { padding: 19px 21px 17px; min-height: 158px; } .ap-launch-card-top { margin-bottom: 12px; } }
+
+/* Carrousel de hadiths — contenu provenant exclusivement de la base Athar. */
+.ap-hadith-feature { display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.55fr); gap:16px; margin-top:19px; align-items:stretch; }
+.ap-hadith-feature-heading { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:26px 20px 26px 7px; }
+.ap-hadith-feature-heading h2 { color:#1c2938; font:600 clamp(23px,2.25vw,29px)/1.35 Cinzel,Georgia,serif; margin:11px 0 13px; }
+.ap-hadith-feature-heading p { font:400 13px/1.8 Inter,sans-serif; color:#708091; margin:0 0 19px; max-width:320px; }
+.ap-hadith-all { display:inline-flex; gap:8px; align-items:center; padding:9px 0; font:700 12px/1.4 Inter,sans-serif; color:#9f783d; }
+.ap-hadith-all svg { width:16px; height:16px; transition:transform .2s ease; }
+.ap-hadith-all:hover svg { transform:translate(3px,-3px); }
+.ap-hadith-panel { position:relative; min-width:0; min-height:325px; border:1px solid #e6e0d5; border-radius:20px; background:linear-gradient(140deg,#fff 0%,#fdfbf6 100%); box-shadow:0 7px 24px rgba(24,34,43,.045); padding:25px 30px 20px; display:flex; flex-direction:column; overflow:hidden; }
+.ap-hadith-panel:before { content:'“'; position:absolute; top:39px; right:23px; color:rgba(189,154,86,.10); font:200px/.8 Georgia,serif; pointer-events:none; }
+.ap-hadith-panel-top,.ap-hadith-panel-footer { display:flex; justify-content:space-between; align-items:center; gap:16px; position:relative; z-index:1; }
+.ap-hadith-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:10px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:#9c783e; }
+.ap-hadith-eyebrow svg { width:16px; height:16px; }
+.ap-hadith-count { font-size:11px; font-weight:800; letter-spacing:.1em; color:#ac9d85; font-variant-numeric:tabular-nums; }
+.ap-hadith-slide { position:relative; z-index:1; padding:21px 0 16px; flex:1; }
+.ap-hadith-slide h3 { font:700 15px/1.55 Inter,sans-serif; color:#203249; margin:0 0 12px; max-width:90%; }
+.ap-hadith-quote { font:400 16px/1.85 "Libre Baskerville",Georgia,serif; color:#344457; margin:0; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:5; overflow:hidden; }
+.ap-hadith-source { margin:14px 0 0; font:600 11px/1.65 Inter,sans-serif; color:#a0804f; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+.ap-hadith-panel-footer { padding-top:15px; border-top:1px solid #eee8dc; }
+.ap-hadith-read { display:inline-flex; align-items:center; gap:9px; font:700 12px Inter,sans-serif; color:#98713e; }
+.ap-hadith-read svg { width:16px; height:16px; transition:transform .2s ease; }
+.ap-hadith-read:hover svg { transform:translateX(3px); }
+.ap-hadith-controls { display:flex; gap:8px; }
+.ap-hadith-controls button { width:36px; height:36px; display:grid; place-items:center; border:1px solid #e2d9c8; border-radius:11px; color:#856b46; transition:background .2s ease,border-color .2s ease; }
+.ap-hadith-controls button:hover:not(:disabled) { background:#f5ead7; border-color:#c5a36b; }
+.ap-hadith-controls button:disabled { opacity:.45; cursor:not-allowed; }
+.ap-hadith-controls svg { width:16px; height:16px; }
+.ap-hadith-dots { display:flex; gap:7px; align-items:center; justify-content:center; padding-top:14px; }
+.ap-hadith-dot { width:6px; height:6px; padding:0; flex:none; border-radius:100px; background:#d6cbbb; transition:width .3s ease,background .3s ease; }
+.ap-hadith-dot.is-active { background:#bb9458; width:21px; }
+.ap-hadith-empty { display:grid; place-items:center; border:1px solid #e6e0d5; border-radius:20px; padding:40px; color:#717b85; background:#fff; }
+.ap-hadith-feature button:focus-visible { outline:3px solid #b69054; outline-offset:3px; }
+.ap-hadith-fade-enter-active,.ap-hadith-fade-leave-active { transition:opacity .2s ease,transform .2s ease; }
+.ap-hadith-fade-enter-from { opacity:0; transform:translateX(10px); }
+.ap-hadith-fade-leave-to { opacity:0; transform:translateX(-10px); }
+.dark .ap-hadith-feature-heading h2 { color:#f4f3ef; }
+.dark .ap-hadith-feature-heading p { color:#a6afb8; }
+.dark .ap-hadith-panel,.dark .ap-hadith-empty { background:linear-gradient(145deg,#111920,#19212a); border-color:#35312b; }
+.dark .ap-hadith-slide h3 { color:#f1f0ea; }
+.dark .ap-hadith-quote { color:#d5dbe2; }
+.dark .ap-hadith-panel-footer { border-top-color:#35312b; }
+.dark .ap-hadith-controls button { border-color:#504638; color:#dfbf84; }
+.dark .ap-hadith-controls button:hover:not(:disabled) { background:#2b2924; }
+@media (max-width:850px) { .ap-hadith-feature { grid-template-columns:1fr; gap:6px; } .ap-hadith-feature-heading { padding:18px 4px 7px; } .ap-hadith-feature-heading h2 { margin:6px 0 5px; } .ap-hadith-feature-heading p { margin:0 0 8px; max-width:none; } .ap-hadith-panel { min-height:315px; } }
+@media (max-width:620px) { .ap-hadith-feature { margin-top:10px; } .ap-hadith-panel { padding:21px 19px 17px; min-height:310px; border-radius:17px; } .ap-hadith-slide { padding:18px 0 16px; } .ap-hadith-slide h3 { font-size:14px; max-width:95%; } .ap-hadith-quote { font-size:14px; line-height:1.9; -webkit-line-clamp:6; } .ap-hadith-source { font-size:10px; } }
+@media (prefers-reduced-motion:reduce) { .ap-hadith-fade-enter-active,.ap-hadith-fade-leave-active,.ap-hadith-dot { transition:none; } }
