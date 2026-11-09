@@ -57,7 +57,7 @@ async function desktop() {
   for (const [, label] of sections) {
     await page.locator('.ap-launch-grid button').filter({ hasText: label }).first().click();
     await page.waitForFunction(() => !document.querySelector('.ap-launch-grid'), { timeout: 25000 });
-    const content = (await page.locator('#app main').innerText()).trim();
+    const content = (await page.locator('#app main').first().innerText()).trim();
     assert.ok(content.length > 40, 'Contenu vide pour la section : ' + label);
     await page.locator('#app > header [title="Retour à l\'accueil"]').click();
     await ready(page);
@@ -92,7 +92,7 @@ async function mobile() {
   for (const label of blocked) assert.ok(!buttons.some(x => x === label), 'Rubrique dans le menu mobile : ' + label);
   await menu.locator('button').filter({ hasText: 'Frise Chrono' }).first().click();
   await page.waitForFunction(() => !document.querySelector('.ap-launch-grid'), { timeout: 20000 });
-  assert.ok((await page.locator('#app main').innerText()).trim().length > 40, 'Frise mobile vide.');
+  assert.ok((await page.locator('#app main').first().innerText()).trim().length > 40, 'Frise mobile vide.');
   assert.deepEqual(errors, [], 'Erreurs JavaScript sur mobile : ' + errors.join(' / '));
   await page.close();
 }
