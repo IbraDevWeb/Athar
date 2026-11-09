@@ -4,6 +4,8 @@
 
     const STORAGE_KEY = 'athar_lens_v1';
     const MAX_RESULTS = 18;
+    // Les recherches ne proposent que les rubriques effectivement publiées.
+    const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih']);
     const typeMeta = {
         biography: { label: 'Biographie', icon: '◉', color: '#8d6c3f' },
         hadith: { label: 'Hadith', icon: '❝', color: '#6e5d91' },
@@ -89,7 +91,7 @@
     }
 
     function addItem(item) {
-        if (!item?.uid || !item?.title || !item?.route?.view) return;
+        if (!item?.uid || !item?.title || !PUBLISHED_VIEWS.has(item?.route?.view)) return;
         const tags = Array.isArray(item.tags) ? item.tags.filter(Boolean).map(String) : [];
         const body = [item.title, item.arabic, item.subtitle, item.excerpt, ...tags, item.body].filter(Boolean).join(' ');
         state.index.push({
@@ -359,7 +361,7 @@
     }
 
     function navigate(item) {
-        if (!item?.route) return;
+        if (!item?.route || !PUBLISHED_VIEWS.has(item.route.view)) return;
         rememberQuery(state.query || item.title);
         prepareDeepLink(item.route);
         close();

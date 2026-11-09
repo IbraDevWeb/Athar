@@ -52,9 +52,16 @@ vm.runInContext(lens, context, { filename: 'AtharLens.js' });
 if (!context.window.AtharLens) fail('Athar Lens API was not exposed.');
 context.window.AtharLens.rebuild();
 const results = context.window.AtharLens.search('miséricorde');
-if (results.length < 5) fail(`Cross-module search returned only ${results.length} results.`);
-if (!context.window.AtharLens.search('رحم').some(item => item.type === 'root')) fail('Arabic root search failed.');
-if (!context.window.AtharLens.search('bibliothèque').some(item => item.uid === 'tool:rag_library')) fail('The RAG library is missing from Lens tools.');
+if (results.length < 3) fail(`Published search returned only ${results.length} results.`);
+const published = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih']);
+for (const result of results) {
+    if (!published.has(result.route?.view)) fail(`Unpublished route suggested: ${result.route?.view}`);
+}
+for (const type of ['biography', 'hadith', 'glossary']) {
+    if (!results.some(item => item.type === type)) fail(`Published search missing: ${type}`);
+}
+if (context.window.AtharLens.search('رحم').some(item => item.type === 'root')) fail('Arabic root route should be hidden.');
+if (context.window.AtharLens.search('bibliothèque').some(item => item.uid === 'tool:rag_library')) fail('RAG library must not be published in Lens.');
 
 const bridge = read('js/components/AtharLensBridge.js');
 ['athar.lens.navigation.patched', 'athar:navigate', 'exposed.openChapter', 'exposed.openHadith', 'exposed.setView', 'window.Vue.onMounted', 'window.Vue.onUnmounted'].forEach(token => need(bridge, token, 'AtharLensBridge.js'));
@@ -71,4 +78,4 @@ const worker = read('service-worker.js');
 const cacheVersion = worker.match(/const CACHE_VERSION = '([^']+)'/)?.[1] || '';
 if (cacheVersion !== appVersion) fail(`Application/cache version mismatch: ${appVersion} / ${cacheVersion}`);
 [`./js/components/AtharLensBridge.js?v=${appVersion}`, `./js/components/AtharLens.js?v=${appVersion}`, `./css/athar-lens.css?v=${appVersion}`].forEach(token => need(worker, token, 'service worker'));
-console.log(`Athar Lens validated: ${results.length} results, RAG tool indexing, Arabic search and cache ${appVersion}.`);
+console.log(`Athar Lens validated: ${results.length} published results, hidden tools filtering and cache ${appVersion}.`);

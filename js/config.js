@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v41-public-1';
+    const APP_VERSION = 'athar-pro-v42-public-2';
     const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
 
     const setMeta = (selector, content) => {

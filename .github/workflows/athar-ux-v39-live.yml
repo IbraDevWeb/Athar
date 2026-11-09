@@ -1,15 +1,8 @@
 name: Athar UX v39 live browser gate
 
+# Test historique : nécessite que Research soit explicitement publié.
+# Hors des contrôles automatiques tant que le module est désactivé.
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/athar-ux-v39-live.yml'
-      - 'js/ux-v39-safe.js'
-      - 'js/config.js'
-      - 'research-library.html'
-      - 'service-worker.js'
-      - 'scripts/ux_v39_browser_test.mjs'
   workflow_dispatch:
 
 concurrency:
@@ -18,7 +11,7 @@ concurrency:
 
 jobs:
   live-browser:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 

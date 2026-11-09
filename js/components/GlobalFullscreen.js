@@ -4,6 +4,7 @@
     const STORAGE_KEY = 'athar_immersive_last_view';
     const SETTINGS_KEY = 'athar_settings';
     const SAFE_MODE = new URLSearchParams(window.location.search).get('immersive') === 'off';
+    const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih']);
     const NAV_GROUPS = [
         {
             label: 'Essentiel',
@@ -35,7 +36,8 @@
                 ['memory', 'Palais Mémoire', 'brain-circuit']
             ]
         }
-    ];
+    ].map(group => ({ ...group, items: group.items.filter(([view]) => PUBLISHED_VIEWS.has(view)) }))
+     .filter(group => group.items.length > 0);
 
     let fallbackActive = false;
     let button = null;
@@ -46,6 +48,7 @@
     let drawer = null;
     let backdrop = null;
     let currentView = localStorage.getItem(STORAGE_KEY) || 'home';
+    if (!PUBLISHED_VIEWS.has(currentView)) currentView = 'home';
     let retryTimer = null;
     let themeObserver = null;
 
@@ -160,6 +163,7 @@
     };
 
     const navigate = (view, label) => {
+        if (!PUBLISHED_VIEWS.has(view)) return;
         closeDrawer();
         const target = findVueNavigationButton(label);
         if (target) {
