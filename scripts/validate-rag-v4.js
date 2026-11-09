@@ -204,23 +204,22 @@ reject(render, /ATHAR_DB_PATH|athar_hosted\.sqlite\.gz/, 'render.yaml');
 
 const config = read('js/config.js');
 [
-    "const APP_VERSION = 'athar-pro-v39-safe-2'",
+    "const APP_VERSION = 'athar-pro-v41-public-1'",
     "const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1'",
-    "writeEarlyScript('js/components/ScholarLibraryV4View.js'",
-    "writeEarlyScript('js/components/ScholarSynthesisBridge.js'",
-    "writeEarlyScript('js/components/ScholarV4Bootstrap.js'",
+    "Recherche savante conservée dans le dépôt, non montée dans la version publique",
     "css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}",
     'css/athar-research-synthesis.css?v=athar-research-synthesis-1'
 ].forEach(token => need(config, token, 'js/config.js'));
 reject(config, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js|scholar-library-v2\.css|scholar-v2-integration\.css/i, 'js/config.js');
 
 const worker = read('service-worker.js');
-need(worker, "const CACHE_VERSION = 'athar-pro-v39-safe-2'", 'service-worker.js');
+need(worker, "const CACHE_VERSION = 'athar-pro-v41-public-1'", 'service-worker.js');
 need(worker, './css/athar-research-v5.css?v=athar-research-v40-ui-1', 'service-worker.js');
 need(worker, './css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'service-worker.js');
 need(worker, './js/components/ScholarLibraryV4View.js?v=athar-research-v40-ui-1', 'service-worker.js');
 need(worker, './js/components/ScholarSynthesisBridge.js?v=athar-research-v40-ui-1', 'service-worker.js');
-need(worker, './research-library.html', 'service-worker.js');
+if (worker.includes("'./research-library.html',")) fail('Bibliothèque non publiée précachée.');
+need(libraryPage, "window.location.replace(new URL('./index.html', window.location.href));", 'research-library.html');
 need(worker, './css/research-library-v2.css?v=athar-reader-v3', 'service-worker.js');
 need(worker, './js/research-library-v2.js?v=athar-reader-v3', 'service-worker.js');
 reject(worker, /ScholarLibraryV2View\.js|ScholarV2Bootstrap\.js|RagApiBridge\.js/i, 'service-worker.js');
