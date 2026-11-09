@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v39-safe-2';
+    const APP_VERSION = 'athar-pro-public-1';
     const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
 
     const setMeta = (selector, content) => {
@@ -84,10 +84,10 @@ tailwind.config = {
         document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
     };
 
-    document.title = 'Athar Pro — Recherche savante et encyclopédie islamique';
-    setMeta('meta[name="description"]', "Athar Research interroge directement les ouvrages indexés et affiche des passages sourcés. L’encyclopédie des Compagnons reste un espace distinct.");
-    setMeta('meta[property="og:title"]', 'Athar Pro — Athar Research');
-    setMeta('meta[property="og:description"]', 'Un moteur documentaire multilingue pour retrouver les passages des ouvrages classiques, séparé de la bibliothèque éditoriale des Compagnons.');
+    document.title = "Athar Pro — Bibliothèque et outils d'étude";
+    setMeta('meta[name="description"]', 'Biographies, chronologie, lexique, hadiths, Tabib Al-Qulub, adhkar et tasbih dans Athar Pro.');
+    setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque et outils d'étude");
+    setMeta('meta[property="og:description"]', 'Explorez les sept rubriques disponibles dans Athar Pro.');
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
@@ -108,9 +108,7 @@ tailwind.config = {
     writeEarlyScript('js/components/GoldenChainView.js', 'athar-golden-chain-view');
 
     /* Athar Research : vue, couche de synthèse fondée sur le RAG, puis bootstrap. */
-    writeEarlyScript('js/components/ScholarLibraryV4View.js', 'athar-research-v5-view', RESEARCH_UI_VERSION);
-    writeEarlyScript('js/components/ScholarSynthesisBridge.js', 'athar-research-synthesis-bridge', RESEARCH_UI_VERSION);
-    writeEarlyScript('js/components/ScholarV4Bootstrap.js', 'athar-research-v5-bootstrap', RESEARCH_UI_VERSION);
+    // Recherche savante conservée dans le dépôt, non montée dans la version publique.
     writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
 
     ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
@@ -146,6 +144,7 @@ tailwind.config = {
     ensureStylesheet('css/athar-research-library-v40.css?v=athar-v40-research-library-1', 'athar-v40-research-library-styles');
     ensureStylesheet('css/athar-v40-polish.css?v=athar-v40-polish-1', 'athar-v40-polish-styles');
     ensureStylesheet('css/athar-v40-continuity.css?v=athar-v40-continuity-1', 'athar-v40-continuity-styles');
+    ensureStylesheet('css/athar-launch.css?v=athar-public-1', 'athar-launch-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');

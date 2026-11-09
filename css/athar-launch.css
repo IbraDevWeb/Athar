@@ -1,0 +1,46 @@
+/* Athar Pro — accueil public recentré sur les sept rubriques disponibles. */
+.ap-launch { min-height: 100%; padding: clamp(18px, 3vw, 40px); color: #192536; font-family: Inter, sans-serif; }
+.ap-launch-wrap { max-width: 1200px; margin: 0 auto; }
+.ap-launch-hero { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 28px; overflow: hidden; padding: clamp(27px, 4vw, 52px); border-radius: 25px; background: linear-gradient(115deg, #17283a 0%, #1c2c3c 64%, #324054 100%); color: #fff; box-shadow: 0 16px 42px rgba(18,35,49,.11); }
+.ap-launch-hero::after { content: ""; position: absolute; right: -90px; top: -170px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,169,109,.15) 0%, transparent 67%); pointer-events: none; }
+.ap-launch-hero-copy { position: relative; z-index: 1; max-width: 670px; }
+.ap-launch-eyebrow, .ap-launch-section-kicker { display: inline-flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 700; letter-spacing: .21em; text-transform: uppercase; }
+.ap-launch-eyebrow { color: #e3c993; }
+.ap-launch-dot { width: 7px; height: 7px; border-radius: 50%; background: #d9b77a; }
+.ap-launch-arabic { margin: 23px 0 7px; font-family: Amiri,serif; font-size: 25px; color: #e0c38d; text-align: left; }
+.ap-launch h1 { margin: 0; font-family: Cinzel, Georgia, serif; font-size: clamp(27px, 3.8vw, 45px); font-weight: 600; letter-spacing: -.03em; line-height: 1.23; }
+.ap-launch h1 em { font-style: normal; color: #ddc28a; }
+.ap-launch-intro { max-width: 540px; margin: 15px 0 0; font-size: 14px; line-height: 1.85; color: #d5dae1; }
+.ap-launch-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.ap-launch-actions button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 44px; padding: 12px 18px; border-radius: 11px; font-size: 12px; font-weight: 700; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.ap-launch-actions button:hover { transform: translateY(-2px); }
+.ap-launch-actions svg, .ap-launch-card-bottom svg { width: 16px; height: 16px; }
+.ap-launch-primary { background: #e0bf83; color: #172638; }
+.ap-launch-primary:hover { background: #f0d6a7; box-shadow: 0 8px 22px rgba(214,170,99,.18); }
+.ap-launch-secondary { border: 1px solid rgba(255,255,255,.28); color: #fff; }
+.ap-launch-secondary:hover { background: rgba(255,255,255,.09); }
+.ap-launch-art { flex: 0 0 180px; display: grid; place-items: center; position: relative; width: 180px; height: 180px; margin-right: 14px; }
+.ap-launch-art-ring { position: absolute; inset: 6px; border: 1px solid rgba(233,204,147,.31); border-radius: 50%; box-shadow: 0 0 0 23px rgba(233,204,147,.045),0 0 0 47px rgba(233,204,147,.025); }
+.ap-launch-art span { font: 72px/1 Amiri,serif; color: #e3ca98; transform: translateY(5px); }
+.ap-launch-section-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin: 32px 0 17px; }
+.ap-launch-section-kicker { color: #b18a45; margin: 0 0 8px; }
+.ap-launch-section-head h2 { margin: 0; font: 600 clamp(20px, 2.3vw, 29px)/1.3 Cinzel,Georgia,serif; color: #1c2938; }
+.ap-launch-count { font-size: 11px; font-weight: 700; letter-spacing: .16em; color: #b18a45; white-space: nowrap; }
+.ap-launch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; padding-bottom: 25px; }
+.ap-launch-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 185px; padding: 23px 25px 19px; text-align: left; background: #fff; color: #1c2938; border: 1px solid #e9e7e0; border-radius: 18px; box-shadow: 0 5px 19px rgba(20,33,47,.035); transition: transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+.ap-launch-card:hover { transform: translateY(-3px); border-color: #d0b47c; box-shadow: 0 14px 27px rgba(20,33,47,.09); }
+.ap-launch-card:focus-visible, .ap-launch-actions button:focus-visible { outline: 3px solid #bd9a5a; outline-offset: 3px; }
+.ap-launch-card-top { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 17px; }
+.ap-launch-card-icon { width: 41px; height: 41px; border-radius: 12px; background: #f8f3e9; color: #9a773c; display: grid; place-items: center; }
+.ap-launch-card-icon svg { width: 20px; height: 20px; }
+.ap-launch-card-number { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: #b4b1a9; }
+.ap-launch-card-title { font: 700 17px/1.4 Inter,sans-serif; }
+.ap-launch-card-detail { display: block; margin-top: 7px; color: #687583; font-size: 12px; line-height: 1.65; }
+.ap-launch-card-bottom { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; color: #ae884b; font-size: 11px; font-weight: 700; }
+.dark .ap-launch-section-head h2, .dark .ap-launch { color: #eee; }
+.dark .ap-launch-card { background: #111820; border-color: #2c3035; color: #f5f4f0; }
+.dark .ap-launch-card:hover { border-color: #aa8749; }
+.dark .ap-launch-card-detail { color: #a3adb8; }
+.dark .ap-launch-card-icon { background: #302a21; color: #e0bf83; }
+@media (max-width: 1090px) { .ap-launch-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .ap-launch-art { flex-basis: 125px; width: 125px; height: 125px; margin-right: 0; } .ap-launch-art span { font-size: 54px; } }
+@media (max-width: 620px) { .ap-launch { padding: 16px 14px 28px; } .ap-launch-hero { border-radius: 19px; padding: 28px 23px; } .ap-launch-art { display: none; } .ap-launch-arabic { margin-top: 16px; } .ap-launch-actions { flex-direction: column; } .ap-launch-actions button { width: 100%; } .ap-launch-section-head { margin: 27px 0 15px; } .ap-launch-grid { grid-template-columns: 1fr; gap: 11px; } .ap-launch-card { padding: 19px 21px 17px; min-height: 158px; } .ap-launch-card-top { margin-bottom: 12px; } }

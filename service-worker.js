@@ -1,10 +1,10 @@
-const CACHE_VERSION = 'athar-pro-v39-safe-2';
+const CACHE_VERSION = 'athar-pro-public-1';
 const APP_SHELL = [
     './',
     './index.html',
-    './research-library.html',
     './manifest.json',
     './css/style.css',
+    './css/athar-launch.css?v=athar-public-1',
     './css/transmission.css?v=athar-pro-v39-safe-2',
     './css/atlas.css?v=athar-pro-v39-safe-2',
     './css/atlas-layout-fix.css?v=athar-pro-v39-safe-2',
@@ -40,7 +40,8 @@ const APP_SHELL = [
     './css/athar-v40-continuity.css?v=athar-v40-continuity-1',
     './css/research-library-v2.css?v=athar-reader-v3',
     './js/config.js',
-    './js/app.js',
+    './js/app.js?v=athar-public-1',
+    './js/components/HomeView.js?v=athar-public-1',
     './js/composables/useSettings.js',
     './js/components/VueSafeIcons.js?v=athar-pro-v39-safe-2',
     './js/components/AtharLensBridge.js?v=athar-pro-v39-safe-2',

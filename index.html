@@ -7,8 +7,8 @@
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3655/3655586.png">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <title>Athar Pro : L'Encyclopédie Complète des Compagnons</title>
-    <meta name="description" content="Une expérience immersive pour découvrir la vie des Sahaba, avec frise chronologique, lexique et outils de lecture.">
+    <title>Athar Pro — Bibliothèque et outils d'étude</title>
+    <meta name="description" content="Athar Pro : biographies, chronologie, lexique, hadiths, Tabib Al-Qulub, adhkar et tasbih.">
     <meta name="theme-color" content="#c5a059">
     
     <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/config.js?v=athar-v40-research-library-1"></script>
+    <script src="js/config.js?v=athar-public-1"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="flex items-center gap-1 md:gap-3">
-                    <div class="relative hidden md:block group mr-2" v-if="viewMode !== 'reader' && viewMode !== 'home'">
+                    <div class="relative hidden md:block group mr-2" v-if="['library', 'glossary', 'hadiths', 'tabib', 'adhkar'].includes(viewMode)">
                         <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 group-focus-within:text-brand-gold transition-colors"></i>
                         <input type="text" v-model="headerSearchQuery" :placeholder="viewMode === 'glossary' ? 'Rechercher un terme...' : 'Rechercher...'" 
                                class="bg-gray-100/50 dark:bg-brand-dark-lighter border border-transparent hover:border-gray-200 dark:hover:border-gray-700 rounded-full py-1.5 pl-9 pr-4 text-xs font-sans w-48 focus:w-64 focus:bg-white dark:focus:bg-brand-dark-accent focus:ring-1 focus:ring-brand-gold/50 text-gray-700 dark:text-gray-200 placeholder-gray-400 transition-all duration-300 shadow-inner">
@@ -120,42 +120,6 @@
             <button @click="setView('tasbih')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'tasbih' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
                 <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tasbih
             </button>
-            <button @click="setView('transmission')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'transmission' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
-                <i data-lucide="git-fork" class="w-4 h-4"></i> Transmission
-            </button>
-            <button @click="setView('atlas')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'atlas' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
-                <i data-lucide="map" class="w-4 h-4"></i> Atlas Interactif
-            </button>
-            <button @click="setView('ussul')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'ussul' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
-                <i data-lucide="scale" class="w-4 h-4"></i> Oussoul Al-Fiqh
-            </button>
-
-            <div class="pt-6 pb-2 px-4">
-                <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-60">Étude & Coran</span>
-            </div>
-            <button @click="setView('constellation')" :class="navBtnClass('constellation')"><i data-lucide="network" class="w-4 h-4"></i> Constellation</button>
-            <button @click="setView('eloquence')" :class="navBtnClass('eloquence')"><i data-lucide="mic-2" class="w-4 h-4"></i> Éloquence</button>
-            <button @click="setView('roots')" :class="navBtnClass('roots')"><i data-lucide="sprout" class="w-4 h-4"></i> Racines</button>
-            <button @click="setView('scriptorium')" :class="navBtnClass('scriptorium')"><i data-lucide="feather" class="w-4 h-4"></i> Scriptorium</button>
-            <button @click="setView('diwan')" :class="navBtnClass('diwan')"><i data-lucide="headphones" class="w-4 h-4"></i> Diwan Sonore</button>
-
-            <div class="pt-4 pb-2 px-4">
-                <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-60">Histoire & Monde</span>
-            </div>
-            <button @click="setView('scholars_map')" :class="navBtnClass('scholars_map')"><i data-lucide="globe" class="w-4 h-4"></i> Atlas Savants</button>
-            <button @click="setView('mosque')" :class="navBtnClass('mosque')"><i data-lucide="landmark" class="w-4 h-4"></i> Mosquée 3D</button>
-            <button @click="setView('history_nights')" :class="navBtnClass('history_nights')"><i data-lucide="moon" class="w-4 h-4"></i> Nuits Histoire</button>
-            <button @click="setView('isnad')" :class="navBtnClass('isnad')"><i data-lucide="link" class="w-4 h-4"></i> Chaîne d'Or</button>
-            <button @click="setView('currency')" :class="navBtnClass('currency')"><i data-lucide="coins" class="w-4 h-4"></i> Dinar & Dirham</button>
-            <button @click="setView('astronomy')" :class="navBtnClass('astronomy')"><i data-lucide="star" class="w-4 h-4"></i> Ciel Anciens</button>
-
-            <div class="pt-4 pb-2 px-4">
-                <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-60">Esprit & Raison</span>
-            </div>
-            <button @click="setView('brahine')" :class="navBtnClass('brahine')"><i data-lucide="shield" class="w-4 h-4"></i> Al-Brahine</button>
-            <button @click="setView('faqih')" :class="navBtnClass('faqih')"><i data-lucide="gavel" class="w-4 h-4"></i> Atelier Faqih</button>
-            <button @click="setView('balance')" :class="navBtnClass('balance')"><i data-lucide="scale" class="w-4 h-4"></i> Balance Actions</button>
-            <button @click="setView('memory')" :class="navBtnClass('memory')"><i data-lucide="brain-circuit" class="w-4 h-4"></i> Palais Mémoire</button>
         </div>
 
         <div class="px-6 pt-6 pb-2 flex justify-between items-center group">
@@ -217,7 +181,7 @@
 
         <div class="p-5 flex-1 overflow-y-auto bg-grain scrollbar-thin">
             
-            <div class="relative mb-6">
+            <div v-if="['library', 'glossary', 'hadiths', 'tabib', 'adhkar'].includes(viewMode)" class="relative mb-6">
                 <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
                 <input type="text" v-model="headerSearchQuery" placeholder="Rechercher..." class="w-full p-3.5 pl-11 rounded-xl bg-white dark:bg-brand-dark-lighter border border-gray-200 dark:border-gray-700 font-sans text-sm focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none shadow-sm transition-all">
             </div>
@@ -254,96 +218,6 @@
                 <button @click="setView('tasbih'); mobileMenuOpen=false" :class="navBtnClass('tasbih')">
                     <span :class="viewMode === 'tasbih' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
                     <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tasbih
-                </button>
-                <button @click="setView('transmission'); mobileMenuOpen=false" :class="navBtnClass('transmission')">
-                    <span :class="viewMode === 'transmission' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="git-fork" class="w-4 h-4"></i> Transmission
-                </button>
-                <button @click="setView('atlas'); mobileMenuOpen=false" :class="navBtnClass('atlas')">
-                    <span :class="viewMode === 'atlas' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="map" class="w-4 h-4"></i> Atlas Interactif
-                </button>
-                <button @click="setView('ussul'); mobileMenuOpen=false" :class="navBtnClass('ussul')">
-                    <span :class="viewMode === 'ussul' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="scale" class="w-4 h-4"></i> Oussoul Al-Fiqh
-                </button>
-            </div>
-
-            <div class="pt-6 pb-2 px-2">
-                <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-60">Étude & Coran</span>
-            </div>
-            <div class="space-y-1">
-                <button @click="setView('constellation'); mobileMenuOpen=false" :class="navBtnClass('constellation')">
-                    <span :class="viewMode === 'constellation' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="network" class="w-4 h-4"></i> Constellation
-                </button>
-                <button @click="setView('eloquence'); mobileMenuOpen=false" :class="navBtnClass('eloquence')">
-                    <span :class="viewMode === 'eloquence' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="mic-2" class="w-4 h-4"></i> Éloquence
-                </button>
-                <button @click="setView('roots'); mobileMenuOpen=false" :class="navBtnClass('roots')">
-                    <span :class="viewMode === 'roots' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="sprout" class="w-4 h-4"></i> Racines
-                </button>
-                <button @click="setView('scriptorium'); mobileMenuOpen=false" :class="navBtnClass('scriptorium')">
-                    <span :class="viewMode === 'scriptorium' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="feather" class="w-4 h-4"></i> Scriptorium
-                </button>
-                <button @click="setView('diwan'); mobileMenuOpen=false" :class="navBtnClass('diwan')">
-                    <span :class="viewMode === 'diwan' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="headphones" class="w-4 h-4"></i> Diwan Sonore
-                </button>
-            </div>
-
-            <div class="pt-4 pb-2 px-2">
-                <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-60">Histoire & Monde</span>
-            </div>
-            <div class="space-y-1">
-                <button @click="setView('scholars_map'); mobileMenuOpen=false" :class="navBtnClass('scholars_map')">
-                    <span :class="viewMode === 'scholars_map' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="globe" class="w-4 h-4"></i> Atlas Savants
-                </button>
-                <button @click="setView('mosque'); mobileMenuOpen=false" :class="navBtnClass('mosque')">
-                    <span :class="viewMode === 'mosque' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="landmark" class="w-4 h-4"></i> Mosquée 3D
-                </button>
-                <button @click="setView('history_nights'); mobileMenuOpen=false" :class="navBtnClass('history_nights')">
-                    <span :class="viewMode === 'history_nights' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="moon" class="w-4 h-4"></i> Nuits Histoire
-                </button>
-                <button @click="setView('isnad'); mobileMenuOpen=false" :class="navBtnClass('isnad')">
-                    <span :class="viewMode === 'isnad' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="link" class="w-4 h-4"></i> Chaîne d'Or
-                </button>
-                <button @click="setView('currency'); mobileMenuOpen=false" :class="navBtnClass('currency')">
-                    <span :class="viewMode === 'currency' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="coins" class="w-4 h-4"></i> Dinar & Dirham
-                </button>
-                <button @click="setView('astronomy'); mobileMenuOpen=false" :class="navBtnClass('astronomy')">
-                    <span :class="viewMode === 'astronomy' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="star" class="w-4 h-4"></i> Ciel Anciens
-                </button>
-            </div>
-
-            <div class="pt-4 pb-2 px-2">
-                <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-60">Esprit & Raison</span>
-            </div>
-            <div class="space-y-1">
-                <button @click="setView('brahine'); mobileMenuOpen=false" :class="navBtnClass('brahine')">
-                    <span :class="viewMode === 'brahine' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="shield" class="w-4 h-4"></i> Al-Brahine
-                </button>
-                <button @click="setView('faqih'); mobileMenuOpen=false" :class="navBtnClass('faqih')">
-                    <span :class="viewMode === 'faqih' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="gavel" class="w-4 h-4"></i> Atelier Faqih
-                </button>
-                <button @click="setView('balance'); mobileMenuOpen=false" :class="navBtnClass('balance')">
-                    <span :class="viewMode === 'balance' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="scale" class="w-4 h-4"></i> Balance Actions
-                </button>
-                <button @click="setView('memory'); mobileMenuOpen=false" :class="navBtnClass('memory')">
-                    <span :class="viewMode === 'memory' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="brain-circuit" class="w-4 h-4"></i> Palais Mémoire
                 </button>
             </div>
 
@@ -516,7 +390,7 @@
     <revelation-view :settings="settings"></revelation-view>
 </div>
 
-<div v-else-if="extensionsList.includes(viewMode)" class="h-full" :key="viewMode">
+<div v-else-if="isAvailableView(viewMode) && extensionsList.includes(viewMode)" class="h-full" :key="viewMode">
     <tool-view :current-tool="viewMode" :settings="settings"></tool-view>
 </div>
 
@@ -590,7 +464,7 @@
     <script src="js/components/TransmissionView.js"></script>
     <script src="js/components/AtlasView.js"></script>
     <script src="js/components/UssulView.js"></script>
-    <script src="js/components/HomeView.js"></script>
+    <script src="js/components/HomeView.js?v=athar-public-1"></script>
     <script src="js/components/TasbihView.js"></script>
     <script src="js/components/PropheticClockView.js"></script>
     <script src="js/components/RelationsView.js"></script>
@@ -603,7 +477,7 @@
 
     <script src="js/composables/useFavorites.js"></script>
     <script src="./js/composables/useSettings.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app.js?v=athar-public-1"></script>
 
 </body>
 </html>

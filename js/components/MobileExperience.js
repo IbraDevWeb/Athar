@@ -33,7 +33,7 @@
         ['home', 'Accueil', 'home'],
         ['library', 'Bibliothèque', 'library'],
         ['hadiths', 'Hadiths', 'scroll-text'],
-        ['ussul', 'Oussoul', 'scale'],
+        ['adhkar', 'Al-Adhkar', 'sunrise'],
         ['menu', 'Menu', 'menu']
     ];
 
@@ -95,6 +95,8 @@
     };
 
     const navigate = view => {
+        const published = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih']);
+        if (!published.has(view)) return;
         const target = findSidebarButton(view);
         if (target) {
             target.click();

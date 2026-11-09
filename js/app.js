@@ -99,6 +99,12 @@ const app = createApp({
 
         // --- ÉTATS RÉACTIFS ---
         const viewMode = ref('home');
+        // Liste blanche de publication : les autres modules restent dans le dépôt mais ne sont pas accessibles.
+        const publishedViews = new Set([
+            'home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih',
+            'reader', 'hadith-reader', 'tabib-detail', 'adhkar-reader'
+        ]);
+        const isAvailableView = mode => publishedViews.has(mode);
         const headerSearchQuery = ref('');
         const currentChapter = ref(null);
         const currentHadith = ref(null);
@@ -254,6 +260,11 @@ const app = createApp({
         }, 4000);
 
         const setView = (mode) => {
+            if (!isAvailableView(mode)) {
+                mobileMenuOpen.value = false;
+                showToast('Cette rubrique est encore en préparation.', 'lock');
+                return;
+            }
             viewMode.value = mode;
             if (!['glossary', 'library', 'hadiths'].includes(mode)) headerSearchQuery.value = '';
             mobileMenuOpen.value = false;
@@ -368,6 +379,11 @@ const app = createApp({
             refreshIcons();
         });
 
+        // Défense supplémentaire si un composant tente de changer directement viewMode.
+        watch(viewMode, mode => {
+            if (!isAvailableView(mode)) viewMode.value = 'home';
+        });
+
         watch(settings, (v) => { localStorage.setItem('athar_settings', JSON.stringify(v)); v.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark'); }, { deep: true });
         watch([activeCategory, headerSearchQuery, viewFilter], () => { visibleCount.value = 12; if (mainScroll.value) mainScroll.value.scrollTop = 0; });
 
@@ -394,7 +410,7 @@ const app = createApp({
             currentChapter, filteredAdhkar, adhkarCategories, activeAdhkarCategory, copyText, activeStoryId, mobileMenuOpen, activeCategory, adhkarCounts, handleDhikrClick, currentDhikr, openDhikr, getProgress, categories, readingProgress, tabibCategories, tabibFilter, filteredRemedies, currentRemedy, 
             openRemedy, closeRemedy, showBreathing, breathState, breathText,
             settings, tooltip, toasts, lastReadChapter, quizAnswers, handleQuizAnswer,
-            setView, openChapter, openChapterById, closeReader, formatText, handleScroll,
+            setView, isAvailableView, openChapter, openChapterById, closeReader, formatText, handleScroll,
             
             // Du composable useSettings
             darkMode, fontSize, langue,
