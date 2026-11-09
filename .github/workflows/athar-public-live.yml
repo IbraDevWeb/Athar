@@ -56,7 +56,8 @@ jobs:
           for attempt in $(seq 1 60); do
             config="$(curl -fsSL --max-time 15 -H 'Cache-Control: no-cache' "$base/js/config.js?release=$attempt" || true)"
             fullscreen="$(curl -fsSL --max-time 15 -H 'Cache-Control: no-cache' "$base/js/components/GlobalFullscreen.js?release=$attempt" || true)"
-            if grep -q "athar-pro-v42-public-2" <<<"$config" && grep -q "PUBLISHED_VIEWS" <<<"$fullscreen"; then
+            release_version="$(grep -oE "const APP_VERSION = '[^']+'" js/config.js | head -n 1 | cut -d "'" -f 2)"
+            if [ -n "$release_version" ] && grep -Fq "$release_version" <<<"$config" && grep -Fq "PUBLISHED_VIEWS" <<<"$fullscreen"; then
               echo "La nouvelle version est publiée sur GitHub Pages."
               exit 0
             fi
