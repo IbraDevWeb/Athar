@@ -60,6 +60,9 @@ jobs:
       - name: Validate global interactions and Vue DOM
         run: node scripts/validate-interactions.js
 
+      - name: Validate published sections and navigation
+        run: node scripts/validate-public-navigation.js
+
       - name: Validate Athar Lens
         run: node scripts/validate-athar-lens.js
 
