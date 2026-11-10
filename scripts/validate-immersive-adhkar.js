@@ -23,10 +23,11 @@ const worker = fs.readFileSync(paths.worker, 'utf8');
 new vm.Script(fullscreen, { filename: paths.fullscreen });
 new vm.Script(adhkar, { filename: paths.adhkar });
 
-for (const token of ['NAV_GROUPS', "['ussul', 'Oussoul Al-Fiqh'", 'athar-immersive-drawer', 'findVueNavigationButton', 'data-athar-view', 'openMenu: openDrawer', "CustomEvent('athar:navigate'"]) {
+for (const token of ['NAV_GROUPS', "['tasbih', 'Tasbih'", 'athar-immersive-drawer', 'athar-immersive-quick', 'data-athar-view', 'openMenu: openDrawer', "CustomEvent('athar:navigate'"]) {
     if (!fullscreen.includes(token)) throw new Error(`Navigation immersive incomplète : ${token}`);
 }
-if ((fullscreen.match(/\['[a-z_]+', '[^']+'/g) || []).length < 20) throw new Error('Le menu immersif ne couvre pas assez de sections.');
+if ((fullscreen.match(/\['[a-z_]+', '[^']+'/g) || []).length < 8) throw new Error('Le menu immersif ne couvre pas les sept rubriques publiques et l’accueil.');
+if (!fullscreen.includes('PUBLISHED_VIEWS.has(view)')) throw new Error('Les rubriques en préparation doivent rester inaccessibles.');
 for (const selector of ['.athar-immersive-menu', '.athar-immersive-drawer', '.athar-immersive-current', '.athar-global-sidebar']) {
     if (!fullscreenCss.includes(selector)) throw new Error(`Style immersif absent : ${selector}`);
 }

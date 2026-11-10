@@ -268,7 +268,8 @@ const app = createApp({
             viewMode.value = mode;
             if (!['glossary', 'library', 'hadiths'].includes(mode)) headerSearchQuery.value = '';
             mobileMenuOpen.value = false;
-            window.scrollTo(0, 0);
+            if (mainScroll.value) mainScroll.value.scrollTop = 0;
+            window.dispatchEvent(new CustomEvent('athar:view-changed', { detail: { view: mode } }));
             refreshIcons();
         };
 
@@ -374,6 +375,7 @@ const app = createApp({
             window.appGlossaryHover = (e, term) => { const def = safeGlossary[term.toLowerCase()]; if (def) tooltip.value = { show: true, x: e.target.getBoundingClientRect().left + e.target.getBoundingClientRect().width / 2, y: e.target.getBoundingClientRect().top, data: { origin: 'Glossaire', term, def: def.def } }; };
             window.appProfileHover = (e, name) => { const target = safeChapters.find(c => c.name.toLowerCase().includes(name.toLowerCase())); if (target) tooltip.value = { show: true, x: e.target.getBoundingClientRect().left + e.target.getBoundingClientRect().width / 2, y: e.target.getBoundingClientRect().top, data: { origin: target.tags[0], term: target.name, def: target.intro.substring(0, 80) + '...' } }; };
             window.appHideTooltip = () => tooltip.value.show = false;
+            window.dispatchEvent(new CustomEvent('athar:view-changed', { detail: { view: viewMode.value } }));
             
             window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (mobileMenuOpen.value) mobileMenuOpen.value = false; else if (viewMode.value === 'reader' || viewMode.value === 'hadith-reader') closeReader(); } });
             refreshIcons();
