@@ -344,11 +344,11 @@ const ReaderView = {
                 </article>
                 <div class="rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 px-5 py-4 text-sm leading-relaxed text-amber-900 dark:text-amber-200" role="note">{{ biographyReferences.reviewScope }}</div>
                 <div class="space-y-3">
-                    <h3 class="font-display text-lg font-semibold text-brand-dark dark:text-white">Passages repérés ({{ biographyReferences.entries.length }})</h3>
+                    <h3 class="font-display text-lg font-semibold text-brand-dark dark:text-white">Repères documentaires ({{ biographyReferences.entries.length }})</h3>
                     <article v-for="entry in biographyReferences.entries" :key="entry.kind + '-' + entry.id" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-lighter p-5 md:p-6">
                         <div class="flex flex-wrap justify-between items-start gap-3">
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'timeline' ? 'Chronologie' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
                                 <h4 class="font-semibold text-brand-dark dark:text-white mt-1">{{ entry.title }}</h4>
                             </div>
                             <span class="text-xs font-semibold text-brand-gold whitespace-nowrap">p. {{ entry.printedPage }} · PDF p. {{ entry.pdfPage }}</span>

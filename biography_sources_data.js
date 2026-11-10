@@ -592,7 +592,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Fiche Athar n° 11 : même personne que la fiche n° 45 (Oubayda ibn Al-Harith). Le fascicule la numérote 45, et non 11. Les deux pages Athar restent distinctes à ce stade ; leurs récits n'ont pas été entièrement contrôlés.",
+    "reviewScope": "Fiche Athar n° 11 : même personne que la fiche n° 45 (Oubayda ibn Al-Harith). Le fascicule la numérote 45, et non 11. Les deux pages Athar restent distinctes à ce stade ; ce repérage ne certifie pas leurs récits.",
     "readUrl": "https://siyar.fr/livre/1/256",
     "entries": [
       {
@@ -614,7 +614,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/186",
     "entries": [
       {
@@ -636,7 +636,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/187",
     "entries": [
       {
@@ -658,7 +658,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -680,7 +680,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -702,7 +702,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -724,7 +724,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/189",
     "entries": [
       {
@@ -746,7 +746,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/190",
     "entries": [
       {
@@ -777,7 +777,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/192",
     "entries": [
       {
@@ -799,7 +799,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/193",
     "entries": [
       {
@@ -821,7 +821,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/194",
     "entries": [
       {
@@ -843,7 +843,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/196",
     "entries": [
       {
@@ -874,7 +874,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/199",
     "entries": [
       {
@@ -905,7 +905,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/200",
     "entries": [
       {
@@ -927,7 +927,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/200",
     "entries": [
       {
@@ -958,7 +958,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/202",
     "entries": [
       {
@@ -980,7 +980,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/203",
     "entries": [
       {
@@ -1002,7 +1002,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/203",
     "entries": [
       {
@@ -1024,7 +1024,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/207",
     "entries": [
       {
@@ -1046,7 +1046,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/207",
     "entries": [
       {
@@ -1068,7 +1068,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/219",
     "entries": [
       {
@@ -1099,7 +1099,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/221",
     "entries": [
       {
@@ -1121,7 +1121,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/230",
     "entries": [
       {
@@ -1143,7 +1143,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/242",
     "entries": [
       {
@@ -1165,7 +1165,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/244",
     "entries": [
       {
@@ -1196,7 +1196,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/246",
     "entries": [
       {
@@ -1218,7 +1218,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/249",
     "entries": [
       {
@@ -1249,7 +1249,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/252",
     "entries": [
       {
@@ -1271,7 +1271,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/252",
     "entries": [
       {
@@ -1293,7 +1293,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/252",
     "entries": [
       {
@@ -1315,7 +1315,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/256",
     "entries": [
       {
@@ -1337,7 +1337,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/259",
     "entries": [
       {
@@ -1359,7 +1359,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/261",
     "entries": [
       {
@@ -1381,7 +1381,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/262",
     "entries": [
       {
@@ -1403,7 +1403,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/263",
     "entries": [
       {
@@ -1434,7 +1434,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/265",
     "entries": [
       {
@@ -1456,7 +1456,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/266",
     "entries": [
       {
@@ -1496,7 +1496,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/269",
     "entries": [
       {
@@ -1518,7 +1518,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/270",
     "entries": [
       {
@@ -1540,7 +1540,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/273",
     "entries": [
       {
@@ -1562,7 +1562,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/274",
     "entries": [
       {
@@ -1602,7 +1602,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/282",
     "entries": [
       {
@@ -1633,7 +1633,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/302",
     "entries": [
       {
@@ -1655,7 +1655,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/304",
     "entries": [
       {
@@ -1677,7 +1677,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/309",
     "entries": [
       {
@@ -1699,7 +1699,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/312",
     "entries": [
       {
@@ -1730,7 +1730,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/314",
     "entries": [
       {
@@ -1752,7 +1752,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/322",
     "entries": [
       {
@@ -1774,7 +1774,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/323",
     "entries": [
       {
@@ -1796,7 +1796,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/326",
     "entries": [
       {
@@ -1818,7 +1818,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/328",
     "entries": [
       {
@@ -1840,7 +1840,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/329",
     "entries": [
       {
@@ -1862,7 +1862,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/331",
     "entries": [
       {
@@ -1884,7 +1884,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/334",
     "entries": [
       {
@@ -1906,7 +1906,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/337",
     "entries": [
       {
@@ -1937,7 +1937,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/341",
     "entries": [
       {
@@ -1968,7 +1968,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/341",
     "entries": [
       {
@@ -1990,7 +1990,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/342",
     "entries": [
       {
@@ -2021,7 +2021,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/343",
     "entries": [
       {
@@ -2052,7 +2052,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/346",
     "entries": [
       {
@@ -2074,7 +2074,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire de l'identité et des passages signalés uniquement. Ni l'intégralité de la biographie ni les chaînes de transmission ne sont authentifiées par ce repérage.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
     "readUrl": "https://siyar.fr/livre/1/350",
     "entries": [
       {

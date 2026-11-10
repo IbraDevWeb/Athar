@@ -39,7 +39,7 @@ const LibraryView = {
                 narratives: this.chapters.reduce((sum, item) => sum + this.safeArray(item.narratives).length, 0),
                 timeline: this.chapters.reduce((sum, item) => sum + this.safeArray(item.timeline).length, 0),
                 traditions: this.chapters.reduce((sum, item) => sum + this.safeArray(item.hadiths).length, 0),
-                sourced: this.chapters.filter((item) => item.source).length
+                sourced: this.chapters.filter((item) => this.hasSourceReference(item)).length
             };
         },
         sourcedRate() {
@@ -86,7 +86,7 @@ const LibraryView = {
                 });
             }
 
-            if (this.contentFilter === 'sourced') items = items.filter((item) => item.source);
+            if (this.contentFilter === 'sourced') items = items.filter((item) => this.hasSourceReference(item));
             if (this.contentFilter === 'stories') items = items.filter((item) => this.safeArray(item.narratives).length >= 3);
             if (this.contentFilter === 'timeline') items = items.filter((item) => this.safeArray(item.timeline).length > 0);
             if (this.contentFilter === 'traditions') items = items.filter((item) => this.safeArray(item.hadiths).length > 0);
@@ -97,7 +97,7 @@ const LibraryView = {
             if (this.sortMode === 'alpha') items.sort((a, b) => String(a.name).localeCompare(String(b.name), 'fr'));
             if (this.sortMode === 'dense') items.sort((a, b) => this.density(b) - this.density(a));
             if (this.sortMode === 'recent') items.sort((a, b) => (recentOrder.get(String(a.id)) ?? 9999) - (recentOrder.get(String(b.id)) ?? 9999));
-            if (this.sortMode === 'featured') items.sort((a, b) => Number(Boolean(b.verified)) - Number(Boolean(a.verified)) || this.density(b) - this.density(a));
+            if (this.sortMode === 'featured') items.sort((a, b) => this.density(b) - this.density(a));
             return items;
         },
         collections() {
@@ -107,12 +107,12 @@ const LibraryView = {
                 ['campaigns', 'Épreuves et commandement', 'السير والمغازي', 'shield', 'Badr, Uḥud, commandants et figures du sacrifice.', ['Badr', 'Ouhoud', 'Commandants', 'Martyrs']],
                 ['women', 'Femmes de transmission', 'نساء العلم', 'flower-2', 'Mères des croyants et femmes de la mémoire islamique.', ['Mères des Croyants']],
                 ['scholars', 'Savants et héritiers', 'العلماء والورثة', 'graduation-cap', 'Figures savantes et héritiers intellectuels du corpus.', ['Savants']],
-                ['sourced', 'Notices documentées', 'التراجم الموثقة', 'book-check', 'Notices disposant d’une référence principale explicite.', []]
+                ['sourced', 'Notices repérées dans Siyar', 'التراجم', 'book-check', 'Correspondances identifiées, sans certification des récits.', []]
             ];
             return definitions.map(([id, title, arabic, icon, description, tags]) => ({
                 id, title, arabic, icon, description,
                 items: id === 'sourced'
-                    ? this.chapters.filter((item) => item.source)
+                    ? this.chapters.filter((item) => this.hasSourceReference(item))
                     : this.chapters.filter((item) => tags.some((tag) => this.safeArray(item.tags).includes(tag)))
             }));
         },
@@ -154,6 +154,7 @@ const LibraryView = {
         this.icons();
     },
     methods: {
+        hasSourceReference(item) { return typeof BIOGRAPHY_SOURCES !== 'undefined' && Boolean(BIOGRAPHY_SOURCES[String(item?.id)]); },
         safeArray(value) {
             return Array.isArray(value) ? value.filter(Boolean) : [];
         },
@@ -165,8 +166,8 @@ const LibraryView = {
                 + this.safeArray(item.timeline).length * 2
                 + this.safeArray(item.hadiths).length * 2
                 + this.safeArray(item.quizData || item.quiz).length
-                + Number(Boolean(item.source)) * 3
-                + Number(Boolean(item.verified)) * 2;
+                + Number(this.hasSourceReference(item)) * 3
+                + 0;
         },
         metrics(item) {
             return {
@@ -286,13 +287,13 @@ const LibraryView = {
                         </div>
                     </div>
                     <aside class="library-pro-hero-panel">
-                        <div class="library-pro-panel-head"><span>État du corpus</span><b>{{ sourcedRate }}%</b></div>
+                        <div class="library-pro-panel-head"><span>Notices repérées (non certifiées)</span><b>{{ sourcedRate }}%</b></div>
                         <div class="library-pro-corpus-ring" :style="{ '--library-progress': sourcedRate + '%' }"><div><strong>{{ stats.profiles }}</strong><span>notices</span></div></div>
                         <dl class="library-pro-corpus-stats">
                             <div><dt>Récits</dt><dd>{{ stats.narratives }}</dd></div>
                             <div><dt>Repères</dt><dd>{{ stats.timeline }}</dd></div>
                             <div><dt>Traditions</dt><dd>{{ stats.traditions }}</dd></div>
-                            <div><dt>Sourcées</dt><dd>{{ stats.sourced }}</dd></div>
+                            <div><dt>Repérées</dt><dd>{{ stats.sourced }}</dd></div>
                         </dl>
                         <p>Le pourcentage mesure la présence d’une référence principale dans les données actuelles.</p>
                     </aside>
@@ -304,7 +305,7 @@ const LibraryView = {
                         <article class="library-pro-lead" @click="openItem(leadChapter)" tabindex="0" @keydown.enter="openItem(leadChapter)">
                             <div class="library-pro-lead-number">{{ String(leadChapter.id).padStart(2, '0') }}</div>
                             <div class="library-pro-lead-content">
-                                <div class="library-pro-card-badges"><span v-if="leadChapter.source"><i data-lucide="book-check"></i> Source indiquée</span><span v-for="tag in safeArray(leadChapter.tags).slice(0, 2)" :key="tag">{{ tag }}</span></div>
+                                <div class="library-pro-card-badges"><span v-if="hasSourceReference(leadChapter)"><i data-lucide="book-check"></i> Notice repérée</span><span v-for="tag in safeArray(leadChapter.tags).slice(0, 2)" :key="tag">{{ tag }}</span></div>
                                 <p class="library-pro-lead-arabic" lang="ar" dir="rtl">{{ leadChapter.arabicName }}</p>
                                 <h3>{{ leadChapter.name }}</h3><blockquote>« {{ leadChapter.subtitle }} »</blockquote><p>{{ leadChapter.intro }}</p>
                                 <div class="library-pro-lead-footer"><span><i data-lucide="clock-3"></i> {{ readingTime(leadChapter) }}</span><span><i data-lucide="scroll-text"></i> {{ metrics(leadChapter).stories }} récits</span><b>Ouvrir la notice <i data-lucide="arrow-up-right"></i></b></div>
@@ -343,16 +344,16 @@ const LibraryView = {
                 </section>
                 <section v-show="showFilters" class="library-pro-filter-panel">
                     <div><span>Catégories</span><div class="library-pro-chip-list"><button v-for="category in categoryList" :key="category" type="button" @click="selectCategory(category)" :class="{ active: activeCategory === category }">{{ category }}</button></div></div>
-                    <div><span>Contenu disponible</span><div class="library-pro-chip-list"><button v-for="filter in [{id:'all',label:'Tout'},{id:'sourced',label:'Avec source'},{id:'stories',label:'Récits développés'},{id:'timeline',label:'Chronologie'},{id:'traditions',label:'Traditions'},{id:'quiz',label:'Quiz'}]" :key="filter.id" type="button" @click="contentFilter = filter.id" :class="{ active: contentFilter === filter.id }">{{ filter.label }}</button></div></div>
+                    <div><span>Contenu disponible</span><div class="library-pro-chip-list"><button v-for="filter in [{id:'all',label:'Tout'},{id:'sourced',label:'Notice repérée'},{id:'stories',label:'Récits développés'},{id:'timeline',label:'Chronologie'},{id:'traditions',label:'Traditions'},{id:'quiz',label:'Quiz'}]" :key="filter.id" type="button" @click="contentFilter = filter.id" :class="{ active: contentFilter === filter.id }">{{ filter.label }}</button></div></div>
                     <div><span>Index alphabétique</span><div class="library-pro-letter-list"><button type="button" @click="activeLetter = 'Tous'" :class="{ active: activeLetter === 'Tous' }">Tous</button><button v-for="letter in letters" :key="letter" type="button" @click="activeLetter = letter" :class="{ active: activeLetter === letter }">{{ letter }}</button></div></div>
                     <button type="button" class="library-pro-reset" @click="resetFilters"><i data-lucide="rotate-ccw"></i> Réinitialiser</button>
                 </section>
                 <div v-if="catalogItems.length" class="library-pro-results" :class="'is-' + layoutMode">
                     <article v-for="item in catalogItems" :key="item.id" class="library-pro-card" @click="openItem(item)" tabindex="0" @keydown.enter="openItem(item)">
-                        <div class="library-pro-card-top"><div class="library-pro-card-badges"><span v-if="item.source"><i data-lucide="book-check"></i> Source indiquée</span><span>{{ safeArray(item.tags)[0] || 'Histoire' }}</span></div><button type="button" @click="toggleItemFavorite(item, $event)" :class="{ active: favorite(item.id) }"><i data-lucide="heart"></i></button></div>
+                        <div class="library-pro-card-top"><div class="library-pro-card-badges"><span v-if="hasSourceReference(item)"><i data-lucide="book-check"></i> Notice repérée</span><span>{{ safeArray(item.tags)[0] || 'Histoire' }}</span></div><button type="button" @click="toggleItemFavorite(item, $event)" :class="{ active: favorite(item.id) }"><i data-lucide="heart"></i></button></div>
                         <div class="library-pro-card-main"><span class="library-pro-card-arabic" lang="ar" dir="rtl">{{ item.arabicName }}</span><h2>{{ item.name }}</h2><blockquote>« {{ item.subtitle }} »</blockquote><p>{{ item.intro }}</p></div>
                         <dl class="library-pro-card-metrics"><div><dt><i data-lucide="scroll-text"></i></dt><dd>{{ metrics(item).stories }}<span>récits</span></dd></div><div><dt><i data-lucide="calendar-range"></i></dt><dd>{{ metrics(item).events }}<span>repères</span></dd></div><div><dt><i data-lucide="messages-square"></i></dt><dd>{{ metrics(item).traditions }}<span>traditions</span></dd></div><div><dt><i data-lucide="clock-3"></i></dt><dd>{{ readingTime(item) }}<span>lecture</span></dd></div></dl>
-                        <footer><span v-if="item.source"><i data-lucide="book-check"></i> Référence indiquée</span><span v-else><i data-lucide="circle-alert"></i> Source à préciser</span><b>Étudier <i data-lucide="arrow-right"></i></b></footer>
+                        <footer><span v-if="hasSourceReference(item)"><i data-lucide="book-check"></i> Référence repérée</span><span v-else><i data-lucide="circle-alert"></i> Repérage à faire</span><b>Étudier <i data-lucide="arrow-right"></i></b></footer>
                     </article>
                 </div>
                 <div v-else class="library-pro-empty"><i data-lucide="search-x"></i><h2>Aucune notice trouvée</h2><p>Modifiez les filtres ou élargissez votre recherche.</p><button type="button" @click="resetFilters">Réinitialiser les filtres</button></div>

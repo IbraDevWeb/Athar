@@ -3,7 +3,7 @@
          const CHAPTERS_DATA = [
             {
                 id: 1, 
-                verified: true, // NOUVEAU : Badge de certification
+                verified: false, // Repérage bibliographique ≠ certification de tous les récits
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Oubayda ibn Al-Jarrah", 
                 arabicName: "أبو عبيدة", 
@@ -44,7 +44,7 @@
             },
             {
                 id: 2, 
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Talha ibn Oubayd-Allah", 
                 arabicName: "طلحة", 
@@ -79,7 +79,7 @@
             },
             {
                 id: 3,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Zoubayr ibn Al-'Awam",
                 arabicName: "الزبير بن العوام",
@@ -115,7 +115,7 @@
             },
             {
                 id: 4,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abderrahman ibn 'Aouf",
                 arabicName: "عبد الرحمن بن عوف",
@@ -153,7 +153,7 @@
             },
             {
                 id: 5,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saad Ibn Abi Waqas",
                 arabicName: "سعد بن أبي وقاص",
@@ -189,7 +189,7 @@
             },
             {
                 id: 6,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saïd ibn Zayd",
                 arabicName: "سعيد بن زيد",
@@ -223,7 +223,7 @@
             },
             {
                 id: 7,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mouss'ab ibn Oumayr",
                 arabicName: "مُصْعَب بن عُمَيْر",
@@ -255,7 +255,7 @@
             },
             {
                 id: 8,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Salama",
                 arabicName: "أبو سَلَمَة",
@@ -286,7 +286,7 @@
             },
             {
                 id: 9,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Outhman ibn Mazh'oune",
                 arabicName: "عثمان بن مَظْعُون",
@@ -318,7 +318,7 @@
             },
             {
                 id: 10,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Qoudama ibn Mazh'oune",
                 arabicName: "قدَامَة بن مَظْعُون",
@@ -344,7 +344,7 @@
             },
             {
                 id: 11,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Oubayda ibn Al-Harith",
                 arabicName: "عبيدة بن الحارث",
@@ -368,7 +368,7 @@
             },
             {
                 id: 12,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Jahche",
                 arabicName: "عبد الله بن جحش",
@@ -392,7 +392,7 @@
             },
             {
                 id: 13,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Houdhayfa",
                 arabicName: "أبو حُذَيْفَة",
@@ -418,7 +418,7 @@
             },
             {
                 id: 14,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Salim Mawla Abou Houdhayfa",
                 arabicName: "سَالِمٍ",
@@ -449,7 +449,7 @@
             },
             {
                 id: 15,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Hamza Ibn Abdelmoutalib",
                 arabicName: "حَمْزَة بن عبد المطلب",
@@ -484,7 +484,7 @@
             },
             {
                 id: 16,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Aqil ibn Al-Boukayr",
                 arabicName: "عَاقِل بن البكير",
@@ -515,7 +515,7 @@
             },
             {
                 id: 17,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Khalid ibn Al-Boukayr",
                 arabicName: "خالد بن البكير",
@@ -542,7 +542,7 @@
             },
             {
                 id: 18,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Iyas ibn Al-Boukayr",
                 arabicName: "إياس بن أبي البكير",
@@ -568,7 +568,7 @@
             },
             {
                 id: 19,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Amir ibn Al-Boukayr",
                 arabicName: "عامر بن أبي البكير",
@@ -593,7 +593,7 @@
             },
             {
                 id: 20,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mistah ibn Outhatha",
                 arabicName: "مِسْطَح بن أُثَاثَة",
@@ -623,7 +623,7 @@
             },
             {
                 id: 21,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou 'Abs",
                 arabicName: "أبو عبس",
@@ -653,7 +653,7 @@
             },
             {
                 id: 22,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Malik ibn At-Tayihane",
                 arabicName: "ابن التيهان",
@@ -681,7 +681,7 @@
             },
             {
                 id: 23,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Jandal",
                 arabicName: "أبو جندل",
@@ -707,7 +707,7 @@
             },
             {
                 id: 24,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Souhayl",
                 arabicName: "عَبْدُ الله بن سُهَيْل",
@@ -732,7 +732,7 @@
             },
             {
                 id: 25,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Souhayl ibn 'Amr",
                 arabicName: "سُهَيْل بن عمرو",
@@ -761,7 +761,7 @@
             },
             {
                 id: 26,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Al-Bara ibn Malik",
                 arabicName: "البراء بن مالك",
@@ -788,7 +788,7 @@
             },
             {
                 id: 27,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Nawfal ibn Al-Harith",
                 arabicName: "نَوْفَل",
@@ -814,7 +814,7 @@
             },
             {
                 id: 28,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Al-Harith ibn Nawfal",
                 arabicName: "الحَارِث بن نَوْفَل",
@@ -839,7 +839,7 @@
             },
             {
                 id: 29,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Al-Harith",
                 arabicName: "عَبْدُ الله بن الحارث",
@@ -867,7 +867,7 @@
             },
             {
                 id: 30,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Abd-Allah",
                 arabicName: "عَبْدُ الله بن عَبْدِ الله",
@@ -891,7 +891,7 @@
             },
             {
                 id: 31,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saïd ibn Al-Harith",
                 arabicName: "سعيد بن الحارث",
@@ -914,7 +914,7 @@
             },
             {
                 id: 32,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Soufiane ibn Al-Harith",
                 arabicName: "أبو سُفْيَان بن الحارث",
@@ -944,7 +944,7 @@
             },
             {
                 id: 33,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Jafar ibn Abou Soufiane",
                 arabicName: "جَعْفَر بن أبي سُفْيَان",
@@ -969,7 +969,7 @@
             },
   {
                 id: 34,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Jafar ibn Abou Talib",
                 arabicName: "جَعْفَر بن أبي طالب",
@@ -1003,7 +1003,7 @@
             },
             {
                 id: 35,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Aqil ibn Abou Talib",
                 arabicName: "عقيل بن أبي طالب",
@@ -1034,7 +1034,7 @@
             },
             {
                 id: 36,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Zayd ibn Haritha",
                 arabicName: "زيد بن حارثة",
@@ -1067,7 +1067,7 @@
             },
             {
                 id: 37,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Rawaha",
                 arabicName: "عبد الله بن رواحة",
@@ -1099,7 +1099,7 @@
             },
 			{
                 id: 38,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Koulthoum ibn Al-Hidm",
                 arabicName: "كُلْثُوم بن الهِدْم",
@@ -1125,7 +1125,7 @@
             },
             {
                 id: 39,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Doujana",
                 arabicName: "أبو دُجَانَة",
@@ -1154,7 +1154,7 @@
             },
             {
                 id: 40,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Khoubayb ibn 'Adi",
                 arabicName: "خُبَيْب بن عَدِي",
@@ -1183,7 +1183,7 @@
             },
             {
                 id: 41,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mouadh ibn 'Amr",
                 arabicName: "مُعَاذ بن عَمْرو بن الجَموح",
@@ -1210,7 +1210,7 @@
             },
             {
                 id: 42,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mouawidh ibn 'Amr",
                 arabicName: "مُعَوِّذ بن عَمْرو",
@@ -1233,7 +1233,7 @@
             },
             {
                 id: 43,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Khallad ibn 'Amr",
                 arabicName: "خَلَّاد بن عَمْرو",
@@ -1257,7 +1257,7 @@
             },
             {
                 id: 44,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Amr ibn Al-Jamouh",
                 arabicName: "عَمْرو بن الجَموح",
@@ -1287,7 +1287,7 @@
             },
             {
                 id: 45,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Oubayda ibn Al-Harith",
                 arabicName: "عُبَيْدة بن الحارِث",
@@ -1315,7 +1315,7 @@
             },
             {
                 id: 46,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Rabi'a ibn Al-Harith",
                 arabicName: "رَبِيعَة بن الحارِث",
@@ -1341,7 +1341,7 @@
             },
             {
                 id: 47,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Al-Harith",
                 arabicName: "عبد الله بن الحارث",
@@ -1366,7 +1366,7 @@
             },
             {
                 id: 48,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Khalid ibn Saïd",
                 arabicName: "خالِد بن سَعِيد",
@@ -1394,7 +1394,7 @@
             },
             {
                 id: 49,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abane ibn Saïd",
                 arabicName: "أَبان بن سَعِيد",
@@ -1419,7 +1419,7 @@
             },
             {
                 id: 50,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Amr ibn Saïd",
                 arabicName: "عَمْرو بن سَعِيد",
@@ -1443,7 +1443,7 @@
             },
             {
                 id: 51,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Al-'Ala ibn Al-Hadrami",
                 arabicName: "العَلاء بن الحَضْرَمي",
@@ -1470,7 +1470,7 @@
             },
             {
                 id: 52,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saad ibn Khaythama",
                 arabicName: "سَعْد بن خَيْثَمَة",
@@ -1493,7 +1493,7 @@
             },
             {
                 id: 53,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Al-Bara ibn Marour",
                 arabicName: "البراء بن مَعْرُور",
@@ -1520,7 +1520,7 @@
             },
             {
                 id: 54,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Bishr ibn Al-Bara",
                 arabicName: "بِشْر بن البَراء",
@@ -1543,7 +1543,7 @@
             },
 			{
                 id: 55,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saad ibn Oubada",
                 arabicName: "سعد بن عبادة",
@@ -1576,7 +1576,7 @@
             },
             {
                 id: 56,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saad ibn Mouadh",
                 arabicName: "سعد بن معاذ",
@@ -1609,7 +1609,7 @@
             },
 			{
                 id: 57,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Zayd ibn Al-Khattab",
                 arabicName: "زيد بن الخطاب",
@@ -1638,7 +1638,7 @@
             },
             {
                 id: 58,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "As'ad ibn Zourara",
                 arabicName: "أَسْعَد بن زرارة",
@@ -1668,7 +1668,7 @@
             },
             {
                 id: 59,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Outba ibn Ghazouane",
                 arabicName: "عُتْبَة بن غَزْوَان",
@@ -1696,7 +1696,7 @@
             },
             {
                 id: 60,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Oukacha ibn Mihssane",
                 arabicName: "عُكَاشَة بن مِحْصَن",
@@ -1724,7 +1724,7 @@
             },
             {
                 id: 61,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Thabit ibn Qays",
                 arabicName: "ثابت بن قيس",
@@ -1753,7 +1753,7 @@
             },
             {
                 id: 62,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Toulayha ibn Khouwaylid",
                 arabicName: "طُلَيْحَة بن خُوَيْلِد",
@@ -1779,7 +1779,7 @@
             },
             {
                 id: 63,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Saad ibn Ar-Rabi'",
                 arabicName: "سعد بن الربيع",
@@ -1806,7 +1806,7 @@
             },
             {
                 id: 64,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mane ibn 'Adi",
                 arabicName: "مَعْن بن عَدِي",
@@ -1829,7 +1829,7 @@
             },
             {
                 id: 65,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Abd-Allah ibn Oubay",
                 arabicName: "عبد الله بن عبد الله بن أبي",
@@ -1857,7 +1857,7 @@
             },
             {
                 id: 66,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Ikrima ibn Abou Jahl",
                 arabicName: "عِكْرِمَة بن أبي جَهْل",
@@ -1885,7 +1885,7 @@
             },
             {
                 id: 67,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn 'Amr ibn Haram",
                 arabicName: "عبد الله بن عَمْرو بن حَرَام",
@@ -1912,7 +1912,7 @@
             },
             {
                 id: 68,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Yazid ibn Abou Soufiane",
                 arabicName: "يزيد بن أبي سُفْيَان",
@@ -1936,7 +1936,7 @@
             },
             {
                 id: 69,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Al-'Ass ibn Ar-Rabi'",
                 arabicName: "أبو العاص بن الربيع",
@@ -1963,7 +1963,7 @@
             },
             {
                 id: 70,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Zaynab bint Mouhammad",
                 arabicName: "زَيْنَب",
@@ -1990,7 +1990,7 @@
             },
             {
                 id: 71,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Oumama bint Abou Al-'Ass",
                 arabicName: "أُمَامَة",
@@ -2012,7 +2012,7 @@
             },
             {
                 id: 72,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Zayd Al-Ansari",
                 arabicName: "أَبُو زَيْد",
@@ -2035,7 +2035,7 @@
             },
             {
                 id: 73,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Abbad ibn Bichr",
                 arabicName: "عباد بن بشر",
@@ -2061,7 +2061,7 @@
             },
             {
                 id: 74,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Oussayd ibn Al-Houdayr",
                 arabicName: "أسيد بن الحضير",
@@ -2087,7 +2087,7 @@
             },
             {
                 id: 75,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "At-Toufayl ibn 'Amr",
                 arabicName: "الطُّفَيْل بن عَمْرو",
@@ -2111,7 +2111,7 @@
             },
 			{
                 id: 76,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Bilal ibn Rabah",
                 arabicName: "بِلال بن رَبَاح",
@@ -2144,7 +2144,7 @@
             },
             {
                 id: 77,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Ibnou Oum Maktoum",
                 arabicName: "ابن أم مكتوم",
@@ -2175,7 +2175,7 @@
             },
             {
                 id: 78,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Khalid ibn Al-Walid",
                 arabicName: "خالد بن الوليد",
@@ -2208,7 +2208,7 @@
             },
 {
                 id: 79,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Safoine ibn Bayda",
                 arabicName: "صَفْوَان ابن بَيْضَاء",
@@ -2233,7 +2233,7 @@
             },
             {
                 id: 80,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Souhayl ibn Bayda",
                 arabicName: "سُهَيْل ابن بَيْضَاء",
@@ -2260,7 +2260,7 @@
             },
             {
                 id: 81,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Al-Miqdad ibn 'Amr",
                 arabicName: "المِقْدَاد بن عَمْرو",
@@ -2292,7 +2292,7 @@
             },
             {
                 id: 82,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Oubay ibn Kaab",
                 arabicName: "أُبَيّ بن كَعْبٍ",
@@ -2324,7 +2324,7 @@
             },
             {
                 id: 83,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "An-Nou'mane ibn Mouqarine",
                 arabicName: "النُّعْمَانِ بن مُقَرِّن",
@@ -2352,7 +2352,7 @@
             },
 {
                 id: 84,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Ammar ibn Yassir",
                 arabicName: "عَمَّار بن ياسر",
@@ -2383,7 +2383,7 @@
             },
             {
                 id: 85,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Le Négus (Assehama)",
                 arabicName: "النجاشي",
@@ -2414,7 +2414,7 @@
             },
             {
                 id: 86,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mouadh ibn Jabal",
                 arabicName: "مُعَاذ بن جَبَل",
@@ -2447,7 +2447,7 @@
             },
             {
                 id: 87,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Massoud",
                 arabicName: "عبد الله بن مَسْعُود",
@@ -2480,7 +2480,7 @@
             },
             {
                 id: 88,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Outba ibn Massoud",
                 arabicName: "عُتْبَة بن مَسْعُود",
@@ -2504,7 +2504,7 @@
             },
             {
                 id: 89,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Khoubayb ibn Yassaf",
                 arabicName: "حُبَيْب بن يساف",
@@ -2527,7 +2527,7 @@
             },
             {
                 id: 90,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Ouaym ibn Saïda",
                 arabicName: "عُوَيْم بن سَاعِدَة",
@@ -2555,7 +2555,7 @@
             },
             {
                 id: 91,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Salmane Al-Farissi",
                 arabicName: "سَلْمَان الفَارِسِي",
@@ -2591,7 +2591,7 @@
             },
 {
                 id: 92,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "'Oubada ibn As-Samit",
                 arabicName: "عُبَادَة بن الصَّامِت",
@@ -2623,7 +2623,7 @@
             },
             {
                 id: 93,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Houdhafa",
                 arabicName: "عبد الله بن حُذَافَة",
@@ -2654,7 +2654,7 @@
             },
             {
                 id: 94,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Rafi'",
                 arabicName: "أبو رَافِع",
@@ -2683,7 +2683,7 @@
             },
             {
                 id: 95,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Souhayb Ar-Roumi",
                 arabicName: "صُهَيْب بن سِنَان",
@@ -2716,7 +2716,7 @@
             },
             {
                 id: 96,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Talha Al-Ansari",
                 arabicName: "أبو طَلْحَة الأنصاري",
@@ -2748,7 +2748,7 @@
             },
             {
                 id: 97,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou Bourda ibn Niyar",
                 arabicName: "أبو بَرْدَة بن نِيَار",
@@ -2775,7 +2775,7 @@
             },
             {
                 id: 98,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Jabr ibn 'Atik",
                 arabicName: "جَبْر بن عَتِيك",
@@ -2798,7 +2798,7 @@
             },
             {
                 id: 99,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Al-Ache'ath ibn Qays",
                 arabicName: "الأَشْعَث بن قَيْس",
@@ -2827,7 +2827,7 @@
             },
             {
                 id: 100,
-                verified: true,
+                verified: false,
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Hatib ibn Abou Baltaa",
                 arabicName: "حَاطِب بن أبي بَلْتَعَة",
