@@ -133,6 +133,14 @@ async function mobile(width,height) {
     assert.ok(bar && bar.x>45 && bar.x+bar.width<width-95,'Les boutons se chevauchent sur téléphone.');
 
     await page.locator('#athar-immersive-quick').click();
+    const compact = page.locator('.tasbih-simple-layout');
+    await compact.waitFor({state:'visible',timeout:20000});
+    assert.equal(await page.locator('.tasbih-simple-choices').isVisible(), true);
+    assert.equal(await page.locator('.tasbih-focus-card').count(), 1, 'Un seul compteur doit être mis en avant.');
+    assert.equal(await page.locator('.tasbih-pro-header-actions').count(), 0, 'Les anciens boutons plein écran et fermeture doivent disparaître.');
+    assert.equal(await page.locator('.tasbih-simple-more').getAttribute('open'), null, 'Les options doivent être repliées par défaut.');
+    assert.ok((await page.locator('.tasbih-quick-choice').count()) >= 6, 'Les formules rapides doivent être visibles.');
+    assert.equal(await page.locator('.tasbih-quick-choice[aria-pressed="true"]').count(), 1);
     const counter=page.locator('.tasbih-counter-button');
     await counter.waitFor({state:'visible',timeout:20000});
     const box=await counter.boundingBox();
@@ -141,6 +149,30 @@ async function mobile(width,height) {
     await counter.click();
     const after=Number((await page.locator('.tasbih-counter-inner strong').first().innerText()).replace(/\s/g,''));
     assert.equal(after,before+1,'Le compteur Tasbih ne réagit pas au toucher.');
+    await page.locator('.tasbih-simple-actions button').filter({hasText:'Annuler le dernier'}).click();
+    assert.equal(Number((await page.locator('.tasbih-counter-inner strong').innerText()).replace(/\s/g,'')), before, 'Annuler ne fonctionne pas.');
+    await counter.click();
+    await page.locator('.tasbih-quick-choice').filter({hasText:'Taḥmīd'}).click();
+    const confirm = page.getByRole('alertdialog');
+    await confirm.waitFor({state:'visible'});
+    assert.match(await confirm.innerText(),/La séance en cours sera enregistrée/);
+    await confirm.getByRole('button',{name:'Annuler'}).click();
+    assert.equal(await page.locator('.tasbih-quick-choice[aria-pressed="true"]').count(),1);
+    assert.match(await page.locator('.tasbih-quick-choice[aria-pressed="true"]').innerText(),/Tasbīḥ/);
+    await page.locator('.tasbih-quick-choice').filter({hasText:'Taḥmīd'}).click();
+    await confirm.getByRole('button',{name:'Enregistrer et changer'}).click();
+    assert.match(await page.locator('.tasbih-quick-choice[aria-pressed="true"]').innerText(),/Taḥmīd/);
+    const archived = await page.evaluate(()=>JSON.parse(localStorage.getItem('athar_tasbih_v2')||'{}'));
+    assert.ok(archived.history?.length && archived.history[0].total>=1,'Le changement de formule doit conserver la séance.');
+    await page.locator('.tasbih-simple-more > summary').click();
+    assert.equal(await page.locator('.tasbih-simple-more').getAttribute('open'),'','Les options avancées ne s’ouvrent pas.');
+    assert.equal(await page.locator('.tasbih-setting-row[aria-pressed]').count(),5);
+    await page.locator('.tasbih-simple-more > summary').click();
+    await counter.click();
+    await page.locator('.tasbih-simple-actions button.primary').click();
+    const saved = await page.evaluate(()=>JSON.parse(localStorage.getItem('athar_tasbih_v2')||'{}'));
+    assert.ok(saved.history?.length>=2,'La séance terminée doit être enregistrée.');
+    assert.equal(saved.sessionTotal,0,'La séance doit revenir à zéro après enregistrement.');
     await home(page);
 
     await navigate(page,'library');
