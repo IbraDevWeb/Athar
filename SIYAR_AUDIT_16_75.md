@@ -10,7 +10,7 @@
 - La fiche Athar **11** désigne **Oubayda ibn Al-Harith**, exactement la personne de la notice Siyar **45** et de la fiche Athar **45**. Une référence commune est ajoutée ; ce **doublon de présentation** est conservé pour le moment afin de ne pas briser les liens ou les favoris.
 - La fiche Athar **12** (« Abd-Allah ibn Jahche ») ne correspond pas au n° 12 de la traduction Siyar ; elle reste **sans référence ciblée** dans ces fascicules.
 - Les personnes aux noms proches sont distinguées : Athar **29** = Abd-Allah ibn Al-Harith ibn Nawfal et Athar **47** = Abd-Allah ibn Al-Harith ibn Abdelmoutalib ; Athar **30** et **65** sont également deux personnes différentes.
-- Le registre couvre après cette opération **74 notices sur les 100 présentes** dans le jeu de données, avec **125 repères** (46 antérieurs, 61 nouveaux repères d'identité, 18 références ciblées supplémentaires). Cela **ne signifie pas que 74 notices sont authentifiées**.
+- Le registre couvre après cette opération **74 notices sur les 104 présentes** dans le jeu de données, avec **125 repères** (46 antérieurs, 61 nouveaux repères d'identité, 18 références ciblées supplémentaires). Cela **ne signifie pas que 74 notices sont authentifiées**.
 
 ## Corrections éditoriales ciblées
 
