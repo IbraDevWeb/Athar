@@ -766,7 +766,7 @@
                 name: "Al-Bara ibn Malik",
                 arabicName: "البراء بن مالك",
                 subtitle: "L'Homme au Serment Exaucé",
-                intro: "Frère d'Anas ibn Malik. Un guerrier dont le serment était exaucé par Allah. Il tua 100 hommes en duel. À Yamama, il se fit jeter dans le jardin ennemi pour ouvrir la porte.",
+                intro: "Frère d'Anas ibn Malik. Un guerrier dont le serment était exaucé par Allah. Une narration rapporte qu’il affirma avoir vaincu quatre-vingt-dix-neuf adversaires en duel. À Yamama, il se fit jeter dans le jardin ennemi pour ouvrir la porte.",
                 heroQuote: "As-tu peur que je meure dans mon lit ?!",
                 tags: ["Guerrier", "Martyrs", "Yamama"],
                 genealogy: "Al-Bara ibn Malik Al-Ansari.",
@@ -800,7 +800,7 @@
                     { year: "2 H", desc: "Capturé à Badr (côté païen), rançonné par Abbas." },
                     { year: "5 H", desc: "Émigre à Médine." },
                     { year: "8 H", desc: "Fournit 3000 lances pour la bataille de Hunayn." },
-                    { year: "20 H", desc: "Décès." }
+                    { year: "20 ou 25 H", desc: "Un récit situe son décès vers 20 H ; une autre datation donne 25 H." }
                 ],
                 narratives: [
                     { id: 271, title: "Le Soutien Logistique", content: "Bien que converti tardivement, il mit sa fortune au service de l'Islam en offrant 3000 lances pour l'armée lors de la bataille de Hunayn." }
@@ -1021,8 +1021,8 @@
                 ],
                 narratives: [
                     { id: 351, title: "Le Double Amour", content: "Le Prophète (ﷺ) lui dit un jour : « Ô Abou Yazid, je t'aime doublement : une fois pour ta parenté avec moi, et une fois car mon oncle (Abou Talib) t'aimait ! »." },
-                    { id: 352, title: "L'Aiguille et le Fil", content: "De retour de l'expédition de Hounayn, il donna une aiguille à sa femme pour coudre. Quand le crieur annonça qu'il fallait rendre tout le butin, même une aiguille, 'Aqil la reprit à sa femme et la jeta dans le butin commun, par scrupule." },
-                    { id: 353, title: "La Réponse Cinglante", content: "Captif à Badr, le Prophète lui demanda qui était tué parmi les chefs de Quraysh. 'Aqil apprit la mort d'Abou Jahl. Le Prophète lui dit : « La voie est désormais libre ! »." }
+                    { id: 352, title: "Une aiguille rendue par scrupule", content: "Selon un récit attribué à Zayd ibn Aslam, ‘Aqil rapporta une aiguille à son épouse. Un homme lui rappela qu’il était interdit de prélever le moindre élément du butin sans droit ; ‘Aqil dit alors à sa femme qu’elle devrait y renoncer. Le fascicule ne relie pas explicitement ce récit à l’expédition de Hounayn." },
+                    { id: 353, title: "La réponse d’‘Aqil après Badr", content: "Capturé à Badr, ‘Aqil demanda au Prophète (ﷺ) quels chefs mecquois étaient morts. Le Prophète lui répondit : « Abou Jahl est mort ! ». C’est alors ‘Aqil, et non le Prophète, qui déclara : « À présent, la voie t’est ouverte ! »." }
                 ],
                 hadiths: [
                     { text: "Je t'aime de deux amours : un amour pour toi et un amour pour l'amour qu'Abou Talib te portait.", narrator: "Le Prophète (ﷺ)", source: "At-Tabarani" }
@@ -1406,11 +1406,11 @@
                     { year: "6 H", desc: "Protège Outhman à la Mecque lors des négociations." },
                     { year: "Conversion", desc: "Se convertit suite à l'appel de ses frères." },
                     { year: "9 H", desc: "Nommé Gouverneur de Bahreïn par le Prophète." },
-                    { year: "13 H", desc: "Martyr à Ajnadayne avec ses frères." }
+                    { year: "13 H", desc: "Martyr au Sham, suivant des traditions qui évoquent notamment Yarmouk et Ajnadayne." }
                 ],
                 narratives: [
                     { id: 491, title: "La Protection d'Outhman", content: "Lorsqu'Outhman vint négocier à la Mecque (Houdaybiya), Abane (alors païen) le prit sous sa protection et le fit monter sur sa selle, lui permettant de circuler en sécurité." },
-                    { id: 492, title: "La Mort des Trois Frères", content: "Lui et ses deux frères (Khalid et 'Amr) moururent tous en martyrs lors de la conquête du Sham (Ajnadayne ou Yarmouk), un sacrifice familial immense." }
+                    { id: 492, title: "Le départ au Sham des trois frères", content: "Un récit attribué à ‘Amr ibn Saïd Al-Ashdaq dit que Khalid, Abane et ‘Amr quittèrent leurs fonctions après la mort du Prophète (ﷺ), puis partirent au Sham où ils trouvèrent le martyre. La notice d’‘Amr donne Yarmouk ou Ajnadayne selon les voies : il est excessif d’affirmer qu’ils moururent tous au même endroit le même jour." }
                 ],
                 hadiths: [],
                 quizData: [
@@ -1448,7 +1448,7 @@
                 name: "Al-'Ala ibn Al-Hadrami",
                 arabicName: "العَلاء بن الحَضْرَمي",
                 subtitle: "L'Homme aux Miracles",
-                intro: "Gouverneur du Bahreïn célèbre pour ses miracles (Karama) : il traversa la mer à cheval avec son armée et fit jaillir l'eau du désert par son invocation.",
+                intro: "Gouverneur du Bahreïn, connu également par des récits historiques évoquant une traversée de la mer ou d’un gué, ainsi que l’apparition d’eau dans le désert. Ces épisodes sont rapportés avec des voies distinctes et ne sont pas authentifiés ici de façon indépendante.",
                 heroQuote: "Ô Omniscient, Ô Indulgent, Ô Très-Haut... Abreuve-nous !",
                 tags: ["Gouverneur", "Miracle", "Bahreïn"],
                 genealogy: "Al-'Ala ibn Abd-Allah... Al-Hadrami. Allié des Banou Oumaya.",
@@ -1458,8 +1458,8 @@
                     { year: "21 H", desc: "Décès. Son corps est enterré sans niche, creusé avec des épées, puis disparait." }
                 ],
                 narratives: [
-                    { id: 511, title: "La Traversée de la Mer", content: "Face à l'ennemi à Darine, séparé par la mer, il invoqua Allah. Lui et son armée traversèrent l'eau en marchant (ou à cheval) sans même se mouiller les pieds, un exploit stupéfiant témoigné par Abou Hourayra." },
-                    { id: 512, title: "L'Eau du Désert", content: "Dans le désert du Dahna, assoiffé, il pria deux rakats et invoqua Allah. Une nuée apparut et il plut immédiatement. Ils remplirent leurs outres et l'eau disparut après leur départ." }
+                    { id: 511, title: "Les récits d’une traversée", content: "La notice rapporte d’après ‘Ourwa qu’Al-‘Ala traversa avec ses troupes à pied une étendue décrite comme mer ou gué. Un témoignage attribué à Abou Hourayra évoque une traversée à cheval. Ces narrations ne doivent pas être confondues ni présentées comme des miracles historiquement démontrés." },
+                    { id: 512, title: "L’eau du désert, selon une narration", content: "La notice transmet d’Abou Hourayra un souvenir de voyage dans le désert du Dahna : après l’invocation d’Al-‘Ala, de l’eau serait apparue et le groupe aurait pu boire. Il s’agit d’un récit attribué à son rapporteur, sans vérification indépendante effectuée par Athar." }
                 ],
                 hadiths: [
                     { text: "J'ai vu trois choses étonnantes avec Al-'Ala : la traversée de la mer, l'eau du désert et la disparition de son corps.", narrator: "Abou Hourayra", source: "Siyar A'lam" }
@@ -1548,7 +1548,7 @@
                 name: "Saad ibn Oubada",
                 arabicName: "سعد بن عبادة",
                 subtitle: "Le Doyen des Khazraj",
-                intro: "Chef incontesté des Khazraj et porteur de l'étendard des Ansar lors des conquêtes. Sa générosité était proverbiale : son plat de nourriture suivait le Prophète (ﷺ) chaque soir. Il mourut de façon mystérieuse en Syrie.",
+                intro: "Chef des Khazraj, Saad ibn Oubada était connu pour sa générosité et envoyait quotidiennement de la nourriture au Prophète (ﷺ). Sa mort au Sham est entourée de récits et de datations divergents.",
                 heroQuote: "Ô Allah, pourvois-moi d'argent; il est certes indispensable à l'entreprise des œuvres !",
                 tags: ["Ansar", "Khazraj", "Généreux", "Chef"],
                 genealogy: "Saad ibn Oubada ibn Doulaym... Le doyen des Khazraj. Sa mère (Amra) décéda alors qu'elle devait accomplir un vœu.",
@@ -1557,13 +1557,13 @@
                     { year: "Avant l'Hégire", desc: "Participe au serment d'allégeance d'Al-'Aqaba et compte parmi les douze apôtres (Nuqaba)." },
                     { year: "2 H", desc: "Prépare l'expédition de Badr mais est mordu par un serpent (ou malade) juste avant. Le Prophète lui accorde sa part de butin." },
                     { year: "Vie du Prophète", desc: "Fait envoyer quotidiennement une écuelle de viande ou de lait au Prophète dans ses demeures." },
-                    { year: "11 H", desc: "Candidat au califat à la Saqifa. Refuse de prêter allégeance à Abou Bakr puis à Oumar par fierté tribale." },
-                    { year: "15 H", desc: "S'exile au Hauran (Syrie) et y meurt mystérieusement. On ne retrouva son corps qu'après avoir entendu des djinns." }
+                    { year: "11 H", desc: "Des Ansâr envisagèrent de lui prêter allégeance à la Saqîfa ; un récit rapporte ensuite son refus d’allégeance à Abou Bakr puis à ‘Oumar, sans établir à lui seul ses motivations." },
+                    { year: "14 ou 16 H selon des récits", desc: "Plusieurs narrations situent sa mort au Hauran. Une tradition l’attribue aux djinns ; il ne s’agit pas d’une cause établie." }
                 ],
                 narratives: [
                     { id: 551, title: "L'Ombre de la Générosité", content: "Lorsque le Prophète (ﷺ) arriva à Médine, Saad instaura une coutume : chaque soir, une écuelle de 'Tharid' (viande et bouillon) ou de lait ou de graisse était envoyée au Prophète, le suivant tour à tour chez ses épouses. Le Prophète invoquait : « Ô Allah, accorde Tes bénédictions à la famille de Saad ibn Oubada »." },
                     { id: 552, title: "La Jalousie Légendaire", content: "Saad était d'une jalousie (Ghayra) extrême pour son honneur. Il jura : « Si je voyais un homme avec ma femme, je le frapperais du tranchant de l'épée ! ». Le Prophète (ﷺ) dit : « Vous étonnez-vous de la jalousie de Saad ? Par Allah, je suis plus jaloux que lui et Allah est plus jaloux que moi ! »." },
-                    { id: 553, title: "La Mort par les Djinns", content: "Il s'isola au Hauran en Syrie. On le retrouva mort dans son bain (ou après avoir uriné debout), sa peau devenue verdâtre. Une voix invisible (Djinn) récita : « Nous avons tué le seigneur des Khazraj, Saad ibn Oubada... Nous lui avons décoché deux flèches qui n'ont pas manqué son cœur »." }
+                    { id: 553, title: "Des traditions sur sa mort au Hauran", content: "Le fascicule rapporte plusieurs traditions concernant sa mort dans le Hauran, avec des dates divergentes. Certaines attribuent cette mort aux djinns et évoquent une voix entendue après son décès. Ces récits sont conservés comme témoignages transmis, sans conclure à une causalité surnaturelle certaine." }
                 ],
                 hadiths: [
                     { text: "La foi (Al-Iman) est l'amour des Ansar, et l'hypocrisie est la haine des Ansar.", narrator: "Le Prophète (ﷺ)", source: "Sahih Al-Boukhari" },
@@ -1596,7 +1596,7 @@
                     { id: 561, title: "Le Jugement Divin", content: "Blessé, Saad fut porté à dos d'âne pour juger les traîtres de Banou Qourayzha. Il décréta l'exécution des combattants et la captivité des familles. Le Prophète (ﷺ) s'écria : « Tu as jugé selon le jugement d'Allah prononcé au-dessus des sept cieux ! »." },
                     { id: 562, title: "Le Tremblement du Trône", content: "À sa mort, Jibril vint voir le Prophète (ﷺ) et demanda : « Qui est ce défunt pour qui les portes du ciel se sont ouvertes et pour qui le Trône a vibré ? ». Le Prophète sortit en hâte, traînant son habit, et trouva Saad mort." },
                     { id: 563, title: "Les Mouchoirs du Paradis", content: "On offrit au Prophète une tunique de soie brodée d'or. Les compagnons touchaient le tissu avec admiration. Le Prophète dit : « Vous admirez la douceur de ceci ? Par Celui qui détient mon âme, les mouchoirs de Saad ibn Mouadh au Paradis sont bien plus doux et beaux que cela ! »." },
-                    { id: 564, title: "L'Étreinte de la Tombe", content: "Malgré son rang immense qui fit bouger le Trône, le Prophète (ﷺ) dit après son enterrement : « La tombe a serré Saad d'une étreinte... Si quelqu'un avait dû y échapper, c'eût été lui. Puis Allah l'a relâché »." }
+                    { id: 564, title: "Une étreinte de la tombe : des voies à distinguer", content: "La notice rapporte des paroles décrivant l’étreinte de la tombe de Saad ibn Mouadh. Dhahabî signale expressément qu’une version expliquant cette étreinte par des éclaboussures d’urine a une chaîne de transmission discontinue. Athar ne retient pas cette explication comme certaine." }
                 ],
                 hadiths: [
                     { text: "Le Trône du Tout-Miséricordieux a tremblé à cause de la mort de Saad ibn Mouadh !", narrator: "Le Prophète (ﷺ)", source: "Bukhari / Muslim" },
@@ -1708,10 +1708,10 @@
                 physicalDesc: "C'était l'un des plus beaux hommes de son temps.",
                 timeline: [
                     { year: "2 H", desc: "Son épée casse à Badr. Le miracle de l'épée 'Al-Awn'." },
-                    { year: "11 H", desc: "Tué en martyr par Toulayha (le faux prophète) lors de la bataille de Bouzakha." }
+                    { year: "11 H (12 H également rapporté)", desc: "Tué à Bouzakha par Toulayha selon la version que Dhahabî juge la plus authentique ; une autre version donne 12 H." }
                 ],
                 narratives: [
-                    { id: 601, title: "L'Épée Miraculeuse", content: "À Badr, son épée se brisa. Le Prophète (ﷺ) lui donna une branche d'arbre (ou racine). En la secouant, elle devint une épée d'acier blanc tranchante. Il l'appela 'Al-Awn' (Le Secours) et combattit avec jusqu'à sa mort." },
+                    { id: 601, title: "La palme devenue épée, d’après la notice", content: "La notice de Siyar raconte que l’épée d’Oukacha se brisa à Badr et que le Prophète (ﷺ) lui remit une palme ou un morceau de bois, devenu une épée entre ses mains. Ce passage ne mentionne pas le nom « Al-Awn » : Athar le présente comme un récit rapporté sans le compléter par un détail non trouvé dans le fascicule." },
                     { id: 602, title: "Les 70 000 Élus", content: "Quand le Prophète mentionna les 70 000 qui entreront au Paradis sans jugement, Oukacha se leva et dit : « Invoque Allah pour que j'en sois ! ». Le Prophète dit : « Tu en fais partie ». Un autre se leva, et le Prophète dit : « Oukacha t'a devancé »." }
                 ],
                 hadiths: [
@@ -1976,7 +1976,7 @@
                     { year: "2 H", desc: "Envoie le collier de sa mère pour rançonner son mari." },
                     { year: "Hégire", desc: "Attaquée par Habbar ibn Al-Aswad en quittant la Mecque, elle fait une fausse couche." },
                     { year: "7 H", desc: "Son mari la rejoint et se convertit." },
-                    { year: "8 H", desc: "Décès des suites de sa blessure ancienne." }
+                    { year: "8 H", desc: "Décès en 8 H ; le passage consulté ne précise pas la cause de sa mort." }
                 ],
                 narratives: [
                     { id: 701, title: "Le Collier de Khadija", content: "Elle envoya le collier de Khadija pour payer la rançon de son mari. Le Prophète pleura en le voyant et demanda à ce qu'on libère le prisonnier et qu'on rende le collier." }
@@ -2017,7 +2017,7 @@
                 name: "Abou Zayd Al-Ansari",
                 arabicName: "أَبُو زَيْد",
                 subtitle: "Le Collecteur du Coran",
-                intro: "L'un des 4 (ou 6) compagnons à avoir mémorisé tout le Coran du vivant du Prophète. Son nom est Saad ibn Oubayd (ou autre selon divergence).",
+                intro: "L’un des compagnons qui mémorisèrent intégralement le Coran du vivant du Prophète (ﷺ). Ibn Saad donne le nom Thabit ibn Zayd ; Aous et Mouadh sont également mentionnés, le premier nom étant préféré.",
                 heroQuote: "Quatre ont rassemblé le Coran... dont Abou Zayd.",
                 tags: ["Ansar", "Coran", "Hafiz"],
                 genealogy: "Saad ibn Oubayd (selon l'avis le plus fort).",
