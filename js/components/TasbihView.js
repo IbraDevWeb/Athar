@@ -41,16 +41,17 @@ const TasbihView = {
             goalPulse: false,
             confirmAction: '',
             showCustomForm: false,
-            customGoalDraft: 250
+            customGoalDraft: 250,
+            pendingDhikrId: null
         });
 
         const customDraft = reactive({ label: '', arabic: '', transliteration: '', meaning: '', goal: 33 });
-        const isFullscreen = ref(false);
         let timer = null;
         let noticeTimer = null;
         let pulseTimer = null;
         let wakeLock = null;
         let audioContext = null;
+        let modalReturnFocus = null;
 
         const allDhikrs = computed(() => [...presets, ...state.customDhikrs]);
         const selected = computed(() => allDhikrs.value.find(item => item.id === state.selectedId) || allDhikrs.value[0]);
@@ -234,6 +235,10 @@ const TasbihView = {
 
         const increment = () => {
             if (!selected.value) return;
+            if (state.paused) {
+                notify('Reprends la séance avant de continuer.');
+                return;
+            }
             if (!state.unlimited && !state.settings.autoCycle && state.count >= state.goal) {
                 notify('Objectif atteint : termine la séance ou active les cycles automatiques.');
                 return;
@@ -307,6 +312,7 @@ const TasbihView = {
         };
 
         const selectDhikr = (id) => {
+            if (!allDhikrs.value.some(item => item.id === id)) return;
             if (id === state.selectedId) {
                 state.mode = 'session';
                 return;
@@ -315,8 +321,18 @@ const TasbihView = {
             state.selectedId = id;
             resetSessionState();
             state.mode = 'session';
-            notify('Nouveau dhikr sélectionné');
+            notify('Formule sélectionnée');
             refreshIcons();
+        };
+
+        const requestDhikr = (id) => {
+            if (!allDhikrs.value.some(item => item.id === id)) return;
+            if (id === state.selectedId || state.sessionTotal === 0) {
+                selectDhikr(id);
+                return;
+            }
+            state.pendingDhikrId = id;
+            state.confirmAction = 'switch';
         };
 
         const setGoal = (value) => {
@@ -365,15 +381,6 @@ const TasbihView = {
             }
         };
 
-        const toggleFullscreen = async () => {
-            try {
-                if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
-                else await document.exitFullscreen();
-            } catch (error) {
-                notify('Le mode plein écran est indisponible.');
-            }
-        };
-
         const addCustomDhikr = () => {
             const label = customDraft.label.trim();
             const arabic = customDraft.arabic.trim();
@@ -391,6 +398,7 @@ const TasbihView = {
                 accent: '#64748b',
                 custom: true
             };
+            if (state.sessionTotal > 0) finishSession(true);
             state.customDhikrs.push(item);
             state.showCustomForm = false;
             state.selectedId = item.id;
@@ -407,6 +415,7 @@ const TasbihView = {
             if (!item) return;
             state.customDhikrs = state.customDhikrs.filter(entry => entry.id !== id);
             if (state.selectedId === id) {
+                if (state.sessionTotal > 0) finishSession(true);
                 resetSessionState();
                 state.selectedId = presets[0].id;
             }
@@ -414,6 +423,11 @@ const TasbihView = {
         };
 
         const runConfirmedAction = () => {
+            if (state.confirmAction === 'switch' && state.pendingDhikrId) {
+                const target = state.pendingDhikrId;
+                selectDhikr(target);
+                notify('Séance précédente enregistrée ; nouvelle formule sélectionnée');
+            }
             if (state.confirmAction === 'discard') discardSession();
             if (state.confirmAction === 'history') {
                 state.history = [];
@@ -426,6 +440,7 @@ const TasbihView = {
                 notify('Toutes les statistiques ont été réinitialisées');
             }
             state.confirmAction = '';
+            state.pendingDhikrId = null;
         };
 
         const setMode = (mode) => {
@@ -434,6 +449,12 @@ const TasbihView = {
         };
 
         const handleKeydown = (event) => {
+            if (state.confirmAction && event.key === 'Escape') {
+                event.preventDefault();
+                state.confirmAction = '';
+                state.pendingDhikrId = null;
+                return;
+            }
             const target = event.target;
             const interactive = target && ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'].includes(target.tagName);
             if (interactive || state.mode !== 'session' || state.confirmAction) return;
@@ -452,6 +473,30 @@ const TasbihView = {
         };
 
         watch(state, persist, { deep: true });
+        watch(() => state.confirmAction, async (action, previous) => {
+            if (action && !previous) {
+                modalReturnFocus = document.activeElement;
+                await nextTick();
+                document.querySelector('.tasbih-confirm-modal button')?.focus();
+            } else if (!action && previous && modalReturnFocus?.isConnected) {
+                await nextTick();
+                modalReturnFocus.focus();
+                modalReturnFocus = null;
+            }
+        });
+
+        const trapModalFocus = (event) => {
+            const controls = [...event.currentTarget.querySelectorAll('button:not([disabled])')];
+            if (!controls.length) return;
+            const first = controls[0], last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        };
 
         onMounted(() => {
             load();
@@ -459,7 +504,6 @@ const TasbihView = {
                 if (state.sessionStartedAt && !state.paused) state.elapsedSeconds += 1;
             }, 1000);
             window.addEventListener('keydown', handleKeydown);
-            document.addEventListener('fullscreenchange', () => { isFullscreen.value = Boolean(document.fullscreenElement); });
             document.addEventListener('visibilitychange', handleVisibility);
             syncWakeLock();
             refreshIcons();
@@ -478,106 +522,116 @@ const TasbihView = {
         return {
             state, customDraft, presets, allDhikrs, selected, circumference, progressOffset, progress,
             goalLabel, sessionRate, totalAll, selectedTotal, todayTotal, weeklyData, streak, topDhikr,
-            recentHistory, isFullscreen, formatDuration, historyDate, increment, undo, finishSession,
-            selectDhikr, setGoal, applyCustomGoal, pauseSession, toggleSetting, toggleFullscreen,
-            addCustomDhikr, removeCustomDhikr, runConfirmedAction, setMode
+            recentHistory, formatDuration, historyDate, increment, undo, finishSession,
+            selectDhikr, requestDhikr, setGoal, applyCustomGoal, pauseSession, toggleSetting,
+            addCustomDhikr, removeCustomDhikr, runConfirmedAction, setMode, trapModalFocus
         };
     },
     template: `
     <section class="tasbih-pro-shell" :style="{ '--tasbih-accent': selected?.accent || '#c5a059' }">
         <div class="tasbih-pro-container">
-            <header class="tasbih-pro-header">
+
+            <header class="tasbih-pro-header tasbih-simple-header">
                 <div class="tasbih-pro-title">
-                    <span><i data-lucide="circle-dot-dashed"></i> Compteur de dhikr</span>
-                    <h1>Un espace calme pour <em>se rappeler</em></h1>
-                    <p>Comptez une formule, organisez une séance et suivez votre régularité sans transformer le dhikr en compétition.</p>
-                </div>
-                <div class="tasbih-pro-header-actions">
-                    <button type="button" @click="toggleFullscreen" :title="isFullscreen ? 'Quitter le plein écran' : 'Passer en plein écran'"><i :data-lucide="isFullscreen ? 'minimize-2' : 'maximize-2'"></i></button>
-                    <button type="button" @click="$emit('close-view')" title="Retour à l’accueil"><i data-lucide="x"></i></button>
+                    <span><i data-lucide="circle-dot-dashed"></i> Athar Pro · Le rappel</span>
+                    <h1>Tasbih <em>— un instant de dhikr</em></h1>
+                    <p>Choisis une formule, puis touche le compteur à ton rythme.</p>
                 </div>
             </header>
 
-            <nav class="tasbih-pro-tabs" aria-label="Sections du Tasbih">
-                <button type="button" :class="{ active: state.mode === 'session' }" @click="setMode('session')"><i data-lucide="mouse-pointer-click"></i> Compter</button>
-                <button type="button" :class="{ active: state.mode === 'library' }" @click="setMode('library')"><i data-lucide="library"></i> Dhikr</button>
-                <button type="button" :class="{ active: state.mode === 'progress' }" @click="setMode('progress')"><i data-lucide="chart-no-axes-column-increasing"></i> Progression</button>
+            <nav class="tasbih-pro-tabs tasbih-simple-tabs" aria-label="Sections du Tasbih">
+                <button type="button" :class="{ active: state.mode === 'session' }" :aria-current="state.mode === 'session' ? 'page' : null" @click="setMode('session')"><i data-lucide="circle-dot"></i><span>Compter</span></button>
+                <button type="button" :class="{ active: state.mode === 'library' }" :aria-current="state.mode === 'library' ? 'page' : null" @click="setMode('library')"><i data-lucide="book-open"></i><span>Formules</span></button>
+                <button type="button" :class="{ active: state.mode === 'progress' }" :aria-current="state.mode === 'progress' ? 'page' : null" @click="setMode('progress')"><i data-lucide="chart-no-axes-column-increasing"></i><span>Mon suivi</span></button>
             </nav>
 
-            <div v-if="state.mode === 'session'" class="tasbih-session-layout">
-                <aside class="tasbih-preset-panel">
-                    <div class="tasbih-panel-heading"><span>Formule active</span><strong>{{ allDhikrs.length }} choix</strong></div>
-                    <div class="tasbih-preset-list">
-                        <button v-for="item in allDhikrs" :key="item.id" type="button" class="tasbih-preset-row" :class="{ active: item.id === state.selectedId }" :style="{ '--item-accent': item.accent }" @click="selectDhikr(item.id)">
-                            <span><i :data-lucide="item.icon"></i></span>
-                            <div><strong>{{ item.label }}</strong><small dir="rtl" lang="ar">{{ item.arabic }}</small></div>
-                            <b>{{ Number(state.totals[item.id] || 0).toLocaleString('fr-FR') }}</b>
+            <div v-if="state.mode === 'session'" class="tasbih-session-layout tasbih-simple-layout">
+                <section class="tasbih-simple-choices" aria-labelledby="tasbih-choose-title">
+                    <div class="tasbih-simple-choices-head">
+                        <h2 id="tasbih-choose-title">Choisir une formule</h2>
+                        <button type="button" @click="setMode('library')">Voir les formules <i data-lucide="arrow-right"></i></button>
+                    </div>
+                    <div class="tasbih-quick-list" role="group" aria-label="Formule de dhikr à compter">
+                        <button v-for="item in allDhikrs" :key="item.id" type="button" class="tasbih-quick-choice" :class="{ active: state.selectedId === item.id }"
+                                :aria-pressed="state.selectedId === item.id" :aria-label="'Choisir ' + item.label"
+                                @click="requestDhikr(item.id)">
+                            <i :data-lucide="item.icon" aria-hidden="true"></i><span>{{ item.label }}</span>
                         </button>
                     </div>
-                    <button type="button" class="tasbih-add-shortcut" @click="state.showCustomForm = true; setMode('library')"><i data-lucide="plus"></i> Ajouter une formule</button>
-                </aside>
+                </section>
 
-                <main class="tasbih-counter-card" :class="{ 'goal-reached': state.goalPulse }">
-                    <div class="tasbih-session-meta">
-                        <span><i data-lucide="timer"></i>{{ formatDuration(state.elapsedSeconds) }}</span>
-                        <span><i data-lucide="gauge"></i>{{ sessionRate }} / min</span>
-                        <span><i data-lucide="repeat-2"></i>{{ state.cycles }} cycle{{ state.cycles > 1 ? 's' : '' }}</span>
-                    </div>
-
-                    <div class="tasbih-arabic-block" :class="{ large: state.settings.largeArabic }">
-                        <p dir="rtl" lang="ar">{{ selected.arabic }}</p>
+                <main class="tasbih-counter-card tasbih-focus-card" :class="{ 'goal-reached': state.goalPulse }">
+                    <div class="tasbih-focus-formula">
+                        <span class="tasbih-overline">Formule active · {{ selected.label }}</span>
+                        <p class="tasbih-focus-arabic" lang="ar" dir="rtl" :class="{ large: state.settings.largeArabic }">{{ selected.arabic }}</p>
                         <strong>{{ selected.transliteration }}</strong>
-                        <span>{{ selected.meaning }}</span>
+                        <p class="tasbih-focus-meaning">{{ selected.meaning }}</p>
                     </div>
 
-                    <button type="button" class="tasbih-counter-button" @click="increment" :aria-label="'Ajouter une répétition de ' + selected.label">
+                    <div class="tasbih-simple-goals">
+                        <span>Objectif personnel</span>
+                        <div role="group" aria-label="Choix du nombre de répétitions">
+                            <button type="button" v-for="value in [33, 100]" :key="value" :class="{ active: !state.unlimited && state.goal === value }"
+                                :aria-pressed="!state.unlimited && state.goal === value" @click="setGoal(value)">{{ value }}</button>
+                            <button type="button" :class="{ active: state.unlimited }" :aria-pressed="state.unlimited" @click="setGoal('infinite')">Libre</button>
+                            <span v-if="!state.unlimited && ![33,100].includes(state.goal)" class="tasbih-other-goal">Actuel : {{ goalLabel }}</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="tasbih-counter-button" @click="increment" aria-keyshortcuts="Space Enter"
+                            :aria-label="'Compter ' + selected.label + '. ' + state.count + ' répétitions dans la série. ' + state.sessionTotal + ' dans la séance.'"
+                            aria-describedby="tasbih-count-help">
                         <svg viewBox="0 0 100 100" aria-hidden="true">
                             <circle class="tasbih-ring-track" cx="50" cy="50" :r="46"></circle>
                             <circle v-if="!state.unlimited" class="tasbih-ring-progress" cx="50" cy="50" :r="46" :stroke-dasharray="circumference" :stroke-dashoffset="progressOffset"></circle>
                         </svg>
-                        <span class="tasbih-counter-inner">
-                            <small>{{ state.paused ? 'EN PAUSE' : 'APPUYER' }}</small>
+                        <span class="tasbih-counter-inner" aria-hidden="true">
+                            <small>{{ state.paused ? 'EN PAUSE' : 'APPUYER POUR COMPTER' }}</small>
                             <strong>{{ state.count.toLocaleString('fr-FR') }}</strong>
-                            <b>{{ state.unlimited ? 'mode libre' : '/ ' + goalLabel }}</b>
+                            <b>{{ state.unlimited ? 'sans limite' : '/ ' + goalLabel }}</b>
                         </span>
                     </button>
+                    <p id="tasbih-count-help" class="tasbih-simple-hint">Appuie sur le cercle pour compter. Au clavier : espace ou entrée.</p>
 
-                    <div class="tasbih-keyboard-hint"><kbd>Espace</kbd> ou clic pour compter · <kbd>Retour</kbd> pour annuler</div>
-
-                    <div class="tasbih-session-actions">
-                        <button type="button" @click="undo" :disabled="state.sessionTotal === 0"><i data-lucide="undo-2"></i><span>Annuler</span></button>
-                        <button type="button" @click="pauseSession" :disabled="!state.sessionStartedAt"><i :data-lucide="state.paused ? 'play' : 'pause'"></i><span>{{ state.paused ? 'Reprendre' : 'Pause' }}</span></button>
-                        <button type="button" class="primary" @click="finishSession"><i data-lucide="check"></i><span>Terminer</span></button>
-                        <button type="button" class="danger" @click="state.confirmAction = 'discard'" :disabled="state.sessionTotal === 0"><i data-lucide="trash-2"></i><span>Effacer</span></button>
+                    <div class="tasbih-simple-metrics" aria-label="Progression de la séance">
+                        <div><strong>{{ state.sessionTotal.toLocaleString('fr-FR') }}</strong><span>Cette séance</span></div>
+                        <div><strong>{{ todayTotal.toLocaleString('fr-FR') }}</strong><span>Aujourd’hui</span></div>
+                        <div><strong>{{ state.unlimited ? 'Libre' : state.cycles }}</strong><span>{{ state.unlimited ? 'Mode' : 'Séries terminées' }}</span></div>
                     </div>
+
+                    <div class="tasbih-session-actions tasbih-simple-actions">
+                        <button type="button" @click="undo" :disabled="state.sessionTotal === 0"><i data-lucide="undo-2"></i><span>Annuler le dernier</span></button>
+                        <button type="button" class="primary" @click="finishSession()" :disabled="state.sessionTotal === 0"><i data-lucide="check"></i><span>Enregistrer la séance</span></button>
+                    </div>
+                    <p class="tasbih-simple-local"><i data-lucide="shield-check" aria-hidden="true"></i> Le comptage est sauvegardé automatiquement sur cet appareil.</p>
                 </main>
 
-                <aside class="tasbih-control-panel">
-                    <section>
-                        <div class="tasbih-panel-heading"><span>Objectif personnel</span><strong>{{ goalLabel }}</strong></div>
-                        <div class="tasbih-goal-grid">
-                            <button v-for="value in [33, 100, 500]" :key="value" type="button" :class="{ active: !state.unlimited && state.goal === value }" @click="setGoal(value)">{{ value }}</button>
-                            <button type="button" :class="{ active: state.unlimited }" @click="setGoal('infinite')">∞</button>
+                <details class="tasbih-simple-more">
+                    <summary><i data-lucide="sliders-horizontal" aria-hidden="true"></i><span>Options de comptage</span><i data-lucide="chevron-down" aria-hidden="true" class="tasbih-more-chevron"></i></summary>
+                    <div class="tasbih-simple-more-body">
+                        <section>
+                            <h3>Objectif personnalisé</h3>
+                            <div class="tasbih-goal-grid">
+                                <button type="button" :class="{ active: !state.unlimited && state.goal === 500 }" :aria-pressed="!state.unlimited && state.goal === 500" @click="setGoal(500)">500 répétitions</button>
+                            </div>
+                            <div class="tasbih-custom-goal"><input v-model.number="state.customGoalDraft" type="number" inputmode="numeric" min="1" max="100000" aria-label="Objectif personnalisé"><button type="button" @click="applyCustomGoal">Appliquer</button></div>
+                            <p class="tasbih-editorial-note">Les objectifs sont personnels : ils ne constituent pas une prescription religieuse.</p>
+                        </section>
+                        <section>
+                            <h3>Confort de lecture et de comptage</h3>
+                            <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.autoCycle }" :aria-pressed="state.settings.autoCycle" @click="toggleSetting('autoCycle')"><i data-lucide="repeat-2"></i><span><strong>Cycles automatiques</strong><small>Nouvelle série à chaque objectif</small></span><b aria-hidden="true"></b></button>
+                            <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.vibration }" :aria-pressed="state.settings.vibration" @click="toggleSetting('vibration')"><i data-lucide="smartphone"></i><span><strong>Vibration</strong><small>Retour tactile facultatif</small></span><b aria-hidden="true"></b></button>
+                            <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.sound }" :aria-pressed="state.settings.sound" @click="toggleSetting('sound')"><i data-lucide="volume-2"></i><span><strong>Son</strong><small>Son discret, désactivé par défaut</small></span><b aria-hidden="true"></b></button>
+                            <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.keepAwake }" :aria-pressed="state.settings.keepAwake" @click="toggleSetting('keepAwake')"><i data-lucide="sun"></i><span><strong>Écran allumé</strong><small>Selon le navigateur</small></span><b aria-hidden="true"></b></button>
+                            <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.largeArabic }" :aria-pressed="state.settings.largeArabic" @click="toggleSetting('largeArabic')"><i data-lucide="languages"></i><span><strong>Arabe agrandi</strong><small>Texte plus lisible</small></span><b aria-hidden="true"></b></button>
+                        </section>
+                        <div class="tasbih-extra-actions">
+                            <button type="button" @click="pauseSession" :disabled="!state.sessionStartedAt"><i :data-lucide="state.paused ? 'play' : 'pause'"></i>{{ state.paused ? 'Reprendre la séance' : 'Mettre en pause' }}</button>
+                            <button type="button" class="danger" @click="state.confirmAction = 'discard'" :disabled="state.sessionTotal === 0"><i data-lucide="trash-2"></i> Effacer cette séance</button>
                         </div>
-                        <div class="tasbih-custom-goal"><input v-model.number="state.customGoalDraft" type="number" min="1" max="100000" aria-label="Objectif personnalisé"><button type="button" @click="applyCustomGoal">Appliquer</button></div>
-                        <p class="tasbih-editorial-note">Ces nombres sont des réglages personnels. Ils ne présentent pas chaque formule comme prescrite avec ce nombre.</p>
-                    </section>
-
-                    <section>
-                        <div class="tasbih-panel-heading"><span>Confort de séance</span><strong>Local</strong></div>
-                        <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.autoCycle }" @click="toggleSetting('autoCycle')"><i data-lucide="repeat-2"></i><span><strong>Cycles automatiques</strong><small>Repartir à zéro à chaque objectif</small></span><b></b></button>
-                        <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.vibration }" @click="toggleSetting('vibration')"><i data-lucide="smartphone"></i><span><strong>Vibration</strong><small>Retour tactile discret</small></span><b></b></button>
-                        <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.sound }" @click="toggleSetting('sound')"><i data-lucide="volume-2"></i><span><strong>Son</strong><small>Clic sonore facultatif</small></span><b></b></button>
-                        <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.keepAwake }" @click="toggleSetting('keepAwake')"><i data-lucide="sun"></i><span><strong>Écran éveillé</strong><small>Selon la compatibilité du navigateur</small></span><b></b></button>
-                        <button type="button" class="tasbih-setting-row" :class="{ active: state.settings.largeArabic }" @click="toggleSetting('largeArabic')"><i data-lucide="languages"></i><span><strong>Arabe agrandi</strong><small>Lecture plus confortable</small></span><b></b></button>
-                    </section>
-
-                    <section class="tasbih-live-summary">
-                        <div><span>Séance</span><strong>{{ state.sessionTotal.toLocaleString('fr-FR') }}</strong></div>
-                        <div><span>Aujourd’hui</span><strong>{{ todayTotal.toLocaleString('fr-FR') }}</strong></div>
-                        <div><span>Total de la formule</span><strong>{{ selectedTotal.toLocaleString('fr-FR') }}</strong></div>
-                    </section>
-                </aside>
+                        <p class="tasbih-simple-secondary">{{ formatDuration(state.elapsedSeconds) }} écoulées · {{ selectedTotal.toLocaleString('fr-FR') }} répétitions de cette formule enregistrées localement.</p>
+                    </div>
+                </details>
             </div>
 
             <section v-else-if="state.mode === 'library'" class="tasbih-library-view">
@@ -594,7 +648,7 @@ const TasbihView = {
                     <article v-for="item in allDhikrs" :key="item.id" class="tasbih-dhikr-card" :style="{ '--item-accent': item.accent }">
                         <div class="tasbih-dhikr-card-head"><span><i :data-lucide="item.icon"></i></span><small>{{ item.custom ? 'Personnel' : 'Sélection proposée' }}</small><button v-if="item.custom" type="button" @click="removeCustomDhikr(item.id)" aria-label="Supprimer"><i data-lucide="trash-2"></i></button></div>
                         <p dir="rtl" lang="ar">{{ item.arabic }}</p><h3>{{ item.label }}</h3><strong>{{ item.transliteration }}</strong><span>{{ item.meaning }}</span>
-                        <footer><div><small>Total local</small><b>{{ Number(state.totals[item.id] || 0).toLocaleString('fr-FR') }}</b></div><button type="button" @click="selectDhikr(item.id)"><i data-lucide="play"></i> Compter</button></footer>
+                        <footer><div><small>Total local</small><b>{{ Number(state.totals[item.id] || 0).toLocaleString('fr-FR') }}</b></div><button type="button" @click="requestDhikr(item.id)"><i data-lucide="play"></i> Compter</button></footer>
                     </article>
                 </div>
             </section>
@@ -625,11 +679,16 @@ const TasbihView = {
             </section>
         </div>
 
-        <div class="tasbih-sr-live" aria-live="polite">{{ state.notice }}</div>
+        <div class="tasbih-sr-live" role="status" aria-live="polite" aria-atomic="true">{{ state.notice }}</div>
         <transition name="fade"><div v-if="state.notice" class="tasbih-toast"><i data-lucide="check-circle-2"></i>{{ state.notice }}</div></transition>
 
-        <div v-if="state.confirmAction" class="tasbih-confirm-backdrop" @click.self="state.confirmAction = ''">
-            <article class="tasbih-confirm-modal"><span><i data-lucide="triangle-alert"></i></span><h2>{{ state.confirmAction === 'discard' ? 'Effacer la séance en cours ?' : state.confirmAction === 'history' ? 'Effacer tout l’historique ?' : 'Réinitialiser toutes les données ?' }}</h2><p>{{ state.confirmAction === 'discard' ? 'Les répétitions de cette séance seront retirées du total local.' : 'Cette action est limitée à cet appareil et ne peut pas être annulée.' }}</p><div><button type="button" @click="state.confirmAction = ''">Annuler</button><button type="button" class="danger" @click="runConfirmedAction">Confirmer</button></div></article>
+        <div v-if="state.confirmAction" class="tasbih-confirm-backdrop" @click.self="state.confirmAction = ''; state.pendingDhikrId = null">
+            <article class="tasbih-confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="tasbih-confirm-title" aria-describedby="tasbih-confirm-text" @keydown.tab="trapModalFocus">
+                <span><i data-lucide="triangle-alert"></i></span>
+                <h2 id="tasbih-confirm-title">{{ state.confirmAction === 'switch' ? 'Changer de formule ?' : state.confirmAction === 'discard' ? 'Effacer la séance en cours ?' : state.confirmAction === 'history' ? 'Effacer tout l’historique ?' : 'Réinitialiser toutes les données ?' }}</h2>
+                <p id="tasbih-confirm-text">{{ state.confirmAction === 'switch' ? 'La séance en cours sera enregistrée avant de changer de formule.' : state.confirmAction === 'discard' ? 'Les répétitions de cette séance seront retirées du total local.' : 'Cette action est limitée à cet appareil et ne peut pas être annulée.' }}</p>
+                <div><button type="button" @click="state.confirmAction = ''; state.pendingDhikrId = null">Annuler</button><button type="button" :class="{ danger: state.confirmAction !== 'switch' }" @click="runConfirmedAction">{{ state.confirmAction === 'switch' ? 'Enregistrer et changer' : 'Confirmer' }}</button></div>
+            </article>
         </div>
     </section>
     `

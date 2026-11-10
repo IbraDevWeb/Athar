@@ -1,0 +1,368 @@
+/* Athar Pro — Tasbih apaisé, centré sur l'usage. Se superpose aux styles existants. */
+.tasbih-pro-shell {
+  min-height: 100%;
+  overflow: visible;
+  background: #f7f5f0;
+  color: #1a2939;
+}
+.dark .tasbih-pro-shell { background: #0c1420; color: #f8f5ec; }
+.tasbih-pro-shell .tasbih-pro-container {
+  width: min(880px, 100%);
+  margin: auto;
+  padding: 24px 24px max(44px, env(safe-area-inset-bottom, 0px));
+}
+.tasbih-pro-shell .tasbih-simple-header { margin-bottom: 20px; }
+.tasbih-pro-shell .tasbih-pro-title > span {
+  color: #a17935; font-size: 10px; letter-spacing: .18em;
+}
+.tasbih-pro-shell .tasbih-pro-title h1 {
+  margin: 8px 0 7px; font-size: clamp(30px, 4.5vw, 44px);
+  line-height: 1.22; color: #1c2c40; letter-spacing: -.025em;
+}
+.tasbih-pro-shell .tasbih-pro-title h1 em {
+  color: #ac8343; font-size: .62em; font-weight: 500;
+}
+.tasbih-pro-shell .tasbih-pro-title p {
+  font-family: Inter, sans-serif; font-size: 13px; line-height: 1.7;
+  color: #64748b;
+}
+.dark .tasbih-pro-shell .tasbih-pro-title h1 { color: #faf7f0; }
+.dark .tasbih-pro-shell .tasbih-pro-title h1 em { color: #dec18a; }
+.dark .tasbih-pro-shell .tasbih-pro-title p { color: #bbc2ca; }
+.tasbih-pro-shell .tasbih-simple-tabs {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%; max-width: 480px; padding: 4px; gap: 4px;
+  margin-bottom: 20px; border-radius: 14px; box-shadow: none;
+  border: 1px solid rgba(167, 132, 68, .17);
+  background: rgba(255, 255, 255, .67);
+}
+.dark .tasbih-pro-shell .tasbih-simple-tabs {
+  background: #17212e; border-color: rgba(220, 193, 138, .18);
+}
+.tasbih-pro-shell .tasbih-simple-tabs button {
+  min-width: 0; min-height: 44px; justify-content: center;
+  font-size: 12px; border-radius: 11px; padding: 9px 8px;
+}
+.tasbih-pro-shell .tasbih-simple-tabs button.active {
+  background: #1c2e43; color: #f8dfaa;
+}
+.dark .tasbih-pro-shell .tasbih-simple-tabs button.active {
+  background: #e4cb9a; color: #112438;
+}
+/* On évite les trois colonnes et le panneau de réglages permanent. */
+.tasbih-pro-shell .tasbih-simple-layout {
+  display: flex; flex-direction: column; gap: 16px;
+  width: 100%; min-width: 0; align-items: stretch;
+}
+.tasbih-simple-choices {
+  width: 100%; padding: 4px 0; min-width: 0;
+}
+.tasbih-simple-choices-head {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; margin-bottom: 12px;
+}
+.tasbih-simple-choices-head h2 {
+  font-size: 13px; font-weight: 800; color: #26354a; margin: 0;
+}
+.tasbih-simple-choices-head button {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 0; font-size: 11px; color: #986e33; font-weight: 750;
+}
+.tasbih-simple-choices-head button svg { width: 14px; height: 14px; }
+.dark .tasbih-simple-choices-head h2 { color: #e8eaf0; }
+.dark .tasbih-simple-choices-head button { color: #e8c685; }
+.tasbih-quick-list {
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px;
+}
+.tasbih-quick-choice {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; min-height: 44px; max-width: 100%;
+  padding: 10px 13px; border-radius: 13px;
+  border: 1px solid #e2dcd1;
+  background: #fffdfa; color: #37445a;
+  font: 750 12px Inter, sans-serif; transition: background .16s, border-color .16s, box-shadow .16s;
+}
+.tasbih-quick-choice span { overflow-wrap: anywhere; }
+.tasbih-quick-choice svg { width: 16px; height: 16px; flex: none; color: #a8834a; }
+.tasbih-quick-choice:hover { border-color: #c9ac79; }
+.tasbih-quick-choice.active {
+  background: #1c2e43; border-color: #1c2e43; color: #fff4dc;
+  box-shadow: 0 8px 20px rgba(28, 46, 67, .12);
+}
+.tasbih-quick-choice.active svg { color: #e8c78d; }
+.dark .tasbih-quick-choice {
+  background: #192536; color: #e3e6ec; border-color: #334157;
+}
+.dark .tasbih-quick-choice.active {
+  background: #d9bc85; color: #16273b; border-color: #d9bc85;
+}
+.dark .tasbih-quick-choice.active svg { color: #16273b; }
+.tasbih-pro-shell .tasbih-focus-card {
+  width: 100%; min-width: 0; min-height: 0; margin: 0;
+  padding: clamp(20px, 4vw, 36px) 22px 24px;
+  border-radius: 28px; border: 1px solid rgba(175, 147, 95, .2);
+  background: #fffdf9;
+  box-shadow: 0 18px 50px rgba(30, 45, 56, .065);
+  overflow: visible;
+}
+.tasbih-pro-shell .tasbih-focus-card:before { display: none; }
+.dark .tasbih-pro-shell .tasbih-focus-card {
+  background: #152233; border-color: rgba(219, 194, 144, .16);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, .15);
+}
+.tasbih-focus-formula { text-align: center; width: 100%; }
+.tasbih-overline {
+  display: block; text-transform: uppercase;
+  color: #a17c45; font: 800 10px Inter, sans-serif;
+  letter-spacing: .15em; margin-bottom: 8px;
+}
+.tasbih-focus-arabic {
+  width: 100%; margin: 0; padding: 3px 0;
+  color: #24384e; font-family: Amiri, serif;
+  font-size: clamp(31px, 4.4vw, 45px); line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.tasbih-focus-arabic.large { font-size: clamp(38px, 5.2vw, 53px); }
+.tasbih-focus-formula > strong {
+  display: block; color: #966c35;
+  font-family: "Libre Baskerville", serif;
+  font-size: 13px; font-style: italic; line-height: 1.7;
+}
+.tasbih-focus-meaning {
+  margin: 6px auto 0; max-width: 560px; color: #627085;
+  font-family: Inter, sans-serif; font-size: 12px; line-height: 1.7;
+}
+.dark .tasbih-focus-arabic { color: #f5ecdc; }
+.dark .tasbih-focus-formula > strong { color: #e2c48f; }
+.dark .tasbih-focus-meaning { color: #bcc8d7; }
+.tasbih-simple-goals {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 8px 13px;
+  margin: 20px 0 4px;
+}
+.tasbih-simple-goals > span {
+  font: 750 11px Inter, sans-serif; color: #637084;
+}
+.tasbih-simple-goals > div {
+  display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 7px;
+}
+.tasbih-simple-goals button,
+.tasbih-other-goal {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 49px; min-height: 42px; padding: 8px 12px;
+  border-radius: 12px; border: 1px solid #ded8cf;
+  color: #526074; background: #fdfcf9;
+  font: 800 12px Inter, sans-serif;
+}
+.tasbih-simple-goals button.active {
+  border-color: #ae8847; background: #f0dfbb; color: #553d19;
+}
+.tasbih-other-goal { font-size: 10px; border-style: dashed; }
+.dark .tasbih-simple-goals > span { color: #c8d1dd; }
+.dark .tasbih-simple-goals button, .dark .tasbih-other-goal {
+  background: #1d2b3e; border-color: #384960; color: #e4e6eb;
+}
+.dark .tasbih-simple-goals button.active {
+  background: #e4cb9a; border-color: #e4cb9a; color: #17273b;
+}
+.tasbih-pro-shell .tasbih-focus-card .tasbih-counter-button {
+  display: grid; place-items: center;
+  width: min(268px, 76vw); height: min(268px, 76vw);
+  max-width: 100%; min-width: 0; min-height: 0;
+  margin: 18px auto 8px; padding: 0; border-radius: 50%;
+  touch-action: manipulation;
+}
+.tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner {
+  width: 82%; height: 82%;
+  background: radial-gradient(circle at 40% 30%, #ffffff, #f1e8d8);
+  border: 1px solid #e1cfae;
+}
+.tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner small {
+  color: #776849; letter-spacing: .12em; font-size: 9px; font-weight: 850;
+  max-width: 86%; line-height: 1.4;
+}
+.tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner strong {
+  font-size: clamp(65px, 10vw, 88px); color: #1d3146;
+}
+.tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner b {
+  color: #806435; font-size: 12px;
+}
+.tasbih-pro-shell .tasbih-focus-card .tasbih-ring-track { stroke: #e8e2d7; }
+.tasbih-pro-shell .tasbih-focus-card .tasbih-ring-progress { stroke: #b58c4b; }
+.dark .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner {
+  background: radial-gradient(circle at 42% 25%, #283950, #192638);
+  border-color: #3c4958; box-shadow: 0 18px 40px rgba(0,0,0,.2);
+}
+.dark .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner small { color: #e3cfa8; }
+.dark .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner strong { color: #fff5df; }
+.dark .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner b { color: #e7c78e; }
+.dark .tasbih-pro-shell .tasbih-focus-card .tasbih-ring-track { stroke: #344559; }
+.dark .tasbih-pro-shell .tasbih-focus-card .tasbih-ring-progress { stroke: #e2c48c; }
+.tasbih-simple-hint {
+  text-align: center; color: #6c7888;
+  font: 500 11px Inter, sans-serif; line-height: 1.6; margin: 4px auto 20px;
+}
+.dark .tasbih-simple-hint { color: #c4cfda; }
+.tasbih-simple-metrics {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%; max-width: 510px; margin: 0 auto 18px;
+  border-top: 1px solid #ece5db; border-bottom: 1px solid #ece5db;
+}
+.tasbih-simple-metrics > div {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px; padding: 14px 4px; text-align: center; min-width: 0;
+}
+.tasbih-simple-metrics > div + div { border-left: 1px solid #ece5db; }
+.tasbih-simple-metrics strong {
+  color: #213649; font: 800 23px Cinzel, serif; line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.tasbih-simple-metrics span {
+  font: 650 10px Inter, sans-serif; color: #758092; line-height: 1.4;
+}
+.dark .tasbih-simple-metrics { border-color: #344354; }
+.dark .tasbih-simple-metrics > div + div { border-color: #344354; }
+.dark .tasbih-simple-metrics strong { color: #fff2d8; }
+.dark .tasbih-simple-metrics span { color: #cbd2dc; }
+.tasbih-pro-shell .tasbih-simple-actions {
+  width: 100%; max-width: 520px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 10px; align-items: stretch;
+}
+.tasbih-pro-shell .tasbih-simple-actions button {
+  min-width: 0; min-height: 50px; justify-content: center;
+  text-align: center; font-size: 12px; line-height: 1.45;
+}
+.tasbih-pro-shell .tasbih-simple-actions button.primary {
+  background: #1d3145; color: #f9e4b8; border-color: #1d3145;
+}
+.dark .tasbih-pro-shell .tasbih-simple-actions button.primary {
+  background: #e3c58c; color: #14253a; border-color: #e3c58c;
+}
+.tasbih-simple-local {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 6px; text-align: center; color: #89919e;
+  font: 500 10px Inter, sans-serif; margin: 18px 0 0; line-height: 1.5;
+}
+.tasbih-simple-local svg { width: 13px; height: 13px; }
+.dark .tasbih-simple-local { color: #b8c5d0; }
+.tasbih-simple-more {
+  border: 1px solid #e3dacc; border-radius: 18px;
+  background: rgba(255,253,249,.7); min-width: 0; overflow: hidden;
+}
+.dark .tasbih-simple-more { background: #152132; border-color: #334357; }
+.tasbih-simple-more > summary {
+  display: flex; align-items: center; gap: 10px;
+  min-height: 52px; padding: 12px 18px; cursor: pointer;
+  color: #394a5d; font: 800 12px Inter, sans-serif;
+  list-style: none;
+}
+.tasbih-simple-more > summary::-webkit-details-marker { display: none; }
+.tasbih-simple-more > summary svg { width: 17px; height: 17px; color: #a17c45; }
+.tasbih-simple-more > summary .tasbih-more-chevron {
+  margin-left: auto; transition: transform .2s;
+}
+.tasbih-simple-more[open] > summary .tasbih-more-chevron { transform: rotate(180deg); }
+.tasbih-simple-more-body {
+  display: grid; gap: 20px; border-top: 1px solid #e6dfd5;
+  padding: 20px; grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.tasbih-simple-more-body > section { min-width: 0; }
+.tasbih-simple-more-body > section h3 {
+  font: 800 12px Inter, sans-serif; margin: 0 0 12px; color: #354658;
+}
+.tasbih-simple-more-body .tasbih-goal-grid {
+  grid-template-columns: 1fr; width: min(100%, 210px); margin-bottom: 9px;
+}
+.tasbih-simple-more-body .tasbih-goal-grid button { min-height: 40px; }
+.tasbih-simple-more-body .tasbih-custom-goal { flex-wrap: wrap; }
+.tasbih-simple-more-body .tasbih-custom-goal button { min-height: 40px; }
+.tasbih-simple-more-body .tasbih-setting-row {
+  min-height: 48px; grid-template-columns: 24px minmax(0, 1fr) 32px;
+}
+.tasbih-simple-more-body .tasbih-setting-row svg { width: 17px; }
+.tasbih-simple-more-body .tasbih-extra-actions {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  grid-column: 1 / -1;
+}
+.tasbih-simple-more-body .tasbih-extra-actions button {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 14px; border: 1px solid #e2d9cc;
+  border-radius: 12px; color: #536070; background: #fff;
+  font: 700 11px Inter, sans-serif;
+}
+.tasbih-simple-more-body .tasbih-extra-actions button svg { width: 16px; height: 16px; }
+.tasbih-simple-more-body .tasbih-extra-actions button.danger { color: #9a3434; }
+.tasbih-simple-more-body .tasbih-extra-actions button:disabled { opacity: .4; }
+.tasbih-simple-secondary {
+  grid-column: 1 / -1; font: 500 11px Inter, sans-serif;
+  color: #84909b; margin: 0;
+}
+.dark .tasbih-simple-more > summary, .dark .tasbih-simple-more-body > section h3 { color: #e8e9ed; }
+.dark .tasbih-simple-more-body { border-color: #37475a; }
+.dark .tasbih-simple-more-body .tasbih-extra-actions button {
+  background: #1c2c3d; border-color: #3d4a5e; color: #e5e8ee;
+}
+.dark .tasbih-simple-more-body .tasbih-extra-actions button.danger { color: #f9abab; }
+.dark .tasbih-simple-secondary { color: #c4cbd5; }
+/* Cartes annexes plus fluides sans changer les fonctionnalités existantes. */
+.tasbih-pro-shell .tasbih-library-view,
+.tasbih-pro-shell .tasbih-progress-view { min-width: 0; }
+.tasbih-pro-shell .tasbih-dhikr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tasbih-pro-shell .tasbih-dhikr-card { min-width: 0; }
+.tasbih-pro-shell .tasbih-dhikr-card footer button,
+.tasbih-pro-shell .tasbih-section-heading > button { min-height: 44px; }
+.tasbih-pro-shell .tasbih-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tasbih-pro-shell .tasbih-progress-columns { grid-template-columns: 1fr; }
+.tasbih-pro-shell .tasbih-confirm-modal button { min-height: 44px; }
+.tasbih-pro-shell :where(button, summary, input):focus-visible {
+  outline: 3px solid #c29b53 !important; outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .tasbih-pro-shell .tasbih-pro-container {
+    padding: 18px 14px max(38px, env(safe-area-inset-bottom, 0px));
+  }
+  .tasbih-pro-shell .tasbih-simple-header { margin-bottom: 16px; }
+  .tasbih-pro-shell .tasbih-pro-title h1 { font-size: 29px; }
+  .tasbih-pro-shell .tasbih-pro-title h1 em { display: block; margin-top: 6px; font-size: 18px; }
+  .tasbih-pro-shell .tasbih-pro-title p { font-size: 12px; }
+  .tasbih-quick-list {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .tasbih-quick-choice {
+    padding: 9px 6px; min-height: 48px; gap: 5px;
+    font-size: 11px; flex-direction: column; line-height: 1.3;
+  }
+  .tasbih-pro-shell .tasbih-focus-card {
+    padding: 20px 13px; border-radius: 22px;
+  }
+  .tasbih-focus-arabic { font-size: 32px; line-height: 1.8; }
+  .tasbih-focus-arabic.large { font-size: 39px; }
+  .tasbih-focus-meaning { font-size: 12px; }
+  .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-button {
+    width: min(250px, 72vw); height: min(250px, 72vw);
+  }
+  .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner strong { font-size: 72px; }
+  .tasbih-simple-more-body { grid-template-columns: 1fr; padding: 16px; }
+  .tasbih-simple-actions button { padding: 10px 7px; }
+  .tasbih-pro-shell .tasbih-dhikr-grid,
+  .tasbih-pro-shell .tasbih-stats-grid { grid-template-columns: 1fr; }
+  .tasbih-pro-shell .tasbih-section-heading { display: flex; flex-wrap: wrap; }
+  .tasbih-pro-shell .tasbih-section-heading > button { margin-top: 0; }
+}
+@media (max-width: 360px) {
+  .tasbih-quick-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-button {
+    width: min(224px, 70vw); height: min(224px, 70vw);
+  }
+  .tasbih-pro-shell .tasbih-focus-card .tasbih-counter-inner strong { font-size: 62px; }
+  .tasbih-pro-shell .tasbih-simple-actions {
+    grid-template-columns: 1fr; gap: 8px;
+  }
+  .tasbih-simple-metrics strong { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tasbih-quick-choice, .tasbih-simple-more > summary .tasbih-more-chevron,
+  .tasbih-pro-shell .tasbih-counter-button { transition: none !important; }
+}
