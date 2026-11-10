@@ -57,6 +57,11 @@ const ReaderView = {
         safeHadiths() {
             return Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths.filter(Boolean) : [];
         },
+        biographyReferences() {
+            return typeof BIOGRAPHY_SOURCES !== 'undefined'
+                ? BIOGRAPHY_SOURCES[String(this.chapter.id)] || null
+                : null;
+        },
         neighbors() {
             const chapters = Array.isArray(this.filteredChapters) && this.filteredChapters.length
                 ? this.filteredChapters
@@ -81,6 +86,18 @@ const ReaderView = {
         }
     },
     methods: {
+        sourceEvidence(kind, id) {
+            const entries = this.biographyReferences?.entries;
+            return Array.isArray(entries)
+                ? entries.find(ref => ref.kind === kind && String(ref.id) === String(id)) || null
+                : null;
+        },
+        evidenceLabel(status) {
+            if (status === 'weak') return 'Réserve sur la transmission';
+            if (status === 'variant') return 'Variantes rapportées';
+            if (status === 'qualification') return 'Récit à qualifier';
+            return 'Passage repéré';
+        },
         stopAudio() {
             if (!this.audioInstance) return;
             this.audioInstance.pause();
@@ -207,6 +224,7 @@ const ReaderView = {
                 <div v-if="chapter.source" class="max-w-2xl mx-auto mb-8">
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Référence principale : <span class="text-brand-gold font-bold">{{ chapter.source }}</span></p>
                     <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Une référence indique l'ouvrage utilisé pour la notice ; elle ne certifie pas automatiquement chaque détail ou variante historique. <a href="methodologie.html" class="text-brand-gold font-bold hover:underline">Méthodologie</a></p>
+                    <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-brand-gold hover:underline">Voir les références du fascicule {{ biographyReferences.fascicle }} <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
                 </div>
 
                 <div v-if="chapter.audioUrl" class="max-w-md mx-auto bg-white dark:bg-brand-dark shadow-xl rounded-2xl p-2 pr-6 flex items-center gap-4 border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:border-brand-gold/30 transition-colors">
@@ -225,6 +243,7 @@ const ReaderView = {
                 <button v-if="safeTimeline.length" type="button" role="tab" :aria-selected="activeTab === 'timeline'" @click="activeTab = 'timeline'" class="relative py-4 px-6 md:px-8 text-xs font-bold uppercase tracking-widest transition-colors" :class="activeTab === 'timeline' ? 'text-brand-gold' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'">Chronologie<div v-if="activeTab === 'timeline'" class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-gold"></div></button>
                 <button v-if="safeHadiths.length" type="button" role="tab" :aria-selected="activeTab === 'hadiths'" @click="activeTab = 'hadiths'" class="relative py-4 px-6 md:px-8 text-xs font-bold uppercase tracking-widest transition-colors" :class="activeTab === 'hadiths' ? 'text-brand-gold' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'">Citations<div v-if="activeTab === 'hadiths'" class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-gold"></div></button>
                 <button v-if="safeQuiz.length" type="button" role="tab" :aria-selected="activeTab === 'quiz'" @click="activeTab = 'quiz'" class="relative py-4 px-6 md:px-8 text-xs font-bold uppercase tracking-widest transition-colors" :class="activeTab === 'quiz' ? 'text-brand-gold' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'">Quiz<div v-if="activeTab === 'quiz'" class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-gold"></div></button>
+                <button v-if="biographyReferences" type="button" role="tab" :aria-selected="activeTab === 'sources'" @click="activeTab='sources'" class="relative py-4 px-6 md:px-8 text-xs font-bold uppercase tracking-widest transition-colors" :class="activeTab === 'sources' ? 'text-brand-gold' : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'">Sources<div v-if="activeTab === 'sources'" class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-gold"></div></button>
             </div>
         </div>
 
@@ -253,7 +272,12 @@ const ReaderView = {
                             <div class="flex items-center gap-5"><span class="font-display text-4xl font-bold text-gray-200 dark:text-white/10">{{ String(index + 1).padStart(2, '0') }}</span><h3 class="font-bold text-lg md:text-xl text-brand-dark dark:text-white">{{ story.title }}</h3></div>
                             <span class="w-8 h-8 rounded-full bg-gray-100 dark:bg-brand-dark flex items-center justify-center transition-transform duration-300" :class="activeStoryId === story.id ? 'rotate-180 bg-brand-gold text-white' : 'text-gray-400'"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
                         </button>
-                        <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter"><div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300"><p v-html="formatText(story.content)"></p></div></div>
+                        <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter"><div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300"><p v-html="formatText(story.content)"></p></div>
+                            <aside v-if="sourceEvidence('narrative', story.id)" class="mt-5 border-t border-brand-gold/20 pt-4 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                                <span class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }} · Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('narrative', story.id).printedPage }}</span>
+                                <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p>
+                                <button type="button" @click="activeTab='sources'" class="mt-2 font-semibold text-brand-gold hover:underline">Voir la référence complète</button>
+                            </aside></div>
                     </div>
                 </div>
             </div>
@@ -263,7 +287,11 @@ const ReaderView = {
                 <div class="relative pl-8 border-l-2 border-brand-gold/20 space-y-12">
                     <div v-for="(evt, i) in safeTimeline" :key="i" class="relative group">
                         <div class="absolute -left-[41px] top-1 flex items-center justify-center w-6 h-6 bg-brand-paper dark:bg-brand-dark border-4 border-brand-gold rounded-full z-10 group-hover:scale-125 transition-transform"></div>
-                        <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative"><span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">{{ evt.year }}</span><p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.desc)"></p></div>
+                        <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative"><span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">{{ evt.year }}</span><p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.desc)"></p>
+                            <aside v-if="sourceEvidence('timeline', i)" class="mt-3 border-t border-brand-gold/20 pt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                                <span class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('timeline', i).status) }} · Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('timeline', i).printedPage }}</span>
+                                <p class="mt-1">{{ sourceEvidence('timeline', i).note }}</p>
+                            </aside></div>
                     </div>
                 </div>
             </div>
@@ -298,6 +326,37 @@ const ReaderView = {
                     <div v-else class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl inline-block relative overflow-hidden min-w-[300px]"><div class="absolute inset-0 bg-islamic opacity-10"></div><div class="relative z-10"><div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Score</div><div class="font-display text-6xl font-bold text-brand-gold mb-2">{{ score }} / {{ safeQuiz.length }}</div><p class="text-gray-300 italic">{{ score === safeQuiz.length ? 'Toutes les réponses sont correctes.' : 'Relisez les explications pour progresser.' }}</p></div></div>
                 </div>
             </div>
+
+            <section v-if="biographyReferences" v-show="activeTab === 'sources'" class="athar-siyar-sources max-w-3xl mx-auto space-y-6" aria-label="Sources et références bibliographiques">
+                <header class="text-center mb-8">
+                    <p class="text-xs font-bold uppercase tracking-widest text-brand-gold">Références documentaires</p>
+                    <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark dark:text-white mt-3">Sources et références</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-3 text-sm leading-relaxed">Repères tirés du fascicule français {{ biographyReferences.fascicle }}. Athar n'héberge pas la traduction PDF.</p>
+                </header>
+                <article class="rounded-2xl border border-brand-gold/25 bg-white dark:bg-brand-dark-lighter p-6 md:p-8 shadow-card">
+                    <h3 class="font-bold text-brand-dark dark:text-white text-lg">{{ biographyReferences.work }}</h3>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">{{ biographyReferences.author }} · {{ biographyReferences.translation }}</p>
+                    <p class="mt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400">{{ biographyReferences.editionNote }}</p>
+                    <div class="flex flex-wrap gap-3 mt-5">
+                        <a :href="biographyReferences.readUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-gold text-white rounded-xl px-4 py-3 text-xs font-bold hover:opacity-90">Lire sur Siyar.fr <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a :href="biographyReferences.publisherUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-brand-gold/40 text-brand-gold rounded-xl px-4 py-3 text-xs font-bold hover:bg-brand-gold/5">Islam Patrimoine <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                    </div>
+                </article>
+                <div class="rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 px-5 py-4 text-sm leading-relaxed text-amber-900 dark:text-amber-200" role="note">{{ biographyReferences.reviewScope }}</div>
+                <div class="space-y-3">
+                    <h3 class="font-display text-lg font-semibold text-brand-dark dark:text-white">Passages repérés ({{ biographyReferences.entries.length }})</h3>
+                    <article v-for="entry in biographyReferences.entries" :key="entry.kind + '-' + entry.id" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-lighter p-5 md:p-6">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'timeline' ? 'Chronologie' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
+                                <h4 class="font-semibold text-brand-dark dark:text-white mt-1">{{ entry.title }}</h4>
+                            </div>
+                            <span class="text-xs font-semibold text-brand-gold whitespace-nowrap">p. {{ entry.printedPage }} · PDF p. {{ entry.pdfPage }}</span>
+                        </div>
+                        <p class="text-sm mt-3 leading-relaxed text-gray-600 dark:text-gray-300">{{ entry.note }}</p>
+                    </article>
+                </div>
+            </section>
         </main>
 
         <div class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-brand-dark-lighter py-8 mt-12">
