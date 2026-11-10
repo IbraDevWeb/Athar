@@ -1,3 +1,4 @@
+// Siyar 06–15 : lecture des sources et correspondances de notices après vérification statique.
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
