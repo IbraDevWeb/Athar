@@ -1,8 +1,8 @@
 /* Athar Pro — navigation globale du mode immersif */
-.athar-fullscreen-toggle,
+.athar-immersive-quick,
 .athar-immersive-menu,
 .athar-immersive-theme,
-.athar-fullscreen-exit {
+.athar-immersive-quick {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -12,29 +12,29 @@
     transition: transform .2s ease, background .2s ease, color .2s ease, opacity .2s ease, border-color .2s ease;
 }
 
-.athar-fullscreen-toggle {
+.athar-immersive-quick {
     width: 38px;
     height: 38px;
     border-radius: 999px;
     color: #64748b;
 }
 
-.athar-fullscreen-toggle:hover {
+.athar-immersive-quick:hover {
     background: rgba(197, 160, 89, .12);
     color: #b58a38;
 }
 
-.athar-fullscreen-toggle svg,
+.athar-immersive-quick svg,
 .athar-immersive-menu svg,
 .athar-immersive-theme svg,
-.athar-fullscreen-exit svg {
+.athar-immersive-quick svg {
     width: 17px;
     height: 17px;
 }
 
 .athar-immersive-menu,
 .athar-immersive-theme,
-.athar-fullscreen-exit {
+.athar-immersive-quick {
     position: fixed;
     top: 14px;
     z-index: 340;
@@ -53,12 +53,12 @@
 }
 
 .athar-immersive-menu { left: 14px; }
-.athar-fullscreen-exit { right: 14px; }
+.athar-immersive-quick { right: 14px; }
 .athar-immersive-theme { right: 112px; }
 
 .athar-immersive-menu:hover,
 .athar-immersive-theme:hover,
-.athar-fullscreen-exit:hover {
+.athar-immersive-quick:hover {
     background: #c5a059;
     color: #111827;
     transform: translateY(-1px);
@@ -72,7 +72,7 @@
 
 .athar-immersive-menu[hidden],
 .athar-immersive-theme[hidden],
-.athar-fullscreen-exit[hidden],
+.athar-immersive-quick[hidden],
 .athar-immersive-current[hidden] {
     display: none !important;
 }
@@ -121,7 +121,7 @@ html.dark .athar-immersive-current {
 
 html.dark .athar-immersive-menu,
 html.dark .athar-immersive-theme,
-html.dark .athar-fullscreen-exit {
+html.dark .athar-immersive-quick {
     background: rgba(7, 7, 7, .94);
     color: #f8fafc;
     border-color: rgba(230, 200, 138, .2);
@@ -130,7 +130,7 @@ html.dark .athar-fullscreen-exit {
 
 html.dark .athar-immersive-menu:hover,
 html.dark .athar-immersive-theme:hover,
-html.dark .athar-fullscreen-exit:hover {
+html.dark .athar-immersive-quick:hover {
     background: #e6c88a;
     color: #111827;
 }
@@ -348,7 +348,7 @@ html.dark .athar-immersive-drawer [data-athar-view].is-active {
 @media (max-width: 700px) {
     .athar-immersive-menu,
     .athar-immersive-theme,
-    .athar-fullscreen-exit,
+    .athar-immersive-quick,
     .athar-immersive-current {
         top: calc(8px + env(safe-area-inset-top, 0px));
         min-height: 44px;
@@ -361,7 +361,7 @@ html.dark .athar-immersive-drawer [data-athar-view].is-active {
         border-radius: 14px;
     }
 
-    .athar-fullscreen-exit {
+    .athar-immersive-quick {
         right: max(8px, env(safe-area-inset-right, 0px));
         width: 44px;
         padding: 0;
@@ -377,7 +377,7 @@ html.dark .athar-immersive-drawer [data-athar-view].is-active {
 
     .athar-immersive-menu span,
     .athar-immersive-theme span,
-    .athar-fullscreen-exit span {
+    .athar-immersive-quick span {
         display: none;
     }
 
@@ -413,10 +413,10 @@ html.dark .athar-immersive-drawer [data-athar-view].is-active {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .athar-fullscreen-toggle,
+    .athar-immersive-quick,
     .athar-immersive-menu,
     .athar-immersive-theme,
-    .athar-fullscreen-exit,
+    .athar-immersive-quick,
     .athar-immersive-backdrop,
     .athar-immersive-drawer,
     .athar-immersive-drawer [data-athar-view] {
