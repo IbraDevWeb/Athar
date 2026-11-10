@@ -194,7 +194,7 @@
                 name: "Saïd ibn Zayd",
                 arabicName: "سعيد بن زيد",
                 subtitle: "L'un des Dix Promis au Paradis",
-                intro: "Le 'Neuvième' des élus. Il se convertit avant même que le Prophète n'entre à Dar al-Arqam. Homme de l'ombre mais pilier de la foi, il fut le premier gouverneur de Damas.",
+                intro: "L'un des dix compagnons pour lesquels le Paradis a été attesté. Converti très tôt, avant les réunions dans la maison d'Al-Arqam, il fut nommé gouverneur de Damas selon la notice de Dhahabî.",
                 heroQuote: "Une seule bataille avec le Prophète vaut mieux que toutes vos œuvres, même si vous viviez la vie de Noé !",
                 tags: ["10 Promis", "Muhajirun", "Gouverneur"],
                 genealogy: "Saïd ibn Zayd ibn 'Amr ibn Noufayl. Cousin d'Oumar ibn Al-Khattab et époux de sa sœur Fatima. Son père Zayd était un monothéiste (Hanif) mort avant l'Islam.",
@@ -204,10 +204,10 @@
                     { year: "Débuts", desc: "Converti très tôt. Oumar (non-musulman) le ligotait pour le punir." },
                     { year: "2 H", desc: "Absent de {Badr} (en mission d'espionnage avec Talha) mais récompensé comme présent." },
                     { year: "13 H", desc: "Participe au siège de {Damas} et en devient le premier gouverneur." },
-                    { year: "51 H", desc: "Meurt à {Al-Aqiq} à plus de 70 ans. Saad et Ibn Oumar le mettent en terre." }
+                    { year: "51 H (52 H aussi rapporté)", desc: "Selon Al-Waqidi, il meurt à {Al-Aqiq} après 70 ans et est inhumé à Médine. Une autre tradition donne 52 H ; un avis minoritaire situe son décès à Koufa." }
                 ],
                 narratives: [
-                    { id: 601, title: "Le Neuvième Homme", content: "À la mosquée de Koufa, un homme insultait Ali. Saïd se leva et dit : « J'atteste que le Prophète a dit : 10 sont au Paradis... Abou Bakr, Oumar, Outhman, Ali... ». Les gens demandèrent « Qui est le 9ème ? ». Il dit : « C'est moi ». (Le 10ème étant le Prophète ou un autre compagnon selon les versions)." },
+                    { id: 601, title: "Les présents sur le mont Hirâ", content: "Dans une tradition transmise par Saïd ibn Zayd, le Prophète (ﷺ) s'adresse au mont Hirâ et évoque la présence d'un prophète, d'un véridique et de martyrs. Le récit énumère le Prophète, Abou Bakr, ‘Oumar, ‘Outhman, ‘Ali, Talha, Zoubayr, Saad, Abderrahman et Saïd. La scène dite du « neuvième homme » ne figure pas dans le passage du fascicule utilisé ici." },
                     { id: 602, title: "La Voleuse de Terre", content: "Arwa bint Ouways l'accusa d'avoir volé un bout de sa terre. Saïd dit : « Prenez-la ! Ô Allah, si elle ment, rends-la aveugle et fais de sa terre son tombeau ». Elle devint aveugle peu après et tomba dans un puits sur cette même terre, qui devint sa tombe." },
                     { id: 603, title: "L'Espion de Badr", content: "Le Prophète l'envoya avec Talha pour espionner la caravane de Quraysh. Ils allèrent jusqu'à Al-Hawra. À leur retour, la bataille de Badr était finie. Le Prophète leur donna tout de même leur part de butin et de mérite." }
                 ],
@@ -227,15 +227,15 @@
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Mouss'ab ibn Oumayr",
                 arabicName: "مُصْعَب بن عُمَيْر",
-                subtitle: "Le Premier Ambassadeur de l'Islam",
-                intro: "Le jeune homme le plus choyé de La Mecque qui sacrifia tout pour Allah. Premier émissaire à Médine, il mourut à Ouhoud si pauvre que son linceul ne couvrait pas son corps entier.",
+                subtitle: "Le Pionnier parmi les premiers émigrés",
+                intro: "Le jeune homme le plus choyé de La Mecque qui sacrifia tout pour Allah. D’après Al-Barâ’, il fut le premier des émigrés accueillis à Médine. Il mourut à Ouhoud si démuni que son linceul ne couvrait pas entièrement son corps.",
                 heroQuote: "Vous êtes aujourd'hui bien meilleurs [dans la pauvreté] que si vous étiez dans l'abondance !",
                 tags: ["Martyrs", "Muhajirun", "Badriyun"],
                 genealogy: "Mouss'ab ibn Oumayr... du clan {Abdari} (Banu Abd Ad-Dar). Surnommé « Le Noble », « Le Pionnier ».",
                 physicalDesc: "Avant l'Islam : beau, parfumé et riche. Après l'Islam : Saad raconte qu'il avait « la peau sur les os, flétrie telle la peau d'un serpent » à cause de la famine, au point que les compagnons devaient le porter.",
                 timeline: [
                     { year: "Mecque", desc: "Jeunesse dorée. Conversion secrète à Dar Al-Arqam. Emprisonné par sa mère." },
-                    { year: "Médine", desc: "Premier émissaire (ambassadeur) envoyé pour enseigner le Coran aux Ansars." },
+                    { year: "Médine", desc: "D’après Al-Barâ’ ibn ‘Azib, il fut le premier des Mouhâjirûn accueillis à Médine." },
                     { year: "2 H", desc: "Porte l'étendard des Muhajirounes à la bataille de {Badr}." },
                     { year: "3 H", desc: "Meurt martyr à {Ouhoud}, tué par Ibn Qamia qui crut avoir tué le Prophète." }
                 ],
@@ -269,11 +269,11 @@
                     { year: "Abyssinie", desc: "Premier homme à émigrer (Hijra) en Abyssinie avec sa femme." },
                     { year: "2 H", desc: "Combat victorieusement à {Badr}." },
                     { year: "3 H", desc: "Blessé au bras à {Ouhoud}. La blessure semble guérir mais s'infecte plus tard." },
-                    { year: "4 H", desc: "Dirige l'expédition de {Qatane} (150 hommes). Meurt de sa blessure infectée au mois de Joumada." }
+                    { year: "3 ou 4 H selon les récits", desc: "Après l’expédition de {Qatane} (150 hommes), une transmission situe son décès au second mois de Joumada en 4 H ; une autre mentionne 3 H." }
                 ],
                 narratives: [
                     { id: 801, title: "L'Expédition de Qatane", content: "Au mois de Mouharram (an 4), le Prophète l'envoya attaquer les Banu Assad à Qatane avec 150 hommes. Il revint victorieux avec du butin, mais l'effort fit rouvrir sa blessure d'Ouhoud, ce qui causa sa mort." },
-                    { id: 802, title: "Le Regard Figé", content: "Le Prophète (ﷺ) ferma les yeux d'Abou Salama à sa mort et dit : « Lorsque l'âme est saisie, le regard la suit ». Il entendit des gens se lamenter et dit : « N'invoquez pour vous que le bien, car les anges disent 'Amine' à ce que vous dites »." },
+                    { id: 802, title: "De bonnes paroles auprès du défunt", content: "Oum Salama rapporte que le Messager d’Allah (ﷺ) recommandait de ne prononcer que de bonnes paroles auprès d’un défunt, car les anges disent « Amîn » aux invocations. Après la mort d’Abou Salama, il lui enseigna une invocation en faveur du défunt et de ceux qui restent." },
                     { id: 803, title: "L'Héritage Spirituel", content: "Il enseigna à sa femme Oum Salama l'invocation du malheur : « Ô Allah, rétribue-moi dans mon malheur et remplace-le par meilleur ». Elle l'appliqua et Allah lui donna le Prophète comme époux." }
                 ],
                 hadiths: [
@@ -297,14 +297,14 @@
                 genealogy: "Outhman ibn Mazh'oune Al-Joumahi. Surnommé « Abou As-Saïb ». Frère de lait du Prophète.",
                 physicalDesc: "Il avait la peau très mate (foncée) et une barbe dense.",
                 timeline: [
-                    { year: "Mecque", desc: "S'interdit le vin avant même l'Islam. 14ème converti." },
+                    { year: "Mecque", desc: "Quatorzième converti selon Abou Oumar. Un récit affirme qu’il avait délaissé le vin avant l’Islam, mais Dhahabî juge sa chaîne discontinue et ce récit non authentique." },
                     { year: "Hégire", desc: "Émigre en Abyssinie puis à Médine. Sa maison est localisée par le Prophète." },
                     { year: "3 H", desc: "Meurt après Badr (en Shabane). Premier enterré au {Baqi}." }
                 ],
                 narratives: [
                     { id: 901, title: "Le Refus du Monachisme", content: "Il voulait se faire castrer (ou s'abstenir des femmes) et vivre en ermite. Le Prophète (ﷺ) le lui interdit formellement : « Outhman, le monachisme n'a pas été prescrit pour nous. La meilleure religion est le monothéisme pur et tolérant (Hanifiya) »." },
                     { id: 902, title: "Les Larmes du Prophète", content: "À sa mort, le Prophète (ﷺ) embrassa son front. Aïsha raconte : « Je vis les larmes du Messager d'Allah couler sur les joues d'Outhman ». Il dit : « Tu nous as quittés sans t'être sali par ce bas-monde »." },
-                    { id: 903, title: "Le Rocher du Baqi'", content: "Le Prophète plaça lui-même un gros rocher sur sa tombe pour la marquer, disant : « C'est la première de nos tombes, j'y enterrent les membres de ma famille » (c'est là qu'il enterra plus tard ses filles)." },
+                    { id: 903, title: "La pierre posée près de sa tombe", content: "La biographie rapporte que le Prophète (ﷺ) fit placer une grande pierre près de la tombe d’Outhman ibn Mazh’oune afin de la reconnaître et d’enterrer ses proches à proximité. Dhahabî précise toutefois que la chaîne de ce récit est moursal : son dernier maillon manque." },
                     { id: 904, title: "L'Incident de la Louange", content: "Une femme (Oum Al-'Ala) dit devant le corps : « Je témoigne qu'Allah t'a honoré ». Le Prophète la reprit : « Qu'en sais-tu ? Je suis le Messager d'Allah et je ne sais pas ce qu'on fera de moi ! ». Cela effraya les compagnons sur leur propre sort." }
                 ],
                 hadiths: [
@@ -335,7 +335,7 @@
                     { year: "36 H", desc: "Décès à 65 ans." }
                 ],
                 narratives: [
-                    { id: 1001, title: "L'Erreur d'Interprétation", content: "Accusé d'avoir bu du vin, il se défendit en citant le verset 5:93 : « Pas de péché... pour ceux qui croient et font le bien ». Omar rejeta cette interprétation (le verset parlait du passé ou des cas de nécessité), le destitua et lui appliqua la peine (le fouet), prouvant que la loi s'applique à tous, même aux vétérans de Badr." }
+                    { id: 1001, title: "L’interprétation du verset 5:93", content: "Il est rapporté que Qoudama, alors gouverneur de Bahreïn, avait bu du vin et invoqua le verset 5:93 de la sourate Al-Mâ’ida. ‘Oumar le fit néanmoins fouetter et le destitua de sa fonction. Le passage du fascicule ne précise pas l’explication supplémentaire auparavant donnée dans cette fiche." }
                 ],
                 hadiths: [],
                 quizData: [
@@ -408,7 +408,7 @@
                     { year: "12 H", desc: "Meurt martyr à la bataille d'{Al-Yamama} à 53 ans." }
                 ],
                 narratives: [
-                    { id: 1301, title: "Le Lien du Sang Brisé", content: "À Badr, quand son père Outba défia les musulmans, Abou Houdhayfa se leva pour l'affronter. Le Prophète (ﷺ) l'ordonna de s'asseoir, ne voulant pas qu'il commette un parricide. Sa sœur Hind lui dédia un poème moqueur sur ses dents et sa 'trahison'." },
+                    { id: 1301, title: "L’appel au duel contre son père", content: "Selon Ibn Az-Zinâd, Abou Houdhayfa appela son père ‘Outba à combattre en duel le jour de Badr. Sa sœur Hind le railla ensuite dans des vers faisant notamment référence à ses dents. Le fascicule utilisé ne rapporte pas, dans ce passage, que le Prophète (ﷺ) lui aurait ordonné de s’asseoir." },
                     { id: 1302, title: "Unis dans la Mort", content: "On le retrouva mort sur le champ de bataille d'Al-Yamama. Son protégé Salim gisait à côté de lui, la tête de l'un aux pieds de l'autre. Ils vécurent ensemble et moururent ensemble." }
                 ],
                 quizData: [
@@ -424,7 +424,7 @@
                 arabicName: "سَالِمٍ",
                 subtitle: "Le Porteur du Coran",
                 intro: "Esclave persan affranchi, il devint un imam de référence. Oumar ibn Al-Khattab le considérait digne d'être Calife.",
-                heroQuote: "Si Salim était vivant, je l'aurais désigné comme successeur sans consulter personne !",
+                heroQuote: "‘Oumar aurait évoqué Salim et Abou Oubayda comme successeurs possibles, selon un récit discuté.",
                 tags: ["Martyrs", "Savants", "Coran"],
                 genealogy: "Salim ibn Ma'qil. Originaire d'Istakhr (Perse). Affranchi de Thoubayta, femme d'Abou Houdhayfa, qui l'adopta.",
                 physicalDesc: "Il récitait le Coran d'une voix qui captivait les cœurs.",
@@ -434,9 +434,9 @@
                     { year: "12 H", desc: "Porte-étendard à {Al-Yamama}. Creuse un trou pour ses pieds et meurt martyr." }
                 ],
                 narratives: [
-                    { id: 1401, title: "Le Testament d'Omar", content: "Sur son lit de mort, le Calife Omar dit : « Si Salim était vivant, je l'aurais désigné successeur sans hésitation car j'ai entendu le Prophète dire : Salim aime Allah d'un amour véritable »." },
+                    { id: 1401, title: "Un choix de succession rapporté sous réserve", content: "Un récit attribué à ‘Oumar rapporte qu’il aurait eu confiance en Salim et Abou Oubayda ibn Al-Jarrah pour lui succéder s’ils avaient été vivants. Dhahabî critique toutefois le rapporteur Ali ibn Zayd, puis conditionne son commentaire à l’authenticité du récit. Il ne faut pas transformer cette transmission discutée en déclaration historique certaine." },
                     { id: 1402, title: "Le Trou de la Fermeté", content: "À Yamama, portant l'étendard, il dit : « Quel mauvais porteur de Coran je serais si l'ennemi passait par moi ! ». Il creusa un trou dans le sol pour y fixer ses pieds et ne pas reculer, combattant jusqu'à la mort." },
-                    { id: 1403, title: "L'Héritage d'Omar", content: "À sa mort, comme il n'avait pas d'héritiers, Omar vendit ses biens (200 dirhams) et donna l'argent à sa mère adoptive en charité." }
+                    { id: 1403, title: "Les deux cents dirhams", content: "Il est rapporté qu’après le décès de Salim, ‘Oumar vendit ses biens pour deux cents dirhams et remit cette somme à sa mère, en héritage. Le fascicule ne parle pas d’une aumône ni ne dit ici qu’il n’avait aucun héritier." }
                 ],
                 hadiths: [
                     { text: "Apprenez le Coran de quatre personnes : ... Salim le mawla d'Abou Houdhayfa.", narrator: "Le Prophète (ﷺ)", source: "Sahih Bukhari" },
@@ -463,16 +463,16 @@
                     { year: "La Mecque", desc: "Sa conversion offre une protection immédiate au Prophète contre les Qurayshites." },
                     { year: "2 H", desc: "À {Badr}, il tue le champion des polythéistes Outba ibn Rabi'a en duel." },
                     { year: "3 H", desc: "Combat à {Ouhoud} avec deux épées en criant « Je suis le Lion d'Allah ». Tué par traîtrise." },
-                    { year: "Funérailles", desc: "Le Prophète ne prie pas sur lui immédiatement (selon certains avis) mais pleure à chaudes larmes devant son corps mutilé." }
+                    { year: "Funérailles", desc: "Les récits divergent sur la prière funéraire. Dhahabî juge plus probante la version selon laquelle aucune prière ne fut accomplie sur les martyrs d’Ouhoud le jour même ; une prière ultérieure est également rapportée." }
                 ],
                 narratives: [
-                    { id: 1501, title: "L'Assassinat (Récit de Wahchi)", content: "Wahchi, esclave abyssin, raconte : « Je me cachais derrière un rocher... Hamza fauchait les hommes. Soudain, Siba' ibn Abd Al-Ouzza s'approcha. Hamza lui dit 'Approche fils d'exciseuse !' et le tua d'un coup. À cet instant, je lançai ma javeline. Elle entra dans son abdomen et ressortit entre ses jambes. Il essaya de se relever vers moi mais s'effondra. »" },
-                    { id: 1502, title: "La Douleur du Prophète", content: "Découvrant Hamza éventré et mutilé (nez et oreilles coupés, foie arraché par Hind), le Prophète (ﷺ) pleura et dit : « Si Safiya (la sœur de Hamza) n'avait pas été attristée, je l'aurais laissé ainsi pour qu'il soit ressuscité depuis les ventres des fauves et des oiseaux ! »." },
-                    { id: 1503, title: "Le Linceul Trop Court", content: "On ne trouva pour l'enterrer qu'un manteau rayé (Namira). Si on couvrait sa tête, ses pieds dépassaient. Si on couvrait ses pieds, sa tête dépassait. Le Prophète ordonna : « Couvrez sa tête et mettez de l'Idhkhir (citronnelle) sur ses pieds »." },
-                    { id: 1504, title: "La Rédemption de Wahchi", content: "Wahchi se convertit plus tard. Le Prophète, peiné, lui demanda de ne plus montrer son visage. Des années après, Wahchi tua le faux prophète Moussaylima avec la même javeline, disant : « J'ai tué le meilleur des hommes (Hamza) et le pire d'entre eux ! »." }
+                    { id: 1501, title: "Le récit de Wahchî", content: "Wahchî rapporte qu’il combattait à Ouhoud après avoir reçu la promesse d’être affranchi s’il tuait Hamza. Il raconte avoir vu Hamza affronter Sibâ’ ibn Abd Al-‘Ouzza, puis lui avoir lancé une javeline qui le frappa à l’abdomen. Hamza tenta de se relever avant de succomber." },
+                    { id: 1502, title: "Le deuil du Prophète et la mutilation", content: "Des récits décrivent la douleur du Messager d’Allah (ﷺ) devant la dépouille mutilée de Hamza. Une narration attribuée à Moussa ibn ‘Ouqba rapporte que Wahchî lui aurait retiré le foie afin de l’apporter à Hind : le texte ne dit pas que Hind l'avait extrait elle-même. Le Prophète exprima aussi le souhait de préserver Safiya d’une nouvelle peine." },
+                    { id: 1503, title: "Un linceul trop court", content: "Selon la notice de Hamza, son corps fut enveloppé dans un vêtement rayé trop court : lorsque l’on couvrait sa tête, ses pieds dépassaient. Une autre tradition du même fascicule mentionne des branches d’arbres pour le couvrir. Le recours à l’idhkhir pour les pieds est rapporté dans la notice de Mouss’ab ibn Oumayr, et ne doit pas être transféré ici sans une autre source." },
+                    { id: 1504, title: "La conversion de Wahchî et le combat contre Moussaylima", content: "Wahchî rapporte qu’il se convertit et que le Prophète (ﷺ), peiné par le souvenir de Hamza, lui demanda de ne plus se montrer devant lui. Plus tard, à Al-Yamâma, il lança sa javeline sur Moussaylima, qu’un combattant ansâri frappa également. Il exprima lui-même une réserve : si Moussaylima était mort de son coup, il aurait tué le meilleur des hommes après le Prophète et le pire d’entre eux." }
                 ],
                 hadiths: [
-                    { text: "Hamza ibn Abdelmoutalib est le Maître des Martyrs (Sayyid al-Shuhada) !", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Jabir" },
+                    { text: "Hamza ibn Abdelmoutalib est le Maître des Martyrs (Sayyid al-Shuhada) !", narrator: "Le Prophète (ﷺ)", source: "Al-Hâkim, d’après Jâbir — chaîne faible selon Dhahabî (Siyar, notice de Hamza)" },
                     { text: "Les âmes des martyrs sont dans des oiseaux verts (émeraude) qui mangent au Paradis et nichent dans des lanternes d'or sous le Trône.", narrator: "Le Prophète (ﷺ)", source: "Sahih Muslim" },
                     { text: "Quant à Hamza, personne ne le pleure lui ! (Le Prophète entendant les pleureuses de Médine)", narrator: "Ibn Oumar", source: "Siyar A'lam al-Nubula" }
                 ],

@@ -1,3 +1,4 @@
+// Siyar 06–15 : lecture des sources et correspondances de notices après vérification statique.
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
@@ -101,6 +102,22 @@ async function desktop() {
     assert.match(await page.locator('#athar-immersive-quick').getAttribute('aria-label'),/Retour à Bibliothèque/);
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
+    // Les nouvelles sources doivent être visibles dans les notices sans héberger le PDF.
+    for (const [needle,link] of [
+        ['Saïd ibn Zayd','https://siyar.fr/livre/1/126'],
+        ['Salim Mawla','https://siyar.fr/livre/1/169'],
+        ['Hamza Ibn Abdelmoutalib','https://siyar.fr/livre/1/175']
+    ]) {
+        await page.locator('.library-pro-search-hero input').fill(needle);
+        await page.locator('.library-pro-card').filter({hasText:needle}).first().click();
+        await page.getByRole('tab',{name:'Sources',exact:true}).click();
+        const bibliography=page.locator('.athar-siyar-sources');
+        assert.equal(await bibliography.isVisible(),true,'Sources absentes pour '+needle);
+        assert.equal(await bibliography.locator('a[href="'+link+'"]').count(),1,'URL bibliographique absente pour '+needle);
+        assert.equal(await bibliography.locator('a[href$=".pdf"]').count(),0,'Ne pas héberger de PDF pour '+needle);
+        await page.locator('#athar-immersive-quick').click();
+        await page.locator('.library-pro-root').waitFor({state:'visible'});
+    }
     await home(page);
 
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));
