@@ -72,6 +72,17 @@ async function desktop() {
   await page.locator('#app > header [title="Retour à l\'accueil"]').click();
   await ready(page);
 
+  // Vérifier que les repères du fascicule sont visibles depuis une notice.
+  await page.locator('.ap-launch-grid button').filter({hasText:'Bibliothèque'}).first().click();
+  await page.locator('#app aside.w-72 nav button').filter({hasText:'Abou Oubayda'}).first().click();
+  await page.getByRole('tab', { name: 'Sources', exact: true }).click();
+  const sourcePanel = page.locator('.athar-siyar-sources');
+  assert.equal(await sourcePanel.isVisible(), true, 'L’onglet Sources ne s’affiche pas.');
+  assert.equal(await sourcePanel.locator('a[href="https://siyar.fr/livre/1/11"]').count(), 1, 'Le lien officiel vers Siyar est absent.');
+  assert.ok((await sourcePanel.innerText()).includes('Deux maillons'), 'La référence aux maillons d’Ouhoud est absente.');
+  await page.locator('#app > header [title="Retour à l\'accueil"]').click();
+  await ready(page);
+
   const labels = (await page.locator('#app aside.w-72 div.p-4.space-y-1 button').allTextContents()).map(x => x.trim());
   assert.deepEqual(labels, ['Accueil', ...sections.map(item => item[1])], 'Navigation latérale incorrecte.');
   for (const [, label] of sections) {
