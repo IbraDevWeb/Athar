@@ -20,7 +20,7 @@
                     { year: "10 H", desc: "Envoyé avec la délégation de {Najran} comme 'Homme de Confiance' (Al-Amin)." },
                     { year: "13 H", desc: "Commandant des armées au Sham. Conquête pacifique de {Damas}." },
                     { year: "15 H", desc: "Dirige les armées lors de la bataille décisive de {Yarmouk}." },
-                    { year: "18 H", desc: "Décède lors de la peste d'{Amwas} à 58 ans." }
+                    { year: "18 H (17 H aussi rapporté)", desc: "Décède lors de la peste d'{Amwas} à 58 ans selon la datation principale retenue par le fascicule." }
                 ],
                 narratives: [
                     { id: 100, title: "L'un des cinq premiers", content: "Il se convertit en même temps qu'Ibn Mazhoun, Oubayda ibn Al-Harith, Abderrahman ibn 'Aouf et Abou Salama, juste après Abou Bakr et avant l'entrée à Dar Al-Arqam." },
@@ -65,7 +65,7 @@
                     { id: 201, title: "Le Bouclier Humain", content: "À {Ouhoud}, alors que tous avaient fui, il resta avec le Prophète (ﷺ). Il interceptait les flèches avec sa main nue jusqu'à ce que ses doigts soient tranchés. Il poussa un cri de douleur (« Hassi ! »). Le Prophète lui dit : « Si tu avais dit Bismillah, les anges t'auraient élevé sous les yeux de tous »." },
                     { id: 202, title: "L'Angoisse du Riche", content: "Il reçut une somme colossale (700 000) de l'Hadramaout qui l'empêcha de dormir. Sa femme Oum Koulthoum (fille d'Abou Bakr) lui conseilla de la partager. Au matin, il ne lui restait plus un dirham." },
                     { id: 203, title: "Les Regrets d'Ali", content: "Après le combat du Chameau, Ali vit le corps de Talha dans un fossé. Il descendit, essuya la poussière de son visage et pleura en disant : « Si seulement j'étais mort vingt ans avant ce jour ! ». Il témoigna que le Prophète avait dit : « Talha et Zoubayr sont mes voisins au Paradis »." },
-                    { id: 204, title: "Le Miracle de la Tombe", content: "Trente ans après sa mort, sa fille Aïsha le vit en rêve se plaignant de l'humidité. En ouvrant sa tombe, ils trouvèrent son corps intact, comme s'il venait de mourir, à l'exception de quelques poils de barbe. Ils le déplacèrent dans une autre tombe." }
+                    { id: 204, title: "Un récit sur sa sépulture", content: "Un récit transmis rapporte qu'environ trente ans après sa mort, un homme rêva que Talha se plaignait des infiltrations d'eau près de sa tombe. Sa famille aurait fait déplacer sa sépulture ; le narrateur décrit alors son corps comme peu altéré. Une autre version attribue le rêve à sa fille Aïsha. L'épisode est présenté comme une transmission rapportée, non comme un miracle établi." }
                 ],
                 hadiths: [
                     { text: "Talha et Zoubayr sont mes deux voisins au Paradis !", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" },
@@ -90,15 +90,15 @@
                 genealogy: "Il est Zoubayr ibn Al-'Awam ibn Khouwaylid. Cousin du Prophète (ﷺ) par sa tante paternelle {Safiya} bint Abdelmoutalib. Neveu de Khadija.",
                 physicalDesc: "Il était très grand (ses pieds touchaient le sol lorsqu'il montait à cheval), très velu, et avait une barbe peu fournie. Il portait sur son corps les cicatrices profondes de coups d'épée (notamment à l'épaule) reçus à Badr et Yarmouk.",
                 timeline: [
-                    { year: "12-16 ans", desc: "Conversion. Premier homme à dégainer une épée pour l'Islam suite à une rumeur." },
-                    { year: "2 H", desc: "À {Badr}, il porte un turban jaune. Les anges descendent vêtus de la même façon." },
+                    { year: "Jeunesse", desc: "Sa conversion est datée de 8 ou 16 ans selon les transmissions. L'épisode du glaive est distinct et relaté vers 12 ans." },
+                    { year: "2 H", desc: "À {Badr}, il aurait porté un turban jaune ; des transmissions évoquent Jibrîl et d'autres les anges sous cette apparence." },
                     { year: "5 H", desc: "À Khandaq, le Prophète réunit ses parents en sacrifice verbal pour lui : « Tire, pour toi mon père et ma mère ! »." },
                     { year: "15 H", desc: "À Yarmouk, il charge seul et perce les rangs ennemis à deux reprises." },
                     { year: "36 H", desc: "Quitte le champ de bataille (Al-Jamal) après un rappel d'Ali. Assassiné traîtreusement par Ibn Jourmouz pendant sa prière." }
                 ],
                 narratives: [
                     { id: 301, title: "Le Premier Glaive", content: "Enfant, il entendit une rumeur que le Prophète était tué. Il sortit l'épée à la main fendant la foule à la Mecque. Le Prophète lui dit : « Qu'as-tu ? ». Il répondit : « Je suis venu trancher tes assaillants ! ». Le Prophète invoqua pour lui et son épée." },
-                    { id: 302, title: "Le Turban Jaune", content: "Le jour de Badr, Zoubayr portait un turban jaune distinctif. Le Prophète (ﷺ) vit alors les anges descendre pour aider les musulmans, et ils portaient tous des turbans jaunes à l'image de Zoubayr ce jour-là." },
+                    { id: 302, title: "Le Turban Jaune", content: "Il est rapporté que Zoubayr portait un turban jaune à Badr. Selon une transmission, Jibrîl descendit sous cette apparence ; une autre mentionne les anges. Ces versions sont rapportées dans le Siyar sans être réduites à une affirmation unique." },
                     { id: 303, title: "L'Allié contre les Dettes", content: "Avant sa mort, il confia ses dettes massives (2,2 millions) à son fils Abd-Allah en lui disant : « Si tu rencontres une difficulté, appelle mon Maître (Mawla) ». Son fils demanda « Qui est-ce ? ». Il dit : « Allah ». Son fils raconte qu'à chaque difficulté, il invoquait le Maître de Zoubayr et la dette se réglait." },
                     { id: 304, title: "Le Duel de l'Œil", content: "À Badr, il affronta Oubayda ibn Saïd, un guerrier en armure intégrale dont on ne voyait que les yeux. Zoubayr visa l'œil avec son épieu et le tua. Il dut mettre son pied sur le cadavre pour réussir à retirer son arme tant le coup fut violent." }
                 ],
@@ -134,7 +134,7 @@
                     { year: "32 H", desc: "Meurt à 75 ans. Laisse une fortune colossale (or coupé à la hache)." }
                 ],
                 narratives: [
-                    { id: 401, title: "Le Convoi de Médine", content: "Un jour, 700 montures chargées de vivres arrivèrent à Médine, faisant trembler le sol. Aïsha dit : « J'ai entendu que Abderrahman entrerait au Paradis en rampant (à cause de sa richesse) ». Apprenant cela, il donna tout le convoi en aumône pour espérer y entrer debout !" },
+                    { id: 401, title: "Le convoi de Médine (récit discuté)", content: "Un récit au sujet d'Abderrahman ibn Aouf évoque l'arrivée à Médine de sept cents montures chargées de provisions et leur don en aumône. Il rapporte aussi une parole sur son entrée au Paradis. La transmission est qualifiée de « munkar » (discordante) dans le fascicule consulté ; elle ne doit pas être présentée comme un événement établi." },
                     { id: 402, title: "L'Imam du Prophète", content: "Lors de l'expédition de Tabouk, le Prophète (ﷺ) arriva en retard pour la prière de l'aube. Abderrahman avait déjà commencé. Le Prophète pria alors une unité de prière derrière lui. C'est un honneur qu'il ne partage qu'avec Abou Bakr." },
                     { id: 403, title: "L'Héritage en Or", content: "Sa fortune était telle qu'à sa mort, on dut utiliser des haches pour partager son or, au point que les mains des hommes en eurent des ampoules. Chacune de ses 4 veuves reçut 80 000 dinars." },
                     { id: 404, title: "Le Refus du Pouvoir", content: "Lors de la Shura pour succéder à Omar, il dit : « Lequel d'entre vous accepterait de se désister pour choisir le meilleur ? ». Personne ne répondit. Il dit : « Moi je me désiste ». Il passa 3 jours sans dormir à consulter les gens pour finalement choisir Outhman." },

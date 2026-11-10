@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v43-hadith-carousel-1';
+    const APP_VERSION = 'athar-pro-v44-siyar-sources-1';
     const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
 
     const setMeta = (selector, content) => {

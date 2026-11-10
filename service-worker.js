@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'athar-pro-v43-hadith-carousel-1';
+const CACHE_VERSION = 'athar-pro-v44-siyar-sources-1';
 const APP_SHELL = [
     './',
     './index.html',
@@ -60,8 +60,9 @@ const APP_SHELL = [
     './js/research-library-v2.js?v=athar-reader-v3',
     './js/components/AstronomyBootstrap.js?v=athar-pro-v43-hadith-carousel-1',
     './js/components/LibraryView.js',
-    './js/components/ReaderView.js',
+    './js/components/ReaderView.js?v=athar-siyar-1',
     './biographies_data.js',
+    './biography_sources_data.js?v=athar-siyar-1',
     './js/components/TasbihView.js',
     './js/components/TimelineView.js',
     './js/components/AdhkarView.js',
