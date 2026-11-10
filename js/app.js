@@ -14,13 +14,6 @@ const app = createApp({
         'adhkar-view': AdhkarView,
         'adhkar-reader-view': AdhkarReaderView,
         'reader-view': ReaderView,
-        'transmission-view': TransmissionView,
-        'atlas-view': AtlasView,
-        'ussul-view': UssulView,
-        'prophetic-clock-view': PropheticClockView,
-        'relations-view': RelationsView,
-        'revelation-view': RevelationView,
-        'tool-view': ToolView,
         'tasbih-view': TasbihView
     },
     setup() {
