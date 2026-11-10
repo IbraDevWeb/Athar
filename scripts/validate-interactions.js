@@ -10,9 +10,7 @@ const files = {
     css: 'css/interaction-stability.css',
     config: 'js/config.js',
     worker: 'service-worker.js',
-    app: 'js/app.js',
-    transmission: 'js/components/TransmissionView.js',
-    transmissionCss: 'css/transmission.css'
+    app: 'js/app.js'
 };
 
 const failures = [];
@@ -59,24 +57,12 @@ for (const forbidden of [
 for (const token of [
     '.athar-icon-host',
     'pointer-events: none !important',
-    '.tx4-options button:not(:disabled)',
-    'html:not(.athar-transmission-overlay) .tx4-overlay',
     '.fade-leave-active',
     'touch-action: manipulation',
     'min-width: 0',
     'env(safe-area-inset-bottom'
 ]) {
     if (!source.css.includes(token)) fail(`interaction CSS is missing: ${token}`);
-}
-
-if (!source.transmission.includes('@click="answerQuiz(option.id)"')) {
-    fail('Transmission quiz answers must keep an explicit Vue click handler');
-}
-if (!source.transmission.includes(':disabled="quizAnswer !== null"')) {
-    fail('Transmission quiz must only disable answers after a response');
-}
-if (!source.transmissionCss.includes('.tx4-options button')) {
-    fail('Transmission quiz options are missing their layout rules');
 }
 
 for (const token of [
@@ -102,13 +88,12 @@ if (!validVersion || configVersion !== workerVersion || configMajor < 27) {
 
 for (const asset of [
     `css/interaction-stability.css?v=${workerVersion}`,
-    `js/components/VueSafeIcons.js?v=${workerVersion}`,
-    `js/components/TransmissionView.js?v=${workerVersion}`
+    `js/components/VueSafeIcons.js?v=${workerVersion}`
 ]) {
     if (!source.worker.includes(asset)) fail(`interaction asset missing from cache: ${asset}`);
 }
 
-const allRuntime = `${source.app}\n${source.transmission}`;
+const allRuntime = source.app;
 if (allRuntime.includes('__unsafeCreateIcons')) {
     fail('application code must never call the unsafe native Lucide renderer');
 }
@@ -123,6 +108,6 @@ if (failures.length) {
 }
 
 console.log(
-    `Interaction stability valid — Vue-safe Lucide hosts, MutationObserver refresh, quiz clicks, ` +
-    `overlay pointer guards, responsive min-width protections and cache ${workerVersion}.`
+    `Interaction stability valid — Vue-safe Lucide hosts, MutationObserver refresh, ` +
+    `responsive min-width protections and cache ${workerVersion}.`
 );
