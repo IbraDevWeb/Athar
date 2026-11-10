@@ -21,20 +21,10 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install RAG parser dependencies
-        run: python -m pip install -r rag/requirements.txt
-
       - name: Reject unresolved merge conflicts
         shell: bash
         run: |
-          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' . \
-            --exclude-dir=.git \
-            --exclude='*.md'; then
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' . --exclude-dir=.git --exclude='*.md'; then
             echo 'Unresolved Git conflict marker found.'
             exit 1
           fi
@@ -42,148 +32,37 @@ jobs:
       - name: Check JavaScript syntax
         shell: bash
         run: |
-          find . -type f -name '*.js' -not -path './.git/*' -print0 \
-            | xargs -0 -n1 node --check
+          find . -type f -name '*.js' -not -path './.git/*' -print0 | xargs -0 -n1 node --check
 
-      - name: Check Python syntax
-        run: >-
-          python -m py_compile
-          rag/core.py rag/v2.py rag/server.py
-          rag/v4_engine.py rag/v4_server.py rag/v4_unit_tests.py rag/v4_corpus_tests.py
-          rag/v5_engine.py rag/v5_lowmem.py rag/v5_sharded.py rag/v5_server.py rag/v5_corpus_tests.py
-          rag/v5_library.py rag/v5_library_server.py rag/v5_library_tests.py
-          rag/cache_hosted_corpus.py rag/build_sharded_corpus.py
-          rag/scrape_kutub.py rag/ingestion.py rag/ingest_kutub.py rag/sync_kutub_batch.py
-          rag/prepare_hosted_db.py rag/export_kutub_corpus.py rag/openiti.py rag/ingest_openiti.py
-          scripts/validate_rag_ingestion.py scripts/validate_openiti_ingestion.py
+      - name: Check clean public application
+        run: node scripts/validate-clean-core.js
 
-      - name: Validate global interactions and Vue DOM
+      - name: Validate global interactions
         run: node scripts/validate-interactions.js
 
-      - name: Validate published sections and navigation
+      - name: Validate seven public sections
         run: node scripts/validate-public-navigation.js
 
-      - name: Validate Siyar bibliographies
+      - name: Validate Siyar bibliography
         run: node scripts/validate-biography-sources.js
 
-
-      - name: Validate Athar Research V5
-        run: node scripts/validate-rag-v4.js
-
-      - name: Execute deterministic legacy retrieval tests
-        working-directory: rag
-        run: python v4_unit_tests.py
-
-      - name: Execute library reader tests
-        working-directory: rag
-        run: python v5_library_tests.py
-
-      - name: Validate RAG ingestion safeguards
-        run: node scripts/validate-rag-ingestion.js
-
-      - name: Execute durable ingestion pipeline
-        run: python scripts/validate_rag_ingestion.py
-
-      - name: Validate OpenITI ingestion
-        run: python scripts/validate_openiti_ingestion.py
-
-      - name: Validate Kutub/OpenITI corpus growth configuration
-        shell: bash
-        run: |
-          python rag/prepare_hosted_db.py --db /tmp/athar-growth-test.sqlite
-          python rag/export_kutub_corpus.py --db /tmp/athar-growth-test.sqlite --output /tmp/athar-growth-corpus.json --max-mib 2
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          books = json.loads(Path('rag/books.json').read_text(encoding='utf-8'))['books']
-          assert len(books) >= 25
-          assert len({int(book['kutub_id']) for book in books}) == len(books)
-          required = {587, 236, 569, 2215, 6684, 11355, 14297, 21611, 28107}
-          assert required.issubset({int(book['kutub_id']) for book in books})
-          snapshot = json.loads(Path('/tmp/athar-growth-corpus.json').read_text(encoding='utf-8'))
-          assert len(snapshot['books']) >= 25
-          assert isinstance(snapshot['chunks'], list)
-
-          release = json.loads(Path('rag/corpus_release_v3.json').read_text(encoding='utf-8'))
-          assert release['storage_mode'] == 'sharded'
-          assert int(release['books']) >= 100
-          assert int(release['openiti_books']) >= 100
-          assert int(release['chunks']) > int(release['books'])
-          assert int(release['shard_count']) == len(release['shards'])
-          assert release['catalog']['url']
-          assert all(shard.get('url') for shard in release['shards'])
-
-          render = Path('render.yaml').read_text(encoding='utf-8')
-          assert 'python rag/cache_hosted_corpus.py --manifest rag/corpus_release_v3.json --output-dir rag/data/shards' in render
-          assert 'python rag/v653_library_server.py --host 0.0.0.0 --api-only' in render
-          assert 'ATHAR_CORPUS_MODE' in render and 'value: sharded' in render
-          assert 'ATHAR_SHARD_DIR' in render and 'rag/data/shards' in render
-          assert 'ATHAR_CORPUS_MANIFEST' in render and 'rag/corpus_release_v3.json' in render
-          assert 'ATHAR_DB_PATH' not in render
-
-          workflow = Path('.github/workflows/grow-kutub-corpus.yml').read_text(encoding='utf-8')
-          assert 'python rag/ingest_kutub.py sync' in workflow
-          assert '--delay 1.75' in workflow
-          assert 'git push origin HEAD:main' in workflow
-          print(
-              f"Kutub/OpenITI growth validated: {len(books)} configured catalogue books; "
-              f"V3 routes {release['books']} books through {release['shard_count']} read-only shards."
-          )
-          PY
-
-      - name: Validate Ancient Sky interface
-        run: node scripts/validate-astronomy.js
-
-      - name: Validate History Nights reader
-        run: node scripts/validate-history-nights.js
-
-      - name: Validate Scriptorium gallery
-        run: node scripts/validate-scriptorium.js
-
-      - name: Validate Root Tree explorer
-        run: node scripts/validate-root-tree.js
-
-      - name: Validate Golden Chain explorer
-        run: node scripts/validate-golden-chain.js
-
-      - name: Validate Transmission data
-        run: node scripts/validate-transmission.js
-
-      - name: Validate Atlas data
-        run: node scripts/validate-atlas.js
-
-      - name: Validate Scholar Atlas data
-        run: node scripts/validate-scholar-atlas.js
-
-      - name: Validate expanded Scholar Atlas data
-        run: node scripts/validate-scholar-atlas-expanded.js
-
-      - name: Validate Constellation data
-        run: node scripts/validate-constellation.js
-
-      - name: Validate Constellation study interface
-        run: node scripts/validate-constellation-study.js
-
-      - name: Validate Tasbih interface
-        run: node scripts/validate-tasbih.js
-
-      - name: Validate fullscreen and timeline
-        run: node scripts/validate-fullscreen-timeline.js
-
-      - name: Validate immersive navigation and Adhkar
-        run: node scripts/validate-immersive-adhkar.js
-
-      - name: Validate Hadith library and reader
-        run: node scripts/validate-hadith.js
-
-      - name: Validate Oussoul al-Fiqh and video PiP
-        run: node scripts/validate-ussul.js
-
-      - name: Validate encyclopedic library
+      - name: Validate library
         run: node scripts/validate-library.js
 
-      - name: Validate mobile and immersive UX
+      - name: Validate chronology and immersive UI
+        run: node scripts/validate-fullscreen-timeline.js
+
+      - name: Validate hadiths
+        run: node scripts/validate-hadith.js
+
+      - name: Validate Adhkar and immersive navigation
+        run: node scripts/validate-immersive-adhkar.js
+
+      - name: Validate Tasbih
+        run: node scripts/validate-tasbih.js
+
+      - name: Validate mobile
         run: node scripts/validate-mobile-ux.js
 
-      - name: Validate immersive dark theme
+      - name: Validate dark theme
         run: node scripts/validate-immersive-theme.js

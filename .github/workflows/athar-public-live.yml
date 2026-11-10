@@ -7,7 +7,6 @@ on:
       - 'index.html'
       - 'js/**'
       - 'css/**'
-      - 'research-library.html'
       - 'service-worker.js'
       - 'scripts/ux_public_release_browser_test.mjs'
       - '.github/workflows/athar-public-live.yml'

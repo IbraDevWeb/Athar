@@ -3,7 +3,7 @@ const fs = require('node:fs'), path = require('node:path');
 const read = file => fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
 const index=read('index.html'), app=read('js/app.js'), home=read('js/components/HomeView.js');
 const mobile=read('js/components/MobileExperience.js'), config=read('js/config.js');
-const worker=read('service-worker.js'), research=read('research-library.html');
+const worker=read('service-worker.js');
 const immersive=read('js/components/GlobalFullscreen.js');
 const immersiveCss=read('css/immersive-only.css');
 const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih'];
@@ -33,11 +33,12 @@ check(!worker.includes("'./js/components/AtharLens.js?"), 'Moteur Athar Lens enc
 check(home.includes('hadithSlides') && home.includes('openCurrentHadith') && home.includes('previousHadith'), 'Carrousel de hadiths absent');
 check(home.includes("props: ['setView', 'hadiths', 'openHadith']"), 'Le carrousel ne reçoit pas le corpus existant');
 check(index.includes(':open-hadith="openHadith"'), 'Le bouton de lecture n’ouvre pas la fiche');
-check(!config.includes("writeEarlyScript('js/components/ScholarV4Bootstrap.js'"),'Module recherche injecté');
-check(research.includes("window.location.replace(new URL('./index.html', window.location.href))"),'Redirection recherche manquante');
+check(!config.includes('ScholarV4Bootstrap') && !config.includes('research-library'), 'Un module documentaire est encore injecté');
+check(!index.includes('research-library.html'), 'L’ancienne interface de recherche est encore référencée');
+check(!worker.includes('/rag/') && !worker.includes('research-library'), 'Le cache inclut encore des dépendances RAG');
 check(config.includes('css/athar-launch.css?v=athar-public-3'),'Styles accueil absents');
 const version=config.match(/const APP_VERSION = '([^']+)'/)?.[1];
 check(Boolean(version)&&worker.includes("const CACHE_VERSION = '"+version+"'"),'Version PWA incorrecte');
 check((index.match(/<div\b/g)||[]).length===(index.match(/<\/div>/g)||[]).length,'Balises div déséquilibrées');
 if(errors.length){errors.forEach(x=>console.error(x));process.exit(1)}
-console.log('Sept rubriques publiques : navigation, accueil, cache et redirection validés.');
+console.log('Sept rubriques publiques : navigation, accueil et cache autonomes validés.');
