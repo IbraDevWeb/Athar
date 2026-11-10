@@ -9,12 +9,83 @@ const chapters = vm.runInNewContext(read('biographies_data.js') + '\nCHAPTERS_DA
 const bibliography = vm.runInNewContext(read('biography_sources_data.js') + '\nBIOGRAPHY_SOURCES');
 assert.equal(Array.isArray(chapters), true);
 const expectedUrls = {
-  1: 11, 2: 29, 3: 47, 4: 73, 5: 96,
-  6: 126, 7: 150, 8: 156, 9: 158, 10: 165,
-  13: 167, 14: 169, 15: 175
+  1: 11,
+  2: 29,
+  3: 47,
+  4: 73,
+  5: 96,
+  6: 126,
+  7: 150,
+  8: 156,
+  9: 158,
+  10: 165,
+  11: 256,
+  13: 167,
+  14: 169,
+  15: 175,
+  16: 186,
+  17: 187,
+  18: 188,
+  19: 188,
+  20: 188,
+  21: 189,
+  22: 190,
+  23: 192,
+  24: 193,
+  25: 194,
+  26: 196,
+  27: 199,
+  28: 200,
+  29: 200,
+  30: 202,
+  31: 203,
+  32: 203,
+  33: 207,
+  34: 207,
+  35: 219,
+  36: 221,
+  37: 230,
+  38: 242,
+  39: 244,
+  40: 246,
+  41: 249,
+  42: 252,
+  43: 252,
+  44: 252,
+  45: 256,
+  46: 259,
+  47: 261,
+  48: 262,
+  49: 263,
+  50: 265,
+  51: 266,
+  52: 269,
+  53: 270,
+  54: 273,
+  55: 274,
+  56: 282,
+  57: 302,
+  58: 304,
+  59: 309,
+  60: 312,
+  61: 314,
+  62: 322,
+  63: 323,
+  64: 326,
+  65: 328,
+  66: 329,
+  67: 331,
+  68: 334,
+  69: 337,
+  70: 341,
+  71: 341,
+  72: 342,
+  73: 343,
+  74: 346,
+  75: 350,
 };
 assert.deepEqual(Object.keys(bibliography).map(Number).sort((a,b) => a-b), Object.keys(expectedUrls).map(Number).sort((a,b) => a-b));
-assert.equal(bibliography[11], undefined, 'La notice Athar 11 ne correspond pas au n° 11 du fascicule 07–14');
+assert.equal(bibliography[11]?.readUrl, 'https://siyar.fr/livre/1/256', 'La fiche Athar 11 est le doublon de la notice Siyar 45');
 assert.equal(bibliography[12], undefined, 'La notice Athar 12 ne correspond pas au n° 12 du fascicule 07–14');
 let total=0, qualified=0;
 for (const [id, source] of Object.entries(bibliography)) {
@@ -36,6 +107,8 @@ for (const [id, source] of Object.entries(bibliography)) {
     assert.ok(['located','variant','weak','qualification'].includes(entry.status));
     if(entry.kind==='narrative') {
       assert.ok(chapter.narratives.some(n=>n.id===entry.id), 'Récit introuvable : '+id+'/'+key);
+    } else if(entry.kind === 'identity') {
+      assert.ok(entry.id===0 || entry.id===1,'Index identité incorrect '+id+'/'+entry.id);
     } else {
       assert.equal(entry.kind,'timeline');
       assert.ok(chapter.timeline[entry.id], 'Événement introuvable : '+id+'/'+key);
@@ -44,7 +117,9 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,46,'Attendu : 46 repères documentaires précis sur treize biographies');
+assert.equal(total,125,'Attendu : 125 points documentaires, dont 79 nouveaux');
+assert.equal(Object.keys(bibliography).length,74,'Le registre doit couvrir 74 notices avec pages identifiées');
+for(let n=16;n<=75;n++) assert.ok(bibliography[n].entries.some(e=>e.kind==='identity'&&e.id===0),'Notice sans index : '+n);
 assert.ok(qualified>=15,'Les réserves de transmission et les variantes historiques doivent être conservées');
 const conv=chapters.find(c=>c.id===4).narratives.find(n=>n.id===401);
 assert.ok(/munkar/.test(conv.content), 'La réserve sur le convoi doit apparaître dans le texte');
@@ -63,8 +138,8 @@ assert.ok(reader.includes("sourceEvidence('timeline', i)"),'Références chronol
 assert.ok(reader.includes('Lire sur Siyar.fr'),'Lien vers source externe absent');
 assert.ok(!library.includes('> Vérifiée<'),'Badge « Vérifiée » non qualifié');
 assert.ok(!index.includes('Authentifié avec Siyar'),'Badge latéral non qualifié');
-assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-1'),'Registre non chargé');
-assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-1'),'Registre non précaché');
+assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-16-75-16-75-1'),'Registre non chargé');
+assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-16-75-1'),'Registre non précaché');
 assert.ok(!/https?:\/\/[^"'\s]+\.pdf/i.test(read('biography_sources_data.js')),'Le registre contient un lien vers un PDF');
 // Les points controversés du nouveau lot ne doivent plus être présentés comme établis.
 const story=(id,n) => chapters.find(c => c.id===id).narratives.find(x => x.id===n);
@@ -80,4 +155,18 @@ assert.ok(/idhkhir/.test(story(15,1503).content) && /Mouss’ab/.test(story(15,1
 assert.ok(/chaîne faible/.test(chapters.find(c=>c.id===15).hadiths[0].source));
 assert.ok(bibliography[14].entries.some(x=>x.kind==='narrative'&&x.id===1401&&x.status==='weak'));
 assert.ok(bibliography[9].entries.some(x=>x.kind==='timeline'&&x.id===0&&x.status==='weak'));
-console.log('Siyar : 13 biographies rattachées, '+total+' repères localisés, '+qualified+' mentions de prudence, notices Athar 11/12 en attente, aucun PDF.');
+const c=id=>chapters.find(x=>x.id===id);
+assert.ok(/quatre-vingt-dix-neuf/.test(c(26).intro));
+assert.ok(/25 H/.test(c(27).timeline[3].year));
+assert.ok(/C’est alors ‘Aqil/.test(c(35).narratives.find(x=>x.id===353).content));
+assert.ok(/Yarmouk/.test(c(49).narratives.find(x=>x.id===492).content));
+assert.ok(/récits historiques/.test(c(51).intro));
+assert.ok(/ne certifie/.test(bibliography[55].reviewScope));
+assert.ok(/14 ou 16 H/.test(c(55).timeline[4].year));
+assert.ok(/discontinue/.test(c(56).narratives.find(x=>x.id===564).content));
+assert.ok(/12 H/.test(c(60).timeline[1].year));
+assert.ok(/Thabit ibn Zayd/.test(c(72).intro));
+assert.ok(!/verified: true/.test(read('biographies_data.js')));
+assert.ok(reader.includes("entry.kind === 'identity'"));
+assert.ok(library.includes('hasSourceReference'));
+console.log('Siyar : 74 notices indexées, 125 repères ciblés dont 18 nuances nouvelles ; aucune certification intégrale ni PDF embarqué.');
