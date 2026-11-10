@@ -2087,5 +2087,769 @@ const BIOGRAPHY_SOURCES = {
         "status": "located"
       }
     ]
+  },
+  "76": {
+    "id": 76,
+    "fascicle": "76–77",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/354",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 76",
+        "note": "Le fascicule 76–77 contient la notice relative à « Bilal ibn Rabah ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 4,
+        "pdfPage": 3,
+        "printedPage": 2,
+        "title": "Date et lieu de décès : tradition",
+        "note": "La notice signale plusieurs traditions sur le décès de Bilal ; l'une situe celui-ci à Darayya en 20 H, sans le présenter comme une date et un lieu unanimement établis.",
+        "status": "variant"
+      },
+      {
+        "kind": "narrative",
+        "id": 761,
+        "pdfPage": 10,
+        "printedPage": 9,
+        "title": "Persécution et proclamation de l’unicité",
+        "note": "La notice rapporte les supplices et l'invocation de l'unicité divine ; elle critique spécifiquement comme moursal un autre récit impliquant Waraqa.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "77": {
+    "id": 77,
+    "fascicle": "76–77",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/367",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 25,
+        "printedPage": 24,
+        "title": "Identification de la notice 77",
+        "note": "Le fascicule 76–77 contient la notice relative à « Ibnou Oum Maktoum ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 3,
+        "pdfPage": 32,
+        "printedPage": 31,
+        "title": "Mort d’Ibn Oum Maktoum : versions divergentes",
+        "note": "Al-Waqidi rapporte qu'il revint à Médine et y mourut après Al-Qadisiyya ; Dhahabî signale également une version où il serait mort au cours de la bataille.",
+        "status": "variant"
+      }
+    ]
+  },
+  "78": {
+    "id": 78,
+    "fascicle": "78",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/372",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 78",
+        "note": "Le fascicule 78 contient la notice relative à « Khalid ibn Al-Walid ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 781,
+        "pdfPage": 16,
+        "printedPage": 15,
+        "title": "Neuf épées à Mouta",
+        "note": "Un récit rapporté d'après Qays attribue à Khalid la mention de neuf épées brisées, puis d'une large lame yéménite.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 783,
+        "pdfPage": 17,
+        "printedPage": 16,
+        "title": "Boisson empoisonnée : récit transmis",
+        "note": "Deux traditions relatent l'absorption d'une préparation déclarée empoisonnée ; cette narration ne doit pas servir de preuve médicale d'innocuité.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "79": {
+    "id": 79,
+    "fascicle": "79–83",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/392",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 79",
+        "note": "Le fascicule 79–83 contient la notice relative à « Safoine ibn Bayda ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 2,
+        "pdfPage": 3,
+        "printedPage": 2,
+        "title": "Deux dates de décès divergentes",
+        "note": "Selon Al-Waqidi, une voie donne une mort à Badr ; une autre donne une survie jusqu'au Ramadan 38 H, sans préférence explicitement arrêtée dans cette notice.",
+        "status": "variant"
+      }
+    ]
+  },
+  "80": {
+    "id": 80,
+    "fascicle": "79–83",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/393",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 3,
+        "printedPage": 2,
+        "title": "Identification de la notice 80",
+        "note": "Le fascicule 79–83 contient la notice relative à « Souhayl ibn Bayda ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 802,
+        "pdfPage": 3,
+        "printedPage": 2,
+        "title": "Deux migrations vers l’Abyssinie",
+        "note": "Les récits d'Ibn Ishaq et d'Al-Waqidi attestent deux voyages vers l'Abyssinie ; le fascicule ne décrit pas d'épisode de protection rapprochée à Tabouk.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "81": {
+    "id": 81,
+    "fascicle": "79–83",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/394",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 4,
+        "printedPage": 3,
+        "title": "Identification de la notice 81",
+        "note": "Le fascicule 79–83 contient la notice relative à « Al-Miqdad ibn 'Amr ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 1,
+        "pdfPage": 5,
+        "printedPage": 4,
+        "title": "Cavalier à Badr, exclusivité non établie",
+        "note": "Dhahabî affirme que la présence d'Al-Miqdad à cheval est sûre, tout en relevant une divergence concernant Zoubayr : cela ne confirme pas qu'il était l'unique cavalier.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 813,
+        "pdfPage": 9,
+        "printedPage": 8,
+        "title": "Cause du décès et récit médical non étayé",
+        "note": "Le fascicule signale seulement qu'il aurait succombé après avoir ingéré de l'huile de ricin ; l'opération de retrait de graisse décrite auparavant n'est pas trouvée dans cette notice.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "82": {
+    "id": 82,
+    "fascicle": "79–83",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/397",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 10,
+        "printedPage": 9,
+        "title": "Identification de la notice 82",
+        "note": "Le fascicule 79–83 contient la notice relative à « Oubay ibn Kaab ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 1,
+        "pdfPage": 30,
+        "printedPage": 29,
+        "title": "Compilation du Coran : avis discutés",
+        "note": "Dhahabî déclare improbable la présence d'Oubay dans la commission de compilation d'Outhman : le récit invoqué pour l'appuyer est moursal.",
+        "status": "weak"
+      },
+      {
+        "kind": "timeline",
+        "id": 3,
+        "pdfPage": 30,
+        "printedPage": 29,
+        "title": "Date du décès d’Oubay : préférence de Dhahabî",
+        "note": "Plusieurs dates (19, 22, 30 ou 32 H) sont rapportées ; Dhahabî préfère une mort durant le califat d'Oumar, vers 22 H.",
+        "status": "variant"
+      }
+    ]
+  },
+  "83": {
+    "id": 83,
+    "fascicle": "79–83",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/411",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 33,
+        "printedPage": 32,
+        "title": "Identification de la notice 83",
+        "note": "Le fascicule 79–83 contient la notice relative à « An-Nou'mane ibn Mouqarine ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 2,
+        "pdfPage": 38,
+        "printedPage": 37,
+        "title": "Mort de Nou'mane à Nahavand",
+        "note": "Le récit distingue la chute au combat de Nou'mane et la chute de monture du général perse ; il ne faut pas confondre les deux.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "84": {
+    "id": 84,
+    "fascicle": "84–85",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/415",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 84",
+        "note": "Le fascicule 84–85 contient la notice relative à « Ammar ibn Yassir ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "85": {
+    "id": 85,
+    "fascicle": "84–85",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/438",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 42,
+        "printedPage": 41,
+        "title": "Identification de la notice 85",
+        "note": "Le fascicule 84–85 contient la notice relative à « Le Négus (Assehama) ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 852,
+        "pdfPage": 47,
+        "printedPage": 46,
+        "title": "Lumière sur la tombe : parole rapportée",
+        "note": "Le fascicule attribue à Oum Salama la formule « nous racontions » au sujet d'une lumière sur la tombe : il n'établit pas une observation permanente vérifiée.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "86": {
+    "id": 86,
+    "fascicle": "86",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/458",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 86",
+        "note": "Le fascicule 86 contient la notice relative à « Mouadh ibn Jabal ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "identity",
+        "id": 1,
+        "pdfPage": 8,
+        "printedPage": 7,
+        "title": "Élévation au-dessus des savants : réserves de chaîne",
+        "note": "La notice rapporte plusieurs versions du rang de Mouadh au Jour de la Résurrection et signale qu'au moins une chaîne de cette tradition est faible.",
+        "status": "weak"
+      },
+      {
+        "kind": "timeline",
+        "id": 4,
+        "pdfPage": 38,
+        "printedPage": 37,
+        "title": "Âge et décès : variantes",
+        "note": "La notice situe son décès en 17 ou 18 H, et donne plusieurs âges (28, 32, 33, 34 et 38 ans) selon les auteurs.",
+        "status": "variant"
+      }
+    ]
+  },
+  "87": {
+    "id": 87,
+    "fascicle": "87–90",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/480",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 87",
+        "note": "Le fascicule 87–90 contient la notice relative à « Abd-Allah ibn Massoud ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "88": {
+    "id": 88,
+    "fascicle": "87–90",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/519",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 71,
+        "printedPage": 70,
+        "title": "Identification de la notice 88",
+        "note": "Le fascicule 87–90 contient la notice relative à « Outba ibn Massoud ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "89": {
+    "id": 89,
+    "fascicle": "87–90",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/520",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 72,
+        "printedPage": 71,
+        "title": "Identification de la notice 89",
+        "note": "Le fascicule 87–90 contient la notice relative à « Khoubayb ibn Yassaf ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "90": {
+    "id": 90,
+    "fascicle": "87–90",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/522",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 76,
+        "printedPage": 75,
+        "title": "Identification de la notice 90",
+        "note": "Le fascicule 87–90 contient la notice relative à « 'Ouaym ibn Saïda ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "91": {
+    "id": 91,
+    "fascicle": "91",
+    "tome": 1,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/1/524",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 91",
+        "note": "Le fascicule 91 contient la notice relative à « Salmane Al-Farissi ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 5,
+        "pdfPage": 119,
+        "printedPage": 118,
+        "title": "Décès de Salmane : années divergentes",
+        "note": "Al-Waqidi situe sa mort sous Outhman ; d'autres donnent 33, 36 ou 37 H, la dernière date étant rejetée par Dhahabî comme postérieure à Jamal et Siffine.",
+        "status": "variant"
+      },
+      {
+        "kind": "identity",
+        "id": 1,
+        "pdfPage": 121,
+        "printedPage": 120,
+        "title": "250 ans : hypothèse rejetée par Dhahabî",
+        "note": "Dhahabî indique qu'il ne considère plus authentique son ancienne estimation de 250 ans et penche plutôt pour environ 70 ans, sans prétendre disposer d'une datation certaine.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "92": {
+    "id": 92,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/1",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 2,
+        "printedPage": 1,
+        "title": "Identification de la notice 92",
+        "note": "Le fascicule 92–100 contient la notice relative à « 'Oubada ibn As-Samit ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "93": {
+    "id": 93,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/6",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 11,
+        "printedPage": 10,
+        "title": "Identification de la notice 93",
+        "note": "Le fascicule 92–100 contient la notice relative à « Abd-Allah ibn Houdhafa ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 931,
+        "pdfPage": 15,
+        "printedPage": 14,
+        "title": "Le baiser à l’empereur : tradition à variantes",
+        "note": "Le récit du roi byzantin et des prisonniers est rapporté avec des versions différentes sur le nombre de captifs libérés (80, 100 ou 300).",
+        "status": "variant"
+      },
+      {
+        "kind": "narrative",
+        "id": 932,
+        "pdfPage": 14,
+        "printedPage": 13,
+        "title": "Ordre de se jeter au feu : transmission abrégée",
+        "note": "Le récit de la plaisanterie de feu est rapporté par une voie dont la version alternative citée est interrompue.",
+        "status": "qualification"
+      }
+    ]
+  },
+  "94": {
+    "id": 94,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/12",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 20,
+        "printedPage": 19,
+        "title": "Identification de la notice 94",
+        "note": "Le fascicule 92–100 contient la notice relative à « Abou Rafi' ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "95": {
+    "id": 95,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/13",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 23,
+        "printedPage": 22,
+        "title": "Identification de la notice 95",
+        "note": "Le fascicule 92–100 contient la notice relative à « Souhayb Ar-Roumi ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "96": {
+    "id": 96,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/23",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 40,
+        "printedPage": 39,
+        "title": "Identification de la notice 96",
+        "note": "Le fascicule 92–100 contient la notice relative à « Abou Talha Al-Ansari ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      },
+      {
+        "kind": "timeline",
+        "id": 0,
+        "pdfPage": 40,
+        "printedPage": 39,
+        "title": "Douze apôtres : divergences dans le livre",
+        "note": "La note du traducteur précise qu'Abou Talha n'apparaît pas parmi les douze de la notice 58, bien que sa présence à la seconde Aqaba ne fasse pas débat.",
+        "status": "qualification"
+      },
+      {
+        "kind": "timeline",
+        "id": 2,
+        "pdfPage": 42,
+        "printedPage": 41,
+        "title": "Jeûne quarante années : chronologie contestée",
+        "note": "Un récit lui attribue 40 ans de jeûne après le décès du Prophète ; Dhahabî le contredit ici en indiquant qu'il n'aurait vécu qu'une vingtaine d'années après lui.",
+        "status": "variant"
+      }
+    ]
+  },
+  "97": {
+    "id": 97,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/31",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 53,
+        "printedPage": 52,
+        "title": "Identification de la notice 97",
+        "note": "Le fascicule 92–100 contient la notice relative à « Abou Bourda ibn Niyar ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "98": {
+    "id": 98,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/32",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 54,
+        "printedPage": 53,
+        "title": "Identification de la notice 98",
+        "note": "Le fascicule 92–100 contient la notice relative à « Jabr ibn 'Atik ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "99": {
+    "id": 99,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/33",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 57,
+        "printedPage": 56,
+        "title": "Identification de la notice 99",
+        "note": "Le fascicule 92–100 contient la notice relative à « Al-Ache'ath ibn Qays ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
+  },
+  "100": {
+    "id": 100,
+    "fascicle": "92–100",
+    "tome": 2,
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "La page PDF citée correspond au fascicule transmis. Sa page imprimée = page PDF − 1 ; la pagination de Siyar.fr et le numéro de tome sont distincts.",
+    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l’intégralité des biographies, ni l’authenticité des chaînes de transmission.",
+    "readUrl": "https://siyar.fr/livre/2/40",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 68,
+        "printedPage": 67,
+        "title": "Identification de la notice 100",
+        "note": "Le fascicule 92–100 contient la notice relative à « Hatib ibn Abou Baltaa ». Cette correspondance de nom et de numéro n'est pas une certification des récits, des chronologies ou des hadiths de la fiche Athar.",
+        "status": "located"
+      }
+    ]
   }
 };
