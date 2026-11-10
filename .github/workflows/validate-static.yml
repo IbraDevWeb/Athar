@@ -63,6 +63,9 @@ jobs:
       - name: Validate published sections and navigation
         run: node scripts/validate-public-navigation.js
 
+      - name: Validate Siyar bibliographies
+        run: node scripts/validate-biography-sources.js
+
 
       - name: Validate Athar Research V5
         run: node scripts/validate-rag-v4.js

@@ -304,7 +304,7 @@ const LibraryView = {
                         <article class="library-pro-lead" @click="openItem(leadChapter)" tabindex="0" @keydown.enter="openItem(leadChapter)">
                             <div class="library-pro-lead-number">{{ String(leadChapter.id).padStart(2, '0') }}</div>
                             <div class="library-pro-lead-content">
-                                <div class="library-pro-card-badges"><span v-if="leadChapter.verified"><i data-lucide="badge-check"></i> Vérifiée</span><span v-for="tag in safeArray(leadChapter.tags).slice(0, 2)" :key="tag">{{ tag }}</span></div>
+                                <div class="library-pro-card-badges"><span v-if="leadChapter.source"><i data-lucide="book-check"></i> Source indiquée</span><span v-for="tag in safeArray(leadChapter.tags).slice(0, 2)" :key="tag">{{ tag }}</span></div>
                                 <p class="library-pro-lead-arabic" lang="ar" dir="rtl">{{ leadChapter.arabicName }}</p>
                                 <h3>{{ leadChapter.name }}</h3><blockquote>« {{ leadChapter.subtitle }} »</blockquote><p>{{ leadChapter.intro }}</p>
                                 <div class="library-pro-lead-footer"><span><i data-lucide="clock-3"></i> {{ readingTime(leadChapter) }}</span><span><i data-lucide="scroll-text"></i> {{ metrics(leadChapter).stories }} récits</span><b>Ouvrir la notice <i data-lucide="arrow-up-right"></i></b></div>
@@ -349,7 +349,7 @@ const LibraryView = {
                 </section>
                 <div v-if="catalogItems.length" class="library-pro-results" :class="'is-' + layoutMode">
                     <article v-for="item in catalogItems" :key="item.id" class="library-pro-card" @click="openItem(item)" tabindex="0" @keydown.enter="openItem(item)">
-                        <div class="library-pro-card-top"><div class="library-pro-card-badges"><span v-if="item.verified"><i data-lucide="badge-check"></i> Vérifiée</span><span>{{ safeArray(item.tags)[0] || 'Histoire' }}</span></div><button type="button" @click="toggleItemFavorite(item, $event)" :class="{ active: favorite(item.id) }"><i data-lucide="heart"></i></button></div>
+                        <div class="library-pro-card-top"><div class="library-pro-card-badges"><span v-if="item.source"><i data-lucide="book-check"></i> Source indiquée</span><span>{{ safeArray(item.tags)[0] || 'Histoire' }}</span></div><button type="button" @click="toggleItemFavorite(item, $event)" :class="{ active: favorite(item.id) }"><i data-lucide="heart"></i></button></div>
                         <div class="library-pro-card-main"><span class="library-pro-card-arabic" lang="ar" dir="rtl">{{ item.arabicName }}</span><h2>{{ item.name }}</h2><blockquote>« {{ item.subtitle }} »</blockquote><p>{{ item.intro }}</p></div>
                         <dl class="library-pro-card-metrics"><div><dt><i data-lucide="scroll-text"></i></dt><dd>{{ metrics(item).stories }}<span>récits</span></dd></div><div><dt><i data-lucide="calendar-range"></i></dt><dd>{{ metrics(item).events }}<span>repères</span></dd></div><div><dt><i data-lucide="messages-square"></i></dt><dd>{{ metrics(item).traditions }}<span>traditions</span></dd></div><div><dt><i data-lucide="clock-3"></i></dt><dd>{{ readingTime(item) }}<span>lecture</span></dd></div></dl>
                         <footer><span v-if="item.source"><i data-lucide="book-check"></i> Référence indiquée</span><span v-else><i data-lucide="circle-alert"></i> Source à préciser</span><b>Étudier <i data-lucide="arrow-right"></i></b></footer>
