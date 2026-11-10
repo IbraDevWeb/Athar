@@ -1,7 +1,0 @@
-{
-  "version": 1,
-  "approved_auto_manifest_blob": "cb1df4739ecbe37e9087ee9da5f2b7b2642c73de",
-  "approved_auto_books": 145,
-  "reviewed_at": "2026-08-15T20:54:00Z",
-  "review_note": "Palier 200 revu avant publication : 145 ouvrages automatiques OpenITI approuvés par blob exact, en complément des 50 ouvrages configurés et des 5 tafsirs dédiés. Le lot a été nettoyé avant build : six œuvres hors du périmètre de promotion automatique ont été retirées puis remplacées, notamment des tafsirs relevant de traditions shiites ou ibadites non encore taxonomisées par Athar et deux ouvrages de linguistique/poésie. Les ouvrages savants utiles mal classés ont été conservés avec des corrections documentaires explicites, dont des recueils/sciences du hadith et des chroniques historiques. Les deux derniers remplaçants revus, IbnCasakir.KashfMughatta et IbnKhayyatCusfuri.Tarikh, sont respectivement classés Hadith et Sīra et histoire. Les corrections restent marquées reviewed_policy_override, aucun madhhab n'est inventé et toute modification ultérieure du manifeste invalide cette approbation."
-}

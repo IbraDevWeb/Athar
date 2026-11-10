@@ -1,3 +1,0 @@
--r requirements.txt
-fastembed==0.8.0
-usearch==2.26.0
