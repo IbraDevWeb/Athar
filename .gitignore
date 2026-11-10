@@ -1,13 +1,8 @@
-.venv-rag/
+# Fichiers locaux et privés
 __pycache__/
 *.py[cod]
-rag/data/*.sqlite
-rag/data/*.sqlite-*
-rag/data/*.gz
-rag/data/snapshots/
-rag/runtime.json
-rag/runtime.json.tmp
-rag/server.log
 .env
 .env.*
 !.env.example
+node_modules/
+.DS_Store

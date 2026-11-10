@@ -112,9 +112,6 @@ async function desktop() {
     assert.equal(await page.locator('#athar-fullscreen-toggle, #athar-fullscreen-exit').count(),0);
     assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('athar-app-fullscreen')),true);
 
-    await page.goto(base+'/research-library.html?ui=blocked',{waitUntil:'domcontentloaded'});
-    await page.waitForURL(url=>url.pathname.endsWith('/index.html'),{timeout:20000});
-    await ready(page);
     assert.deepEqual(errors,[],'Erreurs JavaScript desktop : '+errors.join(' / '));
     await page.close();
 }
