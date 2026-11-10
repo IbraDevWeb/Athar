@@ -48,8 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v46-tasbih-simple-1';
-    const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
+    const APP_VERSION = 'athar-pro-v47-core-clean-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -79,11 +78,6 @@ tailwind.config = {
         document.write(`<script id="${id}" src="${src}?v=${version}"><\/script>`);
     };
 
-    const writeScholarAtlasScript = (src, id) => {
-        if (document.readyState !== 'loading' || document.getElementById(id)) return;
-        document.write(`<script id="${id}" src="${src}?v=${APP_VERSION}"><\/script>`);
-    };
-
     document.title = "Athar Pro — Bibliothèque et outils d'étude";
     setMeta('meta[name="description"]', 'Biographies, chronologie, lexique, hadiths, Tabib Al-Qulub, adhkar et tasbih dans Athar Pro.');
     setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque et outils d'étude");
@@ -92,87 +86,37 @@ tailwind.config = {
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
 
-    /* Ponts chargés avant le montage de Vue. */
+    // Charger les seules sections publiées d'Athar.
     writeEarlyScript('js/components/VueSafeIcons.js', 'athar-vue-safe-icons');
-    // Le pont d'événements est utile aux menus, sans le lanceur Athar Lens.
-    writeEarlyScript('js/components/AtharLensBridge.js', 'athar-lens-bridge');
-    writeEarlyScript('astronomy_data.js', 'athar-astronomy-data');
-    writeEarlyScript('js/components/AncientSkyView.js', 'athar-ancient-sky-view');
-    writeEarlyScript('history_nights_data.js', 'athar-history-nights-data');
-    writeEarlyScript('js/components/HistoryNightsView.js', 'athar-history-nights-view');
-    writeEarlyScript('scriptorium_data.js', 'athar-scriptorium-data');
-    writeEarlyScript('js/components/ScriptoriumView.js', 'athar-scriptorium-view');
-    writeEarlyScript('roots_data.js', 'athar-root-tree-data');
-    writeEarlyScript('js/components/RootTreeView.js', 'athar-root-tree-view');
-    writeEarlyScript('isnad_data.js', 'athar-golden-chain-data');
-    writeEarlyScript('js/components/GoldenChainView.js', 'athar-golden-chain-view');
+    writeEarlyScript('js/components/AtharLensBridge.js', 'athar-navigation-bridge');
 
-    /* Athar Research : vue, couche de synthèse fondée sur le RAG, puis bootstrap. */
-    // Recherche savante conservée dans le dépôt, non montée dans la version publique.
-    writeEarlyScript('js/components/AstronomyBootstrap.js', 'athar-tool-extensions-bootstrap');
-
-    ensureStylesheet(`css/transmission.css?v=${APP_VERSION}`, 'athar-transmission-styles');
-    ensureStylesheet(`css/atlas.css?v=${APP_VERSION}`, 'athar-atlas-styles');
-    ensureStylesheet(`css/atlas-layout-fix.css?v=${APP_VERSION}`, 'athar-atlas-layout-fix');
-    ensureStylesheet(`css/scholar-atlas.css?v=${APP_VERSION}`, 'athar-scholar-atlas-styles');
-    ensureStylesheet(`css/scholar-atlas-expansion.css?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion');
-    ensureStylesheet(`css/constellation-base.css?v=${APP_VERSION}`, 'athar-constellation-base');
-    ensureStylesheet(`css/constellation-content.css?v=${APP_VERSION}`, 'athar-constellation-content');
-    ensureStylesheet(`css/constellation-overlays.css?v=${APP_VERSION}`, 'athar-constellation-overlays');
-    ensureStylesheet(`css/constellation-study.css?v=${APP_VERSION}`, 'athar-constellation-study');
     ensureStylesheet(`css/tasbih-pro.css?v=${APP_VERSION}`, 'athar-tasbih-pro');
     ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
     ensureStylesheet(`css/fullscreen-global.css?v=${APP_VERSION}`, 'athar-fullscreen-global');
     ensureStylesheet(`css/adhkar-pro.css?v=${APP_VERSION}`, 'athar-adhkar-pro');
     ensureStylesheet(`css/hadith-pro.css?v=${APP_VERSION}`, 'athar-hadith-pro');
-    ensureStylesheet(`css/ussul-pro.css?v=${APP_VERSION}`, 'athar-ussul-pro');
-    ensureStylesheet(`css/ussul-immersive-fix.css?v=${APP_VERSION}`, 'athar-ussul-immersive-fix');
     ensureStylesheet(`css/library-pro.css?v=${APP_VERSION}`, 'athar-library-pro');
     ensureStylesheet(`css/library-immersive-fix.css?v=${APP_VERSION}`, 'athar-library-immersive-fix');
     ensureStylesheet(`css/mobile-pro.css?v=${APP_VERSION}`, 'athar-mobile-pro');
     ensureStylesheet(`css/interaction-stability.css?v=${APP_VERSION}`, 'athar-interaction-stability');
-    ensureStylesheet('css/ux-v39-safe.css?v=athar-ux-v39-safe-2', 'athar-ux-v39-safe');
-    ensureStylesheet(`css/ancient-sky.css?v=${APP_VERSION}`, 'athar-ancient-sky-styles');
-    ensureStylesheet(`css/history-nights.css?v=${APP_VERSION}`, 'athar-history-nights-styles');
-    ensureStylesheet(`css/history-nights-scroll.css?v=${APP_VERSION}`, 'athar-history-nights-scroll');
-    ensureStylesheet(`css/scriptorium.css?v=${APP_VERSION}`, 'athar-scriptorium-styles');
-    ensureStylesheet(`css/root-tree.css?v=${APP_VERSION}`, 'athar-root-tree-styles');
-    ensureStylesheet(`css/golden-chain.css?v=${APP_VERSION}`, 'athar-golden-chain-styles');
-    ensureStylesheet(`css/athar-research-v5.css?v=${RESEARCH_UI_VERSION}`, 'athar-research-v5-styles');
-    ensureStylesheet('css/athar-research-synthesis.css?v=athar-research-synthesis-1', 'athar-research-synthesis-styles');
-    ensureStylesheet('css/athar-research-library-v40.css?v=athar-v40-research-library-1', 'athar-v40-research-library-styles');
-    ensureStylesheet('css/athar-v40-polish.css?v=athar-v40-polish-1', 'athar-v40-polish-styles');
-    ensureStylesheet('css/athar-v40-continuity.css?v=athar-v40-continuity-1', 'athar-v40-continuity-styles');
-    ensureStylesheet('css/athar-launch.css?v=athar-public-3', 'athar-launch-styles');
     ensureStylesheet(`css/immersive-only.css?v=${APP_VERSION}`, 'athar-immersive-only-styles');
     ensureStylesheet(`css/tasbih-simple.css?v=${APP_VERSION}`, 'athar-tasbih-simple-styles');
+    ensureStylesheet('css/athar-launch.css?v=athar-public-3', 'athar-launch-styles');
 
-    if (!window.SCHOLAR_ATLAS_DATA) {
-        writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
-        writeScholarAtlasScript('scholar_atlas_traditions.js', 'athar-scholar-atlas-traditions');
-        writeScholarAtlasScript('scholar_atlas_thought.js', 'athar-scholar-atlas-thought');
-        writeScholarAtlasScript('scholar_atlas_cities_expansion.js', 'athar-scholar-atlas-cities-expansion');
-        writeScholarAtlasScript('scholar_atlas_women_1.js', 'athar-scholar-atlas-women-1');
-        writeScholarAtlasScript('scholar_atlas_women_2.js', 'athar-scholar-atlas-women-2');
-        writeScholarAtlasScript('scholar_atlas_women_3.js', 'athar-scholar-atlas-women-3');
-        writeScholarAtlasScript('scholar_atlas_women_4.js', 'athar-scholar-atlas-women-4');
-        writeScholarAtlasScript('scholar_atlas_men_law.js', 'athar-scholar-atlas-men-law');
-        writeScholarAtlasScript('scholar_atlas_men_hadith_tafsir.js', 'athar-scholar-atlas-men-hadith-tafsir');
-        writeScholarAtlasScript('scholar_atlas_men_qiraat_language.js', 'athar-scholar-atlas-men-qiraat-language');
-        writeScholarAtlasScript('scholar_atlas_men_science_history.js', 'athar-scholar-atlas-men-science-history');
-        writeScholarAtlasScript('scholar_atlas_enrichment.js', 'athar-scholar-atlas-enrichment');
-    }
-
-    ensureScript(`js/components/ScholarAtlasExpansionPatch.js?v=${APP_VERSION}`, 'athar-scholar-atlas-expansion-patch');
-    ensureScript(`js/components/ConstellationBootstrap.js?v=${APP_VERSION}`, 'athar-constellation-bootstrap');
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
-    ensureScript('js/ux-v39-safe.js?v=athar-ux-v39-safe-2', 'athar-ux-v39-safe-bridge');
-    ensureScript('js/ux-v40-research-library.js?v=athar-v40-research-library-1', 'athar-v40-research-library-bridge');
-    ensureScript('js/ux-v40-polish.js?v=athar-v40-polish-1', 'athar-v40-polish-bridge');
-    ensureScript('js/ux-v40-continuity.js?v=athar-v40-continuity-1', 'athar-v40-continuity-bridge');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
     ensureScript(`js/components/ThemeBridge.js?v=${APP_VERSION}`, 'athar-theme-bridge');
 
+    // Supprimer les anciens paramètres du moteur documentaire, sans toucher aux comptes locaux.
+    try {
+        const obsolete = key => /^athar_(?:rag|research|v40_(?:open_research|research|research_draft))/i.test(key);
+        for (const storage of [window.localStorage, window.sessionStorage]) {
+            for (let i = storage.length - 1; i >= 0; i--) {
+                const key = storage.key(i);
+                if (key && obsolete(key)) storage.removeItem(key);
+            }
+        }
+    } catch (_) { /* stockage indisponible */ }
     window.addEventListener('load', async () => {
         if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return;
         try {
