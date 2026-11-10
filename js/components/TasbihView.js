@@ -51,6 +51,7 @@ const TasbihView = {
         let pulseTimer = null;
         let wakeLock = null;
         let audioContext = null;
+        let modalReturnFocus = null;
 
         const allDhikrs = computed(() => [...presets, ...state.customDhikrs]);
         const selected = computed(() => allDhikrs.value.find(item => item.id === state.selectedId) || allDhikrs.value[0]);
@@ -448,6 +449,12 @@ const TasbihView = {
         };
 
         const handleKeydown = (event) => {
+            if (state.confirmAction && event.key === 'Escape') {
+                event.preventDefault();
+                state.confirmAction = '';
+                state.pendingDhikrId = null;
+                return;
+            }
             const target = event.target;
             const interactive = target && ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'].includes(target.tagName);
             if (interactive || state.mode !== 'session' || state.confirmAction) return;
@@ -466,6 +473,30 @@ const TasbihView = {
         };
 
         watch(state, persist, { deep: true });
+        watch(() => state.confirmAction, async (action, previous) => {
+            if (action && !previous) {
+                modalReturnFocus = document.activeElement;
+                await nextTick();
+                document.querySelector('.tasbih-confirm-modal button')?.focus();
+            } else if (!action && previous && modalReturnFocus?.isConnected) {
+                await nextTick();
+                modalReturnFocus.focus();
+                modalReturnFocus = null;
+            }
+        });
+
+        const trapModalFocus = (event) => {
+            const controls = [...event.currentTarget.querySelectorAll('button:not([disabled])')];
+            if (!controls.length) return;
+            const first = controls[0], last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        };
 
         onMounted(() => {
             load();
@@ -493,7 +524,7 @@ const TasbihView = {
             goalLabel, sessionRate, totalAll, selectedTotal, todayTotal, weeklyData, streak, topDhikr,
             recentHistory, formatDuration, historyDate, increment, undo, finishSession,
             selectDhikr, requestDhikr, setGoal, applyCustomGoal, pauseSession, toggleSetting,
-            addCustomDhikr, removeCustomDhikr, runConfirmedAction, setMode
+            addCustomDhikr, removeCustomDhikr, runConfirmedAction, setMode, trapModalFocus
         };
     },
     template: `
@@ -652,7 +683,7 @@ const TasbihView = {
         <transition name="fade"><div v-if="state.notice" class="tasbih-toast"><i data-lucide="check-circle-2"></i>{{ state.notice }}</div></transition>
 
         <div v-if="state.confirmAction" class="tasbih-confirm-backdrop" @click.self="state.confirmAction = ''; state.pendingDhikrId = null">
-            <article class="tasbih-confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="tasbih-confirm-title" aria-describedby="tasbih-confirm-text">
+            <article class="tasbih-confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="tasbih-confirm-title" aria-describedby="tasbih-confirm-text" @keydown.tab="trapModalFocus">
                 <span><i data-lucide="triangle-alert"></i></span>
                 <h2 id="tasbih-confirm-title">{{ state.confirmAction === 'switch' ? 'Changer de formule ?' : state.confirmAction === 'discard' ? 'Effacer la séance en cours ?' : state.confirmAction === 'history' ? 'Effacer tout l’historique ?' : 'Réinitialiser toutes les données ?' }}</h2>
                 <p id="tasbih-confirm-text">{{ state.confirmAction === 'switch' ? 'La séance en cours sera enregistrée avant de changer de formule.' : state.confirmAction === 'discard' ? 'Les répétitions de cette séance seront retirées du total local.' : 'Cette action est limitée à cet appareil et ne peut pas être annulée.' }}</p>
