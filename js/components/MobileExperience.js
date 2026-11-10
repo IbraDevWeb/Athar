@@ -110,6 +110,10 @@
     };
 
     const openMenu = () => {
+        if (document.documentElement.classList.contains('athar-immersive-only')) {
+            window.AtharFullscreen?.openMenu?.();
+            return;
+        }
         const button = findMobileMenuButton();
         if (button) button.click();
     };
@@ -206,6 +210,7 @@
     };
 
     const buildDock = () => {
+        if (document.documentElement.classList.contains('athar-immersive-only')) return;
         const existing = document.getElementById('athar-mobile-dock');
         if (existing) {
             dock = existing;

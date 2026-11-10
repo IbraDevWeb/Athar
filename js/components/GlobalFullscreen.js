@@ -3,7 +3,6 @@
     const ROOT_CLASS = 'athar-app-fullscreen';
     const STORAGE_KEY = 'athar_immersive_last_view';
     const SETTINGS_KEY = 'athar_settings';
-    const SAFE_MODE = new URLSearchParams(window.location.search).get('immersive') === 'off';
     const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih']);
     const NAV_GROUPS = [
         {
@@ -39,9 +38,7 @@
     ].map(group => ({ ...group, items: group.items.filter(([view]) => PUBLISHED_VIEWS.has(view)) }))
      .filter(group => group.items.length > 0);
 
-    let fallbackActive = false;
-    let button = null;
-    let exitButton = null;
+    let quickButton = null;
     let menuButton = null;
     let themeButton = null;
     let currentBadge = null;
@@ -53,7 +50,20 @@
     let themeObserver = null;
 
     const refreshIcons = () => setTimeout(() => window.lucide?.createIcons(), 20);
-    const isActive = () => Boolean(document.fullscreenElement) || fallbackActive;
+    // L'affichage immersif fait désormais partie de la page, sans Fullscreen API.
+    const isActive = () => true;
+    const DETAIL_PARENT = {
+        reader: ['library', 'Bibliothèque'],
+        'hadith-reader': ['hadiths', 'Hadiths'],
+        'adhkar-reader': ['adhkar', 'Al-Adhkar'],
+        'tabib-detail': ['tabib', 'Tabib Al-Qulub']
+    };
+    const DETAIL_LABEL = {
+        reader: 'Lecture de biographie',
+        'hadith-reader': 'Lecture de hadith',
+        'adhkar-reader': 'Lecture d’invocation',
+        'tabib-detail': 'Lecture spirituelle'
+    };
     const isDark = () => document.documentElement.classList.contains('dark');
     const normalize = value => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
     const allItems = NAV_GROUPS.flatMap(group => group.items.map(item => ({ view: item[0], label: item[1], icon: item[2] })));
@@ -128,7 +138,17 @@
         localStorage.setItem(STORAGE_KEY, currentView);
         const item = allItems.find(entry => entry.view === currentView);
         const title = label || item?.label || 'Athar Pro';
-        if (currentBadge?.querySelector('span')) currentBadge.querySelector('span').textContent = title;
+        if (currentBadge?.querySelector('span')) currentBadge.querySelector('span').textContent = DETAIL_LABEL[view] || title;
+        const backTarget = DETAIL_PARENT[view];
+        if (quickButton) {
+            quickButton.dataset.targetView = backTarget ? backTarget[0] : 'tasbih';
+            quickButton.dataset.targetLabel = backTarget ? backTarget[1] : 'Tasbih';
+            quickButton.title = backTarget ? 'Retour à ' + backTarget[1] : 'Ouvrir le Tasbih';
+            quickButton.setAttribute('aria-label', quickButton.title);
+            quickButton.innerHTML = backTarget
+                ? '<i data-lucide="arrow-left"></i><span>Retour</span>'
+                : '<i data-lucide="rotate-cw"></i><span>Tasbih</span>';
+        }
         drawer?.querySelectorAll('[data-athar-view]').forEach(node => {
             const active = node.dataset.atharView === currentView;
             node.classList.toggle('is-active', active);
@@ -140,101 +160,47 @@
         drawer?.classList.remove('is-open');
         backdrop?.classList.remove('is-open');
         menuButton?.setAttribute('aria-expanded', 'false');
+        const main = document.querySelector('.athar-global-mainframe > main');
+        if (main) main.inert = false;
         document.documentElement.classList.remove('athar-immersive-menu-open');
     };
 
     const openDrawer = () => {
         if (!isActive()) return;
-        syncCurrentFromApp();
         drawer?.classList.add('is-open');
         backdrop?.classList.add('is-open');
         menuButton?.setAttribute('aria-expanded', 'true');
         document.documentElement.classList.add('athar-immersive-menu-open');
+        const main = document.querySelector('.athar-global-mainframe > main');
+        if (main) main.inert = true;
         drawer?.querySelector('.is-active')?.scrollIntoView({ block: 'nearest' });
     };
 
     const toggleDrawer = () => drawer?.classList.contains('is-open') ? closeDrawer() : openDrawer();
 
-    const findVueNavigationButton = label => {
-        const wanted = normalize(label);
-        const candidates = [...document.querySelectorAll('#app aside button, #app [class*="md:hidden"] button')];
-        return candidates.find(candidate => normalize(candidate.textContent) === wanted)
-            || candidates.find(candidate => normalize(candidate.textContent).includes(wanted));
-    };
-
     const navigate = (view, label) => {
         if (!PUBLISHED_VIEWS.has(view)) return;
         closeDrawer();
-        const target = findVueNavigationButton(label);
-        if (target) {
-            target.click();
-            setCurrentView(view, label);
-        } else {
-            window.dispatchEvent(new CustomEvent('athar:navigate', { detail: { view, label, immersive: true } }));
-            setCurrentView(view, label);
-        }
-        setTimeout(() => {
-            markLayout();
-            setCurrentView(view, label);
-            renderThemeState();
-            refreshIcons();
-        }, 100);
-    };
-
-    const syncCurrentFromApp = () => {
-        const buttons = [...document.querySelectorAll('#app aside button')];
-        const activeButton = buttons.find(node => {
-            const classes = String(node.className || '');
-            return classes.includes('bg-brand-dark') || classes.includes('bg-brand-gold') || classes.includes('dark:bg-white');
-        });
-        if (!activeButton) return;
-        const label = normalize(activeButton.textContent);
-        const item = allItems.find(entry => label.includes(normalize(entry.label)));
-        if (item) setCurrentView(item.view, item.label);
-    };
-
-    const renderState = () => {
-        const active = isActive();
-        document.documentElement.classList.toggle(ROOT_CLASS, active);
-        if (button) {
-            button.setAttribute('aria-pressed', String(active));
-            button.title = active ? 'Quitter le mode immersif' : 'Mode immersif';
-            button.innerHTML = `<i data-lucide="${active ? 'minimize-2' : 'maximize-2'}"></i><span class="sr-only">${active ? 'Quitter le mode immersif' : 'Activer le mode immersif'}</span>`;
-        }
-        [exitButton, menuButton, themeButton, currentBadge].forEach(node => { if (node) node.hidden = !active; });
-        if (!active) closeDrawer();
-        else syncCurrentFromApp();
-        renderThemeState();
+        window.dispatchEvent(new CustomEvent('athar:navigate', {
+            detail: { view, label, immersive: true }
+        }));
+        setCurrentView(view, label);
         refreshIcons();
     };
 
-    const exit = async () => {
-        fallbackActive = false;
-        closeDrawer();
-        if (document.fullscreenElement && document.exitFullscreen) {
-            try { await document.exitFullscreen(); } catch (_) {}
-        }
-        renderState();
-    };
-
-    const enter = async () => {
-        markLayout();
-        syncCurrentFromApp();
+    const renderState = () => {
+        document.documentElement.classList.add(ROOT_CLASS, 'athar-immersive-only');
+        [quickButton, menuButton, themeButton, currentBadge].forEach(node => {
+            if (node) node.hidden = false;
+        });
+        setCurrentView(currentView);
         renderThemeState();
-        try {
-            if (document.documentElement.requestFullscreen) {
-                await document.documentElement.requestFullscreen({ navigationUI: 'hide' });
-                fallbackActive = false;
-            } else {
-                fallbackActive = true;
-            }
-        } catch (_) {
-            fallbackActive = true;
-        }
-        renderState();
+        refreshIcons();
     };
-
-    const toggle = () => isActive() ? exit() : enter();
+    // Compatibilité : les extensions peuvent appeler ces méthodes sans changer de mode.
+    const enter = () => { markLayout(); renderState(); };
+    const exit = () => { closeDrawer(); renderState(); };
+    const toggle = () => renderState();
 
     const buildDrawer = () => {
         if (document.getElementById('athar-immersive-drawer')) {
@@ -266,7 +232,7 @@
                     ${group.items.map(([view, label, icon]) => `<button type="button" data-athar-view="${view}" data-label="${label}"><i data-lucide="${icon}"></i><span>${label}</span></button>`).join('')}
                 </section>`).join('')}
             </nav>
-            <div class="athar-immersive-drawer-foot"><span>Ctrl + Maj + F</span><small>Activer ou quitter</small></div>`;
+            <div class="athar-immersive-drawer-foot"><span>Athar Pro</span><small>7 rubriques disponibles</small></div>`;
         drawer.querySelector('[data-close-drawer]')?.addEventListener('click', closeDrawer);
         drawer.querySelectorAll('[data-athar-view]').forEach(node => {
             node.addEventListener('click', () => navigate(node.dataset.atharView, node.dataset.label));
@@ -276,19 +242,6 @@
 
     const inject = () => {
         if (!markLayout()) return false;
-        const header = document.querySelector('#app > header');
-        const actions = header?.querySelector('.flex.items-center.gap-1, .flex.items-center.gap-3');
-        if (!actions) return false;
-
-        if (!document.getElementById('athar-fullscreen-toggle')) {
-            button = document.createElement('button');
-            button.id = 'athar-fullscreen-toggle';
-            button.type = 'button';
-            button.className = 'athar-fullscreen-toggle';
-            button.addEventListener('click', toggle);
-            actions.insertBefore(button, actions.firstChild);
-        } else button = document.getElementById('athar-fullscreen-toggle');
-
         if (!document.getElementById('athar-immersive-menu')) {
             menuButton = document.createElement('button');
             menuButton.id = 'athar-immersive-menu';
@@ -301,7 +254,11 @@
         } else menuButton = document.getElementById('athar-immersive-menu');
 
         if (!document.getElementById('athar-immersive-current')) {
-            currentBadge = document.createElement('div');
+            currentBadge = document.createElement('button');
+            currentBadge.type = 'button';
+            currentBadge.setAttribute('aria-label', "Retour à l'accueil");
+            currentBadge.title = "Retour à l'accueil";
+            currentBadge.addEventListener('click', () => navigate('home', 'Accueil'));
             currentBadge.id = 'athar-immersive-current';
             currentBadge.className = 'athar-immersive-current';
             currentBadge.innerHTML = '<i data-lucide="sparkles"></i><span>Athar Pro</span>';
@@ -317,15 +274,16 @@
             document.body.appendChild(themeButton);
         } else themeButton = document.getElementById('athar-immersive-theme');
 
-        if (!document.getElementById('athar-fullscreen-exit')) {
-            exitButton = document.createElement('button');
-            exitButton.id = 'athar-fullscreen-exit';
-            exitButton.type = 'button';
-            exitButton.className = 'athar-fullscreen-exit';
-            exitButton.innerHTML = '<i data-lucide="minimize-2"></i><span>Quitter</span>';
-            exitButton.addEventListener('click', exit);
-            document.body.appendChild(exitButton);
-        } else exitButton = document.getElementById('athar-fullscreen-exit');
+        if (!document.getElementById('athar-immersive-quick')) {
+            quickButton = document.createElement('button');
+            quickButton.id = 'athar-immersive-quick';
+            quickButton.type = 'button';
+            quickButton.className = 'athar-immersive-quick';
+            quickButton.addEventListener('click', () =>
+                navigate(quickButton.dataset.targetView || 'tasbih', quickButton.dataset.targetLabel || 'Tasbih')
+            );
+            document.body.appendChild(quickButton);
+        } else quickButton = document.getElementById('athar-immersive-quick');
 
         buildDrawer();
         renderThemeState();
@@ -333,21 +291,11 @@
         return true;
     };
 
-    document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement) fallbackActive = false;
-        renderState();
-    });
-
     document.addEventListener('keydown', event => {
         if (event.key === 'Escape' && drawer?.classList.contains('is-open')) {
             event.preventDefault();
             closeDrawer();
             return;
-        }
-        if (event.key === 'Escape' && fallbackActive) exit();
-        if (event.key.toLocaleLowerCase() === 'f' && event.ctrlKey && event.shiftKey) {
-            event.preventDefault();
-            toggle();
         }
         if (event.key.toLocaleLowerCase() === 'm' && event.ctrlKey && isActive()) {
             event.preventDefault();
@@ -360,15 +308,18 @@
     });
 
     window.addEventListener('athar:theme-changed', renderThemeState);
+    window.addEventListener('athar:view-changed', event => {
+        const view = event.detail?.view;
+        if (!view) return;
+        const item = allItems.find(entry => entry.view === view);
+        setCurrentView(view, item?.label);
+        refreshIcons();
+    });
     window.addEventListener('storage', event => {
         if (event.key === SETTINGS_KEY) renderThemeState();
     });
 
     const start = (attempt = 0) => {
-        if (SAFE_MODE) {
-            document.documentElement.classList.remove(ROOT_CLASS, 'athar-immersive-menu-open');
-            return;
-        }
         if (inject()) {
             if (!themeObserver) {
                 themeObserver = new MutationObserver(mutations => {
