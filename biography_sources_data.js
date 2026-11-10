@@ -191,7 +191,8 @@ const BIOGRAPHY_SOURCES = {
         "status": "located"
       }
     ]
-  }  "6": {
+  },
+  "6": {
     "id": 6,
     "fascicle": "06",
     "author": "Shams ad-Dîn adh-Dhahabî",
