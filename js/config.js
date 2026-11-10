@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v45-immersive-only-1';
+    const APP_VERSION = 'athar-pro-v46-tasbih-simple-1';
     const RESEARCH_UI_VERSION = 'athar-research-v40-ui-1';
 
     const setMeta = (selector, content) => {
@@ -145,6 +145,7 @@ tailwind.config = {
     ensureStylesheet('css/athar-v40-continuity.css?v=athar-v40-continuity-1', 'athar-v40-continuity-styles');
     ensureStylesheet('css/athar-launch.css?v=athar-public-3', 'athar-launch-styles');
     ensureStylesheet(`css/immersive-only.css?v=${APP_VERSION}`, 'athar-immersive-only-styles');
+    ensureStylesheet(`css/tasbih-simple.css?v=${APP_VERSION}`, 'athar-tasbih-simple-styles');
 
     if (!window.SCHOLAR_ATLAS_DATA) {
         writeScholarAtlasScript('scholar_atlas_core.js', 'athar-scholar-atlas-core');
