@@ -106,7 +106,11 @@ async function desktop() {
     for (const [needle,link] of [
         ['Saïd ibn Zayd','https://siyar.fr/livre/1/126'],
         ['Salim Mawla','https://siyar.fr/livre/1/169'],
-        ['Hamza Ibn Abdelmoutalib','https://siyar.fr/livre/1/175']
+        ['Hamza Ibn Abdelmoutalib','https://siyar.fr/livre/1/175'],
+        ["'Aqil ibn Al-Boukayr",'https://siyar.fr/livre/1/186'],
+        ['Jafar ibn Abou Talib','https://siyar.fr/livre/1/207'],
+        ['Saad ibn Oubada','https://siyar.fr/livre/1/274'],
+        ['Abou Zayd Al-Ansari','https://siyar.fr/livre/1/342']
     ]) {
         await page.locator('.library-pro-search-hero input').fill(needle);
         await page.locator('.library-pro-card').filter({hasText:needle}).first().click();
