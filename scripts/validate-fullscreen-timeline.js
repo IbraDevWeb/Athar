@@ -27,9 +27,10 @@ if ((timeline.match(/id: '[a-z-]+', label:/g) || []).length < 7) throw new Error
 if ((timeline.match(/title: '[^']+'/g) || []).length < 4) throw new Error('Les parcours chronologiques sont insuffisants.');
 if (!timelineCss.includes('.timeline-pro-workspace') || !timelineCss.includes('.timeline-pro-drawer') || !timelineCss.includes('@media(max-width:820px)')) throw new Error('Design de frise incomplet.');
 
-const fullscreenTokens = ['requestFullscreen', 'exitFullscreen', 'fullscreenchange', "event.ctrlKey && event.shiftKey", 'athar-app-fullscreen', 'AtharFullscreen'];
-for (const token of fullscreenTokens) if (!fullscreen.includes(token)) throw new Error(`Fonction plein écran absente : ${token}`);
-if (!fullscreenCss.includes('.athar-fullscreen-toggle') || !fullscreenCss.includes('.athar-global-sidebar') || !fullscreenCss.includes('.athar-fullscreen-exit')) throw new Error('Design plein écran incomplet.');
+const fullscreenTokens = ['athar-app-fullscreen', 'athar-immersive-only', 'AtharFullscreen', 'athar-immersive-menu', 'athar-immersive-quick', "const isActive = () => true", "CustomEvent('athar:navigate'"];
+for (const token of fullscreenTokens) if (!fullscreen.includes(token)) throw new Error(`Interface immersive unique incomplète : ${token}`);
+for (const old of ['requestFullscreen', 'exitFullscreen', 'athar-fullscreen-toggle', 'athar-fullscreen-exit']) if (fullscreen.includes(old)) throw new Error('Ancienne commande plein écran encore présente : ' + old);
+if (!fullscreenCss.includes('.athar-immersive-menu') || !fullscreenCss.includes('.athar-global-sidebar') || !fullscreenCss.includes('.athar-immersive-quick')) throw new Error('Design immersif incomplet.');
 
 for (const asset of ['css/timeline-pro.css', 'css/fullscreen-global.css', 'js/components/GlobalFullscreen.js']) {
     if (!config.includes(asset)) throw new Error(`Ressource non chargée par config.js : ${asset}`);
@@ -39,4 +40,4 @@ const configVersion = Number(config.match(/athar-pro-v(\d+)/)?.[1] || 0);
 const workerVersion = Number(worker.match(/athar-pro-v(\d+)/)?.[1] || 0);
 if (configVersion < 13 || configVersion !== workerVersion) throw new Error('Versions du cache plein écran incohérentes.');
 
-console.log(`Plein écran global et frise professionnelle validés : modes, périodes, parcours, détails, responsive et cache v${configVersion}.`);
+console.log(`Navigation immersive permanente et frise validées : écran unique, périodes, parcours, responsive et cache v${configVersion}.`);

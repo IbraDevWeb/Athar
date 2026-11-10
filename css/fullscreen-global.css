@@ -13,10 +13,10 @@
 }
 
 .athar-immersive-quick {
-    width: 38px;
-    height: 38px;
+    width: auto;
+    height: auto;
     border-radius: 999px;
-    color: #64748b;
+    color: #fff;
 }
 
 .athar-immersive-quick:hover {
