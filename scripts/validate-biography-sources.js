@@ -138,7 +138,7 @@ assert.ok(reader.includes("sourceEvidence('timeline', i)"),'Références chronol
 assert.ok(reader.includes('Lire sur Siyar.fr'),'Lien vers source externe absent');
 assert.ok(!library.includes('> Vérifiée<'),'Badge « Vérifiée » non qualifié');
 assert.ok(!index.includes('Authentifié avec Siyar'),'Badge latéral non qualifié');
-assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-16-75-16-75-1'),'Registre non chargé');
+assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-16-75-1'),'Registre non chargé');
 assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-16-75-1'),'Registre non précaché');
 assert.ok(!/https?:\/\/[^"'\s]+\.pdf/i.test(read('biography_sources_data.js')),'Le registre contient un lien vers un PDF');
 // Les points controversés du nouveau lot ne doivent plus être présentés comme établis.
