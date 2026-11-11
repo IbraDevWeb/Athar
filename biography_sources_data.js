@@ -10,7 +10,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/11",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Passages localisés dans la traduction fournie ; ce repérage ne certifie ni l’authenticité des chaînes de transmission ni l’ensemble de la notice.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
     "entries": [
       {
         "kind": "narrative",
@@ -47,6 +47,93 @@ const BIOGRAPHY_SOURCES = {
         "title": "Décès pendant la peste",
         "note": "La source mentionne 18 H et rapporte également une datation à 17 H.",
         "status": "variant"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "pdfPage": 9,
+        "printedPage": 8,
+        "title": "L'homme de confiance de la communauté",
+        "note": "Sahîh al-Bukhârî 3744, Anas → Abou Qilâba → Khâlid → ‘Abd al-A‘lâ. Rapport prophétique présent dans un recueil authentique.",
+        "status": "located",
+        "grade": "sahih",
+        "hadithRef": "Al-Bukhârî 3744",
+        "externalUrl": "https://sunnah.com/bukhari:3744",
+        "isnad": "Anas → Abou Qilâba → Khâlid → ‘Abd al-A‘lâ → ‘Amr ibn ‘Alî (voie citée)."
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "pdfPage": 21,
+        "printedPage": 20,
+        "title": "Le souhait d'être un ovin",
+        "note": "Parole attribuée à Abou Oubayda : Ma‘mar rapporte de Qatâda ; ce dernier ne pouvait avoir entendu directement Abou Oubayda, mort bien auparavant. Ce n'est pas une parole prophétique et sa chaîne est interrompue.",
+        "status": "weak",
+        "grade": "attribution_discontinue",
+        "hadithRef": "Siyar, fasc. 01, p. imprimée 20",
+        "isnad": "Ma‘mar → Qatâda → [intermédiaire absent] → Abou Oubayda"
+      },
+      {
+        "kind": "hadith",
+        "id": 2,
+        "pdfPage": 24,
+        "printedPage": 23,
+        "title": "Le jeûne est une protection",
+        "note": "An-Nasâ’î 2233 rapporte la version prophétique transmise par Abou Oubayda. La précision « par la médisance » est une explication et ne figure pas dans le texte arabe de cette voie.",
+        "status": "located",
+        "grade": "hasan",
+        "hadithRef": "An-Nasâ’î 2233 — hasan (Darussalam)",
+        "externalUrl": "https://sunnah.com/nasai:2233",
+        "isnad": "Abou Oubayda → ‘Iyâd ibn Ghotayf → Al-Walîd ibn ‘Abd ar-Rahmân → Bachchâr ibn Abî Sayf → Wâsil → Hammâd"
+      },
+      {
+        "kind": "narrative",
+        "id": 102,
+        "pdfPage": 19,
+        "printedPage": 18,
+        "title": "Dénuement et sobriété",
+        "note": "Le dialogue avec ‘Oumar figure dans la notice ; sa chaîne spécifique n'est pas authentifiée indépendamment. Ne pas certifier l'inventaire précis de la maison.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 103,
+        "pdfPage": 7,
+        "printedPage": 6,
+        "title": "Expédition de Dhât as-Salâsil",
+        "note": "Épisode rapporté par Siyar au sujet du commandement et de la volonté d'éviter la division ; la formule française est une paraphrase, non une citation authentifiée mot à mot.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 104,
+        "pdfPage": 21,
+        "printedPage": 20,
+        "title": "Lettre lors de la peste",
+        "note": "Le fascicule donne le récit de la lettre attribuée à ‘Oumar ; le dialogue est une transmission historique à distinguer des hadiths des deux Sahîh.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 106,
+        "pdfPage": 25,
+        "printedPage": 24,
+        "title": "Le grand poisson de l'expédition",
+        "note": "Rapporté par Jâbir dans Al-Bukhârî 5493–5494. Selon ces versions, l'armée se nourrit de l'anbar environ une quinzaine de jours ; ne pas imposer « un mois » comme durée certaine.",
+        "status": "located",
+        "externalUrl": "https://sunnah.com/bukhari:5493",
+        "hadithRef": "Al-Bukhârî 5493–5494"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "pdfPage": 14,
+        "printedPage": 13,
+        "title": "Reproche impossible à Abou Oubayda",
+        "note": "Attribué au Prophète par Al-Hasan al-Basrî, sans mention de Compagnon dans cette voie : transmission moursal. Citation non authentifiée comme parole prophétique.",
+        "status": "weak",
+        "grade": "mursal",
+        "isnad": "Al-Hasan al-Basrî → [compagnon absent] → Prophète (attribution)"
       }
     ]
   },
@@ -59,7 +146,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/29",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Passages localisés dans la traduction fournie ; ce repérage ne certifie ni l’authenticité des chaînes de transmission ni l’ensemble de la notice.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
     "entries": [
       {
         "kind": "narrative",
@@ -87,6 +174,65 @@ const BIOGRAPHY_SOURCES = {
         "title": "Récit relatif à sa sépulture",
         "note": "L’épisode est rapporté à partir d’un rêve, avec une variante sur l’identité du rêveur. Ne pas présenter le miracle comme certifié.",
         "status": "qualification"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "pdfPage": 10,
+        "printedPage": 9,
+        "title": "Talha et Zoubayr voisins au Paradis",
+        "note": "At-Tirmidhî 3741 : hadith gharîb selon At-Tirmidhî ; classé hasan par Darussalam. Le rapport est transmis par ‘Alî, et non attribué directement à Talha.",
+        "status": "variant",
+        "grade": "hasan",
+        "hadithRef": "At-Tirmidhî 3741 — gharîb / hasan (Darussalam)",
+        "externalUrl": "https://sunnah.com/tirmidhi:3741",
+        "isnad": "‘Alî → ‘Ouqba ibn ‘Alqama → Abou ‘Abd ar-Rahmân ibn Mansour → Al-Achajj"
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "pdfPage": 5,
+        "printedPage": 4,
+        "title": "Le Paradis est acquis à Talha",
+        "note": "At-Tirmidhî 3738 rapporte cet énoncé après le geste de Talha aidant le Prophète à monter sur un rocher ; hasan sahih gharîb selon At-Tirmidhî, hasan selon Darussalam.",
+        "status": "located",
+        "grade": "hasan",
+        "hadithRef": "At-Tirmidhî 3738 — hasan (Darussalam)",
+        "externalUrl": "https://sunnah.com/tirmidhi:3738",
+        "isnad": "Zoubayr → ‘Abd-Allâh ibn Zoubayr → ‘Abbâd → Yahyâ ibn ‘Abbâd → Ibn Ishâq"
+      },
+      {
+        "kind": "narrative",
+        "id": 202,
+        "pdfPage": 11,
+        "printedPage": 10,
+        "title": "Générosité : une somme rapportée",
+        "note": "La notice rapporte la générosité de Talha et plusieurs évaluations. La scène et le montant doivent être attribués à leur transmission, sans certification indépendante de ce total.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 203,
+        "pdfPage": 21,
+        "printedPage": 20,
+        "title": "Deuil d'‘Alî après Al-Jamal",
+        "note": "Le récit du deuil d'‘Alî est cité ; la parole des « voisins au Paradis » est à référencer séparément à At-Tirmidhî 3741.",
+        "status": "qualification",
+        "externalUrl": "https://sunnah.com/tirmidhi:3741",
+        "hadithRef": "At-Tirmidhî 3741 (citation distincte)"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "pdfPage": 4,
+        "printedPage": 3,
+        "title": "Martyr marchant sur terre",
+        "note": "At-Tirmidhî 3739 dit ce hadith gharîb et relève des critiques sur As-Salt ibn Dînâr et Sâlih ibn Moussa ; classé da‘îf (Darussalam).",
+        "status": "weak",
+        "grade": "daif",
+        "hadithRef": "At-Tirmidhî 3739",
+        "externalUrl": "https://sunnah.com/tirmidhi:3739",
+        "isnad": "Jâbir → Abou Nadra → As-Salt ibn Dînâr → Sâlih ibn Moussa (rapporteurs critiqués)"
       }
     ]
   },
@@ -99,7 +245,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/47",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Passages localisés dans la traduction fournie ; ce repérage ne certifie ni l’authenticité des chaînes de transmission ni l’ensemble de la notice.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
     "entries": [
       {
         "kind": "narrative",
@@ -127,6 +273,63 @@ const BIOGRAPHY_SOURCES = {
         "title": "Turban jaune à Badr",
         "note": "Une voie mentionne Jibrîl, une autre les anges. Ces formulations doivent rester attribuées à leurs transmissions.",
         "status": "variant"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "pdfPage": 12,
+        "printedPage": 11,
+        "title": "L'apôtre du Prophète",
+        "note": "La formulation sûre est « Chaque prophète a un hawârî, et le mien est Zoubayr », Sahîh al-Bukhârî 3719. La mention du lien de parenté existe par une autre voie dans Siyar et ne doit pas être soudée à la citation sans le préciser.",
+        "status": "located",
+        "grade": "sahih",
+        "hadithRef": "Al-Bukhârî 3719",
+        "externalUrl": "https://sunnah.com/bukhari:3719",
+        "isnad": "Jâbir → Mouhammad ibn al-Mounkadir → ‘Abd al-‘Azîz ibn Abî Salama → Mâlik ibn Ismâ‘îl"
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "pdfPage": 12,
+        "printedPage": 11,
+        "title": "Annonce à l'assassin de Zoubayr",
+        "note": "Propos attribué à ‘Alî, non au Prophète. Rapporté dans Siyar via le Mousnad d'Ahmad ; l'isnâd de cette voie n'a pas reçu ici de classement indépendant fiable.",
+        "status": "qualification",
+        "grade": "ungraded",
+        "hadithRef": "Siyar, fasc. 03, p. imprimée 11 ; Mousnad Ahmad (voie citée)",
+        "isnad": "‘Alî → Zirr → ‘Âsim → Zâ’ida → Mou‘âwiya ibn ‘Amr"
+      },
+      {
+        "kind": "narrative",
+        "id": 303,
+        "pdfPage": 38,
+        "printedPage": 37,
+        "title": "Dettes et invocation du Maître",
+        "note": "Témoignage attribué à ‘Abd-Allâh ibn Zoubayr, transmis via Hichâm ibn ‘Ourwa. Les montants doivent rester ceux de cette version sans généraliser à d'autres inventaires.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 304,
+        "pdfPage": 32,
+        "printedPage": 31,
+        "title": "Coup d'épieu à Badr",
+        "note": "Cette scène est également rapportée dans Al-Bukhârî 3998 par ‘Ourwa d'après Zoubayr. Le combattant désigné est ‘Oubayda ibn Sa‘îd ibn al-‘Âs.",
+        "status": "located",
+        "externalUrl": "https://sunnah.com/bukhari:3998",
+        "hadithRef": "Al-Bukhârî 3998"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "pdfPage": 12,
+        "printedPage": 11,
+        "title": "Le hawârî de chaque prophète",
+        "note": "Parole prophétique attestée dans Sahîh al-Bukhârî 3719, transmis de Jâbir par Ibn al-Mounkadir.",
+        "status": "located",
+        "grade": "sahih",
+        "hadithRef": "Al-Bukhârî 3719",
+        "externalUrl": "https://sunnah.com/bukhari:3719"
       }
     ]
   },
@@ -139,7 +342,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/73",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Passages localisés dans la traduction fournie ; ce repérage ne certifie ni l’authenticité des chaînes de transmission ni l’ensemble de la notice.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
     "entries": [
       {
         "kind": "timeline",
@@ -158,6 +361,79 @@ const BIOGRAPHY_SOURCES = {
         "title": "Convoi de sept cents montures",
         "note": "Le récit concernant l’entrée au Paradis est explicitement qualifié de « munkar » (discordant) dans le fascicule.",
         "status": "weak"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "pdfPage": 23,
+        "printedPage": 22,
+        "title": "Interdiction d'insulter les compagnons",
+        "note": "Sahîh Mouslim 2541a, selon Abou Sa‘îd. La version 2541b confirme la parole générale, mais certaines voies omettent le contexte de Khâlid et Abderrahman.",
+        "status": "located",
+        "grade": "sahih",
+        "hadithRef": "Mouslim 2541a–b",
+        "externalUrl": "https://sunnah.com/muslim:2541a",
+        "isnad": "Abou Sa‘îd → Abou Sâlih → Al-A‘mach → Jarîr → ‘Outhmân ibn Abî Chayba"
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "pdfPage": 31,
+        "printedPage": 30,
+        "title": "Digne de confiance des cieux et de la terre",
+        "note": "La formule est rapportée par Ach-Châchî et citée dans Siyar, mais Dhahabî précise qu'Abou Mou‘allâ est un rapporteur faible. Attribution prophétique à présenter sous réserve.",
+        "status": "weak",
+        "grade": "weak_chain",
+        "hadithRef": "Mousnad Ach-Châchî (repris dans Siyar, fasc. 04, p. 30)",
+        "isnad": "‘Alî (propos attribués au Prophète) ; voie comportant Abou Mou‘allâ, critiqué par Dhahabî"
+      },
+      {
+        "kind": "narrative",
+        "id": 402,
+        "pdfPage": 19,
+        "printedPage": 18,
+        "title": "Prière dirigée devant le Prophète",
+        "note": "Épisode rapporté dans Siyar, également conservé dans Sahîh Mouslim. Une direction de prière ne constitue pas une validation de tous les détails secondaires.",
+        "status": "located"
+      },
+      {
+        "kind": "narrative",
+        "id": 403,
+        "pdfPage": 38,
+        "printedPage": 37,
+        "title": "Héritage : chiffres variables",
+        "note": "Les parts attribuées aux épouses d'Abderrahman varient selon les transmissions. Ne pas figer le nombre de 80 000 comme unanimement rapporté.",
+        "status": "variant"
+      },
+      {
+        "kind": "narrative",
+        "id": 404,
+        "pdfPage": 30,
+        "printedPage": 29,
+        "title": "La consultation et la désignation",
+        "note": "Délibérations historiques de la choura rapportées avec plusieurs transmissions ; les dialogues sont des reformulations, non des transcriptions vérifiées mot pour mot.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 405,
+        "pdfPage": 6,
+        "printedPage": 5,
+        "title": "Jizya des Mages de Hajar",
+        "note": "Dhahabî rapporte le témoignage d'Abderrahman invoqué devant ‘Oumar pour le prélèvement de la jizya. Ne pas lui attribuer une exclusivité historique non établie.",
+        "status": "qualification"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "pdfPage": 15,
+        "printedPage": 14,
+        "title": "Indique-moi le marché",
+        "note": "Parole d'Abderrahman ibn ‘Aouf à Sa‘d ibn Rabî‘ (ce n'est pas une parole prophétique). Scène rapportée par Anas dans Sahîh al-Bukhârî 2049.",
+        "status": "located",
+        "grade": "companion",
+        "hadithRef": "Al-Bukhârî 2049",
+        "externalUrl": "https://sunnah.com/bukhari:2049"
       }
     ]
   },
@@ -170,7 +446,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/96",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Passages localisés dans la traduction fournie ; ce repérage ne certifie ni l’authenticité des chaînes de transmission ni l’ensemble de la notice.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
     "entries": [
       {
         "kind": "timeline",
@@ -189,6 +465,73 @@ const BIOGRAPHY_SOURCES = {
         "title": "Vieux manteau pour le linceul",
         "note": "Le récit du manteau conservé depuis Badr figure dans le fascicule.",
         "status": "located"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "pdfPage": 30,
+        "printedPage": 29,
+        "title": "Invocation pour Sa‘d",
+        "note": "At-Tirmidhî 3751 ne contient que la demande d'exaucement de l'invocation de Sa‘d. At-Tirmidhî préfère une voie où Qays transmet directement la parole prophétique sans citer Sa‘d ; hasan selon Darussalam.",
+        "status": "variant",
+        "grade": "hasan",
+        "hadithRef": "At-Tirmidhî 3751 — hasan (Darussalam)",
+        "externalUrl": "https://sunnah.com/tirmidhi:3751",
+        "isnad": "Sa‘d → Qays ibn Abî Hâzim → Ismâ‘îl ibn Abî Khâlid → Ja‘far ibn ‘Aoun ; autre voie : Qays attribue directement au Prophète"
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "pdfPage": 28,
+        "printedPage": 27,
+        "title": "Voici mon oncle maternel",
+        "note": "At-Tirmidhî 3752 le qualifie de hasan gharîb, mais l'évaluation Darussalam indique da‘îf. At-Tirmidhî dit connaître cette voie par Moujâlid, qui est discuté. Il s'agit d'un oncle par appartenance tribale maternelle, non de son oncle direct.",
+        "status": "variant",
+        "grade": "disputed",
+        "hadithRef": "At-Tirmidhî 3752 — hasan gharîb / da‘îf (Darussalam)",
+        "externalUrl": "https://sunnah.com/tirmidhi:3752",
+        "isnad": "Jâbir → ‘Âmir ach-Cha‘bî → Moujâlid → Abou Ousâma"
+      },
+      {
+        "kind": "narrative",
+        "id": 501,
+        "pdfPage": 27,
+        "printedPage": 26,
+        "title": "Désaccord de Sa‘d avec sa mère",
+        "note": "Le récit de la grève de la faim et la persévérance de Sa‘d est transmis dans la notice ; la formulation exacte dépend de la version.",
+        "status": "qualification"
+      },
+      {
+        "kind": "narrative",
+        "id": 502,
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "L'accusateur de Koufa",
+        "note": "La scène détaillée a été retrouvée dans Sahîh al-Bukhârî 755 (Jâbir ibn Samoura), plutôt que dans les passages indexés de ce fascicule. Ne pas lui inventer une page PDF.",
+        "status": "located",
+        "externalUrl": "https://sunnah.com/bukhari:755",
+        "hadithRef": "Al-Bukhârî 755",
+        "isnad": "Jâbir ibn Samoura → ‘Abd al-Malik ibn ‘Oumayr → Abou ‘Awâna → Moussa"
+      },
+      {
+        "kind": "narrative",
+        "id": 504,
+        "pdfPage": 43,
+        "printedPage": 42,
+        "title": "Retrait pendant la discorde",
+        "note": "La notice cite le témoignage du fils de Sa‘d et la formule « Allah aime le serviteur pieux, effacé, doté d'une âme riche ». Le propos est à distinguer de l'explication narrative ajoutée.",
+        "status": "located"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "pdfPage": 12,
+        "printedPage": 11,
+        "title": "Tire, que mon père et ma mère te soient sacrifiés",
+        "note": "Parole attribuée au Prophète dans Siyar par une chaîne aboutissant à Sa‘d. Aucun jugement indépendant n'est posé ici sur la chaîne exacte de cette version française.",
+        "status": "qualification",
+        "grade": "ungraded",
+        "hadithRef": "Siyar, fascicule 05, PDF p. 12"
       }
     ]
   },
@@ -437,6 +780,28 @@ const BIOGRAPHY_SOURCES = {
       }
     ]
   },
+  "11": {
+    "id": 11,
+    "fascicle": "38–54",
+    "author": "Shams ad-Dîn adh-Dhahabî",
+    "work": "Siyar A‘lam an-Nubalâ’",
+    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
+    "publisherUrl": "https://islam-patrimoine.org/",
+    "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
+    "reviewScope": "Fiche Athar n° 11 : même personne que la fiche n° 45 (Oubayda ibn Al-Harith). Le fascicule la numérote 45, et non 11. Les deux pages Athar restent distinctes à ce stade ; ce repérage ne certifie pas leurs récits.",
+    "readUrl": "https://siyar.fr/livre/1/256",
+    "entries": [
+      {
+        "kind": "identity",
+        "id": 0,
+        "pdfPage": 27,
+        "printedPage": 26,
+        "title": "Oubayda : doublon des fiches Athar 11 et 45",
+        "note": "La source Siyar 38–54 identifie cette personne sous le numéro 45. Les fiches Athar 11 et 45 renvoient au même compagnon ; cela ne justifie pas une seconde biographie numérotée 11 dans Siyar.",
+        "status": "located"
+      }
+    ]
+  },
   "13": {
     "id": 13,
     "fascicle": "07–14",
@@ -581,28 +946,6 @@ const BIOGRAPHY_SOURCES = {
         "title": "Récit conditionnel de Wahchî",
         "note": "La mort de Moussaylima est racontée avec l'action d'un combattant ansâri, Wahchî formulant sa contribution sous condition.",
         "status": "qualification"
-      }
-    ]
-  },
-  "11": {
-    "id": 11,
-    "fascicle": "38–54",
-    "author": "Shams ad-Dîn adh-Dhahabî",
-    "work": "Siyar A‘lam an-Nubalâ’",
-    "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
-    "publisherUrl": "https://islam-patrimoine.org/",
-    "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Fiche Athar n° 11 : même personne que la fiche n° 45 (Oubayda ibn Al-Harith). Le fascicule la numérote 45, et non 11. Les deux pages Athar restent distinctes à ce stade ; ce repérage ne certifie pas leurs récits.",
-    "readUrl": "https://siyar.fr/livre/1/256",
-    "entries": [
-      {
-        "kind": "identity",
-        "id": 0,
-        "pdfPage": 27,
-        "printedPage": 26,
-        "title": "Oubayda : doublon des fiches Athar 11 et 45",
-        "note": "La source Siyar 38–54 identifie cette personne sous le numéro 45. Les fiches Athar 11 et 45 renvoient au même compagnon ; cela ne justifie pas une seconde biographie numérotée 11 dans Siyar.",
-        "status": "located"
       }
     ]
   },
