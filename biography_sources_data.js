@@ -10,7 +10,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/11",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Ce travail ne certifie pas automatiquement la chaîne ni la notice entière.",
     "entries": [
       {
         "kind": "narrative",
@@ -146,7 +146,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/29",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Ce travail ne certifie pas automatiquement la chaîne ni la notice entière.",
     "entries": [
       {
         "kind": "narrative",
@@ -245,7 +245,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/47",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Ce travail ne certifie pas automatiquement la chaîne ni la notice entière.",
     "entries": [
       {
         "kind": "narrative",
@@ -342,7 +342,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/73",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Ce travail ne certifie pas automatiquement la chaîne ni la notice entière.",
     "entries": [
       {
         "kind": "timeline",
@@ -446,7 +446,7 @@ const BIOGRAPHY_SOURCES = {
     "publisherUrl": "https://islam-patrimoine.org/",
     "readUrl": "https://siyar.fr/livre/1/96",
     "editionNote": "Les pages citées correspondent au fascicule français fourni, et non à la pagination de l’édition actuellement en ligne sur Siyar.fr.",
-    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Le référencement n'authentifie pas automatiquement une chaîne ou la notice entière.",
+    "reviewScope": "Audit ciblé : citations, récits et voies de transmission documentés individuellement ; seuls les degrés attribués à une autorité identifiable sont indiqués. Ce travail ne certifie pas automatiquement la chaîne ni la notice entière.",
     "entries": [
       {
         "kind": "timeline",
