@@ -239,7 +239,7 @@
                 arabicName: "سعيد بن زيد",
                 subtitle: "L'un des Dix Promis au Paradis",
                 intro: "L'un des dix compagnons pour lesquels le Paradis a été attesté. Converti très tôt, avant les réunions dans la maison d'Al-Arqam, il fut nommé gouverneur de Damas selon la notice de Dhahabî.",
-                heroQuote: "Une seule bataille avec le Prophète vaut mieux que toutes vos œuvres, même si vous viviez la vie de Noé !",
+                heroQuote: "Selon une parole rapportée de Sa‘îd : « Zayd ibn ‘Amr sera ressuscité comme une communauté à lui seul. »",
                 tags: ["10 Promis", "Muhajirun", "Gouverneur"],
                 genealogy: "Saïd ibn Zayd ibn 'Amr ibn Noufayl. Cousin d'Oumar ibn Al-Khattab et époux de sa sœur Fatima. Son père Zayd était un monothéiste (Hanif) mort avant l'Islam.",
                 physicalDesc: "Un homme très grand, au teint basané (mat) et très velu.",
@@ -252,14 +252,20 @@
                 ],
                 narratives: [
                     { id: 601, title: "Les présents sur le mont Hirâ", content: "Dans une tradition transmise par Saïd ibn Zayd, le Prophète (ﷺ) s'adresse au mont Hirâ et évoque la présence d'un prophète, d'un véridique et de martyrs. Le récit énumère le Prophète, Abou Bakr, ‘Oumar, ‘Outhman, ‘Ali, Talha, Zoubayr, Saad, Abderrahman et Saïd. La scène dite du « neuvième homme » ne figure pas dans le passage du fascicule utilisé ici." },
-                    { id: 602, title: "La Voleuse de Terre", content: "Arwa bint Ouways l'accusa d'avoir volé un bout de sa terre. Saïd dit : « Prenez-la ! Ô Allah, si elle ment, rends-la aveugle et fais de sa terre son tombeau ». Elle devint aveugle peu après et tomba dans un puits sur cette même terre, qui devint sa tombe." },
+                    { id: 602, title: "La Voleuse de Terre", content: "Selon le récit transmis par ‘Urwa (Mouslim 1610c), Arwa bint Ouways accusa Saïd d’empiéter sur sa terre. Saïd rappela la parole prophétique concernant l’usurpation de terrain et invoqua contre elle si son accusation était mensongère. La suite du récit rapporte qu’elle perdit la vue puis tomba dans un puits." },
                     { id: 603, title: "L'Espion de Badr", content: "Le Prophète l'envoya avec Talha pour espionner la caravane de Quraysh. Ils allèrent jusqu'à Al-Hawra. À leur retour, la bataille de Badr était finie. Le Prophète leur donna tout de même leur part de butin et de mérite." }
                 ],
                 hadiths: [
-                    { text: "Les truffes (Kam'a) sont une manne divine et leur jus est un remède pour les yeux.", narrator: "Saïd ibn Zayd", source: "Bukhari / Muslim" },
-                    { text: "Zayd (son père) sera ressuscité comme une communauté à lui seul.", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam al-Nubula" }
+                    { text: "Les truffes (Kam'a) sont une manne divine et leur jus est un remède pour les yeux.", narrator: "Saïd ibn Zayd", source: "Al-Bukhârî 5708 ; Mouslim 2049a" },
+                    { text: "Zayd (son père) sera ressuscité comme une communauté à lui seul.", narrator: "Le Prophète (ﷺ)", source: "Abou Ya‘lâ 973 — hasan selon Al-Haythamî ; autre voie faible selon Al-Arna’ût (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Quel recueil contient le litige foncier entre Sa‘îd et Arwa ?","opts":["Sahîh Mouslim 1610c","Sunan Abî Dâwûd seulement","Aucun recueil"],"c":0,"exp":"Le récit se trouve dans Mouslim 1610c, avec la parole du Prophète relative à l'usurpation de terrain.","ref":"https://sunnah.com/muslim:1610c"},
+                    {"q":"Quelle précaution concerne le récit « une communauté à lui seul » ?","opts":["Il n'existe aucune transmission","La même chaîne est unanimement authentifiée","Des spécialistes ont évalué différemment plusieurs voies"],"c":2,"exp":"Al-Haythamî indique hasan pour une voie citée dans Abou Ya‘lâ ; Al-Arna’ût juge faible une autre voie d’Ahmad.","ref":"https://dorar.net/h/JKxKOrRq/osoul"},
+
+                    {"q":"Quel recueil rapporte le hadith des truffes transmis par Saïd ibn Zayd ?","opts":["Sahîh al-Bukhârî","Uniquement un récit historique","Aucun recueil connu"],"c":0,"exp":"Le hadith figure dans Sahîh al-Bukhârî 5708, et également chez Mouslim 2049a.","ref":"https://sunnah.com/bukhari:5708"},
+                    {"q":"Que peut-on affirmer du récit de Saïd sur le mont Hirâ ?","opts":["Il existe une transmission mentionnant les personnes présentes","Toutes les versions sont identiques","Aucune source ne le rapporte"],"c":0,"exp":"La notice distingue la liste rapportée d'autres détails narratifs non présents dans le fascicule.","ref":"https://siyar.fr/livre/1/143"},
+
                     { q: "Pourquoi était-il absent physiquement à Badr ?", opts: ["Malade", "En mission d'espionnage", "En voyage", "Pas converti"], c: 1, exp: "Il surveillait la caravane d'Abou Soufiane avec Talha sur ordre du Prophète." },
                     { q: "Quel est son lien avec Oumar ibn Al-Khattab ?", opts: ["Frère", "Cousin et beau-frère", "Oncle", "Fils"], c: 1, exp: "Ils sont cousins (Clan Adi) et Saïd a épousé Fatima, la sœur d'Oumar." },
                     { q: "Quelle invocation célèbre a-t-il faite ?", opts: ["Contre une voleuse de terre", "Pour la pluie", "Pour la richesse", "Pour la victoire"], c: 0, exp: "Il a invoqué contre Arwa qui l'accusait faussement, et elle devint aveugle." }
@@ -273,7 +279,7 @@
                 arabicName: "مُصْعَب بن عُمَيْر",
                 subtitle: "Le Pionnier parmi les premiers émigrés",
                 intro: "Le jeune homme le plus choyé de La Mecque qui sacrifia tout pour Allah. D’après Al-Barâ’, il fut le premier des émigrés accueillis à Médine. Il mourut à Ouhoud si démuni que son linceul ne couvrait pas entièrement son corps.",
-                heroQuote: "Vous êtes aujourd'hui bien meilleurs [dans la pauvreté] que si vous étiez dans l'abondance !",
+                heroQuote: "Selon une transmission : « Vous êtes aujourd’hui meilleurs qu’au jour où vous seriez comblés d’abondance. »",
                 tags: ["Martyrs", "Muhajirun", "Badriyun"],
                 genealogy: "Mouss'ab ibn Oumayr... du clan {Abdari} (Banu Abd Ad-Dar). Surnommé « Le Noble », « Le Pionnier ».",
                 physicalDesc: "Avant l'Islam : beau, parfumé et riche. Après l'Islam : Saad raconte qu'il avait « la peau sur les os, flétrie telle la peau d'un serpent » à cause de la famine, au point que les compagnons devaient le porter.",
@@ -285,14 +291,20 @@
                 ],
                 narratives: [
                     { id: 701, title: "L'Épreuve du Linceul", content: "À sa mort à {Ouhoud}, il ne possédait qu'un pagne à rayures. Si on couvrait sa tête, ses pieds dépassaient ; si on couvrait ses pieds, sa tête était exposée. Le Prophète (ﷺ) ordonna : « Couvrez sa tête et mettez de la citronnelle (Idhkhir) sur ses pieds »." },
-                    { id: 702, title: "La Peau de Serpent", content: "Saad ibn Abi Waqas raconte : « Mouss'ab était le plus aisé d'entre nous... Mais la faim l'avait tellement touché que sa peau avait séché et pelait comme celle d'un serpent. Nous étions parfois obligés de le porter sur nos épaules tant il était faible. »" },
+                    { id: 702, title: "La Peau de Serpent", content: "Une transmission rapportée dans la notice biographique, attribuée à Sa‘d ibn Abî Waqqâs, décrit Mouss’ab éprouvé par la faim et amaigri au point de devoir être soutenu. Les détails de cette version doivent être distingués des hadiths du linceul établis dans Al-Bukhârî." },
                     { id: 703, title: "Les Pleurs d'Abderrahman", content: "Bien plus tard, on servit un repas copieux à Abderrahman ibn 'Aouf. Il se mit à pleurer en disant : « Mouss'ab est mort et n'avait qu'un seul vêtement pour linceul... J'ai peur que nos récompenses nous aient été anticipées dans cette vie ! »." }
                 ],
                 hadiths: [
-                    { text: "J'ai vu Mouss'ab à la Mecque, nul n'était plus choyé que lui. Il a tout quitté pour l'amour d'Allah.", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" },
-                    { text: "Parmi les croyants, il est des hommes qui ont été sincères dans leur engagement...", narrator: "Verset 33:23", source: "Révélé à son sujet (et Talha/Anas)" }
+                    { text: "Selon un récit biographique attribué au Prophète (ﷺ) : « Je n’ai vu à La Mecque personne mieux coiffée, mieux vêtue et plus comblée que Mouss’ab ibn Oumayr. »", narrator: "Le Prophète (ﷺ)", source: "Ibn Sa‘d, at-Tabaqât (récit 2886) — degré non retrouvé pour cette chaîne" },
+                    { text: "Parmi les croyants, il est des hommes qui ont été sincères dans leur engagement...", narrator: "Verset 33:23", source: "Coran 33:23 — verset, et non hadith ; application à Mouss’ab à documenter", type: "verse" }
                 ],
                 quizData: [
+                    {"q":"Qui rapporte l’épisode du linceul de Mouss’ab dans Al-Bukhârî ?","opts":["Abou Hourayra","Khabbâb","Ibn ‘Abbâs"],"c":1,"exp":"Khabbâb témoigne de la difficulté de trouver un linceul couvrant le corps à Ouhoud.","ref":"https://sunnah.com/bukhari:1276"},
+                    {"q":"Le verset 33:23 est-il une parole d’un compagnon ?","opts":["Oui, attribuée à Mouss’ab","Oui, attribuée à Talha","Non, c'est un verset coranique"],"c":2,"exp":"Le passage est du Coran ; le lien avec Mouss’ab dans les ouvrages biographiques doit être cité séparément.","ref":"https://quran.com/33/23"},
+
+                    {"q":"Dans quel recueil trouve-t-on l'épisode du linceul trop court de Mouss’ab ?","opts":["Sahîh al-Bukhârî","Uniquement dans un récit non attribué","Dans la sourate 33"],"c":0,"exp":"Khabbâb rapporte que l’on couvrit la tête de Mouss’ab et ses pieds avec de l’idhkhir.","ref":"https://sunnah.com/bukhari:1276"},
+                    {"q":"Peut-on attribuer sans réserve à Mouss’ab le titre de « premier ambassadeur » à partir du passage d’Al-Barâ’ ?","opts":["Non, ce passage parle du premier émigré accueilli","Oui, le passage utilise ce titre explicitement","Oui, c'est une citation coranique"],"c":0,"exp":"Le passage du fascicule dit « premier Muhâjir accueilli » ; les deux qualifications ne doivent pas être confondues.","ref":"https://siyar.fr/livre/1/150"},
+
                     { q: "Quelle plante a servi à couvrir les pieds de Mouss'ab dans sa tombe ?", opts: ["Le Laurier", "L'Idhkhir (Citronnelle)", "Le Palmier", "L'Olivier"], c: 1, exp: "Son linceul étant trop court, le Prophète ordonna d'utiliser cette plante aromatique pour ses pieds." },
                     { q: "Pourquoi sa peau était-elle comparée à celle d'un serpent ?", opts: ["Une maladie", "La richesse", "La famine extrême", "Les brûlures"], c: 2, exp: "Saad raconte que la disette avait tellement asséché sa peau qu'elle pelait (mue) comme un serpent." }
                 ]
@@ -305,7 +317,7 @@
                 arabicName: "أبو سَلَمَة",
                 subtitle: "Le Cousin Bien-Aimé",
                 intro: "Cousin et frère de lait du Prophète (ﷺ). Il fut le premier à émigrer en Abyssinie. Blessé à Ouhoud, il mourut peu après, laissant une invocation célèbre à sa femme.",
-                heroQuote: "Ô Allah, accorde à Oum Salama une suite meilleure à son malheur !",
+                heroQuote: "« Ô Allah, pardonne à Abou Salama et élève son rang parmi les bien-guidés. »",
                 tags: ["Muhajirun", "Badriyun", "Frère de lait"],
                 genealogy: "Abd-Allah ibn Abd Al-Assad, du clan {Makhzoum}. Fils de Barra (tante paternelle du Prophète). Frère de lait du Prophète (allaités par Thouwayba).",
                 physicalDesc: "Un guerrier patient. Il mourut alors qu'il était encore dans la force de l'âge.",
@@ -318,12 +330,18 @@
                 narratives: [
                     { id: 801, title: "L'Expédition de Qatane", content: "Au mois de Mouharram (an 4), le Prophète l'envoya attaquer les Banu Assad à Qatane avec 150 hommes. Il revint victorieux avec du butin, mais l'effort fit rouvrir sa blessure d'Ouhoud, ce qui causa sa mort." },
                     { id: 802, title: "De bonnes paroles auprès du défunt", content: "Oum Salama rapporte que le Messager d’Allah (ﷺ) recommandait de ne prononcer que de bonnes paroles auprès d’un défunt, car les anges disent « Amîn » aux invocations. Après la mort d’Abou Salama, il lui enseigna une invocation en faveur du défunt et de ceux qui restent." },
-                    { id: 803, title: "L'Héritage Spirituel", content: "Il enseigna à sa femme Oum Salama l'invocation du malheur : « Ô Allah, rétribue-moi dans mon malheur et remplace-le par meilleur ». Elle l'appliqua et Allah lui donna le Prophète comme époux." }
+                    { id: 803, title: "L'Héritage Spirituel", content: "Oum Salama rapporte dans Sahîh Mouslim (918a–b) une invocation enseignée par le Prophète (ﷺ) pour celui qui traverse un malheur. Elle indique l’avoir prononcée à la mort de son mari Abou Salama avant de devenir l’épouse du Prophète." }
                 ],
                 hadiths: [
-                    { text: "Ô Allah, pardonne à Abou Salama, élève son degré parmi les guidés et prends en charge sa descendance !", narrator: "Le Prophète (ﷺ)", source: "Sahih Muslim" }
+                    { text: "Ô Allah, pardonne à Abou Salama, élève son degré parmi les guidés et prends en charge sa descendance !", narrator: "Le Prophète (ﷺ)", source: "Sahîh Mouslim 920a" }
                 ],
                 quizData: [
+                    {"q":"Qui rapporte l’invocation pour Abou Salama dans Mouslim 920a ?","opts":["Oum Salama","‘Oumar","Abou Bakr"],"c":0,"exp":"Oum Salama décrit la visite du Prophète ﷺ auprès d'Abou Salama et son invocation.","ref":"https://sunnah.com/muslim:920a"},
+                    {"q":"Quelle invocation prononce Oum Salama pendant l’épreuve ?","opts":["Une invocation contre sa famille","La demande de récompense et de remplacement par meilleur","Une demande de richesse"],"c":1,"exp":"Oum Salama rapporte l'invocation prophétique dans Mouslim 918a–b.","ref":"https://sunnah.com/muslim:918a"},
+
+                    {"q":"Que recommande le Prophète ﷺ auprès d'un défunt dans le récit d'Oum Salama ?","opts":["Ne prononcer que des invocations bienveillantes","Rester constamment silencieux","Ne jamais pleurer"],"c":0,"exp":"Les anges disent « Amîn » aux invocations ; le passage se trouve dans Sahîh Mouslim 920a.","ref":"https://sunnah.com/muslim:920a"},
+                    {"q":"Quelle prudence faut-il garder sur la date du décès d'Abou Salama ?","opts":["Les notices rapportent des datations divergentes","La date est unanimement fixée au jour près","Il est mort à Badr"],"c":0,"exp":"Le fascicule mentionne 3 H et un récit plaçant le décès en 4 H après Qatane.","ref":"https://siyar.fr/livre/1/156"},
+
                     { q: "Quel lien de parenté précis avait-il avec le Prophète ?", opts: ["Oncle maternel", "Frère de lait et Cousin", "Fils adoptif", "Beau-père"], c: 1, exp: "Il était le fils de sa tante Barra et ils avaient partagé la même nourrice." },
                     { q: "Quelle expédition a-t-il dirigée juste avant sa mort ?", opts: ["Mouta", "Qatane", "Hunayn", "Tabouk"], c: 1, exp: "L'expédition vers le mont Qatane contre les Banu Assad, d'où il revint blessé." }
                 ]
@@ -336,7 +354,7 @@
                 arabicName: "عثمان بن مَظْعُون",
                 subtitle: "L'Ascète de la Oumma",
                 intro: "14ème converti et frère de lait du Prophète. Connu pour son ascétisme extrême (il voulait se castrer), il est le premier Émigré enterré au Baqi'. Le Prophète l'embrassa mort en pleurant.",
-                heroQuote: "Tu es parti sans n'avoir joui d'elle [la vie] en quoique ce soit !",
+                heroQuote: "Selon Sa‘d ibn Abî Waqqâs : « Le Prophète refusa à ‘Outhman ibn Mazh‘oune le célibat ascétique. »",
                 tags: ["Muhajirun", "Badriyun", "Ascète"],
                 genealogy: "Outhman ibn Mazh'oune Al-Joumahi. Surnommé « Abou As-Saïb ». Frère de lait du Prophète.",
                 physicalDesc: "Il avait la peau très mate (foncée) et une barbe dense.",
@@ -352,11 +370,17 @@
                     { id: 904, title: "L'Incident de la Louange", content: "Une femme (Oum Al-'Ala) dit devant le corps : « Je témoigne qu'Allah t'a honoré ». Le Prophète la reprit : « Qu'en sais-tu ? Je suis le Messager d'Allah et je ne sais pas ce qu'on fera de moi ! ». Cela effraya les compagnons sur leur propre sort." }
                 ],
                 hadiths: [
-                    { text: "Le Prophète l'embrassa alors qu'il était mort, et je vis les larmes couler de ses yeux.", narrator: "Aïsha", source: "Tirmidhi" },
-                    { text: "Rejoins notre excellent prédécesseur, Outhman ibn Mazh'oune !", narrator: "Le Prophète (à la mort de sa fille)", source: "Ibn Saad" }
+                    { text: "Le Prophète l'embrassa alors qu'il était mort, et je vis les larmes couler de ses yeux.", narrator: "Aïsha", source: "At-Tirmidhî 989 — hasan sahîh selon At-Tirmidhî ; faible selon Darussalam" },
+                    { text: "Rejoins notre excellent prédécesseur, Outhman ibn Mazh'oune !", narrator: "Le Prophète (à la mort de sa fille)", source: "Ahmad 2127 ; Ibn Sa‘d 3/398 — chaîne faible selon Al-Arna’ût, sahîh selon Ahmad Shâkir (Dorar)" }
                 ],
                 quizData: [
-                    { q: "Quelle pratique extrême le Prophète lui a-t-il interdite ?", opts: ["Le jeûne continu", "La castration (monachisme)", "L'aumône totale", "Le silence"], c: 1, exp: "Il voulait se castrer pour éviter les tentations, ce que le Prophète a fermement rejeté." },
+                    {"q":"Selon Al-Bukhârî 5073, que refuse le Prophète à Outhman ?","opts":["Le voyage","L’apprentissage du Coran","Le célibat ascétique"],"c":2,"exp":"Sa‘d ibn Abî Waqqâs rapporte que le Prophète refusa le renoncement au mariage.","ref":"https://sunnah.com/bukhari:5073"},
+                    {"q":"Quel enseignement ressort du dialogue avec Oum Al-‘Alâ ?","opts":["Éviter d'affirmer avec certitude le sort d'un défunt sans preuve","Interdire toute invocation","Déduire le Paradis du seul décès"],"c":0,"exp":"Le récit est présent dans Sahîh al-Bukhârî 1243.","ref":"https://sunnah.com/bukhari:1243"},
+
+                    {"q":"Quelles appréciations figurent pour le hadith de l'embrassade funéraire ?","opts":["Hasan sahîh selon At-Tirmidhî, faible selon Darussalam","Unanimement inventé","Unanimement sahîh sans divergence"],"c":0,"exp":"At-Tirmidhî 989 écrit hasan sahîh ; l’évaluation Darussalam indiquée sur Sunnah.com est da‘îf.","ref":"https://sunnah.com/tirmidhi:989"},
+                    {"q":"Quel statut documentaire possède le récit de la pierre sur la tombe ?","opts":["Une chaîne qualifiée de moursal","Une chaîne unanimement sahîh","Un verset coranique"],"c":0,"exp":"Le fascicule signale une transmission moursal ; il ne faut pas la traiter comme une authentification.","ref":"https://siyar.fr/livre/1/158"},
+
+                    { q: "Quelle forme d’ascétisme le Prophète a-t-il refusée à ‘Outhman ?", opts: ["Le silence", "Le renoncement au mariage", "L’aumône"], c: 1, exp: "Le hadith d’Al-Bukhârî 5073 rapporte le refus du célibat ascétique. La castration est évoquée par Sa‘d comme une hypothèse si le renoncement avait été permis.", ref: "https://sunnah.com/bukhari:5073" },
                     { q: "Quelle est sa primauté concernant Médine ?", opts: ["Premier martyr", "Premier gouverneur", "Premier Muhajir enterré au Baqi'", "Premier né"], c: 2, exp: "Il a inauguré le cimetière du Baqi' pour les émigrés." }
                 ]
             },
@@ -368,7 +392,7 @@
                 arabicName: "قدَامَة بن مَظْعُون",
                 subtitle: "Le Gouverneur Puni",
                 intro: "Frère d'Outhman et oncle d'Ibn Oumar. Gouverneur de Bahreïn sous Omar, il est célèbre pour avoir été fouetté (peine légale) suite à une erreur d'interprétation du Coran.",
-                heroQuote: "Il n'y a pas de péché pour ceux qui ont cru... (Le verset qu'il interpréta à tort)",
+                heroQuote: "Extrait du Coran 5:93 : « Il n’est pas de faute pour ceux qui ont cru et accompli de bonnes œuvres en ce qu’ils ont consommé… »",
                 tags: ["Muhajirun", "Badriyun", "Gouverneur"],
                 genealogy: "Qoudama ibn Mazh'oune Al-Joumahi. Beau-frère d'Omar (marié à Safiya bint Al-Khattab).",
                 physicalDesc: "Il était grand, de peau mate (foncée). Il ne teignait pas ses cheveux blancs.",
@@ -383,6 +407,12 @@
                 ],
                 hadiths: [],
                 quizData: [
+                    {"q":"Comment Ibn Taymiyya qualifie-t-il la transmission examinée sur Qoudama ?","opts":["Sahîh sans réserve","« Fîhi nazar » (« à examiner »)","Moutawâtir"],"c":1,"exp":"Dorar cite le jugement « fîhi nazar » dans Minhâj as-Sunna 6/84 ; cela concerne cette version, pas toutes les voies possibles.","ref":"https://dorar.net/h/x4HMmzcz"},
+                    {"q":"Comment Athar doit-il présenter un récit historique non classé ?","opts":["Le supprimer sans explication","Le transformer en hadith sahîh","Citer l'ouvrage et signaler l'absence de classement identifié"],"c":2,"exp":"La présence d’un récit dans une chronique ne constitue pas à elle seule un jugement d'authenticité.","ref":"https://siyar.fr/livre/1/165"},
+
+                    {"q":"Quel verset Qoudama invoqua-t-il selon le récit historique ?","opts":["Al-Mâ’ida 5:93","Al-Fâtiha 1:1","Al-Ikhlâs 112:1"],"c":0,"exp":"La notice rapporte son recours au verset 5:93 et la sanction ordonnée par ‘Oumar.","ref":"https://siyar.fr/livre/1/165"},
+                    {"q":"Que prouve la localisation de cet épisode dans Siyar ?","opts":["Qu'un récit est mentionné, pas que chaque chaîne est authentifiée","Que toute interprétation ajoutée est certaine","Que le récit est un hadith prophétique sahîh"],"c":0,"exp":"Une référence biographique permet de retrouver le passage, pas d'authentifier automatiquement toutes les traditions.","ref":"https://siyar.fr/livre/1/165"},
+
                     { q: "Pourquoi Omar l'a-t-il destitué de son poste de gouverneur ?", opts: ["Pour vol", "Pour incompétence", "Pour consommation d'alcool (erreur d'interprétation)", "Pour trahison"], c: 2, exp: "Il avait bu du vin en pensant à tort qu'un verset l'autorisait aux gens pieux." }
                 ]
             },

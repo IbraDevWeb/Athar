@@ -50,9 +50,10 @@ const ReaderView = {
                     question: item.question || item.q,
                     options: Array.isArray(item.options || item.opts) ? (item.options || item.opts) : [],
                     correct: item.correct !== undefined ? item.correct : item.c,
-                    explanation: item.explanation || item.exp || 'Consultez la notice pour revoir ce point.'
+                    explanation: item.explanation || item.exp || 'Consultez la notice pour revoir ce point.',
+                    reference: item.reference || item.ref || ''
                 }))
-                .filter((question) => question.question && question.options.length > 0 && Number.isInteger(question.correct));
+                .filter((question) => question.question && question.options.length >= 2 && Number.isInteger(question.correct) && question.correct >= 0 && question.correct < question.options.length);
         },
         safeHadiths() {
             return Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths.filter(Boolean) : [];
@@ -75,8 +76,11 @@ const ReaderView = {
         },
         quizProgress() {
             if (this.safeQuiz.length === 0) return 0;
-            const answered = Object.keys(this.quizAnswers || {}).filter((key) => this.quizAnswers[key] !== undefined).length;
+            const answered = this.safeQuiz.filter((_, index) => this.quizAnswers[index] !== undefined).length;
             return Math.round((answered / this.safeQuiz.length) * 100);
+        },
+        quizAnsweredCount() {
+            return this.safeQuiz.filter((_, index) => this.quizAnswers[index] !== undefined).length;
         },
         estimatedReadingTime() {
             let text = `${this.chapter.intro || ''} ${this.chapter.physicalDesc || ''} ${this.chapter.genealogy || ''}`;
@@ -95,7 +99,7 @@ const ReaderView = {
         evidenceLabel(status) {
             if (status === 'weak') return 'Réserve sur la transmission';
             if (status === 'variant') return 'Variantes rapportées';
-            if (status === 'qualification') return 'Récit à qualifier';
+            if (status === 'qualification') return 'Attribution à préciser';
             return 'Passage repéré';
         },
         stopAudio() {
@@ -145,6 +149,11 @@ const ReaderView = {
             if (optionIndex === correctIndex) return 'bg-emerald-100 border-emerald-500 text-emerald-800 dark:bg-emerald-900/30 dark:border-emerald-500 dark:text-emerald-400 font-bold shadow-inner transform scale-[1.01]';
             if (userAnswer === optionIndex && optionIndex !== correctIndex) return 'bg-red-100 border-red-500 text-red-800 dark:bg-red-900/30 dark:border-red-500 dark:text-red-400 opacity-75';
             return 'bg-gray-50 dark:bg-brand-dark/50 border-transparent text-gray-400 opacity-40 cursor-not-allowed';
+        },
+        resetQuiz() {
+            Object.keys(this.quizAnswers || {}).forEach((key) => { delete this.quizAnswers[key]; });
+            this.showScore = false;
+            this.score = 0;
         },
         calculateScore() {
             if (this.safeQuiz.length === 0) return;
@@ -280,7 +289,7 @@ const ReaderView = {
                         <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter"><div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300"><p v-html="formatText(story.content)"></p></div>
                             <aside v-if="sourceEvidence('narrative', story.id)" class="mt-5 border-t border-brand-gold/20 pt-4 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
                                 <span class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }} · Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('narrative', story.id).printedPage }}</span>
-                                <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p>
+                                <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p><p v-if="sourceEvidence('narrative', story.id).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('narrative', story.id).hadithRef }}</p><a v-if="sourceEvidence('narrative', story.id).externalUrl" :href="sourceEvidence('narrative', story.id).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le récit dans la source citée</a>
                                 <button type="button" @click="activeTab='sources'" class="mt-2 font-semibold text-brand-gold hover:underline">Voir la référence complète</button>
                             </aside></div>
                     </div>
@@ -306,13 +315,13 @@ const ReaderView = {
                     <article v-for="(h, index) in safeHadiths" :key="index" class="bg-white dark:bg-brand-dark-lighter p-8 md:p-12 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm text-center relative overflow-hidden group">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50"></div>
                         <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
-                        <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-brand-gold mb-3">{{ h.type === 'verse' ? 'Verset coranique' : 'Tradition rapportée' }}</p><p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
                         <div class="inline-flex flex-col items-center"><div class="w-10 h-1 bg-brand-gold/20 mb-3"></div><p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.narrator }}</p><p class="text-xs text-brand-gold mt-1">{{ h.source }}</p></div>
-                        <aside v-if="sourceEvidence('hadith', index)" class="mt-5 border-t border-brand-gold/20 pt-4 text-left text-xs leading-relaxed text-gray-600 dark:text-gray-300">
-                            <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('hadith', index).status) }} · {{ sourceEvidence('hadith', index).hadithRef || 'Référence du fascicule' }}</p>
-                            <p class="mt-2">{{ sourceEvidence('hadith', index).note }}</p>
-                            <p v-if="sourceEvidence('hadith', index).isnad" class="mt-2"><span class="font-semibold">Chaîne documentée :</span> {{ sourceEvidence('hadith', index).isnad }}</p>
-                            <a v-if="sourceEvidence('hadith', index).externalUrl" :href="sourceEvidence('hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Lire dans le recueil cité</a>
+                        <aside v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)" class="mt-5 border-t border-brand-gold/20 pt-4 text-left text-xs leading-relaxed text-gray-600 dark:text-gray-300">
+                            <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).status) }} · {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).hadithRef || 'Référence documentaire' }}</p>
+                            <p class="mt-2">{{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).note }}</p>
+                            <p v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad" class="mt-2"><span class="font-semibold">Chaîne documentée :</span> {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad }}</p>
+                            <a v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" :href="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Lire dans le recueil cité</a>
                         </aside>
                     </article>
                 </div>
@@ -320,7 +329,7 @@ const ReaderView = {
             </div>
 
             <div v-show="activeTab === 'quiz'" class="max-w-2xl mx-auto space-y-10">
-                <div class="text-center mb-8"><h2 class="font-display text-2xl font-bold mb-2">Testez vos connaissances</h2><p class="text-gray-500 text-sm">Le quiz reprend le contenu de la notice ; il ne constitue pas une validation académique.</p></div>
+                <div class="text-center mb-8"><h2 class="font-display text-2xl font-bold mb-2">Testez vos connaissances</h2><p class="text-gray-500 text-sm">Le quiz reprend le contenu de la notice ; il ne constitue pas une validation académique.</p><div class="flex justify-between items-center text-xs text-gray-500 mt-6 mb-2"><span>{{ quizAnsweredCount }} / {{ safeQuiz.length }} réponses</span><button v-if="quizAnsweredCount" type="button" @click="resetQuiz" class="text-brand-gold font-bold hover:underline">Recommencer</button></div><div role="progressbar" :aria-valuenow="quizAnsweredCount" :aria-valuemax="safeQuiz.length" aria-valuemin="0" aria-label="Progression du quiz" class="w-full h-1.5 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden"><div class="h-full bg-brand-gold transition-all duration-300" :style="{ width: quizProgress + '%' }"></div></div></div>
                 <div v-for="(q, qIdx) in safeQuiz" :key="qIdx" class="bg-white dark:bg-brand-dark-lighter p-8 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm transition-all hover:shadow-md">
                     <div class="flex gap-4 mb-6"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold text-white flex items-center justify-center font-bold font-serif">{{ qIdx + 1 }}</span><h3 class="font-bold text-lg text-brand-dark dark:text-gray-200 pt-0.5">{{ q.question }}</h3></div>
                     <div class="space-y-3 md:pl-12">
@@ -329,12 +338,12 @@ const ReaderView = {
                             <span class="relative z-10"><i v-if="quizAnswers[qIdx] !== undefined && optIdx === q.correct" data-lucide="check-circle" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i><i v-if="quizAnswers[qIdx] === optIdx && optIdx !== q.correct" data-lucide="x-circle" class="w-5 h-5 text-red-500"></i></span>
                         </button>
                     </div>
-                    <div v-if="quizAnswers[qIdx] !== undefined" class="mt-6 md:ml-12 p-5 bg-blue-50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-800/30 animate-fade-in"><div class="flex gap-3 items-start text-blue-800 dark:text-blue-300"><i data-lucide="info" class="w-5 h-5 shrink-0 mt-0.5"></i><div class="text-sm leading-relaxed"><strong class="block mb-1 font-bold uppercase tracking-wider text-xs">Explication</strong>{{ q.explanation }}</div></div></div>
+                    <div v-if="quizAnswers[qIdx] !== undefined" class="mt-6 md:ml-12 p-5 bg-blue-50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-800/30 animate-fade-in"><div class="flex gap-3 items-start text-blue-800 dark:text-blue-300"><i data-lucide="info" class="w-5 h-5 shrink-0 mt-0.5"></i><div class="text-sm leading-relaxed"><strong class="block mb-1 font-bold uppercase tracking-wider text-xs">Explication</strong>{{ q.explanation }}<a v-if="q.reference" :href="q.reference" target="_blank" rel="noopener noreferrer" class="block mt-3 underline font-semibold">Lire la référence</a></div></div></div>
                 </div>
 
                 <div v-if="quizProgress === 100" id="score-result" class="text-center py-10 animate-scale-in">
                     <button type="button" @click="calculateScore" v-if="!showScore" class="px-8 py-4 bg-brand-gold text-white rounded-full font-bold uppercase tracking-widest shadow-lg hover:bg-brand-gold-light transition-colors transform hover:-translate-y-1">Voir le score</button>
-                    <div v-else class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl inline-block relative overflow-hidden min-w-[300px]"><div class="absolute inset-0 bg-islamic opacity-10"></div><div class="relative z-10"><div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Score</div><div class="font-display text-6xl font-bold text-brand-gold mb-2">{{ score }} / {{ safeQuiz.length }}</div><p class="text-gray-300 italic">{{ score === safeQuiz.length ? 'Toutes les réponses sont correctes.' : 'Relisez les explications pour progresser.' }}</p></div></div>
+                    <div v-else class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl inline-block relative overflow-hidden min-w-[300px]"><div class="absolute inset-0 bg-islamic opacity-10"></div><div class="relative z-10"><div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Score</div><div class="font-display text-6xl font-bold text-brand-gold mb-2">{{ score }} / {{ safeQuiz.length }}</div><p class="text-gray-300 italic">{{ score === safeQuiz.length ? 'Toutes les réponses sont correctes.' : 'Relisez les explications pour progresser.' }}</p><button type="button" @click="resetQuiz" class="mt-5 text-sm font-bold underline text-brand-gold">Refaire le quiz</button></div></div>
                 </div>
             </div>
 
@@ -359,7 +368,7 @@ const ReaderView = {
                     <article v-for="entry in biographyReferences.entries" :key="entry.kind + '-' + entry.id" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-lighter p-5 md:p-6">
                         <div class="flex flex-wrap justify-between items-start gap-3">
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : entry.kind === 'hadith' ? 'Hadith / parole' : entry.kind === 'quote' ? 'Citation principale' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : entry.kind === 'verse' ? 'Verset coranique' : entry.kind === 'hadith' ? 'Hadith / parole' : entry.kind === 'quote' ? 'Citation principale' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
                                 <h4 class="font-semibold text-brand-dark dark:text-white mt-1">{{ entry.title }}</h4>
                             </div>
                             <span v-if="entry.pdfPage != null" class="text-xs font-semibold text-brand-gold whitespace-nowrap">p. {{ entry.printedPage }} · PDF p. {{ entry.pdfPage }}</span><span v-else class="text-xs text-gray-500">Référence externe au fascicule</span>

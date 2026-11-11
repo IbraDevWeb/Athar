@@ -128,7 +128,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     keys.add(key);
     if(entry.pdfPage == null) {
       assert.equal(entry.printedPage,null,'Repère externe avec page imprimée inventée : '+id+'/'+key);
-      assert.ok(/^https:\/\/sunnah\.com\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
+      assert.ok(/^https:\/\/(?:sunnah\.com|dorar\.net|hadithportal\.com|quran\.com)\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
     } else {
       assert.equal(entry.pdfPage,entry.printedPage+1);
       assert.ok(entry.printedPage > 0 && Number.isInteger(entry.printedPage));
@@ -141,6 +141,8 @@ for (const [id, source] of Object.entries(bibliography)) {
       assert.ok(Number.isInteger(entry.id) && chapter.hadiths?.[entry.id], 'Hadith introuvable '+id+'/'+key);
       assert.ok(entry.hadithRef && entry.isnad && entry.grade, 'Chaîne ou degré non indiqué '+id+'/'+key);
       assert.ok(['sahih','hasan','weak_chain','ungraded','disputed','attribution_discontinue'].includes(entry.grade),'Degré inconnu : '+entry.grade);
+    } else if(entry.kind === 'verse') {
+      assert.ok(entry.externalUrl && /quran\.com/.test(entry.externalUrl), 'Verset sans source coranique : '+id+'/'+key);
     } else if(entry.kind === 'quote') {
       assert.equal(entry.id,0,'Citation principale introuvable : '+id+'/'+key);
       assert.ok(chapter.heroQuote && entry.grade,'Citation sans jugement : '+id+'/'+key);
@@ -154,7 +156,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,202,'Attendu : 171 repères initiaux + 31 repères du contrôle de cinq biographies');
+assert.equal(total,214,'209 repères de la vague 6-10 + cinq citations principales documentées');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
@@ -181,8 +183,8 @@ assert.ok(reader.includes("sourceEvidence('timeline', i)"),'Références chronol
 assert.ok(reader.includes('Lire sur Siyar.fr'),'Lien vers source externe absent');
 assert.ok(!library.includes('> Vérifiée<'),'Badge « Vérifiée » non qualifié');
 assert.ok(!index.includes('Authentifié avec Siyar'),'Badge latéral non qualifié');
-assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-isnad-01-05-1'),'Registre non chargé');
-assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-isnad-01-05-1'),'Registre non précaché');
+assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-isnad-06-10-1'),'Registre non chargé');
+assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-isnad-06-10-1'),'Registre non précaché');
 assert.ok(!/https?:\/\/[^"'\s]+\.pdf/i.test(read('biography_sources_data.js')),'Le registre contient un lien vers un PDF');
 // Les points controversés du nouveau lot ne doivent plus être présentés comme établis.
 const story=(id,n) => chapters.find(c => c.id===id).narratives.find(x => x.id===n);
@@ -226,7 +228,7 @@ assert.ok(/33 ou 36 H/.test(evt(91,5)));
 assert.ok(/quarante années/.test(evt(96,2)) && /conteste/.test(evt(96,2)));
 assert.ok(!bibliography[12], 'La fiche 12 demeure sans source de ce lot');
 for(const id of [101,102,103,106]) assert.ok(!bibliography[id], 'Une fiche hors Siyar 1–100 a été déclarée vérifiée : '+id);
-assert.ok(reader.includes("sourceEvidence('hadith', index)"),'Les avis des hadiths ne sont pas visibles');
+assert.ok(reader.includes("sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)"),'Les avis des hadiths ne sont pas visibles');
 assert.ok(reader.includes("sourceEvidence('quote', 0)"),'Les réserves des citations principales ne sont pas visibles');
 assert.ok(reader.includes("entry.pdfPage != null"),'La source externe sans PDF doit être affichée sans inventer une page');
 assert.equal(bibliography[2].entries.find(e=>e.kind==='quote').status,'weak','Le martyr marchant ne doit pas être classé authentique');
@@ -234,4 +236,14 @@ assert.equal(bibliography[4].entries.find(e=>e.kind==='hadith'&&e.id===1).status
 assert.equal(bibliography[5].entries.find(e=>e.kind==='hadith'&&e.id===1).grade,'disputed','Le Tirmidhi 3752 est controversé');
 assert.ok(/chaîne interrompue/.test(chapters.find(c=>c.id===1).hadiths[1].source));
 assert.ok(/15/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content) || /quinze/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content));
-console.log('Siyar : 99 biographies indexées sur 104, 202 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+for (const id of [6,7,8,9,10]) {
+  const chapter = chapters.find(item => item.id === id);
+  assert.ok(chapter?.quizData?.length >= 5, 'Quiz insuffisamment développé pour la notice ' + id);
+  chapter.quizData.forEach((q, i) => assert.ok(Array.isArray(q.opts) && Number.isInteger(q.c) && q.c >= 0 && q.c < q.opts.length, 'Question invalide : ' + id + '/' + i));
+  assert.ok(bibliography[id].entries.some(entry => entry.kind === 'quote' && entry.id === 0 && entry.grade), 'Citation principale sans référence : ' + id);
+  (chapter.hadiths || []).forEach((h, i) => {
+    const kind = h.type === 'verse' ? 'verse' : 'hadith';
+    assert.ok(bibliography[id].entries.some(entry => entry.kind === kind && entry.id === i), 'Citation/verset sans repère : ' + id + '/' + i);
+  });
+}
+console.log('Siyar : 99 biographies indexées sur 104, 214 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');

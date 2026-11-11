@@ -560,9 +560,12 @@ const BIOGRAPHY_SOURCES = {
         "id": 602,
         "pdfPage": 26,
         "printedPage": 25,
-        "title": "Le litige foncier",
-        "note": "Le récit avec Arwa bint Ouways, la prière de Saïd et la chute d'Arwa dans un trou figure pages 24-25.",
-        "status": "located"
+        "title": "Litige de Sa‘îd : récit présent chez Mouslim",
+        "note": "Le récit du litige foncier et de l'invocation de Sa‘îd est transmis dans Sahîh Mouslim 1610c ; il convient de le citer comme récit et non comme une simple accusation établie contre l'autre partie.",
+        "status": "located",
+        "hadithRef": "Mouslim 1610c",
+        "externalUrl": "https://sunnah.com/muslim:1610c",
+        "isnad": "Hishâm ibn ‘Urwa → son père ‘Urwa → récit du litige entre Arwa et Sa‘îd."
       },
       {
         "kind": "narrative",
@@ -590,6 +593,45 @@ const BIOGRAPHY_SOURCES = {
         "title": "Date du décès et variantes",
         "note": "L'an 51 H est retenu par Al-Waqidi, une transmission rapporte 52 H et une autre situe le décès à Koufa.",
         "status": "variant"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Truffes : parole prophétique",
+        "hadithRef": "Al-Bukhârî 5708 ; Mouslim 2049a",
+        "externalUrl": "https://sunnah.com/bukhari:5708",
+        "isnad": "Al-Bukhârî : Saïd ibn Zayd rapporte du Prophète ﷺ. Mouslim 2049a : ‘Abd al-Malik ibn ‘Umayr → ‘Amr ibn Hurayth → Saïd ibn Zayd → le Prophète ﷺ.",
+        "note": "Parole établie dans les deux recueils ; distinguer la transmission des conseils médicaux contemporains.",
+        "status": "located",
+        "pdfPage": null,
+        "printedPage": null,
+        "grade": "sahih"
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "hadithRef": "Abou Ya‘lâ 973 ; Ahmad 1648 (autre voie)",
+        "externalUrl": "https://dorar.net/h/JKxKOrRq/osoul",
+        "isnad": "Voie rapportée par Saïd ibn Zayd : ‘Abd ar-Rahmân ibn Abî az-Zinâd → Hishâm ibn ‘Urwa → ‘Urwa → Saïd ibn Zayd ; autres voies distinctes.",
+        "grade": "disputed",
+        "status": "variant",
+        "title": "Zayd ibn ‘Amr : plusieurs appréciations selon les voies",
+        "note": "Al-Haythamî (Majma‘ az-Zawâ’id 9/420) : isnâd hasan pour la voie rapportée par Saïd ; Shu‘ayb al-Arna’ût (Tahqîq Musnad Ahmad 1648) : isnâd faible pour une autre voie. Ne pas confondre ces deux chaînes.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Abou Ya‘lâ 973 ; Al-Haythamî 9/420",
+        "externalUrl": "https://dorar.net/h/JKxKOrRq/osoul",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "Parole prophétique rapportée par Sa‘îd selon Abou Ya‘lâ. Al-Haythamî qualifie cette chaîne de hasan ; Shu‘ayb al-Arna’ût juge faible une autre voie rapportée par Ahmad 1648.",
+        "status": "variant",
+        "grade": "hasan"
       }
     ]
   },
@@ -618,9 +660,12 @@ const BIOGRAPHY_SOURCES = {
         "id": 701,
         "pdfPage": 7,
         "printedPage": 6,
-        "title": "Linceul de Mouss'ab",
-        "note": "Le pagne insuffisant et l'idhkhir recommandé pour couvrir les pieds apparaissent dans la notice.",
-        "status": "located"
+        "title": "Linceul de Mouss’ab : source primaire",
+        "note": "Al-Bukhârî 1276 rapporte le linceul trop court et l'idhkhir. Le témoignage est celui de Khabbâb.",
+        "status": "located",
+        "hadithRef": "Al-Bukhârî 1276",
+        "externalUrl": "https://sunnah.com/bukhari:1276",
+        "isnad": "Khabbâb → le récit des funérailles de Mouss’ab."
       },
       {
         "kind": "narrative",
@@ -636,9 +681,47 @@ const BIOGRAPHY_SOURCES = {
         "id": 703,
         "pdfPage": 7,
         "printedPage": 6,
-        "title": "Larmes devant un repas",
-        "note": "Le début du témoignage d'Abderrahman et sa réflexion sur la récompense terrestre figurent ici.",
-        "status": "located"
+        "title": "Abderrahmân pleure devant son repas",
+        "note": "Le témoignage est cité dans Riyâd as-Sâlihîn 454 avec attribution à Al-Bukhârî ; parole de compagnon, non citation prophétique.",
+        "status": "located",
+        "hadithRef": "Al-Bukhârî, récit d'Abderrahmân (via Riyâd as-Sâlihîn 454)",
+        "externalUrl": "https://sunnah.com/riyadussalihin:454"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "hadithRef": "Ibn Sa‘d, at-Tabaqât al-Kubrâ, récit 2886",
+        "externalUrl": "https://hadithportal.com/takhreej/64883",
+        "isnad": "Ibn Sa‘d : Muhammad ibn ‘Umar → Ibrâhîm ibn Muhammad al-‘Abdarî → son père. Attribution au Prophète dans la narration biographique.",
+        "grade": "ungraded",
+        "status": "qualification",
+        "title": "Description de Mouss’ab à La Mecque",
+        "note": "La formule figure dans le récit biographique reproduit d’Ibn Sa‘d ; référence « Tirmidhî » supprimée, car non localisée pour cette formulation. Aucun jugement de savant sur cette voie n’est assigné ici.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "verse",
+        "id": 1,
+        "title": "Verset du Coran 33:23",
+        "externalUrl": "https://quran.com/33/23",
+        "status": "qualification",
+        "note": "La formulation est un verset, pas un hadith. Sa portée générale est coranique ; l’appliquer spécifiquement à Mouss’ab est une attribution exégétique qui nécessite une source distincte.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "At-Tirmidhî 2476",
+        "externalUrl": "https://sunnah.com/tirmidhi:2476",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "At-Tirmidhî : hasan gharîb ; Al-Albânî dans Da‘îf at-Tirmidhî 2476 : faible. Al-Mundhirî signale un rapporteur non nommé entre Muhammad ibn Ka‘b et ‘Alî.",
+        "status": "variant",
+        "grade": "disputed"
       }
     ]
   },
@@ -676,18 +759,48 @@ const BIOGRAPHY_SOURCES = {
         "id": 802,
         "pdfPage": 17,
         "printedPage": 16,
-        "title": "Bonnes paroles au défunt",
-        "note": "La notice cite le conseil de prononcer de bonnes paroles auxquelles les anges disent amîn, mais pas ici le détail des yeux.",
-        "status": "qualification"
+        "title": "Paroles bienveillantes près du défunt",
+        "note": "Oum Salama rapporte dans Mouslim 920a la recommandation de ne dire que du bien et l'invocation en faveur d'Abou Salama.",
+        "status": "located",
+        "hadithRef": "Mouslim 920a",
+        "externalUrl": "https://sunnah.com/muslim:920a"
       },
       {
         "kind": "narrative",
         "id": 803,
         "pdfPage": 17,
         "printedPage": 16,
-        "title": "Invocation de l'épreuve",
-        "note": "L'invocation qu'Oum Salama prononce au décès de son mari est rapportée ici et à la page suivante.",
-        "status": "located"
+        "title": "Invocation lors de l'épreuve",
+        "note": "La formule et son application par Oum Salama après la mort d'Abou Salama figurent dans Sahîh Mouslim 918a–b.",
+        "status": "located",
+        "hadithRef": "Mouslim 918a–b",
+        "externalUrl": "https://sunnah.com/muslim:918a"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Invocation pour Abou Salama",
+        "hadithRef": "Mouslim 920a",
+        "externalUrl": "https://sunnah.com/muslim:920a",
+        "isnad": "Oum Salama → récit de la visite du Prophète ﷺ à Abou Salama.",
+        "note": "Mouslim 920a rapporte l'invocation, l'attention aux paroles de la famille et la mention des anges disant amîn.",
+        "status": "located",
+        "pdfPage": null,
+        "printedPage": null,
+        "grade": "sahih"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Mouslim 920a",
+        "externalUrl": "https://sunnah.com/muslim:920a",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "Formule extraite de l'invocation du Prophète pour Abou Salama, rapportée par Oum Salama dans Sahîh Mouslim 920a.",
+        "status": "located",
+        "grade": "sahih"
       }
     ]
   },
@@ -717,8 +830,10 @@ const BIOGRAPHY_SOURCES = {
         "pdfPage": 25,
         "printedPage": 24,
         "title": "Refus du renoncement conjugal",
-        "note": "Le Prophète interdit l'ascétisme extrême et encourage le modèle prophétique.",
-        "status": "located"
+        "note": "Selon Sa‘d ibn Abî Waqqâs, le Prophète refusa à ‘Outhman ibn Mazh‘oune le célibat ascétique ; le propos sur la castration est une hypothèse formulée par Sa‘d.",
+        "status": "located",
+        "hadithRef": "Al-Bukhârî 5073 ; Mouslim 1402b",
+        "externalUrl": "https://sunnah.com/bukhari:5073"
       },
       {
         "kind": "narrative",
@@ -743,9 +858,50 @@ const BIOGRAPHY_SOURCES = {
         "id": 904,
         "pdfPage": 28,
         "printedPage": 27,
-        "title": "Réserve adressée à Oum Al-'Ala",
-        "note": "Le dialogue entre Oum Al-'Ala et le Prophète à propos de l'honneur d'Outhman est rapporté.",
-        "status": "located"
+        "title": "Oum Al-‘Alâ : prudence sur le sort d’un défunt",
+        "note": "Le témoignage d’Oum Al-‘Alâ figure dans Sahîh al-Bukhârî 1243, avec la réponse du Prophète et sa réserve sur la certitude du sort individuel.",
+        "status": "located",
+        "hadithRef": "Al-Bukhârî 1243",
+        "externalUrl": "https://sunnah.com/bukhari:1243"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Embrassade funéraire et divergence de classement",
+        "hadithRef": "At-Tirmidhî 989",
+        "externalUrl": "https://sunnah.com/tirmidhi:989",
+        "isnad": "Muhammad ibn Bashshâr → ‘Abd ar-Rahmân ibn Mahdî → Sufyân → ‘Âsim ibn ‘Ubayd Allah → al-Qâsim ibn Muhammad → ‘Â’isha.",
+        "note": "At-Tirmidhî : hasan sahîh ; classement Darussalam : da‘îf. Ne pas effacer cette divergence.",
+        "status": "variant",
+        "pdfPage": null,
+        "printedPage": null,
+        "grade": "disputed"
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "hadithRef": "Ahmad 2127 ; Ibn Sa‘d 3/398 ; al-Hâkim 4869",
+        "externalUrl": "https://dorar.net/h/sS5iuU9W/osoul",
+        "isnad": "Hammâd ibn Salama → ‘Alî ibn Zayd → Yûsuf ibn Mihrân → Ibn ‘Abbâs (version Ahmad 2127).",
+        "grade": "disputed",
+        "status": "variant",
+        "title": "Parole aux funérailles de la fille du Prophète",
+        "note": "Shu‘ayb al-Arna’ût (Takhrîj Siyar 1/160) : isnâd faible ; Ahmad Shâkir (Takhrîj Musnad 5/41) : isnâd sahîh selon sa propre évaluation. Les transmissions mentionnent Zaynab ou Rouqayya selon les versions.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Al-Bukhârî 5073",
+        "externalUrl": "https://sunnah.com/bukhari:5073",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "Parole de Sa‘d sur le refus du tabattul (renoncement conjugal), dans Al-Bukhârî 5073 ; à distinguer de toute assertion que ‘Outhman demanda personnellement la castration.",
+        "status": "located",
+        "grade": "sahih"
       }
     ]
   },
@@ -774,9 +930,24 @@ const BIOGRAPHY_SOURCES = {
         "id": 1001,
         "pdfPage": 31,
         "printedPage": 30,
-        "title": "Argument du verset 5:93",
-        "note": "Le passage cite le verset 5:93, la sanction et la destitution, mais pas l'explication ajoutée dans Athar.",
-        "status": "qualification"
+        "title": "Qoudama : récit du verset 5:93 et avis recensé",
+        "note": "Dorar rapporte le récit d’Ibn ‘Abbâs et cite le jugement « fîhi nazar » d’Ibn Taymiyya (Minhâj as-Sunna 6/84) sur cette transmission ; le contenu est conservé avec cette réserve attribuée.",
+        "status": "qualification",
+        "hadithRef": "An-Nasâ’î, al-Kubrâ 5270 ; Ibn Taymiyya, Minhâj as-Sunna 6/84",
+        "externalUrl": "https://dorar.net/h/x4HMmzcz"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Coran 5:93 ; récit historique Siyar",
+        "externalUrl": "https://quran.com/5/93",
+        "isnad": "Sans objet : verset coranique.",
+        "note": "Citation coranique ; le renvoi biographique concerne l'interprétation attribuée à Qoudama. Ibn Taymiyya (Minhâj as-Sunna 6/84) indique « fîhi nazar » pour une voie du récit selon Darar.",
+        "status": "qualification",
+        "grade": "not_applicable"
       }
     ]
   },
