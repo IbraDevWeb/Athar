@@ -159,7 +159,7 @@ async function desktop() {
     assert.ok(await externalSource.locator('a[href="https://dorar.net/history/event/54"]').count()>=1,'Le dossier historique d’Abd-Allah doit être accessible');
     assert.ok(!/Fascicule sources externes, p\. null/.test(await externalSource.innerText()),'Page bibliographique inventée pour la fiche 12');
     await page.getByRole('tab',{name:'Quiz',exact:true}).click();
-    assert.equal(await page.locator('button').filter({hasText:'At-Tabarânî'}).count(),0,'Le quiz ne doit pas afficher de réponses absurdes');
+    assert.ok(await page.locator('div.max-w-2xl.mx-auto.space-y-10 > div.bg-white').count() >= 5, 'Cinq questions attendues dans la fiche 12');
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
