@@ -161,7 +161,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,278,'244 repères antérieurs + 34 nouvelles références des notices 16 à 20');
+assert.equal(total,342,'278 anciens repères + 64 nouveaux repères du lot 21-30');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
@@ -207,7 +207,7 @@ assert.ok(bibliography[14].entries.some(x=>x.kind==='narrative'&&x.id===1401&&x.
 assert.ok(bibliography[9].entries.some(x=>x.kind==='timeline'&&x.id===0&&x.status==='weak'));
 const c=id=>chapters.find(x=>x.id===id);
 assert.ok(/quatre-vingt-dix-neuf/.test(c(26).intro));
-assert.ok(/25 H/.test(c(27).timeline[3].year));
+assert.ok(/15 ou 20 H/.test(c(27).timeline[3].year), 'Nawfal : conserver 15/20 H, pas 20/25 H');
 assert.ok(/C’est alors ‘Aqil/.test(c(35).narratives.find(x=>x.id===353).content));
 assert.ok(/Yarmouk/.test(c(49).narratives.find(x=>x.id===492).content));
 assert.ok(/récits historiques/.test(c(51).intro));
@@ -301,4 +301,29 @@ assert.ok(bibliography[20].entries.find(e=>e.kind==='hadith'&&e.id===0).hadithRe
 assert.ok(reader.includes("h.type === 'historical' ? 'Récit biographique rapporté'"),'Étiquette historique absente dans la lecture');
 assert.ok(reader.includes("entry.category === 'commentary'"),'Type de commentaire savant invisible dans les sources');
 
-console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 278 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+// Vague 5 : contrôle de la traçabilité intégrale des dix nouvelles notices.
+for (const id of Array.from({length:10},(_,i)=>i+21)) {
+  const ch = chapters.find(c=>c.id===id), entries = bibliography[id].entries;
+  assert.ok(ch,'Notice absente '+id);
+  assert.equal(ch.quizData.length,5,'Cinq questions documentaires exigées par notice '+id);
+  ch.quizData.forEach((q,i)=>assert.ok(q.ref?.startsWith('https://')&&q.exp?.length>35&&Number.isInteger(q.c)&&q.c>=0&&q.c<q.opts.length,'Question incorrecte '+id+'/'+i));
+  assert.equal(entries.filter(e=>e.kind==='quote').length,1,'Citation principale non attribuée '+id);
+  assert.ok(entries.some(e=>e.kind==='quote'&&e.grade),'Degré ou absence de degré non signalé '+id);
+  for(const [i,e] of ch.timeline.entries()) assert.ok(entries.some(x=>x.kind==='timeline'&&x.id===i&&x.externalUrl), 'Date sans source '+id+'/'+i);
+  for(const e of ch.narratives) assert.ok(entries.some(x=>x.kind==='narrative'&&x.id===e.id&&x.externalUrl),'Récit sans attribution '+id+'/'+e.id);
+  for(const [i,e] of ch.hadiths.entries()) {
+    const x=entries.find(x=>x.kind==='hadith'&&x.id===i);
+    assert.ok(x?.hadithRef&&x?.externalUrl&&x?.grade&&x?.isnad,'Transmission sans référence '+id+'/'+i);
+    assert.equal(x.category,e.type,'Nature de la transmission incorrecte '+id+'/'+i);
+    if ([21,22,27,28,29,30].includes(id)) assert.equal(x.grade,'ungraded','Degré inventé pour récit historique '+id);
+  }
+}
+assert.ok(chapters.find(c=>c.id===26).intro.includes('quatre-vingt-dix-neuf'),'Quatre-vingt-dix-neuf, et non cent');
+assert.ok(chapters.find(c=>c.id===24).narratives.find(e=>e.id===241).content.includes('chronologique'),'Anachronisme Souhayl non expliqué');
+assert.ok(chapters.find(c=>c.id===29).tags.includes("Tabi'i")&&chapters.find(c=>c.id===30).tags.includes("Tabi'i"),'Génération des transmetteurs non corrigée');
+assert.ok(/83 ou 84 H/.test(chapters.find(c=>c.id===29).timeline[2].year),'Décès de Babbâ : variantes 83/84 H');
+assert.ok(/15 ou 20 H/.test(chapters.find(c=>c.id===27).timeline[3].year),'Décès de Nawfal : variante 15/20 H');
+assert.ok(/hasan gharîb/.test(bibliography[26].entries.find(e=>e.kind==='hadith').hadithRef),'Jugement At-Tirmidhî 3854 absent');
+assert.ok(/2522/.test(bibliography[24].entries.find(e=>e.kind==='hadith').hadithRef),'Abou Dâwoud 2522 absent');
+
+console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 342 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
