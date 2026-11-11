@@ -1503,7 +1503,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/186",
     "entries": [
       {
@@ -1605,7 +1605,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
         "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
         "grade": "ungraded",
-        "note": "Adh-Dhahabî donne Moubashir ibn ‘Abd al-Moundhir, puis la variante Moujadhar ibn Ziyâd. Ce sont des attributions historiques, non un hadith authentifié dans cette notice."
+        "note": "Adh-Dhahabî donne Moubashir ibn ‘Abd al-Moundhir, puis la variante Moujadhar ibn Ziyâd. Ce sont des attributions historiques, non un hadith authentifié dans cette notice.",
+        "category": "historical"
       },
       {
         "pdfPage": null,
@@ -1618,7 +1619,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
         "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
         "grade": "ungraded",
-        "note": "Le texte d'Ibn Sa‘d, transmis d'après Yazîd ibn Roumân, rapporte leur conversion commune ; le jugement des spécialistes sur cette chaîne n'est pas identifié ici."
+        "note": "Le texte d'Ibn Sa‘d, transmis d'après Yazîd ibn Roumân, rapporte leur conversion commune ; le jugement des spécialistes sur cette chaîne n'est pas identifié ici.",
+        "category": "historical"
       }
     ]
   },
@@ -1630,7 +1632,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/187",
     "entries": [
       {
@@ -1710,7 +1712,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
         "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
         "grade": "ungraded",
-        "note": "Récit d'Ibn Sa‘d conservé par adh-Dhahabî ; chaîne complète et avis d'authenticité non indiqués dans la source consultée."
+        "note": "Récit d'Ibn Sa‘d conservé par adh-Dhahabî ; chaîne complète et avis d'authenticité non indiqués dans la source consultée.",
+        "category": "historical"
       }
     ]
   },
@@ -1722,7 +1725,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -1802,7 +1805,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
         "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
         "grade": "ungraded",
-        "note": "Citation de l'information d'Ibn Sa‘d chez adh-Dhahabî ; tradition biographique sans évaluation de chaîne dans ce passage."
+        "note": "Citation de l'information d'Ibn Sa‘d chez adh-Dhahabî ; tradition biographique sans évaluation de chaîne dans ce passage.",
+        "category": "historical"
       }
     ]
   },
@@ -1814,7 +1818,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -1883,7 +1887,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
         "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
         "grade": "ungraded",
-        "note": "Ibn Sa‘d est cité pour la fraternité de ‘Âmir avec Thâbit ibn Qays ; degré de la transmission non identifié ici."
+        "note": "Ibn Sa‘d est cité pour la fraternité de ‘Âmir avec Thâbit ibn Qays ; degré de la transmission non identifié ici.",
+        "category": "historical"
       }
     ]
   },
@@ -1895,7 +1900,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -1986,7 +1991,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Al-Bukhârî 3007 — Sahîh",
         "isnad": "‘Alî ibn Abî Tâlib rapporte le récit de Hâtib ; isnâd complet sur Al-Bukhârî 3007.",
         "grade": "sahih",
-        "note": "Al-Bukhârî 3007 relate l'épisode de Hâtib, rapporté par ‘Alî, et une parole sur le pardon accordé aux gens de Badr. Mistah n'est pas nommé dans cet épisode."
+        "note": "Al-Bukhârî 3007 relate l'épisode de Hâtib, rapporté par ‘Alî, et une parole sur le pardon accordé aux gens de Badr. Mistah n'est pas nommé dans cet épisode.",
+        "category": "prophetic"
       },
       {
         "pdfPage": null,
@@ -1999,7 +2005,8 @@ const BIOGRAPHY_SOURCES = {
         "hadithRef": "Siyar 1/188, commentaire d'adh-Dhahabî",
         "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
         "grade": "ungraded",
-        "note": "C'est le jugement moral de l'historien sur Mistah ; ce n'est pas une parole prophétique ni un hadith qudsî."
+        "note": "C'est le jugement moral de l'historien sur Mistah ; ce n'est pas une parole prophétique ni un hadith qudsî.",
+        "category": "commentary"
       }
     ]
   },
