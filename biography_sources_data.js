@@ -1503,7 +1503,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/186",
     "entries": [
       {
@@ -1514,6 +1514,113 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 16",
         "note": "Le fascicule contient une notice consacrée à « 'Aqil ibn Al-Boukayr ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Changement de nom Ghâfil → ‘Aqil",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 16",
+        "isnad": "Attribution bibliographique, sans authentification indépendante par Athar.",
+        "grade": "ungraded",
+        "externalUrl": "https://siyar.fr/livre/1/186",
+        "note": "Ibn Sa‘d, reproduit par adh-Dhahabî, rapporte le changement de nom. Il s'agit d'une attribution biographique ; aucun jugement de chaîne n'est reproduit dans la notice."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Conversion des quatre frères à Dâr al-Arqam",
+        "externalUrl": "https://siyar.fr/livre/1/186",
+        "hadithRef": "Siyar / source citée (notice 16)",
+        "note": "Ibn Sa‘d transmet via Muhammad ibn ‘Umar → Muhammad ibn Sâlih → Yazîd ibn Roumân l'histoire de la conversion commune. Cette voie n'est pas classée ici."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Départ familial vers Médine",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Siyar / source citée (notice 16)",
+        "note": "Récit transmis chez Ibn Sa‘d via Muhammad ibn ‘Umar → ‘Abd al-Jabbâr ibn ‘Umâra → ‘Abd Allah ibn Abî Bakr ; les maisons restèrent fermées. Aucune date précise n'est assignée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Les quatre frères à Badr",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Siyar / source citée (notice 16)",
+        "note": "Adh-Dhahabî souligne la participation des quatre frères à Badr, selon les récits d'Ibn Sa‘d et de sîra."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 3,
+        "title": "Mort de ‘Aqil à Badr",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Siyar / source citée (notice 16)",
+        "note": "La notice rapporte l'âge de 34 ans et nomme Mâlik ibn Zouhayr comme son meurtrier ; données biographiques, sans jugement d'isnâd ajouté."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 161,
+        "title": "Nom antérieur et renommage",
+        "externalUrl": "https://siyar.fr/livre/1/186",
+        "hadithRef": "Adh-Dhahabî / Ibn Sa‘d — source indiquée",
+        "note": "Ibn Sa‘d affirme que son nom était Ghâfil et que le Prophète le renomma ‘Aqil. C'est un récit biographique rapporté, pas une preuve autonome du propos prophétique."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 162,
+        "title": "Émigration collective",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Adh-Dhahabî / Ibn Sa‘d — source indiquée",
+        "note": "Adh-Dhahabî reproduit la transmission d'Ibn Sa‘d sur l'émigration des hommes et des femmes de la famille et les maisons demeurées fermées."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Deux versions de la fraternité",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
+        "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
+        "grade": "ungraded",
+        "note": "Adh-Dhahabî donne Moubashir ibn ‘Abd al-Moundhir, puis la variante Moujadhar ibn Ziyâd. Ce sont des attributions historiques, non un hadith authentifié dans cette notice.",
+        "category": "historical"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 1,
+        "title": "Conversion des quatre frères",
+        "externalUrl": "https://siyar.fr/livre/1/186",
+        "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
+        "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
+        "grade": "ungraded",
+        "note": "Le texte d'Ibn Sa‘d, transmis d'après Yazîd ibn Roumân, rapporte leur conversion commune ; le jugement des spécialistes sur cette chaîne n'est pas identifié ici.",
+        "category": "historical"
       }
     ]
   },
@@ -1525,7 +1632,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/187",
     "entries": [
       {
@@ -1536,6 +1643,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 17",
         "note": "Le fascicule contient une notice consacrée à « Khalid ibn Al-Boukayr ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Badr, Ouhoud, puis Ar-Rajî‘",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 17",
+        "isnad": "Attribution bibliographique, sans authentification indépendante par Athar.",
+        "grade": "ungraded",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "note": "La notice attribue à Ibn Sa‘d ces trois repères, dont Safar 4 H et l'âge de 34 ans ; déclaration historique, sans classification indépendante."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Participation à Badr",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Siyar / source citée (notice 17)",
+        "note": "Ibn Sa‘d cité par adh-Dhahabî rapporte sa présence à Badr."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Participation à Ouhoud",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Siyar / source citée (notice 17)",
+        "note": "Ibn Sa‘d cité par adh-Dhahabî rapporte sa présence à Ouhoud."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Mort à Ar-Rajî‘ en Safar 4 H",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Siyar / source citée (notice 17)",
+        "note": "La notice place sa mort à Ar-Rajî‘ en Safar 4 H, à 34 ans. Aucun classement des voies détaillées n'est donné dans ce passage."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 171,
+        "title": "Fraternité avec Zayd ibn ad-Dathina",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Adh-Dhahabî / Ibn Sa‘d — source indiquée",
+        "note": "L'attribution de la fraternité est rapportée d'Ibn Sa‘d par adh-Dhahabî. Le destin des deux personnages ne doit pas être amalgamé."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Fraternité avec Zayd ibn ad-Dathina",
+        "externalUrl": "https://siyar.fr/livre/1/187",
+        "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
+        "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
+        "grade": "ungraded",
+        "note": "Récit d'Ibn Sa‘d conservé par adh-Dhahabî ; chaîne complète et avis d'authenticité non indiqués dans la source consultée.",
+        "category": "historical"
       }
     ]
   },
@@ -1547,7 +1725,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -1558,6 +1736,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 18",
         "note": "Le fascicule contient une notice consacrée à « Iyas ibn Al-Boukayr ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Campagnes et Égypte",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 18",
+        "isnad": "Attribution bibliographique, sans authentification indépendante par Athar.",
+        "grade": "ungraded",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "note": "Adh-Dhahabî transmet d'après Ibn Sa‘d la participation à Badr, aux autres campagnes et à la conquête de l'Égypte ; attribution historique sans degré de hadith revendiqué."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Badr",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Siyar / source citée (notice 18)",
+        "note": "La participation à Badr figure dans la notice d'Iyâs citant Ibn Sa‘d."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Conquête de l'Égypte",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Siyar / source citée (notice 18)",
+        "note": "Adh-Dhahabî cite la participation d'Iyâs à la conquête ; la notice ne donne aucune année de campagne propre à Iyâs."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Décès en 34 H",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Siyar / source citée (notice 18)",
+        "note": "Adh-Dhahabî indique une date de décès 34 H, donnée de chronique sans jugement d'isnâd indépendant."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 181,
+        "title": "Long parcours d'Iyâs",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/26/",
+        "hadithRef": "Adh-Dhahabî / Ibn Sa‘d — source indiquée",
+        "note": "La synthèse se fonde sur Ibn Sa‘d cité par adh-Dhahabî : Badr, campagnes et Égypte, décès 34 H. Aucun détail supplémentaire de batailles n'est introduit."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Lien de fraternité avec al-Hârith ibn Khazma",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
+        "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
+        "grade": "ungraded",
+        "note": "Citation de l'information d'Ibn Sa‘d chez adh-Dhahabî ; tradition biographique sans évaluation de chaîne dans ce passage.",
+        "category": "historical"
       }
     ]
   },
@@ -1569,7 +1818,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -1580,6 +1829,66 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 19",
         "note": "Le fascicule contient une notice consacrée à « 'Amir ibn Al-Boukayr ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Les quatre frères à Badr",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 19",
+        "isnad": "Attribution bibliographique, sans authentification indépendante par Athar.",
+        "grade": "ungraded",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "note": "La formule sur l'absence d'autre fratrie de quatre connue à Badr appartient au commentaire d'adh-Dhahabî, pas à une parole prophétique."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 0,
+        "title": "‘Âmir à Badr",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Siyar / source citée (notice 19)",
+        "note": "Ibn Sa‘d et adh-Dhahabî mentionnent la présence de ‘Âmir et de ses frères à Badr."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Al-Yamâma : datation divergente",
+        "externalUrl": "https://islamweb.net/ar/library/content/200/17885/",
+        "hadithRef": "Siyar / source citée (notice 19)",
+        "note": "Ibn Kathîr recense la fin de 11 H ou le début de 12 H pour Al-Yamâma et envisage une campagne traversant ces deux années. La notice d'adh-Dhahabî indique que ‘Âmir y fut tué."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 191,
+        "title": "Particularité des quatre frères",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Adh-Dhahabî / Ibn Sa‘d — source indiquée",
+        "note": "Adh-Dhahabî formule lui-même cette remarque historique après les notices d'Iyâs et de ‘Âmir ; ne pas la présenter comme hadith."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Lien de fraternité avec Thâbit ibn Qays",
+        "externalUrl": "https://siyar.fr/livre/1/188",
+        "hadithRef": "Ibn Sa‘d, At-Tabaqât ; repris dans Siyar",
+        "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
+        "grade": "ungraded",
+        "note": "Ibn Sa‘d est cité pour la fraternité de ‘Âmir avec Thâbit ibn Qays ; degré de la transmission non identifié ici.",
+        "category": "historical"
       }
     ]
   },
@@ -1591,7 +1900,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Repères et variantes vérifiés dans les sources identifiées ; ce repérage documentaire ne certifie pas l'authenticité des chaînes de transmission ni toutes les dates des chroniques.",
     "readUrl": "https://siyar.fr/livre/1/188",
     "entries": [
       {
@@ -1602,6 +1911,102 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 20",
         "note": "Le fascicule contient une notice consacrée à « Mistah ibn Outhatha ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "quote",
+        "id": 0,
+        "title": "Aide d'Abou Bakr et verset 24:22",
+        "hadithRef": "Al-Bukhârî 4750",
+        "isnad": "Attribution bibliographique, sans authentification indépendante par Athar.",
+        "grade": "sahih",
+        "externalUrl": "https://sunnah.com/bukhari:4750",
+        "note": "‘Â’isha rapporte dans Sahîh al-Bukhârî 4750 qu'Abou Bakr reprit son aide à Mistah après la révélation de 24:22. La citation en tête est une paraphrase signalée du récit."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Mistah est un combattant de Badr",
+        "externalUrl": "https://sunnah.com/bukhari:4750",
+        "hadithRef": "Al-Bukhârî 4750",
+        "note": "Dans le récit de ‘Â’isha, elle demande à Oum Mistah pourquoi elle maudit un homme qui a participé à Badr ; témoignage situé dans Sahîh al-Bukhârî."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Affaire de l'Ifk : datation de l'expédition discutée",
+        "externalUrl": "https://sunnah.com/bukhari:4750",
+        "hadithRef": "Siyar / source citée (notice 20)",
+        "note": "Al-Bukhârî 4750 rapporte l'affaire et le rôle de Mistah, mais ne fixe pas ici l'année. Ibn Hajar discute les versions 4, 5 et 6 H de l'expédition liée à l'épisode."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Décès en 34 H et version concurrente",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Siyar / source citée (notice 20)",
+        "note": "Adh-Dhahabî cite Ibn Sa‘d pour une mort en 34 H à 56 ans. Une autre tradition le mentionne à Siffîn en 37 H ; la frise ne choisit pas une année définitive."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 201,
+        "title": "Commentaire propre à adh-Dhahabî",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/28/",
+        "hadithRef": "Adh-Dhahabî / Ibn Sa‘d — source indiquée",
+        "note": "La mise en garde contre le mépris de Mistah appartient au commentaire d'adh-Dhahabî, dans Siyar 1/188, et n'est pas une parole du Prophète."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "narrative",
+        "id": 202,
+        "title": "Révélation du verset et reprise du soutien",
+        "externalUrl": "https://sunnah.com/bukhari:4750",
+        "hadithRef": "Al-Bukhârî 4750",
+        "note": "‘Â’isha rapporte le serment d'Abou Bakr, la révélation du verset 24:22 et la reprise de l'assistance. Le hadith ne doit pas être présenté comme une absolution prophétique nominative pour Mistah."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Hadith prophétique général concernant Badr",
+        "externalUrl": "https://sunnah.com/bukhari:3007",
+        "hadithRef": "Al-Bukhârî 3007 — Sahîh",
+        "isnad": "‘Alî ibn Abî Tâlib rapporte le récit de Hâtib ; isnâd complet sur Al-Bukhârî 3007.",
+        "grade": "sahih",
+        "note": "Al-Bukhârî 3007 relate l'épisode de Hâtib, rapporté par ‘Alî, et une parole sur le pardon accordé aux gens de Badr. Mistah n'est pas nommé dans cet épisode.",
+        "category": "prophetic"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 1,
+        "title": "Commentaire éditorial d'adh-Dhahabî",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/28/",
+        "hadithRef": "Siyar 1/188, commentaire d'adh-Dhahabî",
+        "isnad": "Transmission biographique ou commentaire attribué à l'auteur cité ; l'isnâd complet n'est pas établi dans la fiche.",
+        "grade": "ungraded",
+        "note": "C'est le jugement moral de l'historien sur Mistah ; ce n'est pas une parole prophétique ni un hadith qudsî.",
+        "category": "commentary"
       }
     ]
   },

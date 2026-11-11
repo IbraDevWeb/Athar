@@ -12,7 +12,7 @@ for (const name of ['rag','render.yaml','research-library.html','RAG_HOSTED.md',
 const workflows = fs.readdirSync(path.join(root,'.github/workflows')).filter(n=>n.endsWith('.yml'));
 assert(workflows.length === 2 && workflows.includes('validate-static.yml') && workflows.includes('athar-public-live.yml'), 'Anciennes automatisations encore actives');
 const config = read('js/config.js'), html = read('index.html'), sw = read('service-worker.js'), app=read('js/app.js');
-assert(config.includes('athar-pro-v53-siyar-11-15-1') && sw.includes('athar-pro-v53-siyar-11-15-1'), 'Version PWA non synchronisée');
+assert(config.includes('athar-pro-v54-siyar-16-20-1') && sw.includes('athar-pro-v54-siyar-16-20-1'), 'Version PWA non synchronisée');
 assert(!/ScholarV4Bootstrap|ScholarLibraryV4View|onrender\.com|research-library\.html/i.test(config+html+sw+app),'Client RAG encore chargé');
 const match=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);
 assert(match, 'Liste de précache absente');

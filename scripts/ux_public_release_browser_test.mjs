@@ -164,6 +164,23 @@ async function desktop() {
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
 
+    // Quatrième vague : ne pas confondre commentaire d'historien et parole prophétique.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Mistah ibn Outhatha');
+    await page.locator('.library-pro-card').filter({hasText:'Mistah ibn Outhatha'}).first().click();
+    await page.getByRole('tab',{name:'Citations',exact:true}).click();
+    assert.ok(await page.getByText('Commentaire d’un savant',{exact:true}).count()>=1,'Commentaire d’adh-Dhahabî identifié comme hadith');
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    const mistahRefs=page.locator('.athar-siyar-sources');
+    assert.ok(await mistahRefs.locator('a[href="https://sunnah.com/bukhari:4750"]').count()>=1,'Récit de l’Ifk absent de Mistah');
+    assert.ok((await mistahRefs.innerText()).includes('versions 4, 5 et 6 H'), 'Réserve et variantes chronologiques sur l’Ifk absentes');
+    await page.getByRole('tab',{name:'Quiz',exact:true}).click();
+    assert.ok(await page.locator('div.max-w-2xl.mx-auto.space-y-10 > div.bg-white').count() >= 6,'Six questions attendues pour Mistah');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));
     await page.locator('#athar-immersive-theme').click();
     await page.waitForFunction(before => document.documentElement.classList.contains('dark') !== before,previousTheme,{timeout:5000});
