@@ -198,7 +198,7 @@ assert.ok(library.includes('hasSourceReference'));
 assert.ok(bibliography[91].readUrl.endsWith('/1/524'));
 assert.ok(bibliography[92].readUrl.endsWith('/2/1'));
 assert.ok(bibliography[100].readUrl.endsWith('/2/40'));
-assert.ok(/Médine/.test(evt(77,3)) && /bataille/.test(evt(77,3)));
+assert.ok(/Médine/.test(evt(77,3)) && /combat/.test(evt(77,3)));
 assert.ok(!/seul cavalier/.test(chapters.find(c=>c.id===81).intro));
 assert.ok(/huile de ricin/.test(story(81,813).content));
 assert.ok(/moursal/.test(bibliography[82].entries.find(x=>x.kind==='timeline'&&x.id===1).note));
