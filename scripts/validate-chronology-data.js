@@ -46,7 +46,7 @@ assert.equal(first.periodId, 'undated', 'Oumâma ne doit pas être placée avant
 assert.equal(first.reference?.sourceUrl, 'https://sunnah.com/bukhari:516');
 assert.ok(/aucune année/i.test(first.reference?.note || ''), 'Prudence chronologique d’Oumâma absente');
 
-let total=0, reported=0, variants=0, periodOnly=0, undated=0;
+let total=0, reported=0, anchored=0, variants=0, periodOnly=0, undated=0;
 for (const chapter of chapters) {
   (chapter.timeline || []).forEach((event,index) => {
     if (!event?.desc) return;
@@ -60,16 +60,18 @@ for (const chapter of chapters) {
     }
     if (point.periodId === 'undated') assert.equal(point.year,null);
     if (point.precision === 'reported') reported++;
+    if (point.precision === 'anchored') anchored++;
     if (point.precision === 'variant') variants++;
     if (point.precision === 'period') periodOnly++;
     if (point.precision === 'undated') undated++;
   });
 }
 assert.ok(total >= 300, 'Des événements auraient été perdus');
+assert.equal(total, reported + anchored + variants + periodOnly + undated, 'Tous les événements doivent avoir une catégorie de précision');
 assert.ok(undated > 0 && reported > 0, 'Le tri doit conserver les repères datés et non datés');
 assert.ok(timeline.includes('ATHAR_CHRONOLOGY.resolve'), 'Le composant n’utilise pas le moteur prudent');
 assert.ok(!/\binferYear\b|\bchapterAnchors\b|gregorianApprox/.test(timeline), 'Inférence historique automatique non autorisée');
 assert.ok(!/≈\s*612/.test(timeline), 'Année fictive présente dans la frise');
 assert.ok(index.indexOf('js/timeline-chronology.js') > -1 && index.indexOf('js/timeline-chronology.js') < index.indexOf('js/components/TimelineView.js'), 'Moteur chronologique chargé dans le mauvais ordre');
 assert.ok(worker.includes('js/timeline-chronology.js'), 'Moteur non précaché');
-console.log('Frise auditable : '+total+' événements ; '+reported+' années déclarées ou repères nommés, '+variants+' datations multiples, '+periodOnly+' périodes seules, '+undated+' dates non renseignées.');
+console.log('Frise auditable : '+total+' événements ; '+reported+' années indiquées, '+anchored+' événements-repères datés, '+variants+' datations multiples, '+periodOnly+' périodes seules, '+undated+' dates non renseignées.');
