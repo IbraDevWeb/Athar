@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'athar-pro-v50-isnad-01-05-1';
+const CACHE_VERSION = 'athar-pro-v51-isnad-06-10-1';
 // Seules les ressources de la version publique sont précachées.
 const APP_SHELL = [
     './',
