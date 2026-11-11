@@ -599,7 +599,10 @@ const BIOGRAPHY_SOURCES = {
         "externalUrl": "https://sunnah.com/bukhari:5708",
         "isnad": "Al-Bukhârî : Saïd ibn Zayd rapporte du Prophète ﷺ. Mouslim 2049a : ‘Abd al-Malik ibn ‘Umayr → ‘Amr ibn Hurayth → Saïd ibn Zayd → le Prophète ﷺ.",
         "note": "Parole établie dans les deux recueils ; distinguer la transmission des conseils médicaux contemporains.",
-        "status": "located"
+        "status": "located",
+        "pdfPage": null,
+        "printedPage": null,
+        "grade": "sahih"
       }
     ]
   },
@@ -710,7 +713,10 @@ const BIOGRAPHY_SOURCES = {
         "externalUrl": "https://sunnah.com/muslim:920a",
         "isnad": "Oum Salama → récit de la visite du Prophète ﷺ à Abou Salama.",
         "note": "Mouslim 920a rapporte l'invocation, l'attention aux paroles de la famille et la mention des anges disant amîn.",
-        "status": "located"
+        "status": "located",
+        "pdfPage": null,
+        "printedPage": null,
+        "grade": "sahih"
       }
     ]
   },
@@ -778,7 +784,10 @@ const BIOGRAPHY_SOURCES = {
         "externalUrl": "https://sunnah.com/tirmidhi:989",
         "isnad": "Muhammad ibn Bashshâr → ‘Abd ar-Rahmân ibn Mahdî → Sufyân → ‘Âsim ibn ‘Ubayd Allah → al-Qâsim ibn Muhammad → ‘Â’isha.",
         "note": "At-Tirmidhî : hasan sahîh ; classement Darussalam : da‘îf. Ne pas effacer cette divergence.",
-        "status": "variant"
+        "status": "variant",
+        "pdfPage": null,
+        "printedPage": null,
+        "grade": "disputed"
       }
     ]
   },
