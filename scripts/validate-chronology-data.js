@@ -24,6 +24,8 @@ assert.equal(get('Califat d’Omar').year, null);
 assert.equal(get('Badr').year, 2);
 assert.equal(get('2 H').year, 2);
 assert.equal(get('3 H').periodId, 'prophetic');
+assert.equal(get('10 H').periodId, 'prophetic');
+assert.equal(get('11 H').periodId, 'rashidun', 'La Ridda et la Saqîfa en 11 H appartiennent au début du califat');
 assert.equal(get('51 H (52 H aussi rapporté)').precision, 'variant');
 assert.equal(get('3 ou 4 H selon les récits').precision, 'variant');
 assert.equal(get('3 ou 4 H selon les récits').periodId, 'prophetic');
