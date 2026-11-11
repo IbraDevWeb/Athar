@@ -115,6 +115,8 @@ const TimelineView = {
 
             <div v-if="activePath" class="timeline-pro-active-path" :style="{'--path-color':activePath.color}"><i :data-lucide="activePath.icon"></i><div><span>Parcours actif</span><strong>{{ activePath.title }}</strong><small>{{ filteredEvents.length }} repères sélectionnés</small></div><button @click="activePathId=null"><i data-lucide="x"></i></button></div>
 
+            <aside class="timeline-pro-trust-note"><i data-lucide="info"></i><span><strong>Précision chronologique :</strong> {{ stats.undated }} repères sans année déterminée. Une mention d’enfance ou de ville ne constitue pas une date.</span><button @click="selectPeriod('undated')">Voir les dates à préciser</button></aside>
+
             <section v-if="mode==='timeline'" class="timeline-pro-workspace" :class="'is-'+density">
                 <aside class="timeline-pro-period-rail">
                     <header><span>Naviguer</span><strong>{{ filteredEvents.length }} résultats</strong></header>
