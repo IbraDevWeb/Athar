@@ -619,6 +619,19 @@ const BIOGRAPHY_SOURCES = {
         "note": "Al-Haythamî (Majma‘ az-Zawâ’id 9/420) : isnâd hasan pour la voie rapportée par Saïd ; Shu‘ayb al-Arna’ût (Tahqîq Musnad Ahmad 1648) : isnâd faible pour une autre voie. Ne pas confondre ces deux chaînes.",
         "pdfPage": null,
         "printedPage": null
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Abou Ya‘lâ 973 ; Al-Haythamî 9/420",
+        "externalUrl": "https://dorar.net/h/JKxKOrRq/osoul",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "Parole prophétique rapportée par Sa‘îd selon Abou Ya‘lâ. Al-Haythamî qualifie cette chaîne de hasan ; Shu‘ayb al-Arna’ût juge faible une autre voie rapportée par Ahmad 1648.",
+        "status": "variant",
+        "grade": "hasan"
       }
     ]
   },
@@ -696,6 +709,19 @@ const BIOGRAPHY_SOURCES = {
         "note": "La formulation est un verset, pas un hadith. Sa portée générale est coranique ; l’appliquer spécifiquement à Mouss’ab est une attribution exégétique qui nécessite une source distincte.",
         "pdfPage": null,
         "printedPage": null
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "At-Tirmidhî 2476",
+        "externalUrl": "https://sunnah.com/tirmidhi:2476",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "At-Tirmidhî : hasan gharîb ; Al-Albânî dans Da‘îf at-Tirmidhî 2476 : faible. Al-Mundhirî signale un rapporteur non nommé entre Muhammad ibn Ka‘b et ‘Alî.",
+        "status": "variant",
+        "grade": "disputed"
       }
     ]
   },
@@ -761,6 +787,19 @@ const BIOGRAPHY_SOURCES = {
         "status": "located",
         "pdfPage": null,
         "printedPage": null,
+        "grade": "sahih"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Mouslim 920a",
+        "externalUrl": "https://sunnah.com/muslim:920a",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "Formule extraite de l'invocation du Prophète pour Abou Salama, rapportée par Oum Salama dans Sahîh Mouslim 920a.",
+        "status": "located",
         "grade": "sahih"
       }
     ]
@@ -850,6 +889,19 @@ const BIOGRAPHY_SOURCES = {
         "note": "Shu‘ayb al-Arna’ût (Takhrîj Siyar 1/160) : isnâd faible ; Ahmad Shâkir (Takhrîj Musnad 5/41) : isnâd sahîh selon sa propre évaluation. Les transmissions mentionnent Zaynab ou Rouqayya selon les versions.",
         "pdfPage": null,
         "printedPage": null
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Al-Bukhârî 5073",
+        "externalUrl": "https://sunnah.com/bukhari:5073",
+        "isnad": "Transmission et attribution précisées dans la référence externe.",
+        "note": "Parole de Sa‘d sur le refus du tabattul (renoncement conjugal), dans Al-Bukhârî 5073 ; à distinguer de toute assertion que ‘Outhman demanda personnellement la castration.",
+        "status": "located",
+        "grade": "sahih"
       }
     ]
   },
@@ -883,6 +935,19 @@ const BIOGRAPHY_SOURCES = {
         "status": "qualification",
         "hadithRef": "An-Nasâ’î, al-Kubrâ 5270 ; Ibn Taymiyya, Minhâj as-Sunna 6/84",
         "externalUrl": "https://dorar.net/h/x4HMmzcz"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation en tête de notice",
+        "pdfPage": null,
+        "printedPage": null,
+        "hadithRef": "Coran 5:93 ; récit historique Siyar",
+        "externalUrl": "https://quran.com/5/93",
+        "isnad": "Sans objet : verset coranique.",
+        "note": "Citation coranique ; le renvoi biographique concerne l'interprétation attribuée à Qoudama. Ibn Taymiyya (Minhâj as-Sunna 6/84) indique « fîhi nazar » pour une voie du récit selon Darar.",
+        "status": "qualification",
+        "grade": "not_applicable"
       }
     ]
   },
