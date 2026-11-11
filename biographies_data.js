@@ -440,7 +440,10 @@
                     {"text":"Le Prophète ﷺ appela Hamza, ‘Alî et Oubayda pour répondre au duel de Badr.","narrator":"‘Alî ibn Abî Tâlib","source":"Sunan Abî Dâwoud 2665 — sahîh selon Al-Albânî"},
                 ],
                 quizData: [
-                    { q: "Quelle distinction militaire détient-il ?", opts: ["Premier archer", "Premier chef d'expédition (Bannière)", "Premier cavalier", "Premier calife"], c: 1, exp: "Le Prophète a noué pour lui la première bannière de l'Islam avant Badr." },
+                    {"q":"Quel verset est associé aux six combattants du duel de Badr ?","opts":["Al-Hajj 22:19","Al-Fâtiha 1:1","An-Nâs 114:1"],"c":0,"exp":"Abou Dharr transmet cette attribution dans Mouslim 3033. Le verset ne nomme pas les duellistes lui-même.","ref":"https://sunnah.com/muslim:3033"},
+                    {"q":"Qui affronte Oubayda selon la version d'Abou Dâwoud 2665 ?","opts":["Al-Walîd ibn ‘Outba","‘Outba ibn Rabî‘a","Abou Jahl"],"c":0,"exp":"Abou Dâwoud rapporte al-Walîd ; une narration d'Ibn Ishâq situe plutôt ‘Outba face à Oubayda.","ref":"https://sunnah.com/abudawud:2665"},
+                    {"q":"À quelle autre fiche d'Athar le personnage d'Oubayda correspond-il ?","opts":["45","12","84"],"c":0,"exp":"Les fiches 11 et 45 désignent le même compagnon ; le numéro 45 correspond à la notice dans Siyar.","ref":"https://siyar.fr/livre/1/256"},
+                    { q: "Que rapporte Ibn Ishâq concernant sa bannière ?", opts: ["Elle aurait été la première nouée à un musulman", "Elle datait de Siffîn", "Elle fut offerte par César"], c: 0, exp: "Ibn Ishâq emploie une formule d’attribution et des traditions concurrentes évoquent aussi Abd-Allah ibn Jahsh. Il ne s’agit pas d’une primauté unanimement établie.", ref: "https://g1.islamweb.net/ar/library/content/58/682/" },
                     { q: "Où est-il mort ?", opts: ["Sur le champ de Badr", "À Médine", "À As-Safra (au retour de Badr)", "À la Mecque"], c: 2, exp: "Il a survécu au duel mais est mort de sa blessure sur le chemin du retour." }
                 ]
             },
@@ -466,7 +469,11 @@
                     { id: 1202, title: "La Tombe Commune", content: "Ibn Hishâm rapporte d'après la famille d'Abd-Allah ibn Jahsh qu'il fut enterré dans la même tombe que Hamza, son oncle maternel. Ibn Ishâq précise qu'il n'a entendu ce détail que de sa famille ; il s'agit d'une tradition historique attribuée, et non d'un fait unanimement démontré." }
                 ],
                 quizData: [
-                    { q: "Avec qui partage-t-il sa tombe ?", opts: ["Mouss'ab", "Hamza", "Le Prophète", "Ali"], c: 1, exp: "Lui et son oncle Hamza ont été enterrés ensemble à Ouhoud." }
+                    {"q":"À quel événement la chronique de Dorar rattache-t-elle l'expédition de Nakhla ?","opts":["Rajab 2 H","La bataille de Siffîn","L'année 40 H"],"c":0,"exp":"Ad-Durar as-Saniyya date cette expédition de Rajab 2 H.","ref":"https://dorar.net/history/event/54"},
+                    {"q":"Quel jugement Al-Haythamî donne-t-il au récit de l'invocation d'Ouhoud ?","opts":["« Ses rapporteurs sont ceux du Sahîh »","« Unanimement inventé »","« Coran »"],"c":0,"exp":"Majma‘ az-Zawâ’id 9/304 contient cette appréciation sur les rapporteurs, qu'on ne doit pas transformer en authentification autonome.","ref":"https://dorar.net/h/WyJwUUz5"},
+                    {"q":"À qui Ibn Ishâq attribue-t-il le détail de l'inhumation avec Hamza ?","opts":["À la famille d'Abd-Allah","À Abou Hourayra","À Oum Salama"],"c":0,"exp":"Il explique n'avoir entendu cette précision que de la famille du compagnon.","ref":"https://www.islamweb.com/ar/library/content/58/977/"},
+                    {"q":"Quel verset est évoqué dans les chroniques concernant Nakhla et le mois sacré ?","opts":["Al-Baqara 2:217","An-Nasr 110:3","Al-Qadr 97:1"],"c":0,"exp":"Les chroniques rapportent l'incident dans le contexte du verset 2:217.","ref":"https://dorar.net/history/event/54"},
+                    { q: "Selon Ibn Ishâq, avec qui fut-il enterré ?", opts: ["Mouss’ab", "Hamza", "Le Prophète", "‘Alî"], c: 1, exp: "Ibn Ishâq attribue cette tradition à la famille d’Abd-Allah ibn Jahsh, en disant ne l’avoir entendue que d’eux.", ref: "https://www.islamweb.com/ar/library/content/58/977/" }
                 ]
             },
             {
@@ -492,7 +499,10 @@
                     { id: 1302, title: "Unis dans la Mort", content: "La notice de Siyar rapporte que les corps d'Abou Houdhayfa et de Sâlim étaient rapprochés après Al-Yamâma. La description de leur position appartient à cette tradition biographique ; aucun classement indépendant de cette voie n'est affirmé." }
                 ],
                 quizData: [
-                    { q: "Qui voulait-il tuer de ses propres mains à Badr ?", opts: ["Abou Jahl", "Son père Outba", "Son frère", "Abou Soufiane"], c: 1, exp: "Il voulait prouver sa foi en affrontant son propre père, chef des polythéistes." },
+                    {"q":"Qui rapporte dans Al-Moustadrak l'appel au duel contre ‘Outba ?","opts":["Abou az-Zinâd, par son fils","Jâbir uniquement","Anas ibn Mâlik"],"c":0,"exp":"Al-Hâkim 5039 cite ‘Abd ar-Rahmân ibn Abî az-Zinâd, d'après son père.","ref":"https://www.islamweb.net/ar/library/content/74/4861/"},
+                    {"q":"Qu'ajoute Ibn Ishâq au récit de la mort d'‘Outba ?","opts":["Qu'Abou Houdhayfa avait espéré la conversion de son père","Qu'il avait quitté Badr avant le duel","Qu'il n'était pas croyant"],"c":0,"exp":"Ibn Kathîr reprend ce témoignage dans Al-Bidâya wa-n-Nihâya, sans que l'on confonde ce récit de sîra avec un hadith du Sahîh.","ref":"https://gcp.islamweb.net/ar/library/content/59/266/"},
+                    {"q":"Peut-on affirmer que le Prophète ordonna à Abou Houdhayfa de s'asseoir ?","opts":["Pas à partir de la version citée d'Al-Hâkim","Oui, c'est explicitement écrit chez Al-Hâkim 5039","C'est un verset"],"c":0,"exp":"Cette intervention n'est pas présente dans la transmission citée d'Al-Hâkim 5039.","ref":"https://www.islamweb.net/ar/library/content/74/4861/"},
+                    { q: "Qui voulait-il tuer de ses propres mains à Badr ?", opts: ["Abou Jahl", "Son père Outba", "Son frère", "Abou Soufiane"], c: 1, exp: "Le rapport attribué à Abou az-Zinâd signale l’appel au duel, sans établir avec certitude ses intentions personnelles." },
                     { q: "Quelle particularité physique avait-il ?", opts: ["Un œil borgne", "Des dents qui se chevauchaient", "Il était chauve", "Il boitait"], c: 1, exp: "Le Siyar mentionne ses dents chevauchées (ou espacées) ('Shateer')." }
                 ]
             },
@@ -525,8 +535,11 @@
                     { text: "Louange à Allah qui a placé dans ma communauté quelqu'un comme lui !", narrator: "Le Prophète ﷺ, d'après ‘Â’isha", source: "Ibn Mâjah 1338 — sahîh selon Al-Albânî ; hasan selon Ibn Hajar (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Quel recueil rapporte que Sâlim dirigeait les émigrés en prière à Qoubâ ?","opts":["Sahîh al-Bukhârî 692","Al-Mouwatta uniquement","Aucune référence"],"c":0,"exp":"Ibn ‘Oumar indique que Sâlim connaissait davantage de Coran.","ref":"https://sunnah.com/bukhari:692"},
+                    {"q":"Quel avis sur le cas de Sâlim rapporte Mouslim 1454 ?","opts":["Les autres épouses le considéraient comme une exception propre à Sâlim","Toutes imposaient l'application générale","Il n'existe pas de récit"],"c":0,"exp":"Le texte rapporte une permission spéciale selon les autres épouses du Prophète, contrairement à l'approche attribuée à ‘Â’isha.","ref":"https://sunnah.com/muslim:1454"},
+                    {"q":"Dans quel recueil trouve-t-on l'éloge de la récitation de Sâlim ?","opts":["Ibn Mâjah 1338","Al-Bukhârî 1276","Mouslim 1887"],"c":0,"exp":"Ibn Mâjah 1338 ; sahîh selon Darussalam et Al-Albânî, hasan selon Ibn Hajar.","ref":"https://sunnah.com/ibnmajah:1338"},
                     { q: "Pourquoi dirigeait-il la prière devant des grands compagnons comme Omar à Qouba ?", opts: ["Il était le plus âgé", "Il connaissait le plus de Coran", "Il était le maître des lieux", "Il était Qourashite"], c: 1, exp: "Sa mémorisation du Coran lui donnait la prééminence pour l'imamat." },
-                    { q: "Comment est-il mort à Yamama ?", opts: ["En fuyant", "En protégeant l'étendard, pieds fixés au sol", "D'une flèche perdue", "De soif"], c: 1, exp: "Il s'était ancré dans le sol pour ne pas reculer d'un pouce." }
+                    { q: "Comment est-il mort à Yamama ?", opts: ["En fuyant", "En protégeant l'étendard, pieds fixés au sol", "D'une flèche perdue", "De soif"], c: 1, exp: "Une narration attribuée à Al-Wâqidî dans Siyar décrit cette scène ; le récit est conservé avec son attribution historique." }
                 ]
             },
             {
@@ -559,6 +572,8 @@
                     { text: "Mais Hamza, personne ne le pleure ! (parole rapportée après Ouhoud)", narrator: "Le Prophète ﷺ, d'après Ibn ‘Oumar", source: "Ibn Mâjah 1591 ; Ahmad 5666 — isnâd hasan selon Shu‘ayb al-Arna’ût (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Quelle source transmet le témoignage direct de Wahchî sur Ouhoud ?","opts":["Al-Bukhârî 4072","Le verset 22:19","Le recueil de Mouslim 1454"],"c":0,"exp":"Al-Bukhârî 4072 rapporte la mort de Hamza et le parcours ultérieur de Wahchî.","ref":"https://sunnah.com/bukhari:4072"},
+                    {"q":"Quel savant a qualifié de hasan l'isnâd du récit des femmes pleurant Hamza ?","opts":["Shu‘ayb al-Arna’ût","At-Tabarî","Ibn Hazm"],"c":0,"exp":"Dorar cite Shu‘ayb al-Arna’ût pour Ahmad 5666, tandis qu'une autre voie porte le numéro Ahmad 5563.","ref":"https://dorar.net/h/aAGK8Qtz"},
                     { q: "Quelle arme a tué Hamza ?", opts: ["Une épée", "Une flèche", "Une javeline (Harba)", "Une pierre"], c: 2, exp: "Wahchi était un expert du lancer de javeline éthiopienne." },
                     { q: "Quelle réserve accompagne une voie du titre « maître des martyrs » ?", opts: ["Aucune, toutes les voies sont unanimement sahîh", "Adh-Dhahabî indique une chaîne faible pour la version de Jâbir", "Il s'agit d'un verset du Coran"], c: 1, exp: "Adh-Dhahabî juge faible l’isnâd de la version rapportée de Jâbir dans Siyar 1/173. L’expression honorifique est conservée en indiquant ce jugement.", ref: "https://dorar.net/h/cK6Ib1Lk?osoul=1" },
                     { q: "Que faut-il distinguer dans les récits du linceul de Hamza ?", opts: ["La notice de Hamza et le récit d'Al-Bukhârî concernant Mouss’ab", "Tous les récits parlent exactement des mêmes détails", "Le linceul concerne uniquement Badr"], c: 0, exp: "La notice de Hamza mentionne un tissu trop court et d'autres versions ; l’idhkhir est explicitement présent dans le hadith de Mouss’ab (Al-Bukhârî 1276).", ref: "https://sunnah.com/bukhari:1276" }
