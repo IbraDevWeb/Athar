@@ -967,9 +967,162 @@ const BIOGRAPHY_SOURCES = {
         "id": 0,
         "pdfPage": 27,
         "printedPage": 26,
-        "title": "Oubayda : doublon des fiches Athar 11 et 45",
-        "note": "La source Siyar 38–54 identifie cette personne sous le numéro 45. Les fiches Athar 11 et 45 renvoient au même compagnon ; cela ne justifie pas une seconde biographie numérotée 11 dans Siyar.",
-        "status": "located"
+        "title": "Doublon documentaire : notices Athar 11 et 45",
+        "note": "Oubayda ibn Al-Hârith est la même personne dans les notices Athar 11 et 45. La référence Siyar française classe Oubayda à son chapitre n° 45 (et non 11). Les deux notices ne sont pas deux individus distincts.",
+        "status": "qualification"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale : Les six combattants de Badr",
+        "externalUrl": "https://sunnah.com/bukhari:3965",
+        "hadithRef": "Al-Bukhârî 3965 ; Mouslim 3033",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Al-Bukhârî 3965 transmet le récit de Qays ibn ‘Ubâd et de ‘Alî sur l'application du verset 22:19 aux six combattants de Badr ; il ne contient pas la phrase antérieure « Ne suis-je pas un martyr ? ».",
+        "isnad": "Attribution consignée dans la source indiquée ; aucune analyse indépendante de chaîne par Athar.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 0,
+        "title": "La première bannière : attribution selon Ibn Ishâq",
+        "externalUrl": "https://g1.islamweb.net/ar/library/content/58/682/",
+        "hadithRef": "Ibn Hishâm, récit d'Ibn Ishâq",
+        "status": "variant",
+        "note": "Ibn Ishâq attribue à Oubayda une des premières bannières, indiquant « selon ce qui m'est parvenu » ; d'autres sources attribuent cette primauté à Abd-Allah ibn Jahsh. N'imposons pas un vainqueur unique dans les variantes.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 1,
+        "title": "Badr et les variantes sur l'adversaire d'Oubayda",
+        "externalUrl": "https://sunnah.com/abudawud:2665",
+        "hadithRef": "Abou Dâwoud 2665 ; Ibn Ishâq",
+        "status": "variant",
+        "note": "Abou Dâwoud 2665 (sahîh selon Al-Albânî) place Oubayda face à al-Walîd ; Ibn Ishâq dans Al-Bidâya wa-n-Nihâya donne ‘Outba. L'année 2 H est la date de Badr, pas une validation de tous les détails annexes.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1101,
+        "title": "Le duel de Badr : témoignage de ‘Alî",
+        "externalUrl": "https://sunnah.com/abudawud:2665",
+        "hadithRef": "Abou Dâwoud 2665",
+        "status": "variant",
+        "note": "La version de ‘Alî citée chez Abou Dâwoud nomme Hamza, ‘Alî et Oubayda et mentionne qu'Oubayda affronta al-Walîd, contrairement à certaines narrations d'Ibn Ishâq qui nomment ‘Outba. Grade : sahîh selon Al-Albânî.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1102,
+        "title": "Le verset 22:19 et les six duellistes",
+        "externalUrl": "https://sunnah.com/muslim:3033",
+        "hadithRef": "Mouslim 3033",
+        "status": "located",
+        "note": "Mouslim 3033 rapporte l'attribution par Abou Dharr du verset 22:19 aux six duellistes de Badr ; ce n'est pas une citation prophétique formulée dans la notice.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Ordre de duel adressé à Hamza, ‘Alî et Oubayda",
+        "externalUrl": "https://sunnah.com/abudawud:2665",
+        "hadithRef": "Abou Dâwoud 2665 — sahîh selon Al-Albânî",
+        "grade": "sahih",
+        "status": "located",
+        "note": "La source rapporte l'ordre du Prophète et les duels ; Al-Albânî indique sahîh pour la version de Sunan Abî Dâwoud 2665.",
+        "isnad": "Hârûn ibn ‘Abd Allah → ‘Outhmân ibn ‘Oumar → Isrâ’îl → Abou Ishâq → Hâritha ibn Mudarrib → ‘Alî ibn Abî Tâlib.",
+        "pdfPage": null,
+        "printedPage": null
+      }
+    ]
+  },
+  "12": {
+    "id": 12,
+    "fascicle": "sources externes",
+    "author": "Ibn Ishâq, Ibn Hishâm, Al-Haythamî et autres auteurs",
+    "work": "Dossiers et récits relatifs à Abd-Allah ibn Jahsh",
+    "translation": "Références arabes accessibles sur Ad-Durar as-Saniyya et Islamweb",
+    "publisherUrl": "https://dorar.net/history/event/54",
+    "publisherLabel": "Répertoire historique Dorar",
+    "readUrl": "https://dorar.net/history/event/54",
+    "readLabel": "Consulter le dossier sur Dorar",
+    "editionNote": "La fiche Athar n° 12 ne correspond pas au chapitre n° 12 du fascicule français 07–14. Aucun numéro de page Siyar n'est attribué à cette personne dans ce registre.",
+    "reviewScope": "Recoupement auprès de recueils et chroniques ; le repérage ne certifie aucune authenticité par une analyse autonome de chaîne.",
+    "entries": [
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale : Invocation d'Ouhoud",
+        "externalUrl": "https://dorar.net/h/WyJwUUz5",
+        "hadithRef": "Al-Haythamî, Majma‘ az-Zawâ’id 9/304",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Al-Haythamî, Majma‘ az-Zawâ’id 9/304, écrit « rijâluhu rijâl as-sahîh » (ses rapporteurs sont ceux du Sahîh). Cela ne doit pas être automatiquement paraphrasé « hadith authentifié ». Il s'agit ici de la parole de ‘Abd-Allah rapportée par Sa‘d.",
+        "isnad": "Attribution consignée dans la source indiquée ; aucune analyse indépendante de chaîne par Athar.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1201,
+        "title": "L'invocation d'Abd-Allah à Ouhoud",
+        "externalUrl": "https://dorar.net/h/WyJwUUz5",
+        "hadithRef": "At-Tabarânî ; Al-Haythamî 9/304",
+        "status": "qualification",
+        "note": "Dorar donne le récit de Sa‘d ibn Abî Waqqâs ; Al-Haythamî (Majma‘ az-Zawâ’id 9/304) mentionne « rapporteurs du Sahîh », sans qu'Athar transforme la formule en degré d'authenticité inventé.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1202,
+        "title": "Enterrement avec Hamza, témoignage familial",
+        "externalUrl": "https://www.islamweb.com/ar/library/content/58/977/",
+        "hadithRef": "Ibn Hishâm, Sîra : récit attribué à la famille",
+        "status": "qualification",
+        "note": "Ibn Ishâq, cité par Ibn Hishâm, précise que l'information sur l'inhumation d'Abd-Allah avec Hamza provient de sa famille et qu'il ne l'avait pas entendue d'autres personnes.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1203,
+        "title": "Nakhla, le mois sacré et la chronologie",
+        "externalUrl": "https://dorar.net/history/event/54",
+        "hadithRef": "Dorar — Encyclopédie historique ; Ibn Sa‘d",
+        "status": "located",
+        "note": "Dorar date l'expédition de Rajab 2 H ; le compte rendu de sîra rapporte le contexte du verset 2:217 et des variantes dans le nombre de participants.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 0,
+        "title": "Expédition de Nakhla, Rajab 2 H",
+        "externalUrl": "https://dorar.net/history/event/54",
+        "hadithRef": "Ad-Durar as-Saniyya, chronologie 2 H",
+        "status": "located",
+        "note": "Dorar date l'expédition de Rajab 2 H et décrit les événements ; ce repère situe l'expédition, sans certifier toutes les traditions associées.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 1,
+        "title": "Mort à Ouhoud",
+        "externalUrl": "https://dorar.net/h/WyJwUUz5",
+        "hadithRef": "Al-Haythamî, Majma‘ az-Zawâ’id 9/304",
+        "status": "located",
+        "note": "Le récit de Sa‘d place son témoignage à Ouhoud ; l'année 3 H doit être documentée dans les chroniques de la bataille.",
+        "pdfPage": null,
+        "printedPage": null
       }
     ]
   },
@@ -996,11 +1149,13 @@ const BIOGRAPHY_SOURCES = {
       {
         "kind": "narrative",
         "id": 1301,
-        "pdfPage": 35,
-        "printedPage": 34,
-        "title": "Défi adressé à son père",
-        "note": "La notice rapporte l'appel au duel à Badr mais ne décrit pas d'ordre prophétique de s'asseoir.",
-        "status": "qualification"
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Abou Houdhayfa et l'appel au duel",
+        "note": "Le récit est attribué à Abou az-Zinâd dans Al-Moustadrak 5039. Il ne contient pas de commandement du Prophète à Abou Houdhayfa de s'asseoir ; aucune évaluation indépendante d'isnâd n'est avancée.",
+        "status": "qualification",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/74/4861/",
+        "hadithRef": "Al-Hâkim 5039"
       },
       {
         "kind": "narrative",
@@ -1010,6 +1165,41 @@ const BIOGRAPHY_SOURCES = {
         "title": "Dépouilles rapprochées",
         "note": "La proximité des corps d'Abou Houdhayfa et de Salim est rapportée dans le passage consacré à Salim.",
         "status": "located"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale : Défi adressé à ‘Outba",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/74/4861/",
+        "hadithRef": "Al-Hâkim, Al-Moustadrak 5039",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Al-Hâkim 5039 transmet d'après ‘Abd ar-Rahmân ibn Abî az-Zinâd, d'après son père, qu'Abou Houdhayfa appela son père en duel ; aucun degré n'est attribué à cette chaîne dans la fiche.",
+        "isnad": "Attribution consignée dans la source indiquée ; aucune analyse indépendante de chaîne par Athar.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1303,
+        "title": "L'espoir de conversion du père d'Abou Houdhayfa",
+        "externalUrl": "https://gcp.islamweb.net/ar/library/content/59/266/",
+        "hadithRef": "Ibn Kathîr, Al-Bidâya wa-n-Nihâya",
+        "status": "qualification",
+        "note": "Ibn Kathîr transmet d'après Ibn Ishâq un récit où Abou Houdhayfa exprime sa tristesse d'avoir espéré que son père embrasse l'islam. Cette transmission de sîra reste présentée comme attribuée à Ibn Ishâq.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 1,
+        "title": "L'appel au duel lors de Badr",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/74/4861/",
+        "hadithRef": "Al-Moustadrak 5039",
+        "status": "qualification",
+        "note": "Al-Hâkim rapporte l'appel au duel d'Abou Houdhayfa ; le récit cité ne précise pas d'intervention prophétique l'empêchant de combattre.",
+        "pdfPage": null,
+        "printedPage": null
       }
     ]
   },
@@ -1027,11 +1217,13 @@ const BIOGRAPHY_SOURCES = {
       {
         "kind": "timeline",
         "id": 1,
-        "pdfPage": 39,
-        "printedPage": 38,
-        "title": "Allaitement de Salim : cas particulier",
-        "note": "Les autres épouses du Prophète tiennent l'épisode pour une exception propre à Salim.",
-        "status": "qualification"
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Allaitement de l'adulte : cas de Sâlim",
+        "note": "Mouslim 1453a–b rapporte l'épisode ; Mouslim 1454 préserve la position des autres épouses du Prophète qui y voyaient une permission propre à Sâlim. Le registre décrit les positions, sans formuler une fatwa générale.",
+        "status": "qualification",
+        "externalUrl": "https://sunnah.com/muslim:1454",
+        "hadithRef": "Mouslim 1453a–b et 1454"
       },
       {
         "kind": "narrative",
@@ -1059,6 +1251,78 @@ const BIOGRAPHY_SOURCES = {
         "title": "Les deux cents dirhams",
         "note": "La somme issue des biens de Salim fut remise à sa mère en héritage, non en charité.",
         "status": "located"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale : Quatre maîtres de récitation du Coran",
+        "externalUrl": "https://sunnah.com/bukhari:3758",
+        "hadithRef": "Al-Bukhârî 3758",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Al-Bukhârî 3758 cite Sâlim parmi quatre personnes auprès de qui apprendre la récitation du Coran. ‘Abd Allah ibn ‘Amr est le transmetteur du hadith dans ce recueil.",
+        "isnad": "Attribution consignée dans la source indiquée ; aucune analyse indépendante de chaîne par Athar.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 0,
+        "title": "Sâlim imam à Qoubâ",
+        "externalUrl": "https://sunnah.com/bukhari:692",
+        "hadithRef": "Al-Bukhârî 692",
+        "status": "located",
+        "note": "Ibn ‘Oumar rapporte chez Al-Bukhârî 692 que Sâlim dirigeait la prière des premiers émigrés car il connaissait davantage le Coran.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1404,
+        "title": "Le choix de Sâlim comme imam",
+        "externalUrl": "https://sunnah.com/bukhari:692",
+        "hadithRef": "Al-Bukhârî 692",
+        "status": "located",
+        "note": "Ibn ‘Oumar rapporte qu'avant l'arrivée du Prophète à Médine, Sâlim dirigeait les premiers émigrés parce qu'il connaissait davantage de Coran.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "narrative",
+        "id": 1405,
+        "title": "Sahla et Sâlim : textes et interprétation",
+        "externalUrl": "https://sunnah.com/muslim:1454",
+        "hadithRef": "Mouslim 1453a–b ; 1454",
+        "status": "variant",
+        "note": "Mouslim 1453a–b rapporte l'épisode de Sahla ; Mouslim 1454 rapporte que les autres épouses le considéraient comme une permission particulière à Sâlim et non un principe général.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Apprendre la récitation du Coran auprès de quatre personnes",
+        "externalUrl": "https://sunnah.com/bukhari:3758",
+        "hadithRef": "Al-Bukhârî 3758",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Al-Bukhârî 3758 nomme Ibn Mas‘oud, Sâlim, Oubay ibn Ka‘b et Mou‘âdh ibn Jabal.",
+        "isnad": "Soulaymân ibn Harb → Shu‘ba → ‘Amr ibn Mourra → Ibrâhîm → Masrûq → ‘Abd Allah ibn ‘Amr.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "title": "Éloge de la récitation de Sâlim",
+        "externalUrl": "https://sunnah.com/ibnmajah:1338",
+        "hadithRef": "Ibn Mâjah 1338 — sahîh selon Darussalam/Al-Albânî ; hasan selon Ibn Hajar",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Ibn Mâjah 1338 est classé sahîh dans l'évaluation Darussalam et selon Al-Albânî (Sahîh Ibn Mâjah 1108) ; Ibn Hajar le juge hasan (Natâ’ij al-Afkâr 3/224).",
+        "isnad": "Al-‘Abbâs ibn ‘Outhmân → al-Walîd ibn Mouslim → Hanzala ibn Abî Soufyân → ‘Abd ar-Rahmân ibn Sâbit → ‘Â’isha.",
+        "pdfPage": null,
+        "printedPage": null
       }
     ]
   },
@@ -1085,11 +1349,13 @@ const BIOGRAPHY_SOURCES = {
       {
         "kind": "narrative",
         "id": 1501,
-        "pdfPage": 7,
-        "printedPage": 6,
-        "title": "Récit de Wahchî",
-        "note": "Le témoignage décrit le coup de javeline, Sibâ' et l'affrontement d'Ouhoud.",
-        "status": "located"
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Wahchî relate la mort de Hamza et l'épisode de Moussaylima",
+        "note": "Al-Bukhârî 4072 transmet directement le récit de Wahchî : mort de Hamza à Ouhoud et participation revendiquée au combat contre Moussaylima.",
+        "status": "located",
+        "externalUrl": "https://sunnah.com/bukhari:4072",
+        "hadithRef": "Al-Bukhârî 4072"
       },
       {
         "kind": "narrative",
@@ -1112,11 +1378,65 @@ const BIOGRAPHY_SOURCES = {
       {
         "kind": "narrative",
         "id": 1504,
-        "pdfPage": 9,
-        "printedPage": 8,
-        "title": "Récit conditionnel de Wahchî",
-        "note": "La mort de Moussaylima est racontée avec l'action d'un combattant ansâri, Wahchî formulant sa contribution sous condition.",
-        "status": "qualification"
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Wahchî après sa conversion et Moussaylima",
+        "note": "La narration d'Al-Bukhârî 4072 indique le souhait de Wahchî de compenser son acte précédent et mentionne l'intervention d'un combattant ansâri contre Moussaylima.",
+        "status": "located",
+        "externalUrl": "https://sunnah.com/bukhari:4072",
+        "hadithRef": "Al-Bukhârî 4072"
+      },
+      {
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale : Wahchî témoigne sur la mort de Hamza",
+        "externalUrl": "https://sunnah.com/bukhari:4072",
+        "hadithRef": "Al-Bukhârî 4072",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Al-Bukhârî 4072 transmet le récit de Wahchî relatant le coup de javeline contre Hamza à Ouhoud. Il s'agit d'un témoignage de Wahchî, non d'une parole du Prophète.",
+        "isnad": "Attribution consignée dans la source indiquée ; aucune analyse indépendante de chaîne par Athar.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Titre de maître des martyrs : chaîne faible signalée",
+        "externalUrl": "https://dorar.net/h/cK6Ib1Lk?osoul=1",
+        "hadithRef": "Al-Hâkim 4884 ; adh-Dhahabî, Siyar 1/173",
+        "grade": "weak_chain",
+        "status": "qualification",
+        "note": "Adh-Dhahabî qualifie d'« isnâd faible » la voie de Jâbir dans Siyar A‘lâm an-Nubalâ’ 1/173. Le titre ne doit pas être présenté comme unanimement sahîh.",
+        "isnad": "Version attribuée à Jâbir chez Al-Hâkim ; le jugement d'adh-Dhahabî porte sur cette chaîne, non toutes les voies.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "hadith",
+        "id": 1,
+        "title": "Âmes des martyrs dans les oiseaux verts",
+        "externalUrl": "https://sunnah.com/muslim:1887",
+        "hadithRef": "Mouslim 1887",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Mouslim 1887 rapporte le hadith d'Ibn Mas‘oud à propos des martyrs en général ; il ne nomme pas Hamza dans cette formulation.",
+        "isnad": "Masrûq → ‘Abd Allah ibn Mas‘oud → le Prophète ﷺ.",
+        "pdfPage": null,
+        "printedPage": null
+      },
+      {
+        "kind": "hadith",
+        "id": 2,
+        "title": "« Mais Hamza n'a personne pour le pleurer »",
+        "externalUrl": "https://dorar.net/h/aAGK8Qtz",
+        "hadithRef": "Ahmad 5666 ; Ibn Mâjah 1591 — hasan selon Shu‘ayb al-Arna’ût",
+        "grade": "hasan",
+        "status": "qualification",
+        "note": "Shu‘ayb al-Arna’ût juge hasan l'isnâd d'Ahmad 5666 ; ce récit est aussi repris chez Ibn Mâjah 1591. Le jugement est explicitement attribué à Al-Arna’ût.",
+        "isnad": "‘Abd Allah ibn ‘Oumar → Nâfi‘ → Ousâma ibn Zayd → narrations d'Ahmad.",
+        "pdfPage": null,
+        "printedPage": null
       }
     ]
   },
