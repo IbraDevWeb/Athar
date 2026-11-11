@@ -195,7 +195,7 @@ async function desktop() {
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await page.locator('.library-pro-search-hero input').fill('Abd-Allah ibn Abd-Allah');
-    await page.locator('.library-pro-card').filter({hasText:'Abd-Allah ibn Abd-Allah'}).first().click();
+    await page.locator('.library-pro-card').filter({hasText:'Transmetteur de la Génération Suivante'}).first().click();
     await page.getByRole('tab',{name:'Citations',exact:true}).click();
     assert.ok(await page.getByText('Commentaire d’un savant',{exact:true}).count()>=1,'Avis d’Ibn Sa‘d confondu avec un hadith');
     await page.getByRole('tab',{name:'Sources',exact:true}).click();
