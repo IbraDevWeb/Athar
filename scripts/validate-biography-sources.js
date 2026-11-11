@@ -228,7 +228,7 @@ assert.ok(/33 ou 36 H/.test(evt(91,5)));
 assert.ok(/quarante années/.test(evt(96,2)) && /conteste/.test(evt(96,2)));
 assert.ok(!bibliography[12], 'La fiche 12 demeure sans source de ce lot');
 for(const id of [101,102,103,106]) assert.ok(!bibliography[id], 'Une fiche hors Siyar 1–100 a été déclarée vérifiée : '+id);
-assert.ok(reader.includes("sourceEvidence('hadith', index)"),'Les avis des hadiths ne sont pas visibles');
+assert.ok(reader.includes("sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)"),'Les avis des hadiths ne sont pas visibles');
 assert.ok(reader.includes("sourceEvidence('quote', 0)"),'Les réserves des citations principales ne sont pas visibles');
 assert.ok(reader.includes("entry.pdfPage != null"),'La source externe sans PDF doit être affichée sans inventer une page');
 assert.equal(bibliography[2].entries.find(e=>e.kind==='quote').status,'weak','Le martyr marchant ne doit pas être classé authentique');
@@ -236,4 +236,4 @@ assert.equal(bibliography[4].entries.find(e=>e.kind==='hadith'&&e.id===1).status
 assert.equal(bibliography[5].entries.find(e=>e.kind==='hadith'&&e.id===1).grade,'disputed','Le Tirmidhi 3752 est controversé');
 assert.ok(/chaîne interrompue/.test(chapters.find(c=>c.id===1).hadiths[1].source));
 assert.ok(/15/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content) || /quinze/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content));
-console.log('Siyar : 99 biographies indexées sur 104, 202 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+console.log('Siyar : 99 biographies indexées sur 104, 209 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
