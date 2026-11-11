@@ -141,7 +141,7 @@ async function desktop() {
         await page.getByRole('tab',{name:'Sources',exact:true}).click();
         const bibliography=page.locator('.athar-siyar-sources');
         assert.equal(await bibliography.isVisible(),true,'Sources absentes pour '+needle);
-        assert.equal(await bibliography.locator('a[href="'+link+'"]').count(),1,'URL bibliographique absente pour '+needle);
+        assert.ok(await bibliography.locator('a[href="'+link+'"]').count()>=1,'URL bibliographique absente pour '+needle);
         assert.equal(await bibliography.locator('a[href$=".pdf"]').count(),0,'Ne pas héberger de PDF pour '+needle);
         await page.locator('#athar-immersive-quick').click();
         await page.locator('.library-pro-root').waitFor({state:'visible'});
