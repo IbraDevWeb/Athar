@@ -586,26 +586,29 @@
                 name: "'Aqil ibn Al-Boukayr",
                 arabicName: "عَاقِل بن البكير",
                 subtitle: "L'Aîné de la Fratrie de Badr",
-                intro: "L'un des quatre frères qui marquèrent l'histoire par leur conversion simultanée et leur participation collective à Badr. Il se nommait 'Ghafil' (L'Insouciant) avant que le Prophète ne le renomme.",
-                heroQuote: "Le Messager d'Allah le rebaptisa 'Aqil (Le Bien-Pensant).",
+                intro: "‘Aqil, anciennement appelé Ghâfil selon Ibn Sa‘d, appartient à une fratrie de quatre compagnons présents à Badr. Les transmissions biographiques rapportent sa conversion, son émigration et sa mort à Badr à 34 ans ; certaines précisions ont des variantes.",
+                heroQuote: "Selon Ibn Sa‘d, il portait d’abord le nom de « Ghâfil » avant que le Prophète ﷺ ne l’appelle ‘Aqil.",
                 tags: ["Badriyun", "Fratrie", "Martyrs"],
                 genealogy: "'Aqil ibn Al-Boukayr Al-Laythi. Allié (Halif) des Banou 'Adi (le clan d'Omar).",
                 physicalDesc: "Il avait 34 ans lorsqu'il tomba martyr.",
                 timeline: [
-                    { year: "Mecque", desc: "Premier serment d'allégeance à Dar Al-Arqam avec ses frères." },
-                    { year: "Hégire", desc: "Émigre avec toute sa famille; leurs maisons à La Mecque furent scellées." },
-                    { year: "2 H", desc: "Participe à Badr avec ses trois frères (cas unique)." },
-                    { year: "2 H", desc: "Meurt martyr à Badr, tué par Malik ibn Zouhayr." }
+                    { year: "Mecque", desc: "Selon une transmission d’Ibn Sa‘d d’après Yazîd ibn Roumân, les quatre frères se convertirent ensemble et furent parmi les premiers à prêter allégeance dans la maison d’Al-Arqam." },
+                    { year: "Hégire", desc: "Selon une autre transmission d’Ibn Sa‘d, la famille émigra à Médine, laissant ses maisons fermées à La Mecque." },
+                    { year: "2 H", desc: "Participe à Badr avec ses trois frères selon Ibn Sa‘d et Ibn Ishâq ; adh-Dhahabî souligne cette particularité familiale." },
+                    { year: "2 H", desc: "Ibn Sa‘d rapporte sa mort à Badr, à 34 ans, et nomme Mâlik ibn Zouhayr comme auteur du coup fatal." }
                 ],
                 narratives: [
-                    { id: 161, title: "Le Changement de Nom", content: "Son nom pré-islamique était 'Ghafil' (L'Insouciant/Le Négligent). Le Prophète (ﷺ), préférant les noms porteurs de sens positif, le renomma 'Aqil (Le Raisonnable/Le Bien-Pensant)." },
-                    { id: 162, title: "L'Exode Total", content: "La famille d'Al-Boukayr est citée comme l'exemple de l'engagement total : ils émigrèrent tous, hommes et femmes, laissant leurs maisons de La Mecque vides et scellées derrière eux." }
+                    { id: 161, title: "Le Changement de Nom", content: "Ibn Sa‘d rapporte que son nom était « Ghâfil » et que le Prophète ﷺ l’appela « ‘Aqil ». L’explication de son intention (« préférant les noms positifs ») n’est pas donnée dans la transmission citée et n’est pas présentée comme une parole prophétique." },
+                    { id: 162, title: "L'Exode Total", content: "Une transmission historique reproduite par adh-Dhahabî d’après Ibn Sa‘d rapporte que les hommes et les femmes de la famille émigrèrent à Médine et laissèrent leurs demeures fermées. Elle est conservée comme tradition biographique, sans degré de hadith ajouté." }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah lui désigna Moubashir ibn Abd Al-Moundhir comme frère de foi. Ils furent tous deux tués à Badr.", narrator: "Ibn Saad", source: "Tabaqat" },
-                    { text: "Les fils d'Al-Boukayr se convertirent tous les quatre en même temps.", narrator: "Yazid ibn Roumane", source: "Siyar A'lam" }
+                    { text: "Selon une transmission, ‘Aqil et Moubashir ibn ‘Abd al-Moundhir furent désignés frères de foi ; une autre version cite Moujadhar ibn Ziyâd.", narrator: "Récits biographiques recueillis par Ibn Sa‘d", source: "At-Tabaqât ; Siyar (notice de ‘Aqil) — variantes ; non classé ici", type: "historical" },
+                    { text: "Selon Yazîd ibn Roumân, les quatre fils d’Abou al-Boukayr embrassèrent l’islam ensemble.", narrator: "Yazîd ibn Roumân, via Ibn Sa‘d", source: "Siyar 1/185 ; transmission historique non classée ici", type: "historical" }
                 ],
                 quizData: [
+                    {"q":"Quelles deux personnes sont mentionnées comme frères de foi de ‘Aqil dans des variantes ?","opts":["Moubashir et Moujadhar","Abou Bakr et ‘Oumar","Hamza et ‘Alî"],"c":0,"exp":"Adh-Dhahabî rapporte les deux attributions : Moubashir ibn ‘Abd al-Moundhir et Moujadhar ibn Ziyâd.","ref":"https://siyar.fr/livre/1/187"},
+                    {"q":"Quelle était l'appellation antérieure de ‘Aqil selon Ibn Sa‘d ?","opts":["Ghâfil","Sâlim","Mous‘ab"],"c":0,"exp":"Ibn Sa‘d rapporte qu’il s’appelait Ghâfil avant le changement de nom.","ref":"https://siyar.fr/livre/1/186"},
+                    {"q":"Que disent les chroniques du départ de la fratrie pour Médine ?","opts":["Hommes et femmes partirent, leurs maisons restant fermées","Ils ne quittèrent jamais La Mecque","Seul ‘Aqil émigra"],"c":0,"exp":"Le récit d'Ibn Sa‘d repris dans Siyar décrit une émigration familiale, avec les maisons laissées fermées.","ref":"https://siyar.fr/livre/1/187"},
                     { q: "Quel était son nom avant l'Islam ?", opts: ["Zayd", "Ghafil", "Harith", "Amr"], c: 1, exp: "Il s'appelait Ghafil (Insouciant), le Prophète l'a renommé 'Aqil." },
                     { q: "À quel âge est-il mort martyr ?", opts: ["20 ans", "34 ans", "50 ans", "63 ans"], c: 1, exp: "Il est tombé à Badr à l'âge de 34 ans." }
                 ]
@@ -617,23 +620,27 @@
                 name: "Khalid ibn Al-Boukayr",
                 arabicName: "خالد بن البكير",
                 subtitle: "Le Martyr d'Ar-Raji",
-                intro: "Frère de 'Aqil. Il survécut à Badr pour tomber dans le guet-apens tragique d'Ar-Raji. Il avait le même âge que son frère à sa mort.",
-                heroQuote: "Il participa aux batailles de Badr et d'Ouhoud.",
+                intro: "Khâlid ibn al-Boukayr participa à Badr puis à Ouhoud, selon Ibn Sa‘d cité par adh-Dhahabî. Il mourut lors de l'expédition d'Ar-Rajî‘, en Safar 4 H, à l'âge rapporté de 34 ans.",
+                heroQuote: "Ibn Sa‘d rapporte sa participation à Badr et à Ouhoud, puis sa mort à Ar-Rajî‘ en Safar 4 H.",
                 tags: ["Badriyun", "Fratrie", "Martyrs"],
                 genealogy: "Khalid ibn Al-Boukayr Al-Laythi.",
                 physicalDesc: "Mort à 34 ans.",
                 timeline: [
                     { year: "2 H", desc: "Combat à Badr." },
                     { year: "3 H", desc: "Combat à Ouhoud." },
-                    { year: "4 H", desc: "Tué lors de l'expédition d'Ar-Raji' (trahison des tribus)." }
+                    { year: "4 H", desc: "Tué à Ar-Rajî‘ en Safar 4 H, selon Ibn Sa‘d ; les circonstances détaillées de l'embuscade relèvent d'autres traditions." }
                 ],
                 narratives: [
-                    { id: 171, title: "Le Frère de Foi", content: "À Médine, le Prophète (ﷺ) instaura un lien de fraternité unique entre lui et Zayd ibn Ad-Dathina. Le destin voulut qu'ils soient tous deux impliqués dans des fins tragiques (martyre)." }
+                    { id: 171, title: "Le Frère de Foi", content: "Selon Ibn Sa‘d, le Prophète ﷺ établit un lien de fraternité entre Khâlid et Zayd ibn ad-Dathina. La notice de Khâlid rapporte sa mort à Ar-Rajî‘ ; les parcours de chacun doivent être distingués." }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah lui désigna pour frère de foi Zayd ibn Ad-Dathina.", narrator: "Ibn Saad", source: "Tabaqat" }
+                    { text: "Ibn Sa‘d rapporte que le Prophète ﷺ établit une fraternité entre Khâlid et Zayd ibn ad-Dathina.", narrator: "Ibn Sa‘d, récit biographique", source: "At-Tabaqât, repris dans Siyar 1/187 — non classé ici", type: "historical" }
                 ],
                 quizData: [
+                    {"q":"Quel mois est mentionné pour l'expédition d'Ar-Rajî‘ ?","opts":["Safar","Ramadan","Dhou al-Hijja"],"c":0,"exp":"La notice d'adh-Dhahabî, citant Ibn Sa‘d, la situe en Safar 4 H.","ref":"https://siyar.fr/livre/1/187"},
+                    {"q":"Avec quel compagnon Ibn Sa‘d rapporte-t-il un lien de fraternité ?","opts":["Zayd ibn ad-Dathina","Abou Oubayda","Bilâl"],"c":0,"exp":"Le lien avec Zayd ibn ad-Dathina figure dans la notice historique.","ref":"https://siyar.fr/livre/1/187"},
+                    {"q":"À quelles deux batailles participa-t-il avant Ar-Rajî‘ ?","opts":["Badr et Ouhoud","Badr et Siffîn","Al-Yamâma et Qâdisiyya"],"c":0,"exp":"Ibn Sa‘d indique Badr et Ouhoud avant sa mort à Ar-Rajî‘.","ref":"https://www.islamweb.net/ar/library/content/60/25/"},
+                    {"q":"Quelle est la nature du récit concernant sa fraternité ?","opts":["Une tradition biographique citée par Ibn Sa‘d","Une sourate du Coran","Une parole unanimement jugée sahîh"],"c":0,"exp":"Athar cite le récit et son auteur ; aucun classement indépendant n'a été attribué à cette chaîne.","ref":"https://www.islamweb.net/ar/library/content/60/25/"},
                     { q: "Lors de quel événement Khalid a-t-il été tué ?", opts: ["Badr", "Ouhoud", "Ar-Raji'", "Le Fossé"], c: 2, exp: "Il fut tué lors de l'expédition d'Ar-Raji en l'an 4." }
                 ]
             },
@@ -644,22 +651,26 @@
                 name: "Iyas ibn Al-Boukayr",
                 arabicName: "إياس بن أبي البكير",
                 subtitle: "Le Conquérant d'Égypte",
-                intro: "Le troisième frère de la fratrie. Il eut une longue vie de combattant, participant à toutes les batailles du Prophète puis à la conquête de l'Égypte.",
-                heroQuote: "Il participa à Badr et à toutes les batailles qui suivirent.",
+                intro: "Iyâs ibn al-Boukayr, l'un des quatre frères présents à Badr, participa selon Ibn Sa‘d aux autres campagnes du Prophète ﷺ. Sa participation à la conquête de l'Égypte et son décès en 34 H sont également rapportés par adh-Dhahabî.",
+                heroQuote: "Selon Ibn Sa‘d : « Il participa à Badr et aux autres campagnes », puis à la conquête de l'Égypte.",
                 tags: ["Badriyun", "Fratrie", "Conquérants"],
                 genealogy: "Iyas ibn Abou Al-Boukayr.",
                 timeline: [
                     { year: "2 H", desc: "Présent à Badr." },
-                    { year: "Campagnes", desc: "Participe à la conquête de l'Égypte sous le califat d'Omar/Othman." },
+                    { year: "Campagnes", desc: "Selon Ibn Sa‘d repris par adh-Dhahabî, participe à la conquête de l'Égypte ; aucune année exacte n'est indiquée dans la notice." },
                     { year: "34 H", desc: "Décès." }
                 ],
                 narratives: [
-                    { id: 181, title: "La Longévité au Combat", content: "Contrairement à ses frères 'Aqil et Khalid morts tôt, Iyas continua le combat bien après la mort du Prophète, portant l'héritage des 'Quatre de Badr' jusqu'en Afrique." }
+                    { id: 181, title: "La Longévité au Combat", content: "D'après la notice d'adh-Dhahabî, Iyâs survécut à ‘Aqil et Khâlid et participa à la conquête de l'Égypte. Il serait décédé en 34 H. Il ne faut pas déduire de ce résumé les détails de campagnes que la source ne donne pas." }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah lui désigna pour frère de foi Al-Harith ibn Khazma.", narrator: "Ibn Saad", source: "Tabaqat" }
+                    { text: "Ibn Sa‘d rapporte que le Prophète ﷺ associa Iyâs et al-Hârith ibn Khazma dans la fraternité médinoise.", narrator: "Ibn Sa‘d, récit historique", source: "At-Tabaqât ; Siyar 1/188 — non classé ici", type: "historical" }
                 ],
                 quizData: [
+                    {"q":"Quelle année de décès est donnée pour Iyâs dans Siyar ?","opts":["34 H","4 H","70 H"],"c":0,"exp":"La notice d'adh-Dhahabî indique un décès en 34 H.","ref":"https://siyar.fr/livre/1/188"},
+                    {"q":"Quel compagnon est cité comme son frère de foi ?","opts":["Al-Hârith ibn Khazma","Oubayda ibn al-Hârith","Abou Bakr"],"c":0,"exp":"Ibn Sa‘d rapporte sa fraternité avec al-Hârith ibn Khazma.","ref":"https://www.islamweb.net/ar/library/content/60/26/"},
+                    {"q":"Quel auteur relaie sa participation à la conquête d'Égypte ?","opts":["Adh-Dhahabî dans Siyar","L'auteur d'Al-Mouwatta exclusivement","Un chroniqueur anonyme sans ouvrage"],"c":0,"exp":"La notice Siyar reprend Ibn Sa‘d et mentionne cette conquête, sans préciser une année unique.","ref":"https://siyar.fr/livre/1/188"},
+                    {"q":"Quel est le bon statut de sa notice concernant l'Égypte ?","opts":["Un récit historique attribué, non un hadith prophétique","Un verset coranique","Un jugement d'authenticité indépendant"],"c":0,"exp":"Le récit d'Ibn Sa‘d transmis par adh-Dhahabî est conservé comme biographie, non comme hadith prophétique.","ref":"https://www.islamweb.net/ar/library/content/60/26/"},
                     { q: "À quelle conquête majeure Iyas a-t-il participé ?", opts: ["La Perse", "L'Égypte", "L'Inde", "L'Espagne"], c: 1, exp: "Il a participé à l'ouverture (Fath) de l'Égypte." }
                 ]
             },
@@ -670,22 +681,26 @@
                 name: "'Amir ibn Al-Boukayr",
                 arabicName: "عامر بن أبي البكير",
                 subtitle: "Le Quatrième Frère",
-                intro: "Le dernier de cette fratrie unique. Il accompagna le Prophète dans toutes ses batailles avant de tomber martyr face à l'imposteur Musaylima.",
-                heroQuote: "Les fils d'Abou Al-Boukayr ont le mérite d'être la seule fratrie de quatre à avoir participé à Badr.",
+                intro: "‘Âmir ibn al-Boukayr, l'un des quatre frères présents à Badr selon Ibn Sa‘d, mourut à Al-Yamâma. Les chroniqueurs situent cette bataille à la fin de 11 H ou au début de 12 H ; Athar ne fixe pas arbitrairement l'année de sa mort.",
+                heroQuote: "Adh-Dhahabî souligne que quatre frères de cette même famille participèrent à Badr.",
                 tags: ["Badriyun", "Fratrie", "Martyrs"],
                 genealogy: "'Amir ibn Abou Al-Boukayr.",
                 timeline: [
                     { year: "2 H", desc: "Présent à Badr." },
-                    { year: "11 H", desc: "Martyr à la bataille d'Al-Yamama." }
+                    { year: "11 ou 12 H", desc: "Mort à Al-Yamâma selon adh-Dhahabî. Ibn Kathîr rapporte des datations de cette bataille à la fin de 11 H ou au début de 12 H." }
                 ],
                 narratives: [
-                    { id: 191, title: "L'Unicité Historique", content: "L'Imam Dhahabi souligne : 'Les fils d'Abou Al-Boukayr ont le mérite d'être la seule fratrie de quatre à avoir participé à la bataille de Badr'. C'est un honneur qu'aucune autre famille ne partage." }
+                    { id: 191, title: "L'Unicité Historique", content: "Adh-Dhahabî écrit que les quatre fils d'Abou al-Boukayr ont participé ensemble à Badr et qu'il ne connaît pas d'autre fratrie de quatre dans ce cas. Cette formule exprime sa connaissance de l'histoire, et non une révélation prophétique." }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah lui désigna pour frère de foi Thabit ibn Qays ibn Shammas (l'orateur).", narrator: "Ibn Saad", source: "Tabaqat" }
+                    { text: "Ibn Sa‘d rapporte que le Prophète ﷺ associa ‘Âmir et Thâbit ibn Qays ibn Shammâs dans la fraternité.", narrator: "Ibn Sa‘d, récit biographique", source: "At-Tabaqât ; Siyar 1/188 — non classé ici", type: "historical" }
                 ],
                 quizData: [
-                    { q: "Où 'Amir est-il mort ?", opts: ["Badr", "Ouhoud", "Al-Yamama", "Tabouk"], c: 2, exp: "Il est tombé martyr lors de la guerre contre l'apostasie (Yamama)." }
+                    {"q":"Quel auteur souligne le cas de quatre frères ayant participé à Badr ?","opts":["Adh-Dhahabî","L'imam Mâlik dans Al-Mouwatta","Mouslim dans un hadith sur le Hajj"],"c":0,"exp":"Adh-Dhahabî fait cette remarque après les notices d'Iyâs et de ‘Âmir.","ref":"https://siyar.fr/livre/1/188"},
+                    {"q":"Qui est mentionné comme frère de foi de ‘Âmir ?","opts":["Thâbit ibn Qays","Abou Hourayra","Salman al-Fârisî"],"c":0,"exp":"Ibn Sa‘d est cité pour la fraternité avec Thâbit ibn Qays ibn Shammâs.","ref":"https://siyar.fr/livre/1/188"},
+                    {"q":"Quelles datations de la bataille d'Al-Yamâma sont rapportées par Ibn Kathîr ?","opts":["Fin 11 H ou début 12 H","2 H ou 3 H","40 H ou 41 H"],"c":0,"exp":"Ibn Kathîr rapporte la divergence puis envisage le début et la fin de la campagne entre les deux années.","ref":"https://www.islamweb.net/amp/ar/library/content/59/719/"},
+                    {"q":"Comment lire le propos d'adh-Dhahabî sur les quatre frères ?","opts":["Comme une observation historique attribuée","Comme un hadith qudsî","Comme une date révélée"],"c":0,"exp":"Il s'agit d'une remarque de l'historien, non d'un hadith du Prophète.","ref":"https://siyar.fr/livre/1/188"},
+                    { q: "Où 'Amir est-il mort ?", opts: ["Badr", "Ouhoud", "Al-Yamama", "Tabouk"], c: 2, exp: "Sa mort à Al-Yamâma est rapportée par adh-Dhahabî. Ibn Kathîr situe l'événement à la fin de 11 H ou au début de 12 H." }
                 ]
             },
             {
@@ -695,27 +710,31 @@
                 name: "Mistah ibn Outhatha",
                 arabicName: "مِسْطَح بن أُثَاثَة",
                 subtitle: "Le Compagnon Pardonné",
-                intro: "Cousin d'Abou Bakr et vétéran de Badr. Connu pour sa pauvreté et son implication involontaire dans l'affaire de la calomnie (Ifk), il fut pardonné par Allah et son Prophète.",
-                heroQuote: "Sache qu'il compte bien parmi les occupants du Paradis !",
+                intro: "Mistah ibn Outhâtha, émigré et vétéran de Badr, fut impliqué dans les paroles de l'affaire de la calomnie (al-Ifk). ‘Â’isha rapporte dans Al-Bukhârî 4750 la reprise du soutien financier d'Abou Bakr après la révélation du verset 24:22.",
+                heroQuote: "‘Â’isha rapporte qu'Abou Bakr reprit son aide à Mistah après la révélation du verset 24:22 (Al-Bukhârî 4750).",
                 tags: ["Badriyun", "Mouhajir", "Pardonné"],
-                genealogy: "Mistah ibn Outhatha. Sa mère est la tante maternelle d'Abou Bakr (Raka bint Sakhr).",
+                genealogy: "Mistah ibn Outhatha. Sa mère est Oum Mistah, fille d'Abou Rouhm. Dans le récit d'Al-Bukhârî 4750, la grand-mère maternelle de Mistah est présentée comme la tante d'Abou Bakr.",
                 physicalDesc: "Petit de taille, les yeux enfoncés, de grosses mains.",
                 timeline: [
                     { year: "2 H", desc: "Combat à Badr." },
-                    { year: "6 H", desc: "Participe à la rumeur de l'Ifk. Puni puis pardonné." },
-                    { year: "34 H", desc: "Décès à 56 ans." }
+                    { year: "Datation discutée", desc: "Son implication dans l'affaire de l'Ifk est rapportée par ‘Â’isha (Al-Bukhârî 4750). Les chroniques divergent sur l'année de l'expédition des Banou al-Moustaliq (4, 5 ou 6 H selon les auteurs)." },
+                    { year: "34 H (autre tradition après 37 H)", desc: "Ibn Sa‘d, cité par adh-Dhahabî, donne 34 H et 56 ans ; une autre tradition mentionne sa présence à Siffîn en 37 H." }
                 ],
                 narratives: [
-                    { id: 201, title: "L'Avertissement de Dhahabi", content: "L'Imam Dhahabi écrit : 'Prends garde à regarder ce compagnon de Badr d'un mauvais œil pour une faute commise... Elle lui a été pardonnée. Sache qu'il est au Paradis !'. C'est une leçon sur le fait que les erreurs des grands hommes n'effacent pas leur rang." },
-                    { id: 202, title: "La Révélation du Pardon", content: "Abou Bakr, qui l'entretenait, jura de couper les vivres à Mistah après la calomnie. Allah révéla : 'Que les détenteurs de richesse... ne jurent pas de ne plus aider... Qu'ils pardonnent'. Abou Bakr dit : 'J'aime qu'Allah me pardonne' et rendit l'aide à Mistah." }
+                    { id: 201, title: "L'Avertissement de Dhahabi", content: "Adh-Dhahabî exhorte son lecteur à ne pas mépriser Mistah pour une faute, rappelant son rang de combattant de Badr et affirmant qu'il est des gens du Paradis. Il s'agit d'un commentaire de l'historien, non d'une parole du Prophète attribuée à Mistah." },
+                    { id: 202, title: "La Révélation du Pardon", content: "Selon ‘Â’isha (Al-Bukhârî 4750), Abou Bakr cessa de soutenir financièrement Mistah après l'affaire de la calomnie. Lorsque le verset 24:22 fut révélé, il reprit son aide. Le passage coranique enjoint le pardon ; il ne faut pas lui ajouter une formulation attribuant directement au Prophète une déclaration personnelle sur le sort de Mistah." }
                 ],
                 hadiths: [
-                    { text: "Allah a regardé les gens de Badr et a dit : Faites ce que vous voulez, je vous ai pardonné.", narrator: "Hadith Qudsi (Général)", source: "S'applique à Mistah" },
-                    { text: "Prends garde à regarder ce compagnon d'un mauvais œil !", narrator: "Ad-Dhahabi", source: "Siyar A'lam" }
+                    { text: "Le Prophète ﷺ rapporte au sujet des gens de Badr qu’Allah les a peut-être déjà regardés en leur accordant Son pardon.", narrator: "Le Prophète ﷺ, dans le récit de ‘Alî sur Hâtib", source: "Sahîh al-Bukhârî 3007 — parole générale concernant Badr ; Mistah n'est pas nommé", type: "prophetic" },
+                    { text: "Ne regarde pas ce compagnon de Badr avec mépris pour sa faute, écrit adh-Dhahabî.", narrator: "Adh-Dhahabî (commentaire d'historien)", source: "Siyar A‘lâm an-Nubalâ’ 1/188 — commentaire savant, non hadith prophétique", type: "commentary" }
                 ],
                 quizData: [
-                    { q: "Quel lien de parenté avait-il avec Abou Bakr ?", opts: ["Frère", "Cousin maternel", "Oncle", "Fils"], c: 1, exp: "Sa mère était la tante d'Abou Bakr." },
-                    { q: "Pourquoi est-il célèbre malgré sa faute ?", opts: ["Il a tué un chef", "Il est un vétéran de Badr pardonné", "Il était riche", "Il a fui"], c: 1, exp: "Sa participation à Badr lui a valu le pardon divin malgré son erreur dans l'affaire de l'Ifk." }
+                    {"q":"Quel verset est associé à la reprise de l'aide d'Abou Bakr à Mistah ?","opts":["An-Nour 24:22","Al-Ikhlâs 112:1","Al-Fâtiha 1:5"],"c":0,"exp":"Le récit de ‘Â’isha dans Al-Bukhârî 4750 rapproche directement ce geste du verset 24:22.","ref":"https://sunnah.com/bukhari:4750"},
+                    {"q":"Le hadith sur le pardon accordé aux combattants de Badr nomme-t-il Mistah ?","opts":["Non, le récit cité concerne Hâtib et évoque les gens de Badr en général","Oui, uniquement Mistah","Le texte ne parle pas de Badr"],"c":0,"exp":"Al-Bukhârî 3007 transmet cette parole dans l'épisode de Hâtib ; Mistah n'y est pas nommé.","ref":"https://sunnah.com/bukhari:3007"},
+                    {"q":"Quelle précaution chronologique faut-il garder pour l'affaire de l'Ifk ?","opts":["Les chroniques mentionnent plusieurs années","La date de 6 H est unanimement imposée","Il s'agit d'un événement après 100 H"],"c":0,"exp":"La datation de l'expédition des Banou al-Moustaliq varie selon les chroniqueurs ; Ibn Hajar discute les années 4 à 6 H.","ref":"https://archive-1446.islamqa.info/index.php/ar/answers/484639/"},
+                    {"q":"Quel est le statut de l'exhortation d'adh-Dhahabî sur Mistah ?","opts":["Un commentaire de l'historien","Un verset","Un hadith qudsî prononcé par Mistah"],"c":0,"exp":"La notice Siyar rapporte le commentaire d'adh-Dhahabî ; Athar le distingue d'un hadith.","ref":"https://www.islamweb.net/ar/library/content/60/28/"},
+                    { q: "Que rapporte ‘Â’isha sur la parenté entre Mistah et Abou Bakr ?", opts: ["Ils avaient un lien familial par Oum Mistah", "Ils étaient frères", "Ils étaient père et fils"], c: 0, exp: "Al-Bukhârî 4750 explique la parenté maternelle et le soutien financier d'Abou Bakr à Mistah.", ref: "https://sunnah.com/bukhari:4750" },
+                    { q: "Pourquoi est-il célèbre malgré sa faute ?", opts: ["Il a tué un chef", "Il est un vétéran de Badr pardonné", "Il était riche", "Il a fui"], c: 1, exp: "Adh-Dhahabî rappelle son mérite de combattant de Badr ; il ne faut pas confondre ce commentaire avec une parole prophétique nominative sur Mistah." }
                 ]
             },
             {
