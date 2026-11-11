@@ -256,10 +256,13 @@
                     { id: 603, title: "L'Espion de Badr", content: "Le Prophète l'envoya avec Talha pour espionner la caravane de Quraysh. Ils allèrent jusqu'à Al-Hawra. À leur retour, la bataille de Badr était finie. Le Prophète leur donna tout de même leur part de butin et de mérite." }
                 ],
                 hadiths: [
-                    { text: "Les truffes (Kam'a) sont une manne divine et leur jus est un remède pour les yeux.", narrator: "Saïd ibn Zayd", source: "Bukhari / Muslim" },
-                    { text: "Zayd (son père) sera ressuscité comme une communauté à lui seul.", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam al-Nubula" }
+                    { text: "Les truffes (Kam'a) sont une manne divine et leur jus est un remède pour les yeux.", narrator: "Saïd ibn Zayd", source: "Al-Bukhârî 5708 ; Mouslim 2049a" },
+                    { text: "Zayd (son père) sera ressuscité comme une communauté à lui seul.", narrator: "Le Prophète (ﷺ)", source: "Siyar — chaîne et degré à établir ; attribution non certifiée" }
                 ],
                 quizData: [
+                    {"q":"Quel recueil rapporte le hadith des truffes transmis par Saïd ibn Zayd ?","opts":["Sahîh al-Bukhârî","Uniquement un récit historique","Aucun recueil connu"],"c":0,"exp":"Le hadith figure dans Sahîh al-Bukhârî 5708, et également chez Mouslim 2049a.","ref":"https://sunnah.com/bukhari:5708"},
+                    {"q":"Que peut-on affirmer du récit de Saïd sur le mont Hirâ ?","opts":["Il existe une transmission mentionnant les personnes présentes","Toutes les versions sont identiques","Aucune source ne le rapporte"],"c":0,"exp":"La notice distingue la liste rapportée d'autres détails narratifs non présents dans le fascicule.","ref":"https://siyar.fr/livre/1/143"},
+
                     { q: "Pourquoi était-il absent physiquement à Badr ?", opts: ["Malade", "En mission d'espionnage", "En voyage", "Pas converti"], c: 1, exp: "Il surveillait la caravane d'Abou Soufiane avec Talha sur ordre du Prophète." },
                     { q: "Quel est son lien avec Oumar ibn Al-Khattab ?", opts: ["Frère", "Cousin et beau-frère", "Oncle", "Fils"], c: 1, exp: "Ils sont cousins (Clan Adi) et Saïd a épousé Fatima, la sœur d'Oumar." },
                     { q: "Quelle invocation célèbre a-t-il faite ?", opts: ["Contre une voleuse de terre", "Pour la pluie", "Pour la richesse", "Pour la victoire"], c: 0, exp: "Il a invoqué contre Arwa qui l'accusait faussement, et elle devint aveugle." }
@@ -289,10 +292,13 @@
                     { id: 703, title: "Les Pleurs d'Abderrahman", content: "Bien plus tard, on servit un repas copieux à Abderrahman ibn 'Aouf. Il se mit à pleurer en disant : « Mouss'ab est mort et n'avait qu'un seul vêtement pour linceul... J'ai peur que nos récompenses nous aient été anticipées dans cette vie ! »." }
                 ],
                 hadiths: [
-                    { text: "J'ai vu Mouss'ab à la Mecque, nul n'était plus choyé que lui. Il a tout quitté pour l'amour d'Allah.", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" },
-                    { text: "Parmi les croyants, il est des hommes qui ont été sincères dans leur engagement...", narrator: "Verset 33:23", source: "Révélé à son sujet (et Talha/Anas)" }
+                    { text: "J'ai vu Mouss'ab à la Mecque, nul n'était plus choyé que lui. Il a tout quitté pour l'amour d'Allah.", narrator: "Le Prophète (ﷺ)", source: "At-Tirmidhî — référence exacte et statut à vérifier" },
+                    { text: "Parmi les croyants, il est des hommes qui ont été sincères dans leur engagement...", narrator: "Verset 33:23", source: "Coran 33:23 — application biographique rapportée, non établie comme cause exclusive de révélation" }
                 ],
                 quizData: [
+                    {"q":"Dans quel recueil trouve-t-on l'épisode du linceul trop court de Mouss’ab ?","opts":["Sahîh al-Bukhârî","Uniquement dans un récit non attribué","Dans la sourate 33"],"c":0,"exp":"Khabbâb rapporte que l’on couvrit la tête de Mouss’ab et ses pieds avec de l’idhkhir.","ref":"https://sunnah.com/bukhari:1276"},
+                    {"q":"Peut-on attribuer sans réserve à Mouss’ab le titre de « premier ambassadeur » à partir du passage d’Al-Barâ’ ?","opts":["Non, ce passage parle du premier émigré accueilli","Oui, le passage utilise ce titre explicitement","Oui, c'est une citation coranique"],"c":0,"exp":"Le passage du fascicule dit « premier Muhâjir accueilli » ; les deux qualifications ne doivent pas être confondues.","ref":"https://siyar.fr/livre/1/150"},
+
                     { q: "Quelle plante a servi à couvrir les pieds de Mouss'ab dans sa tombe ?", opts: ["Le Laurier", "L'Idhkhir (Citronnelle)", "Le Palmier", "L'Olivier"], c: 1, exp: "Son linceul étant trop court, le Prophète ordonna d'utiliser cette plante aromatique pour ses pieds." },
                     { q: "Pourquoi sa peau était-elle comparée à celle d'un serpent ?", opts: ["Une maladie", "La richesse", "La famine extrême", "Les brûlures"], c: 2, exp: "Saad raconte que la disette avait tellement asséché sa peau qu'elle pelait (mue) comme un serpent." }
                 ]
@@ -321,9 +327,12 @@
                     { id: 803, title: "L'Héritage Spirituel", content: "Il enseigna à sa femme Oum Salama l'invocation du malheur : « Ô Allah, rétribue-moi dans mon malheur et remplace-le par meilleur ». Elle l'appliqua et Allah lui donna le Prophète comme époux." }
                 ],
                 hadiths: [
-                    { text: "Ô Allah, pardonne à Abou Salama, élève son degré parmi les guidés et prends en charge sa descendance !", narrator: "Le Prophète (ﷺ)", source: "Sahih Muslim" }
+                    { text: "Ô Allah, pardonne à Abou Salama, élève son degré parmi les guidés et prends en charge sa descendance !", narrator: "Le Prophète (ﷺ)", source: "Sahîh Mouslim 920a" }
                 ],
                 quizData: [
+                    {"q":"Que recommande le Prophète ﷺ auprès d'un défunt dans le récit d'Oum Salama ?","opts":["Ne prononcer que des invocations bienveillantes","Rester constamment silencieux","Ne jamais pleurer"],"c":0,"exp":"Les anges disent « Amîn » aux invocations ; le passage se trouve dans Sahîh Mouslim 920a.","ref":"https://sunnah.com/muslim:920a"},
+                    {"q":"Quelle prudence faut-il garder sur la date du décès d'Abou Salama ?","opts":["Les notices rapportent des datations divergentes","La date est unanimement fixée au jour près","Il est mort à Badr"],"c":0,"exp":"Le fascicule mentionne 3 H et un récit plaçant le décès en 4 H après Qatane.","ref":"https://siyar.fr/livre/1/156"},
+
                     { q: "Quel lien de parenté précis avait-il avec le Prophète ?", opts: ["Oncle maternel", "Frère de lait et Cousin", "Fils adoptif", "Beau-père"], c: 1, exp: "Il était le fils de sa tante Barra et ils avaient partagé la même nourrice." },
                     { q: "Quelle expédition a-t-il dirigée juste avant sa mort ?", opts: ["Mouta", "Qatane", "Hunayn", "Tabouk"], c: 1, exp: "L'expédition vers le mont Qatane contre les Banu Assad, d'où il revint blessé." }
                 ]
@@ -352,10 +361,13 @@
                     { id: 904, title: "L'Incident de la Louange", content: "Une femme (Oum Al-'Ala) dit devant le corps : « Je témoigne qu'Allah t'a honoré ». Le Prophète la reprit : « Qu'en sais-tu ? Je suis le Messager d'Allah et je ne sais pas ce qu'on fera de moi ! ». Cela effraya les compagnons sur leur propre sort." }
                 ],
                 hadiths: [
-                    { text: "Le Prophète l'embrassa alors qu'il était mort, et je vis les larmes couler de ses yeux.", narrator: "Aïsha", source: "Tirmidhi" },
+                    { text: "Le Prophète l'embrassa alors qu'il était mort, et je vis les larmes couler de ses yeux.", narrator: "Aïsha", source: "At-Tirmidhî 989 — hasan sahîh selon At-Tirmidhî ; faible selon Darussalam" },
                     { text: "Rejoins notre excellent prédécesseur, Outhman ibn Mazh'oune !", narrator: "Le Prophète (à la mort de sa fille)", source: "Ibn Saad" }
                 ],
                 quizData: [
+                    {"q":"Quelles appréciations figurent pour le hadith de l'embrassade funéraire ?","opts":["Hasan sahîh selon At-Tirmidhî, faible selon Darussalam","Unanimement inventé","Unanimement sahîh sans divergence"],"c":0,"exp":"At-Tirmidhî 989 écrit hasan sahîh ; l’évaluation Darussalam indiquée sur Sunnah.com est da‘îf.","ref":"https://sunnah.com/tirmidhi:989"},
+                    {"q":"Quel statut documentaire possède le récit de la pierre sur la tombe ?","opts":["Une chaîne qualifiée de moursal","Une chaîne unanimement sahîh","Un verset coranique"],"c":0,"exp":"Le fascicule signale une transmission moursal ; il ne faut pas la traiter comme une authentification.","ref":"https://siyar.fr/livre/1/158"},
+
                     { q: "Quelle pratique extrême le Prophète lui a-t-il interdite ?", opts: ["Le jeûne continu", "La castration (monachisme)", "L'aumône totale", "Le silence"], c: 1, exp: "Il voulait se castrer pour éviter les tentations, ce que le Prophète a fermement rejeté." },
                     { q: "Quelle est sa primauté concernant Médine ?", opts: ["Premier martyr", "Premier gouverneur", "Premier Muhajir enterré au Baqi'", "Premier né"], c: 2, exp: "Il a inauguré le cimetière du Baqi' pour les émigrés." }
                 ]
@@ -383,6 +395,9 @@
                 ],
                 hadiths: [],
                 quizData: [
+                    {"q":"Quel verset Qoudama invoqua-t-il selon le récit historique ?","opts":["Al-Mâ’ida 5:93","Al-Fâtiha 1:1","Al-Ikhlâs 112:1"],"c":0,"exp":"La notice rapporte son recours au verset 5:93 et la sanction ordonnée par ‘Oumar.","ref":"https://siyar.fr/livre/1/165"},
+                    {"q":"Que prouve la localisation de cet épisode dans Siyar ?","opts":["Qu'un récit est mentionné, pas que chaque chaîne est authentifiée","Que toute interprétation ajoutée est certaine","Que le récit est un hadith prophétique sahîh"],"c":0,"exp":"Une référence biographique permet de retrouver le passage, pas d'authentifier automatiquement toutes les traditions.","ref":"https://siyar.fr/livre/1/165"},
+
                     { q: "Pourquoi Omar l'a-t-il destitué de son poste de gouverneur ?", opts: ["Pour vol", "Pour incompétence", "Pour consommation d'alcool (erreur d'interprétation)", "Pour trahison"], c: 2, exp: "Il avait bu du vin en pensant à tort qu'un verset l'autorisait aux gens pieux." }
                 ]
             },
