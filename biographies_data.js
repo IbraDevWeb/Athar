@@ -380,7 +380,7 @@
                     {"q":"Quelles appréciations figurent pour le hadith de l'embrassade funéraire ?","opts":["Hasan sahîh selon At-Tirmidhî, faible selon Darussalam","Unanimement inventé","Unanimement sahîh sans divergence"],"c":0,"exp":"At-Tirmidhî 989 écrit hasan sahîh ; l’évaluation Darussalam indiquée sur Sunnah.com est da‘îf.","ref":"https://sunnah.com/tirmidhi:989"},
                     {"q":"Quel statut documentaire possède le récit de la pierre sur la tombe ?","opts":["Une chaîne qualifiée de moursal","Une chaîne unanimement sahîh","Un verset coranique"],"c":0,"exp":"Le fascicule signale une transmission moursal ; il ne faut pas la traiter comme une authentification.","ref":"https://siyar.fr/livre/1/158"},
 
-                    { q: "Quelle pratique extrême le Prophète lui a-t-il interdite ?", opts: ["Le jeûne continu", "La castration (monachisme)", "L'aumône totale", "Le silence"], c: 1, exp: "Il voulait se castrer pour éviter les tentations, ce que le Prophète a fermement rejeté." },
+                    { q: "Quelle forme d’ascétisme le Prophète a-t-il refusée à ‘Outhman ?", opts: ["Le silence", "Le renoncement au mariage", "L’aumône"], c: 1, exp: "Le hadith d’Al-Bukhârî 5073 rapporte le refus du célibat ascétique. La castration est évoquée par Sa‘d comme une hypothèse si le renoncement avait été permis.", ref: "https://sunnah.com/bukhari:5073" },
                     { q: "Quelle est sa primauté concernant Médine ?", opts: ["Premier martyr", "Premier gouverneur", "Premier Muhajir enterré au Baqi'", "Premier né"], c: 2, exp: "Il a inauguré le cimetière du Baqi' pour les émigrés." }
                 ]
             },
