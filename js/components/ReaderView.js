@@ -99,7 +99,7 @@ const ReaderView = {
         evidenceLabel(status) {
             if (status === 'weak') return 'Réserve sur la transmission';
             if (status === 'variant') return 'Variantes rapportées';
-            if (status === 'qualification') return 'Récit à qualifier';
+            if (status === 'qualification') return 'Attribution à préciser';
             return 'Passage repéré';
         },
         stopAudio() {
@@ -315,13 +315,13 @@ const ReaderView = {
                     <article v-for="(h, index) in safeHadiths" :key="index" class="bg-white dark:bg-brand-dark-lighter p-8 md:p-12 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm text-center relative overflow-hidden group">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50"></div>
                         <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
-                        <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-brand-gold mb-3">{{ h.type === 'verse' ? 'Verset coranique' : 'Tradition rapportée' }}</p><p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
                         <div class="inline-flex flex-col items-center"><div class="w-10 h-1 bg-brand-gold/20 mb-3"></div><p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.narrator }}</p><p class="text-xs text-brand-gold mt-1">{{ h.source }}</p></div>
-                        <aside v-if="sourceEvidence('hadith', index)" class="mt-5 border-t border-brand-gold/20 pt-4 text-left text-xs leading-relaxed text-gray-600 dark:text-gray-300">
-                            <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('hadith', index).status) }} · {{ sourceEvidence('hadith', index).hadithRef || 'Référence du fascicule' }}</p>
-                            <p class="mt-2">{{ sourceEvidence('hadith', index).note }}</p>
-                            <p v-if="sourceEvidence('hadith', index).isnad" class="mt-2"><span class="font-semibold">Chaîne documentée :</span> {{ sourceEvidence('hadith', index).isnad }}</p>
-                            <a v-if="sourceEvidence('hadith', index).externalUrl" :href="sourceEvidence('hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Lire dans le recueil cité</a>
+                        <aside v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)" class="mt-5 border-t border-brand-gold/20 pt-4 text-left text-xs leading-relaxed text-gray-600 dark:text-gray-300">
+                            <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).status) }} · {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).hadithRef || 'Référence documentaire' }}</p>
+                            <p class="mt-2">{{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).note }}</p>
+                            <p v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad" class="mt-2"><span class="font-semibold">Chaîne documentée :</span> {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad }}</p>
+                            <a v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" :href="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Lire dans le recueil cité</a>
                         </aside>
                     </article>
                 </div>
@@ -368,7 +368,7 @@ const ReaderView = {
                     <article v-for="entry in biographyReferences.entries" :key="entry.kind + '-' + entry.id" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-lighter p-5 md:p-6">
                         <div class="flex flex-wrap justify-between items-start gap-3">
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : entry.kind === 'hadith' ? 'Hadith / parole' : entry.kind === 'quote' ? 'Citation principale' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : entry.kind === 'verse' ? 'Verset coranique' : entry.kind === 'hadith' ? 'Hadith / parole' : entry.kind === 'quote' ? 'Citation principale' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
                                 <h4 class="font-semibold text-brand-dark dark:text-white mt-1">{{ entry.title }}</h4>
                             </div>
                             <span v-if="entry.pdfPage != null" class="text-xs font-semibold text-brand-gold whitespace-nowrap">p. {{ entry.printedPage }} · PDF p. {{ entry.pdfPage }}</span><span v-else class="text-xs text-gray-500">Référence externe au fascicule</span>
