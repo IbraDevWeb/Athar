@@ -161,7 +161,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,244,'214 repères existants + 30 références complémentaires des notices 11 à 15');
+assert.equal(total,278,'244 repères antérieurs + 34 nouvelles références des notices 16 à 20');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
@@ -272,4 +272,33 @@ for (const id of [11,12,13,14,15]) {
 assert.ok(bibliography[11].entries.some(e => e.kind === 'identity' && /45/.test(e.note)), 'Doublon 11/45 non documenté');
 assert.ok(!/fascicule 07.14/.test(bibliography[12].editionNote || '') || /ne correspond pas/.test(bibliography[12].editionNote),'Fausse correspondance de la fiche 12');
 assert.ok(/faible/.test(bibliography[15].entries.find(e=>e.kind==='hadith'&&e.id===0).note),'Divergence du maître des martyrs perdue');
-console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 244 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+// Vague 4 : les récits historiques ne sont pas faussement promus en hadiths sahîh.
+for (const id of [16,17,18,19,20]) {
+  const chapter = chapters.find(item => item.id === id);
+  const entries = bibliography[id].entries;
+  assert.ok(chapter?.quizData?.length >= 5, 'Le quiz doit proposer au moins cinq questions : '+id);
+  chapter.quizData.forEach((q, i) => assert.ok(Array.isArray(q.opts) && Number.isInteger(q.c) && q.c >= 0 && q.c < q.opts.length && q.exp?.length > 30, 'Question invalide : '+id+'/'+i));
+  assert.equal(entries.filter(e => e.kind === 'quote').length,1,'Citation principale sans source : '+id);
+  assert.ok(entries.find(e => e.kind === 'quote' && e.id === 0)?.grade, 'Citation principale sans précision : '+id);
+  for (const [i, h] of (chapter.hadiths || []).entries()) {
+    const source = entries.find(e => e.kind === 'hadith' && e.id === i);
+    assert.ok(source?.externalUrl && source?.hadithRef && source?.isnad && source?.grade, 'Tradition rapportée sans source : '+id+'/'+i);
+    assert.equal(source.category, h.type === 'prophetic' ? 'prophetic' : h.type, 'Type documentaire incohérent : '+id+'/'+i);
+    if (id !== 20 || i === 1) assert.equal(source.grade,'ungraded','Aucun degré ne doit être inventé : '+id+'/'+i);
+  }
+  for (const [i, event] of (chapter.timeline || []).entries()) {
+    assert.ok(entries.some(e => e.kind === 'timeline' && e.id === i && e.externalUrl), 'Chronologie sans source : '+id+'/'+i);
+  }
+  for (const story of chapter.narratives || []) {
+    assert.ok(entries.some(e => e.kind === 'narrative' && e.id === story.id && e.externalUrl), 'Récit sans source : '+id+'/'+story.id);
+  }
+}
+assert.ok(chapters.find(c=>c.id===19).timeline[1].year.includes('11 ou 12 H'),'La datation divergente d’Al-Yamâma doit être visible');
+assert.ok(/Datation discutée/.test(chapters.find(c=>c.id===20).timeline[1].year),'La datation de l’Ifk ne doit pas être imposée');
+assert.ok(/Décès \(date discutée\)/.test(chapters.find(c=>c.id===20).timeline[2].year),'Décès de Mistah : ne pas imposer une date');
+assert.ok(bibliography[20].entries.find(e=>e.kind==='hadith'&&e.id===1).category==='commentary','Le commentaire de Dhahabî n’est pas un hadith');
+assert.ok(bibliography[20].entries.find(e=>e.kind==='hadith'&&e.id===0).hadithRef.includes('3007'),'Référence du hadith de Badr manquante');
+assert.ok(reader.includes("h.type === 'historical' ? 'Récit biographique rapporté'"),'Étiquette historique absente dans la lecture');
+assert.ok(reader.includes("entry.category === 'commentary'"),'Type de commentaire savant invisible dans les sources');
+
+console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 278 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
