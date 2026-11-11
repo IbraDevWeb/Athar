@@ -128,7 +128,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     keys.add(key);
     if(entry.pdfPage == null) {
       assert.equal(entry.printedPage,null,'Repère externe avec page imprimée inventée : '+id+'/'+key);
-      assert.ok(/^https:\/\/sunnah\.com\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
+      assert.ok(/^https:\/\/(?:sunnah\.com|dorar\.net|hadithportal\.com|quran\.com)\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
     } else {
       assert.equal(entry.pdfPage,entry.printedPage+1);
       assert.ok(entry.printedPage > 0 && Number.isInteger(entry.printedPage));
@@ -141,6 +141,8 @@ for (const [id, source] of Object.entries(bibliography)) {
       assert.ok(Number.isInteger(entry.id) && chapter.hadiths?.[entry.id], 'Hadith introuvable '+id+'/'+key);
       assert.ok(entry.hadithRef && entry.isnad && entry.grade, 'Chaîne ou degré non indiqué '+id+'/'+key);
       assert.ok(['sahih','hasan','weak_chain','ungraded','disputed','attribution_discontinue'].includes(entry.grade),'Degré inconnu : '+entry.grade);
+    } else if(entry.kind === 'verse') {
+      assert.ok(entry.externalUrl && /quran\.com/.test(entry.externalUrl), 'Verset sans source coranique : '+id+'/'+key);
     } else if(entry.kind === 'quote') {
       assert.equal(entry.id,0,'Citation principale introuvable : '+id+'/'+key);
       assert.ok(chapter.heroQuote && entry.grade,'Citation sans jugement : '+id+'/'+key);
@@ -154,7 +156,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,205,'Attendu : 202 repères antérieurs + 3 références primaires ajoutées aux notices 6, 8 et 9');
+assert.equal(total,209,'Nombre de repères documentaires après enrichissement de la vague 6 à 10');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
