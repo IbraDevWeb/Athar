@@ -174,7 +174,7 @@ async function desktop() {
     await page.getByRole('tab',{name:'Sources',exact:true}).click();
     const mistahRefs=page.locator('.athar-siyar-sources');
     assert.ok(await mistahRefs.locator('a[href="https://sunnah.com/bukhari:4750"]').count()>=1,'Récit de l’Ifk absent de Mistah');
-    assert.match(await mistahRefs.innerText(),/Datation discutée|datation de l.expedition discutée|datation de l.Ifk/i,'Prudence sur la datation de l’Ifk absente');
+    assert.ok((await mistahRefs.innerText()).includes('versions 4, 5 et 6 H'), 'Réserve et variantes chronologiques sur l’Ifk absentes');
     await page.getByRole('tab',{name:'Quiz',exact:true}).click();
     assert.ok(await page.locator('div.max-w-2xl.mx-auto.space-y-10 > div.bg-white').count() >= 6,'Six questions attendues pour Mistah');
     await page.locator('#athar-immersive-quick').click();
