@@ -29,8 +29,10 @@ assert.equal(get('11 H').periodId, 'rashidun', 'La Ridda et la Saqîfa en 11 H a
 assert.equal(get('51 H (52 H aussi rapporté)').precision, 'variant');
 assert.equal(get('3 ou 4 H selon les récits').precision, 'variant');
 assert.equal(get('3 ou 4 H selon les récits').periodId, 'prophetic');
-assert.equal(get('11 H (12 H également rapporté)').periodId, 'undated');
-assert.equal(get('11 H (12 H également rapporté)').year, null);
+assert.equal(get('11 H (12 H également rapporté)').precision, 'variant');
+assert.equal(get('11 H (12 H également rapporté)').periodId, 'rashidun');
+assert.equal(get('40 H (41 H également rapporté)').periodId, 'undated');
+assert.equal(get('40 H (41 H également rapporté)').year, null);
 assert.equal(get('17-18 H').precision, 'variant');
 assert.equal(get('22 H (ou 30 H)').precision, 'variant');
 assert.equal(get('20 ou 25 H').precision, 'variant');
