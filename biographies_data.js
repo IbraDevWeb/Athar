@@ -718,7 +718,7 @@
                 timeline: [
                     { year: "2 H", desc: "Combat à Badr." },
                     { year: "Datation discutée", desc: "Son implication dans l'affaire de l'Ifk est rapportée par ‘Â’isha (Al-Bukhârî 4750). Les chroniques divergent sur l'année de l'expédition des Banou al-Moustaliq (4, 5 ou 6 H selon les auteurs)." },
-                    { year: "34 H (autre tradition après 37 H)", desc: "Ibn Sa‘d, cité par adh-Dhahabî, donne 34 H et 56 ans ; une autre tradition mentionne sa présence à Siffîn en 37 H." }
+                    { year: "Décès (date discutée)", desc: "Ibn Sa‘d, cité par adh-Dhahabî, donne 34 H et 56 ans ; une autre tradition rapporte que Mistah aurait été présent à Siffîn en 37 H. Ces indications ne permettent pas de fixer ici une année unique." }
                 ],
                 narratives: [
                     { id: 201, title: "L'Avertissement de Dhahabi", content: "Adh-Dhahabî exhorte son lecteur à ne pas mépriser Mistah pour une faute, rappelant son rang de combattant de Badr et affirmant qu'il est des gens du Paradis. Il s'agit d'un commentaire de l'historien, non d'une parole du Prophète attribuée à Mistah." },
