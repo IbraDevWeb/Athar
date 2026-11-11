@@ -1075,7 +1075,7 @@
                   {
                     "id": 241,
                     "title": "L'intercession évoquée par Souhayl : récit chronologiquement problématique",
-                    "content": "Al-Wâqidî attribue à Souhayl une parole selon laquelle il espérait bénéficier de l'intercession de son fils martyr. Adh-Dhahabî remarque que la scène est placée avant le pèlerinage d'Adieu, alors que la mort de ‘Abd-Allah à al-Yamâma se produisit plus tard. Il présente donc cette attribution avec une réserve explicite."
+                    "content": "Al-Wâqidî attribue à Souhayl une parole selon laquelle il espérait bénéficier de l'intercession de son fils martyr. Adh-Dhahabî signale explicitement une incohérence chronologique : la scène est placée avant le pèlerinage d'Adieu, alors que la mort de ‘Abd-Allah à al-Yamâma se produisit plus tard. Il présente donc cette attribution avec une réserve explicite."
                   },
                   {
                     "id": 242,
