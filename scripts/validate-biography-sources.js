@@ -126,12 +126,24 @@ for (const [id, source] of Object.entries(bibliography)) {
     const key=entry.kind+':'+entry.id;
     assert.ok(!keys.has(key), 'Doublon documentaire : '+id+'/'+key);
     keys.add(key);
-    assert.equal(entry.pdfPage,entry.printedPage+1);
-    assert.ok(entry.printedPage > 0 && Number.isInteger(entry.printedPage));
+    if(entry.pdfPage == null) {
+      assert.equal(entry.printedPage,null,'Repère externe avec page imprimée inventée : '+id+'/'+key);
+      assert.ok(/^https:\/\/sunnah\.com\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
+    } else {
+      assert.equal(entry.pdfPage,entry.printedPage+1);
+      assert.ok(entry.printedPage > 0 && Number.isInteger(entry.printedPage));
+    }
     assert.ok(entry.note.length > 28);
     assert.ok(['located','variant','weak','qualification'].includes(entry.status));
     if(entry.kind==='narrative') {
       assert.ok(chapter.narratives.some(n=>n.id===entry.id), 'Récit introuvable : '+id+'/'+key);
+    } else if(entry.kind === 'hadith') {
+      assert.ok(Number.isInteger(entry.id) && chapter.hadiths?.[entry.id], 'Hadith introuvable '+id+'/'+key);
+      assert.ok(entry.hadithRef && entry.isnad && entry.grade, 'Chaîne ou degré non indiqué '+id+'/'+key);
+      assert.ok(['sahih','hasan','weak_chain','ungraded','disputed','attribution_discontinue'].includes(entry.grade),'Degré inconnu : '+entry.grade);
+    } else if(entry.kind === 'quote') {
+      assert.equal(entry.id,0,'Citation principale introuvable : '+id+'/'+key);
+      assert.ok(chapter.heroQuote && entry.grade,'Citation sans jugement : '+id+'/'+key);
     } else if(entry.kind === 'identity') {
       assert.ok(entry.id===0 || entry.id===1,'Index identité incorrect '+id+'/'+entry.id);
     } else {
@@ -142,7 +154,13 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,171,'Attendu : 171 repères dont 25 nouvelles identifications et 21 passages spécifiques');
+assert.equal(total,202,'Attendu : 171 repères initiaux + 31 repères du contrôle de cinq biographies');
+for(let id=1;id<=5;id++) {
+  const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
+  assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
+  assert.equal(entries.filter(e=>e.kind==='narrative').length,c.narratives.length,'Chaque récit doit être repéré : '+id);
+  assert.equal(entries.filter(e=>e.kind==='quote').length,1,'Citation principale sans source : '+id);
+}
 assert.equal(Object.keys(bibliography).length,99,'99 notices localisées sur 104 biographies');
 for(let n=16;n<=100;n++) assert.ok(bibliography[n].entries.some(e=>e.kind==='identity'&&e.id===0),'Notice sans index : '+n);
 assert.ok(qualified>=15,'Les réserves de transmission et les variantes historiques doivent être conservées');
@@ -163,8 +181,8 @@ assert.ok(reader.includes("sourceEvidence('timeline', i)"),'Références chronol
 assert.ok(reader.includes('Lire sur Siyar.fr'),'Lien vers source externe absent');
 assert.ok(!library.includes('> Vérifiée<'),'Badge « Vérifiée » non qualifié');
 assert.ok(!index.includes('Authentifié avec Siyar'),'Badge latéral non qualifié');
-assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-76-100-1'),'Registre non chargé');
-assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-76-100-1'),'Registre non précaché');
+assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-isnad-01-05-1'),'Registre non chargé');
+assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-isnad-01-05-1'),'Registre non précaché');
 assert.ok(!/https?:\/\/[^"'\s]+\.pdf/i.test(read('biography_sources_data.js')),'Le registre contient un lien vers un PDF');
 // Les points controversés du nouveau lot ne doivent plus être présentés comme établis.
 const story=(id,n) => chapters.find(c => c.id===id).narratives.find(x => x.id===n);
@@ -208,4 +226,12 @@ assert.ok(/33 ou 36 H/.test(evt(91,5)));
 assert.ok(/quarante années/.test(evt(96,2)) && /conteste/.test(evt(96,2)));
 assert.ok(!bibliography[12], 'La fiche 12 demeure sans source de ce lot');
 for(const id of [101,102,103,106]) assert.ok(!bibliography[id], 'Une fiche hors Siyar 1–100 a été déclarée vérifiée : '+id);
-console.log('Siyar : 99 notices identifiées sur 104, 171 repères, tome 1/2 distingués, 21 nouveaux passages contrôlés et aucun PDF hébergé.');
+assert.ok(reader.includes("sourceEvidence('hadith', index)"),'Les avis des hadiths ne sont pas visibles');
+assert.ok(reader.includes("sourceEvidence('quote', 0)"),'Les réserves des citations principales ne sont pas visibles');
+assert.ok(reader.includes("entry.pdfPage != null"),'La source externe sans PDF doit être affichée sans inventer une page');
+assert.equal(bibliography[2].entries.find(e=>e.kind==='quote').status,'weak','Le martyr marchant ne doit pas être classé authentique');
+assert.equal(bibliography[4].entries.find(e=>e.kind==='hadith'&&e.id===1).status,'weak','La chaîne d’Abou Moualla doit rester faible');
+assert.equal(bibliography[5].entries.find(e=>e.kind==='hadith'&&e.id===1).grade,'disputed','Le Tirmidhi 3752 est controversé');
+assert.ok(/chaîne interrompue/.test(chapters.find(c=>c.id===1).hadiths[1].source));
+assert.ok(/15/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content) || /quinze/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content));
+console.log('Siyar : 99 biographies indexées sur 104, 202 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');

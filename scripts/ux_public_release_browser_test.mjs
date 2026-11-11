@@ -99,6 +99,12 @@ async function desktop() {
     const sources=page.locator('.athar-siyar-sources');
     assert.equal(await sources.isVisible(),true,'Les références Siyar doivent rester lisibles.');
     assert.equal(await sources.locator('a[href="https://siyar.fr/livre/1/11"]').count(),1);
+    assert.equal(await sources.locator('article').filter({hasText:'Le jeûne est une protection'}).count(),1,'Isnâd du jeûne absent du registre');
+    await page.getByRole('tab',{name:'Citations',exact:true}).click();
+    const quotes=page.locator('article').filter({hasText:'Al-Bukhârî 3744'});
+    assert.ok(await quotes.count()>=1,'Le numéro du recueil doit apparaître sous la citation');
+    assert.ok(await quotes.first().getByText('Chaîne documentée').count()>=1,'Chaîne non affichée');
+    assert.ok(await quotes.first().locator('a[href="https://sunnah.com/bukhari:3744"]').count()===1,'Lien vers source primaire absent');
     assert.match(await page.locator('#athar-immersive-quick').getAttribute('aria-label'),/Retour à Bibliothèque/);
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});

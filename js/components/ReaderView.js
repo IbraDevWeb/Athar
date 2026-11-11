@@ -263,6 +263,11 @@ const ReaderView = {
                 <div v-if="chapter.heroQuote" class="text-center py-8 px-4 md:px-12 relative">
                     <i class="absolute top-0 left-0 text-6xl font-serif text-brand-gold/10 font-bold">“</i>
                     <p class="font-serif text-2xl md:text-3xl text-brand-dark dark:text-gray-100 font-medium leading-relaxed">{{ chapter.heroQuote }}</p>
+                    <aside v-if="sourceEvidence('quote', 0)" class="text-left max-w-2xl mx-auto mt-5 text-xs text-gray-600 dark:text-gray-300 border-t border-brand-gold/20 pt-3">
+                        <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
+                        <p class="mt-1">{{ sourceEvidence('quote', 0).note }}</p>
+                        <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le texte original</a>
+                    </aside>
                     <i class="absolute bottom-0 right-0 text-6xl font-serif text-brand-gold/10 font-bold rotate-180">“</i>
                 </div>
 
@@ -303,6 +308,12 @@ const ReaderView = {
                         <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
                         <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
                         <div class="inline-flex flex-col items-center"><div class="w-10 h-1 bg-brand-gold/20 mb-3"></div><p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.narrator }}</p><p class="text-xs text-brand-gold mt-1">{{ h.source }}</p></div>
+                        <aside v-if="sourceEvidence('hadith', index)" class="mt-5 border-t border-brand-gold/20 pt-4 text-left text-xs leading-relaxed text-gray-600 dark:text-gray-300">
+                            <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('hadith', index).status) }} · {{ sourceEvidence('hadith', index).hadithRef || 'Référence du fascicule' }}</p>
+                            <p class="mt-2">{{ sourceEvidence('hadith', index).note }}</p>
+                            <p v-if="sourceEvidence('hadith', index).isnad" class="mt-2"><span class="font-semibold">Chaîne documentée :</span> {{ sourceEvidence('hadith', index).isnad }}</p>
+                            <a v-if="sourceEvidence('hadith', index).externalUrl" :href="sourceEvidence('hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Lire dans le recueil cité</a>
+                        </aside>
                     </article>
                 </div>
                 <div v-else class="text-center py-20 bg-gray-50 dark:bg-brand-dark-lighter rounded-xl border border-dashed border-gray-300 dark:border-gray-700"><i data-lucide="feather" class="w-12 h-12 mx-auto mb-4 opacity-30"></i><p class="text-gray-500 italic font-serif leading-loose px-8">Aucune citation n'est répertoriée pour cette notice.</p></div>
@@ -348,12 +359,15 @@ const ReaderView = {
                     <article v-for="entry in biographyReferences.entries" :key="entry.kind + '-' + entry.id" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-lighter p-5 md:p-6">
                         <div class="flex flex-wrap justify-between items-start gap-3">
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gold">{{ entry.kind === 'identity' ? 'Identification' : entry.kind === 'timeline' ? 'Chronologie' : entry.kind === 'hadith' ? 'Hadith / parole' : entry.kind === 'quote' ? 'Citation principale' : 'Récit' }} · {{ evidenceLabel(entry.status) }}</p>
                                 <h4 class="font-semibold text-brand-dark dark:text-white mt-1">{{ entry.title }}</h4>
                             </div>
-                            <span class="text-xs font-semibold text-brand-gold whitespace-nowrap">p. {{ entry.printedPage }} · PDF p. {{ entry.pdfPage }}</span>
+                            <span v-if="entry.pdfPage != null" class="text-xs font-semibold text-brand-gold whitespace-nowrap">p. {{ entry.printedPage }} · PDF p. {{ entry.pdfPage }}</span><span v-else class="text-xs text-gray-500">Référence externe au fascicule</span>
                         </div>
                         <p class="text-sm mt-3 leading-relaxed text-gray-600 dark:text-gray-300">{{ entry.note }}</p>
+                            <p v-if="entry.isnad" class="mt-2 text-xs leading-relaxed text-gray-500 dark:text-gray-400"><span class="font-semibold">Chaîne consignée :</span> {{ entry.isnad }}</p>
+                            <p v-if="entry.hadithRef" class="mt-2 text-xs font-semibold text-brand-gold">{{ entry.hadithRef }}</p>
+                            <a v-if="entry.externalUrl" :href="entry.externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-xs text-brand-gold underline">Consulter la référence citée</a>
                     </article>
                 </div>
             </section>
