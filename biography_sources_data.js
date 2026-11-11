@@ -1200,6 +1200,17 @@ const BIOGRAPHY_SOURCES = {
         "note": "Al-Hâkim rapporte l'appel au duel d'Abou Houdhayfa ; le récit cité ne précise pas d'intervention prophétique l'empêchant de combattre.",
         "pdfPage": null,
         "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 0,
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Conversion précoce et migration vers l'Abyssinie",
+        "note": "La notice biographique situe la conversion et la migration d'Abou Houdhayfa, mais « Mecque » n'est pas une année et aucune datation précise n'est imposée par Athar.",
+        "hadithRef": "",
+        "externalUrl": "https://siyar.fr/livre/1/167",
+        "status": "qualification"
       }
     ]
   },
@@ -1323,6 +1334,17 @@ const BIOGRAPHY_SOURCES = {
         "isnad": "Al-‘Abbâs ibn ‘Outhmân → al-Walîd ibn Mouslim → Hanzala ibn Abî Soufyân → ‘Abd ar-Rahmân ibn Sâbit → ‘Â’isha.",
         "pdfPage": null,
         "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 2,
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Mort de Sâlim à Al-Yamâma",
+        "note": "Le récit d'Al-Wâqidî repris dans Siyar situe la mort à Al-Yamâma ; le détail du trou où se seraient fixés ses pieds n'est pas transformé en hadith sahîh.",
+        "hadithRef": "",
+        "externalUrl": "https://siyar.fr/livre/1/169",
+        "status": "qualification"
       }
     ]
   },
@@ -1437,6 +1459,39 @@ const BIOGRAPHY_SOURCES = {
         "isnad": "‘Abd Allah ibn ‘Oumar → Nâfi‘ → Ousâma ibn Zayd → narrations d'Ahmad.",
         "pdfPage": null,
         "printedPage": null
+      },
+      {
+        "kind": "timeline",
+        "id": 0,
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Conversion de Hamza à La Mecque",
+        "note": "La notice de Siyar évoque la conversion à La Mecque. Le libellé ne livre pas de date précise et n'atteste pas à lui seul l'ensemble des détails de protection qui lui sont associés.",
+        "hadithRef": "",
+        "externalUrl": "https://siyar.fr/livre/1/175",
+        "status": "qualification"
+      },
+      {
+        "kind": "timeline",
+        "id": 1,
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Hamza au duel de Badr",
+        "note": "Abou Dâwoud 2665 cite Hamza parmi les duellistes de Badr. Al-Albânî juge cette voie sahîh ; la confrontation exacte des trois paires peut varier selon les traditions.",
+        "hadithRef": "Abou Dâwoud 2665 — sahîh selon Al-Albânî",
+        "externalUrl": "https://sunnah.com/abudawud:2665",
+        "status": "variant"
+      },
+      {
+        "kind": "timeline",
+        "id": 2,
+        "pdfPage": null,
+        "printedPage": null,
+        "title": "Mort de Hamza au combat d'Ouhoud",
+        "note": "Le récit de Wahchî transmis par Al-Bukhârî 4072 décrit le coup de javeline qui provoqua la mort de Hamza à Ouhoud.",
+        "hadithRef": "Al-Bukhârî 4072",
+        "externalUrl": "https://sunnah.com/bukhari:4072",
+        "status": "located"
       }
     ]
   },
