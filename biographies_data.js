@@ -2400,7 +2400,7 @@
                 ],
                 narratives: [
                     { id: 851, title: "La Ligne sur le Sol", content: "Après avoir entendu Jafar décrire Jésus (Issa) selon le Coran, le Négus ramassa une brindille au sol et dit : « Par Allah, Jésus ne dépasse pas ce que tu viens de dire de l'épaisseur de cette brindille ». Il confirma ainsi la vérité de l'Islam face à ses prêtres." },
-                    { id: 852, title: "La Lumière sur la Tombe", content: "Aïsha rapporte que les compagnons disaient voir une lumière perpétuelle émaner de la tombe du Négus, signe de son statut élevé auprès d'Allah." },
+                    { id: 852, title: "Une lumière sur la tombe, selon un récit", content: "La notice attribue à Oum Salama une parole selon laquelle on racontait qu’une lumière éclairait la tombe du Négus. Cette tradition n'est pas une observation historiquement vérifiée ni une preuve d'un phénomène lumineux permanent." },
                     { id: 853, title: "Le Parchemin Secret", content: "Lors d'une révolte de son peuple l'accusant d'avoir quitté le christianisme, il écrivit sa profession de foi musulmane sur un papier caché contre sa poitrine. Interrogé, il dit « Je crois en ceci » (mettant la main sur sa poitrine, visant le papier). Le peuple crut qu'il parlait du christianisme et se calma." }
                 ],
                 hadiths: [
@@ -2419,17 +2419,17 @@
                 name: "Mouadh ibn Jabal",
                 arabicName: "مُعَاذ بن جَبَل",
                 subtitle: "Le Savant du Halal et du Haram",
-                intro: "Le Prophète (ﷺ) a dit de lui qu'il serait ressuscité, le Jour du Jugement, à la tête des savants. Envoyé au Yémen comme juge, il était aimé de tous pour sa science et sa douceur.",
+                intro: "Mouadh ibn Jabal est présenté comme une grande figure de la science religieuse, notamment concernant le licite et l’illicite. Des traditions évoquent son rang parmi les savants au Jour du Jugement, mais certaines chaînes sont discutées.",
                 heroQuote: "Le Jour de la Résurrection, Mouadh devancera tous les savants d'un jet de pierre !",
                 tags: ["Ansar", "Savant", "Juge", "Aqaba"],
                 genealogy: "Mouadh ibn Jabal... des Banou Jousham (Khazraj). Surnommé Abou Abderrahman.",
                 physicalDesc: "Un homme grand, à la peau blanche, aux grands yeux noirs vifs (Kahil), aux dents blanches et aux cheveux frisés. Il avait l'un des plus beaux visages.",
                 timeline: [
-                    { year: "18 ans", desc: "Se convertit et assiste au serment d'Al-Aqaba (le plus jeune)." },
+                    { year: "18 ans", desc: "Assiste adolescent au serment d’Al-Aqaba ; la notice ne précise pas ici qu'il était le plus jeune." },
                     { year: "2 H", desc: "Participe à la bataille de Badr à l'âge de 20 ou 21 ans." },
                     { year: "8 H", desc: "À la conquête de La Mecque, le Prophète le désigne pour enseigner le Coran aux Mecquois." },
                     { year: "9 H", desc: "Envoyé au Yémen comme juge (Qadi) et enseignant. Le Prophète l'accompagne à pied pour lui faire ses adieux." },
-                    { year: "17-18 H", desc: "Meurt de la peste d'Emmaüs (Amwas) en Jordanie à 33 ou 34 ans (l'âge du Christ)." }
+                    { year: "17-18 H", desc: "Meurt au Sham durant la peste d’Emmaüs. Plusieurs versions situent son décès en 17 ou 18 H et lui attribuent des âges différents." }
                 ],
                 narratives: [
                     { id: 861, title: "L'Adieu Déchirant", content: "Lorsque le Prophète (ﷺ) envoya Mouadh au Yémen, il marcha à côté de sa monture pour lui donner ses dernières recommandations. Il lui dit : « Ô Mouadh, c'est très certainement la dernière fois que nous nous rencontrons. À ton retour, tu ne trouveras sans doute que ma mosquée et ma tombe ». Mouadh fondit en larmes, le cœur brisé par cette séparation." },
@@ -2571,7 +2571,7 @@
                     { year: "Esclavage", desc: "Trahi par des guides arabes (Kalbites), vendu comme esclave à Wadi Al-Qoura puis à Médine." },
                     { year: "1 H", desc: "Rencontre le Prophète à Qouba. Vérifie les signes et se convertit." },
                     { year: "5 H", desc: "Sa première bataille est le Fossé (Khandaq), dont il est le stratège." },
-                    { year: "36 H", desc: "Meurt à Al-Madaïne (Ctésiphon) sous le califat d'Othman ou Ali (selon divergences)." }
+                    { year: "36 H", desc: "Meurt à Al-Madâ’in (Ctésiphon). Les versions donnent notamment 33 ou 36 H. Al-Waqidi le situe sous Outhman, tandis que Dhahabî rejette la date de 37 H." }
                 ],
                 narratives: [
                     { id: 911, title: "L'Aventure Spirituelle", content: "Fils chéri d'un chef perse, il fut enfermé pour protéger le feu sacré. Un jour, en passant devant une église, il fut touché par leur prière. Il s'enfuit en Syrie, servit un évêque (corrompu puis un vertueux), puis passa de moine en moine jusqu'à ce que le dernier, mourant à Amorium, lui dise : « Il n'y a plus personne sur la vraie voie. Va vers la terre des palmiers, un Prophète va y apparaître »." },
@@ -2640,7 +2640,7 @@
                     { year: "33 H", desc: "Décès en Égypte (ou Médine) sous le califat d'Outhman." }
                 ],
                 narratives: [
-                    { id: 931, title: "Le Baiser et la Liberté", content: "Prisonnier, l'empereur byzantin tenta de le convertir (eau bouillante, femmes, partage du pouvoir). Abd-Allah refusa tout. L'empereur, impressionné, proposa : « Embrasse ma tête et je te libère ». Abd-Allah dit : « Et tous les prisonniers musulmans avec moi ? ». L'empereur accepta. À son retour, Omar l'embrassa sur la tête en disant : « C'est un devoir pour tout musulman d'embrasser la tête d'Ibn Houdhafa »." },
+                    { id: 931, title: "Le baiser à l’empereur : récit à variantes", content: "Le fascicule rapporte qu’Abd-Allah ibn Houdhafa résista aux pressions d’un souverain byzantin, puis accepta d’embrasser sa tête en échange de la liberté de prisonniers musulmans. Les versions diffèrent sur le nombre libéré : 80, 100 ou 300. Il convient de distinguer ces voies au lieu de fixer un chiffre unique." },
                     { id: 932, title: "La Plaisanterie du Feu", content: "Nommé chef d'une expédition, il alluma un grand feu et ordonna à ses hommes d'y sauter, invoquant son droit à l'obéissance. Ils hésitèrent. Il rit et dit qu'il plaisantait. Le Prophète (ﷺ) dit plus tard : « L'obéissance n'est que dans le bien (Ma'rouf) »." }
                 ],
                 hadiths: [
@@ -2727,9 +2727,9 @@
                 genealogy: "Zayd ibn Sahl... des Banou Najjar. Mari d'Oum Soulaym.",
                 physicalDesc: "Un homme fort, à la voix puissante. Il ne teignait pas ses cheveux blancs.",
                 timeline: [
-                    { year: "Aqaba", desc: "L'un des douze apôtres (Nuqaba)." },
+                    { year: "Aqaba", desc: "Présent à la deuxième rencontre d’Al-Aqaba. La liste des douze délégués fait l’objet de différences entre les notices." },
                     { year: "3 H", desc: "Protège le Prophète de son corps à Ouhoud, brisant 3 arcs." },
-                    { year: "Après 11 H", desc: "Jeûne continuellement pendant 40 ans (sauf les jours interdits)." },
+                    { year: "Après 11 H", desc: "Une tradition lui attribue quarante années de jeûne après le Prophète ; Dhahabî conteste cette durée, puisqu'il serait décédé environ vingt ans après lui." },
                     { year: "34 H", desc: "Meurt en mer lors d'une expédition à 70 ans. Son corps reste 7 jours sans s'altérer." }
                 ],
                 narratives: [
