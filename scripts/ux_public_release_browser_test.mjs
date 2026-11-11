@@ -110,7 +110,13 @@ async function desktop() {
         ["'Aqil ibn Al-Boukayr",'https://siyar.fr/livre/1/186'],
         ['Jafar ibn Abou Talib','https://siyar.fr/livre/1/207'],
         ['Saad ibn Oubada','https://siyar.fr/livre/1/274'],
-        ['Abou Zayd Al-Ansari','https://siyar.fr/livre/1/342']
+        ['Abou Zayd Al-Ansari','https://siyar.fr/livre/1/342'],
+        ['Bilal ibn Rabah','https://siyar.fr/livre/1/354'],
+        ['Ibnou Oum Maktoum','https://siyar.fr/livre/1/367'],
+        ['Oubay ibn Kaab','https://siyar.fr/livre/1/397'],
+        ['Salmane Al-Farissi','https://siyar.fr/livre/1/524'],
+        ["'Oubada ibn As-Samit",'https://siyar.fr/livre/2/1'],
+        ['Hatib ibn Abou Baltaa','https://siyar.fr/livre/2/40']
     ]) {
         await page.locator('.library-pro-search-hero input').fill(needle);
         await page.locator('.library-pro-card').filter({hasText:needle}).first().click();

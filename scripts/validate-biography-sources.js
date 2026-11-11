@@ -83,6 +83,31 @@ const expectedUrls = {
   73: 343,
   74: 346,
   75: 350,
+  76: 354,
+  77: 367,
+  78: 372,
+  79: 392,
+  80: 393,
+  81: 394,
+  82: 397,
+  83: 411,
+  84: 415,
+  85: 438,
+  86: 458,
+  87: 480,
+  88: 519,
+  89: 520,
+  90: 522,
+  91: 524,
+  92: 1,
+  93: 6,
+  94: 12,
+  95: 13,
+  96: 23,
+  97: 31,
+  98: 32,
+  99: 33,
+  100: 40,
 };
 assert.deepEqual(Object.keys(bibliography).map(Number).sort((a,b) => a-b), Object.keys(expectedUrls).map(Number).sort((a,b) => a-b));
 assert.equal(bibliography[11]?.readUrl, 'https://siyar.fr/livre/1/256', 'La fiche Athar 11 est le doublon de la notice Siyar 45');
@@ -91,7 +116,7 @@ let total=0, qualified=0;
 for (const [id, source] of Object.entries(bibliography)) {
   const chapter = chapters.find(c => String(c.id) === id);
   assert.ok(chapter, 'Biographie inexistante : '+id);
-  assert.equal(source.readUrl, 'https://siyar.fr/livre/1/'+expectedUrls[id]);
+  assert.equal(source.readUrl, 'https://siyar.fr/livre/'+(Number(id)>=92 ? 2 : 1)+'/'+expectedUrls[id]);
   assert.equal(source.publisherUrl, 'https://islam-patrimoine.org/');
   assert.ok(source.translation.includes('Islam Patrimoine'));
   assert.ok(source.reviewScope.includes('ne certifie'));
@@ -117,9 +142,9 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,125,'Attendu : 125 points documentaires, dont 79 nouveaux');
-assert.equal(Object.keys(bibliography).length,74,'Le registre doit couvrir 74 notices avec pages identifiées');
-for(let n=16;n<=75;n++) assert.ok(bibliography[n].entries.some(e=>e.kind==='identity'&&e.id===0),'Notice sans index : '+n);
+assert.equal(total,171,'Attendu : 171 repères dont 25 nouvelles identifications et 21 passages spécifiques');
+assert.equal(Object.keys(bibliography).length,99,'99 notices localisées sur 104 biographies');
+for(let n=16;n<=100;n++) assert.ok(bibliography[n].entries.some(e=>e.kind==='identity'&&e.id===0),'Notice sans index : '+n);
 assert.ok(qualified>=15,'Les réserves de transmission et les variantes historiques doivent être conservées');
 const conv=chapters.find(c=>c.id===4).narratives.find(n=>n.id===401);
 assert.ok(/munkar/.test(conv.content), 'La réserve sur le convoi doit apparaître dans le texte');
@@ -138,8 +163,8 @@ assert.ok(reader.includes("sourceEvidence('timeline', i)"),'Références chronol
 assert.ok(reader.includes('Lire sur Siyar.fr'),'Lien vers source externe absent');
 assert.ok(!library.includes('> Vérifiée<'),'Badge « Vérifiée » non qualifié');
 assert.ok(!index.includes('Authentifié avec Siyar'),'Badge latéral non qualifié');
-assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-16-75-1'),'Registre non chargé');
-assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-16-75-1'),'Registre non précaché');
+assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-76-100-1'),'Registre non chargé');
+assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-76-100-1'),'Registre non précaché');
 assert.ok(!/https?:\/\/[^"'\s]+\.pdf/i.test(read('biography_sources_data.js')),'Le registre contient un lien vers un PDF');
 // Les points controversés du nouveau lot ne doivent plus être présentés comme établis.
 const story=(id,n) => chapters.find(c => c.id===id).narratives.find(x => x.id===n);
@@ -169,4 +194,18 @@ assert.ok(/Thabit ibn Zayd/.test(c(72).intro));
 assert.ok(!/verified: true/.test(read('biographies_data.js')));
 assert.ok(reader.includes("entry.kind === 'identity'"));
 assert.ok(library.includes('hasSourceReference'));
-console.log('Siyar : 74 notices indexées, 125 repères ciblés dont 18 nuances nouvelles ; aucune certification intégrale ni PDF embarqué.');
+// Le dernier fascicule couvre deux tomes. Ne jamais renvoyer le n°92 au tome 1.
+assert.ok(bibliography[91].readUrl.endsWith('/1/524'));
+assert.ok(bibliography[92].readUrl.endsWith('/2/1'));
+assert.ok(bibliography[100].readUrl.endsWith('/2/40'));
+assert.ok(/Médine/.test(evt(77,3)) && /combat/.test(evt(77,3)));
+assert.ok(!/seul cavalier/.test(chapters.find(c=>c.id===81).intro));
+assert.ok(/huile de ricin/.test(story(81,813).content));
+assert.ok(/moursal/.test(bibliography[82].entries.find(x=>x.kind==='timeline'&&x.id===1).note));
+assert.ok(/général adverse/.test(evt(83,2)));
+assert.ok(/tradition/.test(story(85,852).content));
+assert.ok(/33 ou 36 H/.test(evt(91,5)));
+assert.ok(/quarante années/.test(evt(96,2)) && /conteste/.test(evt(96,2)));
+assert.ok(!bibliography[12], 'La fiche 12 demeure sans source de ce lot');
+for(const id of [101,102,103,106]) assert.ok(!bibliography[id], 'Une fiche hors Siyar 1–100 a été déclarée vérifiée : '+id);
+console.log('Siyar : 99 notices identifiées sur 104, 171 repères, tome 1/2 distingués, 21 nouveaux passages contrôlés et aucun PDF hébergé.');
