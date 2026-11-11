@@ -50,9 +50,10 @@ const ReaderView = {
                     question: item.question || item.q,
                     options: Array.isArray(item.options || item.opts) ? (item.options || item.opts) : [],
                     correct: item.correct !== undefined ? item.correct : item.c,
-                    explanation: item.explanation || item.exp || 'Consultez la notice pour revoir ce point.'
+                    explanation: item.explanation || item.exp || 'Consultez la notice pour revoir ce point.',
+                    reference: item.reference || item.ref || ''
                 }))
-                .filter((question) => question.question && question.options.length > 0 && Number.isInteger(question.correct));
+                .filter((question) => question.question && question.options.length >= 2 && Number.isInteger(question.correct) && question.correct >= 0 && question.correct < question.options.length);
         },
         safeHadiths() {
             return Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths.filter(Boolean) : [];
@@ -75,8 +76,11 @@ const ReaderView = {
         },
         quizProgress() {
             if (this.safeQuiz.length === 0) return 0;
-            const answered = Object.keys(this.quizAnswers || {}).filter((key) => this.quizAnswers[key] !== undefined).length;
+            const answered = this.safeQuiz.filter((_, index) => this.quizAnswers[index] !== undefined).length;
             return Math.round((answered / this.safeQuiz.length) * 100);
+        },
+        quizAnsweredCount() {
+            return this.safeQuiz.filter((_, index) => this.quizAnswers[index] !== undefined).length;
         },
         estimatedReadingTime() {
             let text = `${this.chapter.intro || ''} ${this.chapter.physicalDesc || ''} ${this.chapter.genealogy || ''}`;
@@ -145,6 +149,11 @@ const ReaderView = {
             if (optionIndex === correctIndex) return 'bg-emerald-100 border-emerald-500 text-emerald-800 dark:bg-emerald-900/30 dark:border-emerald-500 dark:text-emerald-400 font-bold shadow-inner transform scale-[1.01]';
             if (userAnswer === optionIndex && optionIndex !== correctIndex) return 'bg-red-100 border-red-500 text-red-800 dark:bg-red-900/30 dark:border-red-500 dark:text-red-400 opacity-75';
             return 'bg-gray-50 dark:bg-brand-dark/50 border-transparent text-gray-400 opacity-40 cursor-not-allowed';
+        },
+        resetQuiz() {
+            Object.keys(this.quizAnswers || {}).forEach((key) => { delete this.quizAnswers[key]; });
+            this.showScore = false;
+            this.score = 0;
         },
         calculateScore() {
             if (this.safeQuiz.length === 0) return;
@@ -320,7 +329,7 @@ const ReaderView = {
             </div>
 
             <div v-show="activeTab === 'quiz'" class="max-w-2xl mx-auto space-y-10">
-                <div class="text-center mb-8"><h2 class="font-display text-2xl font-bold mb-2">Testez vos connaissances</h2><p class="text-gray-500 text-sm">Le quiz reprend le contenu de la notice ; il ne constitue pas une validation académique.</p></div>
+                <div class="text-center mb-8"><h2 class="font-display text-2xl font-bold mb-2">Testez vos connaissances</h2><p class="text-gray-500 text-sm">Le quiz reprend le contenu de la notice ; il ne constitue pas une validation académique.</p><div class="flex justify-between items-center text-xs text-gray-500 mt-6 mb-2"><span>{{ quizAnsweredCount }} / {{ safeQuiz.length }} réponses</span><button v-if="quizAnsweredCount" type="button" @click="resetQuiz" class="text-brand-gold font-bold hover:underline">Recommencer</button></div><div role="progressbar" :aria-valuenow="quizAnsweredCount" :aria-valuemax="safeQuiz.length" aria-valuemin="0" aria-label="Progression du quiz" class="w-full h-1.5 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden"><div class="h-full bg-brand-gold transition-all duration-300" :style="{ width: quizProgress + '%' }"></div></div></div>
                 <div v-for="(q, qIdx) in safeQuiz" :key="qIdx" class="bg-white dark:bg-brand-dark-lighter p-8 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm transition-all hover:shadow-md">
                     <div class="flex gap-4 mb-6"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold text-white flex items-center justify-center font-bold font-serif">{{ qIdx + 1 }}</span><h3 class="font-bold text-lg text-brand-dark dark:text-gray-200 pt-0.5">{{ q.question }}</h3></div>
                     <div class="space-y-3 md:pl-12">
@@ -329,12 +338,12 @@ const ReaderView = {
                             <span class="relative z-10"><i v-if="quizAnswers[qIdx] !== undefined && optIdx === q.correct" data-lucide="check-circle" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i><i v-if="quizAnswers[qIdx] === optIdx && optIdx !== q.correct" data-lucide="x-circle" class="w-5 h-5 text-red-500"></i></span>
                         </button>
                     </div>
-                    <div v-if="quizAnswers[qIdx] !== undefined" class="mt-6 md:ml-12 p-5 bg-blue-50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-800/30 animate-fade-in"><div class="flex gap-3 items-start text-blue-800 dark:text-blue-300"><i data-lucide="info" class="w-5 h-5 shrink-0 mt-0.5"></i><div class="text-sm leading-relaxed"><strong class="block mb-1 font-bold uppercase tracking-wider text-xs">Explication</strong>{{ q.explanation }}</div></div></div>
+                    <div v-if="quizAnswers[qIdx] !== undefined" class="mt-6 md:ml-12 p-5 bg-blue-50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-800/30 animate-fade-in"><div class="flex gap-3 items-start text-blue-800 dark:text-blue-300"><i data-lucide="info" class="w-5 h-5 shrink-0 mt-0.5"></i><div class="text-sm leading-relaxed"><strong class="block mb-1 font-bold uppercase tracking-wider text-xs">Explication</strong>{{ q.explanation }}<a v-if="q.reference" :href="q.reference" target="_blank" rel="noopener noreferrer" class="block mt-3 underline font-semibold">Lire la référence</a></div></div></div>
                 </div>
 
                 <div v-if="quizProgress === 100" id="score-result" class="text-center py-10 animate-scale-in">
                     <button type="button" @click="calculateScore" v-if="!showScore" class="px-8 py-4 bg-brand-gold text-white rounded-full font-bold uppercase tracking-widest shadow-lg hover:bg-brand-gold-light transition-colors transform hover:-translate-y-1">Voir le score</button>
-                    <div v-else class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl inline-block relative overflow-hidden min-w-[300px]"><div class="absolute inset-0 bg-islamic opacity-10"></div><div class="relative z-10"><div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Score</div><div class="font-display text-6xl font-bold text-brand-gold mb-2">{{ score }} / {{ safeQuiz.length }}</div><p class="text-gray-300 italic">{{ score === safeQuiz.length ? 'Toutes les réponses sont correctes.' : 'Relisez les explications pour progresser.' }}</p></div></div>
+                    <div v-else class="bg-brand-dark text-white p-8 rounded-2xl shadow-xl inline-block relative overflow-hidden min-w-[300px]"><div class="absolute inset-0 bg-islamic opacity-10"></div><div class="relative z-10"><div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Score</div><div class="font-display text-6xl font-bold text-brand-gold mb-2">{{ score }} / {{ safeQuiz.length }}</div><p class="text-gray-300 italic">{{ score === safeQuiz.length ? 'Toutes les réponses sont correctes.' : 'Relisez les explications pour progresser.' }}</p><button type="button" @click="resetQuiz" class="mt-5 text-sm font-bold underline text-brand-gold">Refaire le quiz</button></div></div>
                 </div>
             </div>
 
