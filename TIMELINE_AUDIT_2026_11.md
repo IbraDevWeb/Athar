@@ -22,14 +22,14 @@ Exemple visible : **Oumâma bint Abî al-‘Âs, événement « Enfance »**. Le
 
 ## 3. Couverture automatique
 
-Résultat des tests CI du premier passage (avant la dernière correction de frontière) :
+Répartition après le placement de l’an 11 H dans le début du califat (mise à confirmer par la nouvelle validation CI) :
 
 | Type de repère | Nombre | Ce que cela signifie |
 |---|---:|---|
 | Année indiquée ou événement-repère explicite | 204 | Repère placé, **sans preuve indépendante ajoutée à chaque occurrence** |
-| Datations multiples | 8 | Variantes affichées ; aucune version choisie arbitrairement |
+| Datations multiples | 9 | Variantes affichées ; aucune version choisie arbitrairement |
 | Périodes seules | 26 | Période déterminée, année absente |
-| Dates non renseignées | 115 | Ne sont plus projetées artificiellement sur la frise |
+| Dates non renseignées | 114 | Ne sont plus projetées artificiellement sur la frise |
 | **Total** | **353** | Tous les événements conservés |
 
 Ces nombres ne doivent jamais être présentés comme « 204 dates historiquement vérifiées ». Le corpus biographique d'Athar conserve ses propres lacunes documentaires.
@@ -38,7 +38,7 @@ Ces nombres ne doivent jamais être présentés comme « 204 dates historiquemen
 
 Le test `scripts/validate-chronology-data.js` parcourt les événements et vérifie que :
 - « Enfance », « Mecque », « Jeunesse », « 70 ans », « Hégire », « 46 ans après » n'induisent aucune année.
-- Les datations comme « 3 ou 4 H » et « 11 H (12 H également rapporté) » restent distinguées.
+- Les datations comme « 3 ou 4 H » et « 11 H (12 H également rapporté) » restent distinguées au sein de leur période ; une variante qui traverse la frontière 40/41 H est rangée hors des périodes faute de choix documenté.
 - Oumâma ne figure plus dans « Avant l'Hégire » par inférence, et cite [Al-Bukhârî 516](https://sunnah.com/bukhari:516).
 - Le passage 10 H → 11 H est traité comme une transition de période.
 - Les 353 événements restent accessibles, sans suppression.
