@@ -21,7 +21,7 @@ const worker = fs.readFileSync(files.worker, 'utf8');
 new vm.Script(timeline, { filename: files.timeline });
 new vm.Script(fullscreen, { filename: files.fullscreen });
 
-const timelineTokens = ["mode = Vue.ref('timeline')", "mode==='eras'", "mode==='paths'", 'gregorianApprox', 'groupedEvents', 'pathways', 'selectedEvent', 'openBiography', 'timeline-pro-period-rail'];
+const timelineTokens = ["mode = Vue.ref('timeline')", "mode==='eras'", "mode==='paths'", 'ATHAR_CHRONOLOGY', 'groupedEvents', 'pathways', 'selectedEvent', 'openBiography', 'timeline-pro-period-rail'];
 for (const token of timelineTokens) if (!timeline.includes(token)) throw new Error(`Fonction de frise absente : ${token}`);
 if ((timeline.match(/id: '[a-z-]+', label:/g) || []).length < 7) throw new Error('La frise doit définir au moins sept périodes.');
 if ((timeline.match(/title: '[^']+'/g) || []).length < 4) throw new Error('Les parcours chronologiques sont insuffisants.');

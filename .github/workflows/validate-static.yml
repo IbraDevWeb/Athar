@@ -52,6 +52,9 @@ jobs:
       - name: Validate chronology and immersive UI
         run: node scripts/validate-fullscreen-timeline.js
 
+      - name: Audit chronology source data and dating rules
+        run: node scripts/validate-chronology-data.js
+
       - name: Validate hadiths
         run: node scripts/validate-hadith.js
 

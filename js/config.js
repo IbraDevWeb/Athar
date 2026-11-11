@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v51-isnad-06-10-1';
+    const APP_VERSION = 'athar-pro-v52-chrono-rigour-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

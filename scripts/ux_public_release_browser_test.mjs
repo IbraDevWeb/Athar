@@ -91,6 +91,18 @@ async function desktop() {
         await home(page);
     }
 
+    // Régression historique : le port d’Oumâma pendant la prière n'est pas daté « ≈ 612 ».
+    await navigate(page, 'timeline');
+    await page.locator('.timeline-pro-search input').fill('Oumama');
+    await page.locator('.timeline-pro-event-card').filter({hasText:'Oumama'}).first().click();
+    const historical=page.locator('.timeline-pro-drawer');
+    await historical.waitFor({state:'visible'});
+    assert.match(await historical.locator('header').innerText(),/Date à préciser/i,'Oumâma classée dans une fausse période historique');
+    assert.ok(await historical.locator('a[href="https://sunnah.com/bukhari:516"]').count() === 1,'Source Bukhârî 516 absente');
+    assert.ok(!/612/.test(await historical.innerText()),'Année inventée toujours visible pour Oumâma');
+    await historical.locator('header button').click();
+    await home(page);
+
     await navigate(page, 'library');
     await page.locator('.library-pro-root').waitFor({state:'visible',timeout:20000});
     await page.locator('.library-pro-search-hero input').fill('Abou Oubayda');
