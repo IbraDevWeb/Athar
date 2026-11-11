@@ -161,7 +161,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,239,'214 repères existants + 25 références complémentaires des notices 11 à 15');
+assert.equal(total,244,'214 repères existants + 30 références complémentaires des notices 11 à 15');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
@@ -262,6 +262,9 @@ for (const id of [11,12,13,14,15]) {
     const entry=entries.find(item => item.kind==='hadith' && item.id===i);
     assert.ok(entry?.hadithRef && entry?.isnad && entry?.grade, 'Hadith sans source et classement attribué : '+id+'/'+i);
   }
+  for (const [i,event] of (chapter.timeline || []).entries()) {
+    assert.ok(entries.some(e => e.kind === 'timeline' && e.id === i), 'Repère chronologique sans source ou réserve : '+id+'/'+i);
+  }
   for (const story of chapter.narratives || []) {
     assert.ok(entries.some(e => e.kind === 'narrative' && e.id === story.id), 'Récit sans repère : '+id+'/'+story.id);
   }
@@ -269,4 +272,4 @@ for (const id of [11,12,13,14,15]) {
 assert.ok(bibliography[11].entries.some(e => e.kind === 'identity' && /45/.test(e.note)), 'Doublon 11/45 non documenté');
 assert.ok(!/fascicule 07.14/.test(bibliography[12].editionNote || '') || /ne correspond pas/.test(bibliography[12].editionNote),'Fausse correspondance de la fiche 12');
 assert.ok(/faible/.test(bibliography[15].entries.find(e=>e.kind==='hadith'&&e.id===0).note),'Divergence du maître des martyrs perdue');
-console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 239 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 244 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
