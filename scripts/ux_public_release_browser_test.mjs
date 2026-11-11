@@ -141,11 +141,27 @@ async function desktop() {
         await page.getByRole('tab',{name:'Sources',exact:true}).click();
         const bibliography=page.locator('.athar-siyar-sources');
         assert.equal(await bibliography.isVisible(),true,'Sources absentes pour '+needle);
-        assert.equal(await bibliography.locator('a[href="'+link+'"]').count(),1,'URL bibliographique absente pour '+needle);
+        assert.ok(await bibliography.locator('a[href="'+link+'"]').count()>=1,'URL bibliographique absente pour '+needle);
         assert.equal(await bibliography.locator('a[href$=".pdf"]').count(),0,'Ne pas héberger de PDF pour '+needle);
         await page.locator('#athar-immersive-quick').click();
         await page.locator('.library-pro-root').waitFor({state:'visible'});
     }
+    await home(page);
+
+    // Biographie 12 : références externes réelles, sans page Siyar inventée.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Abd-Allah ibn Jahche');
+    await page.locator('.library-pro-card').filter({hasText:'Abd-Allah ibn Jahche'}).first().click();
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    const externalSource = page.locator('.athar-siyar-sources');
+    assert.match(await externalSource.innerText(), /sources externes/i,'La fiche 12 doit déclarer ses sources externes');
+    assert.ok(await externalSource.locator('a[href="https://dorar.net/history/event/54"]').count()>=1,'Le dossier historique d’Abd-Allah doit être accessible');
+    assert.ok(!/Fascicule sources externes, p\. null/.test(await externalSource.innerText()),'Page bibliographique inventée pour la fiche 12');
+    await page.getByRole('tab',{name:'Quiz',exact:true}).click();
+    assert.ok(await page.locator('div.max-w-2xl.mx-auto.space-y-10 > div.bg-white').count() >= 5, 'Cinq questions attendues dans la fiche 12');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
 
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));

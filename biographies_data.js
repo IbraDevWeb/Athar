@@ -423,45 +423,57 @@
                 name: "Oubayda ibn Al-Harith",
                 arabicName: "عبيدة بن الحارث",
                 subtitle: "Le Doyen de Badr",
-                intro: "Cousin âgé du Prophète. Il reçut la première bannière de l'Islam et fut le premier martyr des duels de Badr, la jambe tranchée.",
-                heroQuote: "Ne suis-je pas un martyr, ô Messager d'Allah ?",
+                intro: "Oubayda ibn Al-Hârith ibn Al-Mouttalib participa aux premiers détachements militaires et au duel de Badr. Cette fiche Athar correspond au même compagnon que la fiche n° 45 ; les variantes sur le déroulement du duel sont conservées.",
+                heroQuote: "Selon Abou Dharr, le verset 22:19 concerne les six hommes qui s'affrontèrent en duel à Badr, parmi lesquels Oubayda.",
                 tags: ["Ahl al-Bayt", "Martyrs", "Badriyun"],
                 genealogy: "Oubayda ibn Al-Harith ibn Al-Mouttalib (cousin du père du Prophète). Sa mère est Soukhayla.",
                 physicalDesc: "Il était âgé de 63 ans à Badr (10 ans de plus que le Prophète).",
                 timeline: [
-                    { year: "1 H", desc: "Premier chef d'expédition désigné par le Prophète (Thaniyat al-Marra)." },
-                    { year: "2 H", desc: "Duel contre Outba à {Badr}. Jambe tranchée. Il meurt à As-Safra sur le chemin du retour." }
+                    { year: "1 H", desc: "Selon Ibn Ishâq, il reçoit la première bannière ; d'autres chroniques attribuent la première bannière à un autre compagnon." },
+                    { year: "2 H", desc: "Blessé lors du duel de {Badr} et mort ensuite à As-Safrâ selon les traditions biographiques. Abou Dâwoud 2665 l'oppose à al-Walîd, tandis que d'autres versions donnent ‘Outba." }
                 ],
                 narratives: [
-                    { id: 1101, title: "Le Duel des Cousins", content: "À Badr, il fut le premier à sortir en duel. Il affronta Outba. Ils se frappèrent mutuellement. Hamza et Ali tuèrent Outba et portèrent Oubayda. Sa jambe était coupée et la moelle en coulait. Il dit au Prophète : « Si Abou Talib me voyait, il saurait que je suis digne de ses vers ». Le Prophète l'enterra à As-Safra." }
+                    {"id":1102,"title":"Le verset 22:19 et les six combattants de Badr","content":"Abou Dharr rapporte que le verset « Voici deux adversaires qui disputent au sujet de leur Seigneur » (Al-Hajj 22:19) concerne Hamza, ‘Alî et Oubayda, opposés à ‘Outba, Shayba et al-Walîd. Ce récit est transmis dans Sahîh Mouslim 3033 et Al-Bukhârî 3965. Il s'agit d'une attribution du contexte du verset par un compagnon."},
+                    { id: 1101, title: "Le Duel des Cousins", content: "Lors du duel de Badr, ‘Alî rapporte que le Prophète appela Hamza, ‘Alî et Oubayda. Selon Abou Dâwoud 2665, Oubayda affronta al-Walîd : tous deux furent gravement blessés, puis Hamza et ‘Alî le ramenèrent. Une autre version attribuée à Ibn Ishâq met Oubayda face à ‘Outba. Le décès à As-Safrâ et les propos concernant Abou Tâlib sont des éléments des chroniques biographiques, à ne pas présenter comme tous compris dans le même hadith." }
+                ],
+                hadiths: [
+                    {"text":"Le Prophète ﷺ appela Hamza, ‘Alî et Oubayda pour répondre au duel de Badr.","narrator":"‘Alî ibn Abî Tâlib","source":"Sunan Abî Dâwoud 2665 — sahîh selon Al-Albânî"},
                 ],
                 quizData: [
-                    { q: "Quelle distinction militaire détient-il ?", opts: ["Premier archer", "Premier chef d'expédition (Bannière)", "Premier cavalier", "Premier calife"], c: 1, exp: "Le Prophète a noué pour lui la première bannière de l'Islam avant Badr." },
+                    {"q":"Quel verset est associé aux six combattants du duel de Badr ?","opts":["Al-Hajj 22:19","Al-Fâtiha 1:1","An-Nâs 114:1"],"c":0,"exp":"Abou Dharr transmet cette attribution dans Mouslim 3033. Le verset ne nomme pas les duellistes lui-même.","ref":"https://sunnah.com/muslim:3033"},
+                    {"q":"Qui affronte Oubayda selon la version d'Abou Dâwoud 2665 ?","opts":["Al-Walîd ibn ‘Outba","‘Outba ibn Rabî‘a","Abou Jahl"],"c":0,"exp":"Abou Dâwoud rapporte al-Walîd ; une narration d'Ibn Ishâq situe plutôt ‘Outba face à Oubayda.","ref":"https://sunnah.com/abudawud:2665"},
+                    {"q":"À quelle autre fiche d'Athar le personnage d'Oubayda correspond-il ?","opts":["45","12","84"],"c":0,"exp":"Les fiches 11 et 45 désignent le même compagnon ; le numéro 45 correspond à la notice dans Siyar.","ref":"https://siyar.fr/livre/1/256"},
+                    { q: "Que rapporte Ibn Ishâq concernant sa bannière ?", opts: ["Elle aurait été la première nouée à un musulman", "Elle datait de Siffîn", "Elle fut offerte par César"], c: 0, exp: "Ibn Ishâq emploie une formule d’attribution et des traditions concurrentes évoquent aussi Abd-Allah ibn Jahsh. Il ne s’agit pas d’une primauté unanimement établie.", ref: "https://g1.islamweb.net/ar/library/content/58/682/" },
                     { q: "Où est-il mort ?", opts: ["Sur le champ de Badr", "À Médine", "À As-Safra (au retour de Badr)", "À la Mecque"], c: 2, exp: "Il a survécu au duel mais est mort de sa blessure sur le chemin du retour." }
                 ]
             },
             {
                 id: 12,
                 verified: false,
-                source: "Siyar A'lam al-Nubula (Dhahabi)",
+                source: "Chroniques d’Ibn Hishâm, Ibn Sa‘d et Al-Haythamî (références externes)",
                 name: "Abd-Allah ibn Jahche",
                 arabicName: "عبد الله بن جحش",
                 subtitle: "L'Homme au Vœu Mutilé",
-                intro: "Cousin du Prophète et premier « Émir des Croyants » (titre donné lors d'une expédition). Il demanda à Allah un martyre violent à Ouhoud et fut exaucé.",
-                heroQuote: "Je dirai : 'Pour Toi et Ton Messager' !",
+                intro: "Compagnon de la première génération, chef de l'expédition de Nakhla en 2 H et mort à Ouhoud en 3 H. Ibn Sa‘d rapporte que le titre « émir des croyants » lui fut donné lors de cette expédition ; ce récit ne définit pas l'emploi ultérieur du titre califal.",
+                heroQuote: "Selon Sa‘d ibn Abî Waqqâs, Abd-Allah invoqua à Ouhoud : « Pour Toi et Ton Messager » (récit rapporté par At-Tabarânî).",
                 tags: ["Ahl al-Bayt", "Martyrs", "Commandants"],
                 genealogy: "Fils de Oumayma bint Abdelmoutalib (tante du Prophète). Frère de Zaynab (Mère des Croyants).",
                 physicalDesc: "On le retrouva le nez et les oreilles coupés, suspendus à un fil.",
                 timeline: [
-                    { year: "2 H", desc: "Dirige l'expédition de Nakhla. Premier butin, premier captif de l'Islam." },
+                    { year: "2 H", desc: "Dirige l'expédition de Nakhla selon les chroniques ; l'incident du mois sacré est rapproché du verset 2:217. Les auteurs divergent sur plusieurs détails du détachement." },
                     { year: "3 H", desc: "Meurt à {Ouhoud}. Enterré dans la même tombe que son oncle Hamza." }
                 ],
                 narratives: [
-                    { id: 1201, title: "L'Invocation Terrible", content: "La veille d'Ouhoud, il invoqua : « Seigneur, envoie-moi un adversaire féroce. Je le combattrai, puis il me tuera, me coupera le nez et les oreilles. Quand je Te rencontrerai, Tu demanderas 'Pourquoi ?' et je dirai 'Pour Toi' ». Saad ibn Abi Waqas vit son vœu exaucé le lendemain." },
-                    { id: 1202, title: "La Tombe Commune", content: "Il fut enterré dans la même tombe que le maître des martyrs, Hamza ibn Abdelmoutalib (son oncle), sur le champ de bataille d'Ouhoud." }
+                    {"id":1203,"title":"L'expédition de Nakhla et le mois sacré","content":"Les chroniqueurs rapportent qu'Abd-Allah conduisit le détachement de Nakhla en 2 H. Un affrontement se produisit pendant un mois sacré, puis le verset 2:217 est cité dans ce contexte par les ouvrages de sîra. Les versions divergent sur le nombre de participants et sur le traitement initial du butin."},
+                    { id: 1201, title: "L'Invocation Terrible", content: "Selon Sa‘d ibn Abî Waqqâs, avant le combat d'Ouhoud, Abd-Allah invoqua Allah pour rencontrer un adversaire qui le tuerait et le mutilerait. Sa‘d dit avoir observé après la bataille que son nez et son oreille avaient été mutilés. Al-Haythamî écrit « ses rapporteurs sont ceux du Sahîh » (Majma‘ az-Zawâ’id 9/304) ; cette formule est reproduite sans lui substituer un classement inédit." },
+                    { id: 1202, title: "La Tombe Commune", content: "Ibn Hishâm rapporte d'après la famille d'Abd-Allah ibn Jahsh qu'il fut enterré dans la même tombe que Hamza, son oncle maternel. Ibn Ishâq précise qu'il n'a entendu ce détail que de sa famille ; il s'agit d'une tradition historique attribuée, et non d'un fait unanimement démontré." }
                 ],
                 quizData: [
-                    { q: "Avec qui partage-t-il sa tombe ?", opts: ["Mouss'ab", "Hamza", "Le Prophète", "Ali"], c: 1, exp: "Lui et son oncle Hamza ont été enterrés ensemble à Ouhoud." }
+                    {"q":"À quel événement la chronique de Dorar rattache-t-elle l'expédition de Nakhla ?","opts":["Rajab 2 H","La bataille de Siffîn","L'année 40 H"],"c":0,"exp":"Ad-Durar as-Saniyya date cette expédition de Rajab 2 H.","ref":"https://dorar.net/history/event/54"},
+                    {"q":"Quel jugement Al-Haythamî donne-t-il au récit de l'invocation d'Ouhoud ?","opts":["« Ses rapporteurs sont ceux du Sahîh »","« Unanimement inventé »","« Coran »"],"c":0,"exp":"Majma‘ az-Zawâ’id 9/304 contient cette appréciation sur les rapporteurs, qu'on ne doit pas transformer en authentification autonome.","ref":"https://dorar.net/h/WyJwUUz5"},
+                    {"q":"À qui Ibn Ishâq attribue-t-il le détail de l'inhumation avec Hamza ?","opts":["À la famille d'Abd-Allah","À Abou Hourayra","À Oum Salama"],"c":0,"exp":"Il explique n'avoir entendu cette précision que de la famille du compagnon.","ref":"https://www.islamweb.com/ar/library/content/58/977/"},
+                    {"q":"Quel verset est évoqué dans les chroniques concernant Nakhla et le mois sacré ?","opts":["Al-Baqara 2:217","An-Nasr 110:3","Al-Qadr 97:1"],"c":0,"exp":"Les chroniques rapportent l'incident dans le contexte du verset 2:217.","ref":"https://dorar.net/history/event/54"},
+                    { q: "Selon Ibn Ishâq, avec qui fut-il enterré ?", opts: ["Mouss’ab", "Hamza", "Le Prophète", "‘Alî"], c: 1, exp: "Ibn Ishâq attribue cette tradition à la famille d’Abd-Allah ibn Jahsh, en disant ne l’avoir entendue que d’eux.", ref: "https://www.islamweb.com/ar/library/content/58/977/" }
                 ]
             },
             {
@@ -471,22 +483,26 @@
                 name: "Abou Houdhayfa",
                 arabicName: "أبو حُذَيْفَة",
                 subtitle: "L'Homme qui défia son Père",
-                intro: "Fils d'Outba (le grand ennemi de l'Islam), il choisit la foi contre le sang. Il mourut en martyr, uni à son fils adoptif Salim.",
-                heroQuote: "Laisse-le (ton père), ô Abou Houdhayfa !",
+                intro: "Abou Houdhayfa ibn ‘Outba ibn Rabî‘a fut parmi les premiers croyants. Des récits rapportent son appel au duel avec son père à Badr et sa mort à Al-Yamâma auprès de Sâlim. L'intervention prophétique parfois ajoutée à l'épisode du duel n'est pas étayée par la source citée.",
+                heroQuote: "Selon Abou az-Zinâd, Abou Houdhayfa appela son père ‘Outba au duel à Badr.",
                 tags: ["Martyrs", "Badriyun", "Yamama"],
                 genealogy: "Mihsham (son vrai nom) ibn Outba ibn Rabi'a. Du clan Abd-Shams. Frère de Hind (femme d'Abou Soufiane).",
                 physicalDesc: "Grand, beau visage, mais avec des dents qui se chevauchaient (ou espacées selon les versions), ce qui marquait son sourire.",
                 timeline: [
                     { year: "Mecque", desc: "Conversion précoce. Émigre en Abyssinie." },
-                    { year: "2 H", desc: "À {Badr}, il veut combattre son père Outba en duel mais le Prophète l'en empêche." },
+                    { year: "2 H", desc: "À {Badr}, selon Abou az-Zinâd, il invite son père ‘Outba à combattre en duel. Cette transmission ne rapporte pas que le Prophète l'en aurait empêché." },
                     { year: "12 H", desc: "Meurt martyr à la bataille d'{Al-Yamama} à 53 ans." }
                 ],
                 narratives: [
-                    { id: 1301, title: "L’appel au duel contre son père", content: "Selon Ibn Az-Zinâd, Abou Houdhayfa appela son père ‘Outba à combattre en duel le jour de Badr. Sa sœur Hind le railla ensuite dans des vers faisant notamment référence à ses dents. Le fascicule utilisé ne rapporte pas, dans ce passage, que le Prophète (ﷺ) lui aurait ordonné de s’asseoir." },
-                    { id: 1302, title: "Unis dans la Mort", content: "On le retrouva mort sur le champ de bataille d'Al-Yamama. Son protégé Salim gisait à côté de lui, la tête de l'un aux pieds de l'autre. Ils vécurent ensemble et moururent ensemble." }
+                    {"id":1303,"title":"La mort de ‘Outba et le chagrin rapporté à Badr","content":"Ibn Ishâq rapporte qu'après la mort de ‘Outba à Badr, le Prophète remarqua la tristesse d'Abou Houdhayfa. Celui-ci expliqua qu'il avait espéré la conversion de son père. Le récit, conservé dans les ouvrages de sîra, est à distinguer du hadith sur les duels et ne reçoit pas ici de classement indépendant."},
+                    { id: 1301, title: "L’appel au duel contre son père", content: "Al-Hâkim transmet d'après ‘Abd ar-Rahmân ibn Abî az-Zinâd, d'après son père, qu'Abou Houdhayfa appela son père ‘Outba à combattre à Badr. La version cite également des vers attribués à sa sœur Hind. Aucune intervention du Prophète lui ordonnant de s'asseoir ne figure dans ce passage ; le degré de cette voie n'est pas indiqué ici." },
+                    { id: 1302, title: "Unis dans la Mort", content: "La notice de Siyar rapporte que les corps d'Abou Houdhayfa et de Sâlim étaient rapprochés après Al-Yamâma. La description de leur position appartient à cette tradition biographique ; aucun classement indépendant de cette voie n'est affirmé." }
                 ],
                 quizData: [
-                    { q: "Qui voulait-il tuer de ses propres mains à Badr ?", opts: ["Abou Jahl", "Son père Outba", "Son frère", "Abou Soufiane"], c: 1, exp: "Il voulait prouver sa foi en affrontant son propre père, chef des polythéistes." },
+                    {"q":"Qui rapporte dans Al-Moustadrak l'appel au duel contre ‘Outba ?","opts":["Abou az-Zinâd, par son fils","Jâbir uniquement","Anas ibn Mâlik"],"c":0,"exp":"Al-Hâkim 5039 cite ‘Abd ar-Rahmân ibn Abî az-Zinâd, d'après son père.","ref":"https://www.islamweb.net/ar/library/content/74/4861/"},
+                    {"q":"Qu'ajoute Ibn Ishâq au récit de la mort d'‘Outba ?","opts":["Qu'Abou Houdhayfa avait espéré la conversion de son père","Qu'il avait quitté Badr avant le duel","Qu'il n'était pas croyant"],"c":0,"exp":"Ibn Kathîr reprend ce témoignage dans Al-Bidâya wa-n-Nihâya, sans que l'on confonde ce récit de sîra avec un hadith du Sahîh.","ref":"https://gcp.islamweb.net/ar/library/content/59/266/"},
+                    {"q":"Peut-on affirmer que le Prophète ordonna à Abou Houdhayfa de s'asseoir ?","opts":["Pas à partir de la version citée d'Al-Hâkim","Oui, c'est explicitement écrit chez Al-Hâkim 5039","C'est un verset"],"c":0,"exp":"Cette intervention n'est pas présente dans la transmission citée d'Al-Hâkim 5039.","ref":"https://www.islamweb.net/ar/library/content/74/4861/"},
+                    { q: "Qui voulait-il tuer de ses propres mains à Badr ?", opts: ["Abou Jahl", "Son père Outba", "Son frère", "Abou Soufiane"], c: 1, exp: "Le rapport attribué à Abou az-Zinâd signale l’appel au duel, sans établir avec certitude ses intentions personnelles." },
                     { q: "Quelle particularité physique avait-il ?", opts: ["Un œil borgne", "Des dents qui se chevauchaient", "Il était chauve", "Il boitait"], c: 1, exp: "Le Siyar mentionne ses dents chevauchées (ou espacées) ('Shateer')." }
                 ]
             },
@@ -497,28 +513,33 @@
                 name: "Salim Mawla Abou Houdhayfa",
                 arabicName: "سَالِمٍ",
                 subtitle: "Le Porteur du Coran",
-                intro: "Esclave persan affranchi, il devint un imam de référence. Oumar ibn Al-Khattab le considérait digne d'être Calife.",
-                heroQuote: "‘Oumar aurait évoqué Salim et Abou Oubayda comme successeurs possibles, selon un récit discuté.",
+                intro: "Sâlim, affranchi d'Abou Houdhayfa, fut un lecteur reconnu du Coran. Al-Bukhârî le cite parmi quatre maîtres recommandés pour l'apprentissage et rapporte son imamat à Qoubâ. Sa mort à Al-Yamâma et les propos sur la succession proviennent de traditions biographiques distinctes.",
+                heroQuote: "« Apprenez la récitation du Coran auprès de quatre personnes », parmi lesquelles Sâlim, affranchi d'Abou Houdhayfa (Al-Bukhârî 3758).",
                 tags: ["Martyrs", "Savants", "Coran"],
                 genealogy: "Salim ibn Ma'qil. Originaire d'Istakhr (Perse). Affranchi de Thoubayta, femme d'Abou Houdhayfa, qui l'adopta.",
                 physicalDesc: "Il récitait le Coran d'une voix qui captivait les cœurs.",
                 timeline: [
                     { year: "Qouba", desc: "Imam des premiers émigrés (dont Oumar) car il connaissait le plus de Coran." },
-                    { year: "Adoption", desc: "Sujet d'une fatwa unique sur l'allaitement de l'adulte pour rester dans sa famille adoptive." },
+                    { year: "Adoption", desc: "Le cas de Sâlim et Sahla bint Souhayl figure chez Mouslim 1453a–b. Mouslim 1454 rapporte que les autres épouses du Prophète y voyaient une permission particulière à Sâlim." },
                     { year: "12 H", desc: "Porte-étendard à {Al-Yamama}. Creuse un trou pour ses pieds et meurt martyr." }
                 ],
                 narratives: [
+                    {"id":1404,"title":"L'imamat des premiers émigrés à Qoubâ","content":"Ibn ‘Oumar rapporte dans Sahîh al-Bukhârî 692 que Sâlim dirigeait les prières des premiers émigrés avant l'arrivée du Prophète à Médine, car il connaissait davantage de Coran."},
+                    {"id":1405,"title":"Le cas de Sahla et de Sâlim : versions et réserve des autres épouses","content":"Mouslim 1453a–b rapporte que Sahla bint Souhayl interrogea le Prophète au sujet de Sâlim devenu adulte. Mouslim 1454 rapporte que les autres épouses du Prophète considéraient la réponse comme une permission spéciale pour Sâlim. Athar juxtapose les témoignages sans inventer une règle juridique générale."},
                     { id: 1401, title: "Un choix de succession rapporté sous réserve", content: "Un récit attribué à ‘Oumar rapporte qu’il aurait eu confiance en Salim et Abou Oubayda ibn Al-Jarrah pour lui succéder s’ils avaient été vivants. Dhahabî critique toutefois le rapporteur Ali ibn Zayd, puis conditionne son commentaire à l’authenticité du récit. Il ne faut pas transformer cette transmission discutée en déclaration historique certaine." },
                     { id: 1402, title: "Le Trou de la Fermeté", content: "À Yamama, portant l'étendard, il dit : « Quel mauvais porteur de Coran je serais si l'ennemi passait par moi ! ». Il creusa un trou dans le sol pour y fixer ses pieds et ne pas reculer, combattant jusqu'à la mort." },
                     { id: 1403, title: "Les deux cents dirhams", content: "Il est rapporté qu’après le décès de Salim, ‘Oumar vendit ses biens pour deux cents dirhams et remit cette somme à sa mère, en héritage. Le fascicule ne parle pas d’une aumône ni ne dit ici qu’il n’avait aucun héritier." }
                 ],
                 hadiths: [
-                    { text: "Apprenez le Coran de quatre personnes : ... Salim le mawla d'Abou Houdhayfa.", narrator: "Le Prophète (ﷺ)", source: "Sahih Bukhari" },
-                    { text: "Louange à Allah qui a mis dans ma communauté des hommes tels que toi !", narrator: "Le Prophète (après l'avoir écouté réciter)", source: "Siyar A'lam" }
+                    { text: "Apprenez la récitation du Coran auprès de quatre personnes, dont Sâlim, affranchi d'Abou Houdhayfa.", narrator: "Le Prophète ﷺ, d'après Abd-Allah ibn ‘Amr", source: "Sahîh al-Bukhârî 3758" },
+                    { text: "Louange à Allah qui a placé dans ma communauté quelqu'un comme lui !", narrator: "Le Prophète ﷺ, d'après ‘Â’isha", source: "Ibn Mâjah 1338 — sahîh selon Al-Albânî ; hasan selon Ibn Hajar (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Quel recueil rapporte que Sâlim dirigeait les émigrés en prière à Qoubâ ?","opts":["Sahîh al-Bukhârî 692","Al-Mouwatta uniquement","Aucune référence"],"c":0,"exp":"Ibn ‘Oumar indique que Sâlim connaissait davantage de Coran.","ref":"https://sunnah.com/bukhari:692"},
+                    {"q":"Quel avis sur le cas de Sâlim rapporte Mouslim 1454 ?","opts":["Les autres épouses le considéraient comme une exception propre à Sâlim","Toutes imposaient l'application générale","Il n'existe pas de récit"],"c":0,"exp":"Le texte rapporte une permission spéciale selon les autres épouses du Prophète, contrairement à l'approche attribuée à ‘Â’isha.","ref":"https://sunnah.com/muslim:1454"},
+                    {"q":"Dans quel recueil trouve-t-on l'éloge de la récitation de Sâlim ?","opts":["Ibn Mâjah 1338","Al-Bukhârî 1276","Mouslim 1887"],"c":0,"exp":"Ibn Mâjah 1338 ; sahîh selon Darussalam et Al-Albânî, hasan selon Ibn Hajar.","ref":"https://sunnah.com/ibnmajah:1338"},
                     { q: "Pourquoi dirigeait-il la prière devant des grands compagnons comme Omar à Qouba ?", opts: ["Il était le plus âgé", "Il connaissait le plus de Coran", "Il était le maître des lieux", "Il était Qourashite"], c: 1, exp: "Sa mémorisation du Coran lui donnait la prééminence pour l'imamat." },
-                    { q: "Comment est-il mort à Yamama ?", opts: ["En fuyant", "En protégeant l'étendard, pieds fixés au sol", "D'une flèche perdue", "De soif"], c: 1, exp: "Il s'était ancré dans le sol pour ne pas reculer d'un pouce." }
+                    { q: "Comment est-il mort à Yamama ?", opts: ["En fuyant", "En protégeant l'étendard, pieds fixés au sol", "D'une flèche perdue", "De soif"], c: 1, exp: "Une narration attribuée à Al-Wâqidî dans Siyar décrit cette scène ; le récit est conservé avec son attribution historique." }
                 ]
             },
             {
@@ -528,8 +549,8 @@
                 name: "Hamza Ibn Abdelmoutalib",
                 arabicName: "حَمْزَة بن عبد المطلب",
                 subtitle: "Le Lion d'Allah et le Maître des Martyrs",
-                intro: "Oncle paternel du Prophète (ﷺ) et son frère de lait. Héros de Badr et martyr d'Ouhoud, il est surnommé « Asadullah » (Le Lion d'Allah). Sa mort affecta le Prophète jusqu'aux larmes.",
-                heroQuote: "Je suis le Lion d'Allah !",
+                intro: "Hamza ibn ‘Abd al-Mouttalib, oncle et frère de lait du Prophète ﷺ, participa à Badr et fut tué à Ouhoud. Le témoignage de Wahchî est rapporté dans Al-Bukhârî 4072 ; les titres honorifiques et les autres récits sont présentés avec leurs jugements propres.",
+                heroQuote: "Wahchî rapporte : « Je lançai sur Hamza mon javelot, qui l'atteignit mortellement » (Al-Bukhârî 4072).",
                 tags: ["Martyrs", "Ahl al-Bayt", "Commandants", "Badriyun"],
                 genealogy: "Hamza ibn Abdelmoutalib ibn Hashim. Surnommé « Abou Oumara » et « Abou Ya'la ». Il est l'oncle du Prophète et son frère de lait (allaités par Thouwayba).",
                 physicalDesc: "Un guerrier redoutable. Wahchi le décrit à Ouhoud : « Il terrassait les hommes... Il ressemblait à un chameau cendré (gris) tant la poussière de la bataille l'avait recouvert. »",
@@ -547,13 +568,15 @@
                 ],
                 hadiths: [
                     { text: "Hamza ibn Abdelmoutalib est le Maître des Martyrs (Sayyid al-Shuhada) !", narrator: "Le Prophète (ﷺ)", source: "Al-Hâkim, d’après Jâbir — chaîne faible selon Dhahabî (Siyar, notice de Hamza)" },
-                    { text: "Les âmes des martyrs sont dans des oiseaux verts (émeraude) qui mangent au Paradis et nichent dans des lanternes d'or sous le Trône.", narrator: "Le Prophète (ﷺ)", source: "Sahih Muslim" },
-                    { text: "Quant à Hamza, personne ne le pleure lui ! (Le Prophète entendant les pleureuses de Médine)", narrator: "Ibn Oumar", source: "Siyar A'lam al-Nubula" }
+                    { text: "Les âmes des martyrs résident dans des oiseaux verts et trouvent leur subsistance au Paradis.", narrator: "Le Prophète ﷺ, d'après Ibn Mas‘oud", source: "Sahîh Mouslim 1887 — enseignement général sur les martyrs, non propre à Hamza" },
+                    { text: "Mais Hamza, personne ne le pleure ! (parole rapportée après Ouhoud)", narrator: "Le Prophète ﷺ, d'après Ibn ‘Oumar", source: "Ibn Mâjah 1591 ; Ahmad 5666 — isnâd hasan selon Shu‘ayb al-Arna’ût (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Quelle source transmet le témoignage direct de Wahchî sur Ouhoud ?","opts":["Al-Bukhârî 4072","Le verset 22:19","Le recueil de Mouslim 1454"],"c":0,"exp":"Al-Bukhârî 4072 rapporte la mort de Hamza et le parcours ultérieur de Wahchî.","ref":"https://sunnah.com/bukhari:4072"},
+                    {"q":"Quel savant a qualifié de hasan l'isnâd du récit des femmes pleurant Hamza ?","opts":["Shu‘ayb al-Arna’ût","At-Tabarî","Ibn Hazm"],"c":0,"exp":"Dorar cite Shu‘ayb al-Arna’ût pour Ahmad 5666, tandis qu'une autre voie porte le numéro Ahmad 5563.","ref":"https://dorar.net/h/aAGK8Qtz"},
                     { q: "Quelle arme a tué Hamza ?", opts: ["Une épée", "Une flèche", "Une javeline (Harba)", "Une pierre"], c: 2, exp: "Wahchi était un expert du lancer de javeline éthiopienne." },
-                    { q: "Quel titre le Prophète a-t-il donné à Hamza ?", opts: ["L'Épée d'Allah", "Le Maître des Martyrs", "Le Véridique", "Le Sage"], c: 1, exp: "Il est Sayyid al-Shuhada." },
-                    { q: "Quelle particularité a eu son enterrement ?", opts: ["Il a été lavé par les anges", "Il a été enterré sans linceul", "Son linceul était trop court", "Il a été enterré à la Mecque"], c: 2, exp: "On a dû utiliser de l'herbe (Idhkhir) pour couvrir ses pieds car le tissu était trop court." }
+                    { q: "Quelle réserve accompagne une voie du titre « maître des martyrs » ?", opts: ["Aucune, toutes les voies sont unanimement sahîh", "Adh-Dhahabî indique une chaîne faible pour la version de Jâbir", "Il s'agit d'un verset du Coran"], c: 1, exp: "Adh-Dhahabî juge faible l’isnâd de la version rapportée de Jâbir dans Siyar 1/173. L’expression honorifique est conservée en indiquant ce jugement.", ref: "https://dorar.net/h/cK6Ib1Lk?osoul=1" },
+                    { q: "Que faut-il distinguer dans les récits du linceul de Hamza ?", opts: ["La notice de Hamza et le récit d'Al-Bukhârî concernant Mouss’ab", "Tous les récits parlent exactement des mêmes détails", "Le linceul concerne uniquement Badr"], c: 0, exp: "La notice de Hamza mentionne un tissu trop court et d'autres versions ; l’idhkhir est explicitement présent dans le hadith de Mouss’ab (Al-Bukhârî 1276).", ref: "https://sunnah.com/bukhari:1276" }
                 ]
             },
             {
