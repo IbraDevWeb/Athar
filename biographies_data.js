@@ -2126,7 +2126,7 @@
                     { year: "Hégire", desc: "Premier homme à appeler à la prière (Adhan) en Islam." },
                     { year: "8 H", desc: "Monte sur le toit de la Kaaba pour l'appel à la prière lors de la Conquête de la Mecque." },
                     { year: "Après 11 H", desc: "Cesse l'adhan après la mort du Prophète (trop d'émotion). Part au Sham pour le jihad." },
-                    { year: "20 H", desc: "Meurt à Damas à environ 60 ans. Enterré au cimetière de la Petite Porte (Bab As-Saghir)." }
+                    { year: "20 H", desc: "Meurt au Sham selon les récits. Une tradition situe son décès en 20 H à Darayya, près de Damas ; la notice rapporte plusieurs versions." }
                 ],
                 narratives: [
                     { id: 761, title: "L'Épreuve du Rocher", content: "Ses maîtres l'allongeaient sur le sable brûlant de la Mecque et posaient une grosse pierre sur sa poitrine pour qu'il renie Allah. Il ne cessait de répéter : « Ahad ! Ahad ! » (Il est l'Unique !)." },
@@ -2156,14 +2156,14 @@
                 physicalDesc: "Aveugle de naissance. Allah a dit : « La seule récompense que je puisse lui offrir (pour sa cécité) est le Paradis ».",
                 timeline: [
                     { year: "Mecque", desc: "Révélation de la Sourate 'Abasa' (Il s'est renfrogné) à son sujet." },
-                    { year: "Hégire", desc: "Arrive à Médine juste après Mouss'ab pour enseigner le Coran aux habitants." },
+                    { year: "Hégire", desc: "Selon Ibn Saad, émigre à Médine peu après Badr ; la notice rapporte aussi d’autres versions." },
                     { year: "Gouvernance", desc: "Le Prophète le laisse plusieurs fois gouverneur de Médine lors de ses expéditions." },
-                    { year: "15 H", desc: "Meurt martyr à la bataille d'{Al-Qadisiyya} en tenant l'étendard." }
+                    { year: "15 H", desc: "Porte une bannière à {Al-Qadisiyya}. Al-Waqidi rapporte un retour puis un décès à Médine ; une autre version le fait mourir au combat." }
                 ],
                 narratives: [
                     { id: 771, title: "Le Reproche Divin", content: "Le Prophète (ﷺ) était occupé à prêcher aux notables de Quraysh quand Ibnou Oum Maktoum vint l'interroger avec insistance. Le Prophète se détourna légèrement. Allah révéla alors : « Il s'est renfrogné et s'est détourné parce que l'aveugle est venu à lui » (Coran 80:1-2)." },
                     { id: 772, title: "L'Exception du Coran", content: "Lorsque le verset sur le mérite des combattants fut révélé (« Ne sont pas égaux ceux qui restent assis... »), Ibnou Oum Maktoum se plaignit de son handicap. Le Prophète reçut alors immédiatement la révélation ajoutant l'exception : « sauf ceux qui ont une infirmité »." },
-                    { id: 773, title: "L'Étendard Noir", content: "Bien qu'aveugle et dispensé, il insista pour participer à la bataille décisive d'Al-Qadisiyya contre les Perses. Il demanda à tenir l'étendard pour encourager les troupes, disant qu'il ne pouvait pas fuir. On le retrouva mort, serrant la bannière." }
+                    { id: 773, title: "À Al-Qadisiyya, une bannière et deux récits", content: "Des témoignages mentionnent Ibn Oum Maktoum porteur de la bannière à Al-Qadisiyya. Al-Waqidi affirme qu'il revint ensuite à Médine, où il mourut ; Dhahabî mentionne aussi une tradition le faisant mourir lors de la bataille. Sa mort sur le champ de bataille ne peut donc être donnée comme certaine." }
                 ],
                 hadiths: [
                     { text: "Mangez et buvez jusqu'à ce que Ibnou Oum Maktoum fasse l'appel (Adhan) !", narrator: "Le Prophète (ﷺ)", source: "Bukhari / Muslim" }
@@ -2180,7 +2180,7 @@
                 name: "Khalid ibn Al-Walid",
                 arabicName: "خالد بن الوليد",
                 subtitle: "L'Épée d'Allah (Sayfullah)",
-                intro: "Le génie militaire invaincu. Surnommé « Une épée parmi les épées d'Allah » par le Prophète. Il brisa neuf épées à Mouta et fut l'architecte des conquêtes de l'Irak et du Sham.",
+                intro: "Commandant militaire surnommé « l'Épée d'Allah » dans les traditions. Il brisa neuf épées à Mouta et fut l'architecte des conquêtes de l'Irak et du Sham.",
                 heroQuote: "Je meurs dans mon lit comme meurt un vieux chameau... Que les yeux des lâches ne trouvent jamais le sommeil !",
                 tags: ["Commandant", "Stratège", "Mecquois", "Invaincu"],
                 genealogy: "Khalid ibn Al-Walid ibn Al-Moughira, du clan des Banou Makhzoum. Neveu de Maymouna (Mère des croyants).",
@@ -2195,7 +2195,7 @@
                 narratives: [
                     { id: 781, title: "Les Neuf Épées", content: "Lors de la bataille de Mouta, Khalid raconta : « Neuf épées se sont brisées dans ma main le jour de Mouta. Il ne m'est resté qu'une large lame yéménite avec laquelle j'ai continué le combat »." },
                     { id: 782, title: "La Calotte Bénie", content: "À la bataille de Yarmouk, Khalid perdit sa calotte (couvre-chef) et ordonna avec insistance qu'on la retrouve. Quand on la lui rapporta, elle était vieille et usée. Il expliqua : « Le Prophète a rasé sa tête lors d'un pèlerinage et j'ai récupéré ses cheveux de devant que j'ai cousus dans cette calotte. Je ne l'ai jamais portée dans une bataille sans que la victoire ne me soit accordée ! »." },
-                    { id: 783, title: "Le Poison", content: "À Al-Hira, on lui apporta un poison mortel. Il demanda la coupe, dit « Bismillah » et la but d'un trait sans en subir le moindre mal, prouvant sa confiance totale (Tawakkul) en Allah." }
+                    { id: 783, title: "Une boisson empoisonnée : récit historique", content: "Deux récits rapportent qu'une préparation décrite comme empoisonnée fut présentée à Khalid, qui la but après avoir prononcé « Bismillah ». Dhahabî y voit un prodige. Athar cite cette narration sans en faire une preuve médicale d'innocuité ni une pratique à reproduire." }
                 ],
                 hadiths: [
                     { text: "Khalid est une épée parmi les épées d'Allah qu'Il a dégainée contre les polythéistes !", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam / Bukhari" },
@@ -2221,10 +2221,10 @@
                 timeline: [
                     { year: "Mecque", desc: "Conversion précoce." },
                     { year: "2 H", desc: "Participation à la bataille de {Badr}." },
-                    { year: "38 H", desc: "Décès probable à Médine (selon Al-Waqidi), bien que certains disent qu'il fut tué à Badr." }
+                    { year: "38 H", desc: "Deux versions sont rapportées : mort à Badr ou survie jusqu'au Ramadan 38 H. La notice ne tranche pas." }
                 ],
                 narratives: [
-                    { id: 791, title: "La Divergence sur sa Mort", content: "Il existe deux versions sur sa fin : certains historiens disent qu'il fut tué à Badr par Touayma ibn 'Adi. Cependant, l'avis prépondérant (Al-Waqidi) est qu'il a survécu, participé à toutes les batailles et est mort bien plus tard à Médine." }
+                    { id: 791, title: "Deux versions de son décès", content: "Al-Waqidi transmet une version selon laquelle Safoine mourut à Badr, tué par Touayma ibn ‘Adi. Il rapporte aussi une tradition le faisant survivre aux combats ultérieurs et mourir au Ramadan 38 H. Aucun avis prépondérant n'est expressément fixé dans ce passage." }
                 ],
                 hadiths: [],
                 quizData: [
@@ -2249,7 +2249,7 @@
                 ],
                 narratives: [
                     { id: 801, title: "La Prière dans la Mosquée", content: "Fait rare : à sa mort, le Prophète (ﷺ) ordonna qu'on apporte son corps à l'intérieur de la mosquée pour prier sur lui, alors que d'habitude la prière mortuaire se faisait à l'extérieur (au Mousalla). Cela montre son rang élevé." },
-                    { id: 802, title: "La Protection du Prophète", content: "Lors de l'expédition de Tabouk, il marchait aux côtés du Prophète pour le protéger." }
+                    { id: 802, title: "Les deux migrations en Abyssinie", content: "La notice rapporte, d’après Ibn Ishaq et Al-Waqidi, que Souhayl prit part aux deux migrations vers l’Abyssinie. Elle signale qu'avec son frère Safoine il fut hébergé chez Koulthoum ibn Al-Hidm après leur départ de La Mecque. Elle ne décrit aucun épisode de protection rapprochée à Tabouk." }
                 ],
                 hadiths: [
                     { text: "Par Allah, le Prophète n'a prié sur les deux fils de Bayda (Souhayl et son frère) que dans la mosquée !", narrator: "Aïsha", source: "Sahih Muslim" }
@@ -2265,21 +2265,21 @@
                 name: "Al-Miqdad ibn 'Amr",
                 arabicName: "المِقْدَاد بن عَمْرو",
                 subtitle: "Le Premier Cavalier de l'Islam",
-                intro: "L'un des sept premiers à avoir déclaré son Islam. Il fut le seul cavalier musulman (monté sur un cheval) lors de la bataille de Badr. Connu pour son courage et sa franchise.",
+                intro: "L'un des sept premiers à avoir déclaré son Islam. Sa présence à cheval à Badr est tenue pour établie par Dhahabî, qui relève une divergence concernant Zoubayr. Connu pour son courage et sa franchise.",
                 heroQuote: "Nous ne te dirons pas comme les fils d'Israël : Va, toi et ton Seigneur, et combattez !",
                 tags: ["Badriyun", "Mouhajir", "Cavalier", "Premier"],
                 genealogy: "Al-Miqdad ibn 'Amr. Adopté par Al-Aswad à la période préislamique (d'où le nom Al-Miqdad ibn Al-Aswad). Il reprit son vrai nom après l'interdiction de l'adoption.",
                 physicalDesc: "Il était grand, très brun, avait le ventre rond, une tête touffue, de larges yeux noirs, des sourcils joints et une barbe qu'il teignait au henné. Il avait une voix tonitruante.",
                 timeline: [
                     { year: "Débuts", desc: "L'un des 7 premiers à afficher son Islam." },
-                    { year: "2 H", desc: "Le seul cavalier monté sur un cheval (nommé Ba'zaja) lors de la bataille de Badr." },
+                    { year: "2 H", desc: "Combat à cheval à Badr ; la présence de Zoubayr à cheval fait l’objet d’une divergence." },
                     { year: "Conquêtes", desc: "Participe à la conquête de l'Égypte et du Sham." },
                     { year: "33 H", desc: "Décès à Al-Jourf à 70 ans. Outhman prie sur lui." }
                 ],
                 narratives: [
                     { id: 811, title: "Le Discours de Badr", content: "Avant Badr, quand le Prophète consulta ses compagnons, Al-Miqdad se leva et dit : « Ô Messager d'Allah, nous ne te dirons pas ce que les Juifs ont dit à Moïse : 'Va toi et ton Seigneur et combattez'. Mais nous disons : Va, toi et ton Seigneur, et nous combattrons avec vous, à droite, à gauche, devant et derrière ! ». Le visage du Prophète s'illumina." },
                     { id: 812, title: "L'Expérience du Pouvoir", content: "Le Prophète le nomma émir d'une expédition. À son retour, il demanda : « Comment as-tu trouvé le commandement ? ». Al-Miqdad répondit : « J'avais l'impression que les gens étaient mes serviteurs... Par celui qui t'a envoyé, je ne commanderai plus jamais deux hommes ! ». Il craignait l'orgueil." },
-                    { id: 813, title: "La Graisse du Ventre", content: "Il avait pris du poids avec l'âge. Un esclave romain lui proposa de l'opérer pour retirer la graisse. Il lui ouvrit le ventre et retira la graisse (liposuccion primitive), mais Al-Miqdad mourut peu après de cette opération." }
+                    { id: 813, title: "Décès : une tradition sur l’huile de ricin", content: "Après avoir mentionné sa mort en 33 H, le fascicule rapporte seulement qu’Al-Miqdad serait décédé après avoir ingéré de l’huile de ricin. L'intervention chirurgicale et le retrait de graisse auparavant décrits ne figurent pas dans la notice étudiée." }
                 ],
                 hadiths: [
                     { text: "Allah m'a ordonné d'aimer quatre personnes et m'a informé qu'Il les aime : Ali, Al-Miqdad, Salmane et Abou Dharr.", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi / Ibn Majah" },
@@ -2304,9 +2304,9 @@
                 physicalDesc: "Il était de taille moyenne, avait les cheveux et la barbe blancs comme du coton (il ne se teignait pas).",
                 timeline: [
                     { year: "Aqaba", desc: "Présent au second serment d'Al-Aqaba." },
-                    { year: "Vie du Prophète", desc: "Mémorise et compile le Coran intégralement. Scribe de la révélation." },
+                    { year: "Vie du Prophète", desc: "Mémorise le Coran et le récite auprès du Prophète. Son rôle supposé dans la compilation sous Outhman est contesté par Dhahabî." },
                     { year: "Califat d'Omar", desc: "Désigné pour diriger les prières de Tarawih (Ramadan) pour les gens." },
-                    { year: "22 H (ou 30 H)", desc: "Décès à Médine. Omar prononça : « Aujourd'hui le Maître des musulmans est mort ! »." }
+                    { year: "22 H (ou 30 H)", desc: "Plusieurs dates sont rapportées (19, 22, 30 ou 32 H). Dhahabî préfère un décès sous Oumar, vers 22 H." }
                 ],
                 narratives: [
                     { id: 821, title: "L'Ordre Divin", content: "Le Prophète (ﷺ) dit à Oubay : « Allah m'a ordonné de réciter le Coran sur toi ! ». Oubay, bouleversé, demanda : « Allah a-t-il cité mon nom (auprès de toi) ? ». Le Prophète répondit « Oui, Il t'a nommé ». Oubay fondit en larmes de joie et d'émotion." },
@@ -2329,17 +2329,17 @@
                 name: "An-Nou'mane ibn Mouqarine",
                 arabicName: "النُّعْمَانِ بن مُقَرِّن",
                 subtitle: "Le Conquérant de Nahavand",
-                intro: "Chef de la tribu des Mouzayna, il se convertit avec ses dix frères (première maison entière à se convertir). Commandant des armées musulmanes lors de la bataille décisive de Nahavand contre l'Empire Perse.",
+                intro: "Compagnon de Mouzayna et commandant à Nahavand, où il mourut. La notice mentionne plusieurs de ses frères, mais ne permet pas d'affirmer que dix frères se convertirent ensemble.",
                 heroQuote: "Ô Allah, octroie à An-Nou'mane une mort qui puisse donner la victoire aux musulmans !",
                 tags: ["Commandant", "Martyr", "Perse", "Nahavand"],
                 genealogy: "An-Nou'mane ibn Mouqarine Al-Mouzani. Il avait plusieurs frères compagnons (les fils de Mouqarine : Souwayd, Sinane, etc.).",
                 timeline: [
                     { year: "5 H", desc: "Première bataille (Le Fossé)." },
                     { year: "Conquête", desc: "Porte l'étendard des Mouzayna lors de la prise de La Mecque." },
-                    { year: "21 H", desc: "Commandant en chef à {Nahavand}. Il meurt martyr en glissant de sa monture, juste avant la victoire totale sur les Perses." }
+                    { year: "21 H", desc: "Commandant à {Nahavand}. Blessé au combat, il meurt après avoir appris la victoire ; la chute de monture concerne le général adverse." }
                 ],
                 narratives: [
-                    { id: 831, title: "L'Invocation de la Victoire", content: "Avant la bataille de Nahavand, il pria : « Ô Allah, accorde-moi le martyre aujourd'hui et fais que ma mort soit une victoire pour les musulmans, et ne me fais pas subir l'humiliation ». Il fut le premier à tomber (son cheval glissa sur le sang), et les musulmans remportèrent une victoire totale." },
+                    { id: 831, title: "L'invocation et la nouvelle de Nahavand", content: "Un récit attribué notamment à Maaqil ibn Yassar rapporte qu'An-Nou‘mane pria pour que sa mort accompagne une victoire des musulmans. Blessé, il apprit de Maaqil que les musulmans avaient triomphé, demanda qu’on en informe ‘Oumar, puis mourut. La chute de monture dans ce récit concerne le chef perse et non An-Nou‘mane." },
                     { id: 832, title: "L'Humilité", content: "Malgré son rang de général, il restait simple. Il demanda à ses soldats : « Si je secoue mon étendard une fois, préparez-vous. Deux fois, tenez-vous prêts. Trois fois, attaquez ! ». Il attendit le déclin du soleil, moment préféré du Prophète, pour lancer l'assaut." }
                 ],
                 hadiths: [
