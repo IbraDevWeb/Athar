@@ -26,7 +26,8 @@ Répartition après le placement de l’an 11 H dans le début du califat (mise 
 
 | Type de repère | Nombre | Ce que cela signifie |
 |---|---:|---|
-| Année indiquée ou événement-repère explicite | 204 | Repère placé, **sans preuve indépendante ajoutée à chaque occurrence** |
+| Année indiquée dans la notice | 200 | Repère placé, **sans preuve indépendante ajoutée à chaque occurrence** |
+| Année d’un événement-repère (Badr) | 4 | Année de la bataille uniquement, non de la participation individuelle |
 | Datations multiples | 9 | Variantes affichées ; aucune version choisie arbitrairement |
 | Périodes seules | 26 | Période déterminée, année absente |
 | Dates non renseignées | 114 | Ne sont plus projetées artificiellement sur la frise |
