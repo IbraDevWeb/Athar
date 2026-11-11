@@ -743,28 +743,106 @@
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abou 'Abs",
                 arabicName: "أبو عبس",
-                subtitle: "Le Destructeur d'Idoles",
-                intro: "L'un des rares Arabes lettrés avant l'Islam. Il purifia son clan en brisant leurs idoles et servit l'État islamique comme percepteur.",
-                heroQuote: "Il était parmi les rares, à cette époque, à savoir écrire l'arabe.",
+                subtitle: "Le Lettré des Ansâr",
+                intro: "Abou ‘Abs ibn Jabr, Ansârî présent à Badr, est décrit par adh-Dhahabî comme l'un des rares hommes sachant écrire l'arabe. Sa participation à l'expédition contre Ka‘b ibn al-Ashraf et son service de percepteur sont transmis par les sources identifiées.",
+                heroQuote: "Adh-Dhahabî rapporte qu'Abou ‘Abs savait écrire l'arabe, aptitude alors peu répandue.",
                 tags: ["Ansar", "Badriyun", "Lettré"],
                 genealogy: "Abou 'Abs (Abderrahman) ibn Jabr, des Aous.",
                 physicalDesc: "Il savait écrire, une compétence rare.",
                 timeline: [
-                    { year: "Débuts", desc: "Détruit les idoles des Banou Haritha avec Abou Bourda." },
-                    { year: "2 H", desc: "Badr." },
-                    { year: "3 H", desc: "Participe à l'élimination du poète ennemi Kaab ibn Al-Ashraf." },
-                    { year: "34 H", desc: "Décès à 70 ans. Outhman prie sur lui." }
+                  {
+                    "year": "Avant Badr",
+                    "desc": "Avec Abou Bourda ibn Niyâr, il détruisit les idoles des Banou Hâritha, selon la biographie transmise par adh-Dhahabî."
+                  },
+                  {
+                    "year": "2 H",
+                    "desc": "Participe à la bataille de Badr selon la notice Siyar."
+                  },
+                  {
+                    "year": "Après Badr",
+                    "desc": "Une variante nomme Abou ‘Abs parmi les hommes ayant accompagné Muhammad ibn Maslama contre Ka‘b ibn al-Ashraf (Al-Bukhârî 4037). Aucune date n'est tirée de ce seul libellé."
+                  },
+                  {
+                    "year": "34 H",
+                    "desc": "La notice d'adh-Dhahabî place sa mort à Médine à 70 ans ; ‘Outhman aurait prié sur lui."
+                  }
                 ],
                 narratives: [
-                    { id: 211, title: "L'Expédition de Kaab", content: "Il fit partie du commando restreint (avec Mohamed ibn Maslamah) qui débarrassa les musulmans de Kaab ibn Al-Ashraf, le poète qui insultait les femmes musulmanes et incitait à la guerre." },
-                    { id: 212, title: "La Confiance des Califes", content: "Omar et Outhman lui firent tous deux confiance pour la tâche délicate de collecter la Zakat (l'aumône légale)." }
+                  {
+                    "id": 211,
+                    "title": "Abou ‘Abs dans les versions de l'expédition contre Ka‘b",
+                    "content": "Adh-Dhahabî le cite parmi les participants à l'expédition. Al-Bukhârî 4037 rapporte l'opération d'après Jâbir ; la liste des hommes varie selon les transmetteurs et une version mentionne Abou ‘Abs ibn Jabr. Il faut distinguer la liste des compagnons du texte principal."
+                  },
+                  {
+                    "id": 212,
+                    "title": "La collecte de la zakât",
+                    "content": "La notice de Siyar attribue à ‘Oumar puis à ‘Outhman la nomination d'Abou ‘Abs pour la collecte de la zakât. Il s'agit d'une donnée biographique, non d'un hadith prophétique indépendamment classé."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah lui désigna Khounays ibn Houdhafa comme frère de foi.", narrator: "Ibn Saad", source: "Tabaqat" }
+                  {
+                    "text": "Selon la notice de Siyar, le Prophète ﷺ établit une fraternité entre Abou ‘Abs et Khounays ibn Houdhâfa.",
+                    "narrator": "Récit biographique reproduit par adh-Dhahabî",
+                    "source": "Siyar, notice 21 — degré de cette transmission non précisé",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle compétence rare possédait-il ?", opts: ["Tir à l'arc", "Écriture", "Médecine", "Navigation"], c: 1, exp: "Il savait écrire l'arabe avant même l'Islam." },
-                    { q: "Quelle mission secrète a-t-il accomplie ?", opts: ["Espionner à la Mecque", "Éliminer Kaab ibn Al-Ashraf", "Protéger le Prophète", "Négocier la paix"], c: 1, exp: "Il a participé à l'exécution du poète hostile Kaab ibn Al-Ashraf." }
+                  {
+                    "q": "Quelle aptitude adh-Dhahabî mentionne-t-il chez Abou ‘Abs ?",
+                    "opts": [
+                      "Savoir écrire l'arabe",
+                      "La navigation",
+                      "La médecine"
+                    ],
+                    "c": 0,
+                    "exp": "La notice le cite parmi les personnes sachant écrire à cette époque.",
+                    "ref": "https://siyar.fr/livre/1/190"
+                  },
+                  {
+                    "q": "Avec qui le récit biographique le montre-t-il détruisant des idoles ?",
+                    "opts": [
+                      "Abou Bourda ibn Niyâr",
+                      "Souhayl ibn ‘Amr",
+                      "Abou Jandal"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî mentionne Bourda ibn Niyâr et les idoles des Banou Hâritha.",
+                    "ref": "https://siyar.fr/livre/1/190"
+                  },
+                  {
+                    "q": "Quel recueil présente une variante des noms des participants à l'expédition contre Ka‘b ?",
+                    "opts": [
+                      "Al-Bukhârî 4037",
+                      "At-Tirmidhî 3854",
+                      "Mouslim 1887"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4037 rapporte l'expédition et signale une variante dans l'identification des participants.",
+                    "ref": "https://sunnah.com/bukhari:4037"
+                  },
+                  {
+                    "q": "Qui le désigna comme percepteur de zakât selon la notice ?",
+                    "opts": [
+                      "‘Oumar puis ‘Outhman",
+                      "Les Abbassides",
+                      "Al-Hajjâj"
+                    ],
+                    "c": 0,
+                    "exp": "La fonction est rapportée par Siyar ; elle ne doit pas être transformée en parole prophétique.",
+                    "ref": "https://siyar.fr/livre/1/190"
+                  },
+                  {
+                    "q": "Quelle année de décès indique adh-Dhahabî pour Abou ‘Abs ?",
+                    "opts": [
+                      "34 H",
+                      "97 H",
+                      "18 H"
+                    ],
+                    "c": 0,
+                    "exp": "La notice mentionne 34 H et la prière funéraire de ‘Outhman.",
+                    "ref": "https://siyar.fr/livre/1/190"
+                  }
                 ]
             },
             {
@@ -774,25 +852,99 @@
                 name: "Malik ibn At-Tayihane",
                 arabicName: "ابن التيهان",
                 subtitle: "Le Monothéiste Précité",
-                intro: "Connu sous le nom d'Abou Al-Haytham. Il rejetait les idoles avant même l'Islam. L'un des 12 chefs (Nuqaba) d'Aqaba et l'estimateur des récoltes du Prophète.",
-                heroQuote: "Celui que l'on sollicite pour un conseil se doit d'être digne !",
+                intro: "Mâlik ibn at-Tayihân, connu comme Abou al-Haytham, figure parmi les Ansâr et les représentants d'al-‘Aqaba selon les biographies. Adh-Dhahabî rapporte son travail d'estimation des récoltes de Khaybar et plusieurs traditions divergentes sur sa mort.",
+                heroQuote: "« Celui qui est consulté est dépositaire d'une confiance » : hadith transmis dans la notice d'Abou al-Haytham, degré de cette voie non établi ici.",
                 tags: ["Ansar", "Aqaba", "Badriyun"],
                 genealogy: "Malik ibn At-Tayihane. Il prêchait le Tawhid avec As'ad ibn Zourara à l'époque pré-islamique.",
                 timeline: [
-                    { year: "Pré-Islam", desc: "Rejette les idoles." },
-                    { year: "Aqaba", desc: "L'un des 12 chefs." },
-                    { year: "Khaybar", desc: "Estime les récoltes pour le Prophète." },
-                    { year: "20 H", desc: "Décès sous le califat d'Omar." }
+                  {
+                    "year": "Avant l'Hégire",
+                    "desc": "La notice rapporte son rejet des idoles et l'attachement au monothéisme avant l'islam."
+                  },
+                  {
+                    "year": "Avant l'Hégire",
+                    "desc": "Selon la sîra, il figure parmi les représentants (nuqabâ’) de la rencontre d'al-‘Aqaba."
+                  },
+                  {
+                    "year": "Khaybar",
+                    "desc": "Des récits biographiques le présentent comme chargé d'estimer les dattes de Khaybar ; aucune année individuelle n'est inventée pour cette mission."
+                  },
+                  {
+                    "year": "20 H (autres récits : Siffîn)",
+                    "desc": "Sâlih ibn Kaysân le fait mourir sous ‘Oumar ; d'autres donnent 20 H ou le placent à Siffîn. Al-Wâqidî préférait le décès antérieur à Siffîn."
+                  }
                 ],
                 narratives: [
-                    { id: 221, title: "L'Estimation et l'Invocation", content: "Le Prophète l'envoyait estimer les dattes de Khaybar. Plus tard, Abou Bakr voulut l'envoyer mais il refusa : 'Quand je partais pour le Prophète, il invoquait pour moi à mon retour'. Il ne voulait pas perdre cette baraka." }
+                  {
+                    "id": 221,
+                    "title": "La mission d'estimation et la prière du Prophète",
+                    "content": "Adh-Dhahabî rapporte qu'Abou al-Haytham estimait les récoltes de Khaybar. Quand Abou Bakr envisagea une mission semblable, il aurait répondu que le Prophète invoquait pour lui à son retour. Ce sont des traditions biographiques, et non un degré d'authenticité établi par Athar."
+                  }
                 ],
                 hadiths: [
-                    { text: "Celui que l'on sollicite pour un conseil se doit d'être digne !", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Abou Al-Haytham" }
+                  {
+                    "text": "« Celui qui est consulté est dépositaire d'une confiance. »",
+                    "narrator": "Attribué au Prophète ﷺ, transmis dans cette notice par Abou al-Haytham",
+                    "source": "Siyar 1/192 : chaîne signalant ‘Abd al-Hakîm ibn Mansour ; degré de cette voie non établi ici",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle était sa croyance avant l'Islam ?", opts: ["Juive", "Chrétienne", "Monothéiste (contre les idoles)", "Païenne"], c: 2, exp: "Il détestait les idoles et prêchait l'unicité de Dieu avant la venue du Prophète." },
-                    { q: "Quelle fonction occupait-il à Khaybar ?", opts: ["Gouverneur", "Estimateur de récoltes", "Général", "Juge"], c: 1, exp: "Il évaluait la quantité de dattes pour l'impôt." }
+                  {
+                    "q": "Quel surnom désigne Mâlik ibn at-Tayihân ?",
+                    "opts": [
+                      "Abou al-Haytham",
+                      "Abou Jandal",
+                      "Abou Yahyâ"
+                    ],
+                    "c": 0,
+                    "exp": "Mâlik est connu sous le nom d'Abou al-Haytham.",
+                    "ref": "https://siyar.fr/livre/1/190"
+                  },
+                  {
+                    "q": "Quel rôle lui attribuent les récits de Khaybar ?",
+                    "opts": [
+                      "Estimer les récoltes de dattes",
+                      "Diriger la flotte",
+                      "Copier des manuscrits"
+                    ],
+                    "c": 0,
+                    "exp": "La notice parle d'une estimation des récoltes de Khaybar.",
+                    "ref": "https://siyar.fr/livre/1/192"
+                  },
+                  {
+                    "q": "Comment Athar présente-t-il le hadith du conseiller digne de confiance dans cette notice ?",
+                    "opts": [
+                      "Comme une voie à documenter",
+                      "Comme unanimement authentifiée",
+                      "Comme une parole d'Abou Bakr"
+                    ],
+                    "c": 0,
+                    "exp": "La notice donne une chaîne mais ne suffit pas à attribuer un degré établi sans avis identifiable.",
+                    "ref": "https://siyar.fr/livre/1/192"
+                  },
+                  {
+                    "q": "Quelle mort Al-Wâqidî estime-t-il plus vraisemblable ?",
+                    "opts": [
+                      "Avant Siffîn, autour de 20 H",
+                      "En 97 H",
+                      "À Badr"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite Al-Wâqidî comparant les versions de la mort.",
+                    "ref": "https://siyar.fr/livre/1/192"
+                  },
+                  {
+                    "q": "À quel rassemblement de représentants est-il associé ?",
+                    "opts": [
+                      "Al-‘Aqaba",
+                      "Siffîn",
+                      "Al-Qâdisiyya"
+                    ],
+                    "c": 0,
+                    "exp": "La notice rattache Abou al-Haytham aux représentants d'al-‘Aqaba.",
+                    "ref": "https://siyar.fr/livre/1/190"
+                  }
                 ]
             },
             {
@@ -802,23 +954,100 @@
                 name: "Abou Jandal",
                 arabicName: "أبو جندل",
                 subtitle: "Le Prisonnier de la Foi",
-                intro: "Fils de Souhayl ibn 'Amr. Emprisonné par son père pour sa foi, il s'échappa enchainé jusqu'à Houdaybiya mais fut renvoyé aux païens par respect du pacte.",
-                heroQuote: "Ô musulmans, vers la mécréance vous me renvoyez !?",
+                intro: "Abou Jandal, dont le prénom était al-‘Âss, était le fils de Souhayl ibn ‘Amr. Son arrivée entravée à al-Houdaybiya et les négociations autour de son retour sont rapportées dans Al-Bukhârî 2731–2732. Il retrouva ensuite sa liberté et mourut selon les chroniques durant la peste d'‘Amwâs.",
+                heroQuote: "À al-Houdaybiya, Abou Jandal supplia les musulmans de ne pas le reconduire aux siens (Al-Bukhârî 2731–2732).",
                 tags: ["Mouhajir", "Patience", "Martyr"],
                 genealogy: "Al-Ass (son vrai nom) ibn Souhayl ibn 'Amr.",
                 timeline: [
-                    { year: "6 H", desc: "S'échappe et arrive à Houdaybiya en boitant avec ses chaînes." },
-                    { year: "Retour", desc: "Rendu à son père par le Prophète selon le traité." },
-                    { year: "18 H", desc: "Meurt martyr de la peste d'Emmaüs au Sham." }
+                  {
+                    "year": "6 H",
+                    "desc": "Arrive à al-Houdaybiya en portant des entraves, alors que se négocie le traité avec son père Souhayl ; le récit figure dans Al-Bukhârî 2731–2732."
+                  },
+                  {
+                    "year": "Après al-Houdaybiya",
+                    "desc": "Le récit d'Al-Bukhârî le montre rejoignant Abou Basîr après avoir retrouvé sa liberté."
+                  },
+                  {
+                    "year": "18 H",
+                    "desc": "Adh-Dhahabî rapporte sa mort au Shâm lors de la peste d'‘Amwâs, en 18 H."
+                  }
                 ],
                 narratives: [
-                    { id: 231, title: "Le Sacrifice du Pacte", content: "À Houdaybiya, son père Souhayl (négociateur païen) exigea son retour. Le Prophète (ﷺ) tenta de le garder, mais Souhayl refusa de signer la paix sinon. Abou Jandal cria son désespoir, mais le Prophète lui dit : 'Patiente, Allah te donnera une issue'. Il fut libéré plus tard." }
+                  {
+                    "id": 231,
+                    "title": "Le retour imposé lors des négociations",
+                    "content": "Selon al-Miswar ibn Makhrama et Marwân dans Al-Bukhârî 2731–2732, Abou Jandal parvint à al-Houdaybiya avec ses entraves. Son père Souhayl réclama son retour au titre de la condition négociée ; le Prophète tenta d'obtenir une exception. Le récit préserve également les protestations d'Abou Jandal."
+                  },
+                  {
+                    "id": 232,
+                    "title": "La sortie d'Abou Jandal et son association avec Abou Basîr",
+                    "content": "Al-Bukhârî 2731–2732 rapporte qu'Abou Jandal retrouva ensuite sa liberté et rejoignit le groupe d'Abou Basîr. Ce développement figure dans la même transmission que les négociations d'al-Houdaybiya."
+                  }
                 ],
                 hadiths: [
-                    { text: "Son histoire est connue et rapportée dans l'Authentique.", narrator: "Ad-Dhahabi", source: "Siyar A'lam" }
+                  {
+                    "text": "Abou Jandal arriva à al-Houdaybiya avec ses entraves, tandis que son père réclamait son retour.",
+                    "narrator": "Al-Miswar ibn Makhrama et Marwân",
+                    "source": "Sahîh al-Bukhârî 2731–2732 — récit transmis dans le Sahîh",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Pourquoi le Prophète l'a-t-il renvoyé à la Mecque ?", opts: ["Il l'a trahi", "Pour respecter le traité de Houdaybiya", "Abou Jandal le voulait", "Il était espion"], c: 1, exp: "Le traité stipulait que tout musulman fuyant la Mecque devait être rendu." }
+                  {
+                    "q": "Dans quel recueil retrouve-t-on l'arrivée d'Abou Jandal à al-Houdaybiya ?",
+                    "opts": [
+                      "Al-Bukhârî 2731–2732",
+                      "At-Tirmidhî 3854",
+                      "Mouslim 1887"
+                    ],
+                    "c": 0,
+                    "exp": "La transmission d'al-Miswar et de Marwân rapporte son arrivée entravée.",
+                    "ref": "https://sunnah.com/bukhari:2731"
+                  },
+                  {
+                    "q": "Qui exigeait son retour pendant les négociations ?",
+                    "opts": [
+                      "Son père Souhayl",
+                      "‘Oumar",
+                      "Abou Bakr"
+                    ],
+                    "c": 0,
+                    "exp": "Souhayl ibn ‘Amr, son père, était l'un des négociateurs.",
+                    "ref": "https://sunnah.com/bukhari:2731"
+                  },
+                  {
+                    "q": "Quel autre compagnon Abou Jandal rejoignit-il ensuite ?",
+                    "opts": [
+                      "Abou Basîr",
+                      "Bilâl",
+                      "Khâlid ibn al-Boukayr"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit d'Al-Bukhârî mentionne sa réunion avec Abou Basîr.",
+                    "ref": "https://sunnah.com/bukhari:2731"
+                  },
+                  {
+                    "q": "Quel était le prénom d'Abou Jandal selon Siyar ?",
+                    "opts": [
+                      "Al-‘Âss",
+                      "Al-Haytham",
+                      "Al-Barâ’"
+                    ],
+                    "c": 0,
+                    "exp": "La notice d'adh-Dhahabî précise qu'il s'appelait al-‘Âss.",
+                    "ref": "https://siyar.fr/livre/1/192"
+                  },
+                  {
+                    "q": "À quel événement les chroniques rattachent-elles sa mort ?",
+                    "opts": [
+                      "À la peste d'‘Amwâs",
+                      "À Badr",
+                      "À Al-Yamâma"
+                    ],
+                    "c": 0,
+                    "exp": "La notice le fait mourir au Shâm lors de la peste de 18 H.",
+                    "ref": "https://siyar.fr/livre/1/193"
+                  }
                 ]
             },
             {
@@ -828,22 +1057,96 @@
                 name: "Abd-Allah ibn Souhayl",
                 arabicName: "عَبْدُ الله بن سُهَيْل",
                 subtitle: "L'Infiltré de Badr",
-                intro: "Frère d'Abou Jandal. Il vint à Badr dans l'armée des polythéistes avec son père, puis traversa les lignes pour rejoindre le Prophète avant le combat.",
-                heroQuote: "J'espère bien qu'Abd-Allah commencera par moi (dans son intercession) !",
+                intro: "‘Abd-Allah ibn Souhayl, frère d'Abou Jandal, aurait rejoint les musulmans depuis les rangs qurayshites le jour de Badr. Il mourut selon adh-Dhahabî à al-Yamâma. L'auteur signale expressément qu'un récit attribué à son père est chronologiquement contradictoire et ne doit pas être rapporté comme un propos assuré.",
+                heroQuote: "Adh-Dhahabî relève une contradiction chronologique dans une parole attribuée à Souhayl sur le martyre de son fils.",
                 tags: ["Badriyun", "Martyrs", "Yamama"],
                 genealogy: "Abd-Allah ibn Souhayl ibn 'Amr.",
                 timeline: [
-                    { year: "2 H", desc: "Change de camp à Badr et combat avec les musulmans." },
-                    { year: "12 H", desc: "Meurt martyr à Al-Yamama à 38 ans." }
+                  {
+                    "year": "2 H",
+                    "desc": "Selon Siyar, rejoint le camp musulman pendant la bataille de Badr après avoir dissimulé sa foi."
+                  },
+                  {
+                    "year": "12 H",
+                    "desc": "La notice rapporte sa mort à al-Yamâma, à l'âge de 38 ans, et mentionne aussi une tradition de première émigration en Abyssinie."
+                  }
                 ],
                 narratives: [
-                    { id: 241, title: "L'Espoir du Père", content: "Son père Souhayl, après sa conversion, apprit que le martyr intercède pour 70 proches. Il disait : 'J'espère qu'il commencera par moi', malgré le fait qu'ils étaient dans des camps opposés à Badr." }
+                  {
+                    "id": 241,
+                    "title": "L'intercession évoquée par Souhayl : récit chronologiquement problématique",
+                    "content": "Al-Wâqidî attribue à Souhayl une parole selon laquelle il espérait bénéficier de l'intercession de son fils martyr. Adh-Dhahabî remarque que la scène est placée avant le pèlerinage d'Adieu, alors que la mort de ‘Abd-Allah à al-Yamâma se produisit plus tard. Il présente donc cette attribution avec une réserve explicite."
+                  },
+                  {
+                    "id": 242,
+                    "title": "La participation à Badr",
+                    "content": "Selon adh-Dhahabî, ‘Abd-Allah vint à Badr avec son père alors qu'il dissimulait sa foi, puis rejoignit les musulmans pendant la bataille. Certains rapporteurs le font plutôt figurer parmi les premiers croyants ayant émigré en Abyssinie ; cette variante est conservée."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le martyr intercèdera pour soixante-dix membres de sa famille !", narrator: "Le Prophète (ﷺ) rapporté par Souhayl", source: "Al-Waqidi" }
+                  {
+                    "text": "Le martyr pourra intercéder pour soixante-dix personnes de sa famille.",
+                    "narrator": "Le Prophète ﷺ, d'après Abou ad-Dardâ’",
+                    "source": "Sunan Abî Dâwoud 2522 — sahîh selon Al-Albânî ; ce hadith général n'est pas un témoignage direct de Souhayl",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Comment a-t-il rejoint les musulmans ?", opts: ["À la Mecque", "En changeant de camp à Badr", "Après la conquête", "En Abyssinie"], c: 1, exp: "Il a feint d'être avec les païens pour sortir, puis a rejoint le Prophète sur le champ de bataille." }
+                  {
+                    "q": "Quand ‘Abd-Allah rejoignit-il les musulmans selon adh-Dhahabî ?",
+                    "opts": [
+                      "Lors de Badr",
+                      "À Siffîn",
+                      "Pendant la peste d'‘Amwâs"
+                    ],
+                    "c": 0,
+                    "exp": "La notice décrit un changement de camp au cours de Badr.",
+                    "ref": "https://siyar.fr/livre/1/193"
+                  },
+                  {
+                    "q": "Quelle réserve adh-Dhahabî formule-t-il sur la parole de Souhayl ?",
+                    "opts": [
+                      "Une incohérence entre la date de la scène et la mort de son fils",
+                      "Une erreur dans le nom de Souhayl",
+                      "Une citation coranique inventée"
+                    ],
+                    "c": 0,
+                    "exp": "La parole est située avant le pèlerinage d'Adieu, mais le fils est mort plus tard à al-Yamâma.",
+                    "ref": "https://siyar.fr/livre/1/194"
+                  },
+                  {
+                    "q": "Qui transmet le hadith sur l'intercession de soixante-dix proches dans Abou Dâwoud 2522 ?",
+                    "opts": [
+                      "Abou ad-Dardâ’",
+                      "Souhayl lui-même",
+                      "‘Aqil ibn al-Boukayr"
+                    ],
+                    "c": 0,
+                    "exp": "Abou Dâwoud 2522 passe par Abou ad-Dardâ’, et Al-Albânî le classe sahîh.",
+                    "ref": "https://sunnah.com/abudawud:2522"
+                  },
+                  {
+                    "q": "Quel lieu de décès est mentionné pour ‘Abd-Allah ?",
+                    "opts": [
+                      "Al-Yamâma",
+                      "Al-Abwâ",
+                      "Ouhoud"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit biographique le fait mourir à al-Yamâma.",
+                    "ref": "https://siyar.fr/livre/1/194"
+                  },
+                  {
+                    "q": "Quelle autre tradition est mentionnée pour son parcours initial ?",
+                    "opts": [
+                      "Une émigration ancienne en Abyssinie",
+                      "Un voyage à Oman en 97 H",
+                      "Un califat à Médine"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî signale une version le comptant parmi les premiers émigrés en Abyssinie.",
+                    "ref": "https://siyar.fr/livre/1/194"
+                  }
                 ]
             },
             {
@@ -853,26 +1156,105 @@
                 name: "Souhayl ibn 'Amr",
                 arabicName: "سُهَيْل بن عمرو",
                 subtitle: "L'Orateur Repenti",
-                intro: "La 'Voix' de Quraysh. Négociateur obstiné à Houdaybiya, il se convertit tardivement mais rattrapa son retard par une adoration intense, le jeûne et les larmes.",
-                heroQuote: "Les choses nous ont été 'sahal' (facilitées) !",
+                intro: "Souhayl ibn ‘Amr fut capturé à Badr, négocia le traité d'al-Houdaybiya pour Quraysh puis se convertit lors de la conquête de La Mecque. Les récits biographiques rapportent son rôle auprès des Mecquois après le décès du Prophète et des versions divergentes sur son décès au Shâm.",
+                heroQuote: "Souhayl ibn ‘Amr négocia les clauses du traité d'al-Houdaybiya, comme le rapporte Al-Bukhârî 2731–2732.",
                 tags: ["Orateur", "Hudaybiya", "Ascète"],
                 genealogy: "Souhayl ibn 'Amr. Surnommé Abou Yazid.",
                 physicalDesc: "Sa peau et son apparence changèrent à force de jeûner et de prier après sa conversion.",
                 timeline: [
-                    { year: "2 H", desc: "Captif à Badr." },
-                    { year: "6 H", desc: "Négocie le traité d'Houdaybiya." },
-                    { year: "8 H", desc: "Conversion à la Conquête." },
-                    { year: "15 H", desc: "Commandant à Yarmouk (ou mort de peste)." }
+                  {
+                    "year": "2 H",
+                    "desc": "Capturé à Badr selon la notice biographique."
+                  },
+                  {
+                    "year": "6 H",
+                    "desc": "Négocie pour Quraysh le traité d'al-Houdaybiya ; Al-Bukhârî 2731–2732 rapporte ses échanges avec le Prophète ﷺ."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Adh-Dhahabî rapporte sa conversion lors de la conquête de La Mecque."
+                  },
+                  {
+                    "year": "Décès au Shâm (versions divergentes)",
+                    "desc": "Al-Madâ’inî situe sa mort à al-Yarmouk ; ach-Châfi‘î et al-Wâqidî la rattachent à la peste d'‘Amwâs. Athar ne choisit pas une version sans source décisive."
+                  }
                 ],
                 narratives: [
-                    { id: 251, title: "Le Discours de Stabilisation", content: "À la mort du Prophète (ﷺ), La Mecque faillit apostasier. Souhayl se leva et tint un discours puissant (similaire à celui d'Abou Bakr) qui raffermit l'Islam dans la ville sainte." },
-                    { id: 252, title: "Les Larmes du Coran", content: "Après sa conversion, il pleurait abondamment en entendant le Coran, cherchant à expier son passé d'ennemi de l'Islam." }
+                  {
+                    "id": 251,
+                    "title": "Un discours à La Mecque après la mort du Prophète",
+                    "content": "Les ouvrages de sîra attribuent à Souhayl un discours destiné à stabiliser la situation religieuse de La Mecque après le décès du Prophète ﷺ. Ce témoignage est présenté comme une tradition historique, sans le transformer en hadith classé sahîh."
+                  },
+                  {
+                    "id": 252,
+                    "title": "Une vie d'adoration après sa conversion",
+                    "content": "Adh-Dhahabî rapporte qu'après sa conversion Souhayl multiplia les actes d'adoration et pleurait à l'écoute du Coran. Ces descriptions dépendent des récits biographiques cités et ne constituent pas un jugement autonome sur leurs chaînes."
+                  }
                 ],
                 hadiths: [
-                    { text: "Les choses nous ont été facilitées (Sahal) !", narrator: "Le Prophète (ﷺ) en voyant Souhayl", source: "Siyar A'lam" }
+                  {
+                    "text": "À al-Houdaybiya, Souhayl demanda la rédaction de clauses concernant les déplacements entre Quraysh et les musulmans.",
+                    "narrator": "Al-Miswar ibn Makhrama et Marwân",
+                    "source": "Al-Bukhârî 2731–2732 — récit du traité, non citation prophétique inventée",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quel rôle a-t-il joué à la mort du Prophète ?", opts: ["Il a apostasié", "Il a prononcé un discours pour stabiliser la Mecque", "Il a pris le pouvoir", "Il a fui"], c: 1, exp: "Il a empêché les Mecquois de quitter l'Islam par son éloquence." }
+                  {
+                    "q": "Quel événement Souhayl négocia-t-il au nom de Quraysh ?",
+                    "opts": [
+                      "Le traité d'al-Houdaybiya",
+                      "La bataille de Siffîn",
+                      "La bataille de Shushtar"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 2731–2732 rapporte sa participation aux négociations.",
+                    "ref": "https://sunnah.com/bukhari:2731"
+                  },
+                  {
+                    "q": "Quel lien familial unissait Souhayl à Abou Jandal ?",
+                    "opts": [
+                      "Il était son père",
+                      "Il était son frère",
+                      "Il était son cousin"
+                    ],
+                    "c": 0,
+                    "exp": "Souhayl exigea le retour de son fils Abou Jandal pendant la négociation.",
+                    "ref": "https://sunnah.com/bukhari:2731"
+                  },
+                  {
+                    "q": "À quelle occasion les biographies situent-elles sa conversion ?",
+                    "opts": [
+                      "À la conquête de La Mecque",
+                      "À Badr",
+                      "Au califat d'‘Outhman"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî relate sa conversion à la conquête de La Mecque.",
+                    "ref": "https://siyar.fr/livre/1/194"
+                  },
+                  {
+                    "q": "Quelles versions de sa mort cite adh-Dhahabî ?",
+                    "opts": [
+                      "Al-Yarmouk ou la peste d'‘Amwâs",
+                      "Badr ou Ouhoud",
+                      "Oman ou Al-Abwâ"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Madâ’inî et d'autres donnent al-Yarmouk, tandis qu'ach-Châfi‘î et al-Wâqidî parlent de la peste.",
+                    "ref": "https://siyar.fr/livre/1/196"
+                  },
+                  {
+                    "q": "Quelle est la nature du récit sur son discours après le décès du Prophète ?",
+                    "opts": [
+                      "Une narration biographique attribuée",
+                      "Un verset coranique",
+                      "Un jugement unanime de hadith"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit est conservé avec l'attribution historique et sans classement inventé.",
+                    "ref": "https://siyar.fr/livre/1/195"
+                  }
                 ]
             },
             {
@@ -882,24 +1264,97 @@
                 name: "Al-Bara ibn Malik",
                 arabicName: "البراء بن مالك",
                 subtitle: "L'Homme au Serment Exaucé",
-                intro: "Frère d'Anas ibn Malik. Un guerrier dont le serment était exaucé par Allah. Une narration rapporte qu’il affirma avoir vaincu quatre-vingt-dix-neuf adversaires en duel. À Yamama, il se fit jeter dans le jardin ennemi pour ouvrir la porte.",
-                heroQuote: "As-tu peur que je meure dans mon lit ?!",
+                intro: "Al-Barâ’ ibn Mâlik, frère d'Anas, est mentionné dans At-Tirmidhî 3854 parmi ceux dont Allah exauce le serment. Les chroniques lui attribuent un exploit à al-Yamâma et sa mort à Shushtar en 20 H. Le récit des quatre-vingt-dix-neuf duels demeure une déclaration rapportée, non un total de cent établi.",
+                heroQuote: "At-Tirmidhî 3854 : le Prophète ﷺ nomme Al-Barâ’ parmi ceux dont Allah exauce le serment (hasan gharîb selon At-Tirmidhî).",
                 tags: ["Guerrier", "Martyrs", "Yamama"],
                 genealogy: "Al-Bara ibn Malik Al-Ansari.",
                 physicalDesc: "Il avait une apparence miséreuse (vieux vêtements), mais une valeur immense auprès d'Allah.",
                 timeline: [
-                    { year: "11 H", desc: "Se fait catapulter dans le jardin de la mort à Yamama." },
-                    { year: "20 H", desc: "Martyr à Tustar (Shushtar) après avoir tué le Satrape." }
+                  {
+                    "year": "11 ou 12 H",
+                    "desc": "Selon les chroniques, Al-Barâ’ fut porté au-dessus du mur du jardin pendant la bataille d'al-Yamâma ; la bataille est située à la fin de 11 H ou au début de 12 H."
+                  },
+                  {
+                    "year": "20 H",
+                    "desc": "Adh-Dhahabî rapporte sa mort à Shushtar lors des campagnes du Khûzistân."
+                  }
                 ],
                 narratives: [
-                    { id: 261, title: "La Catapulte Humaine", content: "À Yamama, il demanda à ses compagnons : 'Portez-moi sur un bouclier et jetez-moi par-dessus le mur !'. Il atterrit seul au milieu de l'armée de Musaylima, combattit furieusement et ouvrit la porte aux musulmans." },
-                    { id: 262, title: "Le Serment", content: "Quand la bataille devenait dure, les compagnons lui disaient : 'Jure par Allah, ô Bara !'. Il jurait la victoire et Allah la lui donnait." }
+                  {
+                    "id": 261,
+                    "title": "La porte du jardin à al-Yamâma",
+                    "content": "Adh-Dhahabî rapporte qu'Al-Barâ’ demanda à être porté sur un bouclier puis projeté au-delà du mur du jardin où s'étaient retranchés les adversaires. Le récit est conservé avec son attribution biographique sans lui attribuer un degré de hadith non retrouvé."
+                  },
+                  {
+                    "id": 262,
+                    "title": "Le serment d'Al-Barâ’",
+                    "content": "Anas ibn Mâlik transmet un hadith dans Jâmi‘ at-Tirmidhî 3854 où le Prophète ﷺ mentionne Al-Barâ’ parmi les serviteurs dont Allah exauce le serment. At-Tirmidhî le classe hasan gharîb pour cette voie et l'édition Darussalam hasan."
+                  }
                 ],
                 hadiths: [
-                    { text: "Combien de serviteurs... s'ils jurent par Allah, Il les exauce ! Al-Bara est l'un d'eux.", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" }
+                  {
+                    "text": "Parmi les serviteurs méconnus dont Allah honore le serment figure Al-Barâ’ ibn Mâlik.",
+                    "narrator": "Anas ibn Mâlik, d'après le Prophète ﷺ",
+                    "source": "Jâmi‘ at-Tirmidhî 3854 — hasan gharîb selon At-Tirmidhî ; hasan selon Darussalam",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Combien d'hommes a-t-il tués en duel ?", opts: ["10", "50", "100", "1000"], c: 2, exp: "Il a tué 100 champions en duel singulier, sans compter les mêlées." }
+                  {
+                    "q": "Quel classement At-Tirmidhî donne-t-il au hadith 3854 ?",
+                    "opts": [
+                      "Hasan gharîb",
+                      "Moutawâtir",
+                      "Inventé unanimement"
+                    ],
+                    "c": 0,
+                    "exp": "At-Tirmidhî écrit hasan gharîb ; Darussalam affiche hasan.",
+                    "ref": "https://sunnah.com/tirmidhi:3854"
+                  },
+                  {
+                    "q": "Qui transmet la parole sur Al-Barâ’ dans ce hadith ?",
+                    "opts": [
+                      "Anas ibn Mâlik",
+                      "Abou Hourayra",
+                      "Ibn ‘Abbâs"
+                    ],
+                    "c": 0,
+                    "exp": "Le hadith 3854 est transmis par Anas, le frère d'Al-Barâ’.",
+                    "ref": "https://sunnah.com/tirmidhi:3854"
+                  },
+                  {
+                    "q": "Combien d'adversaires Al-Barâ’ dit-il avoir vaincus dans un récit biographique ?",
+                    "opts": [
+                      "Quatre-vingt-dix-neuf",
+                      "Exactement cent",
+                      "Dix"
+                    ],
+                    "c": 0,
+                    "exp": "La notice rapporte une déclaration de quatre-vingt-dix-neuf, sans l'ériger en décompte historiquement certifié.",
+                    "ref": "https://siyar.fr/livre/1/198"
+                  },
+                  {
+                    "q": "Que raconte la tradition du jardin d'al-Yamâma ?",
+                    "opts": [
+                      "Al-Barâ’ franchit un mur et ouvrit la porte",
+                      "Il négocia le traité d'al-Houdaybiya",
+                      "Il mourut à Badr"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî retransmet une narration de son passage par-dessus le mur du jardin.",
+                    "ref": "https://siyar.fr/livre/1/196"
+                  },
+                  {
+                    "q": "Où est-il mort selon Siyar ?",
+                    "opts": [
+                      "À Shushtar",
+                      "À La Mecque",
+                      "À Al-Abwâ"
+                    ],
+                    "c": 0,
+                    "exp": "La notice situe sa mort à Shushtar en 20 H.",
+                    "ref": "https://siyar.fr/livre/1/199"
+                  }
                 ]
             },
             {
@@ -909,23 +1364,99 @@
                 name: "Nawfal ibn Al-Harith",
                 arabicName: "نَوْفَل",
                 subtitle: "Le Doyen des Hashimites",
-                intro: "Cousin du Prophète et doyen de la famille après Hamza et Abbas. Capturé à Badr, il devint ensuite un soutien indéfectible, fournissant 3000 lances à Hunayn.",
+                intro: "Nawfal ibn al-Hârith, parent du Prophète ﷺ, fut capturé parmi les Qurayshites à Badr, puis se convertit. Les chroniques rapportent son émigration à l'époque d'al-Khandaq et son aide matérielle à Hounayn. Adh-Dhahabî donne deux années de décès : 15 ou 20 H.",
+                heroQuote: "Adh-Dhahabî rapporte que Nawfal mit trois mille lances à disposition lors de Hounayn.",
                 tags: ["Ahl al-Bayt", "Cousin", "Soutien"],
                 genealogy: "Nawfal ibn Al-Harith ibn Abdelmoutalib.",
                 timeline: [
-                    { year: "2 H", desc: "Capturé à Badr (côté païen), rançonné par Abbas." },
-                    { year: "5 H", desc: "Émigre à Médine." },
-                    { year: "8 H", desc: "Fournit 3000 lances pour la bataille de Hunayn." },
-                    { year: "20 ou 25 H", desc: "Un récit situe son décès vers 20 H ; une autre datation donne 25 H." }
+                  {
+                    "year": "2 H",
+                    "desc": "Capturé dans les rangs qurayshites à Badr ; le récit biographique mentionne la rançon payée par al-‘Abbâs."
+                  },
+                  {
+                    "year": "5 H",
+                    "desc": "Selon Siyar, Nawfal se convertit et émigra l'année d'al-Khandaq."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Des récits lui attribuent la mise à disposition de trois mille lances lors de Hounayn."
+                  },
+                  {
+                    "year": "15 ou 20 H",
+                    "desc": "Adh-Dhahabî indique une mort estimée en 20 H et rapporte également 15 H. Ces deux versions restent visibles."
+                  }
                 ],
                 narratives: [
-                    { id: 271, title: "Le Soutien Logistique", content: "Bien que converti tardivement, il mit sa fortune au service de l'Islam en offrant 3000 lances pour l'armée lors de la bataille de Hunayn." }
+                  {
+                    "id": 271,
+                    "title": "L'aide matérielle lors de Hounayn",
+                    "content": "Adh-Dhahabî rapporte que Nawfal mit trois mille lances à disposition au moment de Hounayn, et qu'il resta parmi les hommes qui tinrent bon. Cette information est conservée comme récit historique sans classement de chaîne inventé."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Prophète le désigna comme frère de foi d'Al-Abbas (son oncle).", narrator: "Dhahabi", source: "Siyar A'lam" }
+                  {
+                    "text": "Selon la notice d'adh-Dhahabî, le Prophète ﷺ établit un lien de fraternité entre Nawfal et al-‘Abbâs, qui avaient auparavant des intérêts communs.",
+                    "narrator": "Adh-Dhahabî, récit biographique",
+                    "source": "Siyar, notice 27 — tradition historique non classée ici",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Qu'a-t-il offert à l'armée musulmane à Hunayn ?", opts: ["100 chameaux", "3000 lances", "De l'or", "Des chevaux"], c: 1, exp: "Il a fourni un armement considérable pour soutenir le Prophète." }
+                  {
+                    "q": "Quelle bataille Nawfal vécut-il d'abord dans les rangs qurayshites ?",
+                    "opts": [
+                      "Badr",
+                      "Al-Yamâma",
+                      "Shushtar"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî le cite parmi les captifs de Badr.",
+                    "ref": "https://siyar.fr/livre/1/199"
+                  },
+                  {
+                    "q": "Quel soutien matériel lui est attribué à Hounayn ?",
+                    "opts": [
+                      "Trois mille lances",
+                      "Trois mille bateaux",
+                      "Cent chameaux exclusivement"
+                    ],
+                    "c": 0,
+                    "exp": "La notice mentionne une contribution de trois mille lances.",
+                    "ref": "https://siyar.fr/livre/1/199"
+                  },
+                  {
+                    "q": "Quelles années de décès sont réellement mentionnées dans Siyar ?",
+                    "opts": [
+                      "15 ou 20 H",
+                      "20 ou 25 H",
+                      "83 ou 84 H"
+                    ],
+                    "c": 0,
+                    "exp": "Le texte consulté mentionne 20 H et 15 H, et non 25 H.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  },
+                  {
+                    "q": "À quelle époque son émigration est-elle située ?",
+                    "opts": [
+                      "L'année d'al-Khandaq",
+                      "Pendant le califat d'Al-Mansour",
+                      "En 97 H"
+                    ],
+                    "c": 0,
+                    "exp": "Siyar rapporte qu'il émigra l'année d'al-Khandaq.",
+                    "ref": "https://siyar.fr/livre/1/199"
+                  },
+                  {
+                    "q": "Avec qui une tradition le présente-t-elle comme frère de foi ?",
+                    "opts": [
+                      "Al-‘Abbâs",
+                      "Abou Jandal",
+                      "Al-Barâ’"
+                    ],
+                    "c": 0,
+                    "exp": "La notice indique une fraternité avec al-‘Abbâs et leur association antérieure dans les affaires.",
+                    "ref": "https://siyar.fr/livre/1/199"
+                  }
                 ]
             },
             {
@@ -935,22 +1466,95 @@
                 name: "Al-Harith ibn Nawfal",
                 arabicName: "الحَارِث بن نَوْفَل",
                 subtitle: "Le Gouverneur de La Mecque",
-                intro: "Fils de Nawfal, il fut nommé gouverneur de la ville sainte par les califes. Il s'installa ensuite à Bassora.",
+                intro: "Al-Hârith ibn Nawfal, fils de Nawfal, est présenté par adh-Dhahabî comme gouverneur de La Mecque sous ‘Oumar et ‘Outhman. La notice lui attribue aussi des responsabilités reçues du Prophète ﷺ et sa mort sous le califat d'‘Outhman, vers l'âge de soixante-dix ans, sans année précise.",
+                heroQuote: "Selon Siyar, Al-Hârith ibn Nawfal gouverna La Mecque sous ‘Oumar et ‘Outhman.",
                 tags: ["Gouverneur", "Ahl al-Bayt"],
                 genealogy: "Al-Harith ibn Nawfal.",
                 timeline: [
-                    { year: "Conquête", desc: "Se convertit avec son père." },
-                    { year: "Califat", desc: "Gouverneur de La Mecque sous Omar et Othman." },
-                    { year: "70 ans", desc: "Décès à Bassora." }
+                  {
+                    "year": "À la conversion de son père",
+                    "desc": "Adh-Dhahabî rapporte qu'Al-Hârith se convertit avec son père Nawfal ; aucune année personnelle n'est imposée."
+                  },
+                  {
+                    "year": "Califats de ‘Oumar et ‘Outhman",
+                    "desc": "La notice le présente comme gouverneur de La Mecque sous ces deux califes ; la période n'est pas transformée en année fictive."
+                  },
+                  {
+                    "year": "Sous le califat d'‘Outhman",
+                    "desc": "Siyar rapporte sa mort vers 70 ans, sans année hégirienne exacte."
+                  }
                 ],
                 narratives: [
-                    { id: 281, title: "La Confiance des Califes", content: "Sa compétence et sa noble lignée (Hashimite) firent de lui le choix naturel pour gouverner la Mecque sous les premiers califes." }
+                  {
+                    "id": 281,
+                    "title": "Administration de La Mecque",
+                    "content": "Adh-Dhahabî mentionne qu'Al-Hârith fut chargé de gouverner La Mecque au temps de ‘Oumar puis d'‘Outhman. Son commentaire ajoute que le Prophète lui avait confié certaines responsabilités. La notice ne détaille pas toutes ces missions et n'établit pas que la parenté à elle seule déterminait les nominations."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Prophète lui confia certaines responsabilités de son vivant.", narrator: "Dhahabi", source: "Siyar A'lam" }
+                  {
+                    "text": "Adh-Dhahabî affirme que le Prophète ﷺ confia certaines responsabilités à Al-Hârith de son vivant.",
+                    "narrator": "Adh-Dhahabî, récit historique",
+                    "source": "Siyar 1/200 — détail de la mission et degré de la chaîne non fournis",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "De quelle ville fut-il gouverneur ?", opts: ["Médine", "La Mecque", "Koufa", "Yémen"], c: 1, exp: "Il a dirigé la ville sainte sous les Califes Bien Guidés." }
+                  {
+                    "q": "Quelle ville Al-Hârith ibn Nawfal gouverna-t-il selon Siyar ?",
+                    "opts": [
+                      "La Mecque",
+                      "Alexandrie",
+                      "Damas"
+                    ],
+                    "c": 0,
+                    "exp": "La notice le fait gouverner La Mecque sous ‘Oumar et ‘Outhman.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  },
+                  {
+                    "q": "Qui était son père ?",
+                    "opts": [
+                      "Nawfal ibn al-Hârith",
+                      "Abou Jandal",
+                      "Al-Barâ’"
+                    ],
+                    "c": 0,
+                    "exp": "Le texte le présente comme le fils de Nawfal.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  },
+                  {
+                    "q": "Quelle année précise de décès donne la notice ?",
+                    "opts": [
+                      "Aucune : le califat d'‘Outhman seulement",
+                      "97 H",
+                      "18 H"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî dit qu'il décéda sous ‘Outhman, autour de 70 ans.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  },
+                  {
+                    "q": "Que dit la biographie de son installation après La Mecque ?",
+                    "opts": [
+                      "Il s'établit à Bassora et y fit construire une maison",
+                      "Il émigra au Sri Lanka",
+                      "Il dirigea la flotte d'Égypte"
+                    ],
+                    "c": 0,
+                    "exp": "Le passage mentionne Bassora et la construction d'une demeure.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  },
+                  {
+                    "q": "La phrase sur les responsabilités confiées par le Prophète est-elle ici un hadith authentifié ?",
+                    "opts": [
+                      "Non, un renseignement biographique à attribuer",
+                      "Oui, le texte indique une chaîne complète sahîh",
+                      "C'est le verset 24:22"
+                    ],
+                    "c": 0,
+                    "exp": "La notice ne fournit pas de jugement de hadith pour cette information.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  }
                 ]
             },
             {
@@ -959,26 +1563,102 @@
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Al-Harith",
                 arabicName: "عَبْدُ الله بن الحارث",
-                subtitle: "Le Gouverneur Baba",
-                intro: "Surnommé 'Baba'. Né du vivant du Prophète, il fut choisi comme gouverneur par les habitants de Bassora eux-mêmes lors des troubles.",
-                heroQuote: "Ô Baba, ô Baba, je marierai Baba...",
-                tags: ["Gouverneur", "Tabi'i", "Ahl al-Bayt"],
+                subtitle: "Le Transmetteur surnommé Babbâ",
+                intro: "‘Abd-Allah ibn al-Hârith ibn Nawfal, surnommé Babbâ, est classé par Ibn Sa‘d parmi les tâbi‘în fiables. Il reçut, nourrisson, une bénédiction du Prophète ﷺ selon la biographie, gouverna Bassora durant les troubles et mourut à Oman, en 83 ou 84 H selon les sources.",
+                heroQuote: "Ibn Sa‘d le décrit comme un transmetteur digne de confiance de la génération des tâbi‘în.",
+                tags: ["Tabi'i","Gouverneur","Ahl al-Bayt"],
                 genealogy: "Abd-Allah ibn Al-Harith. Sa mère est Hind, sœur de Muawiya.",
                 physicalDesc: "Béni par la salive du Prophète bébé.",
                 timeline: [
-                    { year: "Naissance", desc: "Le Prophète lui donne sa salive." },
-                    { year: "Fitna", desc: "Élu gouverneur par les gens de Bassora." },
-                    { year: "84 H", desc: "Décès à Oman (fuite)." }
+                  {
+                    "year": "Enfance (sans année)",
+                    "desc": "Selon Ibn Sa‘d, sa mère le présenta nourrisson au Prophète ﷺ, qui invoqua pour lui et lui transmit de sa salive ; aucune année précise n'est donnée."
+                  },
+                  {
+                    "year": "Troubles à Bassora",
+                    "desc": "Des chroniques indiquent qu'il fut choisi pour gouverner Bassora dans une période de troubles, avant de quitter la ville par crainte d'al-Hajjâj."
+                  },
+                  {
+                    "year": "83 ou 84 H",
+                    "desc": "Ibn Sa‘d situe son décès à Oman en 84 H ; Abou ‘Oubayd donne 83 H. La divergence est conservée."
+                  }
                 ],
                 narratives: [
-                    { id: 291, title: "Le Surnom Affectueux", content: "Sa tante Hind le berçait en chantant 'Ô Baba, beauté de la Kaaba'. Ce surnom lui resta toute sa vie." },
-                    { id: 292, title: "L'Élection Populaire", content: "Fait rare : à la fuite du gouverneur omeyyade, les habitants de Bassora s'accordèrent unanimement pour le désigner comme chef, preuve de son immense popularité." }
+                  {
+                    "id": 291,
+                    "title": "L'origine du surnom Babbâ",
+                    "content": "Adh-Dhahabî rapporte une chanson affectueuse chantée à l'enfant dans la famille, dont dérive le surnom « Babbâ ». Il ne s'agit pas d'une parole prophétique."
+                  },
+                  {
+                    "id": 292,
+                    "title": "Le gouvernement de Bassora et le départ pour Oman",
+                    "content": "Les récits historiques rapportent qu'il administra Bassora durant la période des troubles, puis partit à Oman par crainte d'al-Hajjâj, dans le contexte de la révolte d'Ibn al-Ash‘ath. Ibn Sa‘d donne 84 H pour sa mort ; Abou ‘Oubayd indique 83 H."
+                  }
                 ],
                 hadiths: [
-                    { text: "Il a rapporté des récits d'Omar, Othman et Ali.", narrator: "Dhahabi", source: "Siyar A'lam" }
+                  {
+                    "text": "Ibn Sa‘d le qualifie de transmetteur de confiance parmi les tâbi‘în ; il rapporte des traditions des compagnons.",
+                    "narrator": "Ibn Sa‘d, évaluation biographique d'un transmetteur",
+                    "source": "Siyar 1/202 — ce propos d'un historien n'est pas un hadith prophétique",
+                    "type": "commentary"
+                  }
                 ],
                 quizData: [
-                    { q: "Pourquoi s'est-il enfui à Oman ?", opts: ["Pour le commerce", "Pour fuir Al-Hajjaj", "Pour prêcher", "Pour se marier"], c: 1, exp: "Il craignait la tyrannie d'Al-Hajjaj lors de la répression." }
+                  {
+                    "q": "À quelle génération Ibn Sa‘d rattache-t-il ‘Abd-Allah ibn al-Hârith ibn Nawfal ?",
+                    "opts": [
+                      "Aux tâbi‘în",
+                      "Aux prophètes",
+                      "Aux quatre califes"
+                    ],
+                    "c": 0,
+                    "exp": "La notice le qualifie de tâbi‘î, transmetteur digne de confiance selon Ibn Sa‘d.",
+                    "ref": "https://siyar.fr/livre/1/202"
+                  },
+                  {
+                    "q": "Quel était son surnom ?",
+                    "opts": [
+                      "Babbâ",
+                      "Abou Jandal",
+                      "Abou ‘Abs"
+                    ],
+                    "c": 0,
+                    "exp": "Le surnom affectueux « Babbâ » apparaît dans la notice.",
+                    "ref": "https://siyar.fr/livre/1/200"
+                  },
+                  {
+                    "q": "Quelles années de décès sont rapportées ?",
+                    "opts": [
+                      "83 ou 84 H",
+                      "20 ou 25 H",
+                      "2 ou 3 H"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn Sa‘d indique 84 H et Abou ‘Oubayd 83 H.",
+                    "ref": "https://siyar.fr/livre/1/202"
+                  },
+                  {
+                    "q": "Dans quelle région mourut-il selon la notice ?",
+                    "opts": [
+                      "Oman",
+                      "Al-Abwâ",
+                      "Al-Yamâma"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî rapporte son départ de Bassora vers Oman.",
+                    "ref": "https://siyar.fr/livre/1/202"
+                  },
+                  {
+                    "q": "Qui désigne Ibn Sa‘d comme responsable de la qualification de confiance ?",
+                    "opts": [
+                      "Le savant Ibn Sa‘d",
+                      "Athar lui-même",
+                      "Un hadith du Prophète"
+                    ],
+                    "c": 0,
+                    "exp": "La qualification d'Ibn Sa‘d est rapportée comme son avis, sans que l'application produise un degré personnel.",
+                    "ref": "https://siyar.fr/livre/1/202"
+                  }
                 ]
             },
             {
@@ -987,22 +1667,88 @@
                 source: "Siyar A'lam al-Nubula (Dhahabi)",
                 name: "Abd-Allah ibn Abd-Allah",
                 arabicName: "عَبْدُ الله بن عَبْدِ الله",
-                subtitle: "La Victime du Simoun",
-                intro: "Surnommé Abou Yahya. Il mourut tragiquement à Al-Abwa, tué par un vent brûlant du désert alors qu'il accompagnait le calife.",
-                heroQuote: "Le simoun eut raison de lui...",
-                tags: ["Ahl al-Bayt", "Hashimite"],
+                subtitle: "Un Transmetteur de la Génération Suivante",
+                intro: "‘Abd-Allah ibn ‘Abd-Allah ibn al-Hârith, connu sous le nom d'Abou Yahyâ, fut un transmetteur de la génération postérieure aux compagnons. Il rapporta notamment de son père et d'Ibn ‘Abbâs. Ibn Sa‘d le dit fiable et situe sa mort à al-Abwâ, frappé par le simoun en 97 H, pendant un déplacement avec le calife Soulaymân.",
+                heroQuote: "Ibn Sa‘d le décrit comme digne de confiance et situe sa mort à al-Abwâ, en 97 H.",
+                tags: ["Tabi'i","Transmetteur","Ahl al-Bayt"],
                 genealogy: "Abd-Allah ibn Abd-Allah ibn Al-Harith.",
                 timeline: [
-                    { year: "97 H", desc: "Meurt du vent Simoun à Al-Abwa." }
+                  {
+                    "year": "97 H",
+                    "desc": "Selon Ibn Sa‘d, il mourut à al-Abwâ, frappé par le vent chaud appelé simoun, lors d'un déplacement avec le calife Soulaymân, qui aurait accompli la prière mortuaire."
+                  }
                 ],
                 narratives: [
-                    { id: 301, title: "La Mort par le Vent", content: "Alors qu'il voyageait avec le calife Soulayman, une tempête de vent brûlant (Simoun) le frappa et le tua. Le calife pria sur lui." }
+                  {
+                    "id": 301,
+                    "title": "Une mort rapportée à al-Abwâ",
+                    "content": "Adh-Dhahabî transmet d'après Ibn Sa‘d que ‘Abd-Allah ibn ‘Abd-Allah fut frappé par le simoun à al-Abwâ en 97 H, alors qu'il voyageait avec le calife Soulaymân. La notice attribue à ce dernier la prière funéraire. Il s'agit d'un récit historique et non d'un hadith prophétique."
+                  }
                 ],
                 hadiths: [
-                    { text: "Il est un rapporteur digne de confiance.", narrator: "Ibn Saad", source: "Tabaqat" }
+                  {
+                    "text": "Ibn Sa‘d le juge fiable, tout en indiquant que peu de traditions ont été rapportées de lui.",
+                    "narrator": "Ibn Sa‘d, avis d'un biographe des transmetteurs",
+                    "source": "Siyar 1/203 — évaluation de rapporteur, pas hadith prophétique",
+                    "type": "commentary"
+                  }
                 ],
                 quizData: [
-                    { q: "Qu'est-ce qui a causé sa mort ?", opts: ["Une épée", "Le vent Simoun", "La peste", "Une chute"], c: 1, exp: "Un vent de désert brûlant et violent." }
+                  {
+                    "q": "Quelle année de décès la notice donne-t-elle ?",
+                    "opts": [
+                      "97 H",
+                      "18 H",
+                      "34 H"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn Sa‘d, cité par adh-Dhahabî, indique 97 H.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  },
+                  {
+                    "q": "Où se situait-il lors de sa mort ?",
+                    "opts": [
+                      "Al-Abwâ",
+                      "Badr",
+                      "Al-Houdaybiya"
+                    ],
+                    "c": 0,
+                    "exp": "La notice cite le lieu d'al-Abwâ.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  },
+                  {
+                    "q": "Quel phénomène est mentionné comme cause de son décès ?",
+                    "opts": [
+                      "Le vent chaud simoun",
+                      "Un naufrage",
+                      "Une bataille à Ouhoud"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn Sa‘d parle du simoun, dans son récit biographique.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  },
+                  {
+                    "q": "Quel calife était présent selon le récit ?",
+                    "opts": [
+                      "Soulaymân",
+                      "Abou Bakr",
+                      "‘Outhman"
+                    ],
+                    "c": 0,
+                    "exp": "La notice mentionne le calife Soulaymân et la prière sur le défunt.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  },
+                  {
+                    "q": "Qui porte l'appréciation de fiabilité sur ce transmetteur ?",
+                    "opts": [
+                      "Ibn Sa‘d",
+                      "Al-Barâ’",
+                      "Athar"
+                    ],
+                    "c": 0,
+                    "exp": "L'avis « digne de confiance » est celui d'Ibn Sa‘d, non une authentification produite par Athar.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  }
                 ]
             },
             {
