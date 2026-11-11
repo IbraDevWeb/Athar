@@ -154,7 +154,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,202,'Attendu : 171 repères initiaux + 31 repères du contrôle de cinq biographies');
+assert.equal(total,205,'Attendu : 202 repères antérieurs + 3 références primaires ajoutées aux notices 6, 8 et 9');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
