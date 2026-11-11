@@ -289,7 +289,7 @@ const ReaderView = {
                         <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter"><div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300"><p v-html="formatText(story.content)"></p></div>
                             <aside v-if="sourceEvidence('narrative', story.id)" class="mt-5 border-t border-brand-gold/20 pt-4 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
                                 <span class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }} · Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('narrative', story.id).printedPage }}</span>
-                                <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p>
+                                <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p><p v-if="sourceEvidence('narrative', story.id).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('narrative', story.id).hadithRef }}</p><a v-if="sourceEvidence('narrative', story.id).externalUrl" :href="sourceEvidence('narrative', story.id).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le récit dans la source citée</a>
                                 <button type="button" @click="activeTab='sources'" class="mt-2 font-semibold text-brand-gold hover:underline">Voir la référence complète</button>
                             </aside></div>
                     </div>
