@@ -181,6 +181,29 @@ async function desktop() {
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
 
+    // Vague 21–30 : recoupement hadith de Al-Barâ et statut d'un tâbi‘î.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Al-Bara ibn Malik');
+    await page.locator('.library-pro-card').filter({hasText:'Al-Bara ibn Malik'}).first().click();
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    const baraSources=page.locator('.athar-siyar-sources');
+    assert.ok(await baraSources.locator('a[href="https://sunnah.com/tirmidhi:3854"]').count()>=1,'Source At-Tirmidhî 3854 absente');
+    assert.match(await baraSources.innerText(),/hasan gharîb/i,'Jugement d’At-Tirmidhî absent');
+    await page.getByRole('tab',{name:'Quiz',exact:true}).click();
+    assert.ok(await page.locator('div.max-w-2xl.mx-auto.space-y-10 > div.bg-white').count()>=5,'Cinq questions attendues pour Al-Barâ');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Abd-Allah ibn Abd-Allah');
+    await page.locator('.library-pro-card').filter({hasText:'Transmetteur de la Génération Suivante'}).first().click();
+    await page.getByRole('tab',{name:'Citations',exact:true}).click();
+    assert.ok(await page.getByText('Commentaire d’un savant',{exact:true}).count()>=1,'Avis d’Ibn Sa‘d confondu avec un hadith');
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    assert.ok(await page.locator('.athar-siyar-sources a[href="https://siyar.fr/livre/1/203"]').count()>=1,'Référence de la notice 30 absente');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));
     await page.locator('#athar-immersive-theme').click();
     await page.waitForFunction(before => document.documentElement.classList.contains('dark') !== before,previousTheme,{timeout:5000});

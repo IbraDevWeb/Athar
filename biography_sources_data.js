@@ -2018,7 +2018,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/189",
     "entries": [
       {
@@ -2029,6 +2029,99 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 21",
         "note": "Le fascicule contient une notice consacrée à « Abou 'Abs ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Siyar : aptitude à écrire ; commentaire biographique",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 21",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Siyar : aptitude à écrire ; commentaire biographique. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Avant Badr",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Siyar — notice 21",
+        "note": "La notice indique : « Avec Abou Bourda ibn Niyâr, il détruisit les idoles des Banou Hâritha, selon la biographie transmise par adh-Dhahabî. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 2 H",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Siyar — notice 21",
+        "note": "La notice indique : « Participe à la bataille de Badr selon la notice Siyar. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : Après Badr",
+        "externalUrl": "https://sunnah.com/bukhari:4037",
+        "hadithRef": "bukhari:4037",
+        "note": "La notice indique : « Une variante nomme Abou ‘Abs parmi les hommes ayant accompagné Muhammad ibn Maslama contre Ka‘b ibn al-Ashraf (Al-Bukhârî 4037). Aucune date n'est tirée de ce seul libellé. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 3,
+        "title": "Repère : 34 H",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Siyar — notice 21",
+        "note": "La notice indique : « La notice d'adh-Dhahabî place sa mort à Médine à 70 ans ; ‘Outhman aurait prié sur lui. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 211,
+        "title": "Abou ‘Abs dans les versions de l'expédition contre Ka‘b",
+        "externalUrl": "https://sunnah.com/bukhari:4037",
+        "hadithRef": "bukhari:4037",
+        "note": "Récit « Abou ‘Abs dans les versions de l'expédition contre Ka‘b » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 212,
+        "title": "La collecte de la zakât",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 21",
+        "note": "Récit « La collecte de la zakât » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Récit biographique — notice 21",
+        "category": "historical",
+        "externalUrl": "https://siyar.fr/livre/1/189",
+        "hadithRef": "Siyar, notice 21 — témoignage historique ou commentaire",
+        "grade": "ungraded",
+        "isnad": "Attribution biographique à l'auteur indiqué ; chaîne complète non établie dans cette notice.",
+        "note": "Parole ou description attribuée à un biographe ; ce n'est pas un hadith prophétique authentifié."
       }
     ]
   },
@@ -2040,7 +2133,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/190",
     "entries": [
       {
@@ -2057,9 +2150,82 @@ const BIOGRAPHY_SOURCES = {
         "id": 3,
         "pdfPage": 11,
         "printedPage": 10,
-        "title": "Décès : témoignages divergents",
-        "note": "Le fascicule rapporte un décès durant le califat d'Oumar (ou en 20 H) et une version alternative à Siffîn, jugée moins vraisemblable par Al-Waqidi.",
-        "status": "variant"
+        "title": "Repère : 20 H (autres récits : Siffîn)",
+        "note": "La notice indique : « Sâlih ibn Kaysân le fait mourir sous ‘Oumar ; d'autres donnent 20 H ou le placent à Siffîn. Al-Wâqidî préférait le décès antérieur à Siffîn. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar.",
+        "status": "variant",
+        "externalUrl": "https://siyar.fr/livre/1/192",
+        "hadithRef": "Siyar — notice 22"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — La parole du conseiller se trouve dans Siyar 1/192 ; classement indépendant de cette voie non retrouvé",
+        "externalUrl": "https://siyar.fr/livre/1/192",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 22",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "La parole du conseiller se trouve dans Siyar 1/192 ; classement indépendant de cette voie non retrouvé. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Avant l'Hégire",
+        "externalUrl": "https://siyar.fr/livre/1/190",
+        "hadithRef": "Siyar — notice 22",
+        "note": "La notice indique : « La notice rapporte son rejet des idoles et l'attachement au monothéisme avant l'islam. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Avant l'Hégire",
+        "externalUrl": "https://siyar.fr/livre/1/190",
+        "hadithRef": "Siyar — notice 22",
+        "note": "La notice indique : « Selon la sîra, il figure parmi les représentants (nuqabâ’) de la rencontre d'al-‘Aqaba. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : Khaybar",
+        "externalUrl": "https://siyar.fr/livre/1/190",
+        "hadithRef": "Siyar — notice 22",
+        "note": "La notice indique : « Des récits biographiques le présentent comme chargé d'estimer les dattes de Khaybar ; aucune année individuelle n'est inventée pour cette mission. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 221,
+        "title": "La mission d'estimation et la prière du Prophète",
+        "externalUrl": "https://siyar.fr/livre/1/190",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 22",
+        "note": "Récit « La mission d'estimation et la prière du Prophète » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Tradition rapportée — notice 22",
+        "category": "prophetic",
+        "externalUrl": "https://siyar.fr/livre/1/192",
+        "hadithRef": "Siyar, notice 22 — témoignage historique ou commentaire",
+        "grade": "ungraded",
+        "isnad": "Attribution biographique à l'auteur indiqué ; chaîne complète non établie dans cette notice.",
+        "note": "Degré et attribution issus du recueil cité : Siyar, notice 22 — témoignage historique ou commentaire."
       }
     ]
   },
@@ -2071,7 +2237,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/192",
     "entries": [
       {
@@ -2082,6 +2248,88 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 23",
         "note": "Le fascicule contient une notice consacrée à « Abou Jandal ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Al-Bukhârî 2731–2732 : Abou Jandal à al-Houdaybiya",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "Al-Bukhârî 2731–2732",
+        "grade": "sahih",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Al-Bukhârî 2731–2732 : Abou Jandal à al-Houdaybiya. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 6 H",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "bukhari:2731",
+        "note": "La notice indique : « Arrive à al-Houdaybiya en portant des entraves, alors que se négocie le traité avec son père Souhayl ; le récit figure dans Al-Bukhârî 2731–2732. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Après al-Houdaybiya",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "bukhari:2731",
+        "note": "La notice indique : « Le récit d'Al-Bukhârî le montre rejoignant Abou Basîr après avoir retrouvé sa liberté. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 18 H",
+        "externalUrl": "https://siyar.fr/livre/1/192",
+        "hadithRef": "Siyar — notice 23",
+        "note": "La notice indique : « Adh-Dhahabî rapporte sa mort au Shâm lors de la peste d'‘Amwâs, en 18 H. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 231,
+        "title": "Le retour imposé lors des négociations",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "bukhari:2731",
+        "note": "Récit « Le retour imposé lors des négociations » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 232,
+        "title": "La sortie d'Abou Jandal et son association avec Abou Basîr",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "bukhari:2731",
+        "note": "Récit « La sortie d'Abou Jandal et son association avec Abou Basîr » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Tradition rapportée — notice 23",
+        "category": "prophetic",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "Al-Bukhârî 2731–2732",
+        "grade": "sahih",
+        "isnad": "Al-Miswar ibn Makhrama et Marwân rapportent le récit ; transmission dans Sahîh al-Bukhârî.",
+        "note": "Degré et attribution issus du recueil cité : Al-Bukhârî 2731–2732."
       }
     ]
   },
@@ -2093,7 +2341,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/193",
     "entries": [
       {
@@ -2104,6 +2352,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 24",
         "note": "Le fascicule contient une notice consacrée à « Abd-Allah ibn Souhayl ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Adh-Dhahabî critique l'anachronisme de la citation attribuée à Souhayl",
+        "externalUrl": "https://siyar.fr/livre/1/194",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 24",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Adh-Dhahabî critique l'anachronisme de la citation attribuée à Souhayl. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 2 H",
+        "externalUrl": "https://siyar.fr/livre/1/193",
+        "hadithRef": "Siyar — notice 24",
+        "note": "La notice indique : « Selon Siyar, rejoint le camp musulman pendant la bataille de Badr après avoir dissimulé sa foi. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 12 H",
+        "externalUrl": "https://siyar.fr/livre/1/193",
+        "hadithRef": "Siyar — notice 24",
+        "note": "La notice indique : « La notice rapporte sa mort à al-Yamâma, à l'âge de 38 ans, et mentionne aussi une tradition de première émigration en Abyssinie. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "narrative",
+        "id": 241,
+        "title": "L'intercession évoquée par Souhayl : récit chronologiquement problématique",
+        "externalUrl": "https://siyar.fr/livre/1/194",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 24",
+        "note": "Récit « L'intercession évoquée par Souhayl : récit chronologiquement problématique » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 242,
+        "title": "La participation à Badr",
+        "externalUrl": "https://siyar.fr/livre/1/193",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 24",
+        "note": "Récit « La participation à Badr » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Tradition rapportée — notice 24",
+        "category": "prophetic",
+        "externalUrl": "https://sunnah.com/abudawud:2522",
+        "hadithRef": "Abou Dâwoud 2522 — sahîh selon Al-Albânî",
+        "grade": "sahih",
+        "isnad": "Abou ad-Dardâ’ rapporte cette parole ; Abou Dâwoud discute le nom du transmetteur Rabâh ibn al-Walîd.",
+        "note": "Hadith général transmis par Abou ad-Dardâ’, sahîh selon Al-Albânî ; n'authentifie pas le dialogue anachronique rapporté par Al-Wâqidî."
       }
     ]
   },
@@ -2115,7 +2434,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/194",
     "entries": [
       {
@@ -2126,6 +2445,99 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 25",
         "note": "Le fascicule contient une notice consacrée à « Souhayl ibn 'Amr ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Al-Bukhârî 2731–2732 : négociations à al-Houdaybiya",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "Al-Bukhârî 2731–2732",
+        "grade": "sahih",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Al-Bukhârî 2731–2732 : négociations à al-Houdaybiya. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 2 H",
+        "externalUrl": "https://siyar.fr/livre/1/194",
+        "hadithRef": "Siyar — notice 25",
+        "note": "La notice indique : « Capturé à Badr selon la notice biographique. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 6 H",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "bukhari:2731",
+        "note": "La notice indique : « Négocie pour Quraysh le traité d'al-Houdaybiya ; Al-Bukhârî 2731–2732 rapporte ses échanges avec le Prophète ﷺ. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://siyar.fr/livre/1/194",
+        "hadithRef": "Siyar — notice 25",
+        "note": "La notice indique : « Adh-Dhahabî rapporte sa conversion lors de la conquête de La Mecque. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 3,
+        "title": "Repère : Décès au Shâm (versions divergentes)",
+        "externalUrl": "https://siyar.fr/livre/1/196",
+        "hadithRef": "Siyar — notice 25",
+        "note": "La notice indique : « Al-Madâ’inî situe sa mort à al-Yarmouk ; ach-Châfi‘î et al-Wâqidî la rattachent à la peste d'‘Amwâs. Athar ne choisit pas une version sans source décisive. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 251,
+        "title": "Un discours à La Mecque après la mort du Prophète",
+        "externalUrl": "https://siyar.fr/livre/1/194",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 25",
+        "note": "Récit « Un discours à La Mecque après la mort du Prophète » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 252,
+        "title": "Une vie d'adoration après sa conversion",
+        "externalUrl": "https://siyar.fr/livre/1/194",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 25",
+        "note": "Récit « Une vie d'adoration après sa conversion » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Tradition rapportée — notice 25",
+        "category": "prophetic",
+        "externalUrl": "https://sunnah.com/bukhari:2731",
+        "hadithRef": "Al-Bukhârî 2731–2732",
+        "grade": "sahih",
+        "isnad": "Al-Miswar ibn Makhrama et Marwân rapportent le récit ; transmission dans Sahîh al-Bukhârî.",
+        "note": "Degré et attribution issus du recueil cité : Al-Bukhârî 2731–2732."
       }
     ]
   },
@@ -2137,7 +2549,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/196",
     "entries": [
       {
@@ -2157,6 +2569,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Quatre-vingt-dix-neuf duels : déclaration attribuée",
         "note": "Dans le récit d'Anas, Al-Bara affirme avoir abattu quatre-vingt-dix-neuf adversaires en duel, et non exactement cent.",
         "status": "qualification"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — At-Tirmidhî 3854 : hasan gharîb selon At-Tirmidhî ; hasan selon Darussalam",
+        "externalUrl": "https://sunnah.com/tirmidhi:3854",
+        "hadithRef": "At-Tirmidhî 3854",
+        "grade": "hasan",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "At-Tirmidhî 3854 : hasan gharîb selon At-Tirmidhî ; hasan selon Darussalam. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 11 ou 12 H",
+        "externalUrl": "https://siyar.fr/livre/1/196",
+        "hadithRef": "Siyar — notice 26",
+        "note": "La notice indique : « Selon les chroniques, Al-Barâ’ fut porté au-dessus du mur du jardin pendant la bataille d'al-Yamâma ; la bataille est située à la fin de 11 H ou au début de 12 H. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 20 H",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Siyar — notice 26",
+        "note": "La notice indique : « Adh-Dhahabî rapporte sa mort à Shushtar lors des campagnes du Khûzistân. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 261,
+        "title": "La porte du jardin à al-Yamâma",
+        "externalUrl": "https://siyar.fr/livre/1/196",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 26",
+        "note": "Récit « La porte du jardin à al-Yamâma » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 262,
+        "title": "Le serment d'Al-Barâ’",
+        "externalUrl": "https://sunnah.com/tirmidhi:3854",
+        "hadithRef": "tirmidhi:3854",
+        "note": "Récit « Le serment d'Al-Barâ’ » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "located",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Tradition rapportée — notice 26",
+        "category": "prophetic",
+        "externalUrl": "https://sunnah.com/tirmidhi:3854",
+        "hadithRef": "At-Tirmidhî 3854 — hasan gharîb selon At-Tirmidhî, hasan selon Darussalam",
+        "grade": "hasan",
+        "isnad": "‘Abd Allah ibn Abî Ziyâd → Sayyâr → Ja‘far ibn Soulaymân → Thâbit et ‘Alî ibn Zayd → Anas.",
+        "note": "Degré et attribution issus du recueil cité : At-Tirmidhî 3854 — hasan gharîb selon At-Tirmidhî, hasan selon Darussalam."
       }
     ]
   },
@@ -2168,7 +2651,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/199",
     "entries": [
       {
@@ -2185,9 +2668,82 @@ const BIOGRAPHY_SOURCES = {
         "id": 3,
         "pdfPage": 24,
         "printedPage": 23,
-        "title": "Date du décès de Nawfal",
-        "note": "Le fascicule indique l'an 20 et rapporte également l'an 25 pour son décès.",
-        "status": "variant"
+        "title": "Repère : 15 ou 20 H",
+        "note": "La notice indique : « Adh-Dhahabî indique une mort estimée en 20 H et rapporte également 15 H. Ces deux versions restent visibles. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar.",
+        "status": "variant",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar — notice 27"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Siyar : participation à Hounayn et don de trois mille lances ; mort 15 ou 20 H",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 27",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Siyar : participation à Hounayn et don de trois mille lances ; mort 15 ou 20 H. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 2 H",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Siyar — notice 27",
+        "note": "La notice indique : « Capturé dans les rangs qurayshites à Badr ; le récit biographique mentionne la rançon payée par al-‘Abbâs. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 5 H",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Siyar — notice 27",
+        "note": "La notice indique : « Selon Siyar, Nawfal se convertit et émigra l'année d'al-Khandaq. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Siyar — notice 27",
+        "note": "La notice indique : « Des récits lui attribuent la mise à disposition de trois mille lances lors de Hounayn. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 271,
+        "title": "L'aide matérielle lors de Hounayn",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 27",
+        "note": "Récit « L'aide matérielle lors de Hounayn » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Récit biographique — notice 27",
+        "category": "historical",
+        "externalUrl": "https://siyar.fr/livre/1/199",
+        "hadithRef": "Siyar, notice 27 — témoignage historique ou commentaire",
+        "grade": "ungraded",
+        "isnad": "Attribution biographique à l'auteur indiqué ; chaîne complète non établie dans cette notice.",
+        "note": "Parole ou description attribuée à un biographe ; ce n'est pas un hadith prophétique authentifié."
       }
     ]
   },
@@ -2199,7 +2755,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/200",
     "entries": [
       {
@@ -2210,6 +2766,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 28",
         "note": "Le fascicule contient une notice consacrée à « Al-Harith ibn Nawfal ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Siyar : Al-Hârith gouverneur de La Mecque sous ‘Oumar et ‘Outhman",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 28",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Siyar : Al-Hârith gouverneur de La Mecque sous ‘Oumar et ‘Outhman. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : À la conversion de son père",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar — notice 28",
+        "note": "La notice indique : « Adh-Dhahabî rapporte qu'Al-Hârith se convertit avec son père Nawfal ; aucune année personnelle n'est imposée. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Califats de ‘Oumar et ‘Outhman",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar — notice 28",
+        "note": "La notice indique : « La notice le présente comme gouverneur de La Mecque sous ces deux califes ; la période n'est pas transformée en année fictive. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : Sous le califat d'‘Outhman",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar — notice 28",
+        "note": "La notice indique : « Siyar rapporte sa mort vers 70 ans, sans année hégirienne exacte. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 281,
+        "title": "Administration de La Mecque",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 28",
+        "note": "Récit « Administration de La Mecque » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Récit biographique — notice 28",
+        "category": "historical",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar, notice 28 — témoignage historique ou commentaire",
+        "grade": "ungraded",
+        "isnad": "Attribution biographique à l'auteur indiqué ; chaîne complète non établie dans cette notice.",
+        "note": "Parole ou description attribuée à un biographe ; ce n'est pas un hadith prophétique authentifié."
       }
     ]
   },
@@ -2221,7 +2848,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/200",
     "entries": [
       {
@@ -2241,6 +2868,88 @@ const BIOGRAPHY_SOURCES = {
         "title": "Abd-Allah, fils d'Al-Harith fils de Nawfal",
         "note": "Cette notice concerne Abd-Allah ibn Al-Harith ibn Nawfal, surnommé Baba, distinct d'Abd-Allah ibn Al-Harith ibn Abdelmoutalib (notice 47).",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Ibn Sa‘d classe ‘Abd-Allah ibn al-Hârith parmi les tâbi‘în fiables ; 83 ou 84 H",
+        "externalUrl": "https://siyar.fr/livre/1/202",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 29",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Ibn Sa‘d classe ‘Abd-Allah ibn al-Hârith parmi les tâbi‘în fiables ; 83 ou 84 H. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Enfance (sans année)",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar — notice 29",
+        "note": "La notice indique : « Selon Ibn Sa‘d, sa mère le présenta nourrisson au Prophète ﷺ, qui invoqua pour lui et lui transmit de sa salive ; aucune année précise n'est donnée. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Troubles à Bassora",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Siyar — notice 29",
+        "note": "La notice indique : « Des chroniques indiquent qu'il fut choisi pour gouverner Bassora dans une période de troubles, avant de quitter la ville par crainte d'al-Hajjâj. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "variant",
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 83 ou 84 H",
+        "externalUrl": "https://siyar.fr/livre/1/202",
+        "hadithRef": "Siyar — notice 29",
+        "note": "La notice indique : « Ibn Sa‘d situe son décès à Oman en 84 H ; Abou ‘Oubayd donne 83 H. La divergence est conservée. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 291,
+        "title": "L'origine du surnom Babbâ",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 29",
+        "note": "Récit « L'origine du surnom Babbâ » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 292,
+        "title": "Le gouvernement de Bassora et le départ pour Oman",
+        "externalUrl": "https://siyar.fr/livre/1/200",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 29",
+        "note": "Récit « Le gouvernement de Bassora et le départ pour Oman » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Avis de l'auteur — notice 29",
+        "category": "commentary",
+        "externalUrl": "https://siyar.fr/livre/1/202",
+        "hadithRef": "Siyar, notice 29 — témoignage historique ou commentaire",
+        "grade": "ungraded",
+        "isnad": "Attribution biographique à l'auteur indiqué ; chaîne complète non établie dans cette notice.",
+        "note": "Parole ou description attribuée à un biographe ; ce n'est pas un hadith prophétique authentifié."
       }
     ]
   },
@@ -2252,7 +2961,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Attributions, variantes et avis des auteurs identifiés sont indiqués, mais ce repérage ne certifie ni toutes les chaînes ni les dates des chroniques. Athar ne produit aucun jugement d'authenticité indépendant.",
     "readUrl": "https://siyar.fr/livre/1/202",
     "entries": [
       {
@@ -2263,6 +2972,55 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 30",
         "note": "Le fascicule contient une notice consacrée à « Abd-Allah ibn Abd-Allah ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale — Ibn Sa‘d qualifie Abou Yahyâ de fiable et place sa mort en 97 H à al-Abwâ",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 30",
+        "grade": "ungraded",
+        "isnad": "Attribution ou jugement rapporté de la source indiquée ; Athar ne classe pas indépendamment les chaînes.",
+        "note": "Ibn Sa‘d qualifie Abou Yahyâ de fiable et place sa mort en 97 H à al-Abwâ. Les propos biographiques ou les réserves de l'historien sont distingués des paroles prophétiques."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 97 H",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar — notice 30",
+        "note": "La notice indique : « Selon Ibn Sa‘d, il mourut à al-Abwâ, frappé par le vent chaud appelé simoun, lors d'un déplacement avec le calife Soulaymân, qui aurait accompli la prière mortuaire. » Cette datation ou cette attribution est présentée comme transmise, sans déduction nouvelle d'Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "narrative",
+        "id": 301,
+        "title": "Une mort rapportée à al-Abwâ",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Adh-Dhahabî, Siyar, notice 30",
+        "note": "Récit « Une mort rapportée à al-Abwâ » attribué au recueil cité. Le texte distingue le témoignage rapporté des appréciations personnelles de l'auteur et n'invente aucun classement."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "status": "qualification",
+        "kind": "hadith",
+        "id": 0,
+        "title": "Avis de l'auteur — notice 30",
+        "category": "commentary",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar, notice 30 — témoignage historique ou commentaire",
+        "grade": "ungraded",
+        "isnad": "Attribution biographique à l'auteur indiqué ; chaîne complète non établie dans cette notice.",
+        "note": "Parole ou description attribuée à un biographe ; ce n'est pas un hadith prophétique authentifié."
       }
     ]
   },
