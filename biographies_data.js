@@ -1713,7 +1713,7 @@
                       "Al-Houdaybiya"
                     ],
                     "c": 0,
-                    "exp": "La notice cite le lieu d'al-Abwâ.",
+                    "exp": "La notice d'Ibn Sa‘d, reproduite par adh-Dhahabî, situe sa mort à al-Abwâ en 97 H.",
                     "ref": "https://siyar.fr/livre/1/203"
                   },
                   {
