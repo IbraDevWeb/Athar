@@ -10,17 +10,22 @@ const ATHAR_CHRONOLOGY = (() => {
     }
   });
   const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
-  const periodByYear = n => n <= 0 ? 'origins' : n <= 11 ? 'prophetic' : n <= 40 ? 'rashidun' : n <= 132 ? 'umayyad' : n <= 656 ? 'abbasid' : 'postclassical';
+  const periodByYear = n => n <= 0 ? 'origins' : n <= 10 ? 'prophetic' : n <= 40 ? 'rashidun' : n <= 132 ? 'umayyad' : n <= 656 ? 'abbasid' : 'postclassical';
   const make = (year, periodId, precision, detail) => ({
     year, sortYear: Number.isFinite(year) ? year : (periodId === 'origins' ? -1 : 9999),
     periodId, precision, detail,
     dateBadge: precision === 'reported' ? 'Année dans la notice' :
       precision === 'variant' ? 'Datation divergente' :
+      precision === 'anchored' ? 'Année d’un événement-repère' :
       precision === 'period' ? 'Période identifiée' : 'Date non renseignée'
   });
   const resolve = (event, chapterId, eventIndex) => {
     const raw = normalize(event?.year);
-    const reference = references[`${chapterId}-${eventIndex}`] || null;
+    const reference = references[`${chapterId}-${eventIndex}`] || (raw === 'badr' ? {
+      sourceTitle: 'Bataille de Badr — 2 H',
+      sourceUrl: 'https://www.islam.museum/en/event/battle-of-badr/',
+      note: 'La bataille a lieu en 2 H. La participation de chaque personne exige une référence biographique distincte.'
+    } : null);
     let dating;
     // Ne pas convertir « Après 11 H » en « 11 H », ni « 17 ans » en 17 H.
     if (/^(apres|avant|vers|environ|depuis)\b/.test(raw) && /\d+\s*h\b/.test(raw)) {
@@ -51,7 +56,7 @@ const ATHAR_CHRONOLOGY = (() => {
       } else if (/^califat d.?omar$/.test(raw)) {
         dating = make(null, 'rashidun', 'period', 'Sous le califat de ‘Oumar ; année précise non renseignée.');
       } else if (raw === 'badr') {
-        dating = make(2, 'prophetic', 'reported', 'La bataille de Badr se situe en 2 H ; la présence de ce personnage dépend du récit de sa notice.');
+        dating = make(2, 'prophetic', 'anchored', 'La bataille de Badr se situe en 2 H ; la présence de ce personnage dépend du récit de sa notice.');
       } else {
         dating = make(null, 'undated', 'undated', 'Ce libellé ne donne pas d’année historique vérifiable ; aucun placement n’est déduit automatiquement.');
       }
