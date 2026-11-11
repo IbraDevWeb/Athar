@@ -450,7 +450,7 @@
             {
                 id: 12,
                 verified: false,
-                source: "Siyar A'lam al-Nubula (Dhahabi)",
+                source: "Chroniques d’Ibn Hishâm, Ibn Sa‘d et Al-Haythamî (références externes)",
                 name: "Abd-Allah ibn Jahche",
                 arabicName: "عبد الله بن جحش",
                 subtitle: "L'Homme au Vœu Mutilé",
