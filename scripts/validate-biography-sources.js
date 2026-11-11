@@ -236,4 +236,14 @@ assert.equal(bibliography[4].entries.find(e=>e.kind==='hadith'&&e.id===1).status
 assert.equal(bibliography[5].entries.find(e=>e.kind==='hadith'&&e.id===1).grade,'disputed','Le Tirmidhi 3752 est controversé');
 assert.ok(/chaîne interrompue/.test(chapters.find(c=>c.id===1).hadiths[1].source));
 assert.ok(/15/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content) || /quinze/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content));
+for (const id of [6,7,8,9,10]) {
+  const chapter = chapters.find(item => item.id === id);
+  assert.ok(chapter?.quizData?.length >= 5, 'Quiz insuffisamment développé pour la notice ' + id);
+  chapter.quizData.forEach((q, i) => assert.ok(Array.isArray(q.opts) && Number.isInteger(q.c) && q.c >= 0 && q.c < q.opts.length, 'Question invalide : ' + id + '/' + i));
+  assert.ok(bibliography[id].entries.some(entry => entry.kind === 'quote' && entry.id === 0 && entry.grade), 'Citation principale sans référence : ' + id);
+  (chapter.hadiths || []).forEach((h, i) => {
+    const kind = h.type === 'verse' ? 'verse' : 'hadith';
+    assert.ok(bibliography[id].entries.some(entry => entry.kind === kind && entry.id === i), 'Citation/verset sans repère : ' + id + '/' + i);
+  });
+}
 console.log('Siyar : 99 biographies indexées sur 104, 214 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
