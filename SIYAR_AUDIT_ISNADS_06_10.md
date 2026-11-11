@@ -34,7 +34,7 @@ Le [dossier Siyar 6–15](SIYAR_AUDIT_06_15.md) garde les repères imprimés des
 - Barre de progression et bouton « Recommencer » ; l’aspect visuel de la bibliothèque reste sobre.
 - Références, autorités citées et réserves affichées dans l'onglet **Sources**, dans les cartes de citations et sous les récits.
 - La catégorie « Verset coranique » est distinguée des traditions rapportées.
-- Registre bibliographique : **209 repères**, soit des entrées documentaires, et non des chaînes indépendamment authentifiées.
+- Registre bibliographique : **214 repères**, soit des entrées documentaires, et non des chaînes indépendamment authentifiées.
 - Cache hors ligne renouvelé ; aucun RAG ajouté.
 
 **Limite scientifique :** une base en ligne peut citer un classement sans vérifier toutes les variantes existantes. Athar ne déduit aucun classement inédit des chaînes et ne prétend pas épuiser l'ensemble de la tradition.
