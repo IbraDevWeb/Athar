@@ -38,7 +38,9 @@ jobs:
         shell: bash
         run: |
           npm install --no-save --no-package-lock playwright@1.55.0
-          npx playwright install --with-deps chromium
+          # Les dépendances système sont fournies par l'image GitHub ubuntu-24.04 ;
+          # éviter l'apt intermittent (DNS azure.archive.ubuntu.com).
+          npx playwright install chromium
       - name: Test the seven public sections locally
         shell: bash
         run: |
