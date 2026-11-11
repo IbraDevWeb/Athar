@@ -252,14 +252,17 @@
                 ],
                 narratives: [
                     { id: 601, title: "Les présents sur le mont Hirâ", content: "Dans une tradition transmise par Saïd ibn Zayd, le Prophète (ﷺ) s'adresse au mont Hirâ et évoque la présence d'un prophète, d'un véridique et de martyrs. Le récit énumère le Prophète, Abou Bakr, ‘Oumar, ‘Outhman, ‘Ali, Talha, Zoubayr, Saad, Abderrahman et Saïd. La scène dite du « neuvième homme » ne figure pas dans le passage du fascicule utilisé ici." },
-                    { id: 602, title: "La Voleuse de Terre", content: "Arwa bint Ouways l'accusa d'avoir volé un bout de sa terre. Saïd dit : « Prenez-la ! Ô Allah, si elle ment, rends-la aveugle et fais de sa terre son tombeau ». Elle devint aveugle peu après et tomba dans un puits sur cette même terre, qui devint sa tombe." },
+                    { id: 602, title: "La Voleuse de Terre", content: "Selon le récit transmis par ‘Urwa (Mouslim 1610c), Arwa bint Ouways accusa Saïd d’empiéter sur sa terre. Saïd rappela la parole prophétique concernant l’usurpation de terrain et invoqua contre elle si son accusation était mensongère. La suite du récit rapporte qu’elle perdit la vue puis tomba dans un puits." },
                     { id: 603, title: "L'Espion de Badr", content: "Le Prophète l'envoya avec Talha pour espionner la caravane de Quraysh. Ils allèrent jusqu'à Al-Hawra. À leur retour, la bataille de Badr était finie. Le Prophète leur donna tout de même leur part de butin et de mérite." }
                 ],
                 hadiths: [
                     { text: "Les truffes (Kam'a) sont une manne divine et leur jus est un remède pour les yeux.", narrator: "Saïd ibn Zayd", source: "Al-Bukhârî 5708 ; Mouslim 2049a" },
-                    { text: "Zayd (son père) sera ressuscité comme une communauté à lui seul.", narrator: "Le Prophète (ﷺ)", source: "Siyar — chaîne et degré à établir ; attribution non certifiée" }
+                    { text: "Zayd (son père) sera ressuscité comme une communauté à lui seul.", narrator: "Le Prophète (ﷺ)", source: "Abou Ya‘lâ 973 — hasan selon Al-Haythamî ; autre voie faible selon Al-Arna’ût (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Quel recueil contient le litige foncier entre Sa‘îd et Arwa ?","opts":["Sahîh Mouslim 1610c","Sunan Abî Dâwûd seulement","Aucun recueil"],"c":0,"exp":"Le récit se trouve dans Mouslim 1610c, avec la parole du Prophète relative à l'usurpation de terrain.","ref":"https://sunnah.com/muslim:1610c"},
+                    {"q":"Quelle précaution concerne le récit « une communauté à lui seul » ?","opts":["Il n'existe aucune transmission","La même chaîne est unanimement authentifiée","Des spécialistes ont évalué différemment plusieurs voies"],"c":2,"exp":"Al-Haythamî indique hasan pour une voie citée dans Abou Ya‘lâ ; Al-Arna’ût juge faible une autre voie d’Ahmad.","ref":"https://dorar.net/h/JKxKOrRq/osoul"},
+
                     {"q":"Quel recueil rapporte le hadith des truffes transmis par Saïd ibn Zayd ?","opts":["Sahîh al-Bukhârî","Uniquement un récit historique","Aucun recueil connu"],"c":0,"exp":"Le hadith figure dans Sahîh al-Bukhârî 5708, et également chez Mouslim 2049a.","ref":"https://sunnah.com/bukhari:5708"},
                     {"q":"Que peut-on affirmer du récit de Saïd sur le mont Hirâ ?","opts":["Il existe une transmission mentionnant les personnes présentes","Toutes les versions sont identiques","Aucune source ne le rapporte"],"c":0,"exp":"La notice distingue la liste rapportée d'autres détails narratifs non présents dans le fascicule.","ref":"https://siyar.fr/livre/1/143"},
 
@@ -288,14 +291,17 @@
                 ],
                 narratives: [
                     { id: 701, title: "L'Épreuve du Linceul", content: "À sa mort à {Ouhoud}, il ne possédait qu'un pagne à rayures. Si on couvrait sa tête, ses pieds dépassaient ; si on couvrait ses pieds, sa tête était exposée. Le Prophète (ﷺ) ordonna : « Couvrez sa tête et mettez de la citronnelle (Idhkhir) sur ses pieds »." },
-                    { id: 702, title: "La Peau de Serpent", content: "Saad ibn Abi Waqas raconte : « Mouss'ab était le plus aisé d'entre nous... Mais la faim l'avait tellement touché que sa peau avait séché et pelait comme celle d'un serpent. Nous étions parfois obligés de le porter sur nos épaules tant il était faible. »" },
+                    { id: 702, title: "La Peau de Serpent", content: "Une transmission rapportée dans la notice biographique, attribuée à Sa‘d ibn Abî Waqqâs, décrit Mouss’ab éprouvé par la faim et amaigri au point de devoir être soutenu. Les détails de cette version doivent être distingués des hadiths du linceul établis dans Al-Bukhârî." },
                     { id: 703, title: "Les Pleurs d'Abderrahman", content: "Bien plus tard, on servit un repas copieux à Abderrahman ibn 'Aouf. Il se mit à pleurer en disant : « Mouss'ab est mort et n'avait qu'un seul vêtement pour linceul... J'ai peur que nos récompenses nous aient été anticipées dans cette vie ! »." }
                 ],
                 hadiths: [
-                    { text: "J'ai vu Mouss'ab à la Mecque, nul n'était plus choyé que lui. Il a tout quitté pour l'amour d'Allah.", narrator: "Le Prophète (ﷺ)", source: "At-Tirmidhî — référence exacte et statut à vérifier" },
-                    { text: "Parmi les croyants, il est des hommes qui ont été sincères dans leur engagement...", narrator: "Verset 33:23", source: "Coran 33:23 — application biographique rapportée, non établie comme cause exclusive de révélation" }
+                    { text: "Selon un récit biographique attribué au Prophète (ﷺ) : « Je n’ai vu à La Mecque personne mieux coiffée, mieux vêtue et plus comblée que Mouss’ab ibn Oumayr. »", narrator: "Le Prophète (ﷺ)", source: "Ibn Sa‘d, at-Tabaqât (récit 2886) — degré non retrouvé pour cette chaîne" },
+                    { text: "Parmi les croyants, il est des hommes qui ont été sincères dans leur engagement...", narrator: "Verset 33:23", source: "Coran 33:23 — verset, et non hadith ; application à Mouss’ab à documenter", type: "verse" }
                 ],
                 quizData: [
+                    {"q":"Qui rapporte l’épisode du linceul de Mouss’ab dans Al-Bukhârî ?","opts":["Abou Hourayra","Khabbâb","Ibn ‘Abbâs"],"c":1,"exp":"Khabbâb témoigne de la difficulté de trouver un linceul couvrant le corps à Ouhoud.","ref":"https://sunnah.com/bukhari:1276"},
+                    {"q":"Le verset 33:23 est-il une parole d’un compagnon ?","opts":["Oui, attribuée à Mouss’ab","Oui, attribuée à Talha","Non, c'est un verset coranique"],"c":2,"exp":"Le passage est du Coran ; le lien avec Mouss’ab dans les ouvrages biographiques doit être cité séparément.","ref":"https://quran.com/33/23"},
+
                     {"q":"Dans quel recueil trouve-t-on l'épisode du linceul trop court de Mouss’ab ?","opts":["Sahîh al-Bukhârî","Uniquement dans un récit non attribué","Dans la sourate 33"],"c":0,"exp":"Khabbâb rapporte que l’on couvrit la tête de Mouss’ab et ses pieds avec de l’idhkhir.","ref":"https://sunnah.com/bukhari:1276"},
                     {"q":"Peut-on attribuer sans réserve à Mouss’ab le titre de « premier ambassadeur » à partir du passage d’Al-Barâ’ ?","opts":["Non, ce passage parle du premier émigré accueilli","Oui, le passage utilise ce titre explicitement","Oui, c'est une citation coranique"],"c":0,"exp":"Le passage du fascicule dit « premier Muhâjir accueilli » ; les deux qualifications ne doivent pas être confondues.","ref":"https://siyar.fr/livre/1/150"},
 
@@ -324,12 +330,15 @@
                 narratives: [
                     { id: 801, title: "L'Expédition de Qatane", content: "Au mois de Mouharram (an 4), le Prophète l'envoya attaquer les Banu Assad à Qatane avec 150 hommes. Il revint victorieux avec du butin, mais l'effort fit rouvrir sa blessure d'Ouhoud, ce qui causa sa mort." },
                     { id: 802, title: "De bonnes paroles auprès du défunt", content: "Oum Salama rapporte que le Messager d’Allah (ﷺ) recommandait de ne prononcer que de bonnes paroles auprès d’un défunt, car les anges disent « Amîn » aux invocations. Après la mort d’Abou Salama, il lui enseigna une invocation en faveur du défunt et de ceux qui restent." },
-                    { id: 803, title: "L'Héritage Spirituel", content: "Il enseigna à sa femme Oum Salama l'invocation du malheur : « Ô Allah, rétribue-moi dans mon malheur et remplace-le par meilleur ». Elle l'appliqua et Allah lui donna le Prophète comme époux." }
+                    { id: 803, title: "L'Héritage Spirituel", content: "Oum Salama rapporte dans Sahîh Mouslim (918a–b) une invocation enseignée par le Prophète (ﷺ) pour celui qui traverse un malheur. Elle indique l’avoir prononcée à la mort de son mari Abou Salama avant de devenir l’épouse du Prophète." }
                 ],
                 hadiths: [
                     { text: "Ô Allah, pardonne à Abou Salama, élève son degré parmi les guidés et prends en charge sa descendance !", narrator: "Le Prophète (ﷺ)", source: "Sahîh Mouslim 920a" }
                 ],
                 quizData: [
+                    {"q":"Qui rapporte l’invocation pour Abou Salama dans Mouslim 920a ?","opts":["Oum Salama","‘Oumar","Abou Bakr"],"c":0,"exp":"Oum Salama décrit la visite du Prophète ﷺ auprès d'Abou Salama et son invocation.","ref":"https://sunnah.com/muslim:920a"},
+                    {"q":"Quelle invocation prononce Oum Salama pendant l’épreuve ?","opts":["Une invocation contre sa famille","La demande de récompense et de remplacement par meilleur","Une demande de richesse"],"c":1,"exp":"Oum Salama rapporte l'invocation prophétique dans Mouslim 918a–b.","ref":"https://sunnah.com/muslim:918a"},
+
                     {"q":"Que recommande le Prophète ﷺ auprès d'un défunt dans le récit d'Oum Salama ?","opts":["Ne prononcer que des invocations bienveillantes","Rester constamment silencieux","Ne jamais pleurer"],"c":0,"exp":"Les anges disent « Amîn » aux invocations ; le passage se trouve dans Sahîh Mouslim 920a.","ref":"https://sunnah.com/muslim:920a"},
                     {"q":"Quelle prudence faut-il garder sur la date du décès d'Abou Salama ?","opts":["Les notices rapportent des datations divergentes","La date est unanimement fixée au jour près","Il est mort à Badr"],"c":0,"exp":"Le fascicule mentionne 3 H et un récit plaçant le décès en 4 H après Qatane.","ref":"https://siyar.fr/livre/1/156"},
 
@@ -362,9 +371,12 @@
                 ],
                 hadiths: [
                     { text: "Le Prophète l'embrassa alors qu'il était mort, et je vis les larmes couler de ses yeux.", narrator: "Aïsha", source: "At-Tirmidhî 989 — hasan sahîh selon At-Tirmidhî ; faible selon Darussalam" },
-                    { text: "Rejoins notre excellent prédécesseur, Outhman ibn Mazh'oune !", narrator: "Le Prophète (à la mort de sa fille)", source: "Ibn Saad" }
+                    { text: "Rejoins notre excellent prédécesseur, Outhman ibn Mazh'oune !", narrator: "Le Prophète (à la mort de sa fille)", source: "Ahmad 2127 ; Ibn Sa‘d 3/398 — chaîne faible selon Al-Arna’ût, sahîh selon Ahmad Shâkir (Dorar)" }
                 ],
                 quizData: [
+                    {"q":"Selon Al-Bukhârî 5073, que refuse le Prophète à Outhman ?","opts":["Le voyage","L’apprentissage du Coran","Le célibat ascétique"],"c":2,"exp":"Sa‘d ibn Abî Waqqâs rapporte que le Prophète refusa le renoncement au mariage.","ref":"https://sunnah.com/bukhari:5073"},
+                    {"q":"Quel enseignement ressort du dialogue avec Oum Al-‘Alâ ?","opts":["Éviter d'affirmer avec certitude le sort d'un défunt sans preuve","Interdire toute invocation","Déduire le Paradis du seul décès"],"c":0,"exp":"Le récit est présent dans Sahîh al-Bukhârî 1243.","ref":"https://sunnah.com/bukhari:1243"},
+
                     {"q":"Quelles appréciations figurent pour le hadith de l'embrassade funéraire ?","opts":["Hasan sahîh selon At-Tirmidhî, faible selon Darussalam","Unanimement inventé","Unanimement sahîh sans divergence"],"c":0,"exp":"At-Tirmidhî 989 écrit hasan sahîh ; l’évaluation Darussalam indiquée sur Sunnah.com est da‘îf.","ref":"https://sunnah.com/tirmidhi:989"},
                     {"q":"Quel statut documentaire possède le récit de la pierre sur la tombe ?","opts":["Une chaîne qualifiée de moursal","Une chaîne unanimement sahîh","Un verset coranique"],"c":0,"exp":"Le fascicule signale une transmission moursal ; il ne faut pas la traiter comme une authentification.","ref":"https://siyar.fr/livre/1/158"},
 
@@ -395,6 +407,9 @@
                 ],
                 hadiths: [],
                 quizData: [
+                    {"q":"Comment Ibn Taymiyya qualifie-t-il la transmission examinée sur Qoudama ?","opts":["Sahîh sans réserve","« Fîhi nazar » (« à examiner »)","Moutawâtir"],"c":1,"exp":"Dorar cite le jugement « fîhi nazar » dans Minhâj as-Sunna 6/84 ; cela concerne cette version, pas toutes les voies possibles.","ref":"https://dorar.net/h/x4HMmzcz"},
+                    {"q":"Comment Athar doit-il présenter un récit historique non classé ?","opts":["Le supprimer sans explication","Le transformer en hadith sahîh","Citer l'ouvrage et signaler l'absence de classement identifié"],"c":2,"exp":"La présence d’un récit dans une chronique ne constitue pas à elle seule un jugement d'authenticité.","ref":"https://siyar.fr/livre/1/165"},
+
                     {"q":"Quel verset Qoudama invoqua-t-il selon le récit historique ?","opts":["Al-Mâ’ida 5:93","Al-Fâtiha 1:1","Al-Ikhlâs 112:1"],"c":0,"exp":"La notice rapporte son recours au verset 5:93 et la sanction ordonnée par ‘Oumar.","ref":"https://siyar.fr/livre/1/165"},
                     {"q":"Que prouve la localisation de cet épisode dans Siyar ?","opts":["Qu'un récit est mentionné, pas que chaque chaîne est authentifiée","Que toute interprétation ajoutée est certaine","Que le récit est un hadith prophétique sahîh"],"c":0,"exp":"Une référence biographique permet de retrouver le passage, pas d'authentifier automatiquement toutes les traditions.","ref":"https://siyar.fr/livre/1/165"},
 
