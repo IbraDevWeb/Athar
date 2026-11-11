@@ -148,6 +148,22 @@ async function desktop() {
     }
     await home(page);
 
+    // Biographie 12 : références externes réelles, sans page Siyar inventée.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Abd-Allah ibn Jahche');
+    await page.locator('.library-pro-card').filter({hasText:'Abd-Allah ibn Jahche'}).first().click();
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    const externalSource = page.locator('.athar-siyar-sources');
+    assert.match(await externalSource.innerText(), /sources externes/i,'La fiche 12 doit déclarer ses sources externes');
+    assert.ok(await externalSource.locator('a[href="https://dorar.net/history/event/54"]').count()>=1,'Le dossier historique d’Abd-Allah doit être accessible');
+    assert.ok(!/Fascicule sources externes, p\. null/.test(await externalSource.innerText()),'Page bibliographique inventée pour la fiche 12');
+    await page.getByRole('tab',{name:'Quiz',exact:true}).click();
+    assert.equal(await page.locator('button').filter({hasText:'At-Tabarânî'}).count(),0,'Le quiz ne doit pas afficher de réponses absurdes');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));
     await page.locator('#athar-immersive-theme').click();
     await page.waitForFunction(before => document.documentElement.classList.contains('dark') !== before,previousTheme,{timeout:5000});
