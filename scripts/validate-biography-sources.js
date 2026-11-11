@@ -156,7 +156,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,209,'Nombre de repères documentaires après enrichissement de la vague 6 à 10');
+assert.equal(total,214,'209 repères de la vague 6-10 + cinq citations principales documentées');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
@@ -236,4 +236,4 @@ assert.equal(bibliography[4].entries.find(e=>e.kind==='hadith'&&e.id===1).status
 assert.equal(bibliography[5].entries.find(e=>e.kind==='hadith'&&e.id===1).grade,'disputed','Le Tirmidhi 3752 est controversé');
 assert.ok(/chaîne interrompue/.test(chapters.find(c=>c.id===1).hadiths[1].source));
 assert.ok(/15/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content) || /quinze/.test(chapters.find(c=>c.id===1).narratives.find(n=>n.id===106).content));
-console.log('Siyar : 99 biographies indexées sur 104, 209 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+console.log('Siyar : 99 biographies indexées sur 104, 214 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
