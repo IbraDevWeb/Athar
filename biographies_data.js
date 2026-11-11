@@ -9,7 +9,7 @@
                 arabicName: "أبو عبيدة", 
                 subtitle: "L'Amin de la Communauté",
                 intro: "L'un des dix promis au Paradis. Le confident, le chef respecté. Celui dont le Prophète (ﷺ) a dit : « Chaque communauté a un homme de confiance, et le mien est Abou Oubayda. »",
-                heroQuote: "Si je l'avais voulu, j'aurais pu adresser des reproches à chacun d'entre vous... excepté Abou Oubayda !",
+                heroQuote: "Attribution moursal : « Je pourrais adresser des reproches à certains, sauf à Abou Oubayda. »",
                 tags: ["10 Promis", "Muhajirun", "Commandants"],
                 genealogy: "Il est Amir ibn Abd-Allah ibn Al-Jarrah ibn Hilal... ibn {Fihr}. Sa lignée rejoint celle du Prophète (ﷺ) en la personne de Fihr. Il est le Qourashite, Al-Fihri, Al-Makki.",
                 physicalDesc: "Selon Malik ibn Yakhamir : Un homme grand, très mince, le dos légèrement voûté, au visage émacié et à la barbe légère. Il avait les incisives cassées suite à la bataille d'Ouhoud. Il se teignait les cheveux avec du henné et du katam et portait deux nattes.",
@@ -28,13 +28,25 @@
                     { id: 102, title: "L'Ascétisme Radical", content: "Oumar (Calife) visita sa demeure de gouverneur au {Sham}. Il n'y vit qu'un bol, une épée et une selle. Oumar pleura : « La {Dounia} nous a tous changés, sauf toi, Abou Oubayda ». Ce dernier répondit : « Ô Prince des croyants, cela nous suffit pour atteindre le lieu de la sieste (la mort). »" },
                     { id: 103, title: "Le Conflit Évité", content: "Envoyé en renfort à l'expédition 'As-Salassil' dirigée par 'Amr ibn Al-'Ass, ce dernier refusa de céder le commandement. Bien qu'étant plus méritant, Abou Oubayda dit : « Le Prophète m'a ordonné de ne pas diverger. Tu es l'émir et je t'obéis ». Il sauva l'unité de l'armée par son humilité." },
                     { id: 104, title: "Face à la Peste", content: "Lors de la peste d'{Amwas}, Oumar lui écrivit : « J'ai besoin de toi, viens tout de suite ». Abou Oubayda comprit qu'Oumar voulait le sauver de la mort. Il répondit : « Je suis au milieu d'une armée musulmane et je ne souhaite pas me sauver moi-même en les laissant. Laisse-moi jusqu'à ce qu'Allah décide de mon sort ». Oumar pleura en lisant la lettre." },
-                    { id: 105, title: "L'Or Distribué", content: "Oumar lui envoya 4000 dinars (ou 400). Il distribua tout immédiatement aux soldats et aux pauvres. Sa femme dit : « Nous en avions pourtant besoin ! ». Il ne garda rien pour lui." },
-                    { id: 106, title: "L'Expédition du Cachalot", content: "Lors d'une expédition (Habat) où la famine frappa ses 300 hommes, la mer rejeta un immense cachalot (Ambre). Abou Oubayda dit d'abord 'C'est une bête morte (interdit)', puis se ravisa par ijtihad : 'Non, nous sommes les envoyés du Messager d'Allah et nous sommes contraints... Mangez !'. Ils s'en nourrirent un mois." }
+                    { id: 105, title: "Le don de ‘Oumar : plusieurs montants", content: "Un récit rapporte que ‘Oumar fit parvenir à Abou Oubayda 400 ou 4 000 dinars. Abou Oubayda en donna une partie à Mouadh et distribua le reste. Les sommes constituent des variantes de transmission, sans authentification indépendante de la chaîne." },
+                    { id: 106, title: "L'expédition du grand poisson", content: "Selon Jâbir dans Sahîh al-Bukhârî (5493–5494), environ trois cents hommes commandés par Abou Oubayda souffrirent de la faim lors de l'expédition d'Al-Khabat. La mer rejeta un énorme poisson appelé al-‘Anbar, dont ils mangèrent environ quinze jours selon ces versions. Abou Oubayda leur permit de s'en nourrir." }
                 ],
                 hadiths: [
-                    { text: "Chaque communauté a un digne de confiance (Amin) et le digne de confiance de cette communauté est Abou Oubayda !", narrator: "Le Prophète (ﷺ)", source: "Bukhari / Muslim" },
-                    { text: "J'aurais aimé être un bélier que ma famille égorge, dont ils mangent la chair et boivent le bouillon, et ainsi je ne serais plus rien !", narrator: "Abou Oubayda", source: "Siyar A'lam al-Nubula" },
-                    { text: "Le jeûne est une armure tant que celle-ci n'est pas rompue (par la médisance) !", narrator: "Abou Oubayda", source: "Rapporté par Iyad ibn Ghoutayf" }
+                  {
+                    "text": "Chaque communauté a un digne de confiance (Amin) et le digne de confiance de cette communauté est Abou Oubayda !",
+                    "narrator": "Le Prophète (ﷺ)",
+                    "source": "Al-Bukhârî 3744 (sahîh)"
+                  },
+                  {
+                    "text": "Selon une parole attribuée à Abou Oubayda : « J'aurais aimé être un ovin que ma famille égorge, afin qu'ils mangent sa chair. »",
+                    "narrator": "Abou Oubayda",
+                    "source": "Siyar, fasc. 01, p. 20 — chaîne interrompue"
+                  },
+                  {
+                    "text": "Le jeûne est une protection tant qu'on ne l'abîme pas.",
+                    "narrator": "Le Prophète (ﷺ), transmis par Abou Oubayda",
+                    "source": "An-Nasâ’î 2233 (hasan)"
+                  }
                 ],
                 quizData: [
                     { q: "Quel surnom unique le Prophète a-t-il donné à Abou Oubayda ?", opts: ["Le Véridique", "L'Amin (Digne de Confiance)", "Le Sabre d'Allah", "Le Sage"], c: 1, exp: "Il est Amin al-Oumma (Le digne de confiance de la communauté)." },
@@ -50,7 +62,7 @@
                 arabicName: "طلحة", 
                 subtitle: "Le Martyr Vivant",
                 intro: "Le Faucon d'Ouhoud. Celui qui fit de son corps un bouclier pour le Messager d'Allah (ﷺ). Surnommé « Le Bon », « Le Brave » et « Le Généreux » par le Prophète lui-même.",
-                heroQuote: "Quiconque désire voir un martyr marchant sur Terre, qu'il regarde Talha ibn Oubayd-Allah !",
+                heroQuote: "Selon une chaîne jugée faible : « Qui souhaite voir un martyr marcher sur terre regarde Talha. »",
                 tags: ["10 Promis", "Muhajirun", "Martyrs"],
                 genealogy: "Talha ibn Oubayd-Allah... ibn Kaab ibn Saad. Du clan des {Taym}, cousin éloigné d'Abou Bakr. Surnommé Abou Mouhammad.",
                 physicalDesc: "Selon Moussa ibn Talha : Un homme à la peau blanche avec un teint rosé (d'autres disent très brun), de taille moyenne (plutôt petit), le torse et les épaules larges. Il avait des pieds imposants. Il ne teignait pas ses cheveux. Il marchait d'un pas vif et son allure traduisait la dignité.",
@@ -62,14 +74,22 @@
                     { year: "36 H", desc: "Meurt lors de la bataille du Chameau ({Al-Jamal}) à 62 ans, tué par une flèche de Marwan ibn Al-Hakam." }
                 ],
                 narratives: [
-                    { id: 201, title: "Le Bouclier Humain", content: "À {Ouhoud}, alors que tous avaient fui, il resta avec le Prophète (ﷺ). Il interceptait les flèches avec sa main nue jusqu'à ce que ses doigts soient tranchés. Il poussa un cri de douleur (« Hassi ! »). Le Prophète lui dit : « Si tu avais dit Bismillah, les anges t'auraient élevé sous les yeux de tous »." },
+                    { id: 201, title: "La défense du Prophète à Ouhoud", content: "Plusieurs récits relatent comment Talha protégea le Prophète (ﷺ) à Ouhoud au prix de blessures à la main et au corps. Une transmission mentionne un cri de douleur et une parole relative à « Bismillah » ; la présence de ces détails dans une notice historique ne les authentifie pas automatiquement mot pour mot." },
                     { id: 202, title: "L'Angoisse du Riche", content: "Il reçut une somme colossale (700 000) de l'Hadramaout qui l'empêcha de dormir. Sa femme Oum Koulthoum (fille d'Abou Bakr) lui conseilla de la partager. Au matin, il ne lui restait plus un dirham." },
                     { id: 203, title: "Les Regrets d'Ali", content: "Après le combat du Chameau, Ali vit le corps de Talha dans un fossé. Il descendit, essuya la poussière de son visage et pleura en disant : « Si seulement j'étais mort vingt ans avant ce jour ! ». Il témoigna que le Prophète avait dit : « Talha et Zoubayr sont mes voisins au Paradis »." },
                     { id: 204, title: "Un récit sur sa sépulture", content: "Un récit transmis rapporte qu'environ trente ans après sa mort, un homme rêva que Talha se plaignait des infiltrations d'eau près de sa tombe. Sa famille aurait fait déplacer sa sépulture ; le narrateur décrit alors son corps comme peu altéré. Une autre version attribue le rêve à sa fille Aïsha. L'épisode est présenté comme une transmission rapportée, non comme un miracle établi." }
                 ],
                 hadiths: [
-                    { text: "Talha et Zoubayr sont mes deux voisins au Paradis !", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" },
-                    { text: "Le Paradis est obligatoire pour Talha (suite à son action à Ouhoud).", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" }
+                  {
+                    "text": "Talha et Zoubayr sont mes deux voisins au Paradis !",
+                    "narrator": "Le Prophète (ﷺ)",
+                    "source": "At-Tirmidhî 3741 — gharîb, jugé hasan par Darussalam"
+                  },
+                  {
+                    "text": "Le Paradis est obligatoire pour Talha (suite à son action à Ouhoud).",
+                    "narrator": "Le Prophète (ﷺ)",
+                    "source": "At-Tirmidhî 3738 — hasan"
+                  }
                 ],
                 quizData: [
                     { q: "Quelle blessure Talha a-t-il gardée d'Ouhoud ?", opts: ["Œil crevé", "Main paralysée", "Jambe coupée", "Aucune"], c: 1, exp: "Sa main fut paralysée après avoir stoppé des flèches destinées au Prophète (ﷺ)." },
@@ -103,8 +123,16 @@
                     { id: 304, title: "Le Duel de l'Œil", content: "À Badr, il affronta Oubayda ibn Saïd, un guerrier en armure intégrale dont on ne voyait que les yeux. Zoubayr visa l'œil avec son épieu et le tua. Il dut mettre son pied sur le cadavre pour réussir à retirer son arme tant le coup fut violent." }
                 ],
                 hadiths: [
-                    { text: "Zoubayr est le fils de ma tante et l'apôtre de ma communauté !", narrator: "Le Prophète (ﷺ)", source: "Mousnad Ahmad" },
-                    { text: "Annoncez le feu de l'Enfer au meurtrier du fils de Safiya (Zoubayr) !", narrator: "Ali ibn Abi Talib", source: "Siyar A'lam al-Nubula" }
+                  {
+                    "text": "Chaque prophète a un hawârî (allié dévoué), et mon hawârî est Zoubayr !",
+                    "narrator": "Le Prophète (ﷺ)",
+                    "source": "Al-Bukhârî 3719 (sahîh)"
+                  },
+                  {
+                    "text": "Selon une transmission historique, ‘Alî aurait demandé d'annoncer le Feu au meurtrier du fils de Safiya.",
+                    "narrator": "Propos attribué à ‘Alî (non prophétique)",
+                    "source": "Siyar, fasc. 03, p. 11 — chaîne non classée ici"
+                  }
                 ],
                 quizData: [
                     { q: "Quel est le titre unique donné par le Prophète à Zoubayr ?", opts: ["Saifullah", "Al-Hawari", "Al-Farouq", "As-Siddiq"], c: 1, exp: "C'est Al-Hawari (l'Apôtre/Disciple pur/Allié). Saifullah est Khalid." },
@@ -136,13 +164,21 @@
                 narratives: [
                     { id: 401, title: "Le convoi de Médine (récit discuté)", content: "Un récit au sujet d'Abderrahman ibn Aouf évoque l'arrivée à Médine de sept cents montures chargées de provisions et leur don en aumône. Il rapporte aussi une parole sur son entrée au Paradis. La transmission est qualifiée de « munkar » (discordante) dans le fascicule consulté ; elle ne doit pas être présentée comme un événement établi." },
                     { id: 402, title: "L'Imam du Prophète", content: "Lors de l'expédition de Tabouk, le Prophète (ﷺ) arriva en retard pour la prière de l'aube. Abderrahman avait déjà commencé. Le Prophète pria alors une unité de prière derrière lui. C'est un honneur qu'il ne partage qu'avec Abou Bakr." },
-                    { id: 403, title: "L'Héritage en Or", content: "Sa fortune était telle qu'à sa mort, on dut utiliser des haches pour partager son or, au point que les mains des hommes en eurent des ampoules. Chacune de ses 4 veuves reçut 80 000 dinars." },
+                    { id: 403, title: "Une succession et des chiffres divergents", content: "Plusieurs récits historiques décrivent une fortune considérable laissée par Abderrahman ibn ‘Aouf, avec des quantités d'or et des parts attribuées à ses épouses. Les montants diffèrent selon les voies : les sommes exactes ne doivent pas être présentées comme unanimement établies." },
                     { id: 404, title: "Le Refus du Pouvoir", content: "Lors de la Shura pour succéder à Omar, il dit : « Lequel d'entre vous accepterait de se désister pour choisir le meilleur ? ». Personne ne répondit. Il dit : « Moi je me désiste ». Il passa 3 jours sans dormir à consulter les gens pour finalement choisir Outhman." },
                     { id: 405, title: "La Jizya des Mages", content: "C'est grâce à son témoignage unique que le Calife Omar accepta de prélever la Jizya (impôt) sur les Mazdéens (Mages) de Hajar, car Abderrahman attesta avoir vu le Prophète le faire." }
                 ],
                 hadiths: [
-                    { text: "Laissez mes compagnons ! Si l'un de vous dépensait l'équivalent d'Ouhoud en or, cela n'égalerait pas une poignée donnée par eux.", narrator: "Le Prophète (à Khalid)", source: "Sahih Muslim" },
-                    { text: "Tu es un digne de confiance pour les gens du ciel et ceux de la Terre !", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam al-Nubula" }
+                  {
+                    "text": "N'insultez pas mes compagnons. Si l'un de vous dépensait l'équivalent d'Ouhoud en or, cela n'égalerait pas la mesure d'un seul d'entre eux ni même sa moitié.",
+                    "narrator": "Le Prophète (à Khalid)",
+                    "source": "Mouslim 2541a–b (sahîh)"
+                  },
+                  {
+                    "text": "Une transmission de chaîne faible attribue au Prophète : « Tu es digne de confiance pour les habitants du ciel et de la terre. »",
+                    "narrator": "Attribution prophétique discutée",
+                    "source": "Siyar, fasc. 04, p. 30 — rapporteur faible"
+                  }
                 ],
                 quizData: [
                     { q: "Quel était son nom avant l'Islam ?", opts: ["Abd-Shams", "Abd-'Amr", "Abou-Hakam", "Abd-Allah"], c: 1, exp: "Il s'appelait Abd-'Amr. Le Prophète l'a renommé Abderrahman (Serviteur du Tout-Miséricordieux)." },
@@ -173,13 +209,21 @@
                 ],
                 narratives: [
                     { id: 501, title: "La Grève de la Faim", content: "Sa mère jura de ne plus manger tant qu'il ne renierait pas l'Islam. Après un jour et une nuit, Saad lui dit fermement : « Ô mère, si tu avais cent âmes et qu'elles sortaient une à une, je ne laisserais pas ma religion. Mange ou ne mange pas ! ». Elle finit par manger." },
-                    { id: 502, title: "L'Invocation Exaucée", content: "À Koufa, un homme l'accusa injustement de ne pas être équitable. Saad invoqua : « Ô Allah, s'il ment, prolonge sa vie, sa pauvreté et expose-le aux tentations ». L'homme vécut très vieux, aveugle, mendiant et racolant les femmes en disant : « Je suis un vieillard frappé par l'invocation de Saad »." },
+                    { id: 502, title: "L'accusateur de Koufa", content: "Selon Jâbir ibn Samoura dans Sahîh al-Bukhârî (755), des habitants de Koufa se plaignirent de Sa‘d auprès de ‘Oumar. Après enquête, un homme l'accusa injustement. Sa‘d invoqua contre ce mensonge ; le rapporteur décrit ensuite le grand âge de l'accusateur et ses mauvais comportements. Le récit est cité avec sa source, sans extrapoler sur l'état médical de cet homme." },
                     { id: 503, title: "Le Manteau de Laine", content: "Sur son lit de mort, il demanda un vieux manteau de laine usé (Joubba) qu'il gardait précieusement dans un coffre. Il dit : « C'est avec cela que j'ai combattu les polythéistes à Badr. Je l'ai gardé pour ce jour ». Il fut son linceul." },
                     { id: 504, title: "La Retraite", content: "Lors de la Grande Discorde (Fitna), son fils vint le pousser à revendiquer le Califat. Saad lui tapa la poitrine et dit : « Tais-toi ! J'ai entendu le Prophète dire : Allah aime le serviteur riche (de cœur), pieux et discret ». Il mourut en paix dans son château d'Al-Aqiq." }
                 ],
                 hadiths: [
-                    { text: "Ô Allah, vise bien par ses flèches et exauce son invocation !", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam al-Nubula" },
-                    { text: "Voici mon oncle (maternel); faites-moi donc voir un pareil oncle !", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" }
+                  {
+                    "text": "Ô Allah, exauce Sa‘d lorsqu'il T'invoque !",
+                    "narrator": "Le Prophète (ﷺ)",
+                    "source": "At-Tirmidhî 3751 (hasan)"
+                  },
+                  {
+                    "text": "Voici mon oncle (maternel); faites-moi donc voir un pareil oncle !",
+                    "narrator": "Le Prophète (ﷺ)",
+                    "source": "At-Tirmidhî 3752 — hasan gharîb selon At-Tirmidhî ; faible selon Darussalam"
+                  }
                 ],
                 quizData: [
                     { q: "Quelle était sa particularité physique ?", opts: ["Très grand et mince", "Petit et ventru", "Blond aux yeux bleus", "Unijambiste"], c: 1, exp: "Le Siyar le décrit comme petit, trapu, avec du ventre et une grosse tête." },
