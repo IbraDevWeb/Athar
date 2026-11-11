@@ -233,7 +233,7 @@ const ReaderView = {
                 <div v-if="chapter.source" class="max-w-2xl mx-auto mb-8">
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Référence principale : <span class="text-brand-gold font-bold">{{ chapter.source }}</span></p>
                     <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Une référence indique l'ouvrage utilisé pour la notice ; elle ne certifie pas automatiquement chaque détail ou variante historique. <a href="methodologie.html" class="text-brand-gold font-bold hover:underline">Méthodologie</a></p>
-                    <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-brand-gold hover:underline">Voir les références du fascicule {{ biographyReferences.fascicle }} <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                    <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-brand-gold hover:underline">Voir les références {{ biographyReferences.fascicle === 'sources externes' ? 'documentaires' : 'du fascicule ' + biographyReferences.fascicle }} <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
                 </div>
 
                 <div v-if="chapter.audioUrl" class="max-w-md mx-auto bg-white dark:bg-brand-dark shadow-xl rounded-2xl p-2 pr-6 flex items-center gap-4 border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:border-brand-gold/30 transition-colors">
@@ -288,7 +288,7 @@ const ReaderView = {
                         </button>
                         <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter"><div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300"><p v-html="formatText(story.content)"></p></div>
                             <aside v-if="sourceEvidence('narrative', story.id)" class="mt-5 border-t border-brand-gold/20 pt-4 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                                <span class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }} · Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('narrative', story.id).printedPage }}</span>
+                                <span class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }} · {{ sourceEvidence('narrative', story.id).printedPage != null ? 'Fascicule ' + biographyReferences.fascicle + ', p. ' + sourceEvidence('narrative', story.id).printedPage : 'Référence externe' }}</span>
                                 <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p><p v-if="sourceEvidence('narrative', story.id).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('narrative', story.id).hadithRef }}</p><a v-if="sourceEvidence('narrative', story.id).externalUrl" :href="sourceEvidence('narrative', story.id).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le récit dans la source citée</a>
                                 <button type="button" @click="activeTab='sources'" class="mt-2 font-semibold text-brand-gold hover:underline">Voir la référence complète</button>
                             </aside></div>
@@ -303,8 +303,8 @@ const ReaderView = {
                         <div class="absolute -left-[41px] top-1 flex items-center justify-center w-6 h-6 bg-brand-paper dark:bg-brand-dark border-4 border-brand-gold rounded-full z-10 group-hover:scale-125 transition-transform"></div>
                         <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative"><span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">{{ evt.year }}</span><p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.desc)"></p>
                             <aside v-if="sourceEvidence('timeline', i)" class="mt-3 border-t border-brand-gold/20 pt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                                <span class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('timeline', i).status) }} · Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('timeline', i).printedPage }}</span>
-                                <p class="mt-1">{{ sourceEvidence('timeline', i).note }}</p>
+                                <span class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('timeline', i).status) }} · {{ sourceEvidence('timeline', i).printedPage != null ? 'Fascicule ' + biographyReferences.fascicle + ', p. ' + sourceEvidence('timeline', i).printedPage : 'Référence externe' }}</span>
+                                <p class="mt-1">{{ sourceEvidence('timeline', i).note }}</p><p v-if="sourceEvidence('timeline', i).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('timeline', i).hadithRef }}</p><a v-if="sourceEvidence('timeline', i).externalUrl" :href="sourceEvidence('timeline', i).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter la source de l’événement</a>
                             </aside></div>
                     </div>
                 </div>
@@ -351,15 +351,15 @@ const ReaderView = {
                 <header class="text-center mb-8">
                     <p class="text-xs font-bold uppercase tracking-widest text-brand-gold">Références documentaires</p>
                     <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-dark dark:text-white mt-3">Sources et références</h2>
-                    <p class="text-gray-500 dark:text-gray-400 mt-3 text-sm leading-relaxed">Repères tirés du fascicule français {{ biographyReferences.fascicle }}. Athar n'héberge pas la traduction PDF.</p>
+                    <p class="text-gray-500 dark:text-gray-400 mt-3 text-sm leading-relaxed">{{ biographyReferences.fascicle === 'sources externes' ? 'Repères tirés de sources externes identifiées, sans correspondance fabriquée avec les fascicules français.' : 'Repères tirés du fascicule français ' + biographyReferences.fascicle + '. Athar n’héberge pas la traduction PDF.' }}</p>
                 </header>
                 <article class="rounded-2xl border border-brand-gold/25 bg-white dark:bg-brand-dark-lighter p-6 md:p-8 shadow-card">
                     <h3 class="font-bold text-brand-dark dark:text-white text-lg">{{ biographyReferences.work }}</h3>
                     <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">{{ biographyReferences.author }} · {{ biographyReferences.translation }}</p>
                     <p class="mt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400">{{ biographyReferences.editionNote }}</p>
                     <div class="flex flex-wrap gap-3 mt-5">
-                        <a :href="biographyReferences.readUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-gold text-white rounded-xl px-4 py-3 text-xs font-bold hover:opacity-90">Lire sur Siyar.fr <i data-lucide="external-link" class="w-4 h-4"></i></a>
-                        <a :href="biographyReferences.publisherUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-brand-gold/40 text-brand-gold rounded-xl px-4 py-3 text-xs font-bold hover:bg-brand-gold/5">Islam Patrimoine <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a :href="biographyReferences.readUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-gold text-white rounded-xl px-4 py-3 text-xs font-bold hover:opacity-90">{{ biographyReferences.readLabel || 'Lire sur Siyar.fr' }} <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a :href="biographyReferences.publisherUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-brand-gold/40 text-brand-gold rounded-xl px-4 py-3 text-xs font-bold hover:bg-brand-gold/5">{{ biographyReferences.publisherLabel || 'Islam Patrimoine' }} <i data-lucide="external-link" class="w-4 h-4"></i></a>
                     </div>
                 </article>
                 <div class="rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 px-5 py-4 text-sm leading-relaxed text-amber-900 dark:text-amber-200" role="note">{{ biographyReferences.reviewScope }}</div>
