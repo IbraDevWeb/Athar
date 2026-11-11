@@ -590,6 +590,16 @@ const BIOGRAPHY_SOURCES = {
         "title": "Date du décès et variantes",
         "note": "L'an 51 H est retenu par Al-Waqidi, une transmission rapporte 52 H et une autre situe le décès à Koufa.",
         "status": "variant"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Truffes : parole prophétique",
+        "hadithRef": "Al-Bukhârî 5708 ; Mouslim 2049a",
+        "externalUrl": "https://sunnah.com/bukhari:5708",
+        "isnad": "Al-Bukhârî : Saïd ibn Zayd rapporte du Prophète ﷺ. Mouslim 2049a : ‘Abd al-Malik ibn ‘Umayr → ‘Amr ibn Hurayth → Saïd ibn Zayd → le Prophète ﷺ.",
+        "note": "Parole établie dans les deux recueils ; distinguer la transmission des conseils médicaux contemporains.",
+        "status": "located"
       }
     ]
   },
@@ -618,9 +628,12 @@ const BIOGRAPHY_SOURCES = {
         "id": 701,
         "pdfPage": 7,
         "printedPage": 6,
-        "title": "Linceul de Mouss'ab",
-        "note": "Le pagne insuffisant et l'idhkhir recommandé pour couvrir les pieds apparaissent dans la notice.",
-        "status": "located"
+        "title": "Linceul de Mouss’ab : source primaire",
+        "note": "Al-Bukhârî 1276 rapporte le linceul trop court et l'idhkhir. Le témoignage est celui de Khabbâb.",
+        "status": "located",
+        "hadithRef": "Al-Bukhârî 1276",
+        "externalUrl": "https://sunnah.com/bukhari:1276",
+        "isnad": "Khabbâb → le récit des funérailles de Mouss’ab."
       },
       {
         "kind": "narrative",
@@ -688,6 +701,16 @@ const BIOGRAPHY_SOURCES = {
         "title": "Invocation de l'épreuve",
         "note": "L'invocation qu'Oum Salama prononce au décès de son mari est rapportée ici et à la page suivante.",
         "status": "located"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Invocation pour Abou Salama",
+        "hadithRef": "Mouslim 920a",
+        "externalUrl": "https://sunnah.com/muslim:920a",
+        "isnad": "Oum Salama → récit de la visite du Prophète ﷺ à Abou Salama.",
+        "note": "Mouslim 920a rapporte l'invocation, l'attention aux paroles de la famille et la mention des anges disant amîn.",
+        "status": "located"
       }
     ]
   },
@@ -746,6 +769,16 @@ const BIOGRAPHY_SOURCES = {
         "title": "Réserve adressée à Oum Al-'Ala",
         "note": "Le dialogue entre Oum Al-'Ala et le Prophète à propos de l'honneur d'Outhman est rapporté.",
         "status": "located"
+      },
+      {
+        "kind": "hadith",
+        "id": 0,
+        "title": "Embrassade funéraire et divergence de classement",
+        "hadithRef": "At-Tirmidhî 989",
+        "externalUrl": "https://sunnah.com/tirmidhi:989",
+        "isnad": "Muhammad ibn Bashshâr → ‘Abd ar-Rahmân ibn Mahdî → Sufyân → ‘Âsim ibn ‘Ubayd Allah → al-Qâsim ibn Muhammad → ‘Â’isha.",
+        "note": "At-Tirmidhî : hasan sahîh ; classement Darussalam : da‘îf. Ne pas effacer cette divergence.",
+        "status": "variant"
       }
     ]
   },
