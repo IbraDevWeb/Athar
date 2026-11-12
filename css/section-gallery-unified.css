@@ -480,3 +480,18 @@
 }
 .glossary-pro-more button:hover { border-color:var(--ax-accent); background:rgba(var(--ax-rgb),.07); }
 .glossary-pro-more button svg { width:16px; height:16px; }
+
+/* Icônes Adhkâr : même taille de repère que les autres bibliothèques. */
+.adhkar-pro-shell .adhkar-pro-card-top { justify-content:flex-start; align-items:center; gap:9px; }
+.adhkar-pro-shell .adhkar-pro-card-top .adhkar-pro-card-emblem {
+    width:49px; height:49px; display:grid; place-items:center; flex:0 0 auto;
+    border-radius:15px; background:rgba(var(--ax-rgb),.10); color:var(--ax-accent); padding:0;
+}
+.adhkar-pro-shell .adhkar-pro-card-emblem svg { width:22px; height:22px; }
+.adhkar-pro-shell .adhkar-pro-card-top .adhkar-pro-card-label {
+    color:var(--ax-accent); background:rgba(var(--ax-rgb),.065);
+    border:1px solid var(--ax-line); border-radius:7px; padding:5px 8px;
+    font:700 10px Inter,system-ui,sans-serif; text-transform:none; letter-spacing:0;
+    margin-right:auto;
+}
+.adhkar-pro-shell .adhkar-pro-card-top > button { flex:0 0 auto; }
