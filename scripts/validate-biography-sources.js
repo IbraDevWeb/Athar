@@ -351,7 +351,7 @@ assert.ok(bibliography[35].entries.find(e=>e.kind==='hadith')?.grade==='attribut
 assert.ok(bibliography[36].entries.find(e=>e.kind==='verse')?.externalUrl==='https://quran.com/33/37','Coran 33:37 classé à tort');
 assert.ok(bibliography[37].entries.find(e=>e.kind==='hadith'&&e.id===1)?.grade==='disputed','Divergence Al-Haythamî / Al-Arna’ût manquante');
 assert.ok(bibliography[38].entries.find(e=>e.kind==='narrative'&&e.id===381)?.note.includes('Sa‘d'),'La variante des deux hôtes a disparu');
-assert.ok(bibliography[39].entries.find(e=>e.kind==='hadith'&&e.id===1)?.note.includes('Al-Haythamî'),'Réserve sur le bandeau d'Abou Doujâna manquante');
+assert.ok(bibliography[39].entries.find(e=>e.kind==='hadith'&&e.id===1)?.note.includes('Al-Haythamî'),'Réserve sur le bandeau d’Abou Doujâna manquante');
 assert.ok(bibliography[40].entries.some(e=>e.externalUrl==='https://sunnah.com/bukhari:4086'),'Récit principal de Khoubayb non localisé');
 
 console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 438 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
