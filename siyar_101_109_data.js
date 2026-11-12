@@ -2417,4 +2417,33 @@ const ATHAR_SIYAR_SOURCES_101_109 = {
     const firstExtra = CHAPTERS_DATA.findIndex(item => item.id === 201);
     CHAPTERS_DATA.splice(firstExtra >= 0 ? firstExtra : CHAPTERS_DATA.length, 0, ...ATHAR_SIYAR_101_109);
     Object.assign(BIOGRAPHY_SOURCES, ATHAR_SIYAR_SOURCES_101_109);
+    // Les favoris et l'historique des trois anciennes notices doivent conserver leur cible.
+    // Migration ponctuelle effectuée avant le chargement de l'application Vue.
+    if (typeof localStorage !== 'undefined') {
+        try {
+            const marker = 'athar_siyar_101_109_ids_v1';
+            if (!localStorage.getItem(marker)) {
+                const mapping = { 102: 202, 103: 203, 106: 206 };
+                const replaceId = id => mapping[Number(id)] ?? id;
+                const settingsRaw = localStorage.getItem('athar_settings');
+                if (settingsRaw) {
+                    const settings = JSON.parse(settingsRaw);
+                    if (Array.isArray(settings.favorites))
+                        settings.favorites = [...new Set(settings.favorites.map(replaceId))];
+                    if (settings.lastReadId != null) settings.lastReadId = replaceId(settings.lastReadId);
+                    localStorage.setItem('athar_settings', JSON.stringify(settings));
+                }
+                const libraryRaw = localStorage.getItem('athar_library_v2');
+                if (libraryRaw) {
+                    const library = JSON.parse(libraryRaw);
+                    if (Array.isArray(library.recent))
+                        library.recent = library.recent.map(item => ({ ...item, id: replaceId(item.id) }));
+                    localStorage.setItem('athar_library_v2', JSON.stringify(library));
+                }
+                localStorage.setItem(marker, '1');
+            }
+        } catch (error) {
+            console.warn('Migration des favoris Siyar non effectuée :', error);
+        }
+    }
 })();
