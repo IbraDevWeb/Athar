@@ -37,7 +37,7 @@ const TimelineView = {
                         id: `${chapter.id}-${index}`, ...dating,
                         rawYear: reading.readingYear || event.year || 'Non précisée', originalYear: event.year,
                         desc: reading.readingDesc, originalDesc: reading.readingContext,
-                        evidence, fascicle: sources?.fascicle || '',
+                        evidence, fascicle: sources?.fascicle || '', sourceReadUrl: sources?.readUrl || '',
                         companionId: chapter.id, companionName: chapter.name, arabicName: chapter.arabicName || '',
                         subtitle: chapter.subtitle || '', intro: ATHAR_READING_PRESENTATION.intro(chapter), source: chapter.source || '',
                         tags: Array.isArray(chapter.tags) ? chapter.tags : [], isVerified: Boolean(chapter.verified), period: periodFor(dating.periodId)
@@ -176,6 +176,7 @@ const TimelineView = {
                             <a v-if="selectedEvent.reference?.sourceUrl" :href="selectedEvent.reference.sourceUrl" target="_blank" rel="noopener noreferrer">{{ selectedEvent.reference.sourceTitle }}</a>
                             <p v-if="selectedEvent.reference?.note">{{ selectedEvent.reference.note }}</p>
                             <p v-if="selectedEvent.source"><strong>Ouvrage principal :</strong> {{ selectedEvent.source }}</p>
+                            <a v-if="selectedEvent.sourceReadUrl" :href="selectedEvent.sourceReadUrl" target="_blank" rel="noopener noreferrer">Consulter la notice source (référence générale)</a>
                             <p>Athar conserve les variantes de datation sans inventer une année absente du témoignage.</p>
                         </div>
                     </details>
