@@ -469,3 +469,14 @@
         transition:none !important; animation:none !important; scroll-behavior:auto !important;
     }
 }
+
+.glossary-pro-more { display:flex; flex-direction:column; gap:10px; align-items:center; padding:27px 10px 14px; }
+.glossary-pro-more span { color:var(--ax-muted); font:500 12px Inter,system-ui,sans-serif; }
+.glossary-pro-more button {
+    display:inline-flex; gap:8px; align-items:center; justify-content:center;
+    min-height:44px; padding:11px 19px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--ax-line); background:var(--ax-card); color:var(--ax-accent);
+    font:700 12px Inter,system-ui,sans-serif;
+}
+.glossary-pro-more button:hover { border-color:var(--ax-accent); background:rgba(var(--ax-rgb),.07); }
+.glossary-pro-more button svg { width:16px; height:16px; }
