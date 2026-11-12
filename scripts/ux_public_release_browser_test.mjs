@@ -286,6 +286,35 @@ async function desktop() {
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
 
+    // Tome 2 : les neuf nouvelles notices sont accessibles depuis la Bibliothèque
+    // avec récits complets, questions de compréhension et références repliables.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-root').waitFor({state:'visible',timeout:20000});
+    for (const [query,expected] of [
+      ['Abou Dharr','Abou Dharr'],
+      ['Al-Hakam','Al-Hakam'],
+      ['Khosro','Yazdgard III'],
+      ['Khadîja','Khadîja'],
+      ['Fâtima az-Zahrâ','Fâtima az-Zahrâ']
+    ]) {
+        await page.locator('.library-pro-search-hero input').fill(query);
+        const card = page.locator('.library-pro-card').filter({hasText:expected}).first();
+        await card.waitFor({state:'visible'});
+        await card.click();
+        await page.getByRole('tab',{name:'Récit',exact:true}).click();
+        assert.ok(await page.locator('button[aria-expanded]').count()>=4,'Récits incomplets : '+expected);
+        await page.getByRole('tab',{name:'Citations',exact:true}).click();
+        const cited = page.locator('article details.athar-story-context').first();
+        assert.equal(await cited.getAttribute('open'),null,'Les références doivent être repliées : '+expected);
+        await cited.locator('summary').click();
+        assert.ok(await cited.locator('a[href^="https://"]').count()>=1,'Référence externe inaccessible : '+expected);
+        await page.getByRole('tab',{name:'Sources',exact:true}).click();
+        assert.ok(await page.locator('.athar-siyar-sources a[href^="https://siyar.fr/livre/2/"]').count()>=1,'Notice Siyar manquante : '+expected);
+        await page.locator('#athar-immersive-quick').click();
+        await page.locator('.library-pro-root').waitFor({state:'visible'});
+    }
+    await home(page);
+
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));
     await page.locator('#athar-immersive-theme').click();
     await page.waitForFunction(before => document.documentElement.classList.contains('dark') !== before,previousTheme,{timeout:5000});
