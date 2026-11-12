@@ -3,6 +3,7 @@ const GlossaryView = {
     emits: ['update:searchQuery'],
     setup(props) {
         const category = Vue.ref('Tous');
+        const visibleLimit = Vue.ref(24);
         // Classement de navigation uniquement, construit à partir des libellés du lexique.
         const categoryOf = item => {
             const origin = String(item?.origin || '').toLocaleLowerCase('fr');
@@ -19,12 +20,17 @@ const GlossaryView = {
                 name, name === 'Tous' ? all.length : all.filter(item => categoryOf(item) === name).length
             ]));
         });
-        const displayed = Vue.computed(() => {
+        const filtered = Vue.computed(() => {
             const items = Array.isArray(props.glossary) ? props.glossary : [];
             return category.value === 'Tous' ? items : items.filter(item => categoryOf(item) === category.value);
         });
-        Vue.watch(category, () => Vue.nextTick(() => window.lucide?.createIcons()));
-        return { category, categories, counts, displayed, categoryOf };
+        const displayed = Vue.computed(() => filtered.value.slice(0, visibleLimit.value));
+        const loadMore = () => { visibleLimit.value += 24; Vue.nextTick(() => window.lucide?.createIcons()); };
+        Vue.watch([category, () => props.searchQuery], () => {
+            visibleLimit.value = 24;
+            Vue.nextTick(() => window.lucide?.createIcons());
+        });
+        return { category, categories, counts, displayed, filtered, visibleLimit, loadMore, categoryOf };
     },
     template: `
     <section class="glossary-pro-root">
@@ -46,7 +52,7 @@ const GlossaryView = {
                     </button>
                 </div>
             </header>
-            <p class="glossary-pro-result" aria-live="polite">{{ displayed.length }} terme{{ displayed.length>1?'s':'' }}</p>
+            <p class="glossary-pro-result" aria-live="polite">{{ filtered.length }} terme{{ filtered.length>1?'s':'' }}</p>
             <div v-if="displayed.length" class="glossary-pro-grid">
                 <article v-for="(item,index) in displayed" :key="item.term || index" class="glossary-pro-card">
                     <header>
@@ -58,7 +64,11 @@ const GlossaryView = {
                     <footer><span>{{ categoryOf(item) }}</span></footer>
                 </article>
             </div>
-            <div v-else class="glossary-pro-empty" role="status">
+            <div v-if="filtered.length>visibleLimit" class="glossary-pro-more">
+                <span>{{ displayed.length }} termes affichés sur {{ filtered.length }}</span>
+                <button type="button" @click="loadMore">Afficher plus de termes <i data-lucide="chevron-down" aria-hidden="true"></i></button>
+            </div>
+            <div v-if="!filtered.length" class="glossary-pro-empty" role="status">
                 <i data-lucide="search-x" aria-hidden="true"></i>
                 <h2>Aucun terme trouvé</h2>
                 <p>Essaie un autre mot ou sélectionne une autre catégorie.</p>
