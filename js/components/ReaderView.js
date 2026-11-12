@@ -284,7 +284,7 @@ const ReaderView = {
                 </div>
 
                 <div class="space-y-6">
-                    <div v-for="(story, index) in safeNarratives" :key="story.id" class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300" :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
+                    <div v-for="(story, index) in safeNarratives" :key="chapter.id + ':' + story.id" class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300" :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
                         <button type="button" @click="toggleStory(story.id)" :aria-expanded="activeStoryId === story.id" class="w-full flex justify-between items-center p-6 text-left focus:outline-none bg-gray-50/30 dark:bg-white/5 hover:bg-white dark:hover:bg-brand-dark-lighter transition-colors">
                             <div class="flex items-center gap-5"><span class="font-display text-4xl font-bold text-gray-200 dark:text-white/10">{{ String(index + 1).padStart(2, '0') }}</span><h3 class="font-bold text-lg md:text-xl text-brand-dark dark:text-white">{{ story.title }}</h3></div>
                             <span class="w-8 h-8 rounded-full bg-gray-100 dark:bg-brand-dark flex items-center justify-center transition-transform duration-300" :class="activeStoryId === story.id ? 'rotate-180 bg-brand-gold text-white' : 'text-gray-400'"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
