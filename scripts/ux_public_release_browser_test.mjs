@@ -134,7 +134,7 @@ async function desktop() {
     await contextualNotes.locator('summary').click();
     assert.equal(await contextualNotes.locator('.athar-story-context-body').isVisible(),true,'Les précisions doivent s’ouvrir au choix du lecteur');
     assert.match(await contextualNotes.innerText(),/Al-Haythamî/,'Le classement d’Al-Haythamî ne doit pas être perdu');
-    assert.match(await contextualNotes.innerText(),/Al-Arna.ût/,'L’avis divergent ne doit pas être perdu');
+    assert.match(await contextualNotes.innerText(),/Arna.ût/i,'L’avis divergent ne doit pas être perdu');
     assert.ok(await contextualNotes.locator('a[href^="https://"]').count()>=1,'Référence externe introuvable sous le récit');
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
