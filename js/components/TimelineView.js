@@ -30,10 +30,16 @@ const TimelineView = {
                 (chapter.timeline || []).forEach((event, index) => {
                     if (!event || !event.desc) return;
                     const dating = ATHAR_CHRONOLOGY.resolve(event, chapter.id, index);
+                    const reading = ATHAR_READING_PRESENTATION.timeline(chapter, event, index);
+                    const sources = typeof BIOGRAPHY_SOURCES !== 'undefined' ? BIOGRAPHY_SOURCES[String(chapter.id)] : null;
+                    const evidence = sources?.entries?.find(item => item.kind === 'timeline' && Number(item.id) === index) || null;
                     result.push({
-                        id: `${chapter.id}-${index}`, ...dating, rawYear: event.year || 'Non précisée',
-                        desc: event.desc, companionId: chapter.id, companionName: chapter.name, arabicName: chapter.arabicName || '',
-                        subtitle: chapter.subtitle || '', intro: chapter.intro || '', source: chapter.source || '',
+                        id: `${chapter.id}-${index}`, ...dating,
+                        rawYear: reading.readingYear || event.year || 'Non précisée', originalYear: event.year,
+                        desc: reading.readingDesc, originalDesc: reading.readingContext,
+                        evidence, fascicle: sources?.fascicle || '', sourceReadUrl: sources?.readUrl || '',
+                        companionId: chapter.id, companionName: chapter.name, arabicName: chapter.arabicName || '',
+                        subtitle: chapter.subtitle || '', intro: ATHAR_READING_PRESENTATION.intro(chapter), source: chapter.source || '',
                         tags: Array.isArray(chapter.tags) ? chapter.tags : [], isVerified: Boolean(chapter.verified), period: periodFor(dating.periodId)
                     });
                 });
@@ -97,7 +103,7 @@ const TimelineView = {
                 <div class="timeline-pro-hero-copy">
                     <span class="timeline-pro-eyebrow"><i data-lucide="history"></i> Histoire structurée</span>
                     <h1>Frise <em>chronologique</em></h1>
-                    <p>Parcourez les récits par période, personnage et thème. Une date non renseignée n’est jamais inventée : les événements concernés restent accessibles dans « Date à préciser ».</p>
+                    <p>Parcourez les événements, les personnages et les grandes périodes de l’histoire, puis approfondissez les détails qui vous intéressent.</p>
                     <div class="timeline-pro-actions"><button class="timeline-pro-primary" @click="setMode('timeline')"><i data-lucide="list-tree"></i> Explorer la chronologie</button><button class="timeline-pro-secondary" @click="setMode('paths')"><i data-lucide="route"></i> Parcours guidés</button></div>
                 </div>
                 <aside class="timeline-pro-stats"><div><strong>{{ stats.events }}</strong><span>événements</span></div><div><strong>{{ stats.figures }}</strong><span>figures</span></div><div><strong>{{ stats.periods }}</strong><span>périodes</span></div><div><strong>{{ stats.undated }}</strong><span>dates à documenter</span></div></aside>
@@ -115,13 +121,13 @@ const TimelineView = {
 
             <div v-if="activePath" class="timeline-pro-active-path" :style="{'--path-color':activePath.color}"><i :data-lucide="activePath.icon"></i><div><span>Parcours actif</span><strong>{{ activePath.title }}</strong><small>{{ filteredEvents.length }} repères sélectionnés</small></div><button @click="activePathId=null"><i data-lucide="x"></i></button></div>
 
-            <aside class="timeline-pro-trust-note"><i data-lucide="info"></i><span><strong>Précision chronologique :</strong> {{ stats.undated }} repères sans année déterminée. Une mention d’enfance ou de ville ne constitue pas une date.</span><button @click="selectPeriod('undated')">Voir les dates à préciser</button></aside>
+            <details class="timeline-pro-reading-method"><summary>À propos des dates et des sources</summary><p>{{ stats.undated }} repères sans année déterminée. Les méthodes de datation et les références figurent dans les détails de chaque événement.</p><button @click="selectPeriod('undated')">Voir les dates à préciser</button></details>
 
             <section v-if="mode==='timeline'" class="timeline-pro-workspace" :class="'is-'+density">
                 <aside class="timeline-pro-period-rail">
                     <header><span>Naviguer</span><strong>{{ filteredEvents.length }} résultats</strong></header>
                     <button v-for="period in periods" :key="period.id" :class="{active:periodFilter===period.id}" @click="selectPeriod(period.id)"><i :data-lucide="period.icon" :style="{color:period.color}"></i><span><strong>{{ period.label }}</strong><small>{{ period.short }}</small></span></button>
-                    <div class="timeline-pro-method-note"><i data-lucide="info"></i><p>Aucune date grégorienne n’est calculée automatiquement. « Enfance », « Mecque » ou « conversion » ne déterminent pas une année.</p></div>
+                    
                 </aside>
                 <div class="timeline-pro-stream">
                     <div v-if="!groupedEvents.length" class="timeline-pro-empty"><i data-lucide="calendar-x"></i><strong>Aucun événement trouvé</strong><p>Modifiez les filtres ou réinitialisez la recherche.</p><button @click="clearFilters">Tout afficher</button></div>
@@ -129,7 +135,7 @@ const TimelineView = {
                         <header class="timeline-pro-period-head"><span class="timeline-pro-period-icon"><i :data-lucide="group.icon"></i></span><div><small>{{ group.short }}</small><h2>{{ group.label }}</h2><p>{{ group.description }}</p></div><b>{{ group.events.length }}</b></header>
                         <div class="timeline-pro-event-list">
                             <article v-for="event in group.events" :key="event.id" class="timeline-pro-event" @click="openEvent(event)">
-                                <div class="timeline-pro-date"><strong>{{ event.rawYear }}</strong><small>{{ event.dateBadge }}</small></div><span class="timeline-pro-dot"></span>
+                                <div class="timeline-pro-date"><strong>{{ event.rawYear }}</strong></div><span class="timeline-pro-dot"></span>
                                 <button class="timeline-pro-event-card"><div class="timeline-pro-event-person"><span class="timeline-pro-arabic">{{ event.arabicName }}</span><div><small>{{ event.subtitle || group.label }}</small><h3>{{ event.companionName }}</h3></div><i v-if="event.isVerified" data-lucide="badge-check"></i></div><p v-html="formatText(event.desc)"></p><footer><span v-for="tag in event.tags.slice(0,3)" :key="tag">{{ tag }}</span><b>Voir le détail <i data-lucide="arrow-up-right"></i></b></footer></button>
                             </article>
                         </div>
@@ -142,6 +148,41 @@ const TimelineView = {
             <section v-if="mode==='paths'" class="timeline-pro-path-view"><header class="timeline-pro-section-heading"><div><span>Parcours guidés</span><h2>Suivre un fil historique</h2></div><p>Des sélections éditoriales pour éviter de se perdre dans l’ensemble des événements.</p></header><div class="timeline-pro-path-grid"><article v-for="path in pathways" :key="path.id" :style="{'--path-color':path.color}"><span class="timeline-pro-path-icon"><i :data-lucide="path.icon"></i></span><small>{{ path.eventIds.length }} repères</small><h3>{{ path.title }}</h3><b>{{ path.subtitle }}</b><p>{{ path.description }}</p><button @click="startPath(path)"><i data-lucide="play"></i> Commencer le parcours</button></article></div></section>
         </div>
 
-        <div v-if="selectedEvent" class="timeline-pro-backdrop" @click.self="closeEvent"><article class="timeline-pro-drawer" :style="{'--period-color':selectedEvent.period.color}"><header><span><i :data-lucide="selectedEvent.period.icon"></i></span><div><small>{{ selectedEvent.period.label }}</small><h2>{{ selectedEvent.rawYear }}</h2><p>{{ selectedEvent.dateBadge }}</p></div><button @click="closeEvent"><i data-lucide="x"></i></button></header><div class="timeline-pro-drawer-scroll"><section class="timeline-pro-drawer-person"><p class="timeline-pro-drawer-arabic">{{ selectedEvent.arabicName }}</p><span>{{ selectedEvent.subtitle }}</span><h3>{{ selectedEvent.companionName }}</h3><p>{{ selectedEvent.intro }}</p></section><section class="timeline-pro-drawer-event"><span>Événement</span><p v-html="formatText(selectedEvent.desc)"></p></section><div class="timeline-pro-drawer-tags"><span v-for="tag in selectedEvent.tags" :key="tag">{{ tag }}</span></div><section class="timeline-pro-dating"><strong>Statut chronologique</strong><p>{{ selectedEvent.detail }}</p><a v-if="selectedEvent.reference?.sourceUrl" :href="selectedEvent.reference.sourceUrl" target="_blank" rel="noopener noreferrer">{{ selectedEvent.reference.sourceTitle }} ↗</a><p v-if="selectedEvent.reference?.note" class="timeline-pro-dating-note">{{ selectedEvent.reference.note }}</p></section><section v-if="selectedEvent.source" class="timeline-pro-source"><i data-lucide="book-check"></i><div><span>Source principale de la notice</span><strong>{{ selectedEvent.source }}</strong></div></section><p class="timeline-pro-caution"><i data-lucide="triangle-alert"></i> Athar conserve les datations indiquées dans les notices et les variantes sans les certifier. Les événements non datés ne sont pas placés arbitrairement.</p></div><footer><button @click="openBiography(selectedEvent)"><i data-lucide="book-open"></i> Ouvrir la biographie complète</button></footer></article></div>
+        <div v-if="selectedEvent" class="timeline-pro-backdrop" @click.self="closeEvent">
+            <article class="timeline-pro-drawer" :style="{'--period-color':selectedEvent.period.color}">
+                <header>
+                    <span><i :data-lucide="selectedEvent.period.icon"></i></span>
+                    <div><small>{{ selectedEvent.period.label }}</small><h2>{{ selectedEvent.rawYear }}</h2></div>
+                    <button @click="closeEvent" aria-label="Fermer le détail"><i data-lucide="x"></i></button>
+                </header>
+                <div class="timeline-pro-drawer-scroll">
+                    <section class="timeline-pro-drawer-person">
+                        <p class="timeline-pro-drawer-arabic">{{ selectedEvent.arabicName }}</p>
+                        <span>{{ selectedEvent.subtitle }}</span><h3>{{ selectedEvent.companionName }}</h3><p>{{ selectedEvent.intro }}</p>
+                    </section>
+                    <section class="timeline-pro-drawer-event">
+                        <span>Événement</span><p v-html="formatText(selectedEvent.desc)"></p>
+                    </section>
+                    <div class="timeline-pro-drawer-tags"><span v-for="tag in selectedEvent.tags" :key="tag">{{ tag }}</span></div>
+                    <details class="timeline-pro-reading-method">
+                        <summary>Sources, variantes et fiabilité</summary>
+                        <div class="timeline-pro-reading-apparatus">
+                            <p v-if="selectedEvent.originalDesc"><strong>Formulation documentaire et variantes :</strong> {{ selectedEvent.originalYear }} — {{ selectedEvent.originalDesc }}</p>
+                            <p><strong>Précision de datation :</strong> {{ selectedEvent.dateBadge }}. {{ selectedEvent.detail }}</p>
+                            <p v-if="selectedEvent.evidence?.note">{{ selectedEvent.evidence.note }}</p>
+                            <p v-if="selectedEvent.evidence?.hadithRef"><strong>{{ selectedEvent.evidence.hadithRef }}</strong></p>
+                            <p v-if="selectedEvent.evidence?.printedPage != null">Fascicule {{ selectedEvent.fascicle }}, p. {{ selectedEvent.evidence.printedPage }}</p>
+                            <a v-if="selectedEvent.evidence?.externalUrl" :href="selectedEvent.evidence.externalUrl" target="_blank" rel="noopener noreferrer">Consulter la référence de l’événement</a>
+                            <a v-if="selectedEvent.reference?.sourceUrl" :href="selectedEvent.reference.sourceUrl" target="_blank" rel="noopener noreferrer">{{ selectedEvent.reference.sourceTitle }}</a>
+                            <p v-if="selectedEvent.reference?.note">{{ selectedEvent.reference.note }}</p>
+                            <p v-if="selectedEvent.source"><strong>Ouvrage principal :</strong> {{ selectedEvent.source }}</p>
+                            <a v-if="selectedEvent.sourceReadUrl" :href="selectedEvent.sourceReadUrl" target="_blank" rel="noopener noreferrer">Consulter la notice source (référence générale)</a>
+                            <p>Athar conserve les variantes de datation sans inventer une année absente du témoignage.</p>
+                        </div>
+                    </details>
+                </div>
+                <footer><button @click="openBiography(selectedEvent)"><i data-lucide="book-open"></i> Ouvrir la biographie complète</button></footer>
+            </article>
+        </div>
     </section>`
 };

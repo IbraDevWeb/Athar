@@ -161,11 +161,21 @@ async function desktop() {
     assert.equal(await sources.isVisible(),true,'Les références Siyar doivent rester lisibles.');
     assert.equal(await sources.locator('a[href="https://siyar.fr/livre/1/11"]').count(),1);
     assert.equal(await sources.locator('article').filter({hasText:'Le jeûne est une protection'}).count(),1,'Isnâd du jeûne absent du registre');
+    await page.getByRole('tab',{name:'Chronologie',exact:true}).click();
+    const chronologyNotes=page.locator('.max-w-2xl.mx-auto.py-8 details.athar-story-context').first();
+    assert.equal(await chronologyNotes.getAttribute('open'),null,'La critique des chronologies doit être repliée');
+    await chronologyNotes.locator('summary').click();
+    assert.ok(await chronologyNotes.locator('a[href="https://siyar.fr/livre/1/11"]').count()>=1,'Lien vers la notice chronologique absent');
     await page.getByRole('tab',{name:'Citations',exact:true}).click();
-    const quotes=page.locator('article').filter({hasText:'Al-Bukhârî 3744'});
-    assert.ok(await quotes.count()>=1,'Le numéro du recueil doit apparaître sous la citation');
-    assert.ok(await quotes.first().getByText('Chaîne documentée').count()>=1,'Chaîne non affichée');
-    assert.ok(await quotes.first().locator('a[href="https://sunnah.com/bukhari:3744"]').count()===1,'Lien vers source primaire absent');
+    const quotes=page.locator('article').filter({hasText:'Chaque communauté a un digne de confiance'});
+    assert.ok(await quotes.count()>=1,'Le texte de la citation principale doit rester accessible');
+    const citationNotes=quotes.first().locator('details.athar-story-context');
+    assert.equal(await citationNotes.getAttribute('open'),null,'La fiabilité ne doit pas s’afficher par défaut sous la citation');
+    assert.equal(await citationNotes.locator('.athar-story-context-body').isVisible(),false,'L’analyse de citation doit rester au second plan');
+    await citationNotes.locator('summary').click();
+    assert.match(await citationNotes.innerText(),/Al-Bukhârî 3744/,'La référence doit figurer dans le volet secondaire');
+    assert.ok(await citationNotes.getByText('Chaîne documentée').count()>=1,'Chaîne documentée absente');
+    assert.ok(await citationNotes.locator('a[href="https://sunnah.com/bukhari:3744"]').count()===1,'Lien vers source primaire absent');
     assert.match(await page.locator('#athar-immersive-quick').getAttribute('aria-label'),/Retour à Bibliothèque/);
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
@@ -355,8 +365,11 @@ async function mobile(width,height) {
     const sources=page.locator('.athar-siyar-sources');
     assert.equal(await sources.isVisible(),true,'Les sources doivent s’afficher sur téléphone.');
     const outerMain=main(page);
-    await outerMain.evaluate(el=>{el.scrollTop=el.scrollHeight});
-    assert.ok((await outerMain.evaluate(el=>el.scrollTop))>0,'La lecture ne doit pas être bloquée sur téléphone.');
+    // Les transitions et le défilement peuvent être animés selon le navigateur.
+    // Forcer une lecture instantanée et attendre que le scroll soit stabilisé.
+    await outerMain.evaluate(el=>{el.style.scrollBehavior='auto';el.scrollTop=el.scrollHeight});
+    const metrics = await outerMain.evaluate(el=>({top:el.scrollTop,height:el.clientHeight,total:el.scrollHeight,overflow:getComputedStyle(el).overflowY}));
+    assert.ok(metrics.total>metrics.height && metrics.top>0,'La lecture ne doit pas être bloquée sur téléphone : '+JSON.stringify(metrics));
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
