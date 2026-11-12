@@ -204,6 +204,29 @@ async function desktop() {
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
 
+    // Vague 31–40 : récit sourcé, sept questions, verset distingué des hadiths.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Jafar ibn Abou Talib');
+    await page.locator('.library-pro-card').filter({hasText:'Jafar ibn Abou Talib'}).first().click();
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    const jaafarSource=page.locator('.athar-siyar-sources');
+    assert.ok(await jaafarSource.locator('a[href="https://sunnah.com/bukhari:4251"]').count()>0,'Ressemblance de Ja‘far : Bukhârî 4251 manquant');
+    assert.ok(await jaafarSource.locator('a[href="https://sunnah.com/bukhari:4261"]').count()>0,'Mou’ta : Bukhârî 4261 manquant');
+    await page.getByRole('tab',{name:'Quiz',exact:true}).click();
+    assert.ok(await page.locator('div.max-w-2xl.mx-auto.space-y-10 > div.bg-white').count()>=7,'Sept questions documentaires attendues pour Ja‘far');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await page.locator('.library-pro-search-hero input').fill('Zayd ibn Haritha');
+    await page.locator('.library-pro-card').filter({hasText:'Zayd ibn Haritha'}).first().click();
+    await page.getByRole('tab',{name:'Citations',exact:true}).click();
+    assert.ok(await page.getByText('Verset coranique',{exact:true}).count()>0,'Coran 33:37 ne doit pas être affiché comme un hadith');
+    await page.getByRole('tab',{name:'Sources',exact:true}).click();
+    assert.ok(await page.locator('.athar-siyar-sources a[href="https://quran.com/33/37"]').count()>0,'Verset 33:37 sans lien documentaire');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
     const previousTheme=await page.evaluate(()=>document.documentElement.classList.contains('dark'));
     await page.locator('#athar-immersive-theme').click();
     await page.waitForFunction(before => document.documentElement.classList.contains('dark') !== before,previousTheme,{timeout:5000});
