@@ -53,19 +53,29 @@ if (explanationCount / hadiths.length < 0.75) throw new Error('Couverture des ex
 if (hintsCount / hadiths.length < 0.20) throw new Error('Trop peu de fiches disposent d’enseignements séparés.');
 
 const libraryTokens = [
-    "mode = Vue.ref('library')", "mode==='themes'", "mode==='paths'", 'hadith-pro-progress-view',
-    'themeRules', 'collectionOf', 'narratorOf', 'athar_hadith_v2', 'pathways', 'weekly',
-    'hadeeth_ar', 'favoritesOnly', 'unreadOnly'
+    'hadith-pro-search', 'hadith-pro-topic-row', 'hadith-pro-grid', 'hadith-pro-card',
+    'hadith-pro-advanced', 'hadith-pro-more', 'visibleLimit', 'themeRules', 'collectionOf',
+    'favoritesOnly', 'unreadOnly', 'sortMode', 'hadeeth_ar', 'athar_hadith_v2',
+    'state.notes', 'notes: state.notes', 'aria-label="Rechercher un hadith"'
 ];
 for (const token of libraryTokens) if (!library.includes(token)) throw new Error(`Fonction de bibliothèque absente : ${token}`);
+if (library.includes('hadith-pro-progress-view') || library.includes('hadith-pro-hero')) {
+    throw new Error('L’ancienne interface à tableaux de bord est encore chargée.');
+}
 
 const readerTokens = [
-    "activeTab = Vue.ref('text')", "activeTab==='explanation'", "activeTab==='lessons'",
-    "activeTab==='source'", 'hadith-reader-study-view', 'hadeeth_intro_ar', 'explanation_ar',
-    'words_meanings_ar', 'studyQuestions', 'lang="ar"', 'athar_hadith_v2',
-    'const paragraphs = value', 'explanationParagraphs', 'explanationArabicParagraphs'
+    'hadith-reader-text-view', 'hadith-reader-explanation-view', 'hadith-reader-lessons-view',
+    'hadith-reader-source-view', 'hadith-reader-study-view', 'hadith-reader-jump',
+    'hadith-reader-notes', 'hadith-reader-source-grid', 'hadith-reader-language-switch',
+    'hadeeth_intro_ar', 'explanation_ar', 'words_meanings_ar', 'studyQuestions',
+    'lang="ar"', 'athar_hadith_v2', 'const paragraphs = value',
+    'explanationParagraphs', 'explanationArabicParagraphs', 'saveNote',
+    '<details class="hadith-reader-details hadith-reader-source-view">'
 ];
 for (const token of readerTokens) if (!reader.includes(token)) throw new Error(`Fonction du lecteur absente : ${token}`);
+if (reader.includes('hadith-reader-tabs')) {
+    throw new Error('L’ancien lecteur à cinq onglets doit être remplacé par une lecture continue.');
+}
 
 const templateStart = reader.indexOf('template: `');
 if (templateStart < 0) throw new Error('Template du lecteur Hadith introuvable.');
@@ -74,7 +84,7 @@ if (templateSource.includes('.split(/\\n')) {
     throw new Error('Expression régulière contenant \\n détectée dans le template Vue : elle serait transformée en saut de ligne à l’exécution.');
 }
 
-for (const selector of ['.hadith-pro-root', '.hadith-pro-grid', '.hadith-reader-pro', '.hadith-reader-tabs', '.hadith-reader-source-grid']) {
+for (const selector of ['.hadith-pro-root', '.hadith-pro-grid', '.hadith-pro-search', '.hadith-reader-pro', '.hadith-reader-jump', '.hadith-reader-source-grid']) {
     if (!css.includes(selector)) throw new Error(`Style Hadith manquant : ${selector}`);
 }
 if (!css.includes('@media(max-width:820px)')) throw new Error('Responsive Hadith absent.');
