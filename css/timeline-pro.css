@@ -14,3 +14,16 @@
 .dark .timeline-pro-dating p,.dark .timeline-pro-trust-note {color:#cbd5e1}
 .dark .timeline-pro-trust-note {background:#0e0e0e;border-color:#292929}
 @media(max-width:680px){.timeline-pro-trust-note{flex-wrap:wrap}.timeline-pro-trust-note button{margin-left:28px}}
+
+/* Lecture continue : l'appareil critique de la frise reste consultable, mais fermé par défaut. */
+.timeline-pro-reading-method { margin:14px 0; border:1px solid rgba(197,160,89,.23);border-radius:13px;background:rgba(255,255,255,.78);color:#64748b;font-size:12px;line-height:1.7; }
+.timeline-pro-reading-method > summary { list-style:none;cursor:pointer;padding:12px 16px;font-weight:700;color:#986d26; }
+.timeline-pro-reading-method > summary::-webkit-details-marker { display:none; }
+.timeline-pro-reading-method > summary::after { content:'⌄';float:right;transition:transform .2s; }
+.timeline-pro-reading-method[open] > summary::after { transform:rotate(180deg); }
+.timeline-pro-reading-method > p,.timeline-pro-reading-apparatus { padding:0 16px 15px;margin:0; }
+.timeline-pro-reading-apparatus { display:grid;gap:12px; }
+.timeline-pro-reading-apparatus a { color:#986d26;text-decoration:underline;text-underline-offset:3px; }
+.timeline-pro-reading-method button { margin:0 16px 14px;font-weight:700;color:#986d26;text-decoration:underline; }
+.dark .timeline-pro-reading-method { background:#101010;border-color:#383020;color:#cbd5e1; }
+.timeline-pro-reading-method > summary:focus-visible { outline:2px solid #c5a059;outline-offset:-2px; }
