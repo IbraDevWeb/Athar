@@ -27,3 +27,6 @@
 .timeline-pro-reading-method button { margin:0 16px 14px;font-weight:700;color:#986d26;text-decoration:underline; }
 .dark .timeline-pro-reading-method { background:#101010;border-color:#383020;color:#cbd5e1; }
 .timeline-pro-reading-method > summary:focus-visible { outline:2px solid #c5a059;outline-offset:-2px; }
+
+/* Le panneau d'événement doit surplomber les contrôles immersifs fixes (z-index 340). */
+.timeline-pro-backdrop { z-index:450; }
