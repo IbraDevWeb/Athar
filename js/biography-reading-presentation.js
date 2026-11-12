@@ -57,9 +57,14 @@ const ATHAR_READING_PRESENTATION = (() => {
         } },
         35: {
             intro: "‘Aqîl ibn Abou Tâlib, frère de ‘Alî et Ja‘far, fut capturé à Badr puis se rapprocha du Prophète ﷺ. Les chroniques relatent sa parenté, ses scrupules et son parcours.",
-            quote: '« Je t’aime de deux amours… »'
+            quote: '« Je t’aime de deux amours… »',
+            timeline: {
+                1: { year: 'Autour de 8 H', desc: "Se rapproche de l'islam vers la conquête de La Mecque." },
+                2: { year: 'Après 8 H', desc: "Siyar rapporte des revenus en dattes liés à Khaybar." },
+                3: { desc: 'Décède sous le califat de Mou‘âwiya.' }
+            }
         },
-        36: { timeline: { 0: { desc: "Les biographies retracent l'enfance de Zayd, son enlèvement, sa vente puis son affranchissement." } } },
+        36: { timeline: { 0: { year: 'Enfance', desc: "Les biographies retracent l'enfance de Zayd, son enlèvement, sa vente puis son affranchissement." } } },
         37: {
             intro: "‘Abd-Allah ibn Rawâha, poète des Ansâr, participa à Badr, fut chargé d'estimer les récoltes de Khaybar et fut désigné troisième commandant à Mou’ta.",
             timeline: { 2: { desc: "À Khaybar, Ibn Rawâha participe à l'estimation des récoltes." } }
@@ -69,7 +74,8 @@ const ATHAR_READING_PRESENTATION = (() => {
             citations: { 0: { text: 'Selon Ibn Ishâq, le Prophète ﷺ séjourna chez Koulthoum à Qoubâ.' } }
         },
         39: { timeline: { 0: { desc: "À {Ouhoud}, reçoit l'épée du Prophète ﷺ et s'engage à en respecter les droits." } } },
-        40: { timeline: { 1: { desc: "Khoubayb est capturé lors de l'expédition d'Ar-Rajî‘." } } }
+        40: { timeline: { 1: { year: 'Vers 4 H', desc: "Khoubayb est capturé lors de l'expédition d'Ar-Rajî‘." } } },
+        33: { timeline: { 1: { desc: 'Décède au milieu du califat de Mou‘âwiya.' } } }
     };
 
     const allowed = chapter => Number.isInteger(chapter?.id) && chapter.id >= 1 && chapter.id <= 40;
