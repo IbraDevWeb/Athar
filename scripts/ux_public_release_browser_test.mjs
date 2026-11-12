@@ -91,6 +91,41 @@ async function desktop() {
         await home(page);
     }
 
+    // Refonte Hadith : 18 cartes légères, recherche directe et fiche en lecture continue.
+    await navigate(page,'hadiths');
+    await page.locator('.hadith-pro-root').waitFor({state:'visible'});
+    assert.match(await page.locator('.hadith-pro-heading h1').innerText(),/Les hadiths/);
+    assert.equal(await page.locator('.hadith-pro-card').count(),18,'La grille Hadith doit limiter le premier affichage');
+    assert.equal(await page.locator('.hadith-pro-hero,.hadith-pro-progress-view').count(),0,'Ancien tableau de bord Hadith encore visible');
+    await page.getByRole('button',{name:'Voir plus de hadiths'}).click();
+    assert.ok(await page.locator('.hadith-pro-card').count()>18,'Le chargement progressif des hadiths est inactif');
+    await page.locator('.hadith-pro-search input').fill('colère');
+    assert.ok(await page.locator('.hadith-pro-card').count()>0,'Recherche Hadith sans résultat pour colère');
+    assert.ok(await page.locator('.hadith-pro-card').count()<18,'La recherche Hadith ne filtre pas');
+    await page.locator('.hadith-pro-search input').fill('');
+    const firstHadithCard=page.locator('.hadith-pro-card').first();
+    await firstHadithCard.click();
+    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
+    assert.ok(await page.locator('.hadith-reader-text-view').isVisible(),'Texte du hadith invisible');
+    assert.ok(await page.locator('.hadith-reader-explanation-view').isVisible(),'L’explication doit suivre sans changer d’onglet');
+    assert.ok(await page.locator('.hadith-reader-lessons-view').isVisible(),'Les enseignements doivent suivre sans onglet');
+    assert.equal(await page.locator('.hadith-reader-tabs').count(),0,'Les cinq anciens onglets sont encore présents');
+    const hadithNotes=page.locator('.hadith-reader-source-view');
+    assert.equal(await hadithNotes.getAttribute('open'),null,'Les réserves Hadith doivent être repliées');
+    await hadithNotes.locator('summary').click();
+    assert.match(await hadithNotes.innerText(),/Degré indiqué/,'Le degré a été perdu dans la fiche');
+    await page.locator('.hadith-reader-language-switch button').filter({hasText:'Arabe'}).click();
+    assert.ok(await page.locator('.hadith-reader-arabic').isVisible(),'Lecture arabe non disponible');
+    await page.locator('.hadith-reader-language-switch button').filter({hasText:'Les deux'}).click();
+    const memo='Révision personnelle temporaire';
+    await page.locator('.hadith-reader-notes textarea').fill(memo);
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.hadith-pro-root').waitFor({state:'visible'});
+    await page.locator('.hadith-pro-card').first().click();
+    assert.equal(await page.locator('.hadith-reader-notes textarea').inputValue(),memo,'La note personnelle doit survivre au retour à la liste');
+    await page.locator('#athar-immersive-quick').click();
+    await home(page);
+
     // UX : l'accès aux histoires doit être immédiat, lisible et léger.
     await navigate(page, 'library');
     await page.locator('.library-pro-selection').waitFor({state:'visible'});
@@ -401,6 +436,25 @@ async function mobile(width,height) {
     assert.ok(metrics.total>metrics.height && metrics.top>0,'La lecture ne doit pas être bloquée sur téléphone : '+JSON.stringify(metrics));
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
+    // Même lecture continue sur 390 et 360 px, sans débordement ni mini-onglets.
+    await navigate(page,'hadiths');
+    await page.locator('.hadith-pro-root').waitFor({state:'visible'});
+    assert.equal(await page.locator('.hadith-pro-card').count(),18,'Lot initial Hadith absent sur mobile');
+    await page.locator('.hadith-pro-search input').fill('colère');
+    assert.ok(await page.locator('.hadith-pro-card').count()>0,'Recherche mobile Hadith inactive');
+    await page.locator('.hadith-pro-card').first().click();
+    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
+    assert.ok(await page.locator('.hadith-reader-french').isVisible(),'Traduction française invisible sur mobile');
+    await page.locator('.hadith-reader-language-switch button').filter({hasText:'Arabe'}).click();
+    assert.ok(await page.locator('.hadith-reader-arabic').isVisible(),'Texte arabe invisible sur mobile');
+    const readerWidth=await page.locator('.hadith-reader-shell').boundingBox();
+    assert.ok(readerWidth && readerWidth.width<=width,'Le lecteur Hadith dépasse la largeur du téléphone');
+    await page.locator('.hadith-reader-endnotes summary').click();
+    assert.ok(await page.locator('.hadith-reader-source-grid').isVisible(),'Références non accessibles sur téléphone');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.hadith-pro-root').waitFor({state:'visible'});
     await home(page);
 
     await navigate(page,'adhkar');
