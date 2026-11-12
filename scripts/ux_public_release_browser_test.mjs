@@ -91,6 +91,31 @@ async function desktop() {
         await home(page);
     }
 
+    // UX : l'accès aux histoires doit être immédiat, lisible et léger.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-selection').waitFor({state:'visible'});
+    assert.match(await page.locator('.library-pro-selection-intro h1').innerText(),/Choisir une histoire/i);
+    const firstBatch = page.locator('.library-pro-selection-results .library-pro-card');
+    assert.equal(await firstBatch.count(),18,'La page de sélection doit afficher 18 cartes au départ');
+    assert.equal(await page.locator('.library-pro-card-metrics').count(),0,'Les quatre blocs de statistiques ne doivent plus encombrer les cartes');
+    await page.locator('.library-pro-quick-categories button').filter({hasText:'Badr'}).click();
+    assert.ok(await firstBatch.count()>0,'Le thème Badr doit conserver des résultats');
+    assert.ok(await page.locator('.library-pro-active-filters').isVisible(),'Les filtres sélectionnés doivent être visibles');
+    await page.locator('.library-pro-active-filters button').click();
+    assert.equal(await firstBatch.count(),18,'La réinitialisation doit rétablir le premier lot');
+    await page.getByRole('button',{name:"Afficher plus d'histoires"}).click();
+    assert.equal(await firstBatch.count(),36,'Le chargement progressif doit exposer 36 cartes');
+    await page.locator('.library-pro-selection-search input').fill('Khoubayb');
+    assert.ok((await firstBatch.count())>=1,'La recherche en direct ne retourne pas Khoubayb');
+    assert.ok((await firstBatch.count())<18,'La recherche doit réduire le nombre de cartes');
+    await firstBatch.first().locator('.library-pro-card-top button').click();
+    assert.ok(await page.locator('.library-pro-selection').isVisible(),'Un favori ne doit pas ouvrir la notice par accident');
+    await page.getByRole('button',{name:'Affichage en liste'}).click();
+    assert.ok(await page.locator('.library-pro-results.is-list').isVisible(),'La liste compacte doit être disponible');
+    await page.getByRole('button',{name:'Effacer la recherche'}).click();
+    assert.equal(await firstBatch.count(),18,'Après recherche, le nombre de cartes doit se réinitialiser');
+    await home(page);
+
     // Régression historique : le port d’Oumâma pendant la prière n'est pas daté « ≈ 612 ».
     await navigate(page, 'timeline');
     await page.locator('.timeline-pro-search input').fill('Oumama');
