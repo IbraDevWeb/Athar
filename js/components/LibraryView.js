@@ -360,7 +360,7 @@ const LibraryView = {
             <div v-else-if="activeSpace === 'catalog'" class="library-pro-catalog library-pro-selection">
                 <section class="library-pro-selection-intro">
                     <div>
-                        <span class="library-pro-selection-eyebrow">سِيَرٌ وَآثَارٌ <span aria-hidden="true">·</span> La bibliothèque des biographies</span>
+                        <span class="library-pro-selection-eyebrow"><i data-lucide="book-open" aria-hidden="true"></i> سِيَرٌ وَآثَارٌ <span aria-hidden="true">·</span> Les biographies</span>
                         <h1>Choisir une <em>histoire.</em></h1>
                         <p>Un nom, un récit, une époque : trouvez une figure à découvrir. Chaque notice vous mène aux sources et aux traditions rapportées.</p>
                     </div>
@@ -418,10 +418,12 @@ const LibraryView = {
                         <article v-for="item in displayedCatalogItems" :key="item.id" class="library-pro-card" @click="openItem(item)" tabindex="0" role="button" :aria-label="'Lire la biographie de ' + item.name" @keydown.enter.prevent="openItem(item)" @keydown.space.prevent="openItem(item)">
                             <div class="library-pro-card-top">
                                 <span class="library-pro-card-index">{{ String(item.id).padStart(2, '0') }}</span>
+                                <span class="library-pro-card-emblem" aria-hidden="true"><i data-lucide="book-open"></i></span>
                                 <button type="button" @click="toggleItemFavorite(item, $event)" @keydown.enter.stop @keydown.space.stop :aria-label="favorite(item.id) ? 'Retirer des favoris : ' + item.name : 'Ajouter aux favoris : ' + item.name" :aria-pressed="favorite(item.id)" :class="{ active: favorite(item.id) }" title="Ajouter ou retirer des favoris"><i data-lucide="heart"></i></button>
                             </div>
                             <div class="library-pro-card-main">
                                 <span class="library-pro-card-arabic" lang="ar" dir="rtl">{{ item.arabicName }}</span>
+                                <span class="library-pro-card-category">{{ safeArray(item.tags)[0] || 'Biographie' }}</span>
                                 <h2>{{ item.name }}</h2>
                                 <p class="library-pro-card-subtitle">{{ item.subtitle }}</p>
                                 <p class="library-pro-card-summary">{{ item.intro }}</p>
