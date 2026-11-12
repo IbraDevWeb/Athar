@@ -225,7 +225,7 @@ const HadithsView = {
                     <h1>Les hadiths</h1>
                     <p>Retrouver un enseignement, le lire et l'approfondir.</p>
                 </div>
-                <div class="hadith-pro-count"><strong>{{ stats.total }}</strong><span>hadiths</span></div>
+                <div v-if="section==='library'" class="hadith-pro-count"><strong>{{ stats.total }}</strong><span>hadiths</span></div>
             </header>
 
             <nav class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
