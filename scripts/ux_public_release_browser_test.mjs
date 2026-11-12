@@ -124,6 +124,20 @@ async function desktop() {
     await page.locator('.hadith-pro-card').first().click();
     assert.equal(await page.locator('.hadith-reader-notes textarea').inputValue(),memo,'La note personnelle doit survivre au retour à la liste');
     await page.locator('#athar-immersive-quick').click();
+    // Navigation Kutub as-Sitta, les six recueils doivent être des sous-sections accessibles.
+    await page.locator('.hadith-kutub-tabs button').nth(1).click();
+    assert.equal(await page.locator('.hadith-kutub-book').count(),6,'Les six livres ne sont pas présents');
+    assert.equal(await page.locator('.hadith-pro-card').count(),0,'Le corpus courant est mélangé aux recueils vides');
+    for (let index=0; index<6; index++) {
+        await page.locator('.hadith-kutub-book').nth(index).click();
+        await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
+        await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});
+        assert.match(await page.locator('.hadith-kutub-book-counts').innerText(),/0 chapitre.*0 hadith/s,'Un recueil supposé vide possède du contenu');
+        assert.match(await page.locator('.hadith-kutub-empty h3').innerText(),/prêt à être rempli/i);
+        await page.getByRole('button',{name:'Tous les recueils'}).click();
+    }
+    await page.locator('.hadith-kutub-tabs button').nth(0).click();
+    assert.equal(await page.locator('.hadith-pro-card').count(),18,'Le corpus original ne revient pas');
     await home(page);
 
     // UX : l'accès aux histoires doit être immédiat, lisible et léger.
@@ -436,6 +450,21 @@ async function mobile(width,height) {
     assert.ok(metrics.total>metrics.height && metrics.top>0,'La lecture ne doit pas être bloquée sur téléphone : '+JSON.stringify(metrics));
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
+    // Sous-sections Kutub as-Sitta aussi navigables sur smartphone.
+    await navigate(page,'hadiths');
+    await page.locator('.hadith-pro-root').waitFor({state:'visible'});
+    await page.locator('.hadith-kutub-tabs button').nth(1).click();
+    assert.equal(await page.locator('.hadith-kutub-book').count(),6,'Six recueils manquants sur téléphone');
+    const bookWidth=await page.locator('.hadith-kutub-book').first().boundingBox();
+    assert.ok(bookWidth && bookWidth.width<=width,'Carte de recueil trop large sur téléphone');
+    await page.locator('.hadith-kutub-book').last().click();
+    await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});
+    assert.match(await page.locator('.hadith-kutub-book-head h2').innerText(),/Ibn Mâjah/,'Navigation du dernier recueil cassée');
+    await page.locator('.hadith-kutub-back').click();
+    await page.locator('.hadith-kutub-tabs button').nth(0).click();
+    assert.equal(await page.locator('.hadith-pro-card').count(),18,'Corpus actuel perdu au retour sur mobile');
     await home(page);
 
     // Même lecture continue sur 390 et 360 px, sans débordement ni mini-onglets.

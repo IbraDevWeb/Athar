@@ -64,6 +64,9 @@ jobs:
       - name: Validate hadiths
         run: node scripts/validate-hadith.js
 
+      - name: Validate six empty Kutub as-Sitta collections
+        run: node scripts/validate-kutub-sitta.js
+
       - name: Validate Adhkar and immersive navigation
         run: node scripts/validate-immersive-adhkar.js
 

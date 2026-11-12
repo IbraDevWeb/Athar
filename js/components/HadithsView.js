@@ -11,6 +11,28 @@ const HadithsView = {
         const sortMode = Vue.ref('original');
         const showFilters = Vue.ref(false);
         const visibleLimit = Vue.ref(18);
+        const section = Vue.ref('library');
+        const books = ATHAR_KUTUB_SITTA.collections;
+        const selectedBookId = Vue.ref(null);
+        const bookPayload = Vue.ref(null);
+        const bookLoading = Vue.ref(false);
+        const bookError = Vue.ref('');
+        const bookQuery = Vue.ref('');
+        const bookChapter = Vue.ref('all');
+        const bookVisibleLimit = Vue.ref(18);
+        const selectedBook = Vue.computed(() => books.find(book => book.id === selectedBookId.value) || null);
+        const bookChapters = Vue.computed(() => bookPayload.value?.chapters || []);
+        const bookHadiths = Vue.computed(() => bookPayload.value?.hadiths || []);
+        const filteredBookHadiths = Vue.computed(() => {
+            const terms = normalize(bookQuery.value).split(/\s+/).filter(Boolean);
+            return bookHadiths.value.filter(h => {
+                const searchText = normalize([h.title, h.hadeeth, h.hadeeth_ar, h.id, h.attribution].join(' '));
+                return (bookChapter.value === 'all' || h.chapterId === bookChapter.value)
+                    && terms.every(term => searchText.includes(term));
+            });
+        });
+        const visibleBookHadiths = Vue.computed(() => filteredBookHadiths.value.slice(0, bookVisibleLimit.value));
+        let bookRequestId = 0;
         const state = Vue.reactive({ favorites: [], read: {}, recent: [], notes: {} });
 
         // Classification de navigation indicative : elle ne remplace pas l'index des recueils.
@@ -123,14 +145,75 @@ const HadithsView = {
             const items = filtered.value.length ? filtered.value : enriched.value;
             if (items.length) open(items[Math.floor(Math.random() * items.length)]);
         };
+        const selectSection = name => {
+            if (name !== 'library' && name !== 'kutub') return;
+            section.value = name;
+            if (name !== 'kutub') {
+                bookRequestId += 1;
+                selectedBookId.value = null;
+                bookPayload.value = null;
+                bookError.value = '';
+            }
+            refreshIcons();
+        };
+        const openBook = async book => {
+            if (!book || !books.some(item => item.id === book.id)) return;
+            const requestId = ++bookRequestId;
+            section.value = 'kutub';
+            selectedBookId.value = book.id;
+            bookPayload.value = null;
+            bookError.value = '';
+            bookLoading.value = true;
+            bookQuery.value = '';
+            bookChapter.value = 'all';
+            bookVisibleLimit.value = 18;
+            refreshIcons();
+            try {
+                const response = await fetch(book.dataPath);
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const data = await response.json();
+                if (data.schemaVersion !== 1 || data.collectionId !== book.id
+                    || !Array.isArray(data.chapters) || !Array.isArray(data.hadiths)
+                    || !Array.isArray(data.sourceRecords)) throw new Error('Données du recueil non conformes');
+                if (requestId === bookRequestId) bookPayload.value = data;
+            } catch (error) {
+                if (requestId === bookRequestId) bookError.value = 'Ce recueil ne peut pas être chargé. Réessaie.';
+                console.warn('Chargement Kutub as-Sitta :', error);
+            } finally {
+                if (requestId === bookRequestId) {
+                    bookLoading.value = false;
+                    refreshIcons();
+                }
+            }
+        };
+        const closeBook = () => {
+            bookRequestId += 1;
+            selectedBookId.value = null;
+            bookPayload.value = null;
+            bookError.value = '';
+            bookLoading.value = false;
+            refreshIcons();
+        };
+        const openBookHadith = hadith => {
+            if (!hadith || !selectedBook.value) return;
+            props.openHadith(hadith);
+        };
         const refreshIcons = () => Vue.nextTick(() => window.lucide?.createIcons());
         Vue.onMounted(() => { load(); refreshIcons(); });
         Vue.watch([query, themeFilter, collectionFilter, gradeFilter, favoritesOnly, unreadOnly, sortMode], () => { visibleLimit.value = 18; refreshIcons(); });
         Vue.watch(visibleLimit, refreshIcons);
+        Vue.watch([section, bookQuery, bookChapter, selectedBookId], () => {
+            bookVisibleLimit.value = 18;
+            refreshIcons();
+        });
+        Vue.watch(bookVisibleLimit, refreshIcons);
         return {
             query, themeFilter, collectionFilter, gradeFilter, favoritesOnly, unreadOnly,
             sortMode, showFilters, visibleLimit, visibleItems, filtered, themes, collections, grades, stats,
-            recentItem, activeFilters, resetFilters, chooseTheme, toggleFavorite, open, random, clean
+            recentItem, activeFilters, resetFilters, chooseTheme, toggleFavorite, open, random, clean,
+            section, books, selectedBook, selectedBookId, selectSection, openBook, closeBook,
+            bookPayload, bookLoading, bookError, bookQuery, bookChapter, bookChapters, bookHadiths,
+            filteredBookHadiths, visibleBookHadiths, bookVisibleLimit, openBookHadith
         };
     },
     template: `
@@ -142,10 +225,22 @@ const HadithsView = {
                     <h1>Les hadiths</h1>
                     <p>Retrouver un enseignement, le lire et l'approfondir.</p>
                 </div>
-                <div class="hadith-pro-count"><strong>{{ stats.total }}</strong><span>hadiths</span></div>
+                <div v-if="section==='library'" class="hadith-pro-count"><strong>{{ stats.total }}</strong><span>hadiths</span></div>
             </header>
 
-            <div class="hadith-pro-search-area">
+            <nav class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
+                <button type="button" :class="{active:section==='library'}" :aria-pressed="section==='library'" @click="selectSection('library')">
+                    <i data-lucide="book-open" aria-hidden="true"></i> Hadiths disponibles
+                    <span>{{ stats.total }}</span>
+                </button>
+                <button type="button" :class="{active:section==='kutub'}" :aria-pressed="section==='kutub'" @click="selectSection('kutub')">
+                    <i data-lucide="library" aria-hidden="true"></i> Kutub as-Sitta
+                    <span>6 recueils</span>
+                </button>
+            </nav>
+
+            <div v-if="section==='library'" class="hadith-kutub-existing-library">
+                <div class="hadith-pro-search-area">
                 <label class="hadith-pro-search">
                     <i data-lucide="search" aria-hidden="true"></i>
                     <span class="sr-only">Rechercher un hadith</span>
@@ -243,6 +338,91 @@ const HadithsView = {
                 <span>Dernière lecture</span>
                 <button type="button" @click="open(recentItem)"><span>{{ recentItem.raw.title }}</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
             </div>
+            </div>
+
+            <section v-else class="hadith-kutub-section">
+                <template v-if="!selectedBook">
+                    <div class="hadith-kutub-section-head">
+                        <div>
+                            <span class="hadith-pro-eyebrow">Les six recueils classiques</span>
+                            <h2>Kutub as-Sitta <span lang="ar" dir="rtl">الكتب الستة</span></h2>
+                            <p>Chaque recueil dispose désormais de son propre espace. Les textes seront ajoutés progressivement, avec leurs références.</p>
+                        </div>
+                    </div>
+                    <div class="hadith-kutub-grid">
+                        <button v-for="(book,index) in books" :key="book.id" type="button"
+                            class="hadith-kutub-book" :aria-label="'Ouvrir le recueil '+book.name" @click="openBook(book)">
+                            <span class="hadith-kutub-book-index">{{ String(index+1).padStart(2,'0') }}</span>
+                            <span class="hadith-kutub-book-ar" lang="ar" dir="rtl">{{ book.arabicName }}</span>
+                            <strong>{{ book.name }}</strong>
+                            <small>{{ book.compiler }}</small>
+                            <span class="hadith-kutub-book-bottom">En préparation <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                    <p class="hadith-kutub-footnote">Cette future compilation est distincte des {{ stats.total }} hadiths actuellement disponibles. Les recueils n'ont pas encore été importés.</p>
+                </template>
+
+                <section v-else class="hadith-kutub-book-view" :aria-label="'Recueil '+selectedBook.name">
+                    <button type="button" class="hadith-kutub-back" @click="closeBook">
+                        <i data-lucide="arrow-left" aria-hidden="true"></i> Tous les recueils
+                    </button>
+                    <header class="hadith-kutub-book-head">
+                        <div>
+                            <span class="hadith-pro-eyebrow">{{ selectedBook.type }} · {{ selectedBook.compiler }}</span>
+                            <h2>{{ selectedBook.name }}</h2>
+                            <p>{{ selectedBook.description }}</p>
+                        </div>
+                        <p class="hadith-kutub-book-head-ar" lang="ar" dir="rtl">{{ selectedBook.arabicName }}</p>
+                    </header>
+
+                    <div v-if="bookLoading" class="hadith-kutub-empty" role="status">
+                        <i data-lucide="loader-circle" aria-hidden="true"></i>
+                        <p>Ouverture du recueil…</p>
+                    </div>
+                    <div v-else-if="bookError" class="hadith-kutub-empty" role="alert">
+                        <i data-lucide="alert-circle" aria-hidden="true"></i>
+                        <p>{{ bookError }}</p>
+                        <button type="button" @click="openBook(selectedBook)">Réessayer</button>
+                    </div>
+                    <template v-else-if="bookPayload">
+                        <div class="hadith-kutub-book-counts" aria-label="Contenu importé">
+                            <span><strong>{{ bookChapters.length }}</strong> chapitre{{ bookChapters.length>1?'s':'' }}</span>
+                            <span><strong>{{ bookHadiths.length }}</strong> hadith{{ bookHadiths.length>1?'s':'' }} importé{{ bookHadiths.length>1?'s':'' }}</span>
+                        </div>
+                        <div v-if="bookHadiths.length" class="hadith-kutub-imported">
+                            <div class="hadith-kutub-imported-controls">
+                                <label class="hadith-pro-search"><i data-lucide="search" aria-hidden="true"></i>
+                                    <input v-model="bookQuery" type="search" :aria-label="'Rechercher dans '+selectedBook.name"
+                                        placeholder="Rechercher dans ce recueil…">
+                                </label>
+                                <select v-model="bookChapter" aria-label="Choisir un chapitre">
+                                    <option value="all">Tous les chapitres</option>
+                                    <option v-for="chapter in bookChapters" :key="chapter.id" :value="chapter.id">{{ chapter.titleFr || chapter.titleAr || chapter.id }}</option>
+                                </select>
+                            </div>
+                            <p class="hadith-kutub-result" aria-live="polite">{{ filteredBookHadiths.length }} résultat{{ filteredBookHadiths.length>1?'s':'' }}</p>
+                            <div v-if="visibleBookHadiths.length" class="hadith-kutub-hadith-grid">
+                                <button v-for="entry in visibleBookHadiths" :key="entry.id" type="button"
+                                    class="hadith-kutub-hadith" @click="openBookHadith(entry)">
+                                    <span>{{ entry.id }}</span>
+                                    <strong>{{ entry.title }}</strong>
+                                    <small>{{ entry.attribution }}</small>
+                                    <i data-lucide="arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div v-else class="hadith-kutub-empty"><p>Aucun texte ne correspond à ces filtres.</p></div>
+                            <div v-if="filteredBookHadiths.length>bookVisibleLimit" class="hadith-pro-more">
+                                <button type="button" @click="bookVisibleLimit+=18">Voir plus de hadiths <i data-lucide="chevron-down" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                        <div v-else class="hadith-kutub-empty">
+                            <i data-lucide="book-open" aria-hidden="true"></i>
+                            <h3>Ce recueil est prêt à être rempli</h3>
+                            <p>Aucun hadith n'a encore été ajouté. Ses chapitres, textes arabes, traductions et références seront intégrés progressivement.</p>
+                        </div>
+                    </template>
+                </section>
+            </section>
         </div>
     </section>
     `

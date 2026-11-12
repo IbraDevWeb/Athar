@@ -246,3 +246,118 @@
 @media(prefers-reduced-motion:reduce) {
     .hadith-pro-root *, .hadith-reader-pro * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
+
+/* Kutub as-Sitta — six espaces documentaires, vides tant que les textes ne sont pas importés. */
+.hadith-kutub-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    border-bottom: 1px solid var(--hadith-line); margin: 3px 0 25px; padding-bottom: 15px;
+}
+.hadith-kutub-tabs button {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 11px 15px; min-height: 45px; background: var(--hadith-card);
+    color: var(--hadith-muted); border: 1px solid var(--hadith-line);
+    border-radius: 10px; font-size: 13px; font-weight: 700;
+}
+.hadith-kutub-tabs button.active {
+    border-color: var(--hadith-accent); background: var(--hadith-selected);
+    color: var(--hadith-ink);
+}
+.hadith-kutub-tabs button > span {
+    font-size: 11px; font-weight: 600; color: var(--hadith-muted);
+}
+.hadith-kutub-section { animation: hadith-kutub-appear .18s ease-out; }
+@keyframes hadith-kutub-appear { from { opacity: .7; transform: translateY(3px); } to {opacity: 1; transform:none;} }
+.hadith-kutub-section-head { padding: 0 0 22px; max-width: 740px; }
+.hadith-kutub-section-head h2, .hadith-kutub-book-head h2 {
+    font-family: Cinzel, Georgia, serif; font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700; line-height: 1.4; margin: 0 0 8px;
+    color: var(--hadith-ink);
+}
+.hadith-kutub-section-head h2 span { font-family: Amiri, serif; font-weight: 400; font-size: .95em; margin-left: 7px; }
+.hadith-kutub-section-head p, .hadith-kutub-book-head p {
+    font-size: 13px; line-height: 1.75; color: var(--hadith-muted); margin: 0;
+}
+.hadith-kutub-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
+.hadith-kutub-book {
+    min-width: 0; min-height: 218px; text-align: left;
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 21px; background: var(--hadith-card); border: 1px solid var(--hadith-line);
+    border-radius: 13px; transition: border-color .16s, transform .16s;
+}
+.hadith-kutub-book:hover { border-color: var(--hadith-accent); transform: translateY(-2px); }
+.hadith-kutub-book-index { align-self: flex-start; font-size: 11px; font-weight: 750; color: var(--hadith-accent); }
+.hadith-kutub-book-ar {
+    font-family: Amiri, 'Noto Naskh Arabic', serif; font-size: 29px;
+    line-height: 1.35; font-weight: 400; color: var(--hadith-ink);
+}
+.hadith-kutub-book strong { font-family: Georgia, serif; font-size: 17px; line-height: 1.4; font-weight: 700; color: var(--hadith-ink); }
+.hadith-kutub-book small { color: var(--hadith-muted); font-size: 12px; line-height: 1.5; }
+.hadith-kutub-book-bottom {
+    margin-top: auto; padding-top: 12px; border-top: 1px solid var(--hadith-line);
+    color: var(--hadith-accent); font-weight: 700; font-size: 11px;
+    display: inline-flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+.hadith-kutub-book-bottom svg { width: 15px; height: 15px; }
+.hadith-kutub-footnote { font-size: 12px; line-height: 1.7; color: var(--hadith-muted); margin: 22px 0 0; }
+.hadith-kutub-back {
+    display: inline-flex; gap: 9px; align-items: center; padding: 8px 0; margin-bottom: 23px;
+    background: transparent; border: 0; color: var(--hadith-accent); font-size: 13px; font-weight: 750;
+}
+.hadith-kutub-book-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--hadith-line); }
+.hadith-kutub-book-head > div { max-width: 600px; }
+.hadith-kutub-book-head-ar {
+    flex-shrink: 0; font: 31px/1.5 Amiri, serif !important; color: var(--hadith-accent) !important;
+    white-space: nowrap; overflow-wrap: normal;
+}
+.hadith-kutub-book-counts { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; padding: 16px 0; font-size: 12px; color: var(--hadith-muted); }
+.hadith-kutub-book-counts strong { color: var(--hadith-ink); font-size: 15px; }
+.hadith-kutub-empty {
+    min-height: 210px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 12px; padding: 38px 22px; border: 1px dashed var(--hadith-line);
+    border-radius: 13px; background: var(--hadith-card);
+}
+.hadith-kutub-empty > svg { width: 28px; height: 28px; color: var(--hadith-accent); }
+.hadith-kutub-empty h3 { margin: 0; font-size: 17px; font-weight: 750; line-height: 1.5; }
+.hadith-kutub-empty p { font-size: 13px; line-height: 1.7; max-width: 480px; color: var(--hadith-muted); margin: 0; }
+.hadith-kutub-empty button {
+    min-height: 42px; margin-top: 5px; padding: 8px 20px; background: var(--hadith-ink);
+    color: var(--hadith-bg); border: 0; border-radius: 9px; font-size: 12px; font-weight: 700;
+}
+.hadith-kutub-imported-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 13px; }
+.hadith-kutub-imported-controls .hadith-pro-search { min-width: 210px; }
+.hadith-kutub-imported-controls select {
+    border: 1px solid var(--hadith-line); background: var(--hadith-card); color: var(--hadith-ink);
+    padding: 12px; border-radius: 9px; font-size: 12px; min-height: 46px; max-width: 100%;
+}
+.hadith-kutub-result { color: var(--hadith-muted); font-size: 12px; }
+.hadith-kutub-hadith-grid { display: grid; gap: 8px; }
+.hadith-kutub-hadith {
+    background: var(--hadith-card); border: 1px solid var(--hadith-line);
+    border-radius: 11px; padding: 15px 17px; text-align: left; display: grid;
+    grid-template-columns: minmax(0,1fr) 16px; gap: 5px 12px; align-items: center;
+}
+.hadith-kutub-hadith:hover { border-color: var(--hadith-accent); }
+.hadith-kutub-hadith > span, .hadith-kutub-hadith > small { color: var(--hadith-muted); font-size: 11px; grid-column: 1; }
+.hadith-kutub-hadith > strong { grid-column: 1; color: var(--hadith-ink); font: 700 15px/1.5 Georgia, serif; }
+.hadith-kutub-hadith > svg { grid-column: 2; grid-row: 1 / 4; color: var(--hadith-accent); }
+@media (max-width: 900px) {
+    .hadith-kutub-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 600px) {
+    .hadith-kutub-tabs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+    .hadith-kutub-tabs button { padding: 10px 6px; min-width: 0; gap: 5px; font-size: 11px; }
+    .hadith-kutub-tabs button svg { width: 15px; height: 15px; }
+    .hadith-kutub-tabs button > span { display: none; }
+    .hadith-kutub-grid { grid-template-columns: minmax(0,1fr); gap: 10px; }
+    .hadith-kutub-book { min-height: 177px; padding: 18px; }
+    .hadith-kutub-book-ar { font-size: 26px; }
+    .hadith-kutub-book-bottom { padding-top: 8px; }
+    .hadith-kutub-book-head { display: block; }
+    .hadith-kutub-book-head-ar { margin-top: 12px !important; font-size: 25px !important; text-align: right; }
+    .hadith-kutub-imported-controls .hadith-pro-search { flex-basis: 100%; }
+    .hadith-kutub-imported-controls select { width: 100%; }
+}
+@media(prefers-reduced-motion: reduce) {
+    .hadith-kutub-section { animation: none; }
+    .hadith-kutub-book { transition: none; transform: none !important; }
+}
