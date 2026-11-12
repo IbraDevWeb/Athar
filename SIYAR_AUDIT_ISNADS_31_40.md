@@ -1,0 +1,35 @@
+# Athar — audit des biographies 31 à 40
+
+Date de publication du dossier : 12 novembre 2026.
+
+## Méthode
+
+Athar est une **encyclopédie des récits rapportés**. Chaque transmission garde son **auteur, son recueil et les avis des savants identifiés**. L'application ne porte pas de jugement indépendant sur les chaînes. Les traditions historiquement intéressantes mais discutées sont conservées avec leurs réserves. Les citations prophétiques, les paroles des compagnons, les récits de sîra, les versets coraniques et les analyses des savants sont distincts.
+
+Pour la vague 31–40, le registre passe de **342 à 438 repères** (96 éléments supplémentaires). Les notices contiennent **38 récits**, **21 traditions ou citations documentaires** et **57 questions de quiz** ; certaines narrations existaient déjà et ont été substantiellement revues.
+
+## Recoupement, sources et réserves
+
+| Notice | Ajouts et corrections | Sources et jugements attribués |
+|---|---|---|
+| **31. Sa‘îd ibn al-Hârith** | Une notice limitée à la mention d'al-Hâkim et à son seul récit. Aucune bataille ni anecdote de vie inventée. | [Adh-Dhahabî, Siyar](https://www.islamweb.net/ar/library/content/60/39/) souligne la présence d'**Ibn Lahî‘a** dans la chaîne et précise ne connaître aucun autre auteur mentionnant Sa‘îd. Ne pas déduire un degré inédit de cette seule observation. |
+| **32. Abou Soufyân ibn al-Hârith** | Sa conversion, Hounayn, sa réconciliation et sa mort sont séparés en narrations avec des sources différentes. | [Al-Bukhârî 3042](https://sunnah.com/bukhari:3042) et [4315](https://sunnah.com/bukhari:4315) relatent qu'il tenait la bride de la mule à Hounayn. [Siyar](https://siyar.fr/livre/1/206) et l'édition annotée mentionnent le récit du chef des jeunes du Paradis, **moursal selon Ibn Hajar** : le classement n'est pas présenté comme une unanimité. |
+| **33. Ja‘far ibn Abou Soufyân** | Fiche volontairement courte, sans scènes inventées : présence avec son père à Hounayn ; décès au milieu du califat de Mou‘âwiya. | [Ibn Sa‘d, cité par adh-Dhahabî](https://siyar.fr/livre/1/207). Aucun hadith personnel autonome ni date précise de décès n'a été établi ici. |
+| **34. Ja‘far ibn Abou Tâlib** | **Correction chronologique** : l'émigration en Abyssinie n'a pas eu lieu en 5 H ; elle appartient à la période préhégirienne. Ajouts sur sa générosité, la fille de Hamza, le retour à Khaybar, Mou’ta et le deuil de sa famille. | [Al-Bukhârî 3708](https://sunnah.com/bukhari:3708) (générosité), [4230](https://sunnah.com/bukhari:4230) (retour), [4251](https://sunnah.com/bukhari:4251) (ressemblance), [4261](https://sunnah.com/bukhari:4261) (blessures), [3876](https://sunnah.com/bukhari:3876) (deux émigrations), [At-Tirmidhî 998](https://sunnah.com/tirmidhi:998) (**hasan** selon At-Tirmidhî et Darussalam). Pour le récit des deux ailes : [Al-Haythamî](https://dorar.net/h/QSZNI0Nn) mentionne une voie **hasan**, et [Al-Albânî](https://dorar.net/h/MiqsDlc2) juge une autre version **sahîh li-ghayrihi**. |
+| **35. ‘Aqîl ibn Abou Tâlib** | Le discours des deux amours n'est plus présenté comme authentifié sans réserve ; l'épisode de l'aiguille et les propos après Badr sont attribués aux chroniques. | [Al-Hâkim 6625](https://dorar.net/h/FsjwKGDt) transmet la parole ; [Ach-Chawkânî](https://dorar.net/h/ARqrTG9R) qualifie sa voie de **moursal**, avec rapporteurs fiables. Une chaîne moursal ne devient pas sahîh par supposition. |
+| **36. Zayd ibn Hâritha** | Le verset coranique est distingué des hadiths. Ajouts sur l'ancien nom Zayd ibn Mouhammad, sa dignité au commandement et la succession à Mou’ta. | [Coran 33:37](https://quran.com/33/37), [Al-Bukhârî 4782](https://sunnah.com/bukhari:4782), [4250](https://sunnah.com/bukhari:4250), [4251](https://sunnah.com/bukhari:4251), [4261](https://sunnah.com/bukhari:4261). Sur son accueil affectueux : [At-Tirmidhî 2732](https://sunnah.com/tirmidhi:2732) : **hasan gharîb selon At-Tirmidhî**, **da‘îf selon Darussalam**. |
+| **37. ‘Abd-Allah ibn Rawâha** | Ajouts sur l'équité à Khaybar, la récitation d'assises de foi et l'ordre des commandants à Mou’ta. Retrait d'un chiffre militaire non documenté par le hadith de référence. | [Al-Bukhârî 4262](https://sunnah.com/bukhari:4262). Pour les assises : [Al-Haythamî](https://dorar.net/h/blywiMc8) : chaîne **hasan** ; [Shu‘ayb al-Arna’ût](https://dorar.net/h/pCGzjR2I) : chaîne **faible** dans l'édition de Siyar. Pour Khaybar : [Ibn ‘Abd al-Barr](https://dorar.net/h/HPSMvins) : **moursal avec corroboration et voie reliée**. |
+| **38. Koulthoum ibn al-Hidm** | L'hospitalité du Prophète à Qoubâ ne reçoit plus une version unique imposée ; les variantes avec Sa‘d ibn Khaythama et l'usage de sa maison sont exposés. | [Ibn Ishâq, via At-Tabarânî 5414](https://dorar.net/h/sK6hUNNK). **Al-Haythamî**, *Majma‘ az-Zawâ’id* 6/65 : « ses rapporteurs sont fiables » pour la chaîne recensée. [Ibn Kathîr](https://gcp.islamweb.net/ar/library/content/59/227/) cite les deux versions. |
+| **39. Abou Doujâna** | L'épée à Ouhoud est reliée à Mouslim ; le bandeau, la démarche, la sincérité et la mort à Al-Yamâma sont distingués comme récits de différentes origines. | [Mouslim 2470](https://sunnah.com/muslim:2470) (épée). La voie du bandeau rouge : [Al-Haythamî](https://dorar.net/h/Nb2x0gaa), *Majma‘ az-Zawâ’id* 6/112 : **présence de transmetteurs inconnus de lui**. [Adh-Dhahabî](https://gcp.islamweb.net/ar/library/index.php?ID=50&bk_no=60&flag=1&page=bookcontents) pour les qualités et Al-Yamâma. |
+| **40. Khoubayb ibn ‘Adî** | Cinq récits localisables : expédition, comportement envers un bébé, raisin pendant la captivité, deux raka‘ât et invocation avant l'exécution. L'invocation reste celle du compagnon, pas une parole du Prophète. | [Al-Bukhârî 3045](https://sunnah.com/bukhari:3045) et [4086](https://sunnah.com/bukhari:4086). Les sources attestent les témoignages historiques et les propos de Khoubayb, sans imposer une datation séparée non écrite de son exécution. |
+
+## Apports fonctionnels et validation
+
+- **57 questions** de quiz (5 à 7 par notice) avec correction expliquée et lien documentaire.
+- **96 repères** ajoutés au registre. Chaque citation principale, événement, récit et transmission possède une référence ou une réserve nominative.
+- Le lien source s'affiche sous le récit et dans l'onglet **Sources** ; les catégories *verset*, *hadith*, *témoignage* et *récit de sîra* sont conservées.
+- Les biographies lacunaires ne sont pas artificiellement remplies ; les notices 31 et 33 montrent la pauvreté réelle des sources plutôt que de masquer leur absence.
+- Les dates sans année précise ne reçoivent pas d'année « estimée » automatiquement ; correction importante du départ de Ja‘far vers l'Abyssinie.
+- Aucune copie des PDF, aucune nouvelle dépendance de type RAG.
+
+**Limite scientifique :** le travail est un recoupement documentaire avec les classifications publiées par les traditionnistes. Il ne remplace ni une recherche exhaustive de toutes les voies ni une authentification indépendante des isnâds. Des chroniques mentionnées ne sont pas toutes associées à une évaluation conservée du rapporteur.
