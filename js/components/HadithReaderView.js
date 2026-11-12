@@ -209,6 +209,9 @@ const HadithReaderView = {
                         <div><span>Transmetteur présenté</span><strong>{{ narrator }}</strong><p v-if="hadith.hadeeth_intro">{{ clean(hadith.hadeeth_intro) }}</p></div>
                     </div>
                     <p v-if="hadith.attribution_ar" class="hadith-reader-attribution-ar" lang="ar" dir="rtl">{{ hadith.attribution_ar }}</p>
+                    <p v-if="hadith.source_url && hadith.source_url.startsWith('https://')" class="hadith-reader-source-link">
+                        <a :href="hadith.source_url" target="_blank" rel="noopener noreferrer">Consulter la source documentaire</a>
+                    </p>
                     <div v-if="wordMeanings.length" class="hadith-reader-vocabulary">
                         <h3>Vocabulaire arabe fourni</h3>
                         <ul>
