@@ -133,7 +133,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     keys.add(key);
     if(entry.pdfPage == null) {
       assert.equal(entry.printedPage,null,'Repère externe avec page imprimée inventée : '+id+'/'+key);
-      assert.ok(/^https:\/\/(?:sunnah\.com|dorar\.net|hadithportal\.com|quran\.com|siyar\.fr|(?:www\.|g1\.|gcp\.)?islamweb\.(?:net|com))\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
+      assert.ok(/^https:\/\/(?:sunnah\.com|dorar\.net|hadithportal\.com|quran\.com|siyar\.fr|ketabonline\.com|(?:www\.|g1\.|gcp\.)?islamweb\.(?:net|com))\//.test(entry.externalUrl || ''),'Référence externe indispensable sans page PDF : '+id+'/'+key);
     } else {
       assert.equal(entry.pdfPage,entry.printedPage+1);
       assert.ok(entry.printedPage > 0 && Number.isInteger(entry.printedPage));
@@ -161,7 +161,7 @@ for (const [id, source] of Object.entries(bibliography)) {
     total++;
   }
 }
-assert.equal(total,342,'278 anciens repères + 64 nouveaux repères du lot 21-30');
+assert.equal(total,438,'342 repères précédents + 96 repères de la vague 31–40');
 for(let id=1;id<=5;id++) {
   const c=chapters.find(x=>x.id===id), entries=bibliography[id].entries;
   assert.equal(entries.filter(e=>e.kind==='hadith').length,c.hadiths.length,'Chaque hadith doit être qualifié : '+id);
@@ -188,8 +188,8 @@ assert.ok(reader.includes("sourceEvidence('timeline', i)"),'Références chronol
 assert.ok(reader.includes('Lire sur Siyar.fr'),'Lien vers source externe absent');
 assert.ok(!library.includes('> Vérifiée<'),'Badge « Vérifiée » non qualifié');
 assert.ok(!index.includes('Authentifié avec Siyar'),'Badge latéral non qualifié');
-assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-isnad-21-30-1'),'Registre non chargé');
-assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-isnad-21-30-1'),'Registre non précaché');
+assert.ok(index.includes('biography_sources_data.js?v=athar-siyar-isnad-31-40-1'),'Registre non chargé');
+assert.ok(worker.includes('biography_sources_data.js?v=athar-siyar-isnad-31-40-1'),'Registre non précaché');
 assert.ok(!/https?:\/\/[^"'\s]+\.pdf/i.test(read('biography_sources_data.js')),'Le registre contient un lien vers un PDF');
 // Les points controversés du nouveau lot ne doivent plus être présentés comme établis.
 const story=(id,n) => chapters.find(c => c.id===id).narratives.find(x => x.id===n);
@@ -208,7 +208,7 @@ assert.ok(bibliography[9].entries.some(x=>x.kind==='timeline'&&x.id===0&&x.statu
 const c=id=>chapters.find(x=>x.id===id);
 assert.ok(/quatre-vingt-dix-neuf/.test(c(26).intro));
 assert.ok(/15 ou 20 H/.test(c(27).timeline[3].year), 'Nawfal : conserver 15/20 H, pas 20/25 H');
-assert.ok(/C’est alors ‘Aqil/.test(c(35).narratives.find(x=>x.id===353).content));
+assert.ok(/attribuée à ‘Aqîl lui-même/.test(c(35).narratives.find(x=>x.id===353).content));
 assert.ok(/Yarmouk/.test(c(49).narratives.find(x=>x.id===492).content));
 assert.ok(/récits historiques/.test(c(51).intro));
 assert.ok(/ne certifie/.test(bibliography[55].reviewScope));
@@ -326,4 +326,32 @@ assert.ok(/15 ou 20 H/.test(chapters.find(c=>c.id===27).timeline[3].year),'Déc�
 assert.ok(/hasan gharîb/.test(bibliography[26].entries.find(e=>e.kind==='hadith').hadithRef),'Jugement At-Tirmidhî 3854 absent');
 assert.ok(/2522/.test(bibliography[24].entries.find(e=>e.kind==='hadith').hadithRef),'Abou Dâwoud 2522 absent');
 
-console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 342 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
+// Vague 6 — dix biographies et leurs sources d'origine vérifiables.
+let waveQuestions=0;
+for (const id of Array.from({length:10},(_,i)=>i+31)) {
+  const c=chapters.find(ch=>ch.id===id), entries=bibliography[id].entries;
+  assert.ok(c,'Figure absente : '+id);
+  assert.ok(c.quizData.length>=5,'Quiz insuffisant : '+id);
+  waveQuestions+=c.quizData.length;
+  c.quizData.forEach((q,i)=>assert.ok(q.ref?.startsWith('https://')&&q.exp?.length>30&&Number.isInteger(q.c)&&q.c>=0&&q.c<q.opts.length,'Question invalide : '+id+'/'+i));
+  assert.equal(entries.filter(e=>e.kind==='quote'&&e.id===0).length,1,'Citation principale absente : '+id);
+  assert.equal(entries.filter(e=>e.kind==='timeline').length,c.timeline.length,'Événement sans repère : '+id);
+  assert.equal(entries.filter(e=>e.kind==='narrative').length,c.narratives.length,'Récit sans source : '+id);
+  for(const [i,h] of c.hadiths.entries()) {
+    const kind=h.type==='verse'?'verse':'hadith',ref=entries.find(e=>e.kind===kind && e.id===i);
+    assert.ok(ref?.externalUrl&&ref?.hadithRef&&ref?.grade,'Source de transmission manquante : '+id+'/'+i);
+    assert.equal(ref.category,h.type,'Catégorie non cohérente : '+id+'/'+i);
+  }
+  if ([31,33].includes(id)) assert.ok(c.narratives.length<=2,'Ne pas fabriquer des épisodes faute de sources : '+id);
+}
+assert.equal(waveQuestions,57,'57 questions attendues pour les 10 biographies');
+assert.ok(chapters.find(c=>c.id===34).timeline[0].year.includes("Avant l'Hégire"),'Émigration de Ja‘far : ne pas dater 5 H');
+assert.ok(bibliography[31].entries.find(e=>e.kind==='hadith')?.note.includes('Ibn Lahî‘a'),'Réserve sur la voie de Sa‘îd perdue');
+assert.ok(bibliography[35].entries.find(e=>e.kind==='hadith')?.grade==='attribution_discontinue','Voie moursal de ‘Aqîl mal indiquée');
+assert.ok(bibliography[36].entries.find(e=>e.kind==='verse')?.externalUrl==='https://quran.com/33/37','Coran 33:37 classé à tort');
+assert.ok(bibliography[37].entries.find(e=>e.kind==='hadith'&&e.id===1)?.grade==='disputed','Divergence Al-Haythamî / Al-Arna’ût manquante');
+assert.ok(bibliography[38].entries.find(e=>e.kind==='narrative'&&e.id===381)?.note.includes('Sa‘d'),'La variante des deux hôtes a disparu');
+assert.ok(bibliography[39].entries.find(e=>e.kind==='hadith'&&e.id===1)?.note.includes('Al-Haythamî'),'Réserve sur le bandeau d’Abou Doujâna manquante');
+assert.ok(bibliography[40].entries.some(e=>e.externalUrl==='https://sunnah.com/bukhari:4086'),'Récit principal de Khoubayb non localisé');
+
+console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 438 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');

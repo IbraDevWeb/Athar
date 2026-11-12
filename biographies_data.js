@@ -1758,20 +1758,92 @@
                 name: "Saïd ibn Al-Harith",
                 arabicName: "سعيد بن الحارث",
                 subtitle: "Le Cousin Discret",
-                intro: "Cousin du Prophète. Peu de détails sont connus sur lui, si ce n'est qu'il rapporte un hadith fondamental sur la foi.",
+                intro: "Sa‘îd ibn al-Hârith ibn ‘Abd al-Mouttalib est présenté comme cousin du Prophète ﷺ dans Siyar. Adh-Dhahabî n'y connaît qu'un seul récit attribué à ce personnage et signale la présence d'Ibn Lahî‘a dans sa chaîne. Sa biographie personnelle reste très peu documentée.",
+                heroQuote: "Adh-Dhahabî : « Je n'ai pas vu d'autre auteur qu'al-Hâkim le mentionner » (Siyar, notice 31).",
                 tags: ["Cousin", "Ahl al-Bayt"],
                 genealogy: "Saïd ibn Al-Harith ibn Abdelmoutalib.",
                 timeline: [
-                    { year: "Vie", desc: "Compagnon cité par Al-Hakim." }
+                  {
+                    "year": "Époque prophétique, date non établie",
+                    "desc": "Al-Hâkim classe Sa‘îd parmi les compagnons ; adh-Dhahabî ne signale aucun autre biographe l'ayant mentionné."
+                  }
                 ],
                 narratives: [
-                    { id: 311, title: "L'Unique Récit", content: "Dhahabi note qu'il est mentionné par Al-Hakim dans son Mustadrak comme compagnon, transmettant une parole d'espoir pour les croyants." }
+                  {
+                    "id": 311,
+                    "title": "Le récit isolé de Sa‘îd",
+                    "content": "Adh-Dhahabî dit que Salmân al-Agharr transmet de Sa‘îd une parole sur le croyant qui rencontrera Allah. Il signale Ibn Lahî‘a dans la chaîne. La notice ne fournit pas d'évaluation explicite permettant à Athar de classer ce récit par lui-même."
+                  },
+                  {
+                    "id": 312,
+                    "title": "Une documentation très réduite",
+                    "content": "Adh-Dhahabî explique que seul al-Hâkim lui est connu pour l'avoir compté parmi les compagnons. Aucun voyage, bataille ou événement précis n'est ajouté sans source propre à Sa‘îd."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Paradis est dû à quiconque rencontre Allah tout en étant croyant !", narrator: "Saïd ibn Al-Harith", source: "Al-Mustadrak" }
+                  {
+                    "text": "Selon une tradition attribuée à Sa‘îd, quiconque rencontre Allah croyant entrera au Paradis.",
+                    "narrator": "Sa‘îd ibn al-Hârith ; transmis par Salmân al-Agharr",
+                    "source": "Al-Hâkim, mentionné dans Siyar ; présence d'Ibn Lahî‘a dans la chaîne, sans degré attribué ici",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle est sa particularité généalogique ?", opts: ["Oncle du Prophète", "Cousin paternel du Prophète", "Frère de lait", "Fils adoptif"], c: 1, exp: "Il est le fils d'Al-Harith, l'oncle du Prophète." }
+                  {
+                    "q": "Qui mentionne Sa‘îd parmi les compagnons selon adh-Dhahabî ?",
+                    "opts": [
+                      "Al-Hâkim",
+                      "Mâlik",
+                      "Al-Bukhârî"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite al-Hâkim et dit ne pas connaître d'autres notices sur ce personnage.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Quel transmetteur de la chaîne le biographe signale-t-il ?",
+                    "opts": [
+                      "Ibn Lahî‘a",
+                      "Anas",
+                      "Ibn ‘Oumar"
+                    ],
+                    "c": 0,
+                    "exp": "Le commentaire d'adh-Dhahabî souligne la présence d'Ibn Lahî‘a dans le récit.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Quel thème concerne son seul récit mentionné ?",
+                    "opts": [
+                      "Le croyant rencontrant Allah",
+                      "La bataille de Mou’ta",
+                      "Le traité d'al-Houdaybiya"
+                    ],
+                    "c": 0,
+                    "exp": "Le texte porte sur l'espérance de celui qui rencontre Allah avec la foi.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Combien de récits personnels lui sont attribués dans cette notice ?",
+                    "opts": [
+                      "Un",
+                      "Quarante",
+                      "Cent"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî n'en mentionne qu'un ; Athar ne lui fabrique pas d'autres traditions.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Comment présenter une chaîne non classée dans la notice ?",
+                    "opts": [
+                      "Avec les réserves et sans verdict inventé",
+                      "Sahîh par défaut",
+                      "À supprimer sans explication"
+                    ],
+                    "c": 0,
+                    "exp": "L'absence de jugement attribuable à un savant n'autorise pas Athar à l'inventer.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  }
                 ]
             },
             {
@@ -1781,27 +1853,117 @@
                 name: "Abou Soufiane ibn Al-Harith",
                 arabicName: "أبو سُفْيَان بن الحارث",
                 subtitle: "Le Cousin Ressemblant",
-                intro: "Cousin germain, frère de lait et sosie du Prophète. Après une longue hostilité, sa conversion fut exemplaire. Il tint la mule du Prophète à Hunayn quand tous fuyaient.",
-                heroQuote: "Abou Soufiane ibn Al-Harith figure à la tête des jeunes du Paradis !",
+                intro: "Abou Soufyân ibn al-Hârith, cousin du Prophète ﷺ, s'opposa d'abord à lui avant de se convertir. Al-Bukhârî rapporte qu'il tenait la bride de sa mule à Hounayn. D'autres récits relatent sa réconciliation, son ascétisme et son décès, avec des voies distinctes.",
+                heroQuote: "Al-Barâ’ rapporte qu'à Hounayn Abou Soufyân tenait la bride de la mule du Prophète ﷺ (Al-Bukhârî 3042).",
                 tags: ["Cousin", "Hunayn", "Poète", "Ahl al-Bayt"],
                 genealogy: "Al-Moughira (son vrai nom) ibn Al-Harith. Frère de lait du Prophète (allaité par Halima).",
                 physicalDesc: "Il ressemblait physiquement au Prophète.",
                 timeline: [
-                    { year: "8 H", desc: "Conversion avant la Conquête." },
-                    { year: "8 H", desc: "Héros de Hunayn (tient la mule)." },
-                    { year: "20 H", desc: "Décès à Médine (infection verrue)." }
+                  {
+                    "year": "8 H",
+                    "desc": "Sa conversion à l'époque de la conquête de La Mecque est relatée dans les biographies."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Al-Bukhârî 3042 le montre tenant les rênes de la mule du Prophète à Hounayn."
+                  },
+                  {
+                    "year": "20 H selon une tradition",
+                    "desc": "Adh-Dhahabî mentionne un décès à Médine vers 20 H après une blessure survenue lors d'un rasage."
+                  }
                 ],
                 narratives: [
-                    { id: 321, title: "L'Accueil Glacial puis Chaleureux", content: "Le Prophète refusa d'abord de le voir à cause de ses poèmes satiriques passés. Abou Soufiane dit : 'S'il ne m'accepte pas, je prendrai mon fils et j'irai mourir dans le désert'. Le Prophète, ému, l'accepta. Il devint ensuite un adorateur qui ne relevait jamais la tête devant le Prophète par pudeur." },
-                    { id: 322, title: "La Verrue Fatale", content: "Au Hajj, le barbier coupa une verrue sur son crâne. Elle s'infecta et causa sa mort. Il dit à sa famille : 'Ne pleurez pas, car je n'ai commis aucun péché depuis ma conversion'." }
+                  {
+                    "id": 321,
+                    "title": "De l'hostilité à la réconciliation",
+                    "content": "Les ouvrages de sîra relatent qu'après des années d'opposition et de poésie hostile, Abou Soufyân chercha à rencontrer le Prophète et fut finalement accueilli. Les dialogues précis de cette scène ne figurent pas dans Al-Bukhârî 3042."
+                  },
+                  {
+                    "id": 322,
+                    "title": "La bride de la mule à Hounayn",
+                    "content": "Al-Barâ’ ibn ‘Âzib rapporte dans Al-Bukhârî 3042 et 4315 qu'Abou Soufyân ibn al-Hârith tenait la mule lorsque les combattants affrontèrent les flèches adverses. Le Prophète resta sur place."
+                  },
+                  {
+                    "id": 323,
+                    "title": "Une mort rapportée après une blessure",
+                    "content": "Adh-Dhahabî cite une tradition selon laquelle un barbier coupa une verrue sur son crâne lors d'un pèlerinage ; il mourut ensuite. Ce détail est biographique et ne constitue pas une conclusion médicale indépendante."
+                  },
+                  {
+                    "id": 324,
+                    "title": "Un titre honorifique dans une voie interrompue",
+                    "content": "Une parole lui attribue le titre de chef des jeunes du Paradis. La note d'Ibn Hajar sur cette voie la décrit comme moursal. Elle reste visible avec ce jugement, et n'est pas présentée comme unanimement authentifiée."
+                  }
                 ],
                 hadiths: [
-                    { text: "J'espère bien qu'il devienne le successeur de Hamza !", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam" },
-                    { text: "Abou Soufiane figure à la tête des jeunes du Paradis !", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Hisham" }
+                  {
+                    "text": "À Hounayn, Abou Soufyân tenait la bride de la mule du Prophète ﷺ.",
+                    "narrator": "Al-Barâ’ ibn ‘Âzib",
+                    "source": "Al-Bukhârî 3042 et 4315 — témoignage historique",
+                    "type": "historical"
+                  },
+                  {
+                    "text": "Une tradition attribue à Abou Soufyân le titre de chef des jeunes du Paradis.",
+                    "narrator": "‘Urwa ibn az-Zoubayr, récit reproduit dans Siyar",
+                    "source": "Siyar 1/206 ; voie moursal selon Ibn Hajar, non présentée comme unanimement sahîh",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle ressemblance avait-il avec le Prophète ?", opts: ["Voix", "Physique", "Écriture", "Démarche"], c: 1, exp: "Il faisait partie des 4 personnes qui ressemblaient le plus au Prophète." },
-                    { q: "Quel acte héroïque a-t-il fait à Hunayn ?", opts: ["Il a porté l'étendard", "Il a tenu la bride de la mule du Prophète sous les flèches", "Il a tué le chef ennemi", "Il a protégé les femmes"], c: 1, exp: "Il est resté à pied à côté du Prophète quand l'armée était en déroute." }
+                  {
+                    "q": "Quel geste d'Abou Soufyân est rapporté chez Al-Bukhârî ?",
+                    "opts": [
+                      "Tenir la mule du Prophète à Hounayn",
+                      "Commander une flotte",
+                      "Prêcher en Égypte"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Barâ’ décrit Abou Soufyân à Hounayn auprès de la mule du Prophète ﷺ.",
+                    "ref": "https://sunnah.com/bukhari:3042"
+                  },
+                  {
+                    "q": "Quel autre numéro d'Al-Bukhârî relate cet épisode ?",
+                    "opts": [
+                      "4315",
+                      "3045",
+                      "4782"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4315 mentionne également son rôle auprès de la mule.",
+                    "ref": "https://sunnah.com/bukhari:4315"
+                  },
+                  {
+                    "q": "Quel jugement est rapporté sur la voie du titre honorifique ?",
+                    "opts": [
+                      "Moursal selon Ibn Hajar",
+                      "Moutawâtir selon tous",
+                      "Un verset coranique"
+                    ],
+                    "c": 0,
+                    "exp": "La note d'Ibn Hajar qualifie la voie d'interrompue.",
+                    "ref": "https://ketabonline.com/ar/books/598/read?page=1812&part=1"
+                  },
+                  {
+                    "q": "À quelle source appartient le récit du barbier ?",
+                    "opts": [
+                      "La notice biographique de Siyar",
+                      "Al-Bukhârî 3042",
+                      "Le Coran"
+                    ],
+                    "c": 0,
+                    "exp": "Les circonstances du décès proviennent de la chronique, pas du hadith de Hounayn.",
+                    "ref": "https://siyar.fr/livre/1/206"
+                  },
+                  {
+                    "q": "Que précéda sa conversion ?",
+                    "opts": [
+                      "Une période d'opposition au Prophète",
+                      "Un califat personnel",
+                      "Un exil à Al-Abwâ"
+                    ],
+                    "c": 0,
+                    "exp": "La sîra raconte son opposition, puis une réconciliation après sa conversion.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  }
                 ]
             },
             {
@@ -1811,22 +1973,96 @@
                 name: "Jafar ibn Abou Soufiane",
                 arabicName: "جَعْفَر بن أبي سُفْيَان",
                 subtitle: "Le Compagnon Fidèle",
-                intro: "Fils d'Abou Soufiane ibn Al-Harith. Il partagea avec son père l'honneur de rester ferme à la bataille de Hunayn.",
-                heroQuote: "Il resta courageusement aux côtés du Prophète le jour de Hounayn.",
+                intro: "Ja‘far ibn Abou Soufyân ibn al-Hârith est peu documenté. Ibn Sa‘d le mentionne aux côtés de son père à Hounayn et situe sa mort vers le milieu du califat de Mou‘âwiya. Aucun hadith personnel distinct n'a été identifié pour lui dans les références consultées.",
+                heroQuote: "Selon Ibn Sa‘d, Ja‘far resta ferme auprès de son père à Hounayn (Siyar, notice 33).",
                 tags: ["Ahl al-Bayt", "Hunayn"],
                 genealogy: "Jafar ibn Abou Soufiane.",
                 timeline: [
-                    { year: "8 H", desc: "Combat à Hunayn." },
-                    { year: "Muawiya", desc: "Décès sous le règne de Muawiya." }
+                  {
+                    "year": "8 H",
+                    "desc": "D'après Ibn Sa‘d, Ja‘far demeura auprès de son père pendant la bataille de Hounayn."
+                  },
+                  {
+                    "year": "Milieu du califat de Mou‘âwiya",
+                    "desc": "La notice situe le décès au milieu de ce califat, sans année précise."
+                  }
                 ],
                 narratives: [
-                    { id: 331, title: "La Bravoure Héréditaire", content: "Comme son père, il ne fuit pas lors de l'embuscade de Hunayn, montrant la valeur des Ahl al-Bayt dans l'épreuve." }
+                  {
+                    "id": 331,
+                    "title": "Ja‘far et son père à Hounayn",
+                    "content": "Adh-Dhahabî reprend Ibn Sa‘d : Ja‘far et son père Abou Soufyân tinrent bon au combat de Hounayn. Aucune action militaire personnelle supplémentaire n'est décrite dans cette courte notice."
+                  },
+                  {
+                    "id": 332,
+                    "title": "Une dernière mention sous Mou‘âwiya",
+                    "content": "Ibn Sa‘d rapporte que Ja‘far vécut jusqu'au milieu du califat de Mou‘âwiya. La notice ne donne ni année précise ni autres événements qu'il serait rigoureux d'ajouter."
+                  }
                 ],
                 hadiths: [
-                    { text: "Il demeure parmi les compagnons.", narrator: "Ibn Saad", source: "Tabaqat" }
+                  {
+                    "text": "Ja‘far et son père restèrent fermes le jour de Hounayn, selon la notice d'Ibn Sa‘d.",
+                    "narrator": "Ibn Sa‘d, cité par adh-Dhahabî",
+                    "source": "Siyar, notice 33 ; attribution historique, sans jugement d'isnâd identifié",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "À quelle bataille s'est-il illustré avec son père ?", opts: ["Badr", "Ouhoud", "Hunayn", "Tabouk"], c: 2, exp: "Il est resté ferme à Hunayn." }
+                  {
+                    "q": "De qui Ja‘far était-il le fils ?",
+                    "opts": [
+                      "Abou Soufyân ibn al-Hârith",
+                      "Abou Tâlib",
+                      "Anas"
+                    ],
+                    "c": 0,
+                    "exp": "Le personnage est distinct de Ja‘far ibn Abou Tâlib, traité dans la notice suivante.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  },
+                  {
+                    "q": "Dans quelle bataille est-il cité avec son père ?",
+                    "opts": [
+                      "Hounayn",
+                      "Mou’ta",
+                      "Badr"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite Ibn Sa‘d pour leur présence à Hounayn.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  },
+                  {
+                    "q": "À quelle période son décès est-il situé ?",
+                    "opts": [
+                      "Au milieu du califat de Mou‘âwiya",
+                      "En 8 H avec certitude",
+                      "À Badr"
+                    ],
+                    "c": 0,
+                    "exp": "La notice donne le milieu d'un règne mais aucune année précise.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  },
+                  {
+                    "q": "Qui est l'auteur biographique cité par adh-Dhahabî ?",
+                    "opts": [
+                      "Ibn Sa‘d",
+                      "Al-Bukhârî",
+                      "At-Tirmidhî"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî attribue les deux informations principales de sa notice à Ibn Sa‘d.",
+                    "ref": "https://ketabonline.com/ar/books/598/read?page=1812&part=1"
+                  },
+                  {
+                    "q": "Quel traitement adopter faute d'autres récits indépendants ?",
+                    "opts": [
+                      "Laisser la biographie brève et référencée",
+                      "Inventer des scènes",
+                      "L'appeler hadith sahîh"
+                    ],
+                    "c": 0,
+                    "exp": "Le peu d'informations ne justifie pas l'ajout de détails non attestés.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  }
                 ]
             },
   {
@@ -1836,31 +2072,165 @@
                 name: "Jafar ibn Abou Talib",
                 arabicName: "جَعْفَر بن أبي طالب",
                 subtitle: "Le Martyr aux Deux Ailes",
-                intro: "Cousin du Messager d'Allah (ﷺ) et frère aîné d'Ali. Il ressemblait au Prophète physiquement et moralement. Héros de l'Abyssinie et de Mouta, il vole désormais au Paradis avec des ailes.",
-                heroQuote: "Allah a remplacé mes mains par deux ailes avec lesquelles je vole au Paradis !",
+                intro: "Ja‘far ibn Abou Tâlib, frère de ‘Alî, émigra en Abyssinie avant l'Hégire et revint à l'époque de Khaybar. Al-Bukhârî rapporte sa générosité envers les pauvres, sa ressemblance avec le Prophète et son martyre à Mou’ta. D'autres récits sur ses ailes possèdent des évaluations distinctes.",
+                heroQuote: "Le Prophète ﷺ dit à Ja‘far : « Tu me ressembles en apparence et en caractère » (Al-Bukhârî 4251).",
                 tags: ["Martyrs", "Ahl al-Bayt", "Abyssinie", "Mouta"],
                 genealogy: "Jafar ibn Abou Talib ibn Abd-Manaf. Hachimite. Fils de Fatima bint Assad. Il est plus âgé qu'Ali de dix ans.",
                 physicalDesc: "Il était l'homme qui ressemblait le plus au Prophète (ﷺ) tant dans son physique que dans son comportement (Khulq et Khalq).",
                 timeline: [
-                    { year: "Débuts", desc: "32ème converti à l'Islam." },
-                    { year: "5 H", desc: "Émigre en Abyssinie avec son épouse Asma bint Oumays. Il y reste des années." },
-                    { year: "7 H", desc: "Revient à Khaybar. Le Prophète l'embrasse entre les yeux et dit : « Je ne sais pas ce qui me réjouit le plus : la victoire ou l'arrivée de Jafar »." },
-                    { year: "8 H", desc: "Meurt martyr à la bataille de {Mouta} à 33 ans (ou 41 ans), le corps criblé de 90 blessures." }
+                  {
+                    "year": "Avant l'Hégire",
+                    "desc": "Ja‘far émigre en Abyssinie avec Asmâ’ bint ‘Oumays. L'ancien repère « 5 H » était chronologiquement erroné."
+                  },
+                  {
+                    "year": "7 H",
+                    "desc": "Ja‘far et les émigrés d'Abyssinie retrouvent le Prophète à l'époque de Khaybar, selon Al-Bukhârî 4230."
+                  },
+                  {
+                    "year": "7 H",
+                    "desc": "Al-Bukhârî 4251 rapporte le litige concernant la fille de Hamza et le compliment adressé à Ja‘far."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Meurt à Mou’ta après Zayd ibn Hâritha selon Al-Bukhârî 4261–4262."
+                  }
                 ],
                 narratives: [
-                    { id: 341, title: "L'Avocat de l'Islam", content: "Devant le Négus (Roi d'Abyssinie), Jafar défendit les musulmans contre les accusations de Quraysh. Il récita le début de la Sourate Maryam (Kaf, Ha, Ya, 'Ayn, Sad). Le roi pleura jusqu'à mouiller sa barbe et dit : « Ces paroles et celles de Moïse sortent de la même niche lumineuse »." },
-                    { id: 342, title: "Le Père des Nécessiteux", content: "Abou Hourayra disait : « Nul n'était meilleur pour les pauvres que Jafar ». Il les emmenait chez lui et leur donnait tout, même quand il ne restait qu'une outre de miel vide qu'ils déchiraient pour en lécher les traces." },
-                    { id: 343, title: "La Danse de la Joie", content: "Lorsque le Prophète jugea en sa faveur pour la garde de la fille de Hamza, Jafar se leva et sautilla (dansa) autour du Prophète. Il expliqua : « C'est ce que font les Abyssins lorsqu'ils satisfont leurs rois ». Le Prophète ne le blâma pas." },
-                    { id: 344, title: "Le Sacrifice de Mouta", content: "Porte-étendard à Mouta, il trancha les jarrets de son cheval (premier à faire cela en Islam) pour ne pas fuir. Il perdit sa main droite, prit l'étendard de la gauche, la perdit, puis le serra avec ses moignons contre sa poitrine jusqu'à être tué." }
+                  {
+                    "id": 341,
+                    "title": "La défense des émigrés devant le Négus",
+                    "content": "Les ouvrages de sîra racontent que Ja‘far prit la parole devant le souverain d'Abyssinie et récita des versets de la sourate Maryam. Les détails des dialogues et l'émotion du roi relèvent de transmissions historiques distinctes, pas du hadith de Mou’ta dans Al-Bukhârî."
+                  },
+                  {
+                    "id": 342,
+                    "title": "L'hospitalité de Ja‘far envers les pauvres",
+                    "content": "Abou Hourayra témoigne dans Al-Bukhârî 3708 que Ja‘far accueillait les pauvres et partageait avec eux même les derniers restes de nourriture contenus dans un récipient."
+                  },
+                  {
+                    "id": 343,
+                    "title": "La fille de Hamza et la ressemblance avec le Prophète",
+                    "content": "Al-Barâ’ rapporte dans Al-Bukhârî 4251 que ‘Alî, Ja‘far et Zayd discutèrent de la garde de la fille de Hamza. Le Prophète la confia à sa tante, épouse de Ja‘far, puis lui dit qu'il lui ressemblait en apparence et en caractère. Le récit du saut de joie provient d'autres versions."
+                  },
+                  {
+                    "id": 344,
+                    "title": "Les commandants et les blessures à Mou’ta",
+                    "content": "Ibn ‘Oumar rapporte dans Al-Bukhârî 4261 la succession prévue entre Zayd, Ja‘far et Ibn Rawâha. Il dit avoir retrouvé sur le corps de Ja‘far plus de quatre-vingt-dix blessures. Le détail des deux mains coupées est mentionné dans d'autres voies."
+                  },
+                  {
+                    "id": 345,
+                    "title": "Le mérite accordé aux gens du bateau",
+                    "content": "Abou Moussa raconte dans Al-Bukhârî 3876 que les migrants arrivés en Abyssinie rencontrèrent Ja‘far, puis rejoignirent tous le Prophète lors de Khaybar. Le Prophète leur parla de leur double émigration."
+                  },
+                  {
+                    "id": 346,
+                    "title": "Préparer le repas de la famille endeuillée",
+                    "content": "‘Abd-Allah ibn Ja‘far transmet dans At-Tirmidhî 998 que le Prophète demanda que l'on apporte un repas à la famille de Ja‘far, occupée par son deuil. At-Tirmidhî et Darussalam le qualifient de hasan."
+                  }
                 ],
                 hadiths: [
-                    { text: "Tu me ressembles dans ta constitution physique et ton comportement !", narrator: "Le Prophète (ﷺ)", source: "Sahih Al-Boukhari" },
-                    { text: "J'ai vu Jafar au Paradis, il avait des ailes teintées de sang.", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam" },
-                    { text: "Les gens sont issus d'arbres différents, mais moi et Jafar sommes issus du même arbre.", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Ibn Abbas" }
+                  {
+                    "text": "« Tu me ressembles en apparence et en caractère. »",
+                    "narrator": "Le Prophète ﷺ, d'après al-Barâ’",
+                    "source": "Al-Bukhârî 4251",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Une tradition rapporte que Ja‘far possédait deux ailes au Paradis.",
+                    "narrator": "Ibn ‘Abbâs",
+                    "source": "At-Tabarânî ; Al-Haythamî : une voie hasan ; Al-Albânî : sahîh li-ghayrihi",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Ja‘far fut retrouvé à Mou’ta avec plus de quatre-vingt-dix blessures.",
+                    "narrator": "‘Abd-Allah ibn ‘Oumar",
+                    "source": "Al-Bukhârî 4261 — témoignage de compagnon",
+                    "type": "historical"
+                  },
+                  {
+                    "text": "Le Prophète demanda qu'on prépare de la nourriture à la famille de Ja‘far.",
+                    "narrator": "‘Abd-Allah ibn Ja‘far",
+                    "source": "At-Tirmidhî 998 — hasan selon At-Tirmidhî et Darussalam",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle sourate a-t-il récitée devant le Négus ?", opts: ["Al-Baqara", "Yasin", "Maryam", "Taha"], c: 2, exp: "Il a récité le passage concernant Marie et Jésus, ce qui a touché le cœur du roi chrétien." },
-                    { q: "Quel est son surnom au Paradis ?", opts: ["Le Lion", "At-Tayyar (Le Volant)", "Le Véridique", "Le Sabre"], c: 1, exp: "Il est Jafar At-Tayyar, car Allah lui a donné des ailes pour remplacer ses bras coupés." }
+                  {
+                    "q": "Quel recueil donne la ressemblance de Ja‘far avec le Prophète ?",
+                    "opts": [
+                      "Al-Bukhârî 4251",
+                      "Mouslim 2470",
+                      "Al-Bukhârî 3045"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4251 contient les paroles sur l'apparence et le caractère de Ja‘far.",
+                    "ref": "https://sunnah.com/bukhari:4251"
+                  },
+                  {
+                    "q": "Quel compagnon décrit la générosité de Ja‘far ?",
+                    "opts": [
+                      "Abou Hourayra",
+                      "Sa‘îd ibn al-Hârith",
+                      "Abou Doujâna"
+                    ],
+                    "c": 0,
+                    "exp": "Dans Al-Bukhârî 3708, Abou Hourayra raconte comment Ja‘far nourrissait les pauvres.",
+                    "ref": "https://sunnah.com/bukhari:3708"
+                  },
+                  {
+                    "q": "À quelle époque Ja‘far revint-il d'Abyssinie ?",
+                    "opts": [
+                      "Lors de Khaybar, en 7 H",
+                      "En 5 H après l'Hégire",
+                      "Sous Mou‘âwiya"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit d'Abou Moussa dans Al-Bukhârî 4230 situe son retour lors de Khaybar.",
+                    "ref": "https://sunnah.com/bukhari:4230"
+                  },
+                  {
+                    "q": "Quel témoignage est donné sur son corps après Mou’ta ?",
+                    "opts": [
+                      "Plus de quatre-vingt-dix blessures",
+                      "Une mort à Al-Abwâ",
+                      "Une blessure à Hounayn"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn ‘Oumar donne ce chiffre de blessures dans Al-Bukhârî 4261.",
+                    "ref": "https://sunnah.com/bukhari:4261"
+                  },
+                  {
+                    "q": "Que dit Al-Haythamî sur la tradition des deux ailes ?",
+                    "opts": [
+                      "Une des deux voies est hasan",
+                      "C'est un verset",
+                      "Toutes les voies sont unanimement rejetées"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Haythamî signale deux voies et indique que l'une est hasan.",
+                    "ref": "https://dorar.net/h/QSZNI0Nn"
+                  },
+                  {
+                    "q": "Quel acte de solidarité suit son décès dans At-Tirmidhî 998 ?",
+                    "opts": [
+                      "Préparer à manger à sa famille",
+                      "Éviter sa famille",
+                      "Annuler les visites"
+                    ],
+                    "c": 0,
+                    "exp": "La recommandation de préparer un repas est transmise par son fils ‘Abd-Allah.",
+                    "ref": "https://sunnah.com/tirmidhi:998"
+                  },
+                  {
+                    "q": "Qui succédait à Zayd dans l'ordre prévu à Mou’ta ?",
+                    "opts": [
+                      "Ja‘far",
+                      "Abou Doujâna",
+                      "Abou Soufyân"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4261 prévoit Ja‘far après Zayd, puis Ibn Rawâha.",
+                    "ref": "https://sunnah.com/bukhari:4261"
+                  }
                 ]
             },
             {
@@ -1870,28 +2240,126 @@
                 name: "'Aqil ibn Abou Talib",
                 arabicName: "عقيل بن أبي طالب",
                 subtitle: "L'Aîné des Hachimites",
-                intro: "Frère aîné d'Ali et de Jafar. Capturé à Badr dans le camp adverse, il se convertit plus tard et fut aimé « doublement » par le Prophète. Il était expert en généalogie des Arabes.",
-                heroQuote: "Abou Jahl est mort ! À présent, la voie t'est ouverte !",
+                intro: "‘Aqîl ibn Abou Tâlib, frère de ‘Alî et Ja‘far, fut capturé à Badr puis se rapprocha du Prophète ﷺ. Le propos sur deux formes d'affection est transmis par Al-Hâkim ; ach-Chawkânî qualifie la voie de moursal, malgré des rapporteurs fiables. Les détails de sa généalogie et de ses scrupules proviennent de chroniques.",
+                heroQuote: "« Je t'aime de deux amours... » : récit que ach-Chawkânî qualifie de moursal pour la voie considérée.",
                 tags: ["Ahl al-Bayt", "Savant", "Badr"],
                 genealogy: "'Aqil ibn Abou Talib. Surnommé Abou Yazid. Il est l'ancêtre d'une grande lignée de savants (dont le mouhadith Abd-Allah ibn Mouhammad ibn 'Aqil).",
                 physicalDesc: "Il vécut très vieux et devint aveugle à la fin de sa vie.",
                 timeline: [
-                    { year: "2 H", desc: "Capturé à Badr (côté païen). N'ayant pas d'argent, c'est son oncle Al-Abbas qui paie sa rançon." },
-                    { year: "8 H", desc: "Se convertit et émigre au début de l'année. Participe à la bataille de Mouta." },
-                    { year: "Après 8 H", desc: "Le Prophète lui accorde un revenu annuel de 140 wasq de dattes de Khaybar." },
-                    { year: "Muawiya", desc: "Décède sous le califat de Muawiya." }
+                  {
+                    "year": "2 H",
+                    "desc": "Les biographies placent ‘Aqîl parmi les captifs de Badr, dans le camp qurayshite."
+                  },
+                  {
+                    "year": "8 H selon les chroniques",
+                    "desc": "Son ralliement à l'islam est situé vers la conquête de La Mecque, selon les chroniques."
+                  },
+                  {
+                    "year": "Après 8 H, sans date précise",
+                    "desc": "Siyar rapporte des revenus en dattes liés à Khaybar, sans année individuelle établie."
+                  },
+                  {
+                    "year": "Sous Mou‘âwiya",
+                    "desc": "La notice situe son décès durant le califat de Mou‘âwiya, sans année unique."
+                  }
                 ],
                 narratives: [
-                    { id: 351, title: "Le Double Amour", content: "Le Prophète (ﷺ) lui dit un jour : « Ô Abou Yazid, je t'aime doublement : une fois pour ta parenté avec moi, et une fois car mon oncle (Abou Talib) t'aimait ! »." },
-                    { id: 352, title: "Une aiguille rendue par scrupule", content: "Selon un récit attribué à Zayd ibn Aslam, ‘Aqil rapporta une aiguille à son épouse. Un homme lui rappela qu’il était interdit de prélever le moindre élément du butin sans droit ; ‘Aqil dit alors à sa femme qu’elle devrait y renoncer. Le fascicule ne relie pas explicitement ce récit à l’expédition de Hounayn." },
-                    { id: 353, title: "La réponse d’‘Aqil après Badr", content: "Capturé à Badr, ‘Aqil demanda au Prophète (ﷺ) quels chefs mecquois étaient morts. Le Prophète lui répondit : « Abou Jahl est mort ! ». C’est alors ‘Aqil, et non le Prophète, qui déclara : « À présent, la voie t’est ouverte ! »." }
+                  {
+                    "id": 351,
+                    "title": "Les deux motifs d'affection : une voie moursal",
+                    "content": "Une parole attribuée au Prophète exprime son affection pour ‘Aqîl en raison de leur parenté et de l'amour qu'Abou Tâlib lui portait. Ach-Chawkânî indique que la chaîne est moursal et que ses rapporteurs mentionnés sont fiables. Al-Hâkim et At-Tabarânî transmettent aussi le récit."
+                  },
+                  {
+                    "id": 352,
+                    "title": "Une aiguille rendue par scrupule",
+                    "content": "Selon Zayd ibn Aslam, ‘Aqîl ramena une aiguille à son épouse, puis demanda qu'on la rende lorsqu'il apprit qu'il n'était pas permis de prélever un bien du butin. La source ne précise pas nécessairement le lieu de cette scène."
+                  },
+                  {
+                    "id": 353,
+                    "title": "La réponse d'‘Aqîl après Badr",
+                    "content": "Les chroniques rapportent qu'‘Aqîl s'enquit auprès du Prophète des chefs mecquois tombés à Badr. La formule sur la voie désormais ouverte est attribuée à ‘Aqîl lui-même, et non au Prophète."
+                  },
+                  {
+                    "id": 354,
+                    "title": "Un connaisseur des filiations tribales",
+                    "content": "Adh-Dhahabî rapporte qu'‘Aqîl connaissait les généalogies arabes et les lignages des tribus. Ce témoignage éclaire sa place parmi les transmetteurs de mémoire familiale."
+                  }
                 ],
                 hadiths: [
-                    { text: "Je t'aime de deux amours : un amour pour toi et un amour pour l'amour qu'Abou Talib te portait.", narrator: "Le Prophète (ﷺ)", source: "At-Tabarani" }
+                  {
+                    "text": "« Je t'aime de deux amours : pour ta parenté et parce qu'Abou Tâlib t'aimait. »",
+                    "narrator": "Attribué au Prophète ﷺ, d'après une voie d'Abou Ishâq",
+                    "source": "Al-Hâkim, Al-Moustadrak 6625 ; ach-Chawkânî : moursal, rapporteurs fiables",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Qui a payé sa rançon après la bataille de Badr ?", opts: ["Lui-même", "Le Prophète", "Son oncle Al-Abbas", "Ali"], c: 2, exp: "Il était pauvre, c'est son oncle Al-Abbas qui a payé pour lui." },
-                    { q: "Quelle science maîtrisait-il parfaitement ?", opts: ["Le tir à l'arc", "La généalogie des Arabes", "La médecine", "L'astronomie"], c: 1, exp: "Il était la référence pour connaître les lignées et les histoires des tribus arabes." }
+                  {
+                    "q": "Quel savant signale que la voie des deux amours est moursal ?",
+                    "opts": [
+                      "Ach-Chawkânî",
+                      "Al-Bukhârî",
+                      "Mouslim"
+                    ],
+                    "c": 0,
+                    "exp": "Ach-Chawkânî signale le caractère interrompu de cette voie.",
+                    "ref": "https://dorar.net/h/ARqrTG9R"
+                  },
+                  {
+                    "q": "À quelle bataille ‘Aqîl fut-il capturé selon Siyar ?",
+                    "opts": [
+                      "Badr",
+                      "Mou’ta",
+                      "Hounayn"
+                    ],
+                    "c": 0,
+                    "exp": "Il est cité parmi les captifs qurayshites de Badr.",
+                    "ref": "https://siyar.fr/livre/1/218"
+                  },
+                  {
+                    "q": "Qui prononce la formule sur la voie ouverte après la mort d'Abou Jahl ?",
+                    "opts": [
+                      "‘Aqîl",
+                      "Le Prophète ﷺ",
+                      "Le Négus"
+                    ],
+                    "c": 0,
+                    "exp": "Ce propos est attribué à ‘Aqîl dans le récit historique.",
+                    "ref": "https://siyar.fr/livre/1/220"
+                  },
+                  {
+                    "q": "Quel savoir est associé à ‘Aqîl ?",
+                    "opts": [
+                      "La généalogie des Arabes",
+                      "La médecine grecque",
+                      "L'astronomie moderne"
+                    ],
+                    "c": 0,
+                    "exp": "Les biographes décrivent sa connaissance des tribus et des filiations.",
+                    "ref": "https://siyar.fr/livre/1/219"
+                  },
+                  {
+                    "q": "Quel objet apparaît dans le récit du scrupule d'‘Aqîl ?",
+                    "opts": [
+                      "Une aiguille",
+                      "Une bride de mule",
+                      "Un rouleau de papyrus"
+                    ],
+                    "c": 0,
+                    "exp": "Le témoignage attribué à Zayd ibn Aslam évoque une aiguille rendue.",
+                    "ref": "https://siyar.fr/livre/1/219"
+                  },
+                  {
+                    "q": "Quelle période est donnée pour son décès ?",
+                    "opts": [
+                      "Sous Mou‘âwiya",
+                      "À Badr",
+                      "En 2 H"
+                    ],
+                    "c": 0,
+                    "exp": "La notice cite une période califale sans fixer d'année unique.",
+                    "ref": "https://siyar.fr/livre/1/220"
+                  }
                 ]
             },
             {
@@ -1901,30 +2369,149 @@
                 name: "Zayd ibn Haritha",
                 arabicName: "زيد بن حارثة",
                 subtitle: "Le Bien-Aimé (Al-Hibb)",
-                intro: "Le seul compagnon cité par son nom dans le Coran. Enlevé enfant, esclave, puis fils adoptif du Prophète, il fut le premier général de l'Islam à Mouta. Il préféra le Prophète à son propre père.",
-                heroQuote: "Par Allah, je ne choisirai personne d'autre que toi !",
+                intro: "Zayd ibn Hâritha, affranchi et proche du Prophète ﷺ, fut appelé Zayd ibn Mouhammad avant la révélation de 33:5, comme le rapporte Ibn ‘Oumar. Il est nommé dans le Coran (33:37), fut reconnu pour ses qualités de commandement et mourut à Mou’ta en 8 H.",
+                heroQuote: "Le Prophète ﷺ dit de Zayd qu'il était digne du commandement et parmi ceux qu'il aimait le plus (Al-Bukhârî 4250).",
                 tags: ["Commandants", "Martyrs", "Coran", "Affranchi"],
                 genealogy: "Zayd ibn Haritha des Banou Kalb. Surnommé « Le Bien-Aimé » (Al-Hibb).",
                 physicalDesc: "Il était petit de taille, la peau très noire (châtain très foncé) et avait le nez épaté (camus).",
                 timeline: [
-                    { year: "Enfance", desc: "Enlevé par des cavaliers, vendu au marché de 'Ukaz pour 700 dirhams à Khadija qui l'offre au Prophète." },
-                    { year: "Adoption", desc: "Appelé 'Zayd ibn Mouhammad' jusqu'à l'interdiction de l'adoption (Verset 33:5)." },
-                    { year: "Missions", desc: "Commande 7 expéditions militaires." },
-                    { year: "8 H", desc: "Premier émir à Mouta. Meurt martyr à 55 ans transpercé par les lances." }
+                  {
+                    "year": "Enfance, sans année précise",
+                    "desc": "Les récits biographiques racontent l'enlèvement, la vente et l'affranchissement de Zayd ; les montants varient selon les chroniques."
+                  },
+                  {
+                    "year": "Avant la révélation de 33:5",
+                    "desc": "Ibn ‘Oumar raconte que Zayd était appelé « ibn Mouhammad » jusqu'à la révélation prescrivant de nommer les enfants par leurs pères (Al-Bukhârî 4782)."
+                  },
+                  {
+                    "year": "Avant 8 H",
+                    "desc": "Zayd dirige plusieurs expéditions selon les biographies ; Al-Bukhârî 4250 témoigne de la défense prophétique de son aptitude à commander."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Premier commandant désigné à Mou’ta, où il meurt, selon Al-Bukhârî 4261–4262."
+                  }
                 ],
                 narratives: [
-                    { id: 361, title: "Le Choix du Cœur", content: "Son père et son oncle retrouvèrent sa trace et vinrent le réclamer à la Mecque. Le Prophète laissa le choix à Zayd. Zayd dit : « Je ne choisirai personne contre toi. Tu es pour moi un père et une mère ». Son père s'écria : « Malheur à toi, tu préfères l'esclavage à la liberté et à ta famille ? ». Zayd confirma. Le Prophète l'affranchit et l'adopta sur le champ." },
-                    { id: 362, title: "La Rencontre de Zayd ibn 'Amr", content: "Avant l'Islam, le Prophète et Zayd rencontrèrent le monothéiste Zayd ibn 'Amr. Ils lui offrirent de la viande. Zayd ibn 'Amr refusa car elle était sacrifiée aux idoles. Depuis ce jour, le Prophète ne toucha plus jamais aux idoles." },
-                    { id: 363, title: "L'Accueil Chaleureux", content: "De retour de voyage, Zayd frappa à la porte du Prophète. Le Prophète se leva précipitamment, traînant son vêtement (le torse mi-nu), pour le serrer dans ses bras et l'embrasser." }
+                  {
+                    "id": 361,
+                    "title": "Le choix de Zayd",
+                    "content": "Les ouvrages de sîra racontent que le père et l'oncle de Zayd vinrent le rechercher. Zayd choisit de rester auprès du Prophète, qui l'affranchit. Les dialogues détaillés sont rapportés historiquement, pas dans le hadith d'Al-Bukhârî 4782."
+                  },
+                  {
+                    "id": 362,
+                    "title": "L'ancien nom et les versets de la sourate al-Ahzâb",
+                    "content": "Ibn ‘Oumar rapporte dans Al-Bukhârî 4782 que Zayd était appelé « fils de Mouhammad » jusqu'à la révélation de 33:5. Le Coran nomme explicitement Zayd dans le verset 33:37."
+                  },
+                  {
+                    "id": 363,
+                    "title": "L'accueil de Zayd à Médine et les divergences de classement",
+                    "content": "‘Â’isha rapporte dans At-Tirmidhî 2732 que le Prophète embrassa Zayd lors de son arrivée. At-Tirmidhî juge cette voie hasan gharîb ; l'édition Darussalam la classe da‘îf. Les deux jugements sont affichés."
+                  },
+                  {
+                    "id": 364,
+                    "title": "Une défense explicite de ses qualités de commandement",
+                    "content": "Dans Al-Bukhârî 4250, Ibn ‘Oumar rapporte que des personnes critiquèrent la nomination d'Ousâma. Le Prophète répondit que son père Zayd avait déjà subi de telles critiques mais était digne de commander."
+                  },
+                  {
+                    "id": 365,
+                    "title": "La succession prévue à Mou’ta",
+                    "content": "Al-Bukhârî 4261–4262 transmet la succession entre Zayd, Ja‘far et Ibn Rawâha. Selon Anas, le Prophète annonça leur mort avant l'arrivée de la nouvelle et ses yeux étaient remplis de larmes."
+                  }
                 ],
                 hadiths: [
-                    { text: "Puis, quand Zayd eut cessé toute relation avec elle... (Seule mention d'un compagnon dans le Coran)", narrator: "Coran (33:37)", source: "Sourate Al-Ahzab" },
-                    { text: "Tu es notre frère et notre mawla (allié/affranchi) !", narrator: "Le Prophète (ﷺ)", source: "Sahih Al-Boukhari" },
-                    { text: "Par Allah, il était certes digne du commandement (l'Emirat) et il était l'un des hommes que j'aimais le plus.", narrator: "Le Prophète (ﷺ)", source: "Sahih Al-Boukhari" }
+                  {
+                    "text": "« Puis, quand Zayd eut cessé toute relation avec elle... » (33:37).",
+                    "narrator": "Coran, verset 33:37",
+                    "source": "Sourate al-Ahzâb — texte coranique, non hadith",
+                    "type": "verse"
+                  },
+                  {
+                    "text": "« Tu es notre frère et notre affranchi. »",
+                    "narrator": "Le Prophète ﷺ, d'après al-Barâ’",
+                    "source": "Al-Bukhârî 4251",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Zayd était digne du commandement et comptait parmi ceux que le Prophète aimait le plus.",
+                    "narrator": "Ibn ‘Oumar",
+                    "source": "Al-Bukhârî 4250",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Le Prophète embrassa Zayd à son arrivée, d'après une tradition d'‘Â’isha.",
+                    "narrator": "‘Â’isha",
+                    "source": "At-Tirmidhî 2732 : hasan gharîb selon At-Tirmidhî ; da‘îf selon Darussalam",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle est sa particularité unique dans le Coran ?", opts: ["Il a une sourate à son nom", "Il est cité nommément (Zayd)", "Il est appelé 'Fils du Prophète'", "Il n'est pas cité"], c: 1, exp: "C'est le seul compagnon dont le prénom 'Zayd' est mentionné explicitement dans le verset 37 de la sourate 33." },
-                    { q: "Comment le décrivent les textes ?", opts: ["Grand et blond", "Petit et noir de peau", "Roux et fort", "Albinos"], c: 1, exp: "Le Siyar précise qu'il était petit, très mat de peau (châtain foncé/noir) avec un nez plat." }
+                  {
+                    "q": "Quel verset du Coran cite Zayd nommément ?",
+                    "opts": [
+                      "33:37",
+                      "24:22",
+                      "2:217"
+                    ],
+                    "c": 0,
+                    "exp": "La sourate al-Ahzâb nomme explicitement Zayd au verset 37.",
+                    "ref": "https://quran.com/33/37"
+                  },
+                  {
+                    "q": "Quel hadith rapporte l'ancien nom Zayd ibn Mouhammad ?",
+                    "opts": [
+                      "Al-Bukhârî 4782",
+                      "Al-Bukhârî 3045",
+                      "Mouslim 2470"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn ‘Oumar rapporte cet ancien usage du nom jusqu'à la révélation de 33:5.",
+                    "ref": "https://sunnah.com/bukhari:4782"
+                  },
+                  {
+                    "q": "Qui commande en premier à Mou’ta ?",
+                    "opts": [
+                      "Zayd ibn Hâritha",
+                      "Ja‘far",
+                      "Khoubayb"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4261 cite Zayd avant Ja‘far et Ibn Rawâha.",
+                    "ref": "https://sunnah.com/bukhari:4261"
+                  },
+                  {
+                    "q": "Quel avis At-Tirmidhî donne-t-il sur l'accueil de Zayd ?",
+                    "opts": [
+                      "Hasan gharîb",
+                      "Moutawâtir",
+                      "Mawdou‘"
+                    ],
+                    "c": 0,
+                    "exp": "At-Tirmidhî le dit hasan gharîb, tandis que Darussalam le juge faible.",
+                    "ref": "https://sunnah.com/tirmidhi:2732"
+                  },
+                  {
+                    "q": "Que défend le Prophète dans Al-Bukhârî 4250 ?",
+                    "opts": [
+                      "L'aptitude de Zayd et de son fils Ousâma à commander",
+                      "Leur droit au trône",
+                      "Leurs affaires commerciales"
+                    ],
+                    "c": 0,
+                    "exp": "Le Prophète répond aux critiques des commandements du père et du fils.",
+                    "ref": "https://sunnah.com/bukhari:4250"
+                  },
+                  {
+                    "q": "Quelle catégorie documentaire faut-il donner à 33:37 ?",
+                    "opts": [
+                      "Verset coranique",
+                      "Hadith qudsî",
+                      "Poésie de Ja‘far"
+                    ],
+                    "c": 0,
+                    "exp": "Le verset de la sourate al-Ahzâb est du Coran et non un hadith prophétique.",
+                    "ref": "https://quran.com/33/37"
+                  }
                 ]
             },
             {
@@ -1934,29 +2521,138 @@
                 name: "Abd-Allah ibn Rawaha",
                 arabicName: "عبد الله بن رواحة",
                 subtitle: "Le Poète Martyr",
-                intro: "Grand poète des Ansar et troisième commandant de Mouta. Ses vers défendaient le Prophète plus efficacement que des flèches. Il motiva l'armée face aux Byzantins.",
-                heroQuote: "Ô mon âme ! Si tu ne meurs pas (au combat), tu mourras quand même (de vieillesse) !",
+                intro: "‘Abd-Allah ibn Rawâha, poète des Ansâr, participa à Badr et fut chargé d'estimer les récoltes de Khaybar. Le Mouwatta’ conserve un récit discuté de son refus d'une tentative de corruption. Al-Bukhârî le cite comme troisième commandant à Mou’ta ; le récit de ses assises de foi reçoit des évaluations divergentes.",
+                heroQuote: "Selon Al-Bukhârî 4261, le Prophète ﷺ désigna Ibn Rawâha troisième commandant à Mou’ta.",
                 tags: ["Poète", "Ansar", "Scribe", "Mouta"],
                 genealogy: "Abd-Allah ibn Rawaha des Banou Al-Harith (Khazraj). Oncle maternel de Nou'man ibn Bachir.",
                 physicalDesc: "Il était scribe à une époque où l'écriture était rare.",
                 timeline: [
-                    { year: "Aqaba", desc: "L'un des doyens (Nuqaba) du pacte d'Aqaba." },
-                    { year: "Badr", desc: "Participe à Badr et Ouhoud." },
-                    { year: "7 H", desc: "Envoyé à Khaybar pour estimer les récoltes de dattes." },
-                    { year: "8 H", desc: "Meurt martyr à Mouta après avoir pris l'étendard." }
+                  {
+                    "year": "Avant l'Hégire",
+                    "desc": "Les traditions de sîra le comptent parmi les Ansâr engagés lors du pacte d'al-‘Aqaba."
+                  },
+                  {
+                    "year": "2–3 H",
+                    "desc": "Les chroniques le mentionnent à Badr et Ouhoud, sans déduction d'autres événements."
+                  },
+                  {
+                    "year": "7 H",
+                    "desc": "Le Mouwatta’ relate l'estimation des récoltes à Khaybar : Ibn ‘Abd al-Barr dit moursal et mentionne des voies complémentaires."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Meurt à Mou’ta après Zayd et Ja‘far selon Al-Bukhârî 4261–4262."
+                  }
                 ],
                 narratives: [
-                    { id: 371, title: "La Foi de l'Instant", content: "Il disait souvent à ses compagnons : « Venez, asseyons-nous et croyons (renouvelons notre foi) un instant (Nou'min Sa'a) ! ». Le Prophète (ﷺ) disait : « Qu'Allah fasse miséricorde à Ibn Rawaha, il aime les assises dont les anges sont fiers »." },
-                    { id: 372, title: "Le Discours de Ma'an", content: "Face à l'armée romaine de 200 000 hommes, les musulmans hésitèrent. Ibn Rawaha les harangua : « Ô gens ! Ce que vous détestez (la mort) est ce pour quoi vous êtes sortis ! Nous ne combattons pas par le nombre, mais par cette Religion ! ». L'armée avança." },
-                    { id: 373, title: "L'Estimation Juste", content: "Les Juifs de Khaybar voulurent le corrompre avec des bijoux pour qu'il allège leur impôt. Il dit : « Vous êtes les créatures que je déteste le plus (pour avoir tué des prophètes)... mais cela ne me poussera pas à être injuste envers vous. La corruption est du feu (Souht) ! ». Ils dirent : « C'est sur cette justice que tiennent les cieux et la terre »." }
+                  {
+                    "id": 371,
+                    "title": "« Venez, croyons un instant » : jugements distincts",
+                    "content": "Une tradition d'Anas raconte qu'Ibn Rawâha invitait ses compagnons à renforcer leur foi et que le Prophète invoqua pour lui. Al-Haythamî juge une chaîne hasan (Majma‘ az-Zawâ’id 10/79), mais Shu‘ayb al-Arna’ût juge faible la voie étudiée dans Siyar 1/231. Les évaluations sont attribuées séparément."
+                  },
+                  {
+                    "id": 372,
+                    "title": "Le discours de Ma‘ân dans les chroniques",
+                    "content": "Les ouvrages de sîra racontent qu'avant Mou’ta Ibn Rawâha encouragea les musulmans à ne pas renoncer face à l'adversaire. Les chiffres précis de soldats évoqués dans certaines versions ne sont pas fournis par Al-Bukhârî 4261."
+                  },
+                  {
+                    "id": 373,
+                    "title": "L'estimation équitable des dattes",
+                    "content": "Selon une transmission du Mouwatta’ par Soulaymân ibn Yasâr, Ibn Rawâha refusa des bijoux proposés pour modifier la répartition à Khaybar, disant que son aversion pour ses interlocuteurs ne l'autoriserait pas à être injuste. Ibn ‘Abd al-Barr considère cette version moursal avec une corroboration et une voie reliée."
+                  },
+                  {
+                    "id": 374,
+                    "title": "La nouvelle des trois commandants",
+                    "content": "Al-Bukhârî 4262 rapporte qu'avant l'arrivée de la nouvelle, le Prophète annonça la mort de Zayd, de Ja‘far et d'Ibn Rawâha et pleura. Khâlid prit ensuite l'étendard."
+                  }
                 ],
                 hadiths: [
-                    { text: "Et s'il arrive quelque chose à Ibn Rawaha, alors que les musulmans se choisissent un chef !", narrator: "Le Prophète (ﷺ)", source: "Sahih Al-Boukhari" },
-                    { text: "Laisse-le (réciter ses poèmes) ô Omar ! Car ses vers s'abattent sur eux plus vite que les flèches !", narrator: "Le Prophète (ﷺ)", source: "Tirmidhi" }
+                  {
+                    "text": "Le Prophète annonça la mort de Zayd, Ja‘far et Ibn Rawâha après leur commandement à Mou’ta.",
+                    "narrator": "Anas ibn Mâlik",
+                    "source": "Al-Bukhârî 4262",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Le Prophète aurait loué les assises de foi aimées d'Ibn Rawâha.",
+                    "narrator": "Anas ibn Mâlik",
+                    "source": "Ahmad 13796 ; Al-Haythamî : isnâd hasan ; Al-Arna’ût : faible pour la version étudiée",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Ibn Rawâha aurait refusé une tentative de corruption à Khaybar.",
+                    "narrator": "Soulaymân ibn Yasâr",
+                    "source": "Mouwatta’ ; Ibn ‘Abd al-Barr : moursal avec corroboration et voie reliée",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle était sa fonction à Khaybar ?", opts: ["Gouverneur", "Juge", "Estimateur de récoltes (Khars)", "Général"], c: 2, exp: "Il estimait la quantité de dattes sur les palmiers pour calculer la part des musulmans." },
-                    { q: "Quelle fut sa fin ?", opts: ["Mort dans son lit", "Martyr à Mouta", "Empoisonné", "Noyé"], c: 1, exp: "Il prit l'étendard après la mort de Zayd et Jafar, et combattit jusqu'à la mort." }
+                  {
+                    "q": "Quelle fonction Ibn Rawâha exerçait-il à Khaybar ?",
+                    "opts": [
+                      "Estimation des récoltes",
+                      "Commandement de navires",
+                      "Gouvernement d'Alexandrie"
+                    ],
+                    "c": 0,
+                    "exp": "Le Mouwatta’ le présente comme chargé de l'estimation des dattes.",
+                    "ref": "https://dorar.net/h/HPSMvins"
+                  },
+                  {
+                    "q": "Quel est l'avis d'Ibn ‘Abd al-Barr sur la version de Khaybar ?",
+                    "opts": [
+                      "Moursal avec corroboration",
+                      "Moutawâtir",
+                      "Sans auteur"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn ‘Abd al-Barr note le caractère moursal et d'autres voies.",
+                    "ref": "https://dorar.net/h/HPSMvins"
+                  },
+                  {
+                    "q": "Comment les avis sur les assises de foi diffèrent-ils ?",
+                    "opts": [
+                      "Al-Haythamî : hasan ; Al-Arna’ût : faible sur la voie étudiée",
+                      "Unanimement rejetées",
+                      "Coran"
+                    ],
+                    "c": 0,
+                    "exp": "Les deux savants ont publié des appréciations distinctes selon les voies étudiées.",
+                    "ref": "https://dorar.net/h/pCGzjR2I"
+                  },
+                  {
+                    "q": "Quel rang occupait-il parmi les commandants de Mou’ta ?",
+                    "opts": [
+                      "Troisième",
+                      "Premier",
+                      "Aucun"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4261 cite Zayd, Ja‘far puis Ibn Rawâha.",
+                    "ref": "https://sunnah.com/bukhari:4261"
+                  },
+                  {
+                    "q": "Quel élément ne figure pas dans le hadith d'Al-Bukhârî 4261 ?",
+                    "opts": [
+                      "Le chiffre de 200 000 adversaires",
+                      "L'ordre de commandement",
+                      "La présence d'Ibn Rawâha"
+                    ],
+                    "c": 0,
+                    "exp": "Le hadith documente les commandants, pas ce chiffre précis d'effectifs.",
+                    "ref": "https://sunnah.com/bukhari:4261"
+                  },
+                  {
+                    "q": "Quel principe ressort de l'estimation de Khaybar ?",
+                    "opts": [
+                      "Éviter la corruption et l'injustice",
+                      "Accepter un pot-de-vin",
+                      "Supprimer toute estimation"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit insiste sur le refus des bijoux et sur la nécessité d'être équitable.",
+                    "ref": "https://dorar.net/h/HPSMvins"
+                  }
                 ]
             },
 			{
@@ -1966,23 +2662,97 @@
                 name: "Koulthoum ibn Al-Hidm",
                 arabicName: "كُلْثُوم بن الهِدْم",
                 subtitle: "L'Hôte de Qouba",
-                intro: "Le doyen (Shaykh) des Ansars chez qui le Prophète (ﷺ) séjourna à son arrivée à Qouba lors de l'Hégire. Sa maison fut le premier foyer du Messager d'Allah à Médine.",
-                heroQuote: "Le Prophète descendit chez lui à Qouba avant d'entrer à Médine.",
+                intro: "Koulthoum ibn al-Hidm, un notable âgé des Ansâr, est mentionné par Ibn Ishâq comme hôte du Prophète ﷺ à Qoubâ au début de l'Hégire. Une autre tradition cite Sa‘d ibn Khaythama, dont la maison servait aux réunions. Koulthoum mourut avant Badr selon les biographies.",
+                heroQuote: "Ibn Ishâq cite Koulthoum comme hôte du Prophète à Qoubâ, en mentionnant aussi une autre version chez Sa‘d ibn Khaythama.",
                 tags: ["Ansar", "Hôte", "Qouba"],
                 genealogy: "Koulthoum ibn Al-Hidm... Al-Aoussi. De la branche des Banou 'Amr ibn 'Aouf.",
                 physicalDesc: "Un homme âgé et respecté, doyen de sa tribu.",
                 timeline: [
-                    { year: "Hégire", desc: "Accueille le Prophète à son arrivée à Qouba (lundi 12 Rabi' al-Awwal)." },
-                    { year: "1 H", desc: "Décède peu après l'arrivée du Prophète, avant la bataille de Badr." }
+                  {
+                    "year": "1 H",
+                    "desc": "À Qoubâ, hébergement chez Koulthoum selon Ibn Ishâq, ou chez Sa‘d ibn Khaythama selon une autre version."
+                  },
+                  {
+                    "year": "Avant Badr (2 H)",
+                    "desc": "Ibn Sa‘d situe le décès de Koulthoum peu après l'Hégire, avant Badr, sans date journalière démontrée."
+                  }
                 ],
                 narratives: [
-                    { id: 381, title: "L'Hospitalité Première", content: "Bien que le Prophète tînt ses assemblées chez Saad ibn Khaythama (pour les célibataires), c'est bien chez Koulthoum ibn Al-Hidm qu'il logeait physiquement et dormait lors de son séjour à Qouba." }
+                  {
+                    "id": 381,
+                    "title": "Deux hôtes possibles à Qoubâ",
+                    "content": "Ibn Ishâq rapporte le séjour du Prophète chez Koulthoum, tout en donnant la version alternative de Sa‘d ibn Khaythama. Al-Haythamî indique que les transmetteurs de la voie examinée sont fiables (Majma‘ az-Zawâ’id 6/65) ; le classement ne supprime pas l'existence de variantes."
+                  },
+                  {
+                    "id": 382,
+                    "title": "La maison des célibataires chez Sa‘d",
+                    "content": "La sîra concilie parfois les récits en expliquant que le Prophète logeait chez Koulthoum mais recevait les visiteurs chez Sa‘d, dont la maison était appelée la maison des célibataires. Cette explication est attribuée aux chroniqueurs et n'est pas posée comme une preuve excluant les autres versions."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah logea chez Koulthoum ibn Al-Hidm à Qouba.", narrator: "Ibn Ishaq", source: "Sira" }
+                  {
+                    "text": "Selon Ibn Ishâq, le Prophète séjourna chez Koulthoum à Qoubâ ; une autre version cite Sa‘d ibn Khaythama.",
+                    "narrator": "Ibn Ishâq, tradition de sîra",
+                    "source": "At-Tabarânî 5414 ; Al-Haythamî (6/65) : rapporteurs fiables",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Quel est le mérite unique de Koulthoum ?", opts: ["Il a tué Abou Jahl", "Il a hébergé le Prophète à Qouba", "Il a construit la Kaaba", "Il était le premier muezzin"], c: 1, exp: "Il fut le premier hôte du Prophète avant son entrée dans Médine même." }
+                  {
+                    "q": "Où le Prophète séjourna-t-il avant son entrée à Médine ?",
+                    "opts": [
+                      "Qoubâ",
+                      "Badr",
+                      "Al-Abwâ"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn Ishâq rapporte le séjour à Qoubâ dans la région de Médine.",
+                    "ref": "https://dorar.net/h/sK6hUNNK"
+                  },
+                  {
+                    "q": "Quels deux hôtes sont cités dans les variantes ?",
+                    "opts": [
+                      "Koulthoum et Sa‘d ibn Khaythama",
+                      "Ja‘far et ‘Aqîl",
+                      "Abou Doujâna et Ibn Rawâha"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit d'Ibn Ishâq conserve les deux attributions d'hébergement.",
+                    "ref": "https://dorar.net/h/sK6hUNNK"
+                  },
+                  {
+                    "q": "Que dit Al-Haythamî sur une chaîne de ce récit ?",
+                    "opts": [
+                      "Ses rapporteurs sont fiables",
+                      "C'est un verset",
+                      "Il est unanimement inventé"
+                    ],
+                    "c": 0,
+                    "exp": "Majma‘ az-Zawâ’id 6/65 évalue les rapporteurs de la voie citée.",
+                    "ref": "https://dorar.net/h/sK6hUNNK"
+                  },
+                  {
+                    "q": "Comment était surnommée la maison de Sa‘d ?",
+                    "opts": [
+                      "La maison des célibataires",
+                      "La maison des marins",
+                      "La maison du conseil"
+                    ],
+                    "c": 0,
+                    "exp": "La tradition précise que Sa‘d accueillait les visiteurs dans sa maison.",
+                    "ref": "https://gcp.islamweb.net/ar/library/content/59/227/"
+                  },
+                  {
+                    "q": "Quand les chroniques situent-elles la mort de Koulthoum ?",
+                    "opts": [
+                      "Avant Badr",
+                      "En 97 H",
+                      "À Mou’ta"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite la mort précoce de Koulthoum avant la bataille de Badr.",
+                    "ref": "https://ar.wikisource.org/wiki/سير_أعلام_النبلاء/كلثوم_بن_الهدم"
+                  }
                 ]
             },
             {
@@ -1992,26 +2762,124 @@
                 name: "Abou Doujana",
                 arabicName: "أبو دُجَانَة",
                 subtitle: "Le Bandeau de la Mort",
-                intro: "Guerrier redoutable qui portait un bandeau rouge lorsqu'il s'apprêtait à combattre à mort. Il protégea le Prophète de son propre corps à Ouhoud et mourut en héros à Yamama.",
-                heroQuote: "Je suis un homme à qui le fidèle a promis... Avec l'épée d'Allah, je vaincrai l'ennemi !",
+                intro: "Abou Doujâna, Simâk ibn Kharasha, est nommé dans Mouslim 2470 comme le compagnon qui prit l'épée du Prophète à Ouhoud en acceptant d'en respecter les droits. D'autres traditions rapportent un bandeau rouge, sa démarche, sa générosité morale et sa mort à Al-Yamâma, avec des réserves sur certaines voies.",
+                heroQuote: "À Ouhoud, Abou Doujâna accepta l'épée du Prophète ﷺ en promettant d'en respecter les droits (Mouslim 2470).",
                 tags: ["Ansar", "Guerrier", "Ouhoud", "Yamama"],
                 genealogy: "Simak ibn Kharasha (Abou Doujana). Frère de foi de 'Outba ibn Ghazouane.",
                 physicalDesc: "Il marchait avec fierté (se dandinant) entre les rangs ennemis avant le combat.",
                 timeline: [
-                    { year: "3 H", desc: "Prend l'épée du Prophète à Ouhoud et sort avec son bandeau rouge." },
-                    { year: "11 H", desc: "Se jette dans le 'Jardin de la Mort' à Yamama, se casse la jambe mais continue à combattre jusqu'à la mort." }
+                  {
+                    "year": "3 H",
+                    "desc": "À Ouhoud, prend l'épée du Prophète en acceptant d'en respecter les droits (Mouslim 2470) ; le bandeau rouge est transmis par une autre voie."
+                  },
+                  {
+                    "year": "11 ou 12 H",
+                    "desc": "La notice d'adh-Dhahabî rapporte sa mort à Al-Yamâma après avoir franchi le mur du jardin et s'être blessé."
+                  }
                 ],
                 narratives: [
-                    { id: 391, title: "Le Droit de l'Épée", content: "Le Prophète tendit une épée en demandant : « Qui la prendra avec son droit ? ». Les hommes hésitèrent. Abou Doujana demanda : « Quel est son droit ? ». Le Prophète dit : « Que tu combattes avec jusqu'à ce qu'elle se torde ». Il la prit." },
-                    { id: 392, title: "La Marche Orgueilleuse", content: "Il sortit avec son bandeau rouge et marcha avec fierté entre les rangs. Le Prophète dit : « C'est une démarche qu'Allah déteste, sauf dans une telle circonstance (face à l'ennemi) »." },
-                    { id: 393, title: "Le Visage Lumineux", content: "Malade, son visage restait resplendissant. Il expliqua : « Deux œuvres me donnent espoir : je ne parle pas de ce qui ne me regarde pas, et mon cœur est sain envers les musulmans »." }
+                  {
+                    "id": 391,
+                    "title": "Prendre l'épée avec ses droits",
+                    "content": "Anas rapporte dans Mouslim 2470 que le Prophète proposa son épée puis demanda qui accepterait toute la responsabilité qui s'y attachait. Abou Doujâna s'avança et la prit. Le texte ne contient pas nécessairement les paroles dramatisées des versions de sîra."
+                  },
+                  {
+                    "id": 392,
+                    "title": "La démarche et le bandeau rouge : réserve",
+                    "content": "Une tradition mentionne un bandeau rouge et une démarche fière devant les lignes adverses. Al-Haythamî (Majma‘ az-Zawâ’id 6/112) signale que la chaîne comporte des personnes qu'il ne connaissait pas. Athar conserve la narration avec cette réserve explicite."
+                  },
+                  {
+                    "id": 393,
+                    "title": "Un cœur sans rancune selon Zayd ibn Aslam",
+                    "content": "Adh-Dhahabî transmet d'après Zayd ibn Aslam qu'Abou Doujâna, malade, expliqua sa sérénité par son refus de parler inutilement et son cœur exempt de rancœur envers les musulmans. Aucun jugement de hadith n'est inventé."
+                  },
+                  {
+                    "id": 394,
+                    "title": "Al-Yamâma : un récit d'Anas",
+                    "content": "Selon le récit transmis d'Anas dans Siyar, Abou Doujâna fut projeté au-delà du mur du jardin à Al-Yamâma ; il se cassa la jambe et continua le combat jusqu'à sa mort. Ce récit historique est distinct du hadith de l'épée."
+                  }
                 ],
                 hadiths: [
-                    { text: "Je me revois à Ouhoud, seul avec Jibril à ma droite et Talha à ma gauche (Abou Doujana les protégeait).", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Abou Hourayra" }
+                  {
+                    "text": "À Ouhoud, Abou Doujâna accepta l'épée du Prophète ﷺ en prenant la responsabilité de ses droits.",
+                    "narrator": "Anas ibn Mâlik",
+                    "source": "Sahîh Mouslim 2470",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Une voie attribue au Prophète une exception concernant la démarche fière d'Abou Doujâna entre les rangs.",
+                    "narrator": "‘Abd Allah ibn Khâlid ibn Simâk, selon At-Tabarânî",
+                    "source": "At-Tabarânî 6508 ; Al-Haythamî : présence de transmetteurs inconnus de lui",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Que signifiait le bandeau rouge d'Abou Doujana ?", opts: ["Qu'il était blessé", "Qu'il allait combattre jusqu'à la mort", "Qu'il était chef", "Qu'il se rendait"], c: 1, exp: "C'était son 'bandeau de la mort', signe qu'il ne reculerait pas." },
-                    { q: "Quelle était sa qualité secrète qui illuminait son visage ?", opts: ["Le jeûne", "La prière de nuit", "Le cœur sain envers les musulmans", "L'aumône"], c: 2, exp: "Il disait n'avoir aucune haine contre un musulman." }
+                  {
+                    "q": "Quel recueil contient le récit de l'épée à Ouhoud ?",
+                    "opts": [
+                      "Mouslim 2470",
+                      "Al-Bukhârî 4250",
+                      "At-Tirmidhî 2732"
+                    ],
+                    "c": 0,
+                    "exp": "Anas transmet cet épisode dans Sahîh Mouslim 2470.",
+                    "ref": "https://sunnah.com/muslim:2470"
+                  },
+                  {
+                    "q": "Que promet Abou Doujâna en acceptant l'épée ?",
+                    "opts": [
+                      "D'en assumer les droits",
+                      "De naviguer sur un bateau",
+                      "De prêter de l'argent"
+                    ],
+                    "c": 0,
+                    "exp": "Le Prophète insiste sur les responsabilités liées à l'épée.",
+                    "ref": "https://sunnah.com/muslim:2470"
+                  },
+                  {
+                    "q": "Quel avis Al-Haythamî donne-t-il sur la voie du bandeau rouge ?",
+                    "opts": [
+                      "Des transmetteurs lui sont inconnus",
+                      "Elle est unanimement moutawâtir",
+                      "C'est un verset"
+                    ],
+                    "c": 0,
+                    "exp": "Il signale des personnes qu'il ne connaît pas dans la chaîne de ce récit.",
+                    "ref": "https://dorar.net/h/Nb2x0gaa"
+                  },
+                  {
+                    "q": "Quelles qualités Abou Doujâna évoque-t-il selon Zayd ibn Aslam ?",
+                    "opts": [
+                      "Retenue dans les paroles et cœur sain",
+                      "Richesse et gloire",
+                      "Commerce et voyage"
+                    ],
+                    "c": 0,
+                    "exp": "Il s'agit d'un propos personnel conservé dans la notice de Siyar.",
+                    "ref": "https://gcp.islamweb.net/ar/library/index.php?ID=50&bk_no=60&flag=1&page=bookcontents"
+                  },
+                  {
+                    "q": "Où la tradition rapporte-t-elle sa mort ?",
+                    "opts": [
+                      "Al-Yamâma",
+                      "Mou’ta",
+                      "Badr"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit d'Anas cité par adh-Dhahabî le situe à Al-Yamâma.",
+                    "ref": "https://siyar.fr/livre/1/244"
+                  },
+                  {
+                    "q": "Qu'apporte Mouslim 2470 par rapport à la version du bandeau ?",
+                    "opts": [
+                      "Il établit le récit de l'épée, non tous les détails du bandeau",
+                      "Il établit la couleur du bandeau",
+                      "Il date sa mort à 97 H"
+                    ],
+                    "c": 0,
+                    "exp": "Il faut distinguer le hadith sur l'épée et les autres transmissions.",
+                    "ref": "https://sunnah.com/muslim:2470"
+                  }
                 ]
             },
             {
@@ -2021,26 +2889,132 @@
                 name: "Khoubayb ibn 'Adi",
                 arabicName: "خُبَيْب بن عَدِي",
                 subtitle: "Le Crucifié qui Pria",
-                intro: "Capturé par traîtrise lors de l'expédition d'Ar-Raji', il fut vendu aux Qurayshites. Il est le premier à avoir instauré la tradition de prier deux unités de prière avant d'être exécuté.",
-                heroQuote: "Ô Allah, dénombre-les et tue-les, un à un, sans en épargner un seul !",
+                intro: "Khoubayb ibn ‘Adî, compagnon des Ansâr, fut capturé après l'expédition d'Ar-Rajî‘ et détenu à La Mecque. Al-Bukhârî 3045 et 4086 rapportent son refus de nuire à un enfant, la grappe de raisin reçue pendant sa captivité et sa prière de deux unités avant l'exécution.",
+                heroQuote: "La femme qui le détenait témoigne : « Je n'ai jamais vu un prisonnier meilleur que lui » (Al-Bukhârî 4086).",
                 tags: ["Martyrs", "Badr", "Prière"],
                 genealogy: "Khoubayb ibn 'Adi... Le Ansari.",
                 timeline: [
-                    { year: "2 H", desc: "Tue Al-Harith ibn 'Amir à Badr." },
-                    { year: "4 H", desc: "Trahi à Ar-Raji', vendu aux enfants de sa victime à la Mecque." },
-                    { year: "Exécution", desc: "Crucifié au Tan'im. Prie 2 rakats avant de mourir." }
+                  {
+                    "year": "2 H",
+                    "desc": "Al-Bukhârî 3045 rapporte que Khoubayb tua al-Hârith ibn ‘Âmir lors de Badr."
+                  },
+                  {
+                    "year": "4 H selon les chroniques",
+                    "desc": "Khoubayb fut capturé à l'expédition d'Ar-Rajî‘ ; le récit est présent dans Al-Bukhârî 3045 et 4086."
+                  },
+                  {
+                    "year": "Après la captivité, date distincte inconnue",
+                    "desc": "Conduit hors de la zone sacrée pour l'exécution, Khoubayb prie deux raka‘ât avant sa mort (Al-Bukhârî 4086)."
+                  }
                 ],
                 narratives: [
-                    { id: 401, title: "La Tradition des Deux Rakats", content: "Avant son exécution, il demanda à prier. Après deux unités rapides, il dit : « Si vous n'aviez pas pensé que je faisais cela par peur de la mort, j'aurais prié plus longtemps ». Il instaura ainsi cette sunna pour les condamnés à mort." },
-                    { id: 402, title: "Le Miracle du Raisin", content: "Sa geôlière (Mawiya) témoigna l'avoir vu manger une grappe de raisin de la taille d'une tête d'homme, alors qu'il n'y avait pas de fruits à la Mecque à cette époque et qu'il était enchaîné." },
-                    { id: 403, title: "L'Invocation contre les Traîtres", content: "Sur le patibulum, il invoqua contre ses bourreaux. Mouawiya (alors païen) se jeta au sol par peur d'être touché par cette invocation." }
+                  {
+                    "id": 401,
+                    "title": "Deux unités de prière avant l'exécution",
+                    "content": "Al-Bukhârî 4086 transmet que Khoubayb demanda à accomplir deux raka‘ât, puis dit qu'il aurait prié davantage s'il n'avait craint qu'on croie à sa peur de mourir. Le texte lui attribue le précédent de cette prière dans ces circonstances."
+                  },
+                  {
+                    "id": 402,
+                    "title": "Le raisin pendant la captivité",
+                    "content": "La fille d'al-Hârith témoigne avoir vu Khoubayb manger du raisin, bien qu'il fût enchaîné et que ce fruit n'eût pas été disponible à La Mecque. Elle y vit une faveur d'Allah ; ce témoignage est rapporté dans Al-Bukhârî 3045."
+                  },
+                  {
+                    "id": 403,
+                    "title": "Une invocation prononcée par Khoubayb",
+                    "content": "Al-Bukhârî transmet l'invocation et des vers récités par Khoubayb devant ses exécuteurs, où il exprime son acceptation du martyre. Ces paroles sont attribuées à Khoubayb, non au Prophète ﷺ."
+                  },
+                  {
+                    "id": 404,
+                    "title": "L'enfant et le rasoir",
+                    "content": "La même femme raconte avoir prêté un rasoir au prisonnier et trouvé son enfant sur ses genoux. Khoubayb la rassura : il ne ferait aucun mal au petit. Cette scène apparaît dans Al-Bukhârî 4086."
+                  },
+                  {
+                    "id": 405,
+                    "title": "L'embuscade après l'expédition d'Ar-Rajî‘",
+                    "content": "Selon Abou Hourayra dans Al-Bukhârî 4086, le groupe commandé par ‘Âsim ibn Thâbit fut poursuivi par des archers, et Khoubayb fut finalement capturé. Ce récit se distingue des épisodes ultérieurs de détention."
+                  }
                 ],
                 hadiths: [
-                    { text: "Ô Allah, certes nous avons transmis le message de ton Prophète; transmets-lui donc ce matin ce qui nous arrive !", narrator: "Khoubayb (Invocation)", source: "Sur le lieu d'exécution" }
+                  {
+                    "text": "Avant son exécution, Khoubayb pria deux unités puis expliqua qu'il n'avait pas voulu prolonger sa prière pour ne pas paraître effrayé.",
+                    "narrator": "Abou Hourayra et la fille d'al-Hârith",
+                    "source": "Sahîh al-Bukhârî 4086 — témoignage historique",
+                    "type": "historical"
+                  },
+                  {
+                    "text": "Khoubayb rassura la femme après qu'elle l'eut vu avec un rasoir et son enfant sur les genoux.",
+                    "narrator": "La fille d'al-Hârith",
+                    "source": "Sahîh al-Bukhârî 3045 — témoignage historique",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle tradition a-t-il instaurée avant de mourir ?", opts: ["Réciter la Shahada", "Prier deux unités de prière", "Demander de l'eau", "Faire un discours"], c: 1, exp: "Il est le premier musulman à avoir prié deux rakats avant d'être exécuté." },
-                    { q: "Qui a-t-il tué à Badr (ce qui causa sa vendetta) ?", opts: ["Abou Jahl", "Al-Harith ibn 'Amir", "Oumaya", "Walid"], c: 1, exp: "Il fut acheté par les fils d'Al-Harith pour venger leur père." }
+                  {
+                    "q": "Que fit Khoubayb avant son exécution ?",
+                    "opts": [
+                      "Il accomplit deux unités de prière",
+                      "Il traversa la mer",
+                      "Il estima des récoltes"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4086 rapporte les deux raka‘ât et sa déclaration.",
+                    "ref": "https://sunnah.com/bukhari:4086"
+                  },
+                  {
+                    "q": "Quel objet Khoubayb emprunta-t-il ?",
+                    "opts": [
+                      "Un rasoir",
+                      "Une épée",
+                      "Un bouclier"
+                    ],
+                    "c": 0,
+                    "exp": "La femme qui le détenait lui prêta un rasoir.",
+                    "ref": "https://sunnah.com/bukhari:3045"
+                  },
+                  {
+                    "q": "Comment réagit-il lorsqu'elle craignit pour son enfant ?",
+                    "opts": [
+                      "Il la rassura et refusa de faire du mal au bébé",
+                      "Il demanda une rançon",
+                      "Il abandonna l'enfant dans la rue"
+                    ],
+                    "c": 0,
+                    "exp": "Le hadith indique qu'il n'avait pas l'intention de nuire à l'enfant.",
+                    "ref": "https://sunnah.com/bukhari:4086"
+                  },
+                  {
+                    "q": "Quel aliment reçut-il en captivité selon la narratrice ?",
+                    "opts": [
+                      "Du raisin",
+                      "Du miel",
+                      "Des olives"
+                    ],
+                    "c": 0,
+                    "exp": "La témoin raconte une grappe de raisin alors que ce fruit n'était pas disponible.",
+                    "ref": "https://sunnah.com/bukhari:3045"
+                  },
+                  {
+                    "q": "Qui commandait le groupe envoyé en expédition ?",
+                    "opts": [
+                      "‘Âsim ibn Thâbit",
+                      "Ja‘far",
+                      "Zayd"
+                    ],
+                    "c": 0,
+                    "exp": "Abou Hourayra donne le nom de ‘Âsim ibn Thâbit dans le récit.",
+                    "ref": "https://sunnah.com/bukhari:4086"
+                  },
+                  {
+                    "q": "À qui attribue-t-on la supplication faite avant l'exécution ?",
+                    "opts": [
+                      "À Khoubayb",
+                      "Au Prophète ﷺ",
+                      "Au Négus"
+                    ],
+                    "c": 0,
+                    "exp": "Ce sont des paroles de Khoubayb transmises dans le hadith, et non des propos du Prophète.",
+                    "ref": "https://sunnah.com/bukhari:3045"
+                  }
                 ]
             },
             {

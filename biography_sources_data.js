@@ -3032,7 +3032,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/203",
     "entries": [
       {
@@ -3043,6 +3043,66 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 31",
         "note": "Le fascicule contient une notice consacrée à « Saïd ibn Al-Harith ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 31",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/39/",
+        "hadithRef": "Adh-Dhahabî, Siyar : mention unique d'al-Hâkim",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Époque prophétique, date non établie",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/39/",
+        "hadithRef": "Siyar, figure 31",
+        "status": "qualification",
+        "note": "Événement rapporté : Al-Hâkim classe Sa‘îd parmi les compagnons ; adh-Dhahabî ne signale aucun autre biographe l'ayant mentionné. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 311,
+        "title": "Le récit isolé de Sa‘îd",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/39/",
+        "hadithRef": "Siyar ou répertoire : figure 31",
+        "status": "qualification",
+        "note": "Adh-Dhahabî dit que Salmân al-Agharr transmet de Sa‘îd une parole sur le croyant qui rencontrera Allah. Il signale Ibn Lahî‘a dans la chaîne. La notice ne fournit pas d'évaluation explicite permettant à Athar de classer ce récit par lui-même."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 312,
+        "title": "Une documentation très réduite",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/39/",
+        "hadithRef": "Siyar ou répertoire : figure 31",
+        "status": "qualification",
+        "note": "Adh-Dhahabî explique que seul al-Hâkim lui est connu pour l'avoir compté parmi les compagnons. Aucun voyage, bataille ou événement précis n'est ajouté sans source propre à Sa‘îd."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://www.islamweb.net/ar/library/content/60/39/",
+        "hadithRef": "Al-Hâkim, cité par adh-Dhahabî : chaîne comportant Ibn Lahî‘a",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Adh-Dhahabî signale explicitement Ibn Lahî‘a dans la chaîne. Aucun classement indépendant n'est inventé par Athar.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
       }
     ]
   },
@@ -3054,7 +3114,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/203",
     "entries": [
       {
@@ -3065,6 +3125,124 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 32",
         "note": "Le fascicule contient une notice consacrée à « Abou Soufiane ibn Al-Harith ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 32",
+        "externalUrl": "https://sunnah.com/bukhari:3042",
+        "hadithRef": "Hadith ou récit précisément référencé dans la notice",
+        "grade": "sahih",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar, figure 32",
+        "status": "qualification",
+        "note": "Événement rapporté : Sa conversion à l'époque de la conquête de La Mecque est relatée dans les biographies. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://sunnah.com/bukhari:3042",
+        "hadithRef": "3042",
+        "status": "qualification",
+        "note": "Événement rapporté : Al-Bukhârî 3042 le montre tenant les rênes de la mule du Prophète à Hounayn. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 20 H selon une tradition",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar, figure 32",
+        "status": "variant",
+        "note": "Événement rapporté : Adh-Dhahabî mentionne un décès à Médine vers 20 H après une blessure survenue lors d'un rasage. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 321,
+        "title": "De l'hostilité à la réconciliation",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar ou répertoire : figure 32",
+        "status": "qualification",
+        "note": "Les ouvrages de sîra relatent qu'après des années d'opposition et de poésie hostile, Abou Soufyân chercha à rencontrer le Prophète et fut finalement accueilli. Les dialogues précis de cette scène ne figurent pas dans Al-Bukhârî 3042."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 322,
+        "title": "La bride de la mule à Hounayn",
+        "externalUrl": "https://sunnah.com/bukhari:3042",
+        "hadithRef": "Recueil cité : 3042",
+        "status": "qualification",
+        "note": "Al-Barâ’ ibn ‘Âzib rapporte dans Al-Bukhârî 3042 et 4315 qu'Abou Soufyân ibn al-Hârith tenait la mule lorsque les combattants affrontèrent les flèches adverses. Le Prophète resta sur place."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 323,
+        "title": "Une mort rapportée après une blessure",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar ou répertoire : figure 32",
+        "status": "qualification",
+        "note": "Adh-Dhahabî cite une tradition selon laquelle un barbier coupa une verrue sur son crâne lors d'un pèlerinage ; il mourut ensuite. Ce détail est biographique et ne constitue pas une conclusion médicale indépendante."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 324,
+        "title": "Un titre honorifique dans une voie interrompue",
+        "externalUrl": "https://siyar.fr/livre/1/203",
+        "hadithRef": "Siyar ou répertoire : figure 32",
+        "status": "variant",
+        "note": "Une parole lui attribue le titre de chef des jeunes du Paradis. La note d'Ibn Hajar sur cette voie la décrit comme moursal. Elle reste visible avec ce jugement, et n'est pas présentée comme unanimement authentifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:3042",
+        "hadithRef": "Al-Bukhârî 3042 ; 4315",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Témoignage d'al-Barâ’ : Abou Soufyân tient la bride de la mule à Hounayn.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 1,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://ketabonline.com/ar/books/598/read?page=1812&part=1",
+        "hadithRef": "Siyar 1/206 : voie d'‘Urwa, moursal selon Ibn Hajar",
+        "grade": "attribution_discontinue",
+        "status": "qualification",
+        "note": "Ibn Hajar souligne que la voie est moursal. La tradition est conservée avec sa réserve sans la faire passer pour un hadith unanimement authentifié.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
       }
     ]
   },
@@ -3076,7 +3254,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/207",
     "entries": [
       {
@@ -3087,6 +3265,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 33",
         "note": "Le fascicule contient une notice consacrée à « Jafar ibn Abou Soufiane ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 33",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar, figure 33",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar, figure 33",
+        "status": "qualification",
+        "note": "Événement rapporté : D'après Ibn Sa‘d, Ja‘far demeura auprès de son père pendant la bataille de Hounayn. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Milieu du califat de Mou‘âwiya",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar, figure 33",
+        "status": "variant",
+        "note": "Événement rapporté : La notice situe le décès au milieu de ce califat, sans année précise. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 331,
+        "title": "Ja‘far et son père à Hounayn",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar ou répertoire : figure 33",
+        "status": "qualification",
+        "note": "Adh-Dhahabî reprend Ibn Sa‘d : Ja‘far et son père Abou Soufyân tinrent bon au combat de Hounayn. Aucune action militaire personnelle supplémentaire n'est décrite dans cette courte notice."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 332,
+        "title": "Une dernière mention sous Mou‘âwiya",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar ou répertoire : figure 33",
+        "status": "qualification",
+        "note": "Ibn Sa‘d rapporte que Ja‘far vécut jusqu'au milieu du califat de Mou‘âwiya. La notice ne donne ni année précise ni autres événements qu'il serait rigoureux d'ajouter."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Ibn Sa‘d cité par adh-Dhahabî, Siyar notice 33",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Le bref récit est une tradition historique ; aucun hadith individuel ni degré n'est attribué à Ja‘far par Athar.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
       }
     ]
   },
@@ -3098,7 +3347,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/207",
     "entries": [
       {
@@ -3109,6 +3358,185 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 34",
         "note": "Le fascicule contient une notice consacrée à « Jafar ibn Abou Talib ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 34",
+        "externalUrl": "https://sunnah.com/bukhari:4251",
+        "hadithRef": "Hadith ou récit précisément référencé dans la notice",
+        "grade": "sahih",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Avant l'Hégire",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar, figure 34",
+        "status": "qualification",
+        "note": "Événement rapporté : Ja‘far émigre en Abyssinie avec Asmâ’ bint ‘Oumays. L'ancien repère « 5 H » était chronologiquement erroné. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 7 H",
+        "externalUrl": "https://sunnah.com/bukhari:4230",
+        "hadithRef": "4230",
+        "status": "qualification",
+        "note": "Événement rapporté : Ja‘far et les émigrés d'Abyssinie retrouvent le Prophète à l'époque de Khaybar, selon Al-Bukhârî 4230. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 7 H",
+        "externalUrl": "https://sunnah.com/bukhari:4251",
+        "hadithRef": "4251",
+        "status": "qualification",
+        "note": "Événement rapporté : Al-Bukhârî 4251 rapporte le litige concernant la fille de Hamza et le compliment adressé à Ja‘far. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 3,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://sunnah.com/bukhari:4261",
+        "hadithRef": "4261",
+        "status": "qualification",
+        "note": "Événement rapporté : Meurt à Mou’ta après Zayd ibn Hâritha selon Al-Bukhârî 4261–4262. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 341,
+        "title": "La défense des émigrés devant le Négus",
+        "externalUrl": "https://siyar.fr/livre/1/207",
+        "hadithRef": "Siyar ou répertoire : figure 34",
+        "status": "qualification",
+        "note": "Les ouvrages de sîra racontent que Ja‘far prit la parole devant le souverain d'Abyssinie et récita des versets de la sourate Maryam. Les détails des dialogues et l'émotion du roi relèvent de transmissions historiques distinctes, pas du hadith de Mou’ta dans Al-Bukhârî."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 342,
+        "title": "L'hospitalité de Ja‘far envers les pauvres",
+        "externalUrl": "https://sunnah.com/bukhari:3708",
+        "hadithRef": "Recueil cité : 3708",
+        "status": "qualification",
+        "note": "Abou Hourayra témoigne dans Al-Bukhârî 3708 que Ja‘far accueillait les pauvres et partageait avec eux même les derniers restes de nourriture contenus dans un récipient."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 343,
+        "title": "La fille de Hamza et la ressemblance avec le Prophète",
+        "externalUrl": "https://sunnah.com/bukhari:4251",
+        "hadithRef": "Recueil cité : 4251",
+        "status": "qualification",
+        "note": "Al-Barâ’ rapporte dans Al-Bukhârî 4251 que ‘Alî, Ja‘far et Zayd discutèrent de la garde de la fille de Hamza. Le Prophète la confia à sa tante, épouse de Ja‘far, puis lui dit qu'il lui ressemblait en apparence et en caractère. Le récit du saut de joie provient d'autres versions."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 344,
+        "title": "Les commandants et les blessures à Mou’ta",
+        "externalUrl": "https://sunnah.com/bukhari:4261",
+        "hadithRef": "Recueil cité : 4261",
+        "status": "qualification",
+        "note": "Ibn ‘Oumar rapporte dans Al-Bukhârî 4261 la succession prévue entre Zayd, Ja‘far et Ibn Rawâha. Il dit avoir retrouvé sur le corps de Ja‘far plus de quatre-vingt-dix blessures. Le détail des deux mains coupées est mentionné dans d'autres voies."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 345,
+        "title": "Le mérite accordé aux gens du bateau",
+        "externalUrl": "https://sunnah.com/bukhari:3876",
+        "hadithRef": "Recueil cité : 3876",
+        "status": "qualification",
+        "note": "Abou Moussa raconte dans Al-Bukhârî 3876 que les migrants arrivés en Abyssinie rencontrèrent Ja‘far, puis rejoignirent tous le Prophète lors de Khaybar. Le Prophète leur parla de leur double émigration."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 346,
+        "title": "Préparer le repas de la famille endeuillée",
+        "externalUrl": "https://sunnah.com/tirmidhi:998",
+        "hadithRef": "Recueil cité : 998",
+        "status": "qualification",
+        "note": "‘Abd-Allah ibn Ja‘far transmet dans At-Tirmidhî 998 que le Prophète demanda que l'on apporte un repas à la famille de Ja‘far, occupée par son deuil. At-Tirmidhî et Darussalam le qualifient de hasan."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:4251",
+        "hadithRef": "Al-Bukhârî 4251",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Al-Barâ’ transmet la parole prophétique sur la ressemblance de Ja‘far.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 1,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://dorar.net/h/MiqsDlc2",
+        "hadithRef": "At-Tabarânî 1467 ; Al-Haythamî : une voie hasan ; Al-Albânî : sahîh li-ghayrihi",
+        "grade": "disputed",
+        "status": "variant",
+        "note": "Les deux jugements positifs sont de nature différente et s'appliquent à des évaluations distinctes ; aucun nouveau jugement n'est produit.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 2,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:4261",
+        "hadithRef": "Al-Bukhârî 4261",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Ibn ‘Oumar rapporte avoir constaté plus de quatre-vingt-dix blessures sur le corps de Ja‘far.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 3,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/tirmidhi:998",
+        "hadithRef": "At-Tirmidhî 998 — hasan selon At-Tirmidhî et Darussalam",
+        "grade": "hasan",
+        "status": "located",
+        "note": "Transmission d'‘Abd-Allah ibn Ja‘far relative à la préparation du repas pour sa famille.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
       }
     ]
   },
@@ -3120,7 +3548,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/219",
     "entries": [
       {
@@ -3137,9 +3565,115 @@ const BIOGRAPHY_SOURCES = {
         "id": 353,
         "pdfPage": 3,
         "printedPage": 2,
-        "title": "Paroles échangées après Badr",
-        "note": "Dans ce récit, 'Aqil demande au Prophète quels chefs ont été tués, apprend la mort d'Abou Jahl, puis déclare lui-même que la voie est ouverte ; les rôles étaient inversés dans Athar.",
-        "status": "qualification"
+        "title": "La réponse d'‘Aqîl après Badr",
+        "note": "Les chroniques rapportent qu'‘Aqîl s'enquit auprès du Prophète des chefs mecquois tombés à Badr. La formule sur la voie désormais ouverte est attribuée à ‘Aqîl lui-même, et non au Prophète.",
+        "status": "qualification",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar ou répertoire : figure 35"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 35",
+        "externalUrl": "https://dorar.net/h/ARqrTG9R",
+        "hadithRef": "Siyar, figure 35",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 2 H",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar, figure 35",
+        "status": "qualification",
+        "note": "Événement rapporté : Les biographies placent ‘Aqîl parmi les captifs de Badr, dans le camp qurayshite. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 8 H selon les chroniques",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar, figure 35",
+        "status": "qualification",
+        "note": "Événement rapporté : Son ralliement à l'islam est situé vers la conquête de La Mecque, selon les chroniques. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : Après 8 H, sans date précise",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar, figure 35",
+        "status": "qualification",
+        "note": "Événement rapporté : Siyar rapporte des revenus en dattes liés à Khaybar, sans année individuelle établie. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 3,
+        "title": "Repère : Sous Mou‘âwiya",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar, figure 35",
+        "status": "variant",
+        "note": "Événement rapporté : La notice situe son décès durant le califat de Mou‘âwiya, sans année unique. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 351,
+        "title": "Les deux motifs d'affection : une voie moursal",
+        "externalUrl": "https://dorar.net/h/ARqrTG9R",
+        "hadithRef": "Siyar ou répertoire : figure 35",
+        "status": "qualification",
+        "note": "Une parole attribuée au Prophète exprime son affection pour ‘Aqîl en raison de leur parenté et de l'amour qu'Abou Tâlib lui portait. Ach-Chawkânî indique que la chaîne est moursal et que ses rapporteurs mentionnés sont fiables. Al-Hâkim et At-Tabarânî transmettent aussi le récit."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 352,
+        "title": "Une aiguille rendue par scrupule",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar ou répertoire : figure 35",
+        "status": "qualification",
+        "note": "Selon Zayd ibn Aslam, ‘Aqîl ramena une aiguille à son épouse, puis demanda qu'on la rende lorsqu'il apprit qu'il n'était pas permis de prélever un bien du butin. La source ne précise pas nécessairement le lieu de cette scène."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 354,
+        "title": "Un connaisseur des filiations tribales",
+        "externalUrl": "https://siyar.fr/livre/1/218",
+        "hadithRef": "Siyar ou répertoire : figure 35",
+        "status": "qualification",
+        "note": "Adh-Dhahabî rapporte qu'‘Aqîl connaissait les généalogies arabes et les lignages des tribus. Ce témoignage éclaire sa place parmi les transmetteurs de mémoire familiale."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://dorar.net/h/ARqrTG9R",
+        "hadithRef": "Al-Hâkim 6625 ; ach-Chawkânî, Durr as-Sahâba 275 : moursal, rapporteurs fiables",
+        "grade": "attribution_discontinue",
+        "status": "qualification",
+        "note": "Ach-Chawkânî distingue la fiabilité des transmetteurs présents de l'interruption de la chaîne. Athar n'en déduit pas un verdict inédit.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
       }
     ]
   },
@@ -3151,7 +3685,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/221",
     "entries": [
       {
@@ -3162,6 +3696,174 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 36",
         "note": "Le fascicule contient une notice consacrée à « Zayd ibn Haritha ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 36",
+        "externalUrl": "https://sunnah.com/bukhari:4250",
+        "hadithRef": "Hadith ou récit précisément référencé dans la notice",
+        "grade": "sahih",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Enfance, sans année précise",
+        "externalUrl": "https://siyar.fr/livre/1/221",
+        "hadithRef": "Siyar, figure 36",
+        "status": "qualification",
+        "note": "Événement rapporté : Les récits biographiques racontent l'enlèvement, la vente et l'affranchissement de Zayd ; les montants varient selon les chroniques. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Avant la révélation de 33:5",
+        "externalUrl": "https://sunnah.com/bukhari:4782",
+        "hadithRef": "4782",
+        "status": "qualification",
+        "note": "Événement rapporté : Ibn ‘Oumar raconte que Zayd était appelé « ibn Mouhammad » jusqu'à la révélation prescrivant de nommer les enfants par leurs pères (Al-Bukhârî 4782). Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : Avant 8 H",
+        "externalUrl": "https://sunnah.com/bukhari:4250",
+        "hadithRef": "4250",
+        "status": "qualification",
+        "note": "Événement rapporté : Zayd dirige plusieurs expéditions selon les biographies ; Al-Bukhârî 4250 témoigne de la défense prophétique de son aptitude à commander. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 3,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://sunnah.com/bukhari:4261",
+        "hadithRef": "4261",
+        "status": "qualification",
+        "note": "Événement rapporté : Premier commandant désigné à Mou’ta, où il meurt, selon Al-Bukhârî 4261–4262. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 361,
+        "title": "Le choix de Zayd",
+        "externalUrl": "https://siyar.fr/livre/1/221",
+        "hadithRef": "Siyar ou répertoire : figure 36",
+        "status": "qualification",
+        "note": "Les ouvrages de sîra racontent que le père et l'oncle de Zayd vinrent le rechercher. Zayd choisit de rester auprès du Prophète, qui l'affranchit. Les dialogues détaillés sont rapportés historiquement, pas dans le hadith d'Al-Bukhârî 4782."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 362,
+        "title": "L'ancien nom et les versets de la sourate al-Ahzâb",
+        "externalUrl": "https://sunnah.com/bukhari:4782",
+        "hadithRef": "Recueil cité : 4782",
+        "status": "qualification",
+        "note": "Ibn ‘Oumar rapporte dans Al-Bukhârî 4782 que Zayd était appelé « fils de Mouhammad » jusqu'à la révélation de 33:5. Le Coran nomme explicitement Zayd dans le verset 33:37."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 363,
+        "title": "L'accueil de Zayd à Médine et les divergences de classement",
+        "externalUrl": "https://sunnah.com/tirmidhi:2732",
+        "hadithRef": "Recueil cité : 2732",
+        "status": "variant",
+        "note": "‘Â’isha rapporte dans At-Tirmidhî 2732 que le Prophète embrassa Zayd lors de son arrivée. At-Tirmidhî juge cette voie hasan gharîb ; l'édition Darussalam la classe da‘îf. Les deux jugements sont affichés."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 364,
+        "title": "Une défense explicite de ses qualités de commandement",
+        "externalUrl": "https://sunnah.com/bukhari:4250",
+        "hadithRef": "Recueil cité : 4250",
+        "status": "qualification",
+        "note": "Dans Al-Bukhârî 4250, Ibn ‘Oumar rapporte que des personnes critiquèrent la nomination d'Ousâma. Le Prophète répondit que son père Zayd avait déjà subi de telles critiques mais était digne de commander."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 365,
+        "title": "La succession prévue à Mou’ta",
+        "externalUrl": "https://sunnah.com/bukhari:4262",
+        "hadithRef": "Recueil cité : 4262",
+        "status": "qualification",
+        "note": "Al-Bukhârî 4261–4262 transmet la succession entre Zayd, Ja‘far et Ibn Rawâha. Selon Anas, le Prophète annonça leur mort avant l'arrivée de la nouvelle et ses yeux étaient remplis de larmes."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "verse",
+        "id": 0,
+        "category": "verse",
+        "title": "Verset du Coran",
+        "externalUrl": "https://quran.com/33/37",
+        "hadithRef": "Coran 33:37",
+        "grade": "not_applicable",
+        "status": "located",
+        "note": "Le verset cite Zayd ; c'est un texte coranique et non un hadith.",
+        "isnad": "Sans objet : Coran."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 1,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:4251",
+        "hadithRef": "Al-Bukhârî 4251",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Le Prophète appelle Zayd son frère et affranchi.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 2,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:4250",
+        "hadithRef": "Al-Bukhârî 4250",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Ibn ‘Oumar rapporte la défense de Zayd et d'Ousâma par le Prophète.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 3,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/tirmidhi:2732",
+        "hadithRef": "At-Tirmidhî 2732 : hasan gharîb selon At-Tirmidhî ; da‘îf selon Darussalam",
+        "grade": "disputed",
+        "status": "variant",
+        "note": "Deux appréciations distinctes de la transmission sur l'accueil de Zayd sont affichées.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
       }
     ]
   },
@@ -3173,7 +3875,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/230",
     "entries": [
       {
@@ -3184,6 +3886,149 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 37",
         "note": "Le fascicule contient une notice consacrée à « Abd-Allah ibn Rawaha ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 37",
+        "externalUrl": "https://sunnah.com/bukhari:4261",
+        "hadithRef": "Hadith ou récit précisément référencé dans la notice",
+        "grade": "sahih",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : Avant l'Hégire",
+        "externalUrl": "https://siyar.fr/livre/1/230",
+        "hadithRef": "Siyar, figure 37",
+        "status": "qualification",
+        "note": "Événement rapporté : Les traditions de sîra le comptent parmi les Ansâr engagés lors du pacte d'al-‘Aqaba. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 2–3 H",
+        "externalUrl": "https://siyar.fr/livre/1/230",
+        "hadithRef": "Siyar, figure 37",
+        "status": "qualification",
+        "note": "Événement rapporté : Les chroniques le mentionnent à Badr et Ouhoud, sans déduction d'autres événements. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : 7 H",
+        "externalUrl": "https://dorar.net/h/HPSMvins",
+        "hadithRef": "Siyar, figure 37",
+        "status": "qualification",
+        "note": "Événement rapporté : Le Mouwatta’ relate l'estimation des récoltes à Khaybar : Ibn ‘Abd al-Barr dit moursal et mentionne des voies complémentaires. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 3,
+        "title": "Repère : 8 H",
+        "externalUrl": "https://sunnah.com/bukhari:4261",
+        "hadithRef": "4261",
+        "status": "qualification",
+        "note": "Événement rapporté : Meurt à Mou’ta après Zayd et Ja‘far selon Al-Bukhârî 4261–4262. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 371,
+        "title": "« Venez, croyons un instant » : jugements distincts",
+        "externalUrl": "https://dorar.net/h/pCGzjR2I",
+        "hadithRef": "Siyar ou répertoire : figure 37",
+        "status": "variant",
+        "note": "Une tradition d'Anas raconte qu'Ibn Rawâha invitait ses compagnons à renforcer leur foi et que le Prophète invoqua pour lui. Al-Haythamî juge une chaîne hasan (Majma‘ az-Zawâ’id 10/79), mais Shu‘ayb al-Arna’ût juge faible la voie étudiée dans Siyar 1/231. Les évaluations sont attribuées séparément."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 372,
+        "title": "Le discours de Ma‘ân dans les chroniques",
+        "externalUrl": "https://siyar.fr/livre/1/230",
+        "hadithRef": "Siyar ou répertoire : figure 37",
+        "status": "qualification",
+        "note": "Les ouvrages de sîra racontent qu'avant Mou’ta Ibn Rawâha encouragea les musulmans à ne pas renoncer face à l'adversaire. Les chiffres précis de soldats évoqués dans certaines versions ne sont pas fournis par Al-Bukhârî 4261."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 373,
+        "title": "L'estimation équitable des dattes",
+        "externalUrl": "https://dorar.net/h/HPSMvins",
+        "hadithRef": "Siyar ou répertoire : figure 37",
+        "status": "qualification",
+        "note": "Selon une transmission du Mouwatta’ par Soulaymân ibn Yasâr, Ibn Rawâha refusa des bijoux proposés pour modifier la répartition à Khaybar, disant que son aversion pour ses interlocuteurs ne l'autoriserait pas à être injuste. Ibn ‘Abd al-Barr considère cette version moursal avec une corroboration et une voie reliée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 374,
+        "title": "La nouvelle des trois commandants",
+        "externalUrl": "https://sunnah.com/bukhari:4262",
+        "hadithRef": "Recueil cité : 4262",
+        "status": "qualification",
+        "note": "Al-Bukhârî 4262 rapporte qu'avant l'arrivée de la nouvelle, le Prophète annonça la mort de Zayd, de Ja‘far et d'Ibn Rawâha et pleura. Khâlid prit ensuite l'étendard."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:4262",
+        "hadithRef": "Al-Bukhârî 4262",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Anas rapporte l'annonce prophétique de la mort des commandants de Mou’ta.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 1,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://dorar.net/h/pCGzjR2I",
+        "hadithRef": "Ahmad 13796 ; Al-Haythamî 10/79 : hasan ; Shu‘ayb al-Arna’ût, Siyar 1/231 : faible",
+        "grade": "disputed",
+        "status": "variant",
+        "note": "Les évaluations concernent des voies examinées par des spécialistes différents, et sont signalées sans uniformisation.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 2,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://dorar.net/h/HPSMvins",
+        "hadithRef": "Mouwatta’ ; Ibn ‘Abd al-Barr, al-Istidhkâr 6/39 : moursal avec corroboration",
+        "grade": "attribution_discontinue",
+        "status": "qualification",
+        "note": "Ibn ‘Abd al-Barr déclare la voie moursal et signale une corroboration et une version reliée.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
       }
     ]
   },
@@ -3195,7 +4040,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/242",
     "entries": [
       {
@@ -3206,6 +4051,77 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 38",
         "note": "Le fascicule contient une notice consacrée à « Koulthoum ibn Al-Hidm ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 38",
+        "externalUrl": "https://dorar.net/h/sK6hUNNK",
+        "hadithRef": "Siyar, figure 38",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 1 H",
+        "externalUrl": "https://dorar.net/h/sK6hUNNK",
+        "hadithRef": "Siyar, figure 38",
+        "status": "qualification",
+        "note": "Événement rapporté : À Qoubâ, hébergement chez Koulthoum selon Ibn Ishâq, ou chez Sa‘d ibn Khaythama selon une autre version. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : Avant Badr (2 H)",
+        "externalUrl": "https://siyar.fr/livre/1/242",
+        "hadithRef": "Siyar, figure 38",
+        "status": "qualification",
+        "note": "Événement rapporté : Ibn Sa‘d situe le décès de Koulthoum peu après l'Hégire, avant Badr, sans date journalière démontrée. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 381,
+        "title": "Deux hôtes possibles à Qoubâ",
+        "externalUrl": "https://dorar.net/h/sK6hUNNK",
+        "hadithRef": "Siyar ou répertoire : figure 38",
+        "status": "qualification",
+        "note": "Ibn Ishâq rapporte le séjour du Prophète chez Koulthoum, tout en donnant la version alternative de Sa‘d ibn Khaythama. Al-Haythamî indique que les transmetteurs de la voie examinée sont fiables (Majma‘ az-Zawâ’id 6/65) ; le classement ne supprime pas l'existence de variantes."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 382,
+        "title": "La maison des célibataires chez Sa‘d",
+        "externalUrl": "https://gcp.islamweb.net/ar/library/content/59/227/",
+        "hadithRef": "Siyar ou répertoire : figure 38",
+        "status": "qualification",
+        "note": "La sîra concilie parfois les récits en expliquant que le Prophète logeait chez Koulthoum mais recevait les visiteurs chez Sa‘d, dont la maison était appelée la maison des célibataires. Cette explication est attribuée aux chroniqueurs et n'est pas posée comme une preuve excluant les autres versions."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://dorar.net/h/sK6hUNNK",
+        "hadithRef": "At-Tabarânî 5414 ; Al-Haythamî, Majma‘ az-Zawâ’id 6/65 : rapporteurs fiables",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Al-Haythamî dit que les rapporteurs de la chaîne sont fiables ; l'attribution à Koulthoum connaît toutefois une variante à Sa‘d ibn Khaythama.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
       }
     ]
   },
@@ -3217,7 +4133,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/244",
     "entries": [
       {
@@ -3234,9 +4150,107 @@ const BIOGRAPHY_SOURCES = {
         "id": 0,
         "pdfPage": 7,
         "printedPage": 6,
-        "title": "Turban rouge",
-        "note": "La notice mentionne son turban rouge le jour d'Ouhoud, sans généraliser ce signe à toutes les batailles.",
-        "status": "qualification"
+        "title": "Repère : 3 H",
+        "note": "Événement rapporté : À Ouhoud, prend l'épée du Prophète en acceptant d'en respecter les droits (Mouslim 2470) ; le bandeau rouge est transmis par une autre voie. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée.",
+        "status": "qualification",
+        "externalUrl": "https://sunnah.com/muslim:2470",
+        "hadithRef": "2470"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 39",
+        "externalUrl": "https://sunnah.com/muslim:2470",
+        "hadithRef": "Hadith ou récit précisément référencé dans la notice",
+        "grade": "sahih",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 11 ou 12 H",
+        "externalUrl": "https://siyar.fr/livre/1/244",
+        "hadithRef": "Siyar, figure 39",
+        "status": "variant",
+        "note": "Événement rapporté : La notice d'adh-Dhahabî rapporte sa mort à Al-Yamâma après avoir franchi le mur du jardin et s'être blessé. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 391,
+        "title": "Prendre l'épée avec ses droits",
+        "externalUrl": "https://sunnah.com/muslim:2470",
+        "hadithRef": "Recueil cité : 2470",
+        "status": "qualification",
+        "note": "Anas rapporte dans Mouslim 2470 que le Prophète proposa son épée puis demanda qui accepterait toute la responsabilité qui s'y attachait. Abou Doujâna s'avança et la prit. Le texte ne contient pas nécessairement les paroles dramatisées des versions de sîra."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 392,
+        "title": "La démarche et le bandeau rouge : réserve",
+        "externalUrl": "https://dorar.net/h/Nb2x0gaa",
+        "hadithRef": "Siyar ou répertoire : figure 39",
+        "status": "variant",
+        "note": "Une tradition mentionne un bandeau rouge et une démarche fière devant les lignes adverses. Al-Haythamî (Majma‘ az-Zawâ’id 6/112) signale que la chaîne comporte des personnes qu'il ne connaissait pas. Athar conserve la narration avec cette réserve explicite."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 393,
+        "title": "Un cœur sans rancune selon Zayd ibn Aslam",
+        "externalUrl": "https://gcp.islamweb.net/ar/library/index.php?ID=50&bk_no=60&flag=1&page=bookcontents",
+        "hadithRef": "Siyar ou répertoire : figure 39",
+        "status": "qualification",
+        "note": "Adh-Dhahabî transmet d'après Zayd ibn Aslam qu'Abou Doujâna, malade, expliqua sa sérénité par son refus de parler inutilement et son cœur exempt de rancœur envers les musulmans. Aucun jugement de hadith n'est inventé."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 394,
+        "title": "Al-Yamâma : un récit d'Anas",
+        "externalUrl": "https://siyar.fr/livre/1/244",
+        "hadithRef": "Siyar ou répertoire : figure 39",
+        "status": "qualification",
+        "note": "Selon le récit transmis d'Anas dans Siyar, Abou Doujâna fut projeté au-delà du mur du jardin à Al-Yamâma ; il se cassa la jambe et continua le combat jusqu'à sa mort. Ce récit historique est distinct du hadith de l'épée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/muslim:2470",
+        "hadithRef": "Mouslim 2470",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Anas rapporte la prise de l'épée à Ouhoud et la demande de respecter ses droits.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 1,
+        "category": "prophetic",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://dorar.net/h/Nb2x0gaa",
+        "hadithRef": "At-Tabarânî 6508 ; Al-Haythamî, Majma‘ az-Zawâ’id 6/112 : transmetteurs inconnus de lui",
+        "grade": "ungraded",
+        "status": "qualification",
+        "note": "Al-Haythamî dit : « Il y a dans cette chaîne des personnes que je ne connais pas. » Cette réserve est conservée.",
+        "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
       }
     ]
   },
@@ -3248,7 +4262,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Repérage documentaire uniquement : il ne certifie ni l'intégralité de la biographie ni l'authenticité des chaînes de transmission.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/246",
     "entries": [
       {
@@ -3259,6 +4273,135 @@ const BIOGRAPHY_SOURCES = {
         "title": "Identification de la notice n° 40",
         "note": "Le fascicule contient une notice consacrée à « Khoubayb ibn 'Adi ». Il s'agit d'un repérage bibliographique de l'identité, non d'une validation des récits, citations, dates ou hadiths de la fiche Athar.",
         "status": "located"
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "quote",
+        "id": 0,
+        "title": "Citation principale de la notice 40",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "Hadith ou récit précisément référencé dans la notice",
+        "grade": "sahih",
+        "status": "qualification",
+        "note": "Citation principale paraphrasée ou présentée comme attribution : consulter les références des traditions distinctes ci-dessous. Aucun classement n'est déduit par Athar.",
+        "isnad": "Attribution liée à la source affichée ; la fiche ne prétend pas établir une nouvelle chaîne."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 0,
+        "title": "Repère : 2 H",
+        "externalUrl": "https://sunnah.com/bukhari:3045",
+        "hadithRef": "3045",
+        "status": "qualification",
+        "note": "Événement rapporté : Al-Bukhârî 3045 rapporte que Khoubayb tua al-Hârith ibn ‘Âmir lors de Badr. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 1,
+        "title": "Repère : 4 H selon les chroniques",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "4086",
+        "status": "qualification",
+        "note": "Événement rapporté : Khoubayb fut capturé à l'expédition d'Ar-Rajî‘ ; le récit est présent dans Al-Bukhârî 3045 et 4086. Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "timeline",
+        "id": 2,
+        "title": "Repère : Après la captivité, date distincte inconnue",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "4086",
+        "status": "qualification",
+        "note": "Événement rapporté : Conduit hors de la zone sacrée pour l'exécution, Khoubayb prie deux raka‘ât avant sa mort (Al-Bukhârî 4086). Le libellé ne suffit pas à transformer une période ou une variante en année historique vérifiée."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 401,
+        "title": "Deux unités de prière avant l'exécution",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "Recueil cité : 4086",
+        "status": "qualification",
+        "note": "Al-Bukhârî 4086 transmet que Khoubayb demanda à accomplir deux raka‘ât, puis dit qu'il aurait prié davantage s'il n'avait craint qu'on croie à sa peur de mourir. Le texte lui attribue le précédent de cette prière dans ces circonstances."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 402,
+        "title": "Le raisin pendant la captivité",
+        "externalUrl": "https://sunnah.com/bukhari:3045",
+        "hadithRef": "Recueil cité : 3045",
+        "status": "qualification",
+        "note": "La fille d'al-Hârith témoigne avoir vu Khoubayb manger du raisin, bien qu'il fût enchaîné et que ce fruit n'eût pas été disponible à La Mecque. Elle y vit une faveur d'Allah ; ce témoignage est rapporté dans Al-Bukhârî 3045."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 403,
+        "title": "Une invocation prononcée par Khoubayb",
+        "externalUrl": "https://sunnah.com/bukhari:3045",
+        "hadithRef": "Recueil cité : 3045",
+        "status": "qualification",
+        "note": "Al-Bukhârî transmet l'invocation et des vers récités par Khoubayb devant ses exécuteurs, où il exprime son acceptation du martyre. Ces paroles sont attribuées à Khoubayb, non au Prophète ﷺ."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 404,
+        "title": "L'enfant et le rasoir",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "Recueil cité : 4086",
+        "status": "qualification",
+        "note": "La même femme raconte avoir prêté un rasoir au prisonnier et trouvé son enfant sur ses genoux. Khoubayb la rassura : il ne ferait aucun mal au petit. Cette scène apparaît dans Al-Bukhârî 4086."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "narrative",
+        "id": 405,
+        "title": "L'embuscade après l'expédition d'Ar-Rajî‘",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "Recueil cité : 4086",
+        "status": "qualification",
+        "note": "Selon Abou Hourayra dans Al-Bukhârî 4086, le groupe commandé par ‘Âsim ibn Thâbit fut poursuivi par des archers, et Khoubayb fut finalement capturé. Ce récit se distingue des épisodes ultérieurs de détention."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 0,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:4086",
+        "hadithRef": "Al-Bukhârî 4086",
+        "grade": "sahih",
+        "status": "located",
+        "note": "Paroles et prière de Khoubayb transmises dans le Sahîh : il ne s'agit pas d'un propos prophétique.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
+      },
+      {
+        "pdfPage": null,
+        "printedPage": null,
+        "kind": "hadith",
+        "id": 1,
+        "category": "historical",
+        "title": "Tradition ou parole rapportée",
+        "externalUrl": "https://sunnah.com/bukhari:3045",
+        "hadithRef": "Al-Bukhârî 3045",
+        "grade": "sahih",
+        "status": "located",
+        "note": "La fille d'al-Hârith raconte le prêt du rasoir et l'épisode de son enfant.",
+        "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
       }
     ]
   },
