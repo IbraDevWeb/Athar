@@ -2,56 +2,51 @@ const HadithReaderView = {
     props: ['hadith', 'settings', 'closeReader', 'shareHadith', 'adjustFontSize'],
     setup(props) {
         const STORAGE_KEY = 'athar_hadith_v2';
-        const activeTab = Vue.ref('text');
         const languageMode = Vue.ref('bilingual');
         const note = Vue.ref('');
+        const copied = Vue.ref(false);
         const state = Vue.reactive({ favorites: [], read: {}, recent: [], notes: {} });
-        const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
         const clean = value => String(value || '').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
         const paragraphs = value => {
             const text = clean(value);
-            return text ? text.split(/\n{2,}/).map(part => part.trim()).filter(Boolean) : [];
+            return text ? text.split(/\n{2,}/).map(x => x.trim()).filter(Boolean) : [];
         };
-        const normalize = value => String(value || '').toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
-
+        const normalize = value => clean(value).toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
+        const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
         const collection = Vue.computed(() => {
-            const text = normalize(`${props.hadith?.id || ''} ${props.hadith?.attribution || ''}`);
+            const text = normalize(String(props.hadith?.id || '') + ' ' + String(props.hadith?.attribution || ''));
             const matches = [];
-            if (/bukhari|bukhârî/.test(text)) matches.push('Al-Bukhārī');
+            if (/bukhari|boukhari/.test(text)) matches.push('Al-Bukhârî');
             if (/muslim/.test(text)) matches.push('Muslim');
-            if (/abu daw|abû daw|abi daw/.test(text)) matches.push('Abū Dāwūd');
-            if (/tirmidhi|tirmidhî/.test(text)) matches.push('Al-Tirmidhī');
-            if (/nasa|nasâ/.test(text)) matches.push('Al-Nasāʾī');
-            if (/ibn majah|ibn mâjah/.test(text)) matches.push('Ibn Mājah');
-            if (/ahmad|aḥmad/.test(text)) matches.push('Aḥmad');
-            return matches.length > 1 ? 'Sources multiples' : (matches[0] || 'Autres recueils');
+            if (/abu daw|abi daw/.test(text)) matches.push('Abou Dâwoud');
+            if (/tirmidhi|tirmidi/.test(text)) matches.push('At-Tirmidhî');
+            if (/nasa/.test(text)) matches.push('An-Nasâ’î');
+            if (/ibn majah/.test(text)) matches.push('Ibn Mâjah');
+            if (/ahmad/.test(text)) matches.push('Ahmad');
+            return matches.length > 1 ? 'Recueils multiples' : (matches[0] || 'Autre recueil');
         });
-
         const narrator = Vue.computed(() => {
             const intro = clean(props.hadith?.hadeeth_intro || props.hadith?.hadeeth || '');
             const cut = intro.split(/ relate | rapporte | a relaté | رضي الله عنه| رضي الله عنها/i)[0];
-            return cut.replace(/^(d'après|selon)\s+/i, '').replace(/[,:؛]+$/g, '').trim() || 'Transmetteur non précisé';
+            return cut.replace(/^(d'après|selon)\s+/i,'').replace(/[,:؛]+$/g,'').trim() || 'Transmetteur non précisé';
         });
-
-        const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
         const isFavorite = Vue.computed(() => state.favorites.includes(uid.value));
         const isRead = Vue.computed(() => Boolean(state.read[uid.value]));
-        const words = Vue.computed(() => clean(`${props.hadith?.hadeeth || ''} ${props.hadith?.explanation || ''}`).split(/\s+/).filter(Boolean).length);
-        const readingTime = Vue.computed(() => Math.max(2, Math.ceil(words.value / 180)));
         const hints = Vue.computed(() => Array.isArray(props.hadith?.hints) ? props.hadith.hints.map(clean).filter(Boolean) : []);
         const hintsAr = Vue.computed(() => Array.isArray(props.hadith?.hints_ar) ? props.hadith.hints_ar.map(clean).filter(Boolean) : []);
         const wordMeanings = Vue.computed(() => Array.isArray(props.hadith?.words_meanings_ar) ? props.hadith.words_meanings_ar : []);
         const explanationParagraphs = Vue.computed(() => paragraphs(props.hadith?.explanation));
         const explanationArabicParagraphs = Vue.computed(() => paragraphs(props.hadith?.explanation_ar));
-        const studyQuestions = Vue.computed(() => {
-            const first = hints.value[0] || 'Quel principe central ce hadith établit-il ?';
-            return [
-                `Comment reformuler avec tes propres mots l'enseignement suivant : « ${first} » ?`,
-                'Dans quelle situation concrète de ta semaine cet enseignement pourrait-il modifier une décision ou un comportement ?',
-                'Quelle distinction faut-il conserver entre le texte transmis, son degré indiqué et l’explication pédagogique proposée ?'
-            ];
+        const studyQuestions = Vue.computed(() => [
+            'Comment résumer ce hadith avec tes propres mots ?',
+            'Quel enseignement pourrais-tu appliquer dans une situation concrète ?',
+            'Quelle distinction faut-il garder entre le texte transmis et son explication ?'
+        ]);
+        const formatMeaning = item => typeof item === 'string' ? { word: item, meaning: '' } : ({
+            word: item?.word || item?.term || item?.arabic || '',
+            meaning: item?.meaning || item?.explanation || item?.translation || ''
         });
-
         const load = () => {
             try {
                 const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
@@ -62,7 +57,11 @@ const HadithReaderView = {
                 note.value = state.notes[uid.value] || '';
             } catch (_) {}
         };
-        const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify({ favorites: state.favorites, read: state.read, recent: state.recent, notes: state.notes }));
+        const save = () => {
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                favorites: state.favorites, read: state.read, recent: state.recent, notes: state.notes
+            })); } catch (_) {}
+        };
         const markRead = () => {
             state.read[uid.value] = new Date().toISOString();
             state.recent = [uid.value, ...state.recent.filter(id => id !== uid.value)].slice(0, 30);
@@ -72,117 +71,157 @@ const HadithReaderView = {
             state.favorites = isFavorite.value ? state.favorites.filter(id => id !== uid.value) : [...state.favorites, uid.value];
             save();
         };
-        const saveNote = () => {
-            state.notes[uid.value] = note.value.trim();
-            save();
-        };
+        const saveNote = () => { state.notes[uid.value] = note.value; save(); };
         const copyText = async () => {
-            const text = [props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution].filter(Boolean).join('\n\n');
-            try { await navigator.clipboard.writeText(text); } catch (_) {}
+            const text = [props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution]
+                .filter(Boolean).join('\n\n');
+            try {
+                await navigator.clipboard.writeText(text);
+                copied.value = true;
+                setTimeout(() => { copied.value = false; }, 1800);
+            } catch (_) { copied.value = false; }
         };
-        const setTab = value => {
-            activeTab.value = value;
-            setTimeout(() => window.lucide?.createIcons(), 20);
-        };
-        const formatMeaning = item => {
-            if (typeof item === 'string') return { word: item, meaning: '' };
-            return { word: item?.word || item?.term || item?.arabic || '', meaning: item?.meaning || item?.explanation || item?.translation || '' };
+        const jumpTo = id => {
+            const section = document.getElementById(id);
+            section?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
         };
         const handleKey = event => {
-            if (event.key === 'Escape') props.closeReader();
-            if (event.key.toLocaleLowerCase() === 'f' && (event.ctrlKey || event.metaKey)) {
-                event.preventDefault();
-                toggleFavorite();
-            }
+            if (event.key === 'Escape' && !(event.target instanceof HTMLTextAreaElement)) props.closeReader();
         };
-
+        let noteTimer = null;
         Vue.onMounted(() => {
-            load();
-            markRead();
+            load(); markRead();
             window.addEventListener('keydown', handleKey);
-            setTimeout(() => window.lucide?.createIcons(), 30);
+            Vue.nextTick(() => window.lucide?.createIcons());
         });
-        Vue.onUnmounted(() => window.removeEventListener('keydown', handleKey));
-        Vue.watch(note, () => {
-            clearTimeout(window.__atharHadithNoteTimer);
-            window.__atharHadithNoteTimer = setTimeout(saveNote, 450);
+        Vue.watch(note, () => { clearTimeout(noteTimer); noteTimer = setTimeout(saveNote, 450); });
+        Vue.onUnmounted(() => {
+            window.removeEventListener('keydown', handleKey);
+            clearTimeout(noteTimer);
+            saveNote();
         });
-
         return {
-            activeTab, languageMode, note, collection, narrator, reference, isFavorite, isRead, readingTime,
+            languageMode, note, copied, clean, collection, reference, narrator, isFavorite, isRead,
             hints, hintsAr, wordMeanings, explanationParagraphs, explanationArabicParagraphs, studyQuestions,
-            clean, toggleFavorite, saveNote, copyText, setTab, formatMeaning
+            formatMeaning, toggleFavorite, saveNote, copyText, jumpTo
         };
     },
     template: `
-    <div class="hadith-reader-pro">
+    <section class="hadith-reader-pro">
         <header class="hadith-reader-toolbar">
-            <button @click="closeReader" class="hadith-reader-back"><i data-lucide="arrow-left"></i><span>Bibliothèque</span></button>
-            <div class="hadith-reader-toolbar-title"><span>Étude du hadith</span><b>{{ reference }}</b></div>
+            <button type="button" class="hadith-reader-back" @click="closeReader">
+                <i data-lucide="arrow-left" aria-hidden="true"></i><span>Hadiths</span>
+            </button>
+            <span class="hadith-reader-toolbar-reference">{{ reference }}</span>
             <div class="hadith-reader-actions">
-                <button @click="adjustFontSize" title="Taille du texte"><i data-lucide="type"></i></button>
-                <button @click="copyText" title="Copier"><i data-lucide="copy"></i></button>
-                <button @click="shareHadith" title="Partager"><i data-lucide="share-2"></i></button>
-                <button @click="toggleFavorite" :class="{active:isFavorite}" title="Favori"><i data-lucide="heart"></i></button>
+                <button type="button" @click="adjustFontSize" title="Agrandir le texte" aria-label="Agrandir le texte"><i data-lucide="type" aria-hidden="true"></i></button>
+                <button type="button" @click="copyText" :title="copied?'Copié':'Copier le hadith'" :aria-label="copied?'Texte copié':'Copier le hadith'">
+                    <i :data-lucide="copied?'check':'copy'" aria-hidden="true"></i>
+                </button>
+                <button type="button" @click="shareHadith" title="Partager" aria-label="Partager le hadith"><i data-lucide="share-2" aria-hidden="true"></i></button>
+                <button type="button" @click="toggleFavorite" :class="{active:isFavorite}" :aria-pressed="isFavorite" :title="isFavorite?'Retirer des favoris':'Ajouter aux favoris'" :aria-label="isFavorite?'Retirer des favoris':'Ajouter aux favoris'">
+                    <i data-lucide="heart" aria-hidden="true"></i>
+                </button>
             </div>
         </header>
 
         <main class="hadith-reader-shell">
-            <section class="hadith-reader-hero">
-                <div class="hadith-reader-badges"><span>{{ collection }}</span><span>{{ hadith.grade || 'Degré non indiqué' }}</span><span>{{ readingTime }} min</span><span v-if="isRead"><i data-lucide="check"></i> Consulté</span></div>
-                <p class="hadith-reader-label" lang="ar" dir="rtl">حديث نبوي</p>
+            <header class="hadith-reader-heading">
+                <div class="hadith-reader-overline"><span>{{ collection }}</span><span aria-hidden="true">·</span><span>Lecture & compréhension</span></div>
                 <h1>{{ hadith.title }}</h1>
-                <p class="hadith-reader-narrator"><i data-lucide="user-round"></i><span>Transmis ici par <b>{{ narrator }}</b></span></p>
-            </section>
+            </header>
 
-            <nav class="hadith-reader-tabs">
-                <button v-for="tab in [{id:'text',label:'Texte',icon:'languages'},{id:'explanation',label:'Explication',icon:'book-open'},{id:'lessons',label:'Enseignements',icon:'lightbulb'},{id:'source',label:'Transmission',icon:'git-branch'},{id:'study',label:'Étudier',icon:'pencil-line'}]" :key="tab.id" @click="setTab(tab.id)" :class="{active:activeTab===tab.id}"><i :data-lucide="tab.icon"></i><span>{{ tab.label }}</span></button>
+            <nav class="hadith-reader-jump" aria-label="Accès aux sections du hadith">
+                <button type="button" @click="jumpTo('hadith-reading-text')">Texte</button>
+                <button type="button" @click="jumpTo('hadith-reading-explanation')">Explication</button>
+                <button type="button" @click="jumpTo('hadith-reading-lessons')">À retenir</button>
+                <button type="button" @click="jumpTo('hadith-reading-notes')">Mes notes</button>
             </nav>
 
-            <section v-if="activeTab==='text'" class="hadith-reader-text-view">
-                <div class="hadith-reader-language-switch"><button @click="languageMode='bilingual'" :class="{active:languageMode==='bilingual'}">Bilingue</button><button @click="languageMode='arabic'" :class="{active:languageMode==='arabic'}">العربية</button><button @click="languageMode='french'" :class="{active:languageMode==='french'}">Français</button></div>
-                <article v-if="languageMode!=='french'" class="hadith-reader-arabic" lang="ar" dir="rtl">
-                    <p v-if="hadith.hadeeth_intro_ar" class="hadith-reader-intro-ar">{{ clean(hadith.hadeeth_intro_ar) }}</p>
-                    <blockquote :style="{fontSize:(settings.fontSize+14)+'px'}">{{ clean(hadith.hadeeth_ar) }}</blockquote>
-                </article>
-                <article v-if="languageMode!=='arabic'" class="hadith-reader-french">
-                    <span>Rendu français fourni dans la base</span>
-                    <p :style="{fontSize:settings.fontSize+'px'}">{{ clean(hadith.hadeeth) }}</p>
-                </article>
-                <div class="hadith-reader-source-line"><i data-lucide="bookmark"></i><span>{{ hadith.attribution }}</span></div>
-            </section>
-
-            <section v-else-if="activeTab==='explanation'" class="hadith-reader-explanation-view">
-                <article><header><i data-lucide="book-open-check"></i><div><span>Explication française</span><h2>Comprendre le sens général</h2></div></header><div class="hadith-reader-prose" :style="{fontSize:settings.fontSize+'px'}"><p v-for="(paragraph,index) in explanationParagraphs" :key="index">{{ paragraph }}</p></div></article>
-                <article v-if="hadith.explanation_ar" class="hadith-reader-ar-explanation" lang="ar" dir="rtl"><header><i data-lucide="languages"></i><div><span>الشرح العربي</span><h2>شرح الحديث</h2></div></header><div class="hadith-reader-prose-ar"><p v-for="(paragraph,index) in explanationArabicParagraphs" :key="index">{{ paragraph }}</p></div></article>
-            </section>
-
-            <section v-else-if="activeTab==='lessons'" class="hadith-reader-lessons-view">
-                <div class="hadith-reader-section-title"><span>Extraction pédagogique</span><h2>Enseignements à retenir</h2><p>Ces points synthétisent l’explication fournie avec le texte.</p></div>
-                <ol><li v-for="(hint,index) in hints" :key="index"><b>{{ String(index+1).padStart(2,'0') }}</b><p>{{ hint }}</p></li></ol>
-                <article v-if="hintsAr.length" lang="ar" dir="rtl"><h3>الفوائد المستنبطة</h3><ul><li v-for="(hint,index) in hintsAr" :key="index">{{ hint }}</li></ul></article>
-                <div v-if="!hints.length" class="hadith-reader-empty-note"><i data-lucide="info"></i><span>Aucun enseignement synthétique distinct n’est fourni pour ce texte. Consulte l’explication complète.</span></div>
-            </section>
-
-            <section v-else-if="activeTab==='source'" class="hadith-reader-source-view">
-                <div class="hadith-reader-source-grid">
-                    <article><i data-lucide="user-round"></i><span>Transmetteur présenté</span><b>{{ narrator }}</b><p>{{ clean(hadith.hadeeth_intro || '') }}</p></article>
-                    <article><i data-lucide="library"></i><span>Collection repérée</span><b>{{ collection }}</b><p>{{ hadith.attribution }}</p></article>
-                    <article><i data-lucide="badge-check"></i><span>Degré indiqué</span><b>{{ hadith.grade || 'Non indiqué' }}</b><p v-if="hadith.grade_ar" lang="ar" dir="rtl">{{ hadith.grade_ar }}</p></article>
-                    <article><i data-lucide="hash"></i><span>Référence interne</span><b>{{ reference }}</b><p>{{ Array.isArray(hadith.translations) ? hadith.translations.length+' langues disponibles dans la source de données' : 'Informations de traduction non indiquées' }}</p></article>
+            <section id="hadith-reading-text" class="hadith-reader-section hadith-reader-text-view">
+                <div class="hadith-reader-section-head">
+                    <h2>Le hadith</h2>
+                    <div class="hadith-reader-language-switch" role="group" aria-label="Langue du hadith">
+                        <button type="button" @click="languageMode='bilingual'" :class="{active:languageMode==='bilingual'}" :aria-pressed="languageMode==='bilingual'">Les deux</button>
+                        <button type="button" @click="languageMode='arabic'" :class="{active:languageMode==='arabic'}" :aria-pressed="languageMode==='arabic'">Arabe</button>
+                        <button type="button" @click="languageMode='french'" :class="{active:languageMode==='french'}" :aria-pressed="languageMode==='french'">Français</button>
+                    </div>
                 </div>
-                <article v-if="wordMeanings.length" class="hadith-reader-vocabulary"><header><i data-lucide="book-a"></i><h2>Vocabulaire arabe fourni</h2></header><div><span v-for="(entry,index) in wordMeanings" :key="index"><b lang="ar" dir="rtl">{{ formatMeaning(entry).word }}</b><small>{{ formatMeaning(entry).meaning }}</small></span></div></article>
-                <div class="hadith-reader-methodology"><i data-lucide="shield-alert"></i><div><b>Précaution méthodologique</b><p>Cette fiche organise les informations présentes dans la base. Pour un travail de takhrīj complet, il faut revenir aux éditions des recueils, aux différentes voies de transmission et aux jugements détaillés des spécialistes.</p></div></div>
+                <div class="hadith-reader-text-card">
+                    <div v-if="languageMode!=='french' && hadith.hadeeth_ar" class="hadith-reader-arabic" lang="ar" dir="rtl">
+                        <p v-if="hadith.hadeeth_intro_ar" class="hadith-reader-intro-ar">{{ clean(hadith.hadeeth_intro_ar) }}</p>
+                        <blockquote :style="{fontSize:(settings.fontSize+12)+'px'}">{{ clean(hadith.hadeeth_ar) }}</blockquote>
+                    </div>
+                    <div v-if="languageMode!=='arabic'" class="hadith-reader-french">
+                        <p :style="{fontSize:settings.fontSize+'px'}">{{ clean(hadith.hadeeth) }}</p>
+                    </div>
+                    <p v-if="languageMode==='arabic' && !hadith.hadeeth_ar" class="hadith-reader-unavailable">Texte arabe non disponible dans la base.</p>
+                </div>
             </section>
 
-            <section v-else class="hadith-reader-study-view">
-                <div class="hadith-reader-study-grid">
-                    <article><header><i data-lucide="circle-help"></i><div><span>Tadabbur et compréhension</span><h2>Questions d’étude</h2></div></header><ol><li v-for="(question,index) in studyQuestions" :key="index"><b>{{ index+1 }}</b><p>{{ question }}</p></li></ol></article>
-                    <article><header><i data-lucide="notebook-pen"></i><div><span>Espace personnel</span><h2>Mes notes</h2></div></header><textarea v-model="note" @blur="saveNote" placeholder="Écris ici une reformulation, une question à vérifier ou une application concrète…"></textarea><small>Enregistrement local automatique sur cet appareil.</small></article>
+            <section id="hadith-reading-explanation" class="hadith-reader-section hadith-reader-explanation-view">
+                <div class="hadith-reader-section-head"><h2>Comprendre</h2></div>
+                <div class="hadith-reader-content" :style="{fontSize:settings.fontSize+'px'}">
+                    <p v-for="(paragraph,index) in explanationParagraphs" :key="index">{{ paragraph }}</p>
+                    <p v-if="!explanationParagraphs.length" class="hadith-reader-unavailable">Aucune explication n'est disponible pour ce hadith.</p>
                 </div>
-                <div class="hadith-reader-study-actions"><button @click="toggleFavorite" :class="{active:isFavorite}"><i data-lucide="heart"></i>{{ isFavorite?'Retirer des favoris':'Conserver pour révision' }}</button><button @click="shareHadith"><i data-lucide="share-2"></i>Partager la référence</button></div>
+                <details v-if="explanationArabicParagraphs.length" class="hadith-reader-details">
+                    <summary>Lire l'explication en arabe <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                    <div class="hadith-reader-ar-explanation" lang="ar" dir="rtl">
+                        <p v-for="(paragraph,index) in explanationArabicParagraphs" :key="index">{{ paragraph }}</p>
+                    </div>
+                </details>
+            </section>
+
+            <section id="hadith-reading-lessons" class="hadith-reader-section hadith-reader-lessons-view">
+                <div class="hadith-reader-section-head"><h2>À retenir</h2></div>
+                <ol v-if="hints.length" class="hadith-reader-lessons">
+                    <li v-for="(hint,index) in hints" :key="index">
+                        <span>{{ String(index+1).padStart(2,'0') }}</span><p>{{ hint }}</p>
+                    </li>
+                </ol>
+                <p v-else class="hadith-reader-unavailable">Aucun point synthétique distinct n'est fourni. L'explication ci-dessus reste disponible.</p>
+                <details v-if="hintsAr.length" class="hadith-reader-details">
+                    <summary>Enseignements en arabe <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                    <ul lang="ar" dir="rtl" class="hadith-reader-ar-lessons">
+                        <li v-for="(hint,index) in hintsAr" :key="index">{{ hint }}</li>
+                    </ul>
+                </details>
+            </section>
+
+            <section id="hadith-reading-notes" class="hadith-reader-section hadith-reader-notes">
+                <div class="hadith-reader-section-head"><h2>Mes notes</h2><span>Enregistrées sur cet appareil</span></div>
+                <textarea v-model="note" @blur="saveNote" rows="4" aria-label="Mes notes personnelles" placeholder="Ce que je retiens, une question ou une application concrète…"></textarea>
+                <details class="hadith-reader-details hadith-reader-study-view">
+                    <summary>Questions pour approfondir <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                    <ol class="hadith-reader-study-questions"><li v-for="(question,index) in studyQuestions" :key="index">{{ question }}</li></ol>
+                </details>
+            </section>
+
+            <section class="hadith-reader-endnotes">
+                <details class="hadith-reader-details hadith-reader-source-view">
+                    <summary><span><i data-lucide="book-open" aria-hidden="true"></i> Sources, transmission et précisions</span><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                    <div class="hadith-reader-source-grid">
+                        <div><span>Référence indiquée</span><strong>{{ reference }}</strong></div>
+                        <div><span>Recueil repéré</span><strong>{{ collection }}</strong></div>
+                        <div><span>Attribution dans la base</span><strong>{{ hadith.attribution }}</strong></div>
+                        <div><span>Degré indiqué</span><strong>{{ hadith.grade || 'Non indiqué' }}</strong><p v-if="hadith.grade_ar" lang="ar" dir="rtl">{{ hadith.grade_ar }}</p></div>
+                        <div><span>Transmetteur présenté</span><strong>{{ narrator }}</strong><p v-if="hadith.hadeeth_intro">{{ clean(hadith.hadeeth_intro) }}</p></div>
+                    </div>
+                    <p v-if="hadith.attribution_ar" class="hadith-reader-attribution-ar" lang="ar" dir="rtl">{{ hadith.attribution_ar }}</p>
+                    <div v-if="wordMeanings.length" class="hadith-reader-vocabulary">
+                        <h3>Vocabulaire arabe fourni</h3>
+                        <ul>
+                            <li v-for="(entry,index) in wordMeanings" :key="index">
+                                <b lang="ar" dir="rtl">{{ formatMeaning(entry).word }}</b>
+                                <span>{{ formatMeaning(entry).meaning }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="hadith-reader-methodology">Le degré et l'attribution sont ceux présents dans la base Athar. Cette fiche ne remplace pas la vérification des différentes chaînes et éditions des recueils.</p>
+                </details>
             </section>
         </main>
-    </div>
+    </section>
     `
 };
