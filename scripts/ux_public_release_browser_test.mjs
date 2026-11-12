@@ -126,7 +126,7 @@ async function desktop() {
     await rawahaButton.click();
     const rawahaStory=rawahaButton.locator('..');
     const rawahaText=await rawahaStory.locator('.prose').innerText();
-    assert.match(rawahaText,/invitait ses compagnons/i,'L'histoire d’Ibn Rawâha doit rester lisible');
+    assert.match(rawahaText,/invitait ses compagnons/i,'L’histoire d’Ibn Rawâha doit rester lisible');
     assert.ok(!/Al-Haythamî|Al-Arna.ût|hasan|faible|Siyar/.test(rawahaText),'Une analyse technique demeure dans le récit');
     const contextualNotes=rawahaStory.locator('details.athar-story-context');
     assert.equal(await contextualNotes.getAttribute('open'),null,'Le commentaire critique doit être fermé par défaut');
