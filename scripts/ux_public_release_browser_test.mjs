@@ -114,6 +114,7 @@ async function desktop() {
     }
     // Le lexique doit limiter les premières fiches, tout en conservant la recherche.
     await navigate(page,'glossary');
+    await page.locator('.glossary-pro-card').first().waitFor({state:'visible',timeout:20000});
     assert.equal(await page.locator('.glossary-pro-card').count(),24,'Le lexique doit afficher 24 définitions initialement');
     await page.getByRole('button',{name:'Afficher plus de termes'}).click();
     assert.equal(await page.locator('.glossary-pro-card').count(),48,'Le lexique doit paginer les définitions');
