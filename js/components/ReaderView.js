@@ -334,17 +334,36 @@ const ReaderView = {
             </div>
 
             <div v-show="activeTab === 'timeline'" class="max-w-2xl mx-auto py-8">
-                <div class="mb-8 p-4 rounded-xl bg-brand-gold/5 border border-brand-gold/15 text-sm text-gray-600 dark:text-gray-400">Les datations historiques peuvent varier selon les sources. Les formulations absolues doivent être vérifiées dans la référence indiquée.</div>
                 <div class="relative pl-8 border-l-2 border-brand-gold/20 space-y-12">
                     <div v-for="(evt, i) in safeTimeline" :key="i" class="relative group">
                         <div class="absolute -left-[41px] top-1 flex items-center justify-center w-6 h-6 bg-brand-paper dark:bg-brand-dark border-4 border-brand-gold rounded-full z-10 group-hover:scale-125 transition-transform"></div>
-                        <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative"><span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">{{ evt.year }}</span><p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.desc)"></p>
-                            <aside v-if="sourceEvidence('timeline', i)" class="mt-3 border-t border-brand-gold/20 pt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                                <span class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('timeline', i).status) }} · {{ sourceEvidence('timeline', i).printedPage != null ? 'Fascicule ' + biographyReferences.fascicle + ', p. ' + sourceEvidence('timeline', i).printedPage : 'Référence externe' }}</span>
-                                <p class="mt-1">{{ sourceEvidence('timeline', i).note }}</p><p v-if="sourceEvidence('timeline', i).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('timeline', i).hadithRef }}</p><a v-if="sourceEvidence('timeline', i).externalUrl" :href="sourceEvidence('timeline', i).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter la source de l’événement</a>
-                            </aside></div>
+                        <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative">
+                            <span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">{{ evt.readingYear }}</span>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.readingDesc)"></p>
+                            <details v-if="evt.readingContext || sourceEvidence('timeline', i)" class="athar-story-context mt-6 border-t border-gray-100 dark:border-gray-700/60 pt-4">
+                                <summary class="athar-story-context-trigger inline-flex items-center gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">
+                                    <i data-lucide="book-open" class="w-4 h-4"></i> Sources, variantes et fiabilité
+                                    <span aria-hidden="true" class="athar-story-context-chevron">⌄</span>
+                                </summary>
+                                <div class="athar-story-context-body mt-4 rounded-xl bg-gray-50/70 dark:bg-white/[0.04] p-5 text-xs leading-relaxed text-gray-600 dark:text-gray-300">
+                                    <p v-if="evt.readingContext"><span class="font-semibold">Formulation de la notice et variantes :</span> {{ evt.readingContext }}</p>
+                                    <section v-if="sourceEvidence('timeline', i)" :class="evt.readingContext ? 'mt-3 pt-3 border-t border-gray-200 dark:border-gray-700' : ''">
+                                        <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('timeline', i).status) }}</p>
+                                        <p class="mt-2">{{ sourceEvidence('timeline', i).note }}</p>
+                                        <p v-if="sourceEvidence('timeline', i).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('timeline', i).hadithRef }}</p>
+                                        <p v-if="sourceEvidence('timeline', i).printedPage != null" class="mt-2">Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('timeline', i).printedPage }}</p>
+                                        <a v-if="sourceEvidence('timeline', i).externalUrl" :href="sourceEvidence('timeline', i).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter la source de l’événement</a>
+                                    </section>
+                                    <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="block mt-3 text-brand-gold hover:underline font-semibold">Voir toutes les références</button>
+                                </div>
+                            </details>
+                        </div>
                     </div>
                 </div>
+                <details class="athar-story-context mt-8 border-t border-gray-200 dark:border-gray-700 pt-4">
+                    <summary class="text-xs text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">À propos des datations <span aria-hidden="true" class="athar-story-context-chevron">⌄</span></summary>
+                    <p class="mt-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Certaines dates sont rapportées sous plusieurs formes. Les références et réserves sont consultables sous les événements concernés et dans l’onglet Sources.</p>
+                </details>
             </div>
 
             <div v-show="activeTab === 'hadiths'" class="space-y-8">
