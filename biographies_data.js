@@ -1758,20 +1758,92 @@
                 name: "Saïd ibn Al-Harith",
                 arabicName: "سعيد بن الحارث",
                 subtitle: "Le Cousin Discret",
-                intro: "Cousin du Prophète. Peu de détails sont connus sur lui, si ce n'est qu'il rapporte un hadith fondamental sur la foi.",
+                intro: "Sa‘îd ibn al-Hârith ibn ‘Abd al-Mouttalib est présenté comme cousin du Prophète ﷺ dans Siyar. Adh-Dhahabî n'y connaît qu'un seul récit attribué à ce personnage et signale la présence d'Ibn Lahî‘a dans sa chaîne. Sa biographie personnelle reste très peu documentée.",
+                heroQuote: "Adh-Dhahabî : « Je n'ai pas vu d'autre auteur qu'al-Hâkim le mentionner » (Siyar, notice 31).",
                 tags: ["Cousin", "Ahl al-Bayt"],
                 genealogy: "Saïd ibn Al-Harith ibn Abdelmoutalib.",
                 timeline: [
-                    { year: "Vie", desc: "Compagnon cité par Al-Hakim." }
+                  {
+                    "year": "Époque prophétique, date non établie",
+                    "desc": "Al-Hâkim classe Sa‘îd parmi les compagnons ; adh-Dhahabî ne signale aucun autre biographe l'ayant mentionné."
+                  }
                 ],
                 narratives: [
-                    { id: 311, title: "L'Unique Récit", content: "Dhahabi note qu'il est mentionné par Al-Hakim dans son Mustadrak comme compagnon, transmettant une parole d'espoir pour les croyants." }
+                  {
+                    "id": 311,
+                    "title": "Le récit isolé de Sa‘îd",
+                    "content": "Adh-Dhahabî dit que Salmân al-Agharr transmet de Sa‘îd une parole sur le croyant qui rencontrera Allah. Il signale Ibn Lahî‘a dans la chaîne. La notice ne fournit pas d'évaluation explicite permettant à Athar de classer ce récit par lui-même."
+                  },
+                  {
+                    "id": 312,
+                    "title": "Une documentation très réduite",
+                    "content": "Adh-Dhahabî explique que seul al-Hâkim lui est connu pour l'avoir compté parmi les compagnons. Aucun voyage, bataille ou événement précis n'est ajouté sans source propre à Sa‘îd."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Paradis est dû à quiconque rencontre Allah tout en étant croyant !", narrator: "Saïd ibn Al-Harith", source: "Al-Mustadrak" }
+                  {
+                    "text": "Selon une tradition attribuée à Sa‘îd, quiconque rencontre Allah croyant entrera au Paradis.",
+                    "narrator": "Sa‘îd ibn al-Hârith ; transmis par Salmân al-Agharr",
+                    "source": "Al-Hâkim, mentionné dans Siyar ; présence d'Ibn Lahî‘a dans la chaîne, sans degré attribué ici",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle est sa particularité généalogique ?", opts: ["Oncle du Prophète", "Cousin paternel du Prophète", "Frère de lait", "Fils adoptif"], c: 1, exp: "Il est le fils d'Al-Harith, l'oncle du Prophète." }
+                  {
+                    "q": "Qui mentionne Sa‘îd parmi les compagnons selon adh-Dhahabî ?",
+                    "opts": [
+                      "Al-Hâkim",
+                      "Mâlik",
+                      "Al-Bukhârî"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite al-Hâkim et dit ne pas connaître d'autres notices sur ce personnage.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Quel transmetteur de la chaîne le biographe signale-t-il ?",
+                    "opts": [
+                      "Ibn Lahî‘a",
+                      "Anas",
+                      "Ibn ‘Oumar"
+                    ],
+                    "c": 0,
+                    "exp": "Le commentaire d'adh-Dhahabî souligne la présence d'Ibn Lahî‘a dans le récit.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Quel thème concerne son seul récit mentionné ?",
+                    "opts": [
+                      "Le croyant rencontrant Allah",
+                      "La bataille de Mou’ta",
+                      "Le traité d'al-Houdaybiya"
+                    ],
+                    "c": 0,
+                    "exp": "Le texte porte sur l'espérance de celui qui rencontre Allah avec la foi.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Combien de récits personnels lui sont attribués dans cette notice ?",
+                    "opts": [
+                      "Un",
+                      "Quarante",
+                      "Cent"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî n'en mentionne qu'un ; Athar ne lui fabrique pas d'autres traditions.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  },
+                  {
+                    "q": "Comment présenter une chaîne non classée dans la notice ?",
+                    "opts": [
+                      "Avec les réserves et sans verdict inventé",
+                      "Sahîh par défaut",
+                      "À supprimer sans explication"
+                    ],
+                    "c": 0,
+                    "exp": "L'absence de jugement attribuable à un savant n'autorise pas Athar à l'inventer.",
+                    "ref": "https://www.islamweb.net/ar/library/content/60/39/"
+                  }
                 ]
             },
             {
@@ -1781,27 +1853,117 @@
                 name: "Abou Soufiane ibn Al-Harith",
                 arabicName: "أبو سُفْيَان بن الحارث",
                 subtitle: "Le Cousin Ressemblant",
-                intro: "Cousin germain, frère de lait et sosie du Prophète. Après une longue hostilité, sa conversion fut exemplaire. Il tint la mule du Prophète à Hunayn quand tous fuyaient.",
-                heroQuote: "Abou Soufiane ibn Al-Harith figure à la tête des jeunes du Paradis !",
+                intro: "Abou Soufyân ibn al-Hârith, cousin du Prophète ﷺ, s'opposa d'abord à lui avant de se convertir. Al-Bukhârî rapporte qu'il tenait la bride de sa mule à Hounayn. D'autres récits relatent sa réconciliation, son ascétisme et son décès, avec des voies distinctes.",
+                heroQuote: "Al-Barâ’ rapporte qu'à Hounayn Abou Soufyân tenait la bride de la mule du Prophète ﷺ (Al-Bukhârî 3042).",
                 tags: ["Cousin", "Hunayn", "Poète", "Ahl al-Bayt"],
                 genealogy: "Al-Moughira (son vrai nom) ibn Al-Harith. Frère de lait du Prophète (allaité par Halima).",
                 physicalDesc: "Il ressemblait physiquement au Prophète.",
                 timeline: [
-                    { year: "8 H", desc: "Conversion avant la Conquête." },
-                    { year: "8 H", desc: "Héros de Hunayn (tient la mule)." },
-                    { year: "20 H", desc: "Décès à Médine (infection verrue)." }
+                  {
+                    "year": "8 H",
+                    "desc": "Sa conversion à l'époque de la conquête de La Mecque est relatée dans les biographies."
+                  },
+                  {
+                    "year": "8 H",
+                    "desc": "Al-Bukhârî 3042 le montre tenant les rênes de la mule du Prophète à Hounayn."
+                  },
+                  {
+                    "year": "20 H selon une tradition",
+                    "desc": "Adh-Dhahabî mentionne un décès à Médine vers 20 H après une blessure survenue lors d'un rasage."
+                  }
                 ],
                 narratives: [
-                    { id: 321, title: "L'Accueil Glacial puis Chaleureux", content: "Le Prophète refusa d'abord de le voir à cause de ses poèmes satiriques passés. Abou Soufiane dit : 'S'il ne m'accepte pas, je prendrai mon fils et j'irai mourir dans le désert'. Le Prophète, ému, l'accepta. Il devint ensuite un adorateur qui ne relevait jamais la tête devant le Prophète par pudeur." },
-                    { id: 322, title: "La Verrue Fatale", content: "Au Hajj, le barbier coupa une verrue sur son crâne. Elle s'infecta et causa sa mort. Il dit à sa famille : 'Ne pleurez pas, car je n'ai commis aucun péché depuis ma conversion'." }
+                  {
+                    "id": 321,
+                    "title": "De l'hostilité à la réconciliation",
+                    "content": "Les ouvrages de sîra relatent qu'après des années d'opposition et de poésie hostile, Abou Soufyân chercha à rencontrer le Prophète et fut finalement accueilli. Les dialogues précis de cette scène ne figurent pas dans Al-Bukhârî 3042."
+                  },
+                  {
+                    "id": 322,
+                    "title": "La bride de la mule à Hounayn",
+                    "content": "Al-Barâ’ ibn ‘Âzib rapporte dans Al-Bukhârî 3042 et 4315 qu'Abou Soufyân ibn al-Hârith tenait la mule lorsque les combattants affrontèrent les flèches adverses. Le Prophète resta sur place."
+                  },
+                  {
+                    "id": 323,
+                    "title": "Une mort rapportée après une blessure",
+                    "content": "Adh-Dhahabî cite une tradition selon laquelle un barbier coupa une verrue sur son crâne lors d'un pèlerinage ; il mourut ensuite. Ce détail est biographique et ne constitue pas une conclusion médicale indépendante."
+                  },
+                  {
+                    "id": 324,
+                    "title": "Un titre honorifique dans une voie interrompue",
+                    "content": "Une parole lui attribue le titre de chef des jeunes du Paradis. La note d'Ibn Hajar sur cette voie la décrit comme moursal. Elle reste visible avec ce jugement, et n'est pas présentée comme unanimement authentifiée."
+                  }
                 ],
                 hadiths: [
-                    { text: "J'espère bien qu'il devienne le successeur de Hamza !", narrator: "Le Prophète (ﷺ)", source: "Siyar A'lam" },
-                    { text: "Abou Soufiane figure à la tête des jeunes du Paradis !", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Hisham" }
+                  {
+                    "text": "À Hounayn, Abou Soufyân tenait la bride de la mule du Prophète ﷺ.",
+                    "narrator": "Al-Barâ’ ibn ‘Âzib",
+                    "source": "Al-Bukhârî 3042 et 4315 — témoignage historique",
+                    "type": "historical"
+                  },
+                  {
+                    "text": "Une tradition attribue à Abou Soufyân le titre de chef des jeunes du Paradis.",
+                    "narrator": "‘Urwa ibn az-Zoubayr, récit reproduit dans Siyar",
+                    "source": "Siyar 1/206 ; voie moursal selon Ibn Hajar, non présentée comme unanimement sahîh",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle ressemblance avait-il avec le Prophète ?", opts: ["Voix", "Physique", "Écriture", "Démarche"], c: 1, exp: "Il faisait partie des 4 personnes qui ressemblaient le plus au Prophète." },
-                    { q: "Quel acte héroïque a-t-il fait à Hunayn ?", opts: ["Il a porté l'étendard", "Il a tenu la bride de la mule du Prophète sous les flèches", "Il a tué le chef ennemi", "Il a protégé les femmes"], c: 1, exp: "Il est resté à pied à côté du Prophète quand l'armée était en déroute." }
+                  {
+                    "q": "Quel geste d'Abou Soufyân est rapporté chez Al-Bukhârî ?",
+                    "opts": [
+                      "Tenir la mule du Prophète à Hounayn",
+                      "Commander une flotte",
+                      "Prêcher en Égypte"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Barâ’ décrit Abou Soufyân à Hounayn auprès de la mule du Prophète ﷺ.",
+                    "ref": "https://sunnah.com/bukhari:3042"
+                  },
+                  {
+                    "q": "Quel autre numéro d'Al-Bukhârî relate cet épisode ?",
+                    "opts": [
+                      "4315",
+                      "3045",
+                      "4782"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4315 mentionne également son rôle auprès de la mule.",
+                    "ref": "https://sunnah.com/bukhari:4315"
+                  },
+                  {
+                    "q": "Quel jugement est rapporté sur la voie du titre honorifique ?",
+                    "opts": [
+                      "Moursal selon Ibn Hajar",
+                      "Moutawâtir selon tous",
+                      "Un verset coranique"
+                    ],
+                    "c": 0,
+                    "exp": "La note d'Ibn Hajar qualifie la voie d'interrompue.",
+                    "ref": "https://ketabonline.com/ar/books/598/read?page=1812&part=1"
+                  },
+                  {
+                    "q": "À quelle source appartient le récit du barbier ?",
+                    "opts": [
+                      "La notice biographique de Siyar",
+                      "Al-Bukhârî 3042",
+                      "Le Coran"
+                    ],
+                    "c": 0,
+                    "exp": "Les circonstances du décès proviennent de la chronique, pas du hadith de Hounayn.",
+                    "ref": "https://siyar.fr/livre/1/206"
+                  },
+                  {
+                    "q": "Que précéda sa conversion ?",
+                    "opts": [
+                      "Une période d'opposition au Prophète",
+                      "Un califat personnel",
+                      "Un exil à Al-Abwâ"
+                    ],
+                    "c": 0,
+                    "exp": "La sîra raconte son opposition, puis une réconciliation après sa conversion.",
+                    "ref": "https://siyar.fr/livre/1/203"
+                  }
                 ]
             },
             {
@@ -1811,22 +1973,96 @@
                 name: "Jafar ibn Abou Soufiane",
                 arabicName: "جَعْفَر بن أبي سُفْيَان",
                 subtitle: "Le Compagnon Fidèle",
-                intro: "Fils d'Abou Soufiane ibn Al-Harith. Il partagea avec son père l'honneur de rester ferme à la bataille de Hunayn.",
-                heroQuote: "Il resta courageusement aux côtés du Prophète le jour de Hounayn.",
+                intro: "Ja‘far ibn Abou Soufyân ibn al-Hârith est peu documenté. Ibn Sa‘d le mentionne aux côtés de son père à Hounayn et situe sa mort vers le milieu du califat de Mou‘âwiya. Aucun hadith personnel distinct n'a été identifié pour lui dans les références consultées.",
+                heroQuote: "Selon Ibn Sa‘d, Ja‘far resta ferme auprès de son père à Hounayn (Siyar, notice 33).",
                 tags: ["Ahl al-Bayt", "Hunayn"],
                 genealogy: "Jafar ibn Abou Soufiane.",
                 timeline: [
-                    { year: "8 H", desc: "Combat à Hunayn." },
-                    { year: "Muawiya", desc: "Décès sous le règne de Muawiya." }
+                  {
+                    "year": "8 H",
+                    "desc": "D'après Ibn Sa‘d, Ja‘far demeura auprès de son père pendant la bataille de Hounayn."
+                  },
+                  {
+                    "year": "Milieu du califat de Mou‘âwiya",
+                    "desc": "La notice situe le décès au milieu de ce califat, sans année précise."
+                  }
                 ],
                 narratives: [
-                    { id: 331, title: "La Bravoure Héréditaire", content: "Comme son père, il ne fuit pas lors de l'embuscade de Hunayn, montrant la valeur des Ahl al-Bayt dans l'épreuve." }
+                  {
+                    "id": 331,
+                    "title": "Ja‘far et son père à Hounayn",
+                    "content": "Adh-Dhahabî reprend Ibn Sa‘d : Ja‘far et son père Abou Soufyân tinrent bon au combat de Hounayn. Aucune action militaire personnelle supplémentaire n'est décrite dans cette courte notice."
+                  },
+                  {
+                    "id": 332,
+                    "title": "Une dernière mention sous Mou‘âwiya",
+                    "content": "Ibn Sa‘d rapporte que Ja‘far vécut jusqu'au milieu du califat de Mou‘âwiya. La notice ne donne ni année précise ni autres événements qu'il serait rigoureux d'ajouter."
+                  }
                 ],
                 hadiths: [
-                    { text: "Il demeure parmi les compagnons.", narrator: "Ibn Saad", source: "Tabaqat" }
+                  {
+                    "text": "Ja‘far et son père restèrent fermes le jour de Hounayn, selon la notice d'Ibn Sa‘d.",
+                    "narrator": "Ibn Sa‘d, cité par adh-Dhahabî",
+                    "source": "Siyar, notice 33 ; attribution historique, sans jugement d'isnâd identifié",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "À quelle bataille s'est-il illustré avec son père ?", opts: ["Badr", "Ouhoud", "Hunayn", "Tabouk"], c: 2, exp: "Il est resté ferme à Hunayn." }
+                  {
+                    "q": "De qui Ja‘far était-il le fils ?",
+                    "opts": [
+                      "Abou Soufyân ibn al-Hârith",
+                      "Abou Tâlib",
+                      "Anas"
+                    ],
+                    "c": 0,
+                    "exp": "Le personnage est distinct de Ja‘far ibn Abou Tâlib, traité dans la notice suivante.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  },
+                  {
+                    "q": "Dans quelle bataille est-il cité avec son père ?",
+                    "opts": [
+                      "Hounayn",
+                      "Mou’ta",
+                      "Badr"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite Ibn Sa‘d pour leur présence à Hounayn.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  },
+                  {
+                    "q": "À quelle période son décès est-il situé ?",
+                    "opts": [
+                      "Au milieu du califat de Mou‘âwiya",
+                      "En 8 H avec certitude",
+                      "À Badr"
+                    ],
+                    "c": 0,
+                    "exp": "La notice donne le milieu d'un règne mais aucune année précise.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  },
+                  {
+                    "q": "Qui est l'auteur biographique cité par adh-Dhahabî ?",
+                    "opts": [
+                      "Ibn Sa‘d",
+                      "Al-Bukhârî",
+                      "At-Tirmidhî"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî attribue les deux informations principales de sa notice à Ibn Sa‘d.",
+                    "ref": "https://ketabonline.com/ar/books/598/read?page=1812&part=1"
+                  },
+                  {
+                    "q": "Quel traitement adopter faute d'autres récits indépendants ?",
+                    "opts": [
+                      "Laisser la biographie brève et référencée",
+                      "Inventer des scènes",
+                      "L'appeler hadith sahîh"
+                    ],
+                    "c": 0,
+                    "exp": "Le peu d'informations ne justifie pas l'ajout de détails non attestés.",
+                    "ref": "https://siyar.fr/livre/1/207"
+                  }
                 ]
             },
   {
