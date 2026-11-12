@@ -46,6 +46,9 @@ jobs:
       - name: Validate Siyar bibliography
         run: node scripts/validate-biography-sources.js
 
+      - name: Validate Siyar notices 101–109
+        run: node scripts/validate-siyar-101-109.js
+
       - name: Validate narrative-first reading (notices 1–40)
         run: node scripts/validate-reading-presentation.js
 
