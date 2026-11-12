@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'athar-pro-v56-siyar-31-40-1';
+const CACHE_VERSION = 'athar-pro-v57-library-selection-1';
 // Seules les ressources de la version publique sont précachées.
 const APP_SHELL = [
     './',
@@ -30,22 +30,22 @@ const APP_SHELL = [
     './js/components/TabibDetailView.js',
     './js/components/AdhkarView.js',
     './js/components/AdhkarReaderView.js',
-    './css/tasbih-pro.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/timeline-pro.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/fullscreen-global.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/adhkar-pro.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/hadith-pro.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/library-pro.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/library-immersive-fix.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/mobile-pro.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/interaction-stability.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/immersive-only.css?v=athar-pro-v56-siyar-31-40-1',
-    './css/tasbih-simple.css?v=athar-pro-v56-siyar-31-40-1',
-    './js/components/VueSafeIcons.js?v=athar-pro-v56-siyar-31-40-1',
-    './js/components/AtharLensBridge.js?v=athar-pro-v56-siyar-31-40-1',
-    './js/components/GlobalFullscreen.js?v=athar-pro-v56-siyar-31-40-1',
-    './js/components/MobileExperience.js?v=athar-pro-v56-siyar-31-40-1',
-    './js/components/ThemeBridge.js?v=athar-pro-v56-siyar-31-40-1',
+    './css/tasbih-pro.css?v=athar-pro-v57-library-selection-1',
+    './css/timeline-pro.css?v=athar-pro-v57-library-selection-1',
+    './css/fullscreen-global.css?v=athar-pro-v57-library-selection-1',
+    './css/adhkar-pro.css?v=athar-pro-v57-library-selection-1',
+    './css/hadith-pro.css?v=athar-pro-v57-library-selection-1',
+    './css/library-pro.css?v=athar-pro-v57-library-selection-1',
+    './css/library-immersive-fix.css?v=athar-pro-v57-library-selection-1',
+    './css/mobile-pro.css?v=athar-pro-v57-library-selection-1',
+    './css/interaction-stability.css?v=athar-pro-v57-library-selection-1',
+    './css/immersive-only.css?v=athar-pro-v57-library-selection-1',
+    './css/tasbih-simple.css?v=athar-pro-v57-library-selection-1',
+    './js/components/VueSafeIcons.js?v=athar-pro-v57-library-selection-1',
+    './js/components/AtharLensBridge.js?v=athar-pro-v57-library-selection-1',
+    './js/components/GlobalFullscreen.js?v=athar-pro-v57-library-selection-1',
+    './js/components/MobileExperience.js?v=athar-pro-v57-library-selection-1',
+    './js/components/ThemeBridge.js?v=athar-pro-v57-library-selection-1',
 ];
 
 self.addEventListener('install', event => {

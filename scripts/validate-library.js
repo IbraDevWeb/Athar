@@ -62,7 +62,7 @@ for (const chapter of chapters) {
 if (!component || typeof component !== 'object') throw new Error('Composant LibraryView introuvable.');
 
 for (const token of [
-    "activeSpace: 'home'",
+    "activeSpace: 'catalog'",
     "'catalog'",
     "'collections'",
     "'personal'",
@@ -73,7 +73,12 @@ for (const token of [
     'favoriteItems',
     'recentItems',
     'Cœur documentaire d’Athar Pro',
-    'Catalogue des notices',
+    'Choisir une',
+    'Affiner',
+    'Afficher plus d\'histoires',
+    'library-pro-selection-search',
+    'quickCategories',
+    'displayedCatalogItems',
     'Collections thématiques',
     'Ma bibliothèque',
     'Recherche globale',
@@ -87,6 +92,41 @@ for (const token of [
 for (const method of ['safeArray', 'normalize', 'density', 'metrics', 'readingTime', 'openItem', 'toggleItemFavorite', 'randomChapter', 'loadHistory', 'saveHistory']) {
     if (typeof component.methods?.[method] !== 'function') throw new Error(`Méthode de bibliothèque absente : ${method}`);
 }
+
+// La nouvelle sélection privilégie l'accès direct, la recherche et une pagination légère.
+const catalogue = component.computed.catalogItems;
+const ctx = {
+    chapters,
+    activeCategory: 'Tous',
+    viewFilter: 'all',
+    query: '',
+    contentFilter: 'all',
+    activeLetter: 'Tous',
+    sortMode: 'alpha',
+    recentHistory: [],
+    visibleLimit: 18,
+    safeArray: component.methods.safeArray,
+    normalize: component.methods.normalize,
+    density: () => 0,
+    hasSourceReference: () => true,
+    favorite: () => false
+};
+Object.defineProperty(ctx,'catalogItems',{get:()=>catalogue.call(ctx)});
+if (component.data.call({headerSearchQuery:''}).activeSpace !== 'catalog') throw new Error('La page de sélection doit être la porte d’entrée.');
+if (ctx.catalogItems.length < 90) throw new Error('Le catalogue doit conserver tous les profils.');
+if (component.computed.displayedCatalogItems.call(ctx).length !== 18) throw new Error('18 cartes initiales attendues pour éviter la surcharge.');
+ctx.visibleLimit = 36;
+if (component.computed.displayedCatalogItems.call(ctx).length !== 36) throw new Error('Affichage progressif inopérant.');
+ctx.query = 'Khoubayb';
+if (!ctx.catalogItems.length || ctx.catalogItems.some(item=> !component.methods.normalize(item.name+' '+item.intro+' '+(item.subtitle||'')).toLowerCase().includes('khoubayb'))) throw new Error('Recherche textuelle non fonctionnelle.');
+ctx.query = '';
+ctx.activeCategory = 'Badr';
+if (!ctx.catalogItems.length || ctx.catalogItems.some(item=>!item.tags.includes('Badr'))) throw new Error('Thème rapide Badr non filtrant.');
+ctx.activeCategory = 'Tous';
+if (component.computed.quickCategories.call(ctx).length < 4) throw new Error('Thèmes rapides introuvables.');
+if (!componentSource.includes('aria-label="Chercher une histoire"') || !componentSource.includes('aria-pressed="favorite(item.id)"')) throw new Error('Contrôles de sélection non accessibles.');
+if (!css.includes('.library-pro-selection .library-pro-card') || !css.includes('.library-pro-load-more')) throw new Error('Refonte des cartes ou pagination non stylée.');
+if (!css.includes('@media (max-width: 600px)')) throw new Error('Affichage mobile de la sélection manquant.');
 
 const sample = chapters[0];
 const metrics = component.methods.metrics.call({ safeArray: component.methods.safeArray }, sample);
