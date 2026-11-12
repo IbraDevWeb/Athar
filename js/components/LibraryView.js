@@ -153,17 +153,18 @@ const LibraryView = {
         activeSpace() {
             this.icons();
         },
-        query() { this.visibleLimit = 18; },
-        activeCategory() { this.visibleLimit = 18; },
-        contentFilter() { this.visibleLimit = 18; },
-        activeLetter() { this.visibleLimit = 18; },
-        sortMode() { this.visibleLimit = 18; },
+        query() { this.visibleLimit = 18; this.icons(); },
+        activeCategory() { this.visibleLimit = 18; this.icons(); },
+        contentFilter() { this.visibleLimit = 18; this.icons(); },
+        activeLetter() { this.visibleLimit = 18; this.icons(); },
+        sortMode() { this.visibleLimit = 18; this.icons(); },
         selectedCollectionId() {
             this.icons();
         },
         layoutMode() {
             this.icons();
-        }
+        },
+        visibleLimit() { this.icons(); }
     },
     mounted() {
         this.loadHistory();
@@ -280,7 +281,7 @@ const LibraryView = {
                     { id: 'home', label: 'Découvrir', icon: 'compass' },
                     { id: 'collections', label: 'Thèmes', icon: 'layers-3' },
                     { id: 'personal', label: 'Favoris', icon: 'bookmark' }
-                ]" :key="space.id" type="button" @click="activeSpace = space.id" :class="{ active: activeSpace === space.id }">
+                ]" :key="space.id" type="button" :aria-label="space.label" @click="activeSpace = space.id" :class="{ active: activeSpace === space.id }">
                     <i :data-lucide="space.icon"></i><span>{{ space.label }}</span>
                 </button>
             </nav>
@@ -417,7 +418,7 @@ const LibraryView = {
                         <article v-for="item in displayedCatalogItems" :key="item.id" class="library-pro-card" @click="openItem(item)" tabindex="0" role="button" :aria-label="'Lire la biographie de ' + item.name" @keydown.enter.prevent="openItem(item)" @keydown.space.prevent="openItem(item)">
                             <div class="library-pro-card-top">
                                 <span class="library-pro-card-index">{{ String(item.id).padStart(2, '0') }}</span>
-                                <button type="button" @click="toggleItemFavorite(item, $event)" :aria-label="favorite(item.id) ? 'Retirer des favoris : ' + item.name : 'Ajouter aux favoris : ' + item.name" :aria-pressed="favorite(item.id)" :class="{ active: favorite(item.id) }" title="Ajouter ou retirer des favoris"><i data-lucide="heart"></i></button>
+                                <button type="button" @click="toggleItemFavorite(item, $event)" @keydown.enter.stop @keydown.space.stop :aria-label="favorite(item.id) ? 'Retirer des favoris : ' + item.name : 'Ajouter aux favoris : ' + item.name" :aria-pressed="favorite(item.id)" :class="{ active: favorite(item.id) }" title="Ajouter ou retirer des favoris"><i data-lucide="heart"></i></button>
                             </div>
                             <div class="library-pro-card-main">
                                 <span class="library-pro-card-arabic" lang="ar" dir="rtl">{{ item.arabicName }}</span>
