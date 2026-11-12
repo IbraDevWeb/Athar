@@ -41,7 +41,9 @@ const ReaderView = {
         },
         safeTimeline() {
             return (Array.isArray(this.chapter.timeline) ? this.chapter.timeline : [])
-                .filter((event) => event && event.year && event.desc);
+                .map((event, index) => event && event.year && event.desc
+                    ? ATHAR_READING_PRESENTATION.timeline(this.chapter, event, index) : null)
+                .filter(Boolean);
         },
         safeQuiz() {
             const rawData = this.chapter.quiz || this.chapter.quizData || [];
@@ -56,7 +58,12 @@ const ReaderView = {
                 .filter((question) => question.question && question.options.length >= 2 && Number.isInteger(question.correct) && question.correct >= 0 && question.correct < question.options.length);
         },
         safeHadiths() {
-            return Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths.filter(Boolean) : [];
+            return (Array.isArray(this.chapter.hadiths) ? this.chapter.hadiths : [])
+                .map((item, index) => item ? ATHAR_READING_PRESENTATION.citation(this.chapter, item, index) : null)
+                .filter(Boolean);
+        },
+        readingQuote() {
+            return ATHAR_READING_PRESENTATION.quote(this.chapter);
         },
         biographyReferences() {
             return typeof BIOGRAPHY_SOURCES !== 'undefined'
@@ -230,11 +237,14 @@ const ReaderView = {
                     <div class="h-px w-16 bg-gradient-to-l from-transparent to-brand-gold/40"></div>
                 </div>
 
-                <div v-if="chapter.source" class="max-w-2xl mx-auto mb-8">
-                    <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Référence principale : <span class="text-brand-gold font-bold">{{ chapter.source }}</span></p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Une référence indique l'ouvrage utilisé pour la notice ; elle ne certifie pas automatiquement chaque détail ou variante historique. <a href="methodologie.html" class="text-brand-gold font-bold hover:underline">Méthodologie</a></p>
-                    <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-brand-gold hover:underline">Voir les références {{ biographyReferences.fascicle === 'sources externes' ? 'documentaires' : 'du fascicule ' + biographyReferences.fascicle }} <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
-                </div>
+                <details v-if="chapter.source" class="athar-story-context max-w-2xl mx-auto mb-8 text-left text-xs">
+                    <summary class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">Sources et méthode de cette biographie <span aria-hidden="true" class="athar-story-context-chevron">⌄</span></summary>
+                    <div class="athar-story-context-body mt-3 rounded-xl bg-white/75 dark:bg-white/[0.04] p-4 text-gray-600 dark:text-gray-300">
+                        <p>Référence principale : <strong>{{ chapter.source }}</strong></p>
+                        <p class="mt-2">La présence d’un récit dans un ouvrage ne garantit pas sa fiabilité. <a href="methodologie.html" class="text-brand-gold hover:underline">Lire la méthodologie</a>.</p>
+                        <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="mt-3 text-brand-gold font-semibold hover:underline">Consulter les références documentaires</button>
+                    </div>
+                </details>
 
                 <div v-if="chapter.audioUrl" class="max-w-md mx-auto bg-white dark:bg-brand-dark shadow-xl rounded-2xl p-2 pr-6 flex items-center gap-4 border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:border-brand-gold/30 transition-colors">
                     <button type="button" @click="toggleAudio" :aria-label="audioPlaying ? 'Mettre en pause' : 'Lire la version audio'" class="w-12 h-12 rounded-xl bg-brand-gold text-white flex items-center justify-center shadow-lg shadow-brand-gold/30 hover:scale-105 active:scale-95 transition-all z-10 relative"><i :data-lucide="audioPlaying ? 'pause' : 'play'" class="w-5 h-5 fill-current"></i></button>
@@ -271,13 +281,17 @@ const ReaderView = {
 
                 <div v-if="chapter.heroQuote" class="text-center py-8 px-4 md:px-12 relative">
                     <i class="absolute top-0 left-0 text-6xl font-serif text-brand-gold/10 font-bold">“</i>
-                    <p class="font-serif text-2xl md:text-3xl text-brand-dark dark:text-gray-100 font-medium leading-relaxed">{{ chapter.heroQuote }}</p>
-                    <details v-if="sourceEvidence('quote', 0)" class="athar-story-context text-left max-w-2xl mx-auto mt-5 border-t border-brand-gold/15 pt-3">
+                    <p class="font-serif text-2xl md:text-3xl text-brand-dark dark:text-gray-100 font-medium leading-relaxed">{{ readingQuote }}</p>
+                    <details v-if="sourceEvidence('quote', 0) || readingQuote !== chapter.heroQuote" class="athar-story-context text-left max-w-2xl mx-auto mt-5 border-t border-brand-gold/15 pt-3">
                         <summary class="text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">Contexte et source de cette citation <span aria-hidden="true" class="athar-story-context-chevron">⌄</span></summary>
                         <aside class="mt-3 text-xs leading-relaxed text-gray-600 dark:text-gray-300 rounded-xl bg-gray-50/70 dark:bg-white/[0.04] p-4">
-                            <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
-                            <p class="mt-2">{{ sourceEvidence('quote', 0).note }}</p>
-                            <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Consulter le texte original</a>
+                            <p v-if="readingQuote !== chapter.heroQuote" class="mb-3"><span class="font-semibold">Formulation documentaire initiale :</span> {{ chapter.heroQuote }}</p>
+                            <template v-if="sourceEvidence('quote', 0)">
+                                <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
+                                <p class="mt-2">{{ sourceEvidence('quote', 0).note }}</p>
+                                <p v-if="sourceEvidence('quote', 0).isnad" class="mt-2">Transmission : {{ sourceEvidence('quote', 0).isnad }}</p>
+                                <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Consulter le texte original</a>
+                            </template>
                         </aside>
                     </details>
                     <i class="absolute bottom-0 right-0 text-6xl font-serif text-brand-gold/10 font-bold rotate-180">“</i>
