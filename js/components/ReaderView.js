@@ -272,11 +272,14 @@ const ReaderView = {
                 <div v-if="chapter.heroQuote" class="text-center py-8 px-4 md:px-12 relative">
                     <i class="absolute top-0 left-0 text-6xl font-serif text-brand-gold/10 font-bold">“</i>
                     <p class="font-serif text-2xl md:text-3xl text-brand-dark dark:text-gray-100 font-medium leading-relaxed">{{ chapter.heroQuote }}</p>
-                    <aside v-if="sourceEvidence('quote', 0)" class="text-left max-w-2xl mx-auto mt-5 text-xs text-gray-600 dark:text-gray-300 border-t border-brand-gold/20 pt-3">
-                        <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
-                        <p class="mt-1">{{ sourceEvidence('quote', 0).note }}</p>
-                        <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le texte original</a>
-                    </aside>
+                    <details v-if="sourceEvidence('quote', 0)" class="athar-story-context text-left max-w-2xl mx-auto mt-5 border-t border-brand-gold/15 pt-3">
+                        <summary class="text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">Contexte et source de cette citation <span aria-hidden="true" class="athar-story-context-chevron">⌄</span></summary>
+                        <aside class="mt-3 text-xs leading-relaxed text-gray-600 dark:text-gray-300 rounded-xl bg-gray-50/70 dark:bg-white/[0.04] p-4">
+                            <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
+                            <p class="mt-2">{{ sourceEvidence('quote', 0).note }}</p>
+                            <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Consulter le texte original</a>
+                        </aside>
+                    </details>
                     <i class="absolute bottom-0 right-0 text-6xl font-serif text-brand-gold/10 font-bold rotate-180">“</i>
                 </div>
 
