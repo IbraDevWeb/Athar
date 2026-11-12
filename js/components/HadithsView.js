@@ -221,7 +221,7 @@ const HadithsView = {
         <div class="hadith-pro-container">
             <header class="hadith-pro-heading">
                 <div>
-                    <span class="hadith-pro-eyebrow">Bibliothèque Athar</span>
+                    <span class="hadith-pro-eyebrow"><i data-lucide="scroll-text" aria-hidden="true"></i> Bibliothèque des transmissions</span>
                     <h1>Les hadiths</h1>
                     <p>Retrouver un enseignement, le lire et l'approfondir.</p>
                 </div>
@@ -307,6 +307,7 @@ const HadithsView = {
                     role="button" tabindex="0" :aria-label="'Lire le hadith : '+item.raw.title"
                     @click="open(item)" @keydown.enter.self.prevent="open(item)" @keydown.space.self.prevent="open(item)">
                     <div class="hadith-pro-card-top">
+                        <span class="hadith-pro-card-symbol" aria-hidden="true"><i data-lucide="scroll-text"></i></span>
                         <span class="hadith-pro-card-topic">{{ item.topic }}</span>
                         <button type="button" class="hadith-pro-favorite" :class="{active:item.favorite}"
                             :aria-label="item.favorite?'Retirer des favoris':'Ajouter aux favoris'" :aria-pressed="item.favorite"
@@ -353,6 +354,7 @@ const HadithsView = {
                         <button v-for="(book,index) in books" :key="book.id" type="button"
                             class="hadith-kutub-book" :aria-label="'Ouvrir le recueil '+book.name" @click="openBook(book)">
                             <span class="hadith-kutub-book-index">{{ String(index+1).padStart(2,'0') }}</span>
+                            <span class="hadith-kutub-book-mark" aria-hidden="true"><i data-lucide="book-open"></i></span>
                             <span class="hadith-kutub-book-ar" lang="ar" dir="rtl">{{ book.arabicName }}</span>
                             <strong>{{ book.name }}</strong>
                             <small>{{ book.compiler }}</small>

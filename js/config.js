@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v62-kutub-sitta-shell';
+    const APP_VERSION = 'athar-pro-v63-section-gallery-palette';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -102,6 +102,8 @@ tailwind.config = {
     ensureStylesheet(`css/immersive-only.css?v=${APP_VERSION}`, 'athar-immersive-only-styles');
     ensureStylesheet(`css/tasbih-simple.css?v=${APP_VERSION}`, 'athar-tasbih-simple-styles');
     ensureStylesheet('css/athar-launch.css?v=athar-public-3', 'athar-launch-styles');
+    // Appliqué après les styles de section et leurs correctifs immersifs.
+    ensureStylesheet(`css/section-gallery-unified.css?v=${APP_VERSION}`, 'athar-unified-section-galleries');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');

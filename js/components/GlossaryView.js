@@ -1,43 +1,80 @@
 const GlossaryView = {
-    props: ['glossary', 'searchQuery'], // On reçoit la liste filtrée et le texte de recherche
-    emits: ['update:searchQuery'],      // On signale quand on écrit dans la barre de recherche
+    props: ['glossary', 'searchQuery'],
+    emits: ['update:searchQuery'],
+    setup(props) {
+        const category = Vue.ref('Tous');
+        const visibleLimit = Vue.ref(24);
+        // Classement de navigation uniquement, construit à partir des libellés du lexique.
+        const categoryOf = item => {
+            const origin = String(item?.origin || '').toLocaleLowerCase('fr');
+            if (/lieu|ville|géograph|empire|région|route/.test(origin)) return 'Lieux';
+            if (/personnage|compagnon|tribu|famille|lignée|dynastie|généalogie|surnom|titre|groupe/.test(origin)) return 'Figures & peuples';
+            if (/bataille|expédition|histoire|événement|calendrier/.test(origin)) return 'Histoire';
+            if (/fiqh|oussoul|hadith|coran|épistémologie|logique|méthodologie|langue|source|école|croyance|aqida|théologie|concept|science|méthode/.test(origin)) return 'Savoirs';
+            return 'Autres';
+        };
+        const categories = ['Tous', 'Savoirs', 'Lieux', 'Figures & peuples', 'Histoire', 'Autres'];
+        const counts = Vue.computed(() => {
+            const all = Array.isArray(props.glossary) ? props.glossary : [];
+            return Object.fromEntries(categories.map(name => [
+                name, name === 'Tous' ? all.length : all.filter(item => categoryOf(item) === name).length
+            ]));
+        });
+        const filtered = Vue.computed(() => {
+            const items = Array.isArray(props.glossary) ? props.glossary : [];
+            return category.value === 'Tous' ? items : items.filter(item => categoryOf(item) === category.value);
+        });
+        const displayed = Vue.computed(() => filtered.value.slice(0, visibleLimit.value));
+        const loadMore = () => { visibleLimit.value += 24; Vue.nextTick(() => window.lucide?.createIcons()); };
+        Vue.watch([category, () => props.searchQuery], () => {
+            visibleLimit.value = 24;
+            Vue.nextTick(() => window.lucide?.createIcons());
+        });
+        return { category, categories, counts, displayed, filtered, visibleLimit, loadMore, categoryOf };
+    },
     template: `
-    <div class="max-w-5xl mx-auto p-6 md:p-12 min-h-full">
-        <div class="text-center mb-16 animate-fade-in">
-            <span class="inline-block px-3 py-1 border border-brand-gold/30 rounded-full text-[10px] font-bold tracking-widest text-brand-gold uppercase bg-white dark:bg-brand-dark-lighter shadow-sm mb-4">Dictionnaire</span>
-            <h2 class="font-display font-bold text-3xl md:text-5xl text-brand-dark dark:text-white mb-4">Termes & Lieux</h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 max-w-lg mx-auto">Un référentiel complet pour comprendre les batailles, les tribus et les concepts clés de l'époque.</p>
-            
-            <div class="max-w-md mx-auto relative group">
-                <div class="absolute inset-0 bg-brand-gold/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-                <input type="text" 
-                       :value="searchQuery"
-                       @input="$emit('update:searchQuery', $event.target.value)"
-                       placeholder="Filtrer les définitions..." 
-                       class="relative w-full py-3 pl-12 pr-4 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-brand-dark-lighter shadow-sm focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-24">
-            <div v-for="(item, idx) in glossary" :key="idx" class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-brand-gold/30 hover:shadow-card transition-all animate-slide-up group h-full flex flex-col">
-                <div class="flex justify-between items-start mb-3">
-                    <h3 class="font-bold text-brand-gold capitalize font-display text-lg group-hover:text-brand-dark dark:group-hover:text-white transition-colors relative">
-                        {{ item.term }}
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold group-hover:w-full transition-all duration-300"></span>
-                    </h3>
-                    <span class="text-[9px] uppercase tracking-wider text-gray-400 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded border border-gray-100 dark:border-gray-700">{{ item.origin }}</span>
+    <section class="glossary-pro-root">
+        <div class="glossary-pro-container">
+            <header class="glossary-pro-hero">
+                <span class="glossary-pro-kicker"><i data-lucide="book-a" aria-hidden="true"></i> Lexique & définitions</span>
+                <h1>Termes & Lieux</h1>
+                <p>Retrouver les batailles, les peuples, les lieux et les notions rencontrées dans les récits.</p>
+                <label class="glossary-pro-search">
+                    <i data-lucide="search" aria-hidden="true"></i>
+                    <input type="search" :value="searchQuery" @input="$emit('update:searchQuery', $event.target.value)"
+                        aria-label="Rechercher un terme" placeholder="Rechercher une définition…" autocomplete="off">
+                </label>
+                <div class="glossary-pro-categories" role="group" aria-label="Explorer les termes par thème">
+                    <button v-for="name in categories" :key="name" type="button"
+                        :class="{ active: category===name }" :aria-pressed="category===name"
+                        @click="category=name">
+                        {{ name }} <span>{{ counts[name] }}</span>
+                    </button>
                 </div>
-                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-sans flex-grow">{{ item.def }}</p>
+            </header>
+            <p class="glossary-pro-result" aria-live="polite">{{ filtered.length }} terme{{ filtered.length>1?'s':'' }}</p>
+            <div v-if="displayed.length" class="glossary-pro-grid">
+                <article v-for="(item,index) in displayed" :key="item.term || index" class="glossary-pro-card">
+                    <header>
+                        <span class="glossary-pro-card-icon"><i data-lucide="book-text" aria-hidden="true"></i></span>
+                        <span class="glossary-pro-card-origin">{{ item.origin || 'Terme' }}</span>
+                    </header>
+                    <h2>{{ item.term }}</h2>
+                    <p>{{ item.def }}</p>
+                    <footer><span>{{ categoryOf(item) }}</span></footer>
+                </article>
+            </div>
+            <div v-if="filtered.length>visibleLimit" class="glossary-pro-more">
+                <span>{{ displayed.length }} termes affichés sur {{ filtered.length }}</span>
+                <button type="button" @click="loadMore">Afficher plus de termes <i data-lucide="chevron-down" aria-hidden="true"></i></button>
+            </div>
+            <div v-if="!filtered.length" class="glossary-pro-empty" role="status">
+                <i data-lucide="search-x" aria-hidden="true"></i>
+                <h2>Aucun terme trouvé</h2>
+                <p>Essaie un autre mot ou sélectionne une autre catégorie.</p>
+                <button type="button" @click="category='Tous'; $emit('update:searchQuery', '')">Tout afficher</button>
             </div>
         </div>
-        
-        <div v-if="glossary.length === 0" class="text-center text-gray-400 italic py-20 flex flex-col items-center animate-fade-in">
-            <div class="w-16 h-16 bg-gray-100 dark:bg-brand-dark-lighter rounded-full flex items-center justify-center mb-4">
-                <i data-lucide="search-x" class="w-8 h-8 opacity-50"></i>
-            </div>
-            <p>Aucun terme ne correspond à "{{ searchQuery }}"</p>
-        </div>
-    </div>
+    </section>
     `
 };
