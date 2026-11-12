@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v60-siyar-101-109';
+    const APP_VERSION = 'athar-pro-v61-hadith-reading';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
