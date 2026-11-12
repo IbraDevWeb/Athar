@@ -365,8 +365,11 @@ async function mobile(width,height) {
     const sources=page.locator('.athar-siyar-sources');
     assert.equal(await sources.isVisible(),true,'Les sources doivent s’afficher sur téléphone.');
     const outerMain=main(page);
-    await outerMain.evaluate(el=>{el.scrollTop=el.scrollHeight});
-    assert.ok((await outerMain.evaluate(el=>el.scrollTop))>0,'La lecture ne doit pas être bloquée sur téléphone.');
+    // Les transitions et le défilement peuvent être animés selon le navigateur.
+    // Forcer une lecture instantanée et attendre que le scroll soit stabilisé.
+    await outerMain.evaluate(el=>{el.style.scrollBehavior='auto';el.scrollTop=el.scrollHeight});
+    const metrics = await outerMain.evaluate(el=>({top:el.scrollTop,height:el.clientHeight,total:el.scrollHeight,overflow:getComputedStyle(el).overflowY}));
+    assert.ok(metrics.total>metrics.height && metrics.top>0,'La lecture ne doit pas être bloquée sur téléphone : '+JSON.stringify(metrics));
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
