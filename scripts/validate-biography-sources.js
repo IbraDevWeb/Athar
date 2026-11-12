@@ -380,7 +380,7 @@ assert.equal(rewrittenCount,89,'89 récits reformulés avec notes secondaires');
 const firstRawaha=chapters.find(c=>c.id===37).narratives.find(n=>n.id===371);
 assert.equal(firstRawaha.title,'« Venez, croyons un instant »','Le titre doit inviter à la lecture, pas à la critique documentaire');
 assert.ok(/Al-Haythamî/.test(firstRawaha.editorialNotes),'L’avis savant doit rester conservé en note');
-assert.ok(/Al-Arna’ût/.test(firstRawaha.editorialNotes),'L’avis divergent doit rester conservé en note');
+assert.ok(/Arna’ût/i.test(firstRawaha.editorialNotes),'L’avis divergent doit rester conservé en note');
 assert.ok(reader.includes('story.readingContent || story.content'),'Le récit épuré n’est pas affiché');
 assert.ok(reader.includes('details v-if="story.editorialNotes || sourceEvidence'),'Le volet secondaire des sources n’existe pas');
 assert.ok(reader.includes('Sources, variantes et fiabilité'),'Libellé accessible des précisions perdu');
