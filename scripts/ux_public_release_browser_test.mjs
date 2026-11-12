@@ -116,6 +116,30 @@ async function desktop() {
     assert.equal(await firstBatch.count(),18,'Après recherche, le nombre de cartes doit se réinitialiser');
     await home(page);
 
+    // Lecture-first : les analyses d'isnâd n'interrompent pas le récit d'Ibn Rawâha.
+    await navigate(page, 'library');
+    await page.locator('.library-pro-selection').waitFor({state:'visible'});
+    await page.locator('.library-pro-selection-search input').fill('Abd-Allah ibn Rawaha');
+    await page.locator('.library-pro-card').filter({hasText:'Abd-Allah ibn Rawaha'}).first().click();
+    await page.getByRole('tab',{name:'Récit',exact:true}).click();
+    const rawahaButton=page.locator('button[aria-expanded]').filter({hasText:'Venez, croyons un instant'}).first();
+    await rawahaButton.click();
+    const rawahaStory=rawahaButton.locator('..');
+    const rawahaText=await rawahaStory.locator('.prose').innerText();
+    assert.match(rawahaText,/invitait ses compagnons/i,'L'histoire d’Ibn Rawâha doit rester lisible');
+    assert.ok(!/Al-Haythamî|Al-Arna.ût|hasan|faible|Siyar/.test(rawahaText),'Une analyse technique demeure dans le récit');
+    const contextualNotes=rawahaStory.locator('details.athar-story-context');
+    assert.equal(await contextualNotes.getAttribute('open'),null,'Le commentaire critique doit être fermé par défaut');
+    assert.equal(await contextualNotes.locator('.athar-story-context-body').isVisible(),false,'La critique documentaire doit être secondaire');
+    await contextualNotes.locator('summary').click();
+    assert.equal(await contextualNotes.locator('.athar-story-context-body').isVisible(),true,'Les précisions doivent s’ouvrir au choix du lecteur');
+    assert.match(await contextualNotes.innerText(),/Al-Haythamî/,'Le classement d’Al-Haythamî ne doit pas être perdu');
+    assert.match(await contextualNotes.innerText(),/Al-Arna.ût/,'L’avis divergent ne doit pas être perdu');
+    assert.ok(await contextualNotes.locator('a[href^="https://"]').count()>=1,'Référence externe introuvable sous le récit');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
     // Régression historique : le port d’Oumâma pendant la prière n'est pas daté « ≈ 612 ».
     await navigate(page, 'timeline');
     await page.locator('.timeline-pro-search input').fill('Oumama');
