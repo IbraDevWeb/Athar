@@ -3032,7 +3032,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/203",
     "entries": [
       {
@@ -3114,7 +3114,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/203",
     "entries": [
       {
@@ -3254,7 +3254,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/207",
     "entries": [
       {
@@ -3347,7 +3347,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/207",
     "entries": [
       {
@@ -3548,7 +3548,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/219",
     "entries": [
       {
@@ -3685,7 +3685,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/221",
     "entries": [
       {
@@ -3875,7 +3875,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/230",
     "entries": [
       {
@@ -4040,7 +4040,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/242",
     "entries": [
       {
@@ -4133,7 +4133,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/244",
     "entries": [
       {
@@ -4262,7 +4262,7 @@ const BIOGRAPHY_SOURCES = {
     "translation": "Les Grandes Figures de l’Islam — traduction française diffusée par Islam Patrimoine",
     "publisherUrl": "https://islam-patrimoine.org/",
     "editionNote": "Les pages PDF sont celles des six fascicules transmis ; la page imprimée est PDF − 1. La pagination Siyar.fr (tome 1) est différente.",
-    "reviewScope": "Références consultées et jugements attribués aux savants lorsqu'ils existent. Les récits historiques sans degré restent indiqués sans authentification indépendante par Athar.",
+    "reviewScope": "Le repérage documentaire ne certifie ni l'authenticité de toutes les transmissions ni les dates des chroniques ; les jugements des savants sont attribués à leurs auteurs.",
     "readUrl": "https://siyar.fr/livre/1/246",
     "entries": [
       {
