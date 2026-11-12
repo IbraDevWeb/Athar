@@ -770,13 +770,13 @@
                 narratives: [
                   {
                     "id": 211,
-                    "title": "Abou ‘Abs dans les versions de l'expédition contre Ka‘b",
-                    "content": "Adh-Dhahabî le cite parmi les participants à l'expédition. Al-Bukhârî 4037 rapporte l'opération d'après Jâbir ; la liste des hommes varie selon les transmetteurs et une version mentionne Abou ‘Abs ibn Jabr. Il faut distinguer la liste des compagnons du texte principal."
+                    "title": "L'expédition contre Ka‘b ibn al-Ashraf",
+                    "content": "Adh-Dhahabî le cite parmi les participants à l'expédition. Al-Bukhârî 4037 rapporte l'opération d'après Jâbir ; la liste des hommes varie selon les transmetteurs et une version mentionne Abou ‘Abs ibn Jabr. Il faut distinguer la liste des compagnons du texte principal.", readingContent: "Abou ‘Abs fut cité parmi les hommes ayant participé à l'expédition menée contre Ka‘b ibn al-Ashraf. Une transmission le nomme aux côtés de Muhammad ibn Maslama lors de cet épisode.", editorialNotes: "Adh-Dhahabî le mentionne parmi les participants. La liste des hommes varie selon les voies reprises par Al-Bukhârî 4037 : la présence d'Abou ‘Abs n'apparaît pas dans chaque formulation."
                   },
                   {
                     "id": 212,
                     "title": "La collecte de la zakât",
-                    "content": "La notice de Siyar attribue à ‘Oumar puis à ‘Outhman la nomination d'Abou ‘Abs pour la collecte de la zakât. Il s'agit d'une donnée biographique, non d'un hadith prophétique indépendamment classé."
+                    "content": "La notice de Siyar attribue à ‘Oumar puis à ‘Outhman la nomination d'Abou ‘Abs pour la collecte de la zakât. Il s'agit d'une donnée biographique, non d'un hadith prophétique indépendamment classé.", readingContent: "Sous ‘Oumar, puis sous ‘Outhman, Abou ‘Abs fut chargé de recueillir la zakât, selon les traditions relatives à sa vie.", editorialNotes: "La mission est attribuée par les biographies reprises dans Siyar. Elle ne constitue pas un hadith prophétique indépendamment classé."
                   }
                 ],
                 hadiths: [
@@ -877,8 +877,8 @@
                 narratives: [
                   {
                     "id": 221,
-                    "title": "La mission d'estimation et la prière du Prophète",
-                    "content": "Adh-Dhahabî rapporte qu'Abou al-Haytham estimait les récoltes de Khaybar. Quand Abou Bakr envisagea une mission semblable, il aurait répondu que le Prophète invoquait pour lui à son retour. Ce sont des traditions biographiques, et non un degré d'authenticité établi par Athar."
+                    "title": "L'estimation des récoltes de Khaybar",
+                    "content": "Adh-Dhahabî rapporte qu'Abou al-Haytham estimait les récoltes de Khaybar. Quand Abou Bakr envisagea une mission semblable, il aurait répondu que le Prophète invoquait pour lui à son retour. Ce sont des traditions biographiques, et non un degré d'authenticité établi par Athar.", readingContent: "Abou al-Haytham était chargé d'estimer les récoltes de Khaybar. Plus tard, lorsqu'Abou Bakr lui proposa une mission semblable, il aurait rappelé que le Prophète ﷺ invoquait pour lui à chaque retour.", editorialNotes: "Adh-Dhahabî transmet cet épisode comme renseignement biographique. Aucun degré de chaîne propre à ce récit n'est attribué par Athar."
                   }
                 ],
                 hadiths: [
@@ -976,12 +976,12 @@
                   {
                     "id": 231,
                     "title": "Le retour imposé lors des négociations",
-                    "content": "Selon al-Miswar ibn Makhrama et Marwân dans Al-Bukhârî 2731–2732, Abou Jandal parvint à al-Houdaybiya avec ses entraves. Son père Souhayl réclama son retour au titre de la condition négociée ; le Prophète tenta d'obtenir une exception. Le récit préserve également les protestations d'Abou Jandal."
+                    "content": "Selon al-Miswar ibn Makhrama et Marwân dans Al-Bukhârî 2731–2732, Abou Jandal parvint à al-Houdaybiya avec ses entraves. Son père Souhayl réclama son retour au titre de la condition négociée ; le Prophète tenta d'obtenir une exception. Le récit préserve également les protestations d'Abou Jandal.", readingContent: "Abou Jandal arriva à al-Houdaybiya les pieds encore entravés, tandis que les musulmans négociaient avec Quraysh. Son père Souhayl exigea son retour en s'appuyant sur les conditions du traité. Le Prophète ﷺ chercha à obtenir une exception, et Abou Jandal protesta à l'idée d'être reconduit chez les siens.", editorialNotes: "Al-Miswar ibn Makhrama et Marwân rapportent la scène dans Sahîh al-Bukhârî 2731–2732."
                   },
                   {
                     "id": 232,
                     "title": "La sortie d'Abou Jandal et son association avec Abou Basîr",
-                    "content": "Al-Bukhârî 2731–2732 rapporte qu'Abou Jandal retrouva ensuite sa liberté et rejoignit le groupe d'Abou Basîr. Ce développement figure dans la même transmission que les négociations d'al-Houdaybiya."
+                    "content": "Al-Bukhârî 2731–2732 rapporte qu'Abou Jandal retrouva ensuite sa liberté et rejoignit le groupe d'Abou Basîr. Ce développement figure dans la même transmission que les négociations d'al-Houdaybiya.", readingContent: "Après la négociation d'al-Houdaybiya, Abou Jandal retrouva la liberté et rejoignit le groupe d'Abou Basîr.", editorialNotes: "Ce développement se trouve dans la même transmission d'Al-Bukhârî 2731–2732 que la conclusion du traité."
                   }
                 ],
                 hadiths: [
@@ -1074,13 +1074,13 @@
                 narratives: [
                   {
                     "id": 241,
-                    "title": "L'intercession évoquée par Souhayl : récit chronologiquement problématique",
-                    "content": "Al-Wâqidî attribue à Souhayl une parole selon laquelle il espérait bénéficier de l'intercession de son fils martyr. Adh-Dhahabî signale explicitement une incohérence chronologique : la scène est placée avant le pèlerinage d'Adieu, alors que la mort de ‘Abd-Allah à al-Yamâma se produisit plus tard. Il présente donc cette attribution avec une réserve explicite."
+                    "title": "L'espoir de Souhayl",
+                    "content": "Al-Wâqidî attribue à Souhayl une parole selon laquelle il espérait bénéficier de l'intercession de son fils martyr. Adh-Dhahabî signale explicitement une incohérence chronologique : la scène est placée avant le pèlerinage d'Adieu, alors que la mort de ‘Abd-Allah à al-Yamâma se produisit plus tard. Il présente donc cette attribution avec une réserve explicite.", readingContent: "Souhayl ibn ‘Amr aurait évoqué l'espoir de bénéficier, un jour, de l'intercession de son fils ‘Abd-Allah, mort en martyr. Cette parole lui est attribuée par une tradition historique.", editorialNotes: "Adh-Dhahabî relève un anachronisme : la scène est située avant le pèlerinage d'Adieu, alors que ‘Abd-Allah est mort à al-Yamâma plus tard. Cette voie attribuée à al-Wâqidî est conservée avec la réserve expresse de l'historien."
                   },
                   {
                     "id": 242,
-                    "title": "La participation à Badr",
-                    "content": "Selon adh-Dhahabî, ‘Abd-Allah vint à Badr avec son père alors qu'il dissimulait sa foi, puis rejoignit les musulmans pendant la bataille. Certains rapporteurs le font plutôt figurer parmi les premiers croyants ayant émigré en Abyssinie ; cette variante est conservée."
+                    "title": "Le ralliement à Badr",
+                    "content": "Selon adh-Dhahabî, ‘Abd-Allah vint à Badr avec son père alors qu'il dissimulait sa foi, puis rejoignit les musulmans pendant la bataille. Certains rapporteurs le font plutôt figurer parmi les premiers croyants ayant émigré en Abyssinie ; cette variante est conservée.", readingContent: "‘Abd-Allah arriva à Badr dans le camp de Quraysh aux côtés de son père. Il cachait encore sa foi ; pendant les combats, il rejoignit les musulmans.", editorialNotes: "Certaines traditions le comptent déjà parmi les premiers émigrés en Abyssinie. Les deux présentations de sa jeunesse figurent dans les sources biographiques."
                   }
                 ],
                 hadiths: [
@@ -1183,12 +1183,12 @@
                   {
                     "id": 251,
                     "title": "Un discours à La Mecque après la mort du Prophète",
-                    "content": "Les ouvrages de sîra attribuent à Souhayl un discours destiné à stabiliser la situation religieuse de La Mecque après le décès du Prophète ﷺ. Ce témoignage est présenté comme une tradition historique, sans le transformer en hadith classé sahîh."
+                    "content": "Les ouvrages de sîra attribuent à Souhayl un discours destiné à stabiliser la situation religieuse de La Mecque après le décès du Prophète ﷺ. Ce témoignage est présenté comme une tradition historique, sans le transformer en hadith classé sahîh.", readingContent: "Après la mort du Prophète ﷺ, Souhayl ibn ‘Amr s'adressa aux Mecquois pour les encourager à demeurer fermes dans leur religion et à ne pas se laisser gagner par les troubles.", editorialNotes: "Ce discours est attribué à Souhayl dans des traditions de sîra. Il n'est pas transformé en un hadith prophétique classé sahîh."
                   },
                   {
                     "id": 252,
                     "title": "Une vie d'adoration après sa conversion",
-                    "content": "Adh-Dhahabî rapporte qu'après sa conversion Souhayl multiplia les actes d'adoration et pleurait à l'écoute du Coran. Ces descriptions dépendent des récits biographiques cités et ne constituent pas un jugement autonome sur leurs chaînes."
+                    "content": "Adh-Dhahabî rapporte qu'après sa conversion Souhayl multiplia les actes d'adoration et pleurait à l'écoute du Coran. Ces descriptions dépendent des récits biographiques cités et ne constituent pas un jugement autonome sur leurs chaînes.", readingContent: "Après sa conversion, Souhayl ibn ‘Amr consacra beaucoup de temps à l'adoration. Il pleurait lorsqu'il écoutait réciter le Coran.", editorialNotes: "Les descriptions de sa piété sont des traditions biographiques rapportées par adh-Dhahabî, sans classement indépendant de chaque chaîne."
                   }
                 ],
                 hadiths: [
@@ -1283,12 +1283,12 @@
                   {
                     "id": 261,
                     "title": "La porte du jardin à al-Yamâma",
-                    "content": "Adh-Dhahabî rapporte qu'Al-Barâ’ demanda à être porté sur un bouclier puis projeté au-delà du mur du jardin où s'étaient retranchés les adversaires. Le récit est conservé avec son attribution biographique sans lui attribuer un degré de hadith non retrouvé."
+                    "content": "Adh-Dhahabî rapporte qu'Al-Barâ’ demanda à être porté sur un bouclier puis projeté au-delà du mur du jardin où s'étaient retranchés les adversaires. Le récit est conservé avec son attribution biographique sans lui attribuer un degré de hadith non retrouvé.", readingContent: "À al-Yamâma, Al-Barâ’ ibn Mâlik demanda à être soulevé sur un bouclier, puis projeté par-dessus le mur du jardin où s'étaient retranchés les combattants adverses.", editorialNotes: "Adh-Dhahabî reprend ce récit biographique ; aucune évaluation indépendante de la chaîne n'est produite par Athar."
                   },
                   {
                     "id": 262,
-                    "title": "Le serment d'Al-Barâ’",
-                    "content": "Anas ibn Mâlik transmet un hadith dans Jâmi‘ at-Tirmidhî 3854 où le Prophète ﷺ mentionne Al-Barâ’ parmi les serviteurs dont Allah exauce le serment. At-Tirmidhî le classe hasan gharîb pour cette voie et l'édition Darussalam hasan."
+                    "title": "Le serment exaucé",
+                    "content": "Anas ibn Mâlik transmet un hadith dans Jâmi‘ at-Tirmidhî 3854 où le Prophète ﷺ mentionne Al-Barâ’ parmi les serviteurs dont Allah exauce le serment. At-Tirmidhî le classe hasan gharîb pour cette voie et l'édition Darussalam hasan.", readingContent: "Anas ibn Mâlik rapporte que le Prophète ﷺ cita Al-Barâ’ parmi les serviteurs dont Allah exauce le serment.", editorialNotes: "Jâmi‘ at-Tirmidhî 3854 : hasan gharîb selon At-Tirmidhî, hasan selon Darussalam. Ces jugements sont attribués à leurs auteurs."
                   }
                 ],
                 hadiths: [
@@ -1390,7 +1390,7 @@
                   {
                     "id": 271,
                     "title": "L'aide matérielle lors de Hounayn",
-                    "content": "Adh-Dhahabî rapporte que Nawfal mit trois mille lances à disposition au moment de Hounayn, et qu'il resta parmi les hommes qui tinrent bon. Cette information est conservée comme récit historique sans classement de chaîne inventé."
+                    "content": "Adh-Dhahabî rapporte que Nawfal mit trois mille lances à disposition au moment de Hounayn, et qu'il resta parmi les hommes qui tinrent bon. Cette information est conservée comme récit historique sans classement de chaîne inventé.", readingContent: "Lors de Hounayn, Nawfal ibn al-Hârith mit trois mille lances à la disposition des musulmans. Les récits rapportent aussi qu'il demeura parmi ceux qui tinrent bon au moment de la bataille.", editorialNotes: "Cette contribution est citée par adh-Dhahabî comme renseignement historique, sans degré de hadith inventé."
                   }
                 ],
                 hadiths: [
@@ -1487,8 +1487,8 @@
                 narratives: [
                   {
                     "id": 281,
-                    "title": "Administration de La Mecque",
-                    "content": "Adh-Dhahabî mentionne qu'Al-Hârith fut chargé de gouverner La Mecque au temps de ‘Oumar puis d'‘Outhman. Son commentaire ajoute que le Prophète lui avait confié certaines responsabilités. La notice ne détaille pas toutes ces missions et n'établit pas que la parenté à elle seule déterminait les nominations."
+                    "title": "Le gouvernement de La Mecque",
+                    "content": "Adh-Dhahabî mentionne qu'Al-Hârith fut chargé de gouverner La Mecque au temps de ‘Oumar puis d'‘Outhman. Son commentaire ajoute que le Prophète lui avait confié certaines responsabilités. La notice ne détaille pas toutes ces missions et n'établit pas que la parenté à elle seule déterminait les nominations.", readingContent: "Al-Hârith ibn Nawfal fut chargé de gouverner La Mecque sous ‘Oumar, puis sous ‘Outhman. Une tradition rapporte que le Prophète ﷺ lui avait déjà confié certaines responsabilités de son vivant.", editorialNotes: "Adh-Dhahabî ne détaille pas toutes ces missions. Le rôle de sa parenté dans ses nominations ne peut être déduit de cette seule notice."
                   }
                 ],
                 hadiths: [
@@ -1587,12 +1587,12 @@
                   {
                     "id": 291,
                     "title": "L'origine du surnom Babbâ",
-                    "content": "Adh-Dhahabî rapporte une chanson affectueuse chantée à l'enfant dans la famille, dont dérive le surnom « Babbâ ». Il ne s'agit pas d'une parole prophétique."
+                    "content": "Adh-Dhahabî rapporte une chanson affectueuse chantée à l'enfant dans la famille, dont dérive le surnom « Babbâ ». Il ne s'agit pas d'une parole prophétique.", readingContent: "Dans son enfance, ‘Abd-Allah ibn al-Hârith entendait les siens lui chanter une comptine affectueuse. C'est de cet usage familial qu'aurait dérivé son surnom « Babbâ ».", editorialNotes: "Ce souvenir familial est transmis par adh-Dhahabî ; il ne s'agit pas d'une parole prophétique."
                   },
                   {
                     "id": 292,
-                    "title": "Le gouvernement de Bassora et le départ pour Oman",
-                    "content": "Les récits historiques rapportent qu'il administra Bassora durant la période des troubles, puis partit à Oman par crainte d'al-Hajjâj, dans le contexte de la révolte d'Ibn al-Ash‘ath. Ibn Sa‘d donne 84 H pour sa mort ; Abou ‘Oubayd indique 83 H."
+                    "title": "De Bassora à Oman",
+                    "content": "Les récits historiques rapportent qu'il administra Bassora durant la période des troubles, puis partit à Oman par crainte d'al-Hajjâj, dans le contexte de la révolte d'Ibn al-Ash‘ath. Ibn Sa‘d donne 84 H pour sa mort ; Abou ‘Oubayd indique 83 H.", readingContent: "Pendant une période de troubles, ‘Abd-Allah ibn al-Hârith administra Bassora. Il partit ensuite vers Oman, redoutant al-Hajjâj, à l'époque de la révolte d'Ibn al-Ash‘ath. Il mourut dans cette région.", editorialNotes: "Ibn Sa‘d situe sa mort en 84 H tandis qu'Abou ‘Oubayd donne 83 H : les deux datations sont conservées dans les références."
                   }
                 ],
                 hadiths: [
@@ -1681,8 +1681,8 @@
                 narratives: [
                   {
                     "id": 301,
-                    "title": "Une mort rapportée à al-Abwâ",
-                    "content": "Adh-Dhahabî transmet d'après Ibn Sa‘d que ‘Abd-Allah ibn ‘Abd-Allah fut frappé par le simoun à al-Abwâ en 97 H, alors qu'il voyageait avec le calife Soulaymân. La notice attribue à ce dernier la prière funéraire. Il s'agit d'un récit historique et non d'un hadith prophétique."
+                    "title": "La mort sur la route d'al-Abwâ",
+                    "content": "Adh-Dhahabî transmet d'après Ibn Sa‘d que ‘Abd-Allah ibn ‘Abd-Allah fut frappé par le simoun à al-Abwâ en 97 H, alors qu'il voyageait avec le calife Soulaymân. La notice attribue à ce dernier la prière funéraire. Il s'agit d'un récit historique et non d'un hadith prophétique.", readingContent: "À al-Abwâ, alors qu'il voyageait avec le calife Soulaymân, ‘Abd-Allah ibn ‘Abd-Allah ibn al-Hârith fut frappé par un vent brûlant, le simoun. Il mourut pendant ce déplacement, et Soulaymân aurait accompli la prière funéraire sur lui.", editorialNotes: "Ibn Sa‘d, cité par adh-Dhahabî, situe cet épisode en 97 H. Il s'agit d'une tradition biographique, non d'un hadith prophétique."
                   }
                 ],
                 hadiths: [
