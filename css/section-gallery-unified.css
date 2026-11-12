@@ -1,0 +1,471 @@
+/*
+ * Athar · Galerie des fiches — langage visuel commun inspiré de Tabib al-Qulub.
+ * CSS strictement scoped par section, aucune donnée et aucun contrôle supprimés.
+ * Identités : Siyar bleu encre, Hadith bleu ardoise, Adhkar lavande,
+ * Lexique terracotta, Chronologie ocre. Tabib conserve son vert d'origine.
+ */
+.library-pro-root {
+    --ax-accent:#365c82; --ax-rgb:54,92,130;
+    --ax-ink:#202b3b; --ax-muted:#697587; --ax-paper:#f7f7f4;
+    --ax-card:#fff; --ax-line:rgba(54,92,130,.13);
+    --library-gold:#55799f; --library-gold-deep:#365c82;
+    --library-ink:#202b3b; --library-muted:#697587;
+    --library-card:#fff; --library-paper:#f7f7f4; --library-line:rgba(54,92,130,.13);
+}
+.hadith-pro-root,.hadith-reader-pro {
+    --ax-accent:#486f99; --ax-rgb:72,111,153;
+    --ax-ink:#202b3b; --ax-muted:#6a7584; --ax-paper:#f7f8f8;
+    --ax-card:#fff; --ax-line:rgba(72,111,153,.14);
+    --hadith-accent:#486f99; --hadith-bg:#f7f8f8;
+    --hadith-selected:#e9f1f8; --hadith-card:#fff;
+    --hadith-ink:#202b3b; --hadith-muted:#6a7584;
+    --hadith-line:rgba(72,111,153,.14);
+}
+.adhkar-pro-shell {
+    --ax-accent:#7b62a2; --ax-rgb:123,98,162;
+    --ax-ink:#292438; --ax-muted:#797285; --ax-paper:#f8f7fb;
+    --ax-card:#fff; --ax-line:rgba(123,98,162,.15);
+}
+.glossary-pro-root {
+    --ax-accent:#af7459; --ax-rgb:175,116,89;
+    --ax-ink:#342b27; --ax-muted:#80766f; --ax-paper:#faf8f5;
+    --ax-card:#fff; --ax-line:rgba(175,116,89,.15);
+}
+.timeline-pro {
+    --ax-accent:#a17a3d; --ax-rgb:161,122,61;
+    --ax-ink:#2b2a26; --ax-muted:#76766d; --ax-paper:#faf9f5;
+    --ax-card:#fff; --ax-line:rgba(161,122,61,.15);
+}
+:is(.library-pro-root,.hadith-pro-root,.adhkar-pro-shell,.glossary-pro-root,.timeline-pro) {
+    color:var(--ax-ink);
+    background:
+        radial-gradient(ellipse at 50% 0%,rgba(var(--ax-rgb),.095),transparent 50%),
+        repeating-linear-gradient(0deg,rgba(86,83,77,.012) 0,rgba(86,83,77,.012) 1px,transparent 1px,transparent 5px),
+        var(--ax-paper);
+    min-width:0;
+}
+.dark .library-pro-root {
+    --ax-accent:#98b8d9;--ax-rgb:119,166,206;--ax-ink:#f4f4f5;--ax-muted:#a8b2c2;
+    --ax-paper:#0b1018;--ax-card:#151b26;--ax-line:rgba(151,181,211,.22);
+    --library-ink:#f4f4f5;--library-muted:#a8b2c2;--library-card:#151b26;
+    --library-card-strong:#151b26;--library-paper:#0b1018;--library-line:rgba(151,181,211,.22);
+    --library-gold:#98b8d9;--library-gold-deep:#98b8d9;
+}
+.dark :is(.hadith-pro-root,.hadith-reader-pro) {
+    --ax-accent:#91b9dd;--ax-rgb:119,163,201;--ax-ink:#f4f5f6;--ax-muted:#a6b3c0;
+    --ax-paper:#0b1219;--ax-card:#141d28;--ax-line:rgba(146,179,207,.19);
+    --hadith-accent:#91b9dd;--hadith-bg:#0b1219;--hadith-selected:#1e3144;
+    --hadith-card:#141d28;--hadith-ink:#f4f5f6;--hadith-muted:#a6b3c0;--hadith-line:rgba(146,179,207,.19);
+}
+.dark .adhkar-pro-shell {
+    --ax-accent:#c5b0e3;--ax-rgb:170,140,209;--ax-ink:#f5f0fa;--ax-muted:#b9aec5;
+    --ax-paper:#120f1b;--ax-card:#201b2b;--ax-line:rgba(191,168,223,.20);
+}
+.dark .glossary-pro-root {
+    --ax-accent:#e4ab8f;--ax-rgb:199,140,114;--ax-ink:#f9f1ec;--ax-muted:#bdb1a9;
+    --ax-paper:#18120f;--ax-card:#241c19;--ax-line:rgba(205,162,140,.20);
+}
+.dark .timeline-pro {
+    --ax-accent:#dfba7c;--ax-rgb:201,162,99;--ax-ink:#f8f5ed;--ax-muted:#bbb3a4;
+    --ax-paper:#181510;--ax-card:#242018;--ax-line:rgba(219,188,132,.20);
+}
+.dark :is(.library-pro-root,.hadith-pro-root,.adhkar-pro-shell,.glossary-pro-root,.timeline-pro) {
+    color:var(--ax-ink);
+    background:radial-gradient(ellipse at 50% 0%,rgba(var(--ax-rgb),.10),transparent 56%),var(--ax-paper);
+}
+
+/* Titres centrés et badges fins comme sur la Pharmacie des Âmes. */
+.library-pro-selection .library-pro-selection-intro,
+.hadith-pro-root .hadith-pro-heading,
+.adhkar-pro-shell .adhkar-pro-hero,
+.glossary-pro-hero,
+.timeline-pro .timeline-pro-hero {
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:0;
+    max-width:100%; border:0; border-radius:0; box-shadow:none;
+    background:transparent;
+}
+.library-pro-selection .library-pro-selection-intro { margin:0 auto 26px; padding:19px 14px 3px; }
+.hadith-pro-root .hadith-pro-heading { padding:42px 10px 22px; margin:0 auto; }
+.adhkar-pro-shell .adhkar-pro-hero { padding:43px 22px 23px; }
+.glossary-pro-hero { padding:45px 14px 8px; }
+.timeline-pro .timeline-pro-hero { padding:43px 12px 18px; margin-bottom:20px; }
+
+:is(.library-pro-selection-eyebrow,.hadith-pro-eyebrow,.adhkar-pro-kicker,.glossary-pro-kicker,.timeline-pro-eyebrow) {
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    border-radius:999px; border:1px solid rgba(var(--ax-rgb),.26);
+    background:rgba(var(--ax-rgb),.075);
+    color:var(--ax-accent);
+    padding:7px 13px;
+    font:750 11px/1.4 Inter,system-ui,sans-serif;
+    letter-spacing:.075em; text-transform:uppercase; margin:0 0 17px;
+    max-width:100%;
+}
+:is(.library-pro-selection-eyebrow,.hadith-pro-eyebrow,.adhkar-pro-kicker,.glossary-pro-kicker,.timeline-pro-eyebrow) svg { width:15px; height:15px; flex:0 0 auto; }
+.library-pro-selection .library-pro-selection-intro h1,
+.hadith-pro-root .hadith-pro-heading h1,
+.adhkar-pro-shell .adhkar-pro-hero h1,
+.glossary-pro-hero h1,
+.timeline-pro .timeline-pro-hero h1 {
+    margin:0; font:700 clamp(29px,4vw,50px)/1.14 Cinzel,Georgia,serif;
+    letter-spacing:-.035em; color:var(--ax-ink);
+}
+.library-pro-selection .library-pro-selection-intro h1 em,
+.timeline-pro .timeline-pro-hero h1 em { font:inherit; font-style:normal; color:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-hero h1 span {
+    font:400 .78em/1.3 Amiri,serif; color:var(--ax-accent); margin-left:10px;
+}
+.library-pro-selection .library-pro-selection-intro > div,
+.hadith-pro-root .hadith-pro-heading > div,
+.adhkar-pro-shell .adhkar-pro-hero > div:first-child,
+.timeline-pro .timeline-pro-hero-copy { display:flex; flex-direction:column; align-items:center; max-width:800px; width:100%; }
+.library-pro-selection .library-pro-selection-intro > div > p,
+.hadith-pro-root .hadith-pro-heading p,
+.adhkar-pro-shell .adhkar-pro-hero p,
+.glossary-pro-hero > p,
+.timeline-pro .timeline-pro-hero-copy > p {
+    max-width:610px; margin:15px auto 0; text-align:center;
+    color:var(--ax-muted); font:400 14px/1.8 "Libre Baskerville",Georgia,serif;
+}
+.library-pro-selection .library-pro-revisit {
+    margin-top:18px; min-width:min(100%,300px); max-width:460px;
+    border-color:var(--ax-line); background:var(--ax-card); text-align:left;
+}
+.library-pro-selection .library-pro-revisit:hover { border-color:var(--ax-accent); }
+.hadith-pro-root .hadith-pro-count {
+    display:inline-flex; align-items:baseline; justify-content:center;
+    background:rgba(var(--ax-rgb),.075); border-radius:999px;
+    padding:6px 14px; margin:14px auto 0;
+}
+.hadith-pro-root .hadith-pro-count strong { font:750 15px Inter,system-ui,sans-serif; color:var(--ax-accent); }
+.hadith-pro-root .hadith-pro-count span { color:var(--ax-muted); }
+
+/* Boutons filtres arrondis, état actif coloré et navigation conservée. */
+.library-pro-selection .library-pro-selection-panel { background:transparent; border:0; padding:0; margin:18px 0 21px; box-shadow:none; }
+.library-pro-selection .library-pro-selection-search { max-width:620px; margin:0 auto 22px; background:var(--ax-card); border:1px solid var(--ax-line); border-radius:999px; }
+.library-pro-selection .library-pro-selection-search:focus-within { border-color:var(--ax-accent); box-shadow:0 0 0 3px rgba(var(--ax-rgb),.10); }
+.library-pro-selection .library-pro-selection-search svg { color:var(--ax-accent); }
+.library-pro-selection .library-pro-quick-categories,
+.hadith-pro-root .hadith-pro-topic-row,
+.adhkar-pro-shell .adhkar-pro-category-row,
+.glossary-pro-categories {
+    display:flex; align-items:center; justify-content:center; gap:9px;
+    max-width:100%; border:0; margin:10px auto 18px; padding:4px 0 8px;
+    overflow-x:auto; scrollbar-width:thin;
+}
+.library-pro-selection .library-pro-quick-categories button,
+.hadith-pro-root .hadith-pro-topic-row button,
+.adhkar-pro-shell .adhkar-pro-category-row button,
+.glossary-pro-categories button {
+    flex:0 0 auto; min-height:40px; padding:8px 17px;
+    display:inline-flex; align-items:center; gap:6px;
+    border:1px solid var(--ax-line); background:var(--ax-card);
+    color:var(--ax-muted); border-radius:999px;
+    font:650 12px/1.5 "Libre Baskerville",Georgia,serif;
+    transition:background .16s,border-color .16s,color .16s;
+    white-space:nowrap;
+}
+.library-pro-selection .library-pro-quick-categories button:hover,
+.hadith-pro-root .hadith-pro-topic-row button:hover,
+.adhkar-pro-shell .adhkar-pro-category-row button:hover,
+.glossary-pro-categories button:hover { border-color:var(--ax-accent); color:var(--ax-accent); }
+.library-pro-selection .library-pro-quick-categories button.active,
+.hadith-pro-root .hadith-pro-topic-row button.active,
+.adhkar-pro-shell .adhkar-pro-category-row button.active,
+.glossary-pro-categories button.active {
+    border-color:var(--ax-accent); background:var(--ax-accent); color:#fff;
+}
+.dark .library-pro-selection .library-pro-quick-categories button.active,
+.dark .hadith-pro-root .hadith-pro-topic-row button.active,
+.dark .adhkar-pro-shell .adhkar-pro-category-row button.active,
+.dark .glossary-pro-categories button.active { color:#111827; }
+.library-pro-selection .library-pro-selection-tools { border-top:1px solid var(--ax-line); padding-top:15px; }
+.hadith-pro-root .hadith-pro-tools { border-color:var(--ax-line); }
+.hadith-pro-root .hadith-pro-search { background:var(--ax-card); border-color:var(--ax-line); }
+.hadith-pro-root .hadith-pro-search-area { justify-content:center; }
+.hadith-pro-root .hadith-pro-search-area > .hadith-pro-search { max-width:670px; }
+.hadith-pro-root .hadith-pro-search-actions button.active { background:rgba(var(--ax-rgb),.09); border-color:var(--ax-accent); color:var(--ax-accent); }
+.hadith-pro-root .hadith-kutub-tabs { justify-content:center; border:0; margin-bottom:24px; }
+.hadith-pro-root .hadith-kutub-tabs button.active { border-color:var(--ax-accent); color:var(--ax-accent); background:rgba(var(--ax-rgb),.10); }
+.adhkar-pro-shell .adhkar-pro-tabs { justify-content:center; }
+.adhkar-pro-shell .adhkar-pro-tabs button.active { color:var(--ax-accent); border-color:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-hero-stats { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:22px auto 0; }
+.adhkar-pro-shell .adhkar-pro-hero-stats article {
+    padding:8px 13px; min-width:0; border:1px solid var(--ax-line); border-radius:999px;
+    display:inline-flex; flex-direction:row; align-items:baseline; gap:7px;
+    box-shadow:none; background:rgba(var(--ax-rgb),.06);
+}
+.adhkar-pro-shell .adhkar-pro-hero-stats article b { color:var(--ax-accent); font:700 14px Inter,sans-serif; }
+.adhkar-pro-shell .adhkar-pro-hero-stats article span { font:500 11px Inter,sans-serif; color:var(--ax-muted); }
+
+/* Cartes blanches aérées, coin teinté très subtil et icônes douces. */
+.library-pro-selection .library-pro-card,
+.hadith-pro-root .hadith-pro-card,
+.hadith-pro-root .hadith-kutub-book,
+.adhkar-pro-shell .adhkar-pro-routine-card,
+.adhkar-pro-shell .adhkar-pro-card,
+.glossary-pro-card,
+.timeline-pro .timeline-pro-event-card,
+.timeline-pro .timeline-pro-era-grid > article,
+.timeline-pro .timeline-pro-path-grid > article {
+    position:relative; isolation:isolate; overflow:hidden;
+    border:1px solid var(--ax-line);
+    border-radius:20px;
+    background:var(--ax-card);
+    box-shadow:0 11px 28px rgba(25,33,43,.035);
+    color:var(--ax-ink);
+    transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+:is(.library-pro-selection .library-pro-card,.hadith-pro-root .hadith-pro-card,
+.hadith-pro-root .hadith-kutub-book,.adhkar-pro-shell .adhkar-pro-routine-card,
+.adhkar-pro-shell .adhkar-pro-card,.glossary-pro-card,
+.timeline-pro .timeline-pro-event-card,.timeline-pro .timeline-pro-era-grid > article,
+.timeline-pro .timeline-pro-path-grid > article)::before {
+    content:""; position:absolute; top:-48px; right:-45px;
+    width:144px; height:144px; border-radius:50%;
+    pointer-events:none; background:rgba(var(--ax-rgb),.06);
+    z-index:-1; transition:transform .25s;
+}
+:is(.library-pro-selection .library-pro-card,.hadith-pro-root .hadith-pro-card,
+.hadith-pro-root .hadith-kutub-book,.adhkar-pro-shell .adhkar-pro-routine-card,
+.adhkar-pro-shell .adhkar-pro-card,.glossary-pro-card,
+.timeline-pro .timeline-pro-event-card,.timeline-pro .timeline-pro-era-grid > article,
+.timeline-pro .timeline-pro-path-grid > article):hover {
+    border-color:rgba(var(--ax-rgb),.43);
+    transform:translateY(-3px); box-shadow:0 18px 38px rgba(31,38,47,.09);
+}
+:is(.library-pro-selection .library-pro-card,.hadith-pro-root .hadith-pro-card,
+.hadith-pro-root .hadith-kutub-book,.adhkar-pro-shell .adhkar-pro-routine-card,
+.adhkar-pro-shell .adhkar-pro-card,.glossary-pro-card,
+.timeline-pro .timeline-pro-event-card):hover::before { transform:scale(1.22); }
+:is(.library-pro-selection .library-pro-card,.hadith-pro-root .hadith-pro-card,
+.hadith-pro-root .hadith-kutub-book,.glossary-pro-card):focus-visible {
+    outline:3px solid var(--ax-accent); outline-offset:3px;
+}
+.library-pro-selection .library-pro-results.is-grid,
+.hadith-pro-root .hadith-pro-grid,
+.hadith-pro-root .hadith-kutub-grid,
+.adhkar-pro-shell .adhkar-pro-card-grid,
+.adhkar-pro-shell .adhkar-pro-routine-grid,
+.glossary-pro-grid { gap:22px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+
+/* Compagnons — bleu encre */
+.library-pro-selection .library-pro-card { padding:22px; min-height:335px; }
+.library-pro-selection .library-pro-card-top { justify-content:flex-start; align-items:center; }
+.library-pro-selection .library-pro-card-index { order:2; margin-right:auto; background:transparent; color:var(--ax-accent); font-size:11px; }
+.library-pro-selection .library-pro-card-emblem {
+    order:1; width:50px; height:50px; display:grid; place-items:center;
+    border-radius:15px; color:var(--ax-accent); background:rgba(var(--ax-rgb),.095);
+}
+.library-pro-card-emblem svg { width:22px; height:22px; }
+.library-pro-selection .library-pro-card-top > button { order:3; border-color:var(--ax-line); }
+.library-pro-selection .library-pro-card-main { padding-top:15px; }
+.library-pro-selection .library-pro-card-arabic { font-family:Amiri,serif; color:var(--ax-muted); font-size:21px; }
+.library-pro-selection .library-pro-card-category {
+    display:table; max-width:100%; margin:8px 0 7px;
+    padding:5px 9px; border-radius:7px; border:1px solid var(--ax-line);
+    background:rgba(var(--ax-rgb),.045); color:var(--ax-accent);
+    font:700 10px Inter,sans-serif;
+}
+.library-pro-selection .library-pro-card h2 { font-family:Cinzel,Georgia,serif; color:var(--ax-ink); line-height:1.45; }
+.library-pro-selection .library-pro-card-subtitle { color:var(--ax-accent); }
+.library-pro-selection .library-pro-card-summary { color:var(--ax-muted); line-height:1.75; }
+.library-pro-selection .library-pro-card footer { border-color:var(--ax-line); }
+.library-pro-selection .library-pro-card footer b { color:var(--ax-accent); }
+.library-pro-root .library-pro-collection-grid > button,
+.library-pro-root .library-pro-collection-index > button,
+.library-pro-root .library-pro-shelf > article {
+    background:var(--ax-card); border:1px solid var(--ax-line);
+    border-radius:18px; box-shadow:0 10px 28px rgba(25,33,43,.035);
+}
+.library-pro-root .library-pro-collection-icon { color:var(--ax-accent); background:rgba(var(--ax-rgb),.08); }
+.library-pro-root .library-pro-card-badges span { color:var(--ax-accent); }
+
+/* Hadiths — bleu ardoise */
+.hadith-pro-root .hadith-pro-grid { align-items:stretch; }
+.hadith-pro-root .hadith-pro-card { min-height:282px; padding:22px; }
+.hadith-pro-root .hadith-pro-card-top { justify-content:flex-start; margin-bottom:14px; gap:9px; }
+.hadith-pro-card-symbol,.hadith-kutub-book-mark {
+    flex:0 0 auto; width:47px; height:47px; display:grid; place-items:center;
+    border-radius:15px; color:var(--ax-accent); background:rgba(var(--ax-rgb),.095);
+}
+.hadith-pro-card-symbol svg,.hadith-kutub-book-mark svg { width:21px; height:21px; }
+.hadith-pro-root .hadith-pro-card-topic { display:inline-flex; align-items:center; margin-right:auto; color:var(--ax-accent); font-size:11px; white-space:normal; line-height:1.5; }
+.hadith-pro-root .hadith-pro-card h2 { font:700 17px/1.47 Cinzel,Georgia,serif; color:var(--ax-ink); }
+.hadith-pro-root .hadith-pro-card-excerpt { color:var(--ax-muted); font-family:Georgia,serif; font-size:13px; }
+.hadith-pro-root .hadith-pro-card footer { border-color:var(--ax-line); }
+.hadith-pro-root .hadith-pro-card-open { color:var(--ax-accent); }
+.hadith-pro-root .hadith-kutub-section-head { text-align:center; margin:0 auto; }
+.hadith-pro-root .hadith-kutub-section-head h2 { color:var(--ax-ink); }
+.hadith-pro-root .hadith-kutub-book {
+    min-height:238px; padding:22px; gap:9px;
+}
+.hadith-pro-root .hadith-kutub-book-index { color:var(--ax-accent); }
+.hadith-kutub-book-mark { margin:0 0 2px; }
+.hadith-pro-root .hadith-kutub-book-ar { color:var(--ax-muted); }
+.hadith-pro-root .hadith-kutub-book strong { font:700 17px/1.45 Cinzel,Georgia,serif; color:var(--ax-ink); }
+.hadith-pro-root .hadith-kutub-book-bottom { border-color:var(--ax-line); color:var(--ax-accent); }
+.hadith-pro-root .hadith-kutub-book-counts { color:var(--ax-muted); }
+.hadith-reader-pro .hadith-reader-heading h1 { color:var(--ax-ink); }
+.hadith-reader-pro .hadith-reader-overline { color:var(--ax-accent); }
+.hadith-reader-pro .hadith-reader-text-card { border-color:var(--ax-line); box-shadow:0 10px 28px rgba(30,38,50,.04); }
+
+/* Adhkâr — lavande */
+.adhkar-pro-shell .adhkar-pro-main { max-width:1330px; margin:0 auto; }
+.adhkar-pro-shell .adhkar-pro-section-head { text-align:center; justify-content:center; display:flex; flex-direction:column; gap:7px; }
+.adhkar-pro-shell .adhkar-pro-section-head > div { text-align:center; }
+.adhkar-pro-shell .adhkar-pro-section-head h2 { font:700 clamp(20px,3vw,29px)/1.35 Cinzel,serif; color:var(--ax-ink); }
+.adhkar-pro-shell .adhkar-pro-section-head p { color:var(--ax-muted); text-align:center; max-width:630px; margin:auto; }
+.adhkar-pro-shell .adhkar-pro-routine-card { min-height:264px; }
+.adhkar-pro-shell .adhkar-pro-routine-icon {
+    background:rgba(var(--ax-rgb),.10); color:var(--ax-accent);
+    width:53px; height:53px; border-radius:15px;
+}
+.adhkar-pro-shell .adhkar-pro-routine-card > span { color:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-routine-card h3 { color:var(--ax-ink); }
+.adhkar-pro-shell .adhkar-pro-routine-card p { color:var(--ax-muted); }
+.adhkar-pro-shell .adhkar-pro-routine-progress { background:rgba(var(--ax-rgb),.10); }
+.adhkar-pro-shell .adhkar-pro-routine-progress i { background:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-routine-card > button { background:var(--ax-accent); border-color:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-routine-card > button:hover { filter:brightness(.94); }
+.adhkar-pro-shell .adhkar-pro-method-note { border-color:var(--ax-line); background:rgba(var(--ax-rgb),.045); }
+.adhkar-pro-shell .adhkar-pro-library-toolbar { justify-content:center; }
+.adhkar-pro-shell .adhkar-pro-library-toolbar > label { max-width:670px; border-color:var(--ax-line); background:var(--ax-card); border-radius:999px; }
+.adhkar-pro-shell .adhkar-pro-card { padding:22px; min-height:360px; }
+.adhkar-pro-shell .adhkar-pro-card-top > span {
+    padding:8px 11px; border-radius:10px; color:var(--ax-accent);
+    background:rgba(var(--ax-rgb),.09);
+}
+.adhkar-pro-shell .adhkar-pro-card h3 { font:700 17px/1.4 Cinzel,Georgia,serif; color:var(--ax-ink); }
+.adhkar-pro-shell .adhkar-pro-card-arabic { color:var(--ax-ink); }
+.adhkar-pro-shell .adhkar-pro-card-meaning { color:var(--ax-muted); }
+.adhkar-pro-shell .adhkar-pro-card-foot > span,.adhkar-pro-shell .adhkar-pro-card-foot > b { color:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-card-foot > div i { background:var(--ax-accent); }
+.adhkar-pro-shell .adhkar-pro-reader { border-color:var(--ax-line); }
+.adhkar-pro-shell .adhkar-pro-reader header { border-color:var(--ax-line); }
+
+/* Lexique — terracotta */
+.glossary-pro-root { min-height:100%; font-family:Inter,system-ui,sans-serif; }
+.glossary-pro-container { max-width:1370px; padding:34px clamp(14px,4vw,50px) 100px; margin:0 auto; }
+.glossary-pro-hero h1 { margin:0; }
+.glossary-pro-search {
+    width:min(100%,610px); height:55px; display:flex; align-items:center; gap:12px;
+    background:var(--ax-card); border:1px solid var(--ax-line); border-radius:999px;
+    padding:0 19px; margin:24px auto 15px;
+}
+.glossary-pro-search:focus-within { border-color:var(--ax-accent); box-shadow:0 0 0 3px rgba(var(--ax-rgb),.10); }
+.glossary-pro-search svg { width:18px; height:18px; color:var(--ax-accent); flex-shrink:0; }
+.glossary-pro-search input { border:0; background:transparent; outline:0; width:100%; min-width:0; color:var(--ax-ink); font:450 14px Inter,sans-serif; }
+.glossary-pro-categories { margin-bottom:8px; }
+.glossary-pro-categories button span { font:650 10px Inter,sans-serif; opacity:.75; }
+.glossary-pro-result { margin:13px 0 19px; padding-top:13px; border-top:1px solid var(--ax-line); color:var(--ax-muted); font:650 12px Inter,sans-serif; }
+.glossary-pro-grid { display:grid; }
+.glossary-pro-card { display:flex; flex-direction:column; min-width:0; min-height:230px; padding:24px; }
+.glossary-pro-card header { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:17px; }
+.glossary-pro-card-icon { width:51px; height:51px; border-radius:15px; background:rgba(var(--ax-rgb),.1); color:var(--ax-accent); display:grid; place-items:center; }
+.glossary-pro-card-icon svg { width:24px; height:24px; }
+.glossary-pro-card-origin { color:var(--ax-accent); background:rgba(var(--ax-rgb),.065); border:1px solid var(--ax-line); padding:5px 9px; border-radius:7px; font:700 10px Inter,sans-serif; }
+.glossary-pro-card h2 { font:700 20px/1.4 Cinzel,Georgia,serif; color:var(--ax-ink); margin:0 0 10px; overflow-wrap:anywhere; text-transform:capitalize; }
+.glossary-pro-card p { font:400 13px/1.78 Inter,system-ui,sans-serif; color:var(--ax-muted); margin:0 0 18px; flex:1; overflow-wrap:anywhere; }
+.glossary-pro-card footer { border-top:1px solid var(--ax-line); padding-top:12px; font:700 10px Inter,sans-serif; color:var(--ax-accent); }
+.glossary-pro-empty { background:var(--ax-card); border:1px dashed var(--ax-line); border-radius:18px; padding:55px 20px; text-align:center; color:var(--ax-muted); }
+.glossary-pro-empty svg { width:31px; height:31px; color:var(--ax-accent); }
+.glossary-pro-empty h2 { color:var(--ax-ink); font:700 18px Cinzel,serif; margin:14px 0 8px; }
+.glossary-pro-empty p { font:400 13px/1.6 Inter,sans-serif; }
+.glossary-pro-empty button { border:1px solid var(--ax-line); color:var(--ax-accent); background:rgba(var(--ax-rgb),.06); padding:10px 18px; border-radius:12px; font:700 12px Inter,sans-serif; cursor:pointer; }
+
+/* Chronologie — ocre; conservation du code couleur par période à l'intérieur des événements. */
+.timeline-pro .timeline-pro-hero-copy { align-items:center; }
+.timeline-pro .timeline-pro-hero-copy > p { max-width:610px; }
+.timeline-pro .timeline-pro-hero h1 em { color:var(--ax-accent); }
+.timeline-pro .timeline-pro-actions { justify-content:center; margin:22px auto 0; }
+.timeline-pro .timeline-pro-primary { background:var(--ax-accent); border-color:var(--ax-accent); }
+.timeline-pro .timeline-pro-secondary { border-color:var(--ax-line); color:var(--ax-accent); }
+.timeline-pro .timeline-pro-stats {
+    display:flex; gap:8px; justify-content:center; flex-wrap:wrap;
+    max-width:100%; margin:18px auto 0; padding:0;
+    border:0; box-shadow:none; background:transparent;
+}
+.timeline-pro .timeline-pro-stats > div { padding:8px 13px; min-width:0; background:rgba(var(--ax-rgb),.055); border:1px solid var(--ax-line); border-radius:999px; display:inline-flex; align-items:baseline; gap:6px; }
+.timeline-pro .timeline-pro-stats strong { color:var(--ax-accent); font-size:15px; }
+.timeline-pro .timeline-pro-stats span { color:var(--ax-muted); font-size:11px; }
+.timeline-pro .timeline-pro-modes { justify-content:center; }
+.timeline-pro .timeline-pro-modes button.active { background:var(--ax-accent); border-color:var(--ax-accent); color:#fff; }
+.timeline-pro .timeline-pro-toolbar { border-color:var(--ax-line); }
+.timeline-pro .timeline-pro-toolbar input { color:var(--ax-ink); }
+.timeline-pro .timeline-pro-period-head { border-color:var(--ax-line); }
+.timeline-pro .timeline-pro-event-card { margin:6px 0; text-align:left; }
+.timeline-pro .timeline-pro-event-person h3 { color:var(--ax-ink); }
+.timeline-pro .timeline-pro-event-card > p { color:var(--ax-muted); }
+.timeline-pro .timeline-pro-era-grid > article,.timeline-pro .timeline-pro-path-grid > article { padding:22px; }
+.timeline-pro .timeline-pro-era-grid > article h3,.timeline-pro .timeline-pro-path-grid > article h3 { color:var(--ax-ink); }
+.timeline-pro .timeline-pro-era-grid > article p,.timeline-pro .timeline-pro-path-grid > article p { color:var(--ax-muted); }
+.timeline-pro .timeline-pro-period-rail button.active { border-color:var(--ax-accent); background:rgba(var(--ax-rgb),.1); }
+.timeline-pro .timeline-pro-reading-method { border-color:var(--ax-line); background:var(--ax-card); }
+
+/* Réduction de la surcharge et conventions tactile / claviers. */
+:is(.library-pro-root,.hadith-pro-root,.adhkar-pro-shell,.glossary-pro-root,.timeline-pro) :is(button,input,select,textarea,[tabindex="0"]):focus-visible {
+    outline:3px solid var(--ax-accent); outline-offset:3px;
+}
+.dark :is(.library-pro-root,.hadith-pro-root,.adhkar-pro-shell,.glossary-pro-root,.timeline-pro) :is(button,input,select,textarea):focus-visible {
+    outline-color:var(--ax-accent);
+}
+@media (max-width:1100px) {
+    .library-pro-selection .library-pro-results.is-grid,
+    .hadith-pro-root .hadith-pro-grid,.hadith-pro-root .hadith-kutub-grid,
+    .adhkar-pro-shell .adhkar-pro-card-grid,.adhkar-pro-shell .adhkar-pro-routine-grid,
+    .glossary-pro-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:760px) {
+    .library-pro-selection .library-pro-selection-intro,.hadith-pro-root .hadith-pro-heading,
+    .adhkar-pro-shell .adhkar-pro-hero,.glossary-pro-hero,.timeline-pro .timeline-pro-hero { padding-top:26px; }
+    .library-pro-selection .library-pro-selection-intro h1,
+    .hadith-pro-root .hadith-pro-heading h1,.adhkar-pro-shell .adhkar-pro-hero h1,
+    .glossary-pro-hero h1,.timeline-pro .timeline-pro-hero h1 { font-size:clamp(26px,6vw,38px); }
+    .library-pro-selection .library-pro-selection-intro > div > p,
+    .hadith-pro-root .hadith-pro-heading p,.adhkar-pro-shell .adhkar-pro-hero p,
+    .glossary-pro-hero > p,.timeline-pro .timeline-pro-hero-copy > p { font-size:12px; line-height:1.7; }
+    .library-pro-selection .library-pro-quick-categories,
+    .hadith-pro-root .hadith-pro-topic-row,
+    .adhkar-pro-shell .adhkar-pro-category-row,.glossary-pro-categories { justify-content:flex-start; flex-wrap:nowrap; scrollbar-width:none; }
+    .library-pro-selection .library-pro-quick-categories::-webkit-scrollbar,
+    .hadith-pro-root .hadith-pro-topic-row::-webkit-scrollbar,
+    .adhkar-pro-shell .adhkar-pro-category-row::-webkit-scrollbar,
+    .glossary-pro-categories::-webkit-scrollbar { display:none; }
+    .adhkar-pro-shell .adhkar-pro-hero-stats { gap:6px; }
+    .adhkar-pro-shell .adhkar-pro-hero-stats article { padding:6px 9px; font-size:10px; }
+    .timeline-pro .timeline-pro-stats { gap:5px; }
+    .timeline-pro .timeline-pro-stats > div { padding:6px 9px; }
+    .timeline-pro .timeline-pro-hero { margin-bottom:12px; }
+}
+@media (max-width:590px) {
+    .library-pro-selection .library-pro-results.is-grid,
+    .hadith-pro-root .hadith-pro-grid,.hadith-pro-root .hadith-kutub-grid,
+    .adhkar-pro-shell .adhkar-pro-card-grid,.adhkar-pro-shell .adhkar-pro-routine-grid,
+    .glossary-pro-grid { grid-template-columns:minmax(0,1fr); gap:14px; }
+    .library-pro-selection .library-pro-card,.hadith-pro-root .hadith-pro-card,
+    .hadith-pro-root .hadith-kutub-book,.adhkar-pro-shell .adhkar-pro-card,
+    .adhkar-pro-shell .adhkar-pro-routine-card,.glossary-pro-card { min-height:0; padding:19px; }
+    .library-pro-selection .library-pro-card-emblem,.glossary-pro-card-icon,.hadith-pro-card-symbol,.hadith-kutub-book-mark { width:44px; height:44px; border-radius:13px; }
+    .library-pro-selection .library-pro-selection-panel { margin-top:14px; }
+    .library-pro-selection .library-pro-selection-search { height:50px; }
+    .hadith-pro-root .hadith-pro-search-area { justify-content:stretch; }
+    .hadith-pro-root .hadith-pro-topic-row { margin:13px 0; }
+    .adhkar-pro-shell .adhkar-pro-section-head { padding-inline:6px; }
+    .glossary-pro-container { padding:24px 15px 70px; }
+    .glossary-pro-search { margin-top:19px; height:51px; }
+    .glossary-pro-card h2 { font-size:18px; }
+    .timeline-pro .timeline-pro-stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; }
+    .timeline-pro .timeline-pro-stats > div { justify-content:center; }
+}
+@media (hover:none) {
+    :is(.library-pro-selection .library-pro-card,.hadith-pro-root .hadith-pro-card,
+    .hadith-pro-root .hadith-kutub-book,.adhkar-pro-shell .adhkar-pro-routine-card,
+    .adhkar-pro-shell .adhkar-pro-card,.glossary-pro-card,.timeline-pro .timeline-pro-event-card):hover { transform:none; box-shadow:0 11px 28px rgba(25,33,43,.035); }
+}
+@media (prefers-reduced-motion:reduce) {
+    :is(.library-pro-root,.hadith-pro-root,.adhkar-pro-shell,.glossary-pro-root,.timeline-pro) *,
+    :is(.library-pro-root,.hadith-pro-root,.adhkar-pro-shell,.glossary-pro-root,.timeline-pro) *::before {
+        transition:none !important; animation:none !important; scroll-behavior:auto !important;
+    }
+}
