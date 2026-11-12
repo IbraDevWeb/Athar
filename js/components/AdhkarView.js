@@ -291,8 +291,14 @@ const AdhkarView = {
                 </div>
                 <div class="adhkar-pro-result-line"><b>{{ filteredItems.length }}</b> invocation<span v-if="filteredItems.length>1">s</span><button @click="resetToday">Réinitialiser les compteurs du jour</button></div>
                 <div class="adhkar-pro-card-grid">
-                    <article v-for="item in filteredItems" :key="item.id" class="adhkar-pro-card" :class="{complete:isComplete(item)}" @click="openItem(item)">
-                        <div class="adhkar-pro-card-top"><span><i :data-lucide="categoryIcon(item.category)"></i>{{ item.category }}</span><button @click.stop="toggleFavorite(item)" :aria-label="isFavorite(item.id)?'Retirer des favoris':'Ajouter aux favoris'"><i data-lucide="heart" :class="{filled:isFavorite(item.id)}"></i></button></div>
+                    <article v-for="item in filteredItems" :key="item.id" class="adhkar-pro-card" :class="{complete:isComplete(item)}"
+                        role="button" tabindex="0" :aria-label="'Lire l’invocation : '+item.title"
+                        @click="openItem(item)" @keydown.enter.self.prevent="openItem(item)" @keydown.space.self.prevent="openItem(item)">
+                        <div class="adhkar-pro-card-top">
+                            <span class="adhkar-pro-card-emblem" aria-hidden="true"><i :data-lucide="categoryIcon(item.category)"></i></span>
+                            <span class="adhkar-pro-card-label">{{ item.category }}</span>
+                            <button @click.stop="toggleFavorite(item)" @keydown.stop :aria-label="isFavorite(item.id)?'Retirer des favoris':'Ajouter aux favoris'"><i data-lucide="heart" :class="{filled:isFavorite(item.id)}"></i></button>
+                        </div>
                         <h3>{{ item.title }}</h3>
                         <p class="adhkar-pro-card-arabic" :class="{compact:compactArabic}" dir="rtl" lang="ar">{{ item.arabic }}</p>
                         <p class="adhkar-pro-card-meaning">{{ item.translation }}</p>
