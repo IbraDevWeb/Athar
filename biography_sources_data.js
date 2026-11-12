@@ -3239,7 +3239,7 @@ const BIOGRAPHY_SOURCES = {
         "title": "Tradition ou parole rapportée",
         "externalUrl": "https://ketabonline.com/ar/books/598/read?page=1812&part=1",
         "hadithRef": "Siyar 1/206 : voie d'‘Urwa, moursal selon Ibn Hajar",
-        "grade": "mursal",
+        "grade": "attribution_discontinue",
         "status": "qualification",
         "note": "Ibn Hajar souligne que la voie est moursal. La tradition est conservée avec sa réserve sans la faire passer pour un hadith unanimement authentifié.",
         "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
@@ -3670,7 +3670,7 @@ const BIOGRAPHY_SOURCES = {
         "title": "Tradition ou parole rapportée",
         "externalUrl": "https://dorar.net/h/ARqrTG9R",
         "hadithRef": "Al-Hâkim 6625 ; ach-Chawkânî, Durr as-Sahâba 275 : moursal, rapporteurs fiables",
-        "grade": "mursal",
+        "grade": "attribution_discontinue",
         "status": "qualification",
         "note": "Ach-Chawkânî distingue la fiabilité des transmetteurs présents de l'interruption de la chaîne. Athar n'en déduit pas un verdict inédit.",
         "isnad": "Rapporteurs et avis à consulter dans le recueil ou la base liée ; aucune authentification originale par Athar."
@@ -4025,7 +4025,7 @@ const BIOGRAPHY_SOURCES = {
         "title": "Tradition ou parole rapportée",
         "externalUrl": "https://dorar.net/h/HPSMvins",
         "hadithRef": "Mouwatta’ ; Ibn ‘Abd al-Barr, al-Istidhkâr 6/39 : moursal avec corroboration",
-        "grade": "mursal",
+        "grade": "attribution_discontinue",
         "status": "qualification",
         "note": "Ibn ‘Abd al-Barr déclare la voie moursal et signale une corroboration et une version reliée.",
         "isnad": "Témoignage historique attribué au rapporteur cité, non nouvelle parole prophétique."
