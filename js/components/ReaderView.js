@@ -340,7 +340,7 @@ const ReaderView = {
                         <div class="bg-white dark:bg-brand-dark-lighter p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative">
                             <span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-3">{{ evt.readingYear }}</span>
                             <p class="text-gray-700 dark:text-gray-300 leading-relaxed font-serif" v-html="formatText(evt.readingDesc)"></p>
-                            <details v-if="evt.readingContext || sourceEvidence('timeline', i)" class="athar-story-context mt-6 border-t border-gray-100 dark:border-gray-700/60 pt-4">
+                            <details v-if="evt.readingContext || sourceEvidence('timeline', i) || biographyReferences" class="athar-story-context mt-6 border-t border-gray-100 dark:border-gray-700/60 pt-4">
                                 <summary class="athar-story-context-trigger inline-flex items-center gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">
                                     <i data-lucide="book-open" class="w-4 h-4"></i> Sources, variantes et fiabilité
                                     <span aria-hidden="true" class="athar-story-context-chevron">⌄</span>
@@ -354,6 +354,8 @@ const ReaderView = {
                                         <p v-if="sourceEvidence('timeline', i).printedPage != null" class="mt-2">Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('timeline', i).printedPage }}</p>
                                         <a v-if="sourceEvidence('timeline', i).externalUrl" :href="sourceEvidence('timeline', i).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter la source de l’événement</a>
                                     </section>
+                                    <p v-if="biographyReferences" class="mt-3">Référence principale de la notice : {{ biographyReferences.work }} (ce lien ne constitue pas une preuve propre à cet événement).</p>
+                                    <a v-if="biographyReferences?.readUrl" :href="biographyReferences.readUrl" target="_blank" rel="noopener noreferrer" class="block mt-2 text-brand-gold hover:underline font-semibold">Consulter la notice source</a>
                                     <button v-if="biographyReferences" type="button" @click="activeTab = 'sources'" class="block mt-3 text-brand-gold hover:underline font-semibold">Voir toutes les références</button>
                                 </div>
                             </details>
