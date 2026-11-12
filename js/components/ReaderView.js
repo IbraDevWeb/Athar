@@ -272,26 +272,49 @@ const ReaderView = {
                 <div v-if="chapter.heroQuote" class="text-center py-8 px-4 md:px-12 relative">
                     <i class="absolute top-0 left-0 text-6xl font-serif text-brand-gold/10 font-bold">“</i>
                     <p class="font-serif text-2xl md:text-3xl text-brand-dark dark:text-gray-100 font-medium leading-relaxed">{{ chapter.heroQuote }}</p>
-                    <aside v-if="sourceEvidence('quote', 0)" class="text-left max-w-2xl mx-auto mt-5 text-xs text-gray-600 dark:text-gray-300 border-t border-brand-gold/20 pt-3">
-                        <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
-                        <p class="mt-1">{{ sourceEvidence('quote', 0).note }}</p>
-                        <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le texte original</a>
-                    </aside>
+                    <details v-if="sourceEvidence('quote', 0)" class="athar-story-context text-left max-w-2xl mx-auto mt-5 border-t border-brand-gold/15 pt-3">
+                        <summary class="text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">Contexte et source de cette citation <span aria-hidden="true" class="athar-story-context-chevron">⌄</span></summary>
+                        <aside class="mt-3 text-xs leading-relaxed text-gray-600 dark:text-gray-300 rounded-xl bg-gray-50/70 dark:bg-white/[0.04] p-4">
+                            <p class="font-semibold text-brand-gold">{{ evidenceLabel(sourceEvidence('quote', 0).status) }} · {{ sourceEvidence('quote', 0).hadithRef || 'Source : Siyar' }}</p>
+                            <p class="mt-2">{{ sourceEvidence('quote', 0).note }}</p>
+                            <a v-if="sourceEvidence('quote', 0).externalUrl" :href="sourceEvidence('quote', 0).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">Consulter le texte original</a>
+                        </aside>
+                    </details>
                     <i class="absolute bottom-0 right-0 text-6xl font-serif text-brand-gold/10 font-bold rotate-180">“</i>
                 </div>
 
                 <div class="space-y-6">
-                    <div v-for="(story, index) in safeNarratives" :key="story.id" class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300" :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
+                    <div v-for="(story, index) in safeNarratives" :key="chapter.id + ':' + story.id" class="bg-white dark:bg-brand-dark-lighter rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300" :class="activeStoryId === story.id ? 'shadow-lg ring-1 ring-brand-gold border-brand-gold/50' : 'hover:border-brand-gold/30'">
                         <button type="button" @click="toggleStory(story.id)" :aria-expanded="activeStoryId === story.id" class="w-full flex justify-between items-center p-6 text-left focus:outline-none bg-gray-50/30 dark:bg-white/5 hover:bg-white dark:hover:bg-brand-dark-lighter transition-colors">
                             <div class="flex items-center gap-5"><span class="font-display text-4xl font-bold text-gray-200 dark:text-white/10">{{ String(index + 1).padStart(2, '0') }}</span><h3 class="font-bold text-lg md:text-xl text-brand-dark dark:text-white">{{ story.title }}</h3></div>
                             <span class="w-8 h-8 rounded-full bg-gray-100 dark:bg-brand-dark flex items-center justify-center transition-transform duration-300" :class="activeStoryId === story.id ? 'rotate-180 bg-brand-gold text-white' : 'text-gray-400'"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
                         </button>
-                        <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter"><div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300"><p v-html="formatText(story.content)"></p></div>
-                            <aside v-if="sourceEvidence('narrative', story.id)" class="mt-5 border-t border-brand-gold/20 pt-4 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                                <span class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }} · {{ sourceEvidence('narrative', story.id).printedPage != null ? 'Fascicule ' + biographyReferences.fascicle + ', p. ' + sourceEvidence('narrative', story.id).printedPage : 'Référence externe' }}</span>
-                                <p class="mt-1">{{ sourceEvidence('narrative', story.id).note }}</p><p v-if="sourceEvidence('narrative', story.id).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('narrative', story.id).hadithRef }}</p><a v-if="sourceEvidence('narrative', story.id).externalUrl" :href="sourceEvidence('narrative', story.id).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-brand-gold underline">Consulter le récit dans la source citée</a>
-                                <button type="button" @click="activeTab='sources'" class="mt-2 font-semibold text-brand-gold hover:underline">Voir la référence complète</button>
-                            </aside></div>
+                        <div v-show="activeStoryId === story.id" class="px-6 md:px-8 pb-8 pt-4 animate-fade-in bg-white dark:bg-brand-dark-lighter">
+                            <div class="prose prose-lg prose-brand dark:prose-invert max-w-none font-serif leading-loose text-justify text-gray-600 dark:text-gray-300">
+                                <p v-html="formatText(story.readingContent || story.content)"></p>
+                            </div>
+                            <details v-if="story.editorialNotes || sourceEvidence('narrative', story.id)" class="athar-story-context mt-8 border-t border-gray-100 dark:border-gray-700/60 pt-4">
+                                <summary class="athar-story-context-trigger inline-flex items-center gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer select-none">
+                                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                                    Sources, variantes et fiabilité
+                                    <span aria-hidden="true" class="athar-story-context-chevron">⌄</span>
+                                </summary>
+                                <div class="athar-story-context-body mt-4 rounded-xl bg-gray-50/70 dark:bg-white/[0.04] p-5 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                                    <section v-if="story.editorialNotes">
+                                        <h4 class="font-semibold text-xs uppercase tracking-wide text-brand-gold mb-2">Précisions et variantes</h4>
+                                        <p>{{ story.editorialNotes }}</p>
+                                    </section>
+                                    <section v-if="sourceEvidence('narrative', story.id)" :class="story.editorialNotes ? 'mt-4 pt-4 border-t border-gray-200/70 dark:border-gray-700' : ''">
+                                        <h4 class="font-semibold text-xs uppercase tracking-wide text-brand-gold mb-2">{{ evidenceLabel(sourceEvidence('narrative', story.id).status) }}</h4>
+                                        <p v-if="sourceEvidence('narrative', story.id).note">{{ sourceEvidence('narrative', story.id).note }}</p>
+                                        <p v-if="sourceEvidence('narrative', story.id).hadithRef" class="mt-2 font-semibold">{{ sourceEvidence('narrative', story.id).hadithRef }}</p>
+                                        <p v-if="sourceEvidence('narrative', story.id).printedPage != null" class="mt-2">Fascicule {{ biographyReferences.fascicle }}, p. {{ sourceEvidence('narrative', story.id).printedPage }}</p>
+                                        <a v-if="sourceEvidence('narrative', story.id).externalUrl" :href="sourceEvidence('narrative', story.id).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-3 text-brand-gold hover:underline font-semibold">Consulter la source externe <i data-lucide="external-link" class="w-3 h-3 ml-1"></i></a>
+                                        <button type="button" @click="activeTab='sources'" class="block mt-3 text-brand-gold hover:underline font-semibold text-left">Voir toutes les références</button>
+                                    </section>
+                                </div>
+                            </details>
+                        </div>
                     </div>
                 </div>
             </div>

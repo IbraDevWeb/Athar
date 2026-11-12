@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v57-library-selection-1';
+    const APP_VERSION = 'athar-pro-v58-narrative-reading-01-40-1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

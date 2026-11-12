@@ -658,3 +658,42 @@ html.dark body.bg-grain {
 .dark #tooltip {
     background-color: rgba(0,0,0,0.96) !important;
 }
+
+
+/* Reading-first biographies: scholarly criticism stays below the narrative, closed by default. */
+.athar-story-context > summary {
+    list-style: none;
+    border-radius: 10px;
+    padding: 9px 12px;
+    margin-left: -12px;
+    transition: background .2s ease, color .2s ease;
+}
+.athar-story-context > summary::-webkit-details-marker { display: none; }
+.athar-story-context > summary::marker { content: ''; }
+.athar-story-context > summary:hover,
+.athar-story-context > summary:focus-visible {
+    background: rgba(197, 160, 89, .09);
+    color: #ac874a;
+}
+.athar-story-context > summary:focus-visible {
+    outline: 2px solid #c5a059;
+    outline-offset: 2px;
+}
+.athar-story-context-chevron {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    margin-left: 2px;
+    transition: transform .2s ease;
+}
+.athar-story-context[open] .athar-story-context-chevron { transform: rotate(180deg); }
+.athar-story-context-body {
+    animation: athar-story-notes-enter .18s ease-out;
+}
+@keyframes athar-story-notes-enter {
+    from { opacity: .5; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .athar-story-context *, .athar-story-context-body { animation: none !important; transition: none !important; }
+}
