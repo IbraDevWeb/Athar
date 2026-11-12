@@ -2662,23 +2662,97 @@
                 name: "Koulthoum ibn Al-Hidm",
                 arabicName: "كُلْثُوم بن الهِدْم",
                 subtitle: "L'Hôte de Qouba",
-                intro: "Le doyen (Shaykh) des Ansars chez qui le Prophète (ﷺ) séjourna à son arrivée à Qouba lors de l'Hégire. Sa maison fut le premier foyer du Messager d'Allah à Médine.",
-                heroQuote: "Le Prophète descendit chez lui à Qouba avant d'entrer à Médine.",
+                intro: "Koulthoum ibn al-Hidm, un notable âgé des Ansâr, est mentionné par Ibn Ishâq comme hôte du Prophète ﷺ à Qoubâ au début de l'Hégire. Une autre tradition cite Sa‘d ibn Khaythama, dont la maison servait aux réunions. Koulthoum mourut avant Badr selon les biographies.",
+                heroQuote: "Ibn Ishâq cite Koulthoum comme hôte du Prophète à Qoubâ, en mentionnant aussi une autre version chez Sa‘d ibn Khaythama.",
                 tags: ["Ansar", "Hôte", "Qouba"],
                 genealogy: "Koulthoum ibn Al-Hidm... Al-Aoussi. De la branche des Banou 'Amr ibn 'Aouf.",
                 physicalDesc: "Un homme âgé et respecté, doyen de sa tribu.",
                 timeline: [
-                    { year: "Hégire", desc: "Accueille le Prophète à son arrivée à Qouba (lundi 12 Rabi' al-Awwal)." },
-                    { year: "1 H", desc: "Décède peu après l'arrivée du Prophète, avant la bataille de Badr." }
+                  {
+                    "year": "1 H",
+                    "desc": "À Qoubâ, hébergement chez Koulthoum selon Ibn Ishâq, ou chez Sa‘d ibn Khaythama selon une autre version."
+                  },
+                  {
+                    "year": "Avant Badr (2 H)",
+                    "desc": "Ibn Sa‘d situe le décès de Koulthoum peu après l'Hégire, avant Badr, sans date journalière démontrée."
+                  }
                 ],
                 narratives: [
-                    { id: 381, title: "L'Hospitalité Première", content: "Bien que le Prophète tînt ses assemblées chez Saad ibn Khaythama (pour les célibataires), c'est bien chez Koulthoum ibn Al-Hidm qu'il logeait physiquement et dormait lors de son séjour à Qouba." }
+                  {
+                    "id": 381,
+                    "title": "Deux hôtes possibles à Qoubâ",
+                    "content": "Ibn Ishâq rapporte le séjour du Prophète chez Koulthoum, tout en donnant la version alternative de Sa‘d ibn Khaythama. Al-Haythamî indique que les transmetteurs de la voie examinée sont fiables (Majma‘ az-Zawâ’id 6/65) ; le classement ne supprime pas l'existence de variantes."
+                  },
+                  {
+                    "id": 382,
+                    "title": "La maison des célibataires chez Sa‘d",
+                    "content": "La sîra concilie parfois les récits en expliquant que le Prophète logeait chez Koulthoum mais recevait les visiteurs chez Sa‘d, dont la maison était appelée la maison des célibataires. Cette explication est attribuée aux chroniqueurs et n'est pas posée comme une preuve excluant les autres versions."
+                  }
                 ],
                 hadiths: [
-                    { text: "Le Messager d'Allah logea chez Koulthoum ibn Al-Hidm à Qouba.", narrator: "Ibn Ishaq", source: "Sira" }
+                  {
+                    "text": "Selon Ibn Ishâq, le Prophète séjourna chez Koulthoum à Qoubâ ; une autre version cite Sa‘d ibn Khaythama.",
+                    "narrator": "Ibn Ishâq, tradition de sîra",
+                    "source": "At-Tabarânî 5414 ; Al-Haythamî (6/65) : rapporteurs fiables",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Quel est le mérite unique de Koulthoum ?", opts: ["Il a tué Abou Jahl", "Il a hébergé le Prophète à Qouba", "Il a construit la Kaaba", "Il était le premier muezzin"], c: 1, exp: "Il fut le premier hôte du Prophète avant son entrée dans Médine même." }
+                  {
+                    "q": "Où le Prophète séjourna-t-il avant son entrée à Médine ?",
+                    "opts": [
+                      "Qoubâ",
+                      "Badr",
+                      "Al-Abwâ"
+                    ],
+                    "c": 0,
+                    "exp": "Ibn Ishâq rapporte le séjour à Qoubâ dans la région de Médine.",
+                    "ref": "https://dorar.net/h/sK6hUNNK"
+                  },
+                  {
+                    "q": "Quels deux hôtes sont cités dans les variantes ?",
+                    "opts": [
+                      "Koulthoum et Sa‘d ibn Khaythama",
+                      "Ja‘far et ‘Aqîl",
+                      "Abou Doujâna et Ibn Rawâha"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit d'Ibn Ishâq conserve les deux attributions d'hébergement.",
+                    "ref": "https://dorar.net/h/sK6hUNNK"
+                  },
+                  {
+                    "q": "Que dit Al-Haythamî sur une chaîne de ce récit ?",
+                    "opts": [
+                      "Ses rapporteurs sont fiables",
+                      "C'est un verset",
+                      "Il est unanimement inventé"
+                    ],
+                    "c": 0,
+                    "exp": "Majma‘ az-Zawâ’id 6/65 évalue les rapporteurs de la voie citée.",
+                    "ref": "https://dorar.net/h/sK6hUNNK"
+                  },
+                  {
+                    "q": "Comment était surnommée la maison de Sa‘d ?",
+                    "opts": [
+                      "La maison des célibataires",
+                      "La maison des marins",
+                      "La maison du conseil"
+                    ],
+                    "c": 0,
+                    "exp": "La tradition précise que Sa‘d accueillait les visiteurs dans sa maison.",
+                    "ref": "https://gcp.islamweb.net/ar/library/content/59/227/"
+                  },
+                  {
+                    "q": "Quand les chroniques situent-elles la mort de Koulthoum ?",
+                    "opts": [
+                      "Avant Badr",
+                      "En 97 H",
+                      "À Mou’ta"
+                    ],
+                    "c": 0,
+                    "exp": "Adh-Dhahabî cite la mort précoce de Koulthoum avant la bataille de Badr.",
+                    "ref": "https://ar.wikisource.org/wiki/سير_أعلام_النبلاء/كلثوم_بن_الهدم"
+                  }
                 ]
             },
             {
@@ -2688,26 +2762,124 @@
                 name: "Abou Doujana",
                 arabicName: "أبو دُجَانَة",
                 subtitle: "Le Bandeau de la Mort",
-                intro: "Guerrier redoutable qui portait un bandeau rouge lorsqu'il s'apprêtait à combattre à mort. Il protégea le Prophète de son propre corps à Ouhoud et mourut en héros à Yamama.",
-                heroQuote: "Je suis un homme à qui le fidèle a promis... Avec l'épée d'Allah, je vaincrai l'ennemi !",
+                intro: "Abou Doujâna, Simâk ibn Kharasha, est nommé dans Mouslim 2470 comme le compagnon qui prit l'épée du Prophète à Ouhoud en acceptant d'en respecter les droits. D'autres traditions rapportent un bandeau rouge, sa démarche, sa générosité morale et sa mort à Al-Yamâma, avec des réserves sur certaines voies.",
+                heroQuote: "À Ouhoud, Abou Doujâna accepta l'épée du Prophète ﷺ en promettant d'en respecter les droits (Mouslim 2470).",
                 tags: ["Ansar", "Guerrier", "Ouhoud", "Yamama"],
                 genealogy: "Simak ibn Kharasha (Abou Doujana). Frère de foi de 'Outba ibn Ghazouane.",
                 physicalDesc: "Il marchait avec fierté (se dandinant) entre les rangs ennemis avant le combat.",
                 timeline: [
-                    { year: "3 H", desc: "Prend l'épée du Prophète à Ouhoud et sort avec son bandeau rouge." },
-                    { year: "11 H", desc: "Se jette dans le 'Jardin de la Mort' à Yamama, se casse la jambe mais continue à combattre jusqu'à la mort." }
+                  {
+                    "year": "3 H",
+                    "desc": "À Ouhoud, prend l'épée du Prophète en acceptant d'en respecter les droits (Mouslim 2470) ; le bandeau rouge est transmis par une autre voie."
+                  },
+                  {
+                    "year": "11 ou 12 H",
+                    "desc": "La notice d'adh-Dhahabî rapporte sa mort à Al-Yamâma après avoir franchi le mur du jardin et s'être blessé."
+                  }
                 ],
                 narratives: [
-                    { id: 391, title: "Le Droit de l'Épée", content: "Le Prophète tendit une épée en demandant : « Qui la prendra avec son droit ? ». Les hommes hésitèrent. Abou Doujana demanda : « Quel est son droit ? ». Le Prophète dit : « Que tu combattes avec jusqu'à ce qu'elle se torde ». Il la prit." },
-                    { id: 392, title: "La Marche Orgueilleuse", content: "Il sortit avec son bandeau rouge et marcha avec fierté entre les rangs. Le Prophète dit : « C'est une démarche qu'Allah déteste, sauf dans une telle circonstance (face à l'ennemi) »." },
-                    { id: 393, title: "Le Visage Lumineux", content: "Malade, son visage restait resplendissant. Il expliqua : « Deux œuvres me donnent espoir : je ne parle pas de ce qui ne me regarde pas, et mon cœur est sain envers les musulmans »." }
+                  {
+                    "id": 391,
+                    "title": "Prendre l'épée avec ses droits",
+                    "content": "Anas rapporte dans Mouslim 2470 que le Prophète proposa son épée puis demanda qui accepterait toute la responsabilité qui s'y attachait. Abou Doujâna s'avança et la prit. Le texte ne contient pas nécessairement les paroles dramatisées des versions de sîra."
+                  },
+                  {
+                    "id": 392,
+                    "title": "La démarche et le bandeau rouge : réserve",
+                    "content": "Une tradition mentionne un bandeau rouge et une démarche fière devant les lignes adverses. Al-Haythamî (Majma‘ az-Zawâ’id 6/112) signale que la chaîne comporte des personnes qu'il ne connaissait pas. Athar conserve la narration avec cette réserve explicite."
+                  },
+                  {
+                    "id": 393,
+                    "title": "Un cœur sans rancune selon Zayd ibn Aslam",
+                    "content": "Adh-Dhahabî transmet d'après Zayd ibn Aslam qu'Abou Doujâna, malade, expliqua sa sérénité par son refus de parler inutilement et son cœur exempt de rancœur envers les musulmans. Aucun jugement de hadith n'est inventé."
+                  },
+                  {
+                    "id": 394,
+                    "title": "Al-Yamâma : un récit d'Anas",
+                    "content": "Selon le récit transmis d'Anas dans Siyar, Abou Doujâna fut projeté au-delà du mur du jardin à Al-Yamâma ; il se cassa la jambe et continua le combat jusqu'à sa mort. Ce récit historique est distinct du hadith de l'épée."
+                  }
                 ],
                 hadiths: [
-                    { text: "Je me revois à Ouhoud, seul avec Jibril à ma droite et Talha à ma gauche (Abou Doujana les protégeait).", narrator: "Le Prophète (ﷺ)", source: "Rapporté par Abou Hourayra" }
+                  {
+                    "text": "À Ouhoud, Abou Doujâna accepta l'épée du Prophète ﷺ en prenant la responsabilité de ses droits.",
+                    "narrator": "Anas ibn Mâlik",
+                    "source": "Sahîh Mouslim 2470",
+                    "type": "prophetic"
+                  },
+                  {
+                    "text": "Une voie attribue au Prophète une exception concernant la démarche fière d'Abou Doujâna entre les rangs.",
+                    "narrator": "‘Abd Allah ibn Khâlid ibn Simâk, selon At-Tabarânî",
+                    "source": "At-Tabarânî 6508 ; Al-Haythamî : présence de transmetteurs inconnus de lui",
+                    "type": "prophetic"
+                  }
                 ],
                 quizData: [
-                    { q: "Que signifiait le bandeau rouge d'Abou Doujana ?", opts: ["Qu'il était blessé", "Qu'il allait combattre jusqu'à la mort", "Qu'il était chef", "Qu'il se rendait"], c: 1, exp: "C'était son 'bandeau de la mort', signe qu'il ne reculerait pas." },
-                    { q: "Quelle était sa qualité secrète qui illuminait son visage ?", opts: ["Le jeûne", "La prière de nuit", "Le cœur sain envers les musulmans", "L'aumône"], c: 2, exp: "Il disait n'avoir aucune haine contre un musulman." }
+                  {
+                    "q": "Quel recueil contient le récit de l'épée à Ouhoud ?",
+                    "opts": [
+                      "Mouslim 2470",
+                      "Al-Bukhârî 4250",
+                      "At-Tirmidhî 2732"
+                    ],
+                    "c": 0,
+                    "exp": "Anas transmet cet épisode dans Sahîh Mouslim 2470.",
+                    "ref": "https://sunnah.com/muslim:2470"
+                  },
+                  {
+                    "q": "Que promet Abou Doujâna en acceptant l'épée ?",
+                    "opts": [
+                      "D'en assumer les droits",
+                      "De naviguer sur un bateau",
+                      "De prêter de l'argent"
+                    ],
+                    "c": 0,
+                    "exp": "Le Prophète insiste sur les responsabilités liées à l'épée.",
+                    "ref": "https://sunnah.com/muslim:2470"
+                  },
+                  {
+                    "q": "Quel avis Al-Haythamî donne-t-il sur la voie du bandeau rouge ?",
+                    "opts": [
+                      "Des transmetteurs lui sont inconnus",
+                      "Elle est unanimement moutawâtir",
+                      "C'est un verset"
+                    ],
+                    "c": 0,
+                    "exp": "Il signale des personnes qu'il ne connaît pas dans la chaîne de ce récit.",
+                    "ref": "https://dorar.net/h/Nb2x0gaa"
+                  },
+                  {
+                    "q": "Quelles qualités Abou Doujâna évoque-t-il selon Zayd ibn Aslam ?",
+                    "opts": [
+                      "Retenue dans les paroles et cœur sain",
+                      "Richesse et gloire",
+                      "Commerce et voyage"
+                    ],
+                    "c": 0,
+                    "exp": "Il s'agit d'un propos personnel conservé dans la notice de Siyar.",
+                    "ref": "https://gcp.islamweb.net/ar/library/index.php?ID=50&bk_no=60&flag=1&page=bookcontents"
+                  },
+                  {
+                    "q": "Où la tradition rapporte-t-elle sa mort ?",
+                    "opts": [
+                      "Al-Yamâma",
+                      "Mou’ta",
+                      "Badr"
+                    ],
+                    "c": 0,
+                    "exp": "Le récit d'Anas cité par adh-Dhahabî le situe à Al-Yamâma.",
+                    "ref": "https://siyar.fr/livre/1/244"
+                  },
+                  {
+                    "q": "Qu'apporte Mouslim 2470 par rapport à la version du bandeau ?",
+                    "opts": [
+                      "Il établit le récit de l'épée, non tous les détails du bandeau",
+                      "Il établit la couleur du bandeau",
+                      "Il date sa mort à 97 H"
+                    ],
+                    "c": 0,
+                    "exp": "Il faut distinguer le hadith sur l'épée et les autres transmissions.",
+                    "ref": "https://sunnah.com/muslim:2470"
+                  }
                 ]
             },
             {
@@ -2717,26 +2889,132 @@
                 name: "Khoubayb ibn 'Adi",
                 arabicName: "خُبَيْب بن عَدِي",
                 subtitle: "Le Crucifié qui Pria",
-                intro: "Capturé par traîtrise lors de l'expédition d'Ar-Raji', il fut vendu aux Qurayshites. Il est le premier à avoir instauré la tradition de prier deux unités de prière avant d'être exécuté.",
-                heroQuote: "Ô Allah, dénombre-les et tue-les, un à un, sans en épargner un seul !",
+                intro: "Khoubayb ibn ‘Adî, compagnon des Ansâr, fut capturé après l'expédition d'Ar-Rajî‘ et détenu à La Mecque. Al-Bukhârî 3045 et 4086 rapportent son refus de nuire à un enfant, la grappe de raisin reçue pendant sa captivité et sa prière de deux unités avant l'exécution.",
+                heroQuote: "La femme qui le détenait témoigne : « Je n'ai jamais vu un prisonnier meilleur que lui » (Al-Bukhârî 4086).",
                 tags: ["Martyrs", "Badr", "Prière"],
                 genealogy: "Khoubayb ibn 'Adi... Le Ansari.",
                 timeline: [
-                    { year: "2 H", desc: "Tue Al-Harith ibn 'Amir à Badr." },
-                    { year: "4 H", desc: "Trahi à Ar-Raji', vendu aux enfants de sa victime à la Mecque." },
-                    { year: "Exécution", desc: "Crucifié au Tan'im. Prie 2 rakats avant de mourir." }
+                  {
+                    "year": "2 H",
+                    "desc": "Al-Bukhârî 3045 rapporte que Khoubayb tua al-Hârith ibn ‘Âmir lors de Badr."
+                  },
+                  {
+                    "year": "4 H selon les chroniques",
+                    "desc": "Khoubayb fut capturé à l'expédition d'Ar-Rajî‘ ; le récit est présent dans Al-Bukhârî 3045 et 4086."
+                  },
+                  {
+                    "year": "Après la captivité, date distincte inconnue",
+                    "desc": "Conduit hors de la zone sacrée pour l'exécution, Khoubayb prie deux raka‘ât avant sa mort (Al-Bukhârî 4086)."
+                  }
                 ],
                 narratives: [
-                    { id: 401, title: "La Tradition des Deux Rakats", content: "Avant son exécution, il demanda à prier. Après deux unités rapides, il dit : « Si vous n'aviez pas pensé que je faisais cela par peur de la mort, j'aurais prié plus longtemps ». Il instaura ainsi cette sunna pour les condamnés à mort." },
-                    { id: 402, title: "Le Miracle du Raisin", content: "Sa geôlière (Mawiya) témoigna l'avoir vu manger une grappe de raisin de la taille d'une tête d'homme, alors qu'il n'y avait pas de fruits à la Mecque à cette époque et qu'il était enchaîné." },
-                    { id: 403, title: "L'Invocation contre les Traîtres", content: "Sur le patibulum, il invoqua contre ses bourreaux. Mouawiya (alors païen) se jeta au sol par peur d'être touché par cette invocation." }
+                  {
+                    "id": 401,
+                    "title": "Deux unités de prière avant l'exécution",
+                    "content": "Al-Bukhârî 4086 transmet que Khoubayb demanda à accomplir deux raka‘ât, puis dit qu'il aurait prié davantage s'il n'avait craint qu'on croie à sa peur de mourir. Le texte lui attribue le précédent de cette prière dans ces circonstances."
+                  },
+                  {
+                    "id": 402,
+                    "title": "Le raisin pendant la captivité",
+                    "content": "La fille d'al-Hârith témoigne avoir vu Khoubayb manger du raisin, bien qu'il fût enchaîné et que ce fruit n'eût pas été disponible à La Mecque. Elle y vit une faveur d'Allah ; ce témoignage est rapporté dans Al-Bukhârî 3045."
+                  },
+                  {
+                    "id": 403,
+                    "title": "Une invocation prononcée par Khoubayb",
+                    "content": "Al-Bukhârî transmet l'invocation et des vers récités par Khoubayb devant ses exécuteurs, où il exprime son acceptation du martyre. Ces paroles sont attribuées à Khoubayb, non au Prophète ﷺ."
+                  },
+                  {
+                    "id": 404,
+                    "title": "L'enfant et le rasoir",
+                    "content": "La même femme raconte avoir prêté un rasoir au prisonnier et trouvé son enfant sur ses genoux. Khoubayb la rassura : il ne ferait aucun mal au petit. Cette scène apparaît dans Al-Bukhârî 4086."
+                  },
+                  {
+                    "id": 405,
+                    "title": "L'embuscade après l'expédition d'Ar-Rajî‘",
+                    "content": "Selon Abou Hourayra dans Al-Bukhârî 4086, le groupe commandé par ‘Âsim ibn Thâbit fut poursuivi par des archers, et Khoubayb fut finalement capturé. Ce récit se distingue des épisodes ultérieurs de détention."
+                  }
                 ],
                 hadiths: [
-                    { text: "Ô Allah, certes nous avons transmis le message de ton Prophète; transmets-lui donc ce matin ce qui nous arrive !", narrator: "Khoubayb (Invocation)", source: "Sur le lieu d'exécution" }
+                  {
+                    "text": "Avant son exécution, Khoubayb pria deux unités puis expliqua qu'il n'avait pas voulu prolonger sa prière pour ne pas paraître effrayé.",
+                    "narrator": "Abou Hourayra et la fille d'al-Hârith",
+                    "source": "Sahîh al-Bukhârî 4086 — témoignage historique",
+                    "type": "historical"
+                  },
+                  {
+                    "text": "Khoubayb rassura la femme après qu'elle l'eut vu avec un rasoir et son enfant sur les genoux.",
+                    "narrator": "La fille d'al-Hârith",
+                    "source": "Sahîh al-Bukhârî 3045 — témoignage historique",
+                    "type": "historical"
+                  }
                 ],
                 quizData: [
-                    { q: "Quelle tradition a-t-il instaurée avant de mourir ?", opts: ["Réciter la Shahada", "Prier deux unités de prière", "Demander de l'eau", "Faire un discours"], c: 1, exp: "Il est le premier musulman à avoir prié deux rakats avant d'être exécuté." },
-                    { q: "Qui a-t-il tué à Badr (ce qui causa sa vendetta) ?", opts: ["Abou Jahl", "Al-Harith ibn 'Amir", "Oumaya", "Walid"], c: 1, exp: "Il fut acheté par les fils d'Al-Harith pour venger leur père." }
+                  {
+                    "q": "Que fit Khoubayb avant son exécution ?",
+                    "opts": [
+                      "Il accomplit deux unités de prière",
+                      "Il traversa la mer",
+                      "Il estima des récoltes"
+                    ],
+                    "c": 0,
+                    "exp": "Al-Bukhârî 4086 rapporte les deux raka‘ât et sa déclaration.",
+                    "ref": "https://sunnah.com/bukhari:4086"
+                  },
+                  {
+                    "q": "Quel objet Khoubayb emprunta-t-il ?",
+                    "opts": [
+                      "Un rasoir",
+                      "Une épée",
+                      "Un bouclier"
+                    ],
+                    "c": 0,
+                    "exp": "La femme qui le détenait lui prêta un rasoir.",
+                    "ref": "https://sunnah.com/bukhari:3045"
+                  },
+                  {
+                    "q": "Comment réagit-il lorsqu'elle craignit pour son enfant ?",
+                    "opts": [
+                      "Il la rassura et refusa de faire du mal au bébé",
+                      "Il demanda une rançon",
+                      "Il abandonna l'enfant dans la rue"
+                    ],
+                    "c": 0,
+                    "exp": "Le hadith indique qu'il n'avait pas l'intention de nuire à l'enfant.",
+                    "ref": "https://sunnah.com/bukhari:4086"
+                  },
+                  {
+                    "q": "Quel aliment reçut-il en captivité selon la narratrice ?",
+                    "opts": [
+                      "Du raisin",
+                      "Du miel",
+                      "Des olives"
+                    ],
+                    "c": 0,
+                    "exp": "La témoin raconte une grappe de raisin alors que ce fruit n'était pas disponible.",
+                    "ref": "https://sunnah.com/bukhari:3045"
+                  },
+                  {
+                    "q": "Qui commandait le groupe envoyé en expédition ?",
+                    "opts": [
+                      "‘Âsim ibn Thâbit",
+                      "Ja‘far",
+                      "Zayd"
+                    ],
+                    "c": 0,
+                    "exp": "Abou Hourayra donne le nom de ‘Âsim ibn Thâbit dans le récit.",
+                    "ref": "https://sunnah.com/bukhari:4086"
+                  },
+                  {
+                    "q": "À qui attribue-t-on la supplication faite avant l'exécution ?",
+                    "opts": [
+                      "À Khoubayb",
+                      "Au Prophète ﷺ",
+                      "Au Négus"
+                    ],
+                    "c": 0,
+                    "exp": "Ce sont des paroles de Khoubayb transmises dans le hadith, et non des propos du Prophète.",
+                    "ref": "https://sunnah.com/bukhari:3045"
+                  }
                 ]
             },
             {
