@@ -354,4 +354,36 @@ assert.ok(bibliography[38].entries.find(e=>e.kind==='narrative'&&e.id===381)?.no
 assert.ok(bibliography[39].entries.find(e=>e.kind==='hadith'&&e.id===1)?.note.includes('Al-Haythamî'),'Réserve sur le bandeau d’Abou Doujâna manquante');
 assert.ok(bibliography[40].entries.some(e=>e.externalUrl==='https://sunnah.com/bukhari:4086'),'Récit principal de Khoubayb non localisé');
 
+// Lecture immersive : les 40 premières notices gardent les récits au premier plan.
+// Les notes critiques ne sont jamais supprimées : elles sont accessibles sous l'histoire.
+let storyCount=0, rewrittenCount=0;
+const intrusiveCriticism=/(?:Al-Haytham[îi]|Arna[’']ût|Ibn Hajar|Al-Alb[aâ]n[îi]|cha[iî]ne|isn[aâ]d|hasan|sah[iî]h|moursal|authenti|degr[eé] d|classement|Siyar|Al-Bukh[aâ]r[îi]|At-Tirmidh[îi]|Mouslim \d|Darussalam|fascicule)/i;
+for (const id of Array.from({length:40},(_,i)=>i+1)) {
+  const chapter=chapters.find(c=>c.id===id);
+  assert.ok(chapter && Array.isArray(chapter.narratives) && chapter.narratives.length>0,'Narrations absentes : '+id);
+  const sources=bibliography[id]?.entries||[];
+  for (const story of chapter.narratives) {
+    storyCount++;
+    const readable=story.readingContent || story.content;
+    assert.ok(readable?.length>35,'Récit trop court ou vide : '+id+'/'+story.id);
+    assert.ok(!intrusiveCriticism.test(readable),'Analyse de fiabilité encore dans la lecture : '+id+'/'+story.id);
+    assert.ok(sources.some(e=>e.kind==='narrative'&&e.id===story.id),'Référence de récit perdue : '+id+'/'+story.id);
+    if(story.readingContent) {
+      rewrittenCount++;
+      assert.ok(story.editorialNotes?.length>20,'Note critique perdue : '+id+'/'+story.id);
+      assert.ok(story.readingContent!==story.content,'Réécriture éditoriale non effective : '+id+'/'+story.id);
+    }
+  }
+}
+assert.equal(storyCount,116,'116 récits attendus dans les notices 1 à 40');
+assert.equal(rewrittenCount,89,'89 récits reformulés avec notes secondaires');
+const firstRawaha=chapters.find(c=>c.id===37).narratives.find(n=>n.id===371);
+assert.equal(firstRawaha.title,'« Venez, croyons un instant »','Le titre doit inviter à la lecture, pas à la critique documentaire');
+assert.ok(/Al-Haythamî/.test(firstRawaha.editorialNotes),'L’avis savant doit rester conservé en note');
+assert.ok(/Al-Arna’ût/.test(firstRawaha.editorialNotes),'L’avis divergent doit rester conservé en note');
+assert.ok(reader.includes('story.readingContent || story.content'),'Le récit épuré n’est pas affiché');
+assert.ok(reader.includes('details v-if="story.editorialNotes || sourceEvidence'),'Le volet secondaire des sources n’existe pas');
+assert.ok(reader.includes('Sources, variantes et fiabilité'),'Libellé accessible des précisions perdu');
+assert.ok(reader.includes('athar-story-context'),'Le bloc de sources consultable manque');
+
 console.log('Siyar : 99 notices Siyar et une notice externe sur 104, 438 repères, 11 hadiths + 5 citations principales + 24 récits des notices 1–5 qualifiés, aucun PDF.');
