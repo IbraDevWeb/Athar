@@ -91,6 +91,37 @@ async function desktop() {
         await home(page);
     }
 
+    // Système de galeries : palette spécifique et cartes lisibles sur ordinateur.
+    for (const [view,rootSelector,cardSelector,accent] of [
+        ['library','.library-pro-root','.library-pro-selection .library-pro-card','#365c82'],
+        ['hadiths','.hadith-pro-root','.hadith-pro-card','#486f99'],
+        ['adhkar','.adhkar-pro-shell','.adhkar-pro-routine-card','#7b62a2'],
+        ['glossary','.glossary-pro-root','.glossary-pro-card','#af7459'],
+        ['timeline','.timeline-pro','.timeline-pro-event-card','#a17a3d']
+    ]) {
+        await navigate(page,view);
+        const root=page.locator(rootSelector);
+        await root.waitFor({state:'visible'});
+        await page.waitForFunction(selector => Boolean(document.querySelector(selector)
+            && getComputedStyle(document.querySelector(selector)).getPropertyValue('--ax-accent').trim()),rootSelector);
+        assert.equal(await root.evaluate(el=>getComputedStyle(el).getPropertyValue('--ax-accent').trim()),accent,'Couleur de galerie incorrecte : '+view);
+        const cards=page.locator(cardSelector);
+        assert.ok(await cards.count()>0,'Aucune fiche visible : '+view);
+        const rect=await cards.first().boundingBox();
+        assert.ok(rect && rect.width>=170,'Fiche trop étroite sur PC : '+view);
+        assert.ok(parseFloat(await cards.first().evaluate(el=>getComputedStyle(el).borderTopLeftRadius))>=16,'Coins de fiches incohérents : '+view);
+        await home(page);
+    }
+    // Le lexique doit limiter les premières fiches, tout en conservant la recherche.
+    await navigate(page,'glossary');
+    assert.equal(await page.locator('.glossary-pro-card').count(),24,'Le lexique doit afficher 24 définitions initialement');
+    await page.getByRole('button',{name:'Afficher plus de termes'}).click();
+    assert.equal(await page.locator('.glossary-pro-card').count(),48,'Le lexique doit paginer les définitions');
+    await page.locator('.glossary-pro-search input').fill('badr');
+    assert.ok(await page.locator('.glossary-pro-card').count()>0,'Recherche lexique inactive');
+    assert.ok(await page.locator('.glossary-pro-card').count()<24,'La recherche lexique ne filtre pas');
+    await home(page);
+
     // Refonte Hadith : 18 cartes légères, recherche directe et fiche en lecture continue.
     await navigate(page,'hadiths');
     await page.locator('.hadith-pro-root').waitFor({state:'visible'});
@@ -451,6 +482,24 @@ async function mobile(width,height) {
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
+
+    // Les cinq pages de fiches doivent respecter la largeur du smartphone.
+    for (const [view,rootSelector,cardSelector] of [
+        ['library','.library-pro-root','.library-pro-selection .library-pro-card'],
+        ['hadiths','.hadith-pro-root','.hadith-pro-card'],
+        ['adhkar','.adhkar-pro-shell','.adhkar-pro-routine-card'],
+        ['glossary','.glossary-pro-root','.glossary-pro-card'],
+        ['timeline','.timeline-pro','.timeline-pro-event-card']
+    ]) {
+        await navigate(page,view);
+        await page.locator(rootSelector).waitFor({state:'visible'});
+        const card=page.locator(cardSelector).first();
+        await card.waitFor({state:'visible'});
+        const rect=await card.boundingBox();
+        assert.ok(rect && rect.width<=width-12,'Fiche trop large sur mobile : '+view+'/'+width);
+        assert.ok(rect.x>=-3 && rect.x+rect.width<=width+3,'Débordement de carte sur mobile : '+view+'/'+width);
+        await home(page);
+    }
 
     // Sous-sections Kutub as-Sitta aussi navigables sur smartphone.
     await navigate(page,'hadiths');
