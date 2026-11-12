@@ -208,7 +208,7 @@ assert.ok(bibliography[9].entries.some(x=>x.kind==='timeline'&&x.id===0&&x.statu
 const c=id=>chapters.find(x=>x.id===id);
 assert.ok(/quatre-vingt-dix-neuf/.test(c(26).intro));
 assert.ok(/15 ou 20 H/.test(c(27).timeline[3].year), 'Nawfal : conserver 15/20 H, pas 20/25 H');
-assert.ok(/C’est alors ‘Aqil/.test(c(35).narratives.find(x=>x.id===353).content));
+assert.ok(/attribuée à ‘Aqîl lui-même/.test(c(35).narratives.find(x=>x.id===353).content));
 assert.ok(/Yarmouk/.test(c(49).narratives.find(x=>x.id===492).content));
 assert.ok(/récits historiques/.test(c(51).intro));
 assert.ok(/ne certifie/.test(bibliography[55].reviewScope));
