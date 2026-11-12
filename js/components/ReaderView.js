@@ -371,14 +371,25 @@ const ReaderView = {
                     <article v-for="(h, index) in safeHadiths" :key="index" class="bg-white dark:bg-brand-dark-lighter p-8 md:p-12 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm text-center relative overflow-hidden group">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50"></div>
                         <i class="block text-4xl text-brand-gold/30 font-serif font-bold mb-6">“</i>
-                        <p class="text-[10px] font-bold uppercase tracking-wider text-brand-gold mb-3">{{ h.type === 'verse' ? 'Verset coranique' : h.type === 'historical' ? 'Récit biographique rapporté' : h.type === 'commentary' ? 'Commentaire d’un savant' : 'Hadith / parole rapportée' }}</p><p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.text }}</p>
-                        <div class="inline-flex flex-col items-center"><div class="w-10 h-1 bg-brand-gold/20 mb-3"></div><p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.narrator }}</p><p class="text-xs text-brand-gold mt-1">{{ h.source }}</p></div>
-                        <aside v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)" class="mt-5 border-t border-brand-gold/20 pt-4 text-left text-xs leading-relaxed text-gray-600 dark:text-gray-300">
-                            <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).status) }} · {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).hadithRef || 'Référence documentaire' }}</p>
-                            <p class="mt-2">{{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).note }}</p>
-                            <p v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad" class="mt-2"><span class="font-semibold">{{ h.type === 'historical' || h.type === 'commentary' ? 'Transmission / attribution :' : 'Chaîne documentée :' }}</span> {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad }}</p>
-                            <a v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" :href="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">{{ h.type === 'historical' || h.type === 'commentary' ? 'Consulter la source historique' : 'Lire dans le recueil cité' }}</a>
-                        </aside>
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-brand-gold mb-3">{{ h.type === 'verse' ? 'Verset coranique' : h.type === 'historical' ? 'Récit biographique rapporté' : h.type === 'commentary' ? 'Commentaire d’un savant' : 'Hadith / parole rapportée' }}</p>
+                        <p class="font-serif text-xl md:text-2xl leading-loose text-brand-dark dark:text-gray-100 mb-8 relative z-10">{{ h.readingText }}</p>
+                        <div class="inline-flex flex-col items-center"><div class="w-10 h-1 bg-brand-gold/20 mb-3"></div><p class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider">{{ h.readingNarrator }}</p></div>
+                        <details v-if="h.source || h.readingContext || sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)" class="athar-story-context mt-8 border-t border-gray-100 dark:border-gray-700/60 pt-4 text-left">
+                            <summary class="athar-story-context-trigger inline-flex items-center gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-gold cursor-pointer">
+                                <i data-lucide="book-open" class="w-4 h-4"></i> Sources, variantes et fiabilité
+                                <span aria-hidden="true" class="athar-story-context-chevron">⌄</span>
+                            </summary>
+                            <div class="athar-story-context-body mt-4 rounded-xl bg-gray-50/70 dark:bg-white/[0.04] p-5 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                                <p v-if="h.readingContext"><span class="font-semibold">Formulation originale et variantes :</span> {{ h.readingContext }}</p>
+                                <p v-if="h.source" :class="h.readingContext ? 'mt-3' : ''"><span class="font-semibold">Référence de la notice :</span> {{ h.source }}</p>
+                                <section v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index)" class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                                    <p class="font-bold text-brand-gold">{{ evidenceLabel(sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).status) }} · {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).hadithRef || 'Référence documentaire' }}</p>
+                                    <p class="mt-2">{{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).note }}</p>
+                                    <p v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad" class="mt-2"><span class="font-semibold">{{ h.type === 'historical' || h.type === 'commentary' ? 'Transmission / attribution :' : 'Chaîne documentée :' }}</span> {{ sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).isnad }}</p>
+                                    <a v-if="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" :href="sourceEvidence(h.type === 'verse' ? 'verse' : 'hadith', index).externalUrl" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-brand-gold underline">{{ h.type === 'historical' || h.type === 'commentary' ? 'Consulter la source historique' : 'Lire dans le recueil cité' }}</a>
+                                </section>
+                            </div>
+                        </details>
                     </article>
                 </div>
                 <div v-else class="text-center py-20 bg-gray-50 dark:bg-brand-dark-lighter rounded-xl border border-dashed border-gray-300 dark:border-gray-700"><i data-lucide="feather" class="w-12 h-12 mx-auto mb-4 opacity-30"></i><p class="text-gray-500 italic font-serif leading-loose px-8">Aucune citation n'est répertoriée pour cette notice.</p></div>
