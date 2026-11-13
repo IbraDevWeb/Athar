@@ -93,7 +93,7 @@ async function desktop() {
 
     // Système de galeries : palette spécifique et cartes lisibles sur ordinateur.
     for (const [view,rootSelector,cardSelector,accent] of [
-        ['library','.library-pro-root','.library-pro-selection .library-pro-card','#365c82'],
+        ['library','.library-pro-root','.library-pro-selection .library-pro-card','#916622'],
         ['hadiths','.hadith-pro-root','.hadith-pro-card','#486f99'],
         ['adhkar','.adhkar-pro-shell','.adhkar-pro-routine-card','#7b62a2'],
         ['glossary','.glossary-pro-root','.glossary-pro-card','#af7459'],
@@ -217,6 +217,17 @@ async function desktop() {
     assert.match(await contextualNotes.innerText(),/Al-Haythamî/,'Le classement d’Al-Haythamî ne doit pas être perdu');
     assert.match(await contextualNotes.innerText(),/Arna.ût/i,'L’avis divergent ne doit pas être perdu');
     assert.ok(await contextualNotes.locator('a[href^="https://"]').count()>=1,'Référence externe introuvable sous le récit');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.library-pro-root').waitFor({state:'visible'});
+    // Reprise fonctionnelle, mais compacte et placée après les filtres.
+    const compactResume = page.locator('.library-pro-resume-inline');
+    await compactResume.waitFor({state:'visible'});
+    assert.match(await compactResume.innerText(),/Abd-Allah ibn Rawaha/i,'Dernière biographie absente de la reprise');
+    assert.equal(await page.locator('.library-pro-selection-intro .library-pro-revisit').count(),0,'La grande carte de reprise ne doit plus occuper l’en-tête');
+    const resumeHeight = await compactResume.boundingBox();
+    assert.ok(resumeHeight && resumeHeight.height<75,'La reprise de lecture n’est pas compacte');
+    await compactResume.locator('button').click();
+    await page.getByRole('tab',{name:'Récit',exact:true}).waitFor({state:'visible'});
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
