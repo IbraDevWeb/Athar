@@ -223,9 +223,8 @@ const HadithsView = {
                 <div>
                     <span class="hadith-pro-eyebrow"><i data-lucide="scroll-text" aria-hidden="true"></i> Bibliothèque des transmissions</span>
                     <h1>Les hadiths</h1>
-                    <p>Retrouver un enseignement, le lire et l'approfondir.</p>
+                    <p>Une parole à découvrir, un enseignement à approfondir.</p>
                 </div>
-                <div v-if="section==='library'" class="hadith-pro-count"><strong>{{ stats.total }}</strong><span>hadiths</span></div>
             </header>
 
             <nav class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
@@ -308,17 +307,19 @@ const HadithsView = {
                     @click="open(item)" @keydown.enter.self.prevent="open(item)" @keydown.space.self.prevent="open(item)">
                     <div class="hadith-pro-card-top">
                         <span class="hadith-pro-card-symbol" aria-hidden="true"><i data-lucide="scroll-text"></i></span>
-                        <span class="hadith-pro-card-topic">{{ item.topic }}</span>
-                        <button type="button" class="hadith-pro-favorite" :class="{active:item.favorite}"
-                            :aria-label="item.favorite?'Retirer des favoris':'Ajouter aux favoris'" :aria-pressed="item.favorite"
-                            @click.stop="toggleFavorite(item,$event)" @keydown.stop>
-                            <i data-lucide="heart" aria-hidden="true"></i>
-                        </button>
+                        <span class="hadith-pro-card-actions">
+                            <span class="hadith-pro-card-topic">{{ item.topic }}</span>
+                            <button type="button" class="hadith-pro-favorite" :class="{active:item.favorite}"
+                                :aria-label="item.favorite?'Retirer des favoris':'Ajouter aux favoris'" :aria-pressed="item.favorite"
+                                @click.stop="toggleFavorite(item,$event)" @keydown.stop>
+                                <i data-lucide="heart" aria-hidden="true"></i>
+                            </button>
+                        </span>
                     </div>
                     <h2>{{ item.raw.title }}</h2>
                     <p class="hadith-pro-card-excerpt">{{ clean(item.raw.hadeeth) }}</p>
                     <footer>
-                        <span>{{ item.collection }} <span class="hadith-pro-card-separator">·</span> {{ item.raw.id }}</span>
+                        <span class="hadith-pro-card-reference">{{ item.collection }} <span class="hadith-pro-card-separator">·</span> {{ item.raw.id }}</span>
                         <span class="hadith-pro-card-open">{{ item.read?'Relire':'Lire' }} <i data-lucide="arrow-right" aria-hidden="true"></i></span>
                     </footer>
                 </article>
@@ -361,7 +362,7 @@ const HadithsView = {
                             <span class="hadith-kutub-book-bottom">En préparation <i data-lucide="arrow-right" aria-hidden="true"></i></span>
                         </button>
                     </div>
-                    <p class="hadith-kutub-footnote">Cette future compilation est distincte des {{ stats.total }} hadiths actuellement disponibles. Les recueils n'ont pas encore été importés.</p>
+                    <p class="hadith-kutub-footnote">Les recueils seront complétés progressivement. Les {{ stats.total }} hadiths déjà disponibles restent dans la bibliothèque actuelle.</p>
                 </template>
 
                 <section v-else class="hadith-kutub-book-view" :aria-label="'Recueil '+selectedBook.name">
