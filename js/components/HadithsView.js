@@ -243,7 +243,7 @@ const HadithsView = {
                 <label class="hadith-pro-search">
                     <i data-lucide="search" aria-hidden="true"></i>
                     <span class="sr-only">Rechercher un hadith</span>
-                    <input v-model="query" type="search" autocomplete="off" placeholder="Rechercher un mot, un thème, un recueil…" aria-label="Rechercher un hadith">
+                    <input v-model="query" type="search" autocomplete="off" placeholder="Rechercher un hadith…" aria-label="Rechercher un hadith">
                     <button v-if="query" type="button" @click.prevent="query=''" aria-label="Effacer la recherche"><i data-lucide="x"></i></button>
                 </label>
                 <div class="hadith-pro-search-actions">
