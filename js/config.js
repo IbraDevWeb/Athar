@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v63-section-gallery-palette';
+    const APP_VERSION = 'athar-pro-v64-library-gold-compact-resume';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
