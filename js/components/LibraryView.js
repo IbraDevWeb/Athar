@@ -364,11 +364,6 @@ const LibraryView = {
                         <h1>Choisir une <em>histoire.</em></h1>
                         <p>Un nom, un récit, une époque : trouvez une figure à découvrir. Chaque notice vous mène aux sources et aux traditions rapportées.</p>
                     </div>
-                    <button v-if="lastReadChapter && !query" type="button" class="library-pro-revisit" @click="openItem(lastReadChapter)">
-                        <span><i data-lucide="bookmark"></i> Continuer la lecture</span>
-                        <strong>{{ lastReadChapter.name }}</strong>
-                        <small>Reprendre <i data-lucide="arrow-up-right"></i></small>
-                    </button>
                 </section>
 
                 <section class="library-pro-selection-panel" aria-label="Trouver une biographie">
@@ -410,6 +405,13 @@ const LibraryView = {
                     <div v-if="filterCount" class="library-pro-active-filters">
                         <span>Recherche affinée</span>
                         <button type="button" @click="resetFilters">Tout réinitialiser <i data-lucide="x"></i></button>
+                    </div>
+                    <div v-if="lastReadChapter && !query" class="library-pro-resume-inline">
+                        <span><i data-lucide="bookmark" aria-hidden="true"></i> Dernière lecture</span>
+                        <button type="button" @click="openItem(lastReadChapter)" :aria-label="'Reprendre la biographie de ' + lastReadChapter.name">
+                            <strong>{{ lastReadChapter.name }}</strong>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </section>
 

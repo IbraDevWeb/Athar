@@ -16,7 +16,7 @@ assert.ok(css.includes('@media (max-width:590px)') && css.includes('@media (max-
 assert.ok(css.includes('.dark .glossary-pro-root') && css.includes('.dark .library-pro-root'), 'Mode sombre incomplet');
 assert.ok(css.includes('prefers-reduced-motion:reduce'), 'Réduction des animations absente');
 const themes = [
-  ['library-pro-root','#365c82'],
+  ['library-pro-root','#916622'],
   ['hadith-pro-root','#486f99'],
   ['adhkar-pro-shell','#7b62a2'],
   ['glossary-pro-root','#af7459'],
@@ -41,6 +41,9 @@ const glossary = read(components.glossary);
 const adhkar = read(components.adhkar);
 const timeline = read(components.timeline);
 assert.ok(library.includes('library-pro-card-emblem') && library.includes('library-pro-card-category'), 'Emblème ou catégorie de biographie absent');
+assert.ok(library.includes('library-pro-resume-inline'), 'Reprise compacte absente du catalogue');
+assert.ok(!library.includes('class="library-pro-revisit"'), 'L’ancienne grande carte de reprise est encore affichée');
+assert.ok(css.includes('--library-gold:#c5a059') && css.includes('--library-paper:#faf7f0'), 'Palette dorée incomplète');
 assert.ok(hadith.includes('hadith-pro-card-symbol') && hadith.includes('hadith-kutub-book-mark'), 'Emblème des hadiths absent');
 assert.ok(hadith.includes('ATHAR_KUTUB_SITTA.collections'), 'Les six recueils ne doivent pas disparaître');
 assert.ok(glossary.includes('glossary-pro-categories') && glossary.includes('glossary-pro-card-icon'), 'Nouvel affichage du lexique incomplet');
