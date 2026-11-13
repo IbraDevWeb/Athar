@@ -94,7 +94,7 @@ async function desktop() {
     // Système de galeries : palette spécifique et cartes lisibles sur ordinateur.
     for (const [view,rootSelector,cardSelector,accent] of [
         ['library','.library-pro-root','.library-pro-selection .library-pro-card','#916622'],
-        ['hadiths','.hadith-pro-root','.hadith-pro-card','#486f99'],
+        ['hadiths','.hadith-pro-root','.hadith-pro-card','#496f82'],
         ['adhkar','.adhkar-pro-shell','.adhkar-pro-routine-card','#7b62a2'],
         ['glossary','.glossary-pro-root','.glossary-pro-card','#af7459'],
         ['timeline','.timeline-pro','.timeline-pro-event-card','#a17a3d']
@@ -126,8 +126,39 @@ async function desktop() {
     // Refonte Hadith : 18 cartes légères, recherche directe et fiche en lecture continue.
     await navigate(page,'hadiths');
     await page.locator('.hadith-pro-root').waitFor({state:'visible'});
-    assert.match(await page.locator('.hadith-pro-heading h1').innerText(),/Les hadiths/);
+    assert.match(await page.locator('.hadith-pro-heading h1').innerText(),/les hadiths/i);
     assert.equal(await page.locator('.hadith-pro-card').count(),18,'La grille Hadith doit limiter le premier affichage');
+    // Régression visuelle : aucun compteur géant ni filtre rogné et grille visible sans vide superflu.
+    const visual = await page.evaluate(() => {
+        const root=document.querySelector('.hadith-pro-root');
+        const topics=[...root.querySelectorAll('.hadith-pro-topic-row button')];
+        const nav=[...root.querySelectorAll('.hadith-kutub-tabs button')];
+        const cards=[...root.querySelectorAll('.hadith-pro-card')];
+        const r=el=>{const b=el.getBoundingClientRect();return {x:b.left,right:b.right,y:b.top,width:b.width,height:b.height};};
+        return {
+            viewport:innerWidth,accent:getComputedStyle(root).getPropertyValue('--ax-accent').trim(),
+            counter:root.querySelectorAll('.hadith-pro-count').length,
+            topics:topics.map(el=>({...r(el),overflow:el.scrollWidth-el.clientWidth})),
+            nav:nav.map(r),
+            topicContainer:root.querySelector('.hadith-pro-topic-row').scrollWidth-root.querySelector('.hadith-pro-topic-row').clientWidth,
+            card:r(cards[0]),
+            heading:r(root.querySelector('.hadith-pro-heading')),
+            gridColumns:getComputedStyle(root.querySelector('.hadith-pro-grid')).gridTemplateColumns.split(' ').length,
+            headingClipped:root.querySelector('.hadith-pro-heading h1').scrollWidth > root.querySelector('.hadith-pro-heading h1').clientWidth+2,
+            titleClipped:cards.some(el=>el.querySelector('h2').scrollHeight>el.querySelector('h2').clientHeight+2)
+        };
+    });
+    assert.equal(visual.accent,'#496f82','La palette Hadith raffinée n’est pas appliquée');
+    assert.equal(visual.counter,0,'Le compteur géant de Hadiths est toujours visible');
+    assert.ok(visual.heading.height<220,'L’en-tête Hadith est trop massif : '+JSON.stringify(visual));
+    assert.ok(visual.card.y<760,'Les cartes de hadiths sont rejetées trop bas : '+JSON.stringify(visual));
+    assert.equal(visual.gridColumns,3,'La grille PC doit présenter trois colonnes');
+    assert.ok(!visual.headingClipped && !visual.titleClipped,'Un titre Hadith est coupé');
+    assert.ok(visual.topicContainer<=3,'Les thèmes créent un scroll horizontal');
+    for (const element of [...visual.topics,...visual.nav]) {
+        assert.ok(element.x>=-2 && element.right<=visual.viewport+2,'Un filtre est tronqué sur ordinateur : '+JSON.stringify(element));
+        if (element.overflow!==undefined) assert.ok(element.overflow<=3,'Le texte d’un filtre dépasse : '+JSON.stringify(element));
+    }
     assert.equal(await page.locator('.hadith-pro-hero,.hadith-pro-progress-view').count(),0,'Ancien tableau de bord Hadith encore visible');
     await page.getByRole('button',{name:'Voir plus de hadiths'}).click();
     assert.ok(await page.locator('.hadith-pro-card').count()>18,'Le chargement progressif des hadiths est inactif');
@@ -532,6 +563,23 @@ async function mobile(width,height) {
     await navigate(page,'hadiths');
     await page.locator('.hadith-pro-root').waitFor({state:'visible'});
     assert.equal(await page.locator('.hadith-pro-card').count(),18,'Lot initial Hadith absent sur mobile');
+    const mobileVisual=await page.evaluate(() => {
+        const root=document.querySelector('.hadith-pro-root');
+        const container=root.querySelector('.hadith-pro-topic-row');
+        const pieces=[...container.querySelectorAll('button'),...root.querySelectorAll('.hadith-kutub-tabs button'),...root.querySelectorAll('.hadith-pro-search-actions button')];
+        const clipped=pieces.filter(el=>{
+            const rect=el.getBoundingClientRect();
+            return rect.left<-2 || rect.right>innerWidth+2 || el.scrollWidth>el.clientWidth+3;
+        }).map(el=>({text:el.textContent.trim(),width:el.clientWidth,scroll:el.scrollWidth,left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right}));
+        const titles=[...root.querySelectorAll('.hadith-pro-card h2')].filter(el=>el.scrollWidth>el.clientWidth+3||el.scrollHeight>el.clientHeight+3);
+        return {clipped,titles:titles.map(el=>el.textContent),overflow:document.documentElement.scrollWidth-innerWidth,
+            chipScroll:container.scrollWidth-container.clientWidth,
+            gridColumns:getComputedStyle(root.querySelector('.hadith-pro-grid')).gridTemplateColumns.split(' ').length};
+    });
+    assert.deepEqual(mobileVisual.clipped,[],'Filtres ou boutons tronqués sur '+width+'px : '+JSON.stringify(mobileVisual));
+    assert.deepEqual(mobileVisual.titles,[],'Titres de hadiths tronqués sur '+width+'px');
+    assert.ok(mobileVisual.overflow<=3 && mobileVisual.chipScroll<=3,'Débordement horizontal Hadith sur '+width+'px : '+JSON.stringify(mobileVisual));
+    assert.equal(mobileVisual.gridColumns,1,'Une seule colonne de cartes sur téléphone');
     await page.locator('.hadith-pro-search input').fill('colère');
     assert.ok(await page.locator('.hadith-pro-card').count()>0,'Recherche mobile Hadith inactive');
     await page.locator('.hadith-pro-card').first().click();

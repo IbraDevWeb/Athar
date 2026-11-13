@@ -90,6 +90,26 @@ for (const selector of ['.hadith-pro-root', '.hadith-pro-grid', '.hadith-pro-sea
 if (!css.includes('@media(max-width:820px)')) throw new Error('Responsive Hadith absent.');
 if (!css.includes('prefers-reduced-motion')) throw new Error('Réduction des animations Hadith absente.');
 
+const crafted = fs.readFileSync('css/hadith-editorial-finish.css','utf8');
+if (!config.includes('css/hadith-editorial-finish.css?v=${APP_VERSION}'))
+    throw new Error('Le style de finition Hadith n’est pas chargé depuis config.js.');
+if (!worker.includes('css/hadith-editorial-finish.css'))
+    throw new Error('Le style de finition Hadith est absent du précache PWA.');
+if (config.indexOf('athar-unified-section-galleries') > config.indexOf('athar-hadith-editorial-finish'))
+    throw new Error('Le style Hadith doit être chargé après le style commun.');
+for (const marker of [
+    '.hadith-pro-root .hadith-pro-heading', '.hadith-pro-root .hadith-pro-topic-row',
+    '.hadith-pro-root .hadith-pro-card h2', '.hadith-pro-root .hadith-kutub-grid',
+    '.hadith-reader-pro .hadith-reader-text-card', '.hadith-reader-pro .hadith-reader-jump',
+    'flex-wrap:wrap', 'overflow:visible', 'overflow-wrap:break-word',
+    '@media (max-width:610px)', '@media (max-width:360px)', 'prefers-reduced-motion:reduce'
+]) if (!crafted.includes(marker)) throw new Error('Finition Hadith manquante : '+marker);
+if (library.includes('class="hadith-pro-count"')) throw new Error('L’ancien compteur géant demeure.');
+if (!library.includes('hadith-pro-card-actions') || !library.includes('hadith-pro-card-reference'))
+    throw new Error('Les titres et références des cartes ne disposent pas de la structure finale.');
+if (crafted.includes('.library-pro-root') || crafted.includes('.adhkar-pro-shell') || crafted.includes('.timeline-pro'))
+    throw new Error('La surcharge Hadith ne doit toucher aucune autre rubrique.');
+
 for (const asset of ['css/hadith-pro.css', 'js/components/HadithsView.js', 'js/components/HadithReaderView.js', 'hadiths_data.js']) {
     if (!worker.includes(asset)) throw new Error(`Ressource Hadith absente du cache : ${asset}`);
 }

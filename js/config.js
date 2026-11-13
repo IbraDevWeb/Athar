@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v64-library-gold-compact-resume';
+    const APP_VERSION = 'athar-pro-v65-hadith-editorial-finish';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -104,6 +104,8 @@ tailwind.config = {
     ensureStylesheet('css/athar-launch.css?v=athar-public-3', 'athar-launch-styles');
     // Appliqué après les styles de section et leurs correctifs immersifs.
     ensureStylesheet(`css/section-gallery-unified.css?v=${APP_VERSION}`, 'athar-unified-section-galleries');
+    // Style éditorial de Hadiths chargé en dernier : aucune autre section n'est touchée.
+    ensureStylesheet(`css/hadith-editorial-finish.css?v=${APP_VERSION}`, 'athar-hadith-editorial-finish');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
