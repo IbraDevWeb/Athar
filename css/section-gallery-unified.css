@@ -1,16 +1,17 @@
 /*
  * Athar · Galerie des fiches — langage visuel commun inspiré de Tabib al-Qulub.
  * CSS strictement scoped par section, aucune donnée et aucun contrôle supprimés.
- * Identités : Siyar bleu encre, Hadith bleu ardoise, Adhkar lavande,
+ * Identités : Siyar doré patrimonial, Hadith bleu ardoise, Adhkar lavande,
  * Lexique terracotta, Chronologie ocre. Tabib conserve son vert d'origine.
  */
 .library-pro-root {
-    --ax-accent:#365c82; --ax-rgb:54,92,130;
-    --ax-ink:#202b3b; --ax-muted:#697587; --ax-paper:#f7f7f4;
-    --ax-card:#fff; --ax-line:rgba(54,92,130,.13);
-    --library-gold:#55799f; --library-gold-deep:#365c82;
-    --library-ink:#202b3b; --library-muted:#697587;
-    --library-card:#fff; --library-paper:#f7f7f4; --library-line:rgba(54,92,130,.13);
+    --ax-accent:#916622; --ax-rgb:190,148,70;
+    --ax-ink:#302b21; --ax-muted:#776e60; --ax-paper:#faf7f0;
+    --ax-card:#fffdf9; --ax-line:rgba(160,119,47,.20);
+    --library-gold:#c5a059; --library-gold-deep:#916622;
+    --library-ink:#302b21; --library-muted:#776e60;
+    --library-card:#fffdf9; --library-card-strong:#fffefa;
+    --library-paper:#faf7f0; --library-line:rgba(160,119,47,.20);
 }
 .hadith-pro-root,.hadith-reader-pro {
     --ax-accent:#486f99; --ax-rgb:72,111,153;
@@ -45,11 +46,11 @@
     min-width:0;
 }
 .dark .library-pro-root {
-    --ax-accent:#98b8d9;--ax-rgb:119,166,206;--ax-ink:#f4f4f5;--ax-muted:#a8b2c2;
-    --ax-paper:#0b1018;--ax-card:#151b26;--ax-line:rgba(151,181,211,.22);
-    --library-ink:#f4f4f5;--library-muted:#a8b2c2;--library-card:#151b26;
-    --library-card-strong:#151b26;--library-paper:#0b1018;--library-line:rgba(151,181,211,.22);
-    --library-gold:#98b8d9;--library-gold-deep:#98b8d9;
+    --ax-accent:#e1bd78;--ax-rgb:206,163,86;--ax-ink:#f5eedf;--ax-muted:#bcb09c;
+    --ax-paper:#17140e;--ax-card:#252017;--ax-line:rgba(213,174,105,.22);
+    --library-ink:#f5eedf;--library-muted:#bcb09c;--library-card:#252017;
+    --library-card-strong:#292319;--library-paper:#17140e;--library-line:rgba(213,174,105,.22);
+    --library-gold:#e1bd78;--library-gold-deep:#e1bd78;
 }
 .dark :is(.hadith-pro-root,.hadith-reader-pro) {
     --ax-accent:#91b9dd;--ax-rgb:119,163,201;--ax-ink:#f4f5f6;--ax-muted:#a6b3c0;
@@ -127,11 +128,32 @@
     max-width:610px; margin:15px auto 0; text-align:center;
     color:var(--ax-muted); font:400 14px/1.8 "Libre Baskerville",Georgia,serif;
 }
-.library-pro-selection .library-pro-revisit {
-    margin-top:18px; min-width:min(100%,300px); max-width:460px;
-    border-color:var(--ax-line); background:var(--ax-card); text-align:left;
+/* Le retour à la dernière lecture reste accessible, sans interrompre l'entrée du catalogue. */
+.library-pro-selection .library-pro-resume-inline {
+    display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    gap:7px 11px; margin:12px 0 1px;
+    color:var(--ax-muted);
 }
-.library-pro-selection .library-pro-revisit:hover { border-color:var(--ax-accent); }
+.library-pro-resume-inline > span {
+    display:inline-flex; align-items:center; gap:6px;
+    font:600 11px Inter,system-ui,sans-serif;
+}
+.library-pro-resume-inline > span svg { width:14px; height:14px; color:var(--ax-accent); }
+.library-pro-resume-inline > button {
+    display:inline-flex; align-items:center; gap:8px;
+    max-width:min(100%,350px); min-height:37px;
+    padding:7px 13px; border:1px solid var(--ax-line); border-radius:999px;
+    background:rgba(var(--ax-rgb),.07); color:var(--ax-accent);
+    cursor:pointer; font:650 12px/1.4 Inter,system-ui,sans-serif;
+}
+.library-pro-resume-inline > button:hover {
+    border-color:var(--ax-accent); background:rgba(var(--ax-rgb),.13);
+}
+.library-pro-resume-inline > button strong {
+    font:inherit; min-width:0; overflow:hidden;
+    text-overflow:ellipsis; white-space:nowrap;
+}
+.library-pro-resume-inline > button svg { width:15px; height:15px; flex:0 0 auto; }
 .hadith-pro-root .hadith-pro-count {
     display:inline-flex; align-items:baseline; justify-content:center;
     background:rgba(var(--ax-rgb),.075); border-radius:999px;
@@ -249,7 +271,10 @@
 .adhkar-pro-shell .adhkar-pro-routine-grid,
 .glossary-pro-grid { gap:22px; grid-template-columns:repeat(3,minmax(0,1fr)); }
 
-/* Compagnons — bleu encre */
+/* Compagnons — doré patrimonial */
+/* Les cartes et les filtres héritent du doré, sans appliquer une teinte bleue aux fiches. */
+.library-pro-root .library-pro-nav nav button.active,
+.library-pro-root .library-pro-quick-categories button.active { border-color:var(--ax-accent); }
 .library-pro-selection .library-pro-card { padding:22px; min-height:335px; }
 .library-pro-selection .library-pro-card-top { justify-content:flex-start; align-items:center; }
 .library-pro-selection .library-pro-card-index { order:2; margin-right:auto; background:transparent; color:var(--ax-accent); font-size:11px; }
@@ -495,3 +520,10 @@
     margin-right:auto;
 }
 .adhkar-pro-shell .adhkar-pro-card-top > button { flex:0 0 auto; }
+
+@media (max-width:590px) {
+    .library-pro-selection .library-pro-resume-inline {
+        justify-content:flex-start; align-items:center; margin:11px 0 0;
+    }
+    .library-pro-resume-inline > button { max-width:100%; }
+}
