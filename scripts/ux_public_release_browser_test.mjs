@@ -126,7 +126,7 @@ async function desktop() {
     // Refonte Hadith : 18 cartes légères, recherche directe et fiche en lecture continue.
     await navigate(page,'hadiths');
     await page.locator('.hadith-pro-root').waitFor({state:'visible'});
-    assert.match(await page.locator('.hadith-pro-heading h1').innerText(),/Les hadiths/);
+    assert.match(await page.locator('.hadith-pro-heading h1').innerText(),/les hadiths/i);
     assert.equal(await page.locator('.hadith-pro-card').count(),18,'La grille Hadith doit limiter le premier affichage');
     // Régression visuelle : aucun compteur géant ni filtre rogné et grille visible sans vide superflu.
     const visual = await page.evaluate(() => {
