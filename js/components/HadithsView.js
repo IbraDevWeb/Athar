@@ -420,7 +420,7 @@ const HadithsView = {
                     <button type="button" class="hadith-kutub-back" @click="closeBook">
                         <i data-lucide="arrow-left" aria-hidden="true"></i> Tous les recueils
                     </button>
-                    <header v-if="selectedBook.id!=='bukhari'" class="hadith-kutub-book-head">
+                    <header v-if="!['bukhari','muslim'].includes(selectedBook.id)" class="hadith-kutub-book-head">
                         <div>
                             <span class="hadith-pro-eyebrow">{{ selectedBook.type }} · {{ selectedBook.compiler }}</span>
                             <h2>{{ selectedBook.name }}</h2>
@@ -436,7 +436,7 @@ const HadithsView = {
                         <p v-else>Les cinquante premiers hadiths, du commencement de la Révélation aux premières questions sur la foi. Découvrez leurs textes complets en arabe et en français.</p>
                         <div class="bukhari-showcase-meta">
                             <span><strong>50</strong> hadiths</span><span aria-hidden="true">·</span>
-                            <span><strong>{{ bookPayload?.chapters?.length || (selectedBook.id==='muslim'?1:2) }}</strong> {{ selectedBook.id==='muslim'?'section':'livres' }}</span><span aria-hidden="true">·</span>
+                            <span><strong>{{ bookPayload?.chapters?.length || 2 }}</strong> {{ selectedBook.id==='muslim'?'sections':'livres' }}</span><span aria-hidden="true">·</span>
                             <span>Lecture bilingue</span>
                         </div>
                     </header>
