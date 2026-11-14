@@ -19,7 +19,8 @@ const LibraryView = {
             activeSpace: 'catalog',
             query: this.headerSearchQuery || '',
             layoutMode: 'grid',
-            sortMode: 'alpha',
+            sortMode: 'number-asc',
+            numberFilter: 'all',
             contentFilter: 'all',
             activeLetter: 'Tous',
             selectedCollectionId: null,
@@ -61,6 +62,20 @@ const LibraryView = {
             return [...new Set(this.chapters.map((item) => this.normalize(item.name).charAt(0).toUpperCase()).filter(Boolean))]
                 .sort((a, b) => a.localeCompare(b, 'fr'));
         },
+        numberRanges() {
+            // Les numéros sont les identifiants des fiches Athar, pas des dates ni un classement de mérite.
+            const buckets = new Map();
+            for (const item of this.chapters) {
+                const number = Number(item.id);
+                if (!Number.isSafeInteger(number) || number < 1) continue;
+                const start = Math.floor((number - 1) / 20) * 20 + 1;
+                const id = String(start);
+                const current = buckets.get(id) || { id, start, end: start + 19, count: 0 };
+                current.count++;
+                buckets.set(id, current);
+            }
+            return [...buckets.values()].sort((a, b) => a.start - b.start);
+        },
         catalogItems() {
             let items = [...this.chapters];
             if (this.activeCategory && this.activeCategory !== 'Tous') {
@@ -71,6 +86,7 @@ const LibraryView = {
             const q = this.normalize(this.query).toLowerCase();
             if (q) {
                 items = items.filter((item) => {
+                    if (/^[0-9]+$/.test(q)) return String(item.id) === String(Number(q));
                     const searchable = [
                         item.name,
                         item.arabicName,
@@ -93,8 +109,14 @@ const LibraryView = {
             if (this.contentFilter === 'traditions') items = items.filter((item) => this.safeArray(item.hadiths).length > 0);
             if (this.contentFilter === 'quiz') items = items.filter((item) => this.safeArray(item.quizData || item.quiz).length > 0);
             if (this.activeLetter !== 'Tous') items = items.filter((item) => this.normalize(item.name).charAt(0).toUpperCase() === this.activeLetter);
+            if (this.numberFilter !== 'all') {
+                const start = Number(this.numberFilter);
+                items = items.filter((item) => Number(item.id) >= start && Number(item.id) < start + 20);
+            }
 
             const recentOrder = new Map(this.recentHistory.map((entry, index) => [String(entry.id), index]));
+            if (this.sortMode === 'number-asc') items.sort((a, b) => Number(a.id) - Number(b.id));
+            if (this.sortMode === 'number-desc') items.sort((a, b) => Number(b.id) - Number(a.id));
             if (this.sortMode === 'alpha') items.sort((a, b) => String(a.name).localeCompare(String(b.name), 'fr'));
             if (this.sortMode === 'dense') items.sort((a, b) => this.density(b) - this.density(a));
             if (this.sortMode === 'recent') items.sort((a, b) => (recentOrder.get(String(a.id)) ?? 9999) - (recentOrder.get(String(b.id)) ?? 9999));
@@ -142,6 +164,7 @@ const LibraryView = {
                 this.activeCategory && this.activeCategory !== 'Tous',
                 this.contentFilter !== 'all',
                 this.activeLetter !== 'Tous',
+                this.numberFilter !== 'all',
                 Boolean(this.query)
             ].filter(Boolean).length;
         }
@@ -157,6 +180,7 @@ const LibraryView = {
         activeCategory() { this.visibleLimit = 18; this.icons(); },
         contentFilter() { this.visibleLimit = 18; this.icons(); },
         activeLetter() { this.visibleLimit = 18; this.icons(); },
+        numberFilter() { this.visibleLimit = 18; this.icons(); },
         sortMode() { this.visibleLimit = 18; this.icons(); },
         selectedCollectionId() {
             this.icons();
@@ -213,6 +237,7 @@ const LibraryView = {
             this.$emit('update:activeCategory', category);
         },
         resetFilters() {
+            this.numberFilter = 'all';
             this.visibleLimit = 18;
             this.showFilters = false;
             this.$emit('update:activeCategory', 'Tous');
@@ -239,6 +264,12 @@ const LibraryView = {
         showMore() {
             this.visibleLimit += 18;
             this.icons();
+        },
+        excerpt(value, maxLength = 170) {
+            const text = String(value || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+            if (text.length <= maxLength) return text;
+            const partial = text.slice(0, maxLength + 1);
+            return partial.slice(0, Math.max(40, partial.lastIndexOf(' '))).trimEnd() + '…';
         },
         randomChapter() {
             if (typeof this.openRandomChapter === 'function') this.openRandomChapter();
@@ -358,53 +389,111 @@ const LibraryView = {
             </div>
 
             <div v-else-if="activeSpace === 'catalog'" class="library-pro-catalog library-pro-selection">
-                <section class="library-pro-selection-intro">
-                    <div>
-                        <span class="library-pro-selection-eyebrow"><i data-lucide="book-open" aria-hidden="true"></i> سِيَرٌ وَآثَارٌ <span aria-hidden="true">·</span> Les biographies</span>
-                        <h1>Choisir une <em>histoire.</em></h1>
-                        <p>Un nom, un récit, une époque : trouvez une figure à découvrir. Chaque notice vous mène aux sources et aux traditions rapportées.</p>
-                    </div>
-                </section>
+                <header class="library-pro-selection-intro">
+                    <span class="library-pro-selection-eyebrow">
+                        <i data-lucide="book-open" aria-hidden="true"></i>
+                        سِيَرٌ وَآثَارٌ <span aria-hidden="true">·</span> Les biographies
+                    </span>
+                    <h1>Choisir une <em>histoire.</em></h1>
+                    <p>Une vie, un récit, une transmission. Explorez les notices dans l'ordre de leurs numéros ou retrouvez directement une figure.</p>
+                </header>
 
-                <section class="library-pro-selection-panel" aria-label="Trouver une biographie">
-                    <label class="library-pro-search-hero library-pro-search-bar library-pro-selection-search">
-                        <i data-lucide="search"></i>
-                        <input :value="query" @input="updateQuery($event.target.value)" type="search" aria-label="Chercher une histoire" placeholder="Un nom, un événement, un récit…" autocomplete="off">
-                        <button v-if="query" type="button" aria-label="Effacer la recherche" @click.prevent="updateQuery('')"><i data-lucide="x"></i></button>
-                    </label>
-                    <div class="library-pro-quick-categories" role="group" aria-label="Explorer par thème">
-                        <button v-for="category in quickCategories" :key="category.label" type="button" @click="selectCategory(category.label)" :aria-pressed="activeCategory === category.label" :class="{ active: activeCategory === category.label }">
-                            {{ category.label === 'Tous' ? 'Toutes les histoires' : category.label }}
-                        </button>
+                <section class="library-pro-selection-panel" aria-label="Explorer les biographies">
+                    <div class="library-pro-number-heading">
+                        <span><i data-lucide="list-ordered" aria-hidden="true"></i> Explorer par numéro de fiche</span>
+                        <small>Numérotation propre à Athar, sans portée chronologique</small>
                     </div>
-                    <div class="library-pro-catalog-tools library-pro-selection-tools">
-                        <div class="library-pro-result-count" aria-live="polite"><strong>{{ catalogItems.length }}</strong><span>{{ catalogItems.length > 1 ? 'histoires' : 'histoire' }}</span></div>
+                    <nav class="library-pro-number-nav" aria-label="Choisir une tranche de numéros">
+                        <button type="button" :aria-pressed="numberFilter === 'all'" :class="{active: numberFilter === 'all'}"
+                            @click="numberFilter = 'all'">Tous les numéros <small>{{ chapters.length }}</small></button>
+                        <button v-for="range in numberRanges" :key="range.id" type="button"
+                            :class="{active: numberFilter === range.id}" :aria-pressed="numberFilter === range.id"
+                            @click="numberFilter = range.id">
+                            {{ range.start }}–{{ range.end }} <small>{{ range.count }}</small>
+                        </button>
+                    </nav>
+
+                    <div class="library-pro-search-tools">
+                        <label class="library-pro-search-hero library-pro-search-bar library-pro-selection-search">
+                            <i data-lucide="search" aria-hidden="true"></i>
+                            <input :value="query" @input="updateQuery($event.target.value)" type="search"
+                                aria-label="Chercher une histoire" placeholder="Nom, mot-clé ou n° exact…" autocomplete="off">
+                            <button v-if="query" type="button" aria-label="Effacer la recherche" @click.prevent="updateQuery('')">
+                                <i data-lucide="x" aria-hidden="true"></i>
+                            </button>
+                        </label>
                         <div class="library-pro-selection-controls">
-                            <label class="library-pro-sort-label" for="library-sort">Trier par</label>
+                            <label class="library-pro-sort-label" for="library-sort">Ordre</label>
                             <select id="library-sort" v-model="sortMode" aria-label="Trier les histoires">
+                                <option value="number-asc">N° croissant</option>
+                                <option value="number-desc">N° décroissant</option>
                                 <option value="alpha">Nom (A–Z)</option>
-                                <option value="featured">À découvrir</option>
                                 <option value="recent">Dernières lectures</option>
                                 <option value="dense">Plus de récits</option>
+                                <option value="featured">À découvrir</option>
                             </select>
-                            <button type="button" class="library-pro-filter-toggle" @click="showFilters = !showFilters" :aria-expanded="showFilters" aria-controls="library-advanced-filters" :class="{ active: showFilters || filterCount }">
-                                <i data-lucide="sliders-horizontal"></i> Affiner <span v-if="filterCount">{{ filterCount }}</span>
+                            <button type="button" class="library-pro-filter-toggle" @click="showFilters = !showFilters"
+                                :aria-expanded="showFilters" aria-controls="library-advanced-filters"
+                                :class="{active: showFilters || filterCount}">
+                                <i data-lucide="sliders-horizontal" aria-hidden="true"></i> Affiner
+                                <span v-if="filterCount">{{ filterCount }}</span>
                             </button>
                             <div class="library-pro-layout-switch" role="group" aria-label="Mode d'affichage">
-                                <button type="button" @click="layoutMode = 'grid'" aria-label="Affichage en cartes" :aria-pressed="layoutMode === 'grid'" :class="{ active: layoutMode === 'grid' }"><i data-lucide="layout-grid"></i></button>
-                                <button type="button" @click="layoutMode = 'list'" aria-label="Affichage en liste" :aria-pressed="layoutMode === 'list'" :class="{ active: layoutMode === 'list' }"><i data-lucide="list"></i></button>
+                                <button type="button" @click="layoutMode = 'grid'" aria-label="Affichage en cartes"
+                                    :aria-pressed="layoutMode === 'grid'" :class="{active: layoutMode === 'grid'}">
+                                    <i data-lucide="layout-grid" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" @click="layoutMode = 'list'" aria-label="Affichage en liste"
+                                    :aria-pressed="layoutMode === 'list'" :class="{active: layoutMode === 'list'}">
+                                    <i data-lucide="list" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <div class="library-pro-quick-categories" role="group" aria-label="Explorer par thème">
+                        <button v-for="category in quickCategories" :key="category.label" type="button"
+                            @click="selectCategory(category.label)" :aria-pressed="activeCategory === category.label"
+                            :class="{active: activeCategory === category.label}">
+                            {{ category.label === 'Tous' ? 'Tous les thèmes' : category.label }}
+                        </button>
+                    </div>
+
                     <section id="library-advanced-filters" v-show="showFilters" class="library-pro-filter-panel">
-                        <div><span>Autres thèmes</span><div class="library-pro-chip-list"><button v-for="category in categoryList" :key="category" type="button" @click="selectCategory(category)" :class="{ active: activeCategory === category }">{{ category }}</button></div></div>
-                        <div><span>Explorer selon le contenu</span><div class="library-pro-chip-list"><button v-for="filter in [{id:'all',label:'Tout'},{id:'sourced',label:'Référence principale'},{id:'stories',label:'Récits développés'},{id:'timeline',label:'Repères chronologiques'},{id:'traditions',label:'Traditions'},{id:'quiz',label:'Quiz'}]" :key="filter.id" type="button" @click="contentFilter = filter.id" :class="{ active: contentFilter === filter.id }">{{ filter.label }}</button></div></div>
-                        <div><span>Première lettre</span><div class="library-pro-letter-list"><button type="button" @click="activeLetter = 'Tous'" :class="{ active: activeLetter === 'Tous' }">Toutes</button><button v-for="letter in letters" :key="letter" type="button" @click="activeLetter = letter" :class="{ active: activeLetter === letter }">{{ letter }}</button></div></div>
-                        <button type="button" class="library-pro-reset" @click="resetFilters"><i data-lucide="rotate-ccw"></i> Effacer les filtres</button>
+                        <div><span>Autres thèmes</span><div class="library-pro-chip-list">
+                            <button v-for="category in categoryList" :key="category" type="button"
+                                @click="selectCategory(category)" :class="{active: activeCategory === category}">{{ category }}</button>
+                        </div></div>
+                        <div><span>Explorer selon le contenu</span><div class="library-pro-chip-list">
+                            <button v-for="filter in [{id:'all',label:'Tout'},{id:'sourced',label:'Référence principale'},{id:'stories',label:'Récits développés'},{id:'timeline',label:'Repères chronologiques'},{id:'traditions',label:'Traditions'},{id:'quiz',label:'Quiz'}]"
+                                :key="filter.id" type="button" @click="contentFilter = filter.id"
+                                :class="{active: contentFilter === filter.id}">{{ filter.label }}</button>
+                        </div></div>
+                        <div><span>Première lettre</span><div class="library-pro-letter-list">
+                            <button type="button" @click="activeLetter = 'Tous'" :class="{active: activeLetter === 'Tous'}">Toutes</button>
+                            <button v-for="letter in letters" :key="letter" type="button"
+                                @click="activeLetter = letter" :class="{active: activeLetter === letter}">{{ letter }}</button>
+                        </div></div>
+                        <button type="button" class="library-pro-reset" @click="resetFilters">
+                            <i data-lucide="rotate-ccw" aria-hidden="true"></i> Effacer les filtres
+                        </button>
                     </section>
+                </section>
+
+                <section class="library-pro-selection-results" aria-label="Biographies disponibles">
+                    <header class="library-pro-results-heading">
+                        <div>
+                            <span>À découvrir</span>
+                            <h2>{{ numberFilter === 'all' ? 'Toutes les histoires' : 'Fiches ' + numberFilter + ' à ' + (Number(numberFilter) + 19) }}</h2>
+                        </div>
+                        <div class="library-pro-results-meta" aria-live="polite">
+                            <strong>{{ catalogItems.length }}</strong> {{ catalogItems.length > 1 ? 'histoires' : 'histoire' }}
+                        </div>
+                    </header>
+
                     <div v-if="filterCount" class="library-pro-active-filters">
                         <span>Recherche affinée</span>
-                        <button type="button" @click="resetFilters">Tout réinitialiser <i data-lucide="x"></i></button>
+                        <button type="button" @click="resetFilters">Tout réinitialiser <i data-lucide="x" aria-hidden="true"></i></button>
                     </div>
                     <div v-if="lastReadChapter && !query" class="library-pro-resume-inline">
                         <span><i data-lucide="bookmark" aria-hidden="true"></i> Dernière lecture</span>
@@ -413,35 +502,44 @@ const LibraryView = {
                             <i data-lucide="arrow-up-right" aria-hidden="true"></i>
                         </button>
                     </div>
-                </section>
 
-                <section v-if="catalogItems.length" class="library-pro-selection-results" aria-label="Biographies disponibles">
-                    <div class="library-pro-results" :class="'is-' + layoutMode">
-                        <article v-for="item in displayedCatalogItems" :key="item.id" class="library-pro-card" @click="openItem(item)" tabindex="0" role="button" :aria-label="'Lire la biographie de ' + item.name" @keydown.enter.prevent="openItem(item)" @keydown.space.prevent="openItem(item)">
+                    <div v-if="catalogItems.length" class="library-pro-results" :class="'is-' + layoutMode">
+                        <article v-for="item in displayedCatalogItems" :key="item.id" class="library-pro-card"
+                            @click="openItem(item)" tabindex="0" role="button"
+                            :aria-label="'Lire la biographie numéro ' + item.id + ' de ' + item.name"
+                            @keydown.enter.self.prevent="openItem(item)" @keydown.space.self.prevent="openItem(item)">
                             <div class="library-pro-card-top">
-                                <span class="library-pro-card-index">{{ String(item.id).padStart(2, '0') }}</span>
+                                <span class="library-pro-card-index">N° {{ item.id }}</span>
                                 <span class="library-pro-card-emblem" aria-hidden="true"><i data-lucide="book-open"></i></span>
-                                <button type="button" @click="toggleItemFavorite(item, $event)" @keydown.enter.stop @keydown.space.stop :aria-label="favorite(item.id) ? 'Retirer des favoris : ' + item.name : 'Ajouter aux favoris : ' + item.name" :aria-pressed="favorite(item.id)" :class="{ active: favorite(item.id) }" title="Ajouter ou retirer des favoris"><i data-lucide="heart"></i></button>
+                                <button type="button" @click="toggleItemFavorite(item, $event)" @keydown.stop
+                                    :aria-label="favorite(item.id) ? 'Retirer des favoris : ' + item.name : 'Ajouter aux favoris : ' + item.name"
+                                    :aria-pressed="favorite(item.id)" :class="{active: favorite(item.id)}"
+                                    title="Ajouter ou retirer des favoris"><i data-lucide="heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="library-pro-card-main">
                                 <span class="library-pro-card-arabic" lang="ar" dir="rtl">{{ item.arabicName }}</span>
                                 <span class="library-pro-card-category">{{ safeArray(item.tags)[0] || 'Biographie' }}</span>
                                 <h2>{{ item.name }}</h2>
-                                <p class="library-pro-card-subtitle">{{ item.subtitle }}</p>
-                                <p class="library-pro-card-summary">{{ item.intro }}</p>
+                                <p class="library-pro-card-subtitle">{{ excerpt(item.subtitle, 105) }}</p>
+                                <p class="library-pro-card-summary">{{ excerpt(item.intro, 165) }}</p>
                             </div>
                             <footer>
-                                <span><i data-lucide="scroll-text"></i> {{ metrics(item).stories }} récits <span aria-hidden="true">·</span> {{ readingTime(item) }}</span>
-                                <b>Découvrir <i data-lucide="arrow-up-right"></i></b>
+                                <span><i data-lucide="scroll-text" aria-hidden="true"></i> {{ metrics(item).stories }} récits <span aria-hidden="true">·</span> {{ readingTime(item) }}</span>
+                                <b>Lire <i data-lucide="arrow-right" aria-hidden="true"></i></b>
                             </footer>
                         </article>
                     </div>
-                    <div v-if="displayedCatalogItems.length < catalogItems.length" class="library-pro-load-more">
+                    <div v-if="catalogItems.length && displayedCatalogItems.length < catalogItems.length" class="library-pro-load-more">
                         <p>{{ displayedCatalogItems.length }} histoires affichées sur {{ catalogItems.length }}</p>
-                        <button type="button" @click="showMore"><i data-lucide="plus"></i> Afficher plus d'histoires</button>
+                        <button type="button" @click="showMore"><i data-lucide="plus" aria-hidden="true"></i> Afficher plus d'histoires</button>
+                    </div>
+                    <div v-if="!catalogItems.length" class="library-pro-empty">
+                        <i data-lucide="search-x" aria-hidden="true"></i>
+                        <h2>Aucune histoire trouvée</h2>
+                        <p>Essayez un autre nom, numéro ou retirez un filtre.</p>
+                        <button type="button" @click="resetFilters">Voir toutes les histoires</button>
                     </div>
                 </section>
-                <div v-else class="library-pro-empty"><i data-lucide="search-x"></i><h2>Aucune histoire trouvée</h2><p>Essayez un autre nom ou retirez un filtre.</p><button type="button" @click="resetFilters">Voir toutes les histoires</button></div>
             </div>
 
             <div v-else-if="activeSpace === 'collections'" class="library-pro-collections-page">
