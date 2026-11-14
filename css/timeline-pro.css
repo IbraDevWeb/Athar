@@ -330,6 +330,12 @@
     box-shadow:0 5px 20px rgba(33,34,29,.032);
     transition:border-color .17s,box-shadow .17s,transform .17s;
 }
+/* Neutraliser le grand cercle hérité des cartes de galerie, qui déborde de 45px
+   et crée un scroll interne même quand l'extérieur paraît propre. */
+.timeline-pro .timeline-pro-event-card::before {
+    content:none !important;
+    display:none !important;
+}
 .timeline-pro .timeline-pro-event-card:hover {
     border-color:rgba(151,110,53,.43);
     box-shadow:0 12px 26px rgba(41,33,22,.074);
