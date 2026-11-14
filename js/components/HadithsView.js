@@ -432,7 +432,7 @@ const HadithsView = {
                         <span class="bukhari-showcase-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> Aux sources des transmissions</span>
                         <span class="bukhari-showcase-arabic" lang="ar" dir="rtl">{{ selectedBook.arabicName }}</span>
                         <h2>Sahîh <em>{{ selectedBook.id==='muslim' ? 'Muslim' : 'al-Bukhârî' }}</em></h2>
-                        <p v-if="selectedBook.id==='muslim'">Les cinquante premières narrations de l’Introduction. Découvrez les textes arabes et leurs versions françaises ; certains rapports sont des paroles de transmetteurs, non des hadiths prophétiques authentifiés.</p>
+                        <p v-if="selectedBook.id==='muslim'">Les 50 premières références de Sahîh Muslim : 1 à 7 dans l’Introduction, puis 8 à 50 dans le Livre de la foi. Une première variante par numéro, en arabe et en français. L’Introduction inclut aussi des propos de transmetteurs.</p>
                         <p v-else>Les cinquante premiers hadiths, du commencement de la Révélation aux premières questions sur la foi. Découvrez leurs textes complets en arabe et en français.</p>
                         <div class="bukhari-showcase-meta">
                             <span><strong>50</strong> hadiths</span><span aria-hidden="true">·</span>
@@ -494,7 +494,7 @@ const HadithsView = {
                                         <strong class="bukhari-card-title">{{ entry.readingTitle||entry.title }}</strong>
                                         <span class="bukhari-card-excerpt">{{ bookLead(entry) }}</span>
                                         <span class="bukhari-card-foot">
-                                            <span>{{ selectedBook.id==='muslim'?'Narration':'Hadith' }} {{ entry.number }} <i data-lucide="dot" aria-hidden="true"></i> {{ selectedBook.id==='muslim'?'Introduction':'Livre '+entry.bookNumber }}</span>
+                                            <span>{{ selectedBook.id==='muslim'?'Narration':'Hadith' }} {{ entry.number }} <i data-lucide="dot" aria-hidden="true"></i> {{ selectedBook.id==='muslim'?(entry.bookNumber===0?'Introduction':'Livre de la foi'):'Livre '+entry.bookNumber }}</span>
                                             <b>Lire le texte <i data-lucide="arrow-right" aria-hidden="true"></i></b>
                                         </span>
                                     </button>
