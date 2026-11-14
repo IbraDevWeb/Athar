@@ -1,6 +1,6 @@
 # Kutub as-Sitta — préparation de la compilation
 
-La rubrique **Hadiths → Kutub as-Sitta** contient six recueils consultables. **Sahîh al-Bukhârî** possède 50 premiers hadiths et **Sahîh Muslim** 50 premières narrations de son Introduction ; les quatre autres recueils sont encore vides. Le corpus Athar existant (`hadiths_data.js`) reste séparé et ne doit pas être attribué automatiquement à un des six recueils sur la simple base d'un nom d'auteur.
+La rubrique **Hadiths → Kutub as-Sitta** contient six recueils consultables. **Sahîh al-Bukhârî** possède 50 premiers hadiths et **Sahîh Muslim** les références 1–50 (Introduction puis Livre de la foi) ; les quatre autres recueils sont encore vides. Le corpus Athar existant (`hadiths_data.js`) reste séparé et ne doit pas être attribué automatiquement à un des six recueils sur la simple base d'un nom d'auteur.
 
 ## Arborescence
 
@@ -43,7 +43,7 @@ Lors de la première importation, garder les clés et ajouter des éléments **v
 5. Garder les notices de compilateurs et les informations bibliographiques vérifiables ; ne pas transformer les traductions ou commentaires en paroles attribuées directement au Prophète ﷺ.
 6. Mettre à jour le cache PWA et les validateurs lors de l'ajout des futurs lots.
 
-**Périmètre actuel :** deux recueils initialement alimentés (50 hadiths al-Bukhârî ; 50 narrations de l’Introduction de Muslim), quatre encore vides. Le corpus thématique actuel reste inchangé. Voir `README-BUKHARI.md` et `README-MUSLIM.md` pour les particularités de numérotation, de provenance et d’édition.
+**Périmètre actuel :** deux recueils initialement alimentés (50 hadiths al-Bukhârî ; 50 textes de Sahîh Muslim, références usuelles 1–50), quatre encore vides. Le corpus thématique actuel reste inchangé. Voir `README-BUKHARI.md` et `README-MUSLIM.md` pour les particularités de numérotation, de provenance et d’édition.
 
 ## Références pour identifier les six recueils
 
