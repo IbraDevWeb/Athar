@@ -73,6 +73,9 @@ jobs:
       - name: Validate Adhkar and immersive navigation
         run: node scripts/validate-immersive-adhkar.js
 
+      - name: Validate simplified Adhkar cards and reader
+        run: node scripts/validate-adhkar-reading.js
+
       - name: Validate Tasbih
         run: node scripts/validate-tasbih.js
 
