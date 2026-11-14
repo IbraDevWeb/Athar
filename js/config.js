@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v68-adhkar-reading';
+    const APP_VERSION = 'athar-pro-v69-bukhari-first-50';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -106,6 +106,8 @@ tailwind.config = {
     ensureStylesheet(`css/section-gallery-unified.css?v=${APP_VERSION}`, 'athar-unified-section-galleries');
     // Style éditorial de Hadiths chargé en dernier : aucune autre section n'est touchée.
     ensureStylesheet(`css/hadith-editorial-finish.css?v=${APP_VERSION}`, 'athar-hadith-editorial-finish');
+    // Première tranche Sahîh al-Bukhârî : uniquement le répertoire et le lecteur de hadiths.
+    ensureStylesheet(`css/bukhari-first-50.css?v=${APP_VERSION}`, 'athar-bukhari-first-50');
     // Frise autonome : la nouvelle interface doit primer sur le thème de galeries.
     ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
     // Catalogue numéroté après les styles communs et la Frise : surcharge limitée à la bibliothèque.
