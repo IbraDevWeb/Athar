@@ -109,7 +109,7 @@ const LibraryView = {
             if (this.contentFilter === 'traditions') items = items.filter((item) => this.safeArray(item.hadiths).length > 0);
             if (this.contentFilter === 'quiz') items = items.filter((item) => this.safeArray(item.quizData || item.quiz).length > 0);
             if (this.activeLetter !== 'Tous') items = items.filter((item) => this.normalize(item.name).charAt(0).toUpperCase() === this.activeLetter);
-            if (this.numberFilter !== 'all') {
+            if (this.numberFilter && this.numberFilter !== 'all') {
                 const start = Number(this.numberFilter);
                 items = items.filter((item) => Number(item.id) >= start && Number(item.id) < start + 20);
             }
