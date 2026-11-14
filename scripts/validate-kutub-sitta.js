@@ -27,6 +27,11 @@ for (const book of registry.collections) {
         assert.equal(payload.range.first, 1);
         assert.equal(payload.range.last, 50);
         assert.ok(payload.editorialStatus.includes('traduction'),'Prudence éditoriale absente');
+        const curated = payload.hadiths.map(x=>x.readingTitle);
+        assert.equal(new Set(curated).size,50,'Les titres éditoriaux doivent différencier les 50 lectures');
+        assert.ok(curated.every(x=>typeof x==='string' && x.trim().length>16),'Un titre de lecture est vide ou générique');
+        assert.ok(payload.editorialPresentation?.scope?.includes('non attribués'),
+            'La distinction entre titres éditoriaux et tradition n’est pas expliquée');
         const nums = payload.hadiths.map(x => x.number);
         assert.deepEqual(nums, Array.from({length:50},(_,i)=>i+1),'Numéros 1–50 discontinus ou dans le désordre');
         for (const entry of payload.hadiths) {
@@ -62,12 +67,37 @@ for (const marker of [
     'selectedBookId', 'openBook = async book', 'closeBook = ()', 'fetch(book.dataPath)',
     'bookPayload', 'bookError', 'hadith-kutub-book', 'hadith-kutub-empty', 'bookChapters',
     'bookHadiths', 'props.openHadith(hadith)', "section==='library'", 'hadith-pro-search-area',
-    'bookExcerpt', 'athar_kutub_return_book', 'hadith-kutub-list-excerpt'
+    'bookExcerpt', 'athar_kutub_return_book', 'hadith-kutub-list-excerpt',
+    'bukhari-card-grid', 'bukhari-card-title', 'bukhari-book-switch',
+    'toggleBookFavorite', 'bookLead', 'bookFavoritesOnly', 'bookVisibleLimit+=12'
 ]) assert.ok(view.includes(marker), 'Comportement de la rubrique absent : ' + marker);
 assert.ok(reader.includes('hadith.source_url') && reader.includes('noopener noreferrer'), 'Source externe future non disponible');
 assert.ok(reader.includes('translationNotice') && reader.includes('hadith.translationSourceUrl'),
- 'La source de traduction doit être consultable, avec sa limite de provenance.');
+ 'La source de traduction doit être consultable dans le lecteur historique.');
+assert.ok(reader.includes('bukhari-reader-hero') && reader.includes('bukhari-reader-original') &&
+    reader.includes('bukhari-reader-journal'), 'L’immersion Tabîb inspirée est absente.');
+const start=reader.indexOf('<template v-if="isBukhari">');
+const stop=reader.indexOf('<template v-else>',start);
+assert.ok(start>=0 && stop>start,'La fiche de Bukhârî doit être séparée du lecteur thématique.');
+const bukhariReader=reader.slice(start,stop);
+assert.ok(bukhariReader.includes('https://sunnah.com/'),'Sunnah.com doit être accessible depuis la fiche');
+assert.ok(!bukhariReader.includes('translationSourceUrl') && !bukhariReader.includes('textSourceUrl') &&
+    !bukhariReader.includes('github'), 'Des liens GitHub s’afficheraient dans les sources de Bukhârî.');
+assert.ok(bukhariReader.includes('hadith.hadeeth_ar') && bukhariReader.includes('hadith.hadeeth'),
+    'La lecture intégrale arabe et française doit rester visible.');
+assert.ok(bukhariReader.includes('<details') && !bukhariReader.includes('explanationParagraphs'),
+    'Les commentaires non documentés ne doivent pas être inventés.');
 const cssBukhari=read('css/bukhari-first-50.css');
+const signature=read('css/bukhari-tabib-inspired.css');
+for (const token of [
+    '.bukhari-card-grid','.bukhari-showcase-hero',
+    '.bukhari-reader-original','.bukhari-reader-translation',
+    '.bukhari-reader-source','.bukhari-card-title',
+    '@media(max-width:610px)','@media(max-width:375px)',
+    'prefers-reduced-motion:reduce'
+]) assert.ok(signature.includes(token),'Style Bukhârî manquant : '+token);
+for (const outOfScope of ['.library-pro-root','.timeline-pro','.adhkar-pro-shell','.tabib-pro-root'])
+    assert.ok(!signature.includes(outOfScope),'Style Bukhârî déborde sur '+outOfScope);
 assert.ok(cssBukhari.includes('.hadith-kutub-list-excerpt') && cssBukhari.includes('@media(max-width:690px)'),
  'La nouvelle liste de hadiths n’est pas responsive.');
 
@@ -83,5 +113,7 @@ assert.ok(assets.some(path => path.includes('js/kutub-sitta-registry.js')), 'Reg
 for (const book of registry.collections) {
     assert.ok(assets.some(path => path.includes(book.dataPath)), 'Recueil vide absent du précache : ' + book.id);
 }
-assert.ok(assets.length < 60, 'Précache PWA trop volumineux en fichiers');
-console.log('Kutub as-Sitta : 50 premiers hadiths de Bukhârî importés, cinq recueils encore vides, 50 thématiques préservés.');
+assert.ok(assets.some(path=>path.includes('css/bukhari-tabib-inspired.css')),
+    'Nouvelle finition Bukhârî absente du précache PWA.');
+assert.ok(assets.length < 65, 'Précache PWA trop volumineux en fichiers');
+console.log('Kutub as-Sitta : 50 lectures éditorialisées, 50 textes authentiquement présents, sources externes, cinq autres recueils et 50 thématiques préservés.');
