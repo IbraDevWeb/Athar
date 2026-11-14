@@ -803,8 +803,8 @@ async function mobile(width,height) {
     assert.equal(dhikrMobile.columns,1,'Une carte par ligne sur téléphone');
     await page.locator('.adhkar-pro-card').first().click();
     await page.locator('.adhkar-pro-reader').waitFor({state:'visible'});
-    const reader=await page.locator('.adhkar-pro-reader').boundingBox();
-    assert.ok(reader && reader.width<=width+2,'Lecteur de dhikr trop large sur téléphone');
+    const dhikrReaderBounds=await page.locator('.adhkar-pro-reader').boundingBox();
+    assert.ok(dhikrReaderBounds && dhikrReaderBounds.width<=width+2,'Lecteur de dhikr trop large sur téléphone');
     await page.locator('.adhkar-pro-reader-notes summary').click();
     assert.ok(await page.locator('.adhkar-pro-reader-notes-body').isVisible(),'Sources non accessibles sur smartphone');
     await page.locator('.adhkar-pro-counter').click();
