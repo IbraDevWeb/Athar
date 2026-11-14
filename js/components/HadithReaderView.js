@@ -150,7 +150,7 @@ const HadithReaderView = {
                     <h1>{{ hadith.readingTitle||hadith.title }}</h1>
                     <p class="bukhari-reader-book">{{ bukhariBook }}</p>
                     <div class="bukhari-reader-meta">
-                        <span>Hadith n° {{ hadith.number }}</span><span aria-hidden="true">·</span>
+                        <span>{{ isMuslim ? 'Narration' : 'Hadith' }} n° {{ hadith.number }}</span><span aria-hidden="true">·</span>
                         <span>{{ isMuslim ? "Introduction, narration " + hadith.inBookNumber : "Livre " + hadith.bookNumber + ", hadith " + hadith.inBookNumber }}</span>
                     </div>
                 </header>
@@ -216,7 +216,7 @@ const HadithReaderView = {
                                 <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et commentaires savants.<span v-if="isMuslim"> L’Introduction de Muslim contient aussi des propos de transmetteurs et n’est pas intégralement régie par le statut du corpus principal.</span></p>
                                 <a v-if="hadith.source_url && hadith.source_url.startsWith('https://sunnah.com/')"
                                     :href="hadith.source_url" target="_blank" rel="noopener noreferrer" class="bukhari-reader-external">
-                                    Consulter le hadith sur Sunnah.com <i data-lucide="external-link" aria-hidden="true"></i>
+                                    {{ isMuslim ? 'Consulter l’Introduction sur Sunnah.com' : 'Consulter le hadith sur Sunnah.com' }} <i data-lucide="external-link" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </details>
