@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v65-hadith-editorial-finish';
+    const APP_VERSION = 'athar-pro-v66-timeline-intuitive';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -91,7 +91,7 @@ tailwind.config = {
     writeEarlyScript('js/components/AtharLensBridge.js', 'athar-navigation-bridge');
 
     ensureStylesheet(`css/tasbih-pro.css?v=${APP_VERSION}`, 'athar-tasbih-pro');
-    ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
+
     ensureStylesheet(`css/fullscreen-global.css?v=${APP_VERSION}`, 'athar-fullscreen-global');
     ensureStylesheet(`css/adhkar-pro.css?v=${APP_VERSION}`, 'athar-adhkar-pro');
     ensureStylesheet(`css/hadith-pro.css?v=${APP_VERSION}`, 'athar-hadith-pro');
@@ -106,6 +106,8 @@ tailwind.config = {
     ensureStylesheet(`css/section-gallery-unified.css?v=${APP_VERSION}`, 'athar-unified-section-galleries');
     // Style éditorial de Hadiths chargé en dernier : aucune autre section n'est touchée.
     ensureStylesheet(`css/hadith-editorial-finish.css?v=${APP_VERSION}`, 'athar-hadith-editorial-finish');
+    // Frise autonome : la nouvelle interface doit primer sur le thème de galeries.
+    ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
