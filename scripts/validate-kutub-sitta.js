@@ -73,7 +73,7 @@ for (const book of registry.collections) {
                 entry.translationNotice.includes('non identifiés'),'Prudence sur la traduction absente : '+n);
             assert.ok(!entry.grade,'Aucune appréciation individuelle non sourcée : '+n);
             if (!intro) {
-                assert.ok(/^\\d+(?:\\.\\d+)?$/.test(entry.editionArabicNumber),'Variante source absente : '+n);
+                assert.ok(/^[0-9]+(?:[.][0-9]+)?$/.test(entry.editionArabicNumber),'Variante source absente : '+n);
                 assert.equal(Number(entry.editionArabicNumber.split('.')[0]),n,'Mauvaise numérotation arabe : '+n);
                 assert.ok(entry.textSourceUrl.includes('/ara-muslim/sections/1.json'));
                 assert.ok(entry.translationSourceUrl.includes('/fra-muslim/sections/1.json'));
