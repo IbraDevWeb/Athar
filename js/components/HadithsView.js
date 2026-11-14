@@ -270,7 +270,7 @@ const HadithsView = {
     template: `
     <section class="hadith-pro-root">
         <div class="hadith-pro-container">
-            <header class="hadith-pro-heading">
+            <header v-if="selectedBook?.id!=='bukhari'" class="hadith-pro-heading">
                 <div>
                     <span class="hadith-pro-eyebrow"><i data-lucide="scroll-text" aria-hidden="true"></i> Bibliothèque des transmissions</span>
                     <h1>Les hadiths</h1>
@@ -278,7 +278,7 @@ const HadithsView = {
                 </div>
             </header>
 
-            <nav class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
+            <nav v-if="selectedBook?.id!=='bukhari'" class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
                 <button type="button" :class="{active:section==='library'}" :aria-pressed="section==='library'" @click="selectSection('library')">
                     <i data-lucide="book-open" aria-hidden="true"></i> Hadiths disponibles
                     <span>{{ stats.total }}</span>
@@ -416,7 +416,7 @@ const HadithsView = {
                     <p class="hadith-kutub-footnote">Les recueils seront complétés progressivement. Les {{ stats.total }} hadiths déjà disponibles restent dans la bibliothèque actuelle.</p>
                 </template>
 
-                <section v-else class="hadith-kutub-book-view" :aria-label="'Recueil '+selectedBook.name">
+                <section v-else class="hadith-kutub-book-view" :class="{'bukhari-book-view':selectedBook.id==='bukhari'}" :aria-label="'Recueil '+selectedBook.name">
                     <button type="button" class="hadith-kutub-back" @click="closeBook">
                         <i data-lucide="arrow-left" aria-hidden="true"></i> Tous les recueils
                     </button>
