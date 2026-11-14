@@ -1,6 +1,6 @@
 # Kutub as-Sitta — préparation de la compilation
 
-La rubrique **Hadiths → Kutub as-Sitta** contient six recueils consultables, encore **vides**. Le corpus Athar existant (`hadiths_data.js`) reste séparé et ne doit pas être attribué automatiquement à un des six recueils sur la simple base d'un nom d'auteur.
+La rubrique **Hadiths → Kutub as-Sitta** contient six recueils consultables. **Sahîh al-Bukhârî** possède 50 premiers hadiths et **Sahîh Muslim** 50 premières narrations de son Introduction ; les quatre autres recueils sont encore vides. Le corpus Athar existant (`hadiths_data.js`) reste séparé et ne doit pas être attribué automatiquement à un des six recueils sur la simple base d'un nom d'auteur.
 
 ## Arborescence
 
@@ -12,7 +12,7 @@ La rubrique **Hadiths → Kutub as-Sitta** contient six recueils consultables, e
 - `data/kutub-sitta/nasai.json`
 - `data/kutub-sitta/ibn-majah.json`
 
-Chaque fichier est chargé **à l'ouverture du recueil**. Les six fichiers légers sont actuellement précachés par le service worker pour que leur page vide soit visible hors connexion. **Quand le volume grandira, retirer ces gros fichiers du précache initial et migrer vers des fichiers par chapitre** pour éviter une installation PWA trop lourde.
+Chaque fichier est chargé **à l'ouverture du recueil**. Les six fichiers sont précachés par le service worker pour permettre leur consultation hors connexion, y compris les deux premières tranches. **Quand le volume grandira, retirer ces gros fichiers du précache initial et migrer vers des fichiers par chapitre** pour éviter une installation PWA trop lourde.
 
 ## Schéma JSON v1
 
@@ -30,7 +30,7 @@ Lors de la première importation, garder les clés et ajouter des éléments **v
 
 **Chapitre** : `id` (stable dans ce recueil), `titleFr`, `titleAr`, `order` (position), `sourceRecordId` (facultatif si le découpage vient d'une édition distincte).
 
-**Hadith** : `id` (globalement unique, p. ex. `bukhari:<numéro d'édition>`), `chapterId`, `number` (numéro tel qu'affiché par la source), `title` (titre de navigation), `hadeeth` (français si autorisé), `hadeeth_ar`, `attribution`, `grade` (libellé **tel que cité**, sans invention), `explanation` (facultatif), `hints` (facultatif), `source_url` (URL exacte du hadith, en HTTPS), `sourceRecordId`. Ces champs sont compatibles avec le lecteur actuel ; des champs supplémentaires peuvent être ajoutés au schéma lorsqu'ils deviennent nécessaires.
+**Hadith ou narration d'introduction** : `id` (globalement unique, p. ex. `bukhari:<numéro d'édition>`), `chapterId`, `number` (numéro tel qu'affiché par la source), `title` (titre de navigation), `hadeeth` (français si autorisé), `hadeeth_ar`, `attribution`, `grade` (libellé **tel que cité**, sans invention), `explanation` (facultatif), `hints` (facultatif), `source_url` (URL exacte du hadith, en HTTPS), `sourceRecordId`. Ces champs sont compatibles avec le lecteur actuel ; des champs supplémentaires peuvent être ajoutés au schéma lorsqu'ils deviennent nécessaires.
 
 **Provenance (dans `sourceRecords`)** : `id`, `site`, `url`, `edition`, `numberingSystem`, `retrievedAt`, `rights` ou `license`, `translator` le cas échéant. Un hadith doit pouvoir être retracé à la source et à la numérotation utilisée.
 
@@ -43,7 +43,7 @@ Lors de la première importation, garder les clés et ajouter des éléments **v
 5. Garder les notices de compilateurs et les informations bibliographiques vérifiables ; ne pas transformer les traductions ou commentaires en paroles attribuées directement au Prophète ﷺ.
 6. Mettre à jour le cache PWA et les validateurs lors de l'ajout des futurs lots.
 
-**Périmètre actuel :** six sous-sections créées, zéro chapitre importé, zéro hadith importé dans ces six sections. Le corpus actuel reste inchangé.
+**Périmètre actuel :** deux recueils initialement alimentés (50 hadiths al-Bukhârî ; 50 narrations de l’Introduction de Muslim), quatre encore vides. Le corpus thématique actuel reste inchangé. Voir `README-BUKHARI.md` et `README-MUSLIM.md` pour les particularités de numérotation, de provenance et d’édition.
 
 ## Références pour identifier les six recueils
 
