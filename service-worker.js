@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'athar-pro-v70-bukhari-tabib-reading';
+const CACHE_VERSION = 'athar-pro-v71-muslim-first-50';
 // Seules les ressources de la version publique sont précachées.
 const APP_SHELL = [
     './',
