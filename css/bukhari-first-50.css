@@ -1,0 +1,193 @@
+/*
+ * Sahîh al-Bukhârî — première tranche 1–50.
+ * Même langage éditorial bleu minéral que les autres hadiths d'Athar.
+ * Périmètre : liste importée dans Kutub as-Sitta et indications de source du lecteur.
+ */
+.hadith-pro-root .hadith-kutub-hadith-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:11px;
+    align-items:stretch;
+    margin:0;
+    padding:0;
+}
+.hadith-pro-root .hadith-kutub-imported-controls {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(180px,250px);
+    gap:10px;
+    align-items:stretch;
+    margin:0 0 16px;
+}
+.hadith-pro-root .hadith-kutub-imported-controls .hadith-pro-search {
+    display:flex;
+    align-items:center;
+    min-width:0;
+    width:100%;
+    max-width:none;
+    height:49px;
+    border:1px solid var(--hadith-line);
+    background:var(--hadith-card);
+    border-radius:13px;
+    padding:0 14px;
+}
+.hadith-pro-root .hadith-kutub-imported-controls .hadith-pro-search input {
+    width:100%;
+    min-width:0;
+    font:450 13px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .hadith-kutub-imported-controls select {
+    width:100%;
+    min-height:49px;
+    border:1px solid var(--hadith-line);
+    border-radius:13px;
+    padding:10px 14px;
+    background:var(--hadith-card);
+    color:var(--hadith-ink);
+    font:600 12px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .hadith-kutub-hadith {
+    display:grid;
+    grid-template-columns:54px minmax(0,1fr) 18px;
+    align-items:center;
+    gap:14px;
+    min-width:0;
+    width:100%;
+    min-height:118px;
+    padding:20px 21px;
+    border:1px solid var(--hadith-line);
+    border-radius:17px;
+    background:var(--hadith-card);
+    color:var(--hadith-ink);
+    text-align:left;
+    box-shadow:0 5px 18px rgba(23,38,47,.026);
+    transition:border-color .18s,box-shadow .18s,transform .18s;
+    overflow:visible;
+}
+.hadith-pro-root .hadith-kutub-hadith:hover {
+    border-color:rgba(73,111,130,.42);
+    box-shadow:0 11px 29px rgba(35,58,66,.075);
+    transform:translateY(-2px);
+}
+.hadith-pro-root .hadith-kutub-list-number {
+    grid-column:1;
+    display:inline-grid;
+    place-items:center;
+    min-width:0;
+    min-height:44px;
+    padding:10px 6px;
+    border:1px solid var(--hadith-line);
+    border-radius:12px;
+    background:var(--hadith-selected);
+    color:var(--hadith-accent);
+    font:750 12px/1.45 Inter,system-ui,sans-serif;
+    white-space:nowrap;
+}
+.hadith-pro-root .hadith-kutub-list-content {
+    grid-column:2;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-width:0;
+    padding:0;
+}
+.hadith-pro-root .hadith-kutub-list-content strong {
+    display:block;
+    color:var(--hadith-ink);
+    font:700 16px/1.4 Cinzel,Georgia,serif;
+    white-space:normal;
+    overflow-wrap:break-word;
+}
+.hadith-pro-root .hadith-kutub-list-excerpt {
+    display:block;
+    color:var(--hadith-muted);
+    font:400 12.5px/1.75 Inter,system-ui,sans-serif;
+    white-space:normal;
+    overflow-wrap:break-word;
+}
+.hadith-pro-root .hadith-kutub-list-content small {
+    display:block;
+    color:var(--hadith-accent);
+    font:600 10.5px/1.6 Inter,system-ui,sans-serif;
+    white-space:normal;
+    overflow-wrap:break-word;
+}
+.hadith-pro-root .hadith-kutub-hadith > svg {
+    grid-column:3;
+    grid-row:1;
+    width:17px;
+    height:17px;
+    color:var(--hadith-accent);
+}
+.hadith-pro-root .hadith-kutub-source-note {
+    max-width:760px;
+    margin:22px auto 6px;
+    padding:15px 18px;
+    border-top:1px solid var(--hadith-line);
+    color:var(--hadith-muted);
+    text-align:center;
+    font:400 11.5px/1.8 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .hadith-kutub-result {
+    margin:0 0 14px;
+    color:var(--hadith-muted);
+    font:500 11.5px/1.6 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro .hadith-reader-translation-label {
+    display:block;
+    margin:0 0 15px;
+    color:var(--hadith-accent);
+    font:750 10px/1.4 Inter,system-ui,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+}
+.hadith-reader-pro .hadith-reader-translation-notice {
+    margin:17px 0;
+    color:var(--hadith-muted);
+    font:400 12px/1.8 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro .hadith-reader-source-link {
+    overflow-wrap:anywhere;
+}
+.hadith-reader-pro .hadith-reader-arabic blockquote,
+.hadith-reader-pro .hadith-reader-french p {
+    white-space:pre-line;
+    overflow-wrap:break-word;
+    word-break:normal;
+}
+@media(max-width:690px) {
+    .hadith-pro-root .hadith-kutub-imported-controls {
+        grid-template-columns:minmax(0,1fr);
+        gap:9px;
+    }
+    .hadith-pro-root .hadith-kutub-imported-controls select { max-width:none; }
+    .hadith-pro-root .hadith-kutub-hadith {
+        grid-template-columns:46px minmax(0,1fr) 16px;
+        gap:10px;
+        min-height:105px;
+        padding:17px 14px;
+        border-radius:15px;
+    }
+    .hadith-pro-root .hadith-kutub-list-number { min-height:40px;font-size:11px; }
+    .hadith-pro-root .hadith-kutub-list-content strong { font-size:15px; }
+    .hadith-pro-root .hadith-kutub-list-excerpt { font-size:11.5px;line-height:1.7; }
+    .hadith-pro-root .hadith-kutub-list-content small { font-size:10px; }
+    .hadith-pro-root .hadith-kutub-source-note { padding:14px 8px; }
+}
+@media(max-width:360px) {
+    .hadith-pro-root .hadith-kutub-hadith {
+        grid-template-columns:42px minmax(0,1fr);
+        gap:8px;
+        padding:14px 12px;
+    }
+    .hadith-pro-root .hadith-kutub-hadith > svg { display:none; }
+    .hadith-pro-root .hadith-kutub-list-number { min-height:38px;padding:7px 4px; }
+}
+@media(hover:none) {
+    .hadith-pro-root .hadith-kutub-hadith:hover {
+        transform:none;
+        box-shadow:0 5px 18px rgba(23,38,47,.026);
+    }
+}
+@media(prefers-reduced-motion:reduce) {
+    .hadith-pro-root .hadith-kutub-hadith { transition:none!important; }
+}
