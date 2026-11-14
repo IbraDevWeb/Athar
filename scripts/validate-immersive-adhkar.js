@@ -32,7 +32,7 @@ for (const selector of ['.athar-immersive-menu', '.athar-immersive-drawer', '.at
     if (!fullscreenCss.includes(selector)) throw new Error(`Style immersif absent : ${selector}`);
 }
 
-for (const token of ['athar_adhkar_v2', "mode = Vue.ref('routines')", "mode==='library'", "mode==='progress'", 'rawItems', 'categories = Vue.computed', 'routines = Vue.computed', 'weeklyData', 'recordCompletion', 'lang="ar"', "event.code === 'Space'", 'Méthode éditoriale']) {
+for (const token of ['athar_adhkar_v2', "mode = Vue.ref('library')", "mode==='library'", "mode==='progress'", 'rawItems', 'categories = Vue.computed', 'routines = Vue.computed', 'weeklyData', 'recordCompletion', 'lang="ar"', 'adhkar-pro-counter', 'Méthode et sources', 'adhkar-pro-reader-notes']) {
     if (!adhkar.includes(token)) throw new Error(`Fonction Al-Adhkar absente : ${token}`);
 }
 if ((adhkar.match(/id: '[a-z-]+', icon:/g) || []).length < 4) throw new Error('Les parcours Al-Adhkar sont insuffisants.');

@@ -2,7 +2,7 @@ const AdhkarView = {
     props: ['adhkar', 'settings'],
     setup(props) {
         const STORAGE_KEY = 'athar_adhkar_v2';
-        const mode = Vue.ref('routines');
+        const mode = Vue.ref('library');
         const query = Vue.ref('');
         const category = Vue.ref('Tous');
         const favoritesOnly = Vue.ref(false);
@@ -10,6 +10,8 @@ const AdhkarView = {
         const activeRoutine = Vue.ref(null);
         const routineIndex = Vue.ref(0);
         const compactArabic = Vue.ref(false);
+        const visibleLimit = Vue.ref(18);
+        let previousFocus = null;
         const state = Vue.reactive({ counts: {}, favorites: [], totals: {}, history: [], lastDate: '' });
 
         const todayKey = () => new Date().toISOString().slice(0, 10);
@@ -49,6 +51,22 @@ const AdhkarView = {
             });
         });
 
+        const displayedItems = Vue.computed(() => filteredItems.value.slice(0,visibleLimit.value));
+        const loadMore = () => { visibleLimit.value += 18; Vue.nextTick(() => window.lucide?.createIcons()); };
+        const categoryChoices = Vue.computed(() => categories.value.map(label => ({
+            label, count:label === 'Tous'
+                ? rawItems.value.length
+                : rawItems.value.filter(item => item.category === label).length
+        })));
+        const resetFilters = () => {
+            query.value=''; category.value='Tous'; favoritesOnly.value=false; visibleLimit.value=18;
+        };
+        const preview = (value,length=150) => {
+            const text = String(value || '').replace(/\s+/g,' ').trim();
+            if (text.length <= length) return text;
+            const cut = text.slice(0,length+1);
+            return cut.slice(0,Math.max(60,cut.lastIndexOf(' '))).trimEnd()+'…';
+        };
         const byCategories = wanted => rawItems.value.filter(item => wanted.includes(item.category));
         const routines = Vue.computed(() => {
             const firstOfEach = [];
@@ -171,16 +189,26 @@ const AdhkarView = {
             state.counts = {};
         };
 
+        const focusReader = () => Vue.nextTick(() => {
+            window.lucide?.createIcons();
+            document.querySelector('.adhkar-pro-reader-close')?.focus();
+        });
         const openItem = item => {
+            previousFocus = document.activeElement;
+            activeRoutine.value = null;
             selected.value = item;
-            setTimeout(() => window.lucide?.createIcons(), 20);
+            focusReader();
         };
-        const closeItem = () => { selected.value = null; activeRoutine.value = null; routineIndex.value = 0; };
+        const closeItem = () => {
+            selected.value = null; activeRoutine.value = null; routineIndex.value = 0;
+            Vue.nextTick(() => { if (previousFocus?.isConnected) previousFocus.focus(); });
+        };
         const openRoutine = routine => {
+            previousFocus = document.activeElement;
             activeRoutine.value = routine;
             routineIndex.value = 0;
             selected.value = routine.items[0] || null;
-            setTimeout(() => window.lucide?.createIcons(), 20);
+            focusReader();
         };
         const nextRoutine = () => {
             if (!activeRoutine.value) return;
@@ -215,10 +243,21 @@ const AdhkarView = {
         const categoryIcon = value => ({ Réveil: 'sunrise', Habits: 'shirt', Toilettes: 'door-open', Ablutions: 'droplets', Maison: 'home', Mosquée: 'landmark', Adhan: 'volume-2', Prière: 'circle-dot' }[value] || 'sparkles');
 
         const onKeydown = event => {
+            if (!selected.value) return;
+            if (event.key === 'Escape') { event.preventDefault(); closeItem(); return; }
             const target = event.target;
-            if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return;
-            if (event.key === 'Escape' && selected.value) { event.preventDefault(); closeItem(); }
-            if ((event.code === 'Space' || event.key === 'Enter') && selected.value) { event.preventDefault(); increment(selected.value); }
+            const modal = document.querySelector('.adhkar-pro-reader');
+            if (event.key === 'Tab' && modal) {
+                const controls = [...modal.querySelectorAll('button:not([disabled]),a[href],summary,[tabindex]:not([tabindex="-1"])')]
+                    .filter(el => el.getClientRects().length);
+                if (!controls.length) return;
+                if (event.shiftKey && document.activeElement===controls[0]) {
+                    event.preventDefault(); controls[controls.length-1].focus();
+                } else if (!event.shiftKey && document.activeElement===controls[controls.length-1]) {
+                    event.preventDefault(); controls[0].focus();
+                }
+            }
+            if (target?.closest?.('button,a,input,textarea,select,summary,[contenteditable="true"]')) return;
             if (event.key === 'ArrowRight' && activeRoutine.value) nextRoutine();
             if (event.key === 'ArrowLeft' && activeRoutine.value) previousRoutine();
         };
@@ -230,90 +269,161 @@ const AdhkarView = {
         });
         Vue.onUnmounted(() => document.removeEventListener('keydown', onKeydown));
         Vue.watch(state, persist, { deep: true });
-        Vue.watch([mode, category, favoritesOnly, query], () => setTimeout(() => window.lucide?.createIcons(), 20));
+        Vue.watch([category,favoritesOnly,query], () => {
+            visibleLimit.value=18;
+            Vue.nextTick(() => window.lucide?.createIcons());
+        });
+        Vue.watch([mode,selected,activeRoutine], () => Vue.nextTick(() => window.lucide?.createIcons()));
 
         return {
-            mode, query, category, favoritesOnly, selected, activeRoutine, routineIndex, compactArabic, categories, filteredItems, routines,
+            mode, query, category, favoritesOnly, selected, activeRoutine, routineIndex, compactArabic,
+            rawItems, categories, categoryChoices, filteredItems, displayedItems, visibleLimit, loadMore, resetFilters, preview, routines,
             state, isFavorite, isComplete, progress, routineCompletion, totalRepetitions, completedToday, favoriteCount, weeklyData,
             maxWeekly, streak, currentRoutineItems, currentRoutinePosition, toggleFavorite, increment, decrement, resetItem, resetToday, openItem,
             closeItem, openRoutine, nextRoutine, previousRoutine, copyItem, selectMode, formatDate, categoryIcon
         };
     },
     template: `
+
     <section class="adhkar-pro-shell">
         <header class="adhkar-pro-hero">
-            <div>
-                <span class="adhkar-pro-kicker"><i data-lucide="sparkles"></i> Le rappel au quotidien</span>
-                <h1>Al-Adhkar <span>الأذكار</span></h1>
-                <p>Un espace de lecture, de mémorisation et de pratique personnelle organisé par contexte.</p>
-            </div>
-            <div class="adhkar-pro-hero-stats">
-                <article><b>{{ completedToday }}</b><span>terminés aujourd’hui</span></article>
-                <article><b>{{ streak }}</b><span>jours de régularité</span></article>
-                <article><b>{{ totalRepetitions }}</b><span>répétitions enregistrées</span></article>
+            <span class="adhkar-pro-kicker"><i data-lucide="sparkles" aria-hidden="true"></i> Le rappel au quotidien</span>
+            <h1>Al-Adhkâr <span lang="ar" dir="rtl">الأذكار</span></h1>
+            <p>Choisissez un contexte, lisez l'invocation à votre rythme et retrouvez facilement ses références.</p>
+            <div class="adhkar-pro-hero-meta">
+                <span><strong>{{ rawItems.length }}</strong> invocations</span>
+                <span aria-hidden="true">·</span>
+                <span><strong>{{ categories.length-1 }}</strong> contextes</span>
             </div>
         </header>
 
-        <nav class="adhkar-pro-tabs" aria-label="Navigation Al-Adhkar">
-            <button @click="selectMode('routines')" :class="{active:mode==='routines'}"><i data-lucide="route"></i><span>Parcours</span></button>
-            <button @click="selectMode('library')" :class="{active:mode==='library'}"><i data-lucide="library"></i><span>Bibliothèque</span></button>
-            <button @click="selectMode('progress')" :class="{active:mode==='progress'}"><i data-lucide="chart-no-axes-column-increasing"></i><span>Progression</span></button>
+        <nav class="adhkar-pro-tabs" aria-label="Navigation Al-Adhkâr">
+            <button type="button" @click="selectMode('library')" :class="{active:mode==='library'}" :aria-pressed="mode==='library'">
+                <i data-lucide="book-open" aria-hidden="true"></i><span>Invocations</span>
+            </button>
+            <button type="button" @click="selectMode('routines')" :class="{active:mode==='routines'}" :aria-pressed="mode==='routines'">
+                <i data-lucide="route" aria-hidden="true"></i><span>Parcours guidés</span>
+            </button>
+            <button type="button" @click="selectMode('progress')" :class="{active:mode==='progress'}" :aria-pressed="mode==='progress'">
+                <i data-lucide="chart-no-axes-column-increasing" aria-hidden="true"></i><span>Suivi personnel</span>
+            </button>
         </nav>
 
         <main class="adhkar-pro-main">
-            <section v-if="mode==='routines'" class="adhkar-pro-routines">
-                <div class="adhkar-pro-section-head">
-                    <div><span>Pratique guidée</span><h2>Choisir un parcours</h2></div>
-                    <p>Ces sélections organisent la bibliothèque pour faciliter l’usage. Elles ne prétendent pas constituer un ordre canonique unique.</p>
-                </div>
-                <div class="adhkar-pro-routine-grid">
-                    <article v-for="routine in routines" :key="routine.id" class="adhkar-pro-routine-card">
-                        <div class="adhkar-pro-routine-icon"><i :data-lucide="routine.icon"></i></div>
-                        <span>{{ routine.items.length }} invocations</span>
-                        <h3>{{ routine.title }}</h3>
-                        <p>{{ routine.subtitle }}</p>
-                        <div class="adhkar-pro-routine-progress"><i :style="{width:routineCompletion(routine)+'%'}"></i></div>
-                        <small>{{ routineCompletion(routine) }} % terminé</small>
-                        <button @click="openRoutine(routine)">Commencer <i data-lucide="arrow-right"></i></button>
-                    </article>
-                </div>
-                <aside class="adhkar-pro-method-note"><i data-lucide="book-open-check"></i><div><b>Méthode éditoriale</b><p>Le texte arabe, la translittération, le sens et la source affichée reprennent les données du recueil. Pour une étude juridique ou critique détaillée, consulter l’édition complète et les commentaires savants.</p></div></aside>
-            </section>
-
-            <section v-else-if="mode==='library'" class="adhkar-pro-library">
+            <section v-if="mode==='library'" class="adhkar-pro-library">
                 <div class="adhkar-pro-library-toolbar">
-                    <label><i data-lucide="search"></i><input v-model="query" placeholder="Rechercher un contexte, une formule ou une source…"></label>
-                    <button @click="favoritesOnly=!favoritesOnly" :class="{active:favoritesOnly}"><i data-lucide="heart"></i> Favoris</button>
-                    <button @click="compactArabic=!compactArabic" :class="{active:compactArabic}"><i data-lucide="type"></i> Arabe compact</button>
+                    <label class="adhkar-pro-search">
+                        <i data-lucide="search" aria-hidden="true"></i>
+                        <input v-model="query" type="search" autocomplete="off"
+                            aria-label="Rechercher une invocation" placeholder="Rechercher une invocation, un contexte…">
+                    </label>
+                    <button type="button" @click="favoritesOnly=!favoritesOnly" :aria-pressed="favoritesOnly" :class="{active:favoritesOnly}">
+                        <i data-lucide="heart" aria-hidden="true"></i> Favoris
+                    </button>
+                    <button type="button" @click="compactArabic=!compactArabic" :aria-pressed="compactArabic" :class="{active:compactArabic}">
+                        <i data-lucide="type" aria-hidden="true"></i> Arabe compact
+                    </button>
                 </div>
-                <div class="adhkar-pro-category-row">
-                    <button v-for="cat in categories" :key="cat" @click="category=cat" :class="{active:category===cat}">{{ cat }}</button>
+
+                <div class="adhkar-pro-category-row" role="group" aria-label="Filtrer par contexte">
+                    <button v-for="choice in categoryChoices" :key="choice.label" type="button"
+                        @click="category=choice.label" :aria-pressed="category===choice.label" :class="{active:category===choice.label}">
+                        {{ choice.label === 'Tous' ? 'Tous les contextes' : choice.label }}
+                        <small>{{ choice.count }}</small>
+                    </button>
                 </div>
-                <div class="adhkar-pro-result-line"><b>{{ filteredItems.length }}</b> invocation<span v-if="filteredItems.length>1">s</span><button @click="resetToday">Réinitialiser les compteurs du jour</button></div>
-                <div class="adhkar-pro-card-grid">
-                    <article v-for="item in filteredItems" :key="item.id" class="adhkar-pro-card" :class="{complete:isComplete(item)}"
-                        role="button" tabindex="0" :aria-label="'Lire l’invocation : '+item.title"
+
+                <header class="adhkar-pro-results-head">
+                    <div><span>À découvrir</span><h2>{{ category==='Tous' ? 'Toutes les invocations' : category }}</h2></div>
+                    <p aria-live="polite">{{ filteredItems.length }} invocation{{ filteredItems.length>1?'s':'' }}</p>
+                </header>
+                <div class="adhkar-pro-results-actions">
+                    <button v-if="category!=='Tous' || favoritesOnly || query" type="button" @click="resetFilters">
+                        <i data-lucide="rotate-ccw" aria-hidden="true"></i> Effacer les filtres
+                    </button>
+                    <button type="button" @click="resetToday" class="adhkar-pro-reset-today">
+                        <i data-lucide="refresh-cw" aria-hidden="true"></i> Réinitialiser les compteurs
+                    </button>
+                </div>
+
+                <div v-if="filteredItems.length" class="adhkar-pro-card-grid">
+                    <article v-for="item in displayedItems" :key="item.id" class="adhkar-pro-card"
+                        :class="{complete:isComplete(item)}" tabindex="0" role="button"
+                        :aria-label="'Lire l’invocation : '+item.title"
                         @click="openItem(item)" @keydown.enter.self.prevent="openItem(item)" @keydown.space.self.prevent="openItem(item)">
                         <div class="adhkar-pro-card-top">
                             <span class="adhkar-pro-card-emblem" aria-hidden="true"><i :data-lucide="categoryIcon(item.category)"></i></span>
                             <span class="adhkar-pro-card-label">{{ item.category }}</span>
-                            <button @click.stop="toggleFavorite(item)" @keydown.stop :aria-label="isFavorite(item.id)?'Retirer des favoris':'Ajouter aux favoris'"><i data-lucide="heart" :class="{filled:isFavorite(item.id)}"></i></button>
+                            <button type="button" @click.stop="toggleFavorite(item)" @keydown.stop
+                                :aria-label="isFavorite(item.id)?'Retirer des favoris':'Ajouter aux favoris'"
+                                :aria-pressed="isFavorite(item.id)">
+                                <i data-lucide="heart" aria-hidden="true" :class="{filled:isFavorite(item.id)}"></i>
+                            </button>
                         </div>
                         <h3>{{ item.title }}</h3>
-                        <p class="adhkar-pro-card-arabic" :class="{compact:compactArabic}" dir="rtl" lang="ar">{{ item.arabic }}</p>
-                        <p class="adhkar-pro-card-meaning">{{ item.translation }}</p>
-                        <div class="adhkar-pro-card-foot"><span>{{ item.count }}×</span><div><i :style="{width:progress(item)+'%'}"></i></div><b>{{ Math.round(progress(item)) }} %</b></div>
+                        <p class="adhkar-pro-card-arabic" :class="{compact:compactArabic}" lang="ar" dir="rtl">{{ preview(item.arabic,compactArabic?75:125) }}</p>
+                        <p class="adhkar-pro-card-meaning">{{ preview(item.translation,150) }}</p>
+                        <footer class="adhkar-pro-card-foot">
+                            <span>{{ item.count }} répétition{{ item.count>1?'s':'' }}</span>
+                            <div class="adhkar-pro-card-progress" :aria-label="'Progression '+Math.round(progress(item))+' pour cent'">
+                                <i :style="{width:progress(item)+'%'}"></i>
+                            </div>
+                            <strong>{{ isComplete(item) ? 'Terminé' : 'Lire' }} <i data-lucide="arrow-right" aria-hidden="true"></i></strong>
+                        </footer>
                     </article>
                 </div>
-                <div v-if="!filteredItems.length" class="adhkar-pro-empty"><i data-lucide="search-x"></i><h3>Aucun résultat</h3><p>Modifiez la recherche ou les filtres.</p></div>
+                <div v-if="filteredItems.length && displayedItems.length<filteredItems.length" class="adhkar-pro-more">
+                    <span>{{ displayedItems.length }} invocations affichées sur {{ filteredItems.length }}</span>
+                    <button type="button" @click="loadMore">Afficher plus d'invocations <i data-lucide="chevron-down" aria-hidden="true"></i></button>
+                </div>
+                <div v-if="!filteredItems.length" class="adhkar-pro-empty" role="status">
+                    <i data-lucide="search-x" aria-hidden="true"></i>
+                    <h3>Aucune invocation trouvée</h3>
+                    <p>Essayez une autre recherche ou retirez un filtre.</p>
+                    <button type="button" @click="resetFilters">Tout afficher</button>
+                </div>
+            </section>
+
+            <section v-else-if="mode==='routines'" class="adhkar-pro-routines">
+                <div class="adhkar-pro-section-head">
+                    <div><span>Pratique guidée</span><h2>Choisir un parcours</h2></div>
+                    <p>Quelques chemins simples pour retrouver les invocations au fil de la journée.</p>
+                </div>
+                <div class="adhkar-pro-routine-grid">
+                    <article v-for="routine in routines" :key="routine.id" class="adhkar-pro-routine-card">
+                        <div class="adhkar-pro-routine-top">
+                            <span class="adhkar-pro-routine-icon"><i :data-lucide="routine.icon" aria-hidden="true"></i></span>
+                            <span class="adhkar-pro-routine-count">{{ routine.items.length }} invocations</span>
+                        </div>
+                        <h3>{{ routine.title }}</h3>
+                        <p>{{ routine.subtitle }}</p>
+                        <div class="adhkar-pro-routine-bottom">
+                            <div class="adhkar-pro-routine-progress" :aria-label="'Progression '+routineCompletion(routine)+' pour cent'">
+                                <i :style="{width:routineCompletion(routine)+'%'}"></i>
+                            </div>
+                            <small>{{ routineCompletion(routine) }} % terminé</small>
+                            <button type="button" @click="openRoutine(routine)">
+                                Commencer le parcours <i data-lucide="arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <details class="adhkar-pro-method-note">
+                    <summary>Méthode et sources <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                    <p>Les parcours sont des sélections pratiques des rubriques existantes, et non un ordre rituel unique. Les formulations et nombres de répétitions restent ceux de chaque fiche. Pour une étude détaillée, consulter l'édition complète et les commentaires savants.</p>
+                </details>
             </section>
 
             <section v-else class="adhkar-pro-progress">
+                <div class="adhkar-pro-section-head">
+                    <div><span>Votre pratique</span><h2>Suivi personnel</h2></div>
+                    <p>Ces informations restent enregistrées dans ce navigateur.</p>
+                </div>
                 <div class="adhkar-pro-stat-grid">
-                    <article><i data-lucide="check-circle-2"></i><b>{{ completedToday }}</b><span>fiches terminées aujourd’hui</span></article>
-                    <article><i data-lucide="flame"></i><b>{{ streak }}</b><span>jours consécutifs</span></article>
-                    <article><i data-lucide="heart"></i><b>{{ favoriteCount }}</b><span>favoris</span></article>
-                    <article><i data-lucide="hash"></i><b>{{ totalRepetitions }}</b><span>répétitions cumulées</span></article>
+                    <article><i data-lucide="check-circle-2" aria-hidden="true"></i><b>{{ completedToday }}</b><span>fiches terminées aujourd’hui</span></article>
+                    <article><i data-lucide="flame" aria-hidden="true"></i><b>{{ streak }}</b><span>jours consécutifs</span></article>
+                    <article><i data-lucide="heart" aria-hidden="true"></i><b>{{ favoriteCount }}</b><span>favoris</span></article>
+                    <article><i data-lucide="hash" aria-hidden="true"></i><b>{{ totalRepetitions }}</b><span>répétitions cumulées</span></article>
                 </div>
                 <div class="adhkar-pro-progress-layout">
                     <article class="adhkar-pro-week-card">
@@ -323,7 +433,7 @@ const AdhkarView = {
                     <article class="adhkar-pro-history-card">
                         <div class="adhkar-pro-section-head"><div><span>Journal local</span><h2>Dernières pratiques</h2></div></div>
                         <div class="adhkar-pro-history-list">
-                            <div v-for="entry in state.history.slice(0,12)" :key="entry.id"><i data-lucide="check"></i><div><b>{{ entry.title }}</b><span>{{ entry.category }} · {{ entry.repetitions }} répétition<span v-if="entry.repetitions>1">s</span></span></div><time>{{ formatDate(entry.at) }}</time></div>
+                            <div v-for="entry in state.history.slice(0,12)" :key="entry.id"><i data-lucide="check" aria-hidden="true"></i><div><b>{{ entry.title }}</b><span>{{ entry.category }} · {{ entry.repetitions }} répétition<span v-if="entry.repetitions>1">s</span></span></div><time>{{ formatDate(entry.at) }}</time></div>
                             <p v-if="!state.history.length" class="adhkar-pro-no-history">Aucune séance enregistrée. Terminez une fiche pour commencer votre journal.</p>
                         </div>
                     </article>
@@ -335,30 +445,73 @@ const AdhkarView = {
             <div v-if="selected" class="adhkar-pro-reader-layer" @click.self="closeItem">
                 <article class="adhkar-pro-reader" role="dialog" aria-modal="true" :aria-label="selected.title">
                     <header>
-                        <button @click="closeItem" aria-label="Fermer"><i data-lucide="x"></i></button>
-                        <div><span>{{ activeRoutine ? activeRoutine.title+' · '+currentRoutinePosition : selected.category }}</span><h2>{{ selected.title }}</h2></div>
-                        <button @click="toggleFavorite(selected)" aria-label="Favori"><i data-lucide="heart" :class="{filled:isFavorite(selected.id)}"></i></button>
+                        <button type="button" class="adhkar-pro-reader-close" @click="closeItem" aria-label="Fermer le dhikr">
+                            <i data-lucide="x" aria-hidden="true"></i>
+                        </button>
+                        <div>
+                            <span>{{ activeRoutine ? activeRoutine.title+' · '+currentRoutinePosition : selected.category }}</span>
+                            <h2>{{ selected.title }}</h2>
+                        </div>
+                        <button type="button" @click="toggleFavorite(selected)" :aria-pressed="isFavorite(selected.id)"
+                            :aria-label="isFavorite(selected.id)?'Retirer des favoris':'Ajouter aux favoris'">
+                            <i data-lucide="heart" aria-hidden="true" :class="{filled:isFavorite(selected.id)}"></i>
+                        </button>
                     </header>
                     <div class="adhkar-pro-reader-scroll">
-                        <section class="adhkar-pro-arabic-block"><p dir="rtl" lang="ar">{{ selected.arabic }}</p><button @click="copyItem(selected)"><i data-lucide="copy"></i> Copier</button></section>
-                        <section class="adhkar-pro-reading-grid">
-                            <article><span>Translittération</span><p class="phonetic">{{ selected.phonetic || 'Non renseignée.' }}</p></article>
+                        <section class="adhkar-pro-arabic-block" aria-label="Texte arabe de l'invocation">
+                            <p dir="rtl" lang="ar">{{ selected.arabic }}</p>
+                            <button type="button" @click="copyItem(selected)"><i data-lucide="copy" aria-hidden="true"></i> Copier</button>
+                        </section>
+
+                        <section class="adhkar-pro-reading-grid" aria-label="Lecture et sens">
+                            <article v-if="selected.phonetic"><span>Translittération</span><p class="phonetic">{{ selected.phonetic }}</p></article>
                             <article><span>Sens en français</span><p>{{ selected.translation }}</p></article>
-                            <article><span>Contexte d’usage</span><p>{{ selected.context || 'Consulter la source complète pour le contexte détaillé.' }}</p></article>
-                            <article><span>Référence indiquée</span><p>{{ selected.source || 'Source non précisée dans la fiche.' }}</p></article>
                         </section>
-                        <section class="adhkar-pro-counter-zone">
+
+                        <section class="adhkar-pro-counter-zone" aria-label="Compteur de répétitions">
+                            <div class="adhkar-pro-counter-heading">
+                                <span><i data-lucide="repeat" aria-hidden="true"></i> Répétitions</span>
+                                <strong>{{ state.counts[selected.id] || 0 }} / {{ selected.count }}</strong>
+                            </div>
                             <div class="adhkar-pro-reader-progress"><i :style="{width:progress(selected)+'%'}"></i></div>
-                            <button class="adhkar-pro-counter" @click="increment(selected)" :class="{complete:isComplete(selected)}">
-                                <template v-if="isComplete(selected)"><i data-lucide="check"></i><b>Terminé</b><span>{{ selected.count }} / {{ selected.count }}</span></template>
-                                <template v-else><b>{{ state.counts[selected.id] || 0 }}</b><span>sur {{ selected.count }}</span><small>Cliquer, Espace ou Entrée</small></template>
+                            <button type="button" class="adhkar-pro-counter" @click="increment(selected)" :disabled="isComplete(selected)"
+                                :class="{complete:isComplete(selected)}"
+                                :aria-label="isComplete(selected)?'Invocation terminée':'Compter une répétition'">
+                                <template v-if="isComplete(selected)"><i data-lucide="check" aria-hidden="true"></i> Terminé</template>
+                                <template v-else><i data-lucide="plus" aria-hidden="true"></i> Ajouter une répétition</template>
                             </button>
-                            <div class="adhkar-pro-counter-actions"><button @click="decrement(selected)" :disabled="!(state.counts[selected.id]>0)"><i data-lucide="undo-2"></i> Annuler</button><button @click="resetItem(selected)"><i data-lucide="rotate-ccw"></i> Recommencer</button></div>
+                            <div class="adhkar-pro-counter-actions">
+                                <button type="button" @click="decrement(selected)" :disabled="!(state.counts[selected.id]>0)">
+                                    <i data-lucide="undo-2" aria-hidden="true"></i> Annuler
+                                </button>
+                                <button type="button" @click="resetItem(selected)">
+                                    <i data-lucide="rotate-ccw" aria-hidden="true"></i> Recommencer
+                                </button>
+                            </div>
                         </section>
+
+                        <details class="adhkar-pro-reader-notes">
+                            <summary>Contexte et référence <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                            <div class="adhkar-pro-reader-notes-body">
+                                <div><strong>Contexte d’usage</strong><p>{{ selected.context || 'Consulter la source complète pour le contexte détaillé.' }}</p></div>
+                                <div><strong>Référence indiquée</strong><p>{{ selected.source || 'Source non précisée dans la fiche.' }}</p></div>
+                                <div v-if="selected.virtue"><strong>Mérite rapporté</strong><p>{{ selected.virtue }}</p></div>
+                            </div>
+                        </details>
                     </div>
-                    <footer v-if="activeRoutine"><button @click="previousRoutine" :disabled="routineIndex===0"><i data-lucide="arrow-left"></i> Précédent</button><span>{{ currentRoutinePosition }}</span><button @click="nextRoutine">{{ routineIndex===activeRoutine.items.length-1?'Terminer':'Suivant' }} <i data-lucide="arrow-right"></i></button></footer>
+                    <footer v-if="activeRoutine">
+                        <button type="button" @click="previousRoutine" :disabled="routineIndex===0">
+                            <i data-lucide="arrow-left" aria-hidden="true"></i> Précédent
+                        </button>
+                        <span>{{ currentRoutinePosition }}</span>
+                        <button type="button" @click="nextRoutine">
+                            {{ routineIndex===activeRoutine.items.length-1?'Terminer':'Suivant' }}
+                            <i data-lucide="arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </footer>
                 </article>
             </div>
         </transition>
-    </section>`
+    </section>
+    `
 };

@@ -95,7 +95,7 @@ async function desktop() {
     for (const [view,rootSelector,cardSelector,accent] of [
         ['library','.library-pro-root','.library-pro-selection .library-pro-card','#916622'],
         ['hadiths','.hadith-pro-root','.hadith-pro-card','#496f82'],
-        ['adhkar','.adhkar-pro-shell','.adhkar-pro-routine-card','#7b62a2'],
+        ['adhkar','.adhkar-pro-shell','.adhkar-pro-card','#765b99'],
         ['glossary','.glossary-pro-root','.glossary-pro-card','#af7459'],
         ['timeline','.timeline-pro','.timeline-pro-event-card','#a17a3d']
     ]) {
@@ -112,6 +112,64 @@ async function desktop() {
         assert.ok(parseFloat(await cards.first().evaluate(el=>getComputedStyle(el).borderTopLeftRadius))>=16,'Coins de fiches incohérents : '+view);
         await home(page);
     }
+    // Adhkâr : accès immédiat aux invocations, parcours secondaires et lecteur fonctionnel.
+    await navigate(page,'adhkar');
+    await page.locator('.adhkar-pro-card').first().waitFor({state:'visible'});
+    assert.equal(await page.locator('.adhkar-pro-card').count(),18,'Les 18 premières invocations doivent apparaître directement');
+    assert.equal(await page.locator('.adhkar-pro-hero-stats').count(),0,'Les gros chiffres ne doivent plus encombrer l’en-tête');
+    assert.ok(await page.locator('.adhkar-pro-category-row button').count()>=8,'Les contextes doivent être accessibles');
+    const adhkarGeo=await page.evaluate(()=>{
+        const root=document.querySelector('.adhkar-pro-shell');
+        const options=[...root.querySelectorAll('.adhkar-pro-category-row button')];
+        const cards=[...root.querySelectorAll('.adhkar-pro-card')];
+        const first=cards[0].getBoundingClientRect();
+        return {
+            overflow:root.scrollWidth-root.clientWidth,
+            firstCardTop:first.top,
+            columns:getComputedStyle(root.querySelector('.adhkar-pro-card-grid')).gridTemplateColumns.split(' ').length,
+            clipped:options.filter(el=>{
+                const r=el.getBoundingClientRect();
+                return r.left<-2||r.right>innerWidth+2||el.scrollWidth>el.clientWidth+3;
+            }).map(el=>el.innerText.trim()),
+            clippedTitles:cards.filter(card=>{
+                const name=card.querySelector('h3');
+                return name.scrollHeight>name.clientHeight+3||name.scrollWidth>name.clientWidth+3;
+            }).map(card=>card.querySelector('h3').innerText)
+        };
+    });
+    assert.ok(adhkarGeo.overflow<=3,'La section Adhkâr déborde horizontalement');
+    assert.deepEqual(adhkarGeo.clipped,[],'Des contextes sont rognés');
+    assert.deepEqual(adhkarGeo.clippedTitles,[],'Un titre de dhikr est coupé');
+    assert.equal(adhkarGeo.columns,3,'Le catalogue PC doit afficher trois cartes par ligne');
+    assert.ok(adhkarGeo.firstCardTop<950,'Les premières invocations sont trop éloignées du titre');
+    await page.locator('.adhkar-pro-category-row button').filter({hasText:'Réveil'}).click();
+    assert.ok(await page.locator('.adhkar-pro-card').count()>0,'Filtre Réveil inopérant');
+    assert.ok(await page.locator('.adhkar-pro-card').count()<18,'La catégorie ne réduit pas les cartes');
+    await page.locator('.adhkar-pro-category-row button').first().click();
+    await page.locator('.adhkar-pro-card').first().click();
+    await page.locator('.adhkar-pro-reader').waitFor({state:'visible'});
+    assert.equal(await page.locator('.adhkar-pro-reader-notes').getAttribute('open'),null,'Les références doivent rester repliées sous le dhikr');
+    assert.ok(await page.locator('.adhkar-pro-arabic-block p').isVisible(),'Le texte arabe doit être visible');
+    assert.ok(await page.locator('.adhkar-pro-reading-grid').isVisible(),'La traduction doit être visible');
+    await page.locator('.adhkar-pro-counter').click();
+    assert.match(await page.locator('.adhkar-pro-counter-heading strong').innerText(),/1\s*\/\s*1/,'Le compteur ne fonctionne pas');
+    await page.locator('.adhkar-pro-reader-notes > summary').click();
+    assert.ok(await page.locator('.adhkar-pro-reader-notes-body').isVisible(),'Les références ne peuvent pas être dépliées');
+    await page.locator('.adhkar-pro-reader > header button').last().click();
+    await page.locator('.adhkar-pro-reader-close').click();
+    await page.locator('.adhkar-pro-library-toolbar > button').first().click();
+    assert.equal(await page.locator('.adhkar-pro-card').count(),1,'Le filtre favoris doit cibler le dhikr choisi');
+    await page.locator('.adhkar-pro-library-toolbar > button').first().click();
+    await page.locator('.adhkar-pro-tabs button').filter({hasText:'Parcours guidés'}).click();
+    assert.ok(await page.locator('.adhkar-pro-routine-card').count()>=3,'Les parcours guidés doivent rester disponibles');
+    await page.locator('.adhkar-pro-routine-card button').first().click();
+    await page.locator('.adhkar-pro-reader').waitFor({state:'visible'});
+    assert.ok(await page.locator('.adhkar-pro-reader > footer button').count()===2,'Navigation du parcours manquante');
+    await page.locator('.adhkar-pro-reader-close').click();
+    await page.locator('.adhkar-pro-tabs button').filter({hasText:'Suivi personnel'}).click();
+    assert.equal(await page.locator('.adhkar-pro-stat-grid article').count(),4,'Le suivi des répétitions est perdu');
+    await home(page);
+
     // Le lexique doit limiter les premières fiches, tout en conservant la recherche.
     await navigate(page,'glossary');
     await page.locator('.glossary-pro-card').first().waitFor({state:'visible',timeout:20000});
@@ -634,7 +692,7 @@ async function mobile(width,height) {
     for (const [view,rootSelector,cardSelector] of [
         ['library','.library-pro-root','.library-pro-selection .library-pro-card'],
         ['hadiths','.hadith-pro-root','.hadith-pro-card'],
-        ['adhkar','.adhkar-pro-shell','.adhkar-pro-routine-card'],
+        ['adhkar','.adhkar-pro-shell','.adhkar-pro-card'],
         ['glossary','.glossary-pro-root','.glossary-pro-card'],
         ['timeline','.timeline-pro','.timeline-pro-event-card']
     ]) {
@@ -726,7 +784,32 @@ async function mobile(width,height) {
     await home(page);
 
     await navigate(page,'adhkar');
-    assert.ok((await main(page).innerText()).trim().length>40,"Les Adhkâr doivent être lisibles sur téléphone.");
+    await page.locator('.adhkar-pro-card').first().waitFor({state:'visible'});
+    const dhikrMobile=await page.evaluate(()=>{
+        const root=document.querySelector('.adhkar-pro-shell');
+        const candidates=[...root.querySelectorAll('.adhkar-pro-card,.adhkar-pro-category-row button,.adhkar-pro-tabs button,.adhkar-pro-library-toolbar button')];
+        const clipped=candidates.filter(el=>{
+            const r=el.getBoundingClientRect();
+            return r.left<-2||r.right>innerWidth+2||el.scrollWidth>el.clientWidth+4;
+        }).map(el=>({text:el.textContent.trim().slice(0,30),width:el.clientWidth,scroll:el.scrollWidth}));
+        const titles=[...root.querySelectorAll('.adhkar-pro-card h3')].filter(el=>el.scrollHeight>el.clientHeight+3||el.scrollWidth>el.clientWidth+3).map(el=>el.textContent);
+        return {overflow:root.scrollWidth-root.clientWidth,
+            columns:getComputedStyle(root.querySelector('.adhkar-pro-card-grid')).gridTemplateColumns.split(' ').length,
+            clipped,titles};
+    });
+    assert.ok(dhikrMobile.overflow<=3,'Débordement horizontal Adhkâr sur '+width+'px : '+JSON.stringify(dhikrMobile));
+    assert.deepEqual(dhikrMobile.clipped,[],'Carte ou bouton coupé sur '+width+'px : '+JSON.stringify(dhikrMobile));
+    assert.deepEqual(dhikrMobile.titles,[],'Titre de dhikr tronqué sur '+width+'px');
+    assert.equal(dhikrMobile.columns,1,'Une carte par ligne sur téléphone');
+    await page.locator('.adhkar-pro-card').first().click();
+    await page.locator('.adhkar-pro-reader').waitFor({state:'visible'});
+    const dhikrReaderBounds=await page.locator('.adhkar-pro-reader').boundingBox();
+    assert.ok(dhikrReaderBounds && dhikrReaderBounds.width<=width+2,'Lecteur de dhikr trop large sur téléphone');
+    await page.locator('.adhkar-pro-reader-notes summary').click();
+    assert.ok(await page.locator('.adhkar-pro-reader-notes-body').isVisible(),'Sources non accessibles sur smartphone');
+    await page.locator('.adhkar-pro-counter').click();
+    await page.locator('.adhkar-pro-reader-close').click();
+    await page.locator('.adhkar-pro-reader').waitFor({state:'detached',timeout:10000});
     await home(page);
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
     assert.ok(overflow<=3,'Un débordement horizontal apparaît sur téléphone : '+overflow);
