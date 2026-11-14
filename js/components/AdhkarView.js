@@ -246,7 +246,6 @@ const AdhkarView = {
             if (!selected.value) return;
             if (event.key === 'Escape') { event.preventDefault(); closeItem(); return; }
             const target = event.target;
-            if (target?.closest?.('button,a,input,textarea,select,summary,[contenteditable="true"]')) return;
             const modal = document.querySelector('.adhkar-pro-reader');
             if (event.key === 'Tab' && modal) {
                 const controls = [...modal.querySelectorAll('button:not([disabled]),a[href],summary,[tabindex]:not([tabindex="-1"])')]
@@ -258,6 +257,7 @@ const AdhkarView = {
                     event.preventDefault(); controls[0].focus();
                 }
             }
+            if (target?.closest?.('button,a,input,textarea,select,summary,[contenteditable="true"]')) return;
             if (event.key === 'ArrowRight' && activeRoutine.value) nextRoutine();
             if (event.key === 'ArrowLeft' && activeRoutine.value) previousRoutine();
         };
@@ -277,7 +277,7 @@ const AdhkarView = {
 
         return {
             mode, query, category, favoritesOnly, selected, activeRoutine, routineIndex, compactArabic,
-            categories, categoryChoices, filteredItems, displayedItems, visibleLimit, loadMore, resetFilters, preview, routines,
+            rawItems, categories, categoryChoices, filteredItems, displayedItems, visibleLimit, loadMore, resetFilters, preview, routines,
             state, isFavorite, isComplete, progress, routineCompletion, totalRepetitions, completedToday, favoriteCount, weeklyData,
             maxWeekly, streak, currentRoutineItems, currentRoutinePosition, toggleFavorite, increment, decrement, resetItem, resetToday, openItem,
             closeItem, openRoutine, nextRoutine, previousRoutine, copyItem, selectMode, formatDate, categoryIcon
