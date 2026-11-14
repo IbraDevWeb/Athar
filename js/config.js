@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v69-bukhari-first-50';
+    const APP_VERSION = 'athar-pro-v70-bukhari-tabib-reading';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -114,6 +114,8 @@ tailwind.config = {
     ensureStylesheet(`css/library-stream-numeric.css?v=${APP_VERSION}`, 'athar-library-stream-numeric');
     // Refonte Al-Adhkâr chargée en dernier sans modifier les autres sections.
     ensureStylesheet(`css/adhkar-calm-reading.css?v=${APP_VERSION}`, 'athar-adhkar-calm-reading');
+    // Galerie et fiches 01–50 de Bukhârî : chargées en dernier, sans affecter le reste du site.
+    ensureStylesheet(`css/bukhari-tabib-inspired.css?v=${APP_VERSION}`, 'athar-bukhari-tabib-inspired');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
