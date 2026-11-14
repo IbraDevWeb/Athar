@@ -19,7 +19,8 @@ const HadithsView = {
         const bookError = Vue.ref('');
         const bookQuery = Vue.ref('');
         const bookChapter = Vue.ref('all');
-        const bookVisibleLimit = Vue.ref(18);
+        const bookVisibleLimit = Vue.ref(12);
+        const bookFavoritesOnly = Vue.ref(false);
         const selectedBook = Vue.computed(() => books.find(book => book.id === selectedBookId.value) || null);
         const bookChapters = Vue.computed(() => bookPayload.value?.chapters || []);
         const bookHadiths = Vue.computed(() => bookPayload.value?.hadiths || []);
@@ -34,12 +35,33 @@ const HadithsView = {
         const filteredBookHadiths = Vue.computed(() => {
             const terms = normalize(bookQuery.value).split(/\s+/).filter(Boolean);
             return bookHadiths.value.filter(h => {
-                const searchText = normalize([h.title, h.hadeeth, h.hadeeth_ar, h.id, h.attribution].join(' '));
+                const searchText = normalize([h.title,h.readingTitle,h.hadeeth,h.hadeeth_ar,h.id,h.attribution,h.number].join(' '));
                 return (bookChapter.value === 'all' || h.chapterId === bookChapter.value)
+                    && (!bookFavoritesOnly.value || state.favorites.includes(String(h.id)))
                     && terms.every(term => searchText.includes(term));
             });
         });
         const visibleBookHadiths = Vue.computed(() => filteredBookHadiths.value.slice(0, bookVisibleLimit.value));
+        const bookCounts = Vue.computed(() => {
+            const counts=new Map();
+            for (const entry of bookHadiths.value) counts.set(entry.chapterId,(counts.get(entry.chapterId)||0)+1);
+            return counts;
+        });
+        const bookFavoriteCount = Vue.computed(() => bookHadiths.value.filter(entry => state.favorites.includes(String(entry.id))).length);
+        const isBookFavorite = entry => state.favorites.includes(String(entry.id));
+        const toggleBookFavorite = (entry,event) => {
+            event?.preventDefault();event?.stopPropagation();
+            if(!entry) return;
+            const id=String(entry.id);
+            state.favorites=isBookFavorite(entry) ? state.favorites.filter(x=>x!==id) : [...state.favorites,id];
+            save();refreshIcons();
+        };
+        const bookLead = entry => {
+            const text=String(entry?.hadeeth||'').replace(/\s+/g,' ').trim();
+            // L'aperçu, et jamais le texte intégral, peut omettre « Rapporté par … : ».
+            const match=/^Rapporté par [^:]{2,125}:\s*/i.exec(text);
+            return bookExcerpt(match?text.slice(match[0].length):text,205);
+        };
         let bookRequestId = 0;
         const state = Vue.reactive({ favorites: [], read: {}, recent: [], notes: {} });
 
@@ -174,7 +196,8 @@ const HadithsView = {
             bookLoading.value = true;
             bookQuery.value = '';
             bookChapter.value = 'all';
-            bookVisibleLimit.value = 18;
+            bookVisibleLimit.value = book.id === 'bukhari' ? 12 : 18;
+            bookFavoritesOnly.value = false;
             refreshIcons();
             try {
                 const response = await fetch(book.dataPath);
@@ -226,7 +249,11 @@ const HadithsView = {
         Vue.watch([query, themeFilter, collectionFilter, gradeFilter, favoritesOnly, unreadOnly, sortMode], () => { visibleLimit.value = 18; refreshIcons(); });
         Vue.watch(visibleLimit, refreshIcons);
         Vue.watch([section, bookQuery, bookChapter, selectedBookId], () => {
-            bookVisibleLimit.value = 18;
+            bookVisibleLimit.value = selectedBookId.value === 'bukhari' ? 12 : 18;
+            refreshIcons();
+        });
+        Vue.watch(bookFavoritesOnly, () => {
+            bookVisibleLimit.value = 12;
             refreshIcons();
         });
         Vue.watch(bookVisibleLimit, refreshIcons);
@@ -236,13 +263,14 @@ const HadithsView = {
             recentItem, activeFilters, resetFilters, chooseTheme, toggleFavorite, open, random, clean,
             section, books, selectedBook, selectedBookId, selectSection, openBook, closeBook,
             bookPayload, bookLoading, bookError, bookQuery, bookChapter, bookChapters, bookHadiths,
-            filteredBookHadiths, visibleBookHadiths, bookVisibleLimit, openBookHadith, bookExcerpt, bookName
+            filteredBookHadiths, visibleBookHadiths, bookVisibleLimit, openBookHadith, bookExcerpt, bookName, bookLead,
+            bookCounts, bookFavoriteCount, bookFavoritesOnly, isBookFavorite, toggleBookFavorite
         };
     },
     template: `
     <section class="hadith-pro-root">
         <div class="hadith-pro-container">
-            <header class="hadith-pro-heading">
+            <header v-if="selectedBook?.id!=='bukhari'" class="hadith-pro-heading">
                 <div>
                     <span class="hadith-pro-eyebrow"><i data-lucide="scroll-text" aria-hidden="true"></i> Bibliothèque des transmissions</span>
                     <h1>Les hadiths</h1>
@@ -250,7 +278,7 @@ const HadithsView = {
                 </div>
             </header>
 
-            <nav class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
+            <nav v-if="selectedBook?.id!=='bukhari'" class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
                 <button type="button" :class="{active:section==='library'}" :aria-pressed="section==='library'" @click="selectSection('library')">
                     <i data-lucide="book-open" aria-hidden="true"></i> Hadiths disponibles
                     <span>{{ stats.total }}</span>
@@ -388,17 +416,28 @@ const HadithsView = {
                     <p class="hadith-kutub-footnote">Les recueils seront complétés progressivement. Les {{ stats.total }} hadiths déjà disponibles restent dans la bibliothèque actuelle.</p>
                 </template>
 
-                <section v-else class="hadith-kutub-book-view" :aria-label="'Recueil '+selectedBook.name">
+                <section v-else class="hadith-kutub-book-view" :class="{'bukhari-book-view':selectedBook.id==='bukhari'}" :aria-label="'Recueil '+selectedBook.name">
                     <button type="button" class="hadith-kutub-back" @click="closeBook">
                         <i data-lucide="arrow-left" aria-hidden="true"></i> Tous les recueils
                     </button>
-                    <header class="hadith-kutub-book-head">
+                    <header v-if="selectedBook.id!=='bukhari'" class="hadith-kutub-book-head">
                         <div>
                             <span class="hadith-pro-eyebrow">{{ selectedBook.type }} · {{ selectedBook.compiler }}</span>
                             <h2>{{ selectedBook.name }}</h2>
                             <p>{{ selectedBook.description }}</p>
                         </div>
                         <p class="hadith-kutub-book-head-ar" lang="ar" dir="rtl">{{ selectedBook.arabicName }}</p>
+                    </header>
+                    <header v-else class="bukhari-showcase-hero">
+                        <span class="bukhari-showcase-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> Aux sources des transmissions</span>
+                        <span class="bukhari-showcase-arabic" lang="ar" dir="rtl">صحيح البخاري</span>
+                        <h2>Sahîh <em>al-Bukhârî</em></h2>
+                        <p>Les cinquante premiers hadiths, du commencement de la Révélation aux premières questions sur la foi. Découvrez leurs textes complets en arabe et en français.</p>
+                        <div class="bukhari-showcase-meta">
+                            <span><strong>50</strong> hadiths</span><span aria-hidden="true">·</span>
+                            <span><strong>2</strong> livres</span><span aria-hidden="true">·</span>
+                            <span>Lecture bilingue</span>
+                        </div>
                     </header>
 
                     <div v-if="bookLoading" class="hadith-kutub-empty" role="status">
@@ -411,6 +450,74 @@ const HadithsView = {
                         <button type="button" @click="openBook(selectedBook)">Réessayer</button>
                     </div>
                     <template v-else-if="bookPayload">
+                        <div v-if="selectedBook.id==='bukhari' && bookHadiths.length" class="bukhari-catalog">
+                            <nav class="bukhari-book-switch" aria-label="Explorer les deux livres de Sahîh al-Bukhârî">
+                                <button type="button" :aria-pressed="bookChapter==='all'" :class="{active:bookChapter==='all'}"
+                                    @click="bookChapter='all'">Tous les hadiths <small>{{ bookHadiths.length }}</small></button>
+                                <button v-for="chapter in bookChapters" :key="chapter.id" type="button"
+                                    :class="{active:bookChapter===chapter.id}" :aria-pressed="bookChapter===chapter.id"
+                                    @click="bookChapter=chapter.id">
+                                    {{ chapter.titleFr }} <small>{{ bookCounts.get(chapter.id)||0 }}</small>
+                                </button>
+                            </nav>
+                            <div class="bukhari-catalog-tools">
+                                <label class="bukhari-catalog-search">
+                                    <i data-lucide="search" aria-hidden="true"></i>
+                                    <input v-model="bookQuery" type="search" aria-label="Rechercher un hadith de Bukhârî"
+                                        placeholder="Numéro, mot ou passage…" autocomplete="off">
+                                    <button v-if="bookQuery" type="button" @click.prevent="bookQuery=''" aria-label="Effacer la recherche">
+                                        <i data-lucide="x" aria-hidden="true"></i>
+                                    </button>
+                                </label>
+                                <button type="button" class="bukhari-catalog-favorites" :class="{active:bookFavoritesOnly}"
+                                    :aria-pressed="bookFavoritesOnly" @click="bookFavoritesOnly=!bookFavoritesOnly">
+                                    <i data-lucide="heart" aria-hidden="true"></i> Favoris <small>{{ bookFavoriteCount }}</small>
+                                </button>
+                            </div>
+                            <div class="bukhari-catalog-heading">
+                                <div><span>Parcourir les textes</span>
+                                    <h3>{{ bookChapter==='all' ? 'Les premières transmissions' : bookChapters.find(c=>c.id===bookChapter)?.titleFr }}</h3>
+                                </div>
+                                <p aria-live="polite">{{ filteredBookHadiths.length }} hadith{{ filteredBookHadiths.length>1?'s':'' }}</p>
+                            </div>
+                            <div v-if="visibleBookHadiths.length" class="bukhari-card-grid">
+                                <article v-for="entry in visibleBookHadiths" :key="entry.id" class="bukhari-card">
+                                    <button type="button" class="bukhari-card-link" @click="openBookHadith(entry)"
+                                        :aria-label="'Lire Sahîh al-Bukhârî, hadith n° '+entry.number+', '+(entry.readingTitle||entry.title)">
+                                        <span class="bukhari-card-decor" aria-hidden="true"></span>
+                                        <span class="bukhari-card-top">
+                                            <span class="bukhari-card-icon" aria-hidden="true"><i :data-lucide="entry.readingIcon||'book-open'"></i></span>
+                                            <span class="bukhari-card-number">N° {{ entry.number }}</span>
+                                        </span>
+                                        <span class="bukhari-card-category">{{ bookName(entry) }}</span>
+                                        <strong class="bukhari-card-title">{{ entry.readingTitle||entry.title }}</strong>
+                                        <span class="bukhari-card-excerpt">{{ bookLead(entry) }}</span>
+                                        <span class="bukhari-card-foot">
+                                            <span>Hadith {{ entry.number }} <i data-lucide="dot" aria-hidden="true"></i> Livre {{ entry.bookNumber }}</span>
+                                            <b>Lire le texte <i data-lucide="arrow-right" aria-hidden="true"></i></b>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="bukhari-card-favorite" :aria-pressed="isBookFavorite(entry)"
+                                        :aria-label="isBookFavorite(entry)?'Retirer le hadith '+entry.number+' des favoris':'Ajouter le hadith '+entry.number+' aux favoris'"
+                                        @click="toggleBookFavorite(entry,$event)">
+                                        <i data-lucide="heart" aria-hidden="true"></i>
+                                    </button>
+                                </article>
+                            </div>
+                            <div v-else class="bukhari-catalog-empty" role="status">
+                                <i data-lucide="search-x" aria-hidden="true"></i>
+                                <h3>Aucun hadith trouvé</h3><p>Essaie un autre numéro ou enlève le filtre des favoris.</p>
+                                <button type="button" @click="bookQuery='';bookChapter='all';bookFavoritesOnly=false">Tout afficher</button>
+                            </div>
+                            <div v-if="filteredBookHadiths.length>bookVisibleLimit" class="bukhari-catalog-more">
+                                <span>{{ visibleBookHadiths.length }} hadiths sur {{ filteredBookHadiths.length }}</span>
+                                <button type="button" @click="bookVisibleLimit+=12">
+                                    Afficher plus de hadiths <i data-lucide="chevron-down" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <p class="bukhari-catalog-note">Les intitulés de ces cartes sont des repères de lecture rédigés pour Athar : ils ne remplacent ni le texte transmis ni les titres du recueil.</p>
+                        </div>
+                        <template v-else>
                         <div class="hadith-kutub-book-counts" aria-label="Contenu importé">
                             <span><strong>{{ bookChapters.length }}</strong> livre{{ bookChapters.length>1?'s':'' }}</span>
                             <span><strong>{{ bookHadiths.length }}</strong> hadith{{ bookHadiths.length>1?'s':'' }} importé{{ bookHadiths.length>1?'s':'' }}</span>
@@ -452,6 +559,7 @@ const HadithsView = {
                             <h3>Ce recueil est prêt à être rempli</h3>
                             <p>Aucun hadith n'a encore été ajouté. Ses chapitres, textes arabes, traductions et références seront intégrés progressivement.</p>
                         </div>
+                        </template>
                     </template>
                 </section>
             </section>

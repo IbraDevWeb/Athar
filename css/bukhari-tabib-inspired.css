@@ -1,0 +1,997 @@
+/*
+ * Athar — Sahîh al-Bukhârî 01–50.
+ * Direction artistique : même calme, profondeur et hiérarchie que Tabîb al-Qulûb.
+ * Isolation totale : .bukhari-book-view (catalogue) et .bukhari-reader-pro (fiches).
+ */
+.hadith-pro-root .bukhari-book-view,
+.hadith-reader-pro.bukhari-reader-pro {
+    --bukhari-accent:#427c79;
+    --bukhari-accent-deep:#2d6663;
+    --bukhari-tint:#edf5f1;
+    --bukhari-tint-2:#e7f3f3;
+    --bukhari-surface:#fffefa;
+    --bukhari-paper:#fafaf7;
+    --bukhari-ink:#263739;
+    --bukhari-muted:#6b7b7e;
+    --bukhari-border:rgba(76,113,111,.18);
+}
+.dark .hadith-pro-root .bukhari-book-view,
+.dark .hadith-reader-pro.bukhari-reader-pro {
+    --bukhari-accent:#a3d4c7;
+    --bukhari-accent-deep:#c9e3dc;
+    --bukhari-tint:#273a38;
+    --bukhari-tint-2:#293f42;
+    --bukhari-surface:#1d2a2b;
+    --bukhari-paper:#142223;
+    --bukhari-ink:#edf6f2;
+    --bukhari-muted:#bdcfcd;
+    --bukhari-border:rgba(175,210,203,.19);
+}
+.hadith-pro-root .bukhari-book-view {
+    max-width:1190px;
+    width:100%;
+    margin:0 auto;
+}
+.hadith-pro-root .bukhari-book-view *,
+.hadith-reader-pro.bukhari-reader-pro * {
+    box-sizing:border-box;
+    min-width:0;
+}
+.hadith-pro-root .bukhari-book-view :is(button,input):focus-visible,
+.hadith-reader-pro.bukhari-reader-pro :is(button,textarea,summary,a):focus-visible {
+    outline:2px solid var(--bukhari-accent);
+    outline-offset:3px;
+}
+.hadith-pro-root .bukhari-book-view .hadith-kutub-back {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    min-height:40px;
+    margin:0 0 12px;
+    padding:6px 4px;
+    border:0;
+    background:transparent;
+    color:var(--bukhari-muted);
+    font:750 11px/1.5 Inter,system-ui,sans-serif;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+}
+.hadith-pro-root .bukhari-book-view .hadith-kutub-back:hover { color:var(--bukhari-accent); }
+.hadith-pro-root .bukhari-book-view .hadith-kutub-back svg {
+    width:17px;height:17px;color:var(--bukhari-accent);
+}
+
+/* Une entrée mémorable, mais légère. Pas de grande boîte carrée. */
+.hadith-pro-root .bukhari-showcase-hero {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
+    padding:10px 12px 33px;
+    margin:0 auto;
+    width:100%;
+    border:0;
+    background:transparent;
+}
+.hadith-pro-root .bukhari-showcase-kicker {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:31px;
+    margin:0 0 19px;
+    padding:7px 15px;
+    border:1px solid rgba(66,124,121,.26);
+    border-radius:999px;
+    background:var(--bukhari-tint);
+    color:var(--bukhari-accent);
+    font:750 10px/1.5 Inter,system-ui,sans-serif;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    max-width:100%;
+    white-space:normal;
+}
+.hadith-pro-root .bukhari-showcase-kicker svg { width:15px;height:15px; }
+.hadith-pro-root .bukhari-showcase-arabic {
+    display:block;
+    padding:0 10px;
+    margin:0 auto 9px;
+    color:var(--bukhari-accent);
+    font:400 clamp(27px,3.4vw,40px)/1.5 Amiri,serif;
+}
+.hadith-pro-root .bukhari-showcase-hero h2 {
+    margin:0;
+    color:var(--bukhari-ink);
+    font:700 clamp(31px,4.6vw,54px)/1.22 Cinzel,Georgia,serif;
+    letter-spacing:-.035em;
+    text-wrap:balance;
+}
+.hadith-pro-root .bukhari-showcase-hero h2 em {
+    color:var(--bukhari-accent);
+    font:inherit;
+    font-style:normal;
+}
+.hadith-pro-root .bukhari-showcase-hero > p {
+    max-width:620px;
+    margin:15px 0 0;
+    color:var(--bukhari-muted);
+    font:400 13px/1.9 "Libre Baskerville",Georgia,serif;
+    text-wrap:pretty;
+}
+.hadith-pro-root .bukhari-showcase-meta {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:9px;
+    margin:17px 0 0;
+    color:var(--bukhari-muted);
+    font:550 11px/1.6 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .bukhari-showcase-meta strong { color:var(--bukhari-accent);font-weight:750; }
+
+/* Onglets inspirés de la simplicité des catégories Tabîb. */
+.hadith-pro-root .bukhari-book-switch {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:stretch;
+    gap:8px;
+    padding:0;
+    margin:0 auto 20px;
+}
+.hadith-pro-root .bukhari-book-switch button {
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    max-width:100%;
+    min-height:43px;
+    padding:10px 17px;
+    border:1px solid var(--bukhari-border);
+    border-radius:999px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-muted);
+    font:650 12px/1.45 Inter,system-ui,sans-serif;
+    text-align:center;
+    white-space:normal;
+    transition:border-color .15s,color .15s,background .15s;
+}
+.hadith-pro-root .bukhari-book-switch button small {
+    font:700 10px/1.4 Inter,system-ui,sans-serif;
+    opacity:.76;
+}
+.hadith-pro-root .bukhari-book-switch button:hover {
+    color:var(--bukhari-accent);
+    border-color:var(--bukhari-accent);
+}
+.hadith-pro-root .bukhari-book-switch button.active {
+    color:#fff;
+    background:var(--bukhari-accent);
+    border-color:var(--bukhari-accent);
+    box-shadow:0 4px 16px rgba(43,104,101,.10);
+}
+.dark .hadith-pro-root .bukhari-book-switch button.active { color:#132523; }
+.hadith-pro-root .bukhari-catalog-tools {
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    flex-wrap:wrap;
+    gap:11px;
+    max-width:850px;
+    margin:0 auto 32px;
+}
+.hadith-pro-root .bukhari-catalog-search {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex:1 1 360px;
+    min-height:51px;
+    min-width:0;
+    padding:0 16px;
+    background:var(--bukhari-surface);
+    border:1px solid var(--bukhari-border);
+    border-radius:13px;
+    box-shadow:0 4px 15px rgba(35,65,65,.027);
+}
+.hadith-pro-root .bukhari-catalog-search:focus-within {
+    border-color:var(--bukhari-accent);
+    box-shadow:0 0 0 3px rgba(66,124,121,.1);
+}
+.hadith-pro-root .bukhari-catalog-search > svg {
+    flex-shrink:0;width:18px;height:18px;
+    color:var(--bukhari-accent);
+}
+.hadith-pro-root .bukhari-catalog-search input {
+    flex:1 1 auto;
+    width:100%;
+    min-width:0;
+    min-height:49px;
+    padding:0;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--bukhari-ink);
+    font:450 13px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .bukhari-catalog-search input::placeholder { color:var(--bukhari-muted);opacity:.8; }
+.hadith-pro-root .bukhari-catalog-search button {
+    flex:0 0 30px;
+    display:grid;place-items:center;
+    width:30px;height:30px;
+    border:0;
+    border-radius:8px;
+    background:transparent;
+    color:var(--bukhari-muted);
+}
+.hadith-pro-root .bukhari-catalog-search button svg { width:16px;height:16px; }
+.hadith-pro-root .bukhari-catalog-favorites {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-height:51px;
+    padding:11px 18px;
+    border:1px solid var(--bukhari-border);
+    border-radius:13px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-muted);
+    font:700 12px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .bukhari-catalog-favorites svg { width:16px;height:16px; }
+.hadith-pro-root .bukhari-catalog-favorites small { font-size:10px; }
+.hadith-pro-root .bukhari-catalog-favorites:hover,
+.hadith-pro-root .bukhari-catalog-favorites.active {
+    border-color:var(--bukhari-accent);
+    color:var(--bukhari-accent);
+    background:var(--bukhari-tint);
+}
+.hadith-pro-root .bukhari-catalog-heading {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:10px 15px;
+    padding:0 0 16px;
+    border-bottom:1px solid var(--bukhari-border);
+    margin:0 0 20px;
+}
+.hadith-pro-root .bukhari-catalog-heading > div > span {
+    display:block;
+    margin:0 0 7px;
+    color:var(--bukhari-accent);
+    font:750 10px/1.4 Inter,system-ui,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.11em;
+}
+.hadith-pro-root .bukhari-catalog-heading h3 {
+    margin:0;
+    color:var(--bukhari-ink);
+    font:700 clamp(19px,2.3vw,25px)/1.4 Cinzel,Georgia,serif;
+    text-wrap:balance;
+}
+.hadith-pro-root .bukhari-catalog-heading > p {
+    margin:0;
+    color:var(--bukhari-muted);
+    font:600 12px/1.6 Inter,system-ui,sans-serif;
+}
+
+/* Cartes de lecture à la Tabîb : lumière interne subtile, icône, souffle, texte. */
+.hadith-pro-root .bukhari-card-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:20px;
+    align-items:stretch;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+.hadith-pro-root .bukhari-card {
+    position:relative;
+    isolation:isolate;
+    min-height:330px;
+    min-width:0;
+    border:1px solid var(--bukhari-border);
+    border-radius:21px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-ink);
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(30,62,60,.036);
+    transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.hadith-pro-root .bukhari-card::before {
+    content:none!important;
+    display:none!important;
+}
+.hadith-pro-root .bukhari-card:hover,
+.hadith-pro-root .bukhari-card:focus-within {
+    border-color:rgba(63,126,120,.54);
+    box-shadow:0 17px 35px rgba(33,75,74,.095);
+    transform:translateY(-3px);
+}
+.hadith-pro-root .bukhari-card-link {
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    min-height:100%;
+    height:100%;
+    padding:24px 23px 21px;
+    border:0;
+    background:transparent;
+    text-align:left;
+    color:inherit;
+    overflow:hidden;
+}
+.hadith-pro-root .bukhari-card-decor {
+    position:absolute;
+    pointer-events:none;
+    right:-55px;top:-62px;
+    width:190px;height:190px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(65,138,127,.115),rgba(65,138,127,.018) 70%,transparent 73%);
+    transition:transform .55s ease;
+}
+.hadith-pro-root .bukhari-card:hover .bukhari-card-decor { transform:scale(1.18); }
+.hadith-pro-root .bukhari-card-top {
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 44px 20px 0;
+}
+.hadith-pro-root .bukhari-card-icon {
+    display:grid;
+    place-items:center;
+    width:51px;height:51px;
+    flex:0 0 51px;
+    border-radius:15px;
+    border:1px solid var(--bukhari-border);
+    background:var(--bukhari-tint);
+    color:var(--bukhari-accent);
+    box-shadow:inset 0 1px 3px rgba(45,85,84,.045);
+    transition:background .18s,color .18s;
+}
+.hadith-pro-root .bukhari-card-icon svg { width:22px;height:22px; }
+.hadith-pro-root .bukhari-card:hover .bukhari-card-icon {
+    background:var(--bukhari-accent);
+    color:white;
+}
+.dark .hadith-pro-root .bukhari-card:hover .bukhari-card-icon { color:#172724; }
+.hadith-pro-root .bukhari-card-number {
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    min-height:28px;
+    margin:6px 0 0 auto;
+    padding:5px 10px;
+    border:1px solid var(--bukhari-border);
+    border-radius:8px;
+    background:var(--bukhari-tint);
+    color:var(--bukhari-accent);
+    font:750 11px/1.4 Inter,system-ui,sans-serif;
+    white-space:nowrap;
+}
+.hadith-pro-root .bukhari-card-favorite {
+    position:absolute;
+    z-index:3;
+    right:17px;top:26px;
+    width:35px;height:35px;
+    display:grid;place-items:center;
+    border:1px solid transparent;
+    border-radius:10px;
+    background:transparent;
+    color:var(--bukhari-muted);
+}
+.hadith-pro-root .bukhari-card-favorite:hover,
+.hadith-pro-root .bukhari-card-favorite[aria-pressed="true"] {
+    color:var(--bukhari-accent);
+    background:var(--bukhari-tint);
+    border-color:var(--bukhari-border);
+}
+.hadith-pro-root .bukhari-card-favorite[aria-pressed="true"] svg { fill:currentColor; }
+.hadith-pro-root .bukhari-card-favorite svg { width:17px;height:17px; }
+.hadith-pro-root .bukhari-card-category {
+    display:inline-block;
+    position:relative;
+    max-width:100%;
+    margin:0 0 9px;
+    color:var(--bukhari-accent);
+    font:750 10px/1.55 Inter,system-ui,sans-serif;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+    overflow-wrap:break-word;
+}
+.hadith-pro-root .bukhari-card-title {
+    display:block;
+    position:relative;
+    margin:0 0 12px;
+    color:var(--bukhari-ink);
+    font:700 clamp(16px,1.55vw,20px)/1.45 Cinzel,Georgia,serif;
+    white-space:normal;
+    text-wrap:pretty;
+    overflow-wrap:break-word;
+}
+.hadith-pro-root .bukhari-card-excerpt {
+    position:relative;
+    display:block;
+    width:100%;
+    margin:0 0 17px;
+    color:var(--bukhari-muted);
+    font:400 12px/1.78 Inter,system-ui,sans-serif;
+    white-space:normal;
+    overflow-wrap:break-word;
+}
+.hadith-pro-root .bukhari-card-foot {
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:9px 14px;
+    flex-wrap:wrap;
+    padding:15px 0 0;
+    margin:auto 0 0;
+    border-top:1px solid var(--bukhari-border);
+}
+.hadith-pro-root .bukhari-card-foot > span {
+    display:inline-flex;
+    align-items:center;
+    flex-wrap:wrap;
+    color:var(--bukhari-muted);
+    font:600 10.5px/1.6 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .bukhari-card-foot > span svg { width:12px;height:12px; }
+.hadith-pro-root .bukhari-card-foot > b {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-left:auto;
+    color:var(--bukhari-accent);
+    font:750 11px/1.4 Inter,system-ui,sans-serif;
+    white-space:nowrap;
+}
+.hadith-pro-root .bukhari-card-foot > b svg { width:15px;height:15px; }
+.hadith-pro-root .bukhari-catalog-empty {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    min-height:180px;
+    padding:30px 15px;
+    border:1px solid var(--bukhari-border);
+    border-radius:17px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-muted);
+}
+.hadith-pro-root .bukhari-catalog-empty svg { width:25px;height:25px;color:var(--bukhari-accent); }
+.hadith-pro-root .bukhari-catalog-empty h3 { margin:0;color:var(--bukhari-ink);font:700 17px Cinzel,Georgia,serif; }
+.hadith-pro-root .bukhari-catalog-empty p { margin:0;font:400 12px/1.7 Inter,system-ui,sans-serif; }
+.hadith-pro-root .bukhari-catalog-empty button,
+.hadith-pro-root .bukhari-catalog-more button {
+    display:inline-flex;justify-content:center;align-items:center;gap:8px;
+    min-height:43px;
+    margin:8px 0 0;
+    padding:10px 18px;
+    border:1px solid var(--bukhari-border);
+    border-radius:999px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-accent);
+    font:750 12px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .bukhari-catalog-more {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    margin:26px 0 0;
+    color:var(--bukhari-muted);
+    font:600 11px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-pro-root .bukhari-catalog-more svg { width:15px;height:15px; }
+.hadith-pro-root .bukhari-catalog-note {
+    max-width:770px;
+    margin:32px auto 0;
+    padding:18px 10px 0;
+    border-top:1px solid var(--bukhari-border);
+    color:var(--bukhari-muted);
+    text-align:center;
+    font:400 11.5px/1.75 Inter,system-ui,sans-serif;
+}
+
+/* Fiches : rituel de lecture sur le modèle de Tabîb, mais aucun commentaire inventé. */
+.hadith-reader-pro.bukhari-reader-pro {
+    background:
+        radial-gradient(ellipse at 50% 0%,rgba(74,143,132,.11),transparent 47%),
+        var(--bukhari-paper);
+    color:var(--bukhari-ink);
+    min-height:100%;
+    overflow-x:clip;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-shell {
+    width:100%;
+    max-width:950px;
+    padding:25px clamp(17px,4vw,43px) 110px;
+    margin:0 auto;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-toolbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:11px 20px;
+    margin:0 0 24px;
+    padding:0;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-back {
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    min-height:44px;
+    padding:5px 0;
+    border:0;
+    background:transparent;
+    color:var(--bukhari-muted);
+    font:750 11px/1.5 Inter,system-ui,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-back:hover { color:var(--bukhari-accent); }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-back-icon {
+    flex:0 0 37px;
+    display:grid;place-items:center;
+    width:37px;height:37px;
+    border:1px solid var(--bukhari-border);
+    border-radius:999px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-accent);
+    box-shadow:0 4px 12px rgba(34,58,60,.025);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-back-icon svg { width:17px;height:17px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions {
+    display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:6px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button {
+    display:grid;
+    place-items:center;
+    width:41px;height:41px;
+    border:1px solid var(--bukhari-border);
+    border-radius:12px;
+    background:var(--bukhari-surface);
+    color:var(--bukhari-muted);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button:hover,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button.active {
+    color:var(--bukhari-accent);
+    background:var(--bukhari-tint);
+    border-color:var(--bukhari-accent);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button.active svg { fill:currentColor; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button svg { width:18px;height:18px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:7px 12px 23px;
+    margin:0 auto 8px;
+    background:transparent;
+    border:0;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-kicker {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:0 0 21px;
+    padding:7px 14px;
+    border:1px solid rgba(66,124,121,.24);
+    border-radius:999px;
+    background:var(--bukhari-tint);
+    color:var(--bukhari-accent);
+    font:750 10px/1.45 Inter,system-ui,sans-serif;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-kicker svg { width:15px;height:15px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero-icon {
+    display:grid;place-items:center;
+    width:78px;height:78px;
+    margin:0 auto 17px;
+    padding:0;
+    border:1px solid var(--bukhari-border);
+    border-radius:23px;
+    color:var(--bukhari-accent);
+    background:var(--bukhari-surface);
+    box-shadow:0 10px 29px rgba(53,117,105,.105);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero-icon svg { width:35px;height:35px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero-arabic {
+    display:block;
+    margin:0 auto 7px;
+    color:var(--bukhari-accent);
+    font:400 clamp(23px,2.75vw,30px)/1.5 Amiri,serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero h1 {
+    margin:0;
+    max-width:760px;
+    color:var(--bukhari-ink);
+    font:700 clamp(29px,4.1vw,43px)/1.27 Cinzel,Georgia,serif;
+    letter-spacing:-.032em;
+    text-wrap:balance;
+    overflow-wrap:break-word;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-book {
+    margin:14px 0 0;
+    color:var(--bukhari-muted);
+    font:400 clamp(13px,1.4vw,15px)/1.8 "Libre Baskerville",Georgia,serif;
+    font-style:italic;
+    text-align:center;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-meta {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:15px auto 0;
+    color:var(--bukhari-accent);
+    font:750 11px/1.6 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-language-switch {
+    display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;
+    width:max-content;max-width:100%;
+    margin:9px auto 26px;
+    padding:5px;
+    border:1px solid var(--bukhari-border);
+    border-radius:999px;
+    background:var(--bukhari-surface);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-language-switch button {
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:37px;
+    padding:8px 17px;
+    border:1px solid transparent;
+    border-radius:999px;
+    background:transparent;
+    color:var(--bukhari-muted);
+    font:700 11px/1.5 Inter,system-ui,sans-serif;
+    white-space:normal;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-language-switch button.active {
+    background:var(--bukhari-tint);
+    border-color:var(--bukhari-border);
+    color:var(--bukhari-accent);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-content {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:20px;
+    padding:0;
+    margin:0;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original {
+    position:relative;
+    isolation:isolate;
+    padding:clamp(26px,4vw,49px);
+    border:1px solid rgba(66,124,121,.19);
+    border-radius:27px;
+    background:linear-gradient(137deg,var(--bukhari-tint),var(--bukhari-tint-2));
+    box-shadow:0 6px 24px rgba(44,87,79,.037);
+    overflow:hidden;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-card-ornament {
+    position:absolute;
+    right:14px;top:16px;
+    color:var(--bukhari-accent);
+    opacity:.065;
+    pointer-events:none;
+    transform:none;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-card-ornament svg { width:135px;height:135px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original-body { position:relative;z-index:1; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-overline {
+    display:block;
+    margin:0 0 24px;
+    color:var(--bukhari-accent-deep);
+    font:750 10px/1.6 Inter,system-ui,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    text-align:center;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original blockquote {
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:none;
+    padding:0;
+    margin:0;
+    border:0;
+    background:transparent;
+    color:var(--bukhari-ink);
+    font-family:Amiri,serif;
+    line-height:2.15;
+    font-weight:400;
+    text-align:center;
+    white-space:pre-line;
+    overflow:visible;
+    word-break:normal;
+    overflow-wrap:anywhere;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original-caption {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:23px auto 0;
+    padding:17px 0 0;
+    border-top:1px solid var(--bukhari-border);
+    color:var(--bukhari-accent-deep);
+    font:600 10.5px/1.65 Inter,system-ui,sans-serif;
+    text-align:center;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original-caption svg { width:14px;height:14px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal {
+    border:1px solid var(--bukhari-border);
+    border-radius:25px;
+    background:var(--bukhari-surface);
+    box-shadow:0 6px 23px rgba(33,65,63,.035);
+    padding:clamp(23px,3.5vw,38px);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-head,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal-heading {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:0 0 19px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-symbol,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal-icon {
+    flex:0 0 46px;
+    display:grid;place-items:center;
+    width:46px;height:46px;
+    border:1px solid var(--bukhari-border);
+    border-radius:14px;
+    background:var(--bukhari-tint);
+    color:var(--bukhari-accent);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-symbol svg,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal-icon svg {
+    width:21px;height:21px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-head > div > span,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal-heading > div > span {
+    display:block;
+    color:var(--bukhari-accent);
+    font:750 10px/1.5 Inter,system-ui,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    margin:0 0 6px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-head h2,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal-heading h2 {
+    margin:0;
+    color:var(--bukhari-ink);
+    font:700 clamp(18px,2.25vw,23px)/1.4 Cinzel,Georgia,serif;
+    text-wrap:balance;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation > p {
+    margin:0;
+    color:var(--bukhari-ink);
+    font-family:"Libre Baskerville",Georgia,serif;
+    font-weight:400;
+    line-height:2;
+    white-space:pre-line;
+    overflow-wrap:break-word;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-caption {
+    padding:16px 0 0;
+    margin:25px 0 0;
+    border-top:1px solid var(--bukhari-border);
+    color:var(--bukhari-muted);
+    font:500 10.5px/1.7 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal > p {
+    margin:0 0 17px;
+    color:var(--bukhari-muted);
+    font:400 12.5px/1.75 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal textarea {
+    display:block;
+    width:100%;
+    min-height:133px;
+    padding:18px 20px;
+    border:1px solid var(--bukhari-border);
+    border-radius:15px;
+    color:var(--bukhari-ink);
+    background:var(--bukhari-paper);
+    resize:vertical;
+    font:400 13px/1.75 Inter,system-ui,sans-serif;
+    outline:0;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal textarea:focus {
+    border-color:var(--bukhari-accent);
+    box-shadow:0 0 0 3px rgba(66,124,121,.08);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal textarea::placeholder {
+    color:var(--bukhari-muted);opacity:.8;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-autosave {
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:12px 0 0;
+    color:var(--bukhari-muted);
+    font:500 10px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-autosave svg { width:13px;height:13px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-wrap {
+    margin:0;
+    padding:0;
+    border:0;
+    background:transparent;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source {
+    border:1px solid var(--bukhari-border);
+    border-radius:17px;
+    background:var(--bukhari-surface);
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source > summary {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    min-height:54px;
+    margin:0;
+    padding:17px 20px;
+    color:var(--bukhari-accent);
+    font:700 12px/1.5 Inter,system-ui,sans-serif;
+    list-style:none;
+    cursor:pointer;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source > summary::-webkit-details-marker { display:none; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source > summary > span {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source > summary svg { width:17px;height:17px; }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source[open] > summary > svg { transform:rotate(180deg); }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-body {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:18px;
+    margin:0;
+    padding:0 20px 23px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-records {
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-records > div {
+    display:flex;flex-direction:column;gap:6px;
+    min-width:0;
+    padding:15px;
+    border:1px solid var(--bukhari-border);
+    border-radius:11px;
+    background:var(--bukhari-tint);
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-records span {
+    color:var(--bukhari-muted);
+    font:700 10px/1.5 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-records strong {
+    color:var(--bukhari-ink);
+    font:700 12px/1.7 Inter,system-ui,sans-serif;
+    overflow-wrap:break-word;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation-notice,
+.hadith-reader-pro.bukhari-reader-pro .hadith-reader-translation-notice,
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-caution {
+    margin:0;
+    color:var(--bukhari-muted);
+    font:400 11.5px/1.85 Inter,system-ui,sans-serif;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-external {
+    display:inline-flex;
+    justify-self:start;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    min-height:42px;
+    width:fit-content;
+    max-width:100%;
+    padding:10px 14px;
+    border:1px solid var(--bukhari-border);
+    border-radius:11px;
+    background:var(--bukhari-tint);
+    color:var(--bukhari-accent-deep);
+    font:700 12px/1.6 Inter,system-ui,sans-serif;
+    text-decoration:none;
+    overflow-wrap:anywhere;
+}
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-external:hover { border-color:var(--bukhari-accent); }
+.hadith-reader-pro.bukhari-reader-pro .bukhari-reader-external svg { width:16px;height:16px; }
+
+/* Responsive : rien de tronqué, ni cartes ni texte arabe intégral. */
+@media(max-width:1100px) {
+    .hadith-pro-root .bukhari-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:760px) {
+    .hadith-pro-root .bukhari-showcase-hero { padding:8px 6px 25px; }
+    .hadith-pro-root .bukhari-card-grid { gap:14px; }
+    .hadith-pro-root .bukhari-card-link { padding:21px 19px 19px; }
+    .hadith-pro-root .bukhari-card-title { font-size:18px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-shell { padding:18px 20px 75px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero { margin-bottom:7px; }
+}
+@media(max-width:610px) {
+    .hadith-pro-root .bukhari-book-view .hadith-kutub-back { margin-bottom:10px; }
+    .hadith-pro-root .bukhari-showcase-hero h2 { font-size:clamp(30px,8vw,39px); }
+    .hadith-pro-root .bukhari-showcase-arabic { font-size:27px; }
+    .hadith-pro-root .bukhari-showcase-hero > p { font-size:12px;line-height:1.75; }
+    .hadith-pro-root .bukhari-book-switch { justify-content:center;gap:7px; }
+    .hadith-pro-root .bukhari-book-switch button { min-height:39px;padding:8px 12px;font-size:10px; }
+    .hadith-pro-root .bukhari-catalog-tools { gap:8px;margin-bottom:26px; }
+    .hadith-pro-root .bukhari-catalog-search { flex:1 1 100%;min-height:49px;padding:0 13px; }
+    .hadith-pro-root .bukhari-catalog-favorites { min-height:43px;padding:9px 14px; }
+    .hadith-pro-root .bukhari-card-grid { grid-template-columns:minmax(0,1fr);gap:13px; }
+    .hadith-pro-root .bukhari-card { min-height:0;border-radius:18px; }
+    .hadith-pro-root .bukhari-card-link { min-height:270px;padding:20px; }
+    .hadith-pro-root .bukhari-card-title { font-size:17px; }
+    .hadith-pro-root .bukhari-card-excerpt { font-size:12px; }
+    .hadith-pro-root .bukhari-card-icon { width:47px;height:47px;flex-basis:47px; }
+    .hadith-pro-root .bukhari-card-top { margin-bottom:17px; }
+    .hadith-pro-root .bukhari-card-favorite { top:23px;right:16px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-shell { padding:17px 15px 65px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-toolbar { gap:9px;margin-bottom:19px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-back { font-size:10px;gap:8px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions { gap:4px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button { width:35px;height:37px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions button svg { width:17px;height:17px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero h1 { font-size:clamp(26px,6.8vw,34px); }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero-icon { width:65px;height:65px;border-radius:19px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero-icon svg { width:28px;height:28px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-language-switch {
+        display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+        width:100%;border-radius:13px;gap:4px;padding:4px;margin-bottom:20px;
+    }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-language-switch button {
+        width:100%;min-width:0;min-height:41px;padding:7px 4px;font-size:10px;border-radius:10px;line-height:1.35;
+    }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-content { gap:14px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original { padding:22px 17px;border-radius:21px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original blockquote { line-height:2.05; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation,
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal { padding:21px 18px;border-radius:19px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-records { grid-template-columns:minmax(0,1fr); }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source > summary { padding:15px 16px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-source-body { padding:0 16px 18px; }
+}
+@media(max-width:375px) {
+    .hadith-pro-root .bukhari-showcase-kicker { font-size:9px;padding:7px 10px; }
+    .hadith-pro-root .bukhari-card-link { padding:18px 16px; }
+    .hadith-pro-root .bukhari-card-favorite { top:19px;right:11px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-toolbar { flex-direction:column;align-items:stretch; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-actions { justify-content:flex-end; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero { padding:6px 0 17px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-hero h1 { font-size:25px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-original { padding:19px 14px; }
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-translation,
+    .hadith-reader-pro.bukhari-reader-pro .bukhari-reader-journal { padding:18px 14px; }
+}
+@media(hover:none) {
+    .hadith-pro-root .bukhari-card:hover,
+    .hadith-pro-root .bukhari-card:focus-within { transform:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+    .hadith-pro-root .bukhari-book-view *,
+    .hadith-reader-pro.bukhari-reader-pro * { transition:none!important;animation:none!important; }
+}
