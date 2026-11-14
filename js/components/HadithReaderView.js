@@ -15,6 +15,9 @@ const HadithReaderView = {
         const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
         const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
         const isKutubHadith = Vue.computed(() => Boolean(props.hadith?.number && props.hadith?.bookNumber));
+        const isBukhari = Vue.computed(() => isKutubHadith.value && /^Sahih al-Bukhari [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
+        const bukhariBook = Vue.computed(() => Number(props.hadith?.bookNumber)===1
+            ? 'Le commencement de la Révélation' : 'La Foi');
         const translationNotice = Vue.computed(() => clean(props.hadith?.translationNotice || ''));
         const collection = Vue.computed(() => {
             const text = normalize(String(props.hadith?.id || '') + ' ' + String(props.hadith?.attribution || ''));
@@ -76,7 +79,7 @@ const HadithReaderView = {
         };
         const saveNote = () => { state.notes[uid.value] = note.value; save(); };
         const copyText = async () => {
-            const text = [props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution]
+            const text = [isBukhari.value ? props.hadith?.readingTitle : props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution]
                 .filter(Boolean).join('\n\n');
             try {
                 await navigator.clipboard.writeText(text);
@@ -104,13 +107,122 @@ const HadithReaderView = {
             saveNote();
         });
         return {
-            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, translationNotice, isFavorite, isRead,
+            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, isBukhari, bukhariBook, translationNotice, isFavorite, isRead,
             hints, hintsAr, wordMeanings, explanationParagraphs, explanationArabicParagraphs, studyQuestions,
             formatMeaning, toggleFavorite, saveNote, copyText, jumpTo
         };
     },
     template: `
-    <section class="hadith-reader-pro">
+    <section class="hadith-reader-pro" :class="{'bukhari-reader-pro':isBukhari}">
+        <template v-if="isBukhari">
+            <main class="bukhari-reader-shell">
+                <div class="bukhari-reader-toolbar">
+                    <button type="button" class="bukhari-reader-back" @click="closeReader">
+                        <span class="bukhari-reader-back-icon"><i data-lucide="arrow-left" aria-hidden="true"></i></span>
+                        Retour au recueil
+                    </button>
+                    <div class="bukhari-reader-actions">
+                        <button type="button" @click="adjustFontSize" aria-label="Agrandir le texte" title="Agrandir le texte">
+                            <i data-lucide="type" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" @click="copyText" :aria-label="copied?'Texte copié':'Copier le hadith'"
+                            :title="copied?'Copié':'Copier le texte'">
+                            <i :data-lucide="copied?'check':'copy'" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" @click="shareHadith" aria-label="Partager le hadith" title="Partager">
+                            <i data-lucide="share-2" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" @click="toggleFavorite" :aria-pressed="isFavorite"
+                            :aria-label="isFavorite?'Retirer des favoris':'Ajouter aux favoris'"
+                            :class="{active:isFavorite}" title="Enregistrer dans mes favoris">
+                            <i data-lucide="heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <header class="bukhari-reader-hero hadith-reader-heading">
+                    <span class="bukhari-reader-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> La tradition prophétique</span>
+                    <span class="bukhari-reader-hero-icon" aria-hidden="true">
+                        <i :data-lucide="hadith.readingIcon||'book-open'"></i>
+                    </span>
+                    <span class="bukhari-reader-hero-arabic" lang="ar" dir="rtl">صحيح البخاري</span>
+                    <h1>{{ hadith.readingTitle||hadith.title }}</h1>
+                    <p class="bukhari-reader-book">{{ bukhariBook }}</p>
+                    <div class="bukhari-reader-meta">
+                        <span>Hadith n° {{ hadith.number }}</span><span aria-hidden="true">·</span>
+                        <span>Livre {{ hadith.bookNumber }}, hadith {{ hadith.inBookNumber }}</span>
+                    </div>
+                </header>
+
+                <div class="bukhari-reader-language-switch" role="group" aria-label="Choisir la langue de lecture">
+                    <button type="button" @click="languageMode='bilingual'" :aria-pressed="languageMode==='bilingual'"
+                        :class="{active:languageMode==='bilingual'}">Arabe et français</button>
+                    <button type="button" @click="languageMode='arabic'" :aria-pressed="languageMode==='arabic'"
+                        :class="{active:languageMode==='arabic'}">Arabe</button>
+                    <button type="button" @click="languageMode='french'" :aria-pressed="languageMode==='french'"
+                        :class="{active:languageMode==='french'}">Français</button>
+                </div>
+
+                <div class="bukhari-reader-content">
+                    <section v-if="languageMode!=='french'" class="bukhari-reader-original hadith-reader-arabic">
+                        <div class="bukhari-reader-card-ornament" aria-hidden="true"><i data-lucide="book-open"></i></div>
+                        <div class="bukhari-reader-original-body">
+                            <span class="bukhari-reader-overline">Le texte transmis · الرواية العربية</span>
+                            <blockquote lang="ar" dir="rtl" :style="{fontSize:(settings.fontSize+12)+'px'}">{{ clean(hadith.hadeeth_ar) }}</blockquote>
+                            <div class="bukhari-reader-original-caption"><i data-lucide="bookmark" aria-hidden="true"></i>
+                                Texte arabe complet, avec sa chaîne de transmission
+                            </div>
+                        </div>
+                    </section>
+                    <section v-if="languageMode!=='arabic'" class="bukhari-reader-translation hadith-reader-french">
+                        <div class="bukhari-reader-translation-head">
+                            <span class="bukhari-reader-translation-symbol" aria-hidden="true"><i data-lucide="languages"></i></span>
+                            <div><span>Lecture accompagnée</span><h2>Le récit en français</h2></div>
+                        </div>
+                        <p :style="{fontSize:settings.fontSize+'px'}">{{ clean(hadith.hadeeth) }}</p>
+                        <div class="bukhari-reader-translation-caption">
+                            Version française de l'édition numérique · provenance et précisions en bas de page
+                        </div>
+                    </section>
+
+                    <section class="bukhari-reader-journal">
+                        <div class="bukhari-reader-journal-heading">
+                            <span class="bukhari-reader-journal-icon" aria-hidden="true"><i data-lucide="notebook-pen"></i></span>
+                            <div><span>Lecture personnelle</span><h2>Ce que je retiens</h2></div>
+                        </div>
+                        <p>Un espace pour tes observations et questions personnelles, sans les confondre avec le texte transmis.</p>
+                        <textarea v-model="note" @blur="saveNote" rows="4"
+                            aria-label="Mes notes personnelles sur ce hadith"
+                            placeholder="Une réflexion, une question, un passage à approfondir…"></textarea>
+                        <span class="bukhari-reader-autosave"><i data-lucide="lock" aria-hidden="true"></i>
+                            Notes enregistrées sur cet appareil
+                        </span>
+                    </section>
+
+                    <section class="hadith-reader-endnotes bukhari-reader-source-wrap">
+                        <details class="hadith-reader-details hadith-reader-source-view bukhari-reader-source">
+                            <summary><span><i data-lucide="library" aria-hidden="true"></i> Référence et provenance</span>
+                                <i data-lucide="chevron-down" aria-hidden="true"></i>
+                            </summary>
+                            <div class="bukhari-reader-source-body">
+                                <div class="bukhari-reader-source-records">
+                                    <div><span>Recueil</span><strong>Sahîh al-Bukhârî</strong></div>
+                                    <div><span>Numérotation</span><strong>Hadith {{ hadith.number }}</strong></div>
+                                    <div><span>Livre</span><strong>{{ hadith.bookNumber }} · {{ bukhariBook }}</strong></div>
+                                    <div><span>Dans le livre</span><strong>Hadith {{ hadith.inBookNumber }}</strong></div>
+                                </div>
+                                <p v-if="translationNotice" class="hadith-reader-translation-notice">{{ translationNotice }}</p>
+                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et des commentaires savants.</p>
+                                <a v-if="hadith.source_url && hadith.source_url.startsWith('https://sunnah.com/')"
+                                    :href="hadith.source_url" target="_blank" rel="noopener noreferrer" class="bukhari-reader-external">
+                                    Consulter le hadith sur Sunnah.com <i data-lucide="external-link" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </details>
+                    </section>
+                </div>
+            </main>
+        </template>
+        <template v-else>
         <header class="hadith-reader-toolbar">
             <button type="button" class="hadith-reader-back" @click="closeReader">
                 <i data-lucide="arrow-left" aria-hidden="true"></i><span>Hadiths</span>
@@ -236,6 +348,7 @@ const HadithReaderView = {
                 </details>
             </section>
         </main>
+        </template>
     </section>
     `
 };
