@@ -763,7 +763,13 @@
     .library-pro-selection .library-pro-results.is-list .library-pro-card footer {
         grid-column:2;justify-content:flex-start;margin-top:-6px;
     }
-    .library-pro-selection .library-pro-results.is-list .library-pro-card-top > button { display:none; }
+    .library-pro-selection .library-pro-results.is-list .library-pro-card-top {
+        display:flex;flex-direction:column;align-items:flex-start;
+        justify-content:center;gap:7px;min-width:0;
+    }
+    .library-pro-selection .library-pro-results.is-list .library-pro-card-top > button {
+        display:grid;width:35px;height:35px;margin:0;
+    }
     .library-pro-selection .library-pro-resume-inline { justify-content:flex-start; }
 }
 @media(max-width:370px) {
