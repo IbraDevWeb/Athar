@@ -810,23 +810,41 @@ async function mobile(width,height) {
     const bookWidth=await page.locator('.hadith-kutub-book').first().boundingBox();
     assert.ok(bookWidth && bookWidth.width<=width,'Carte de recueil trop large sur téléphone');
     await page.locator('.hadith-kutub-book').first().click();
-    await page.locator('.hadith-kutub-hadith').first().waitFor({state:'visible'});
+    await page.locator('.bukhari-card').first().waitFor({state:'visible'});
     const mobileBook=await page.evaluate(()=>{
-        const root=document.querySelector('.hadith-kutub-book-view');
-        const cards=[...root.querySelectorAll('.hadith-kutub-hadith')];
+        const root=document.querySelector('.bukhari-book-view');
+        const cards=[...root.querySelectorAll('.bukhari-card')];
+        const buttons=[...root.querySelectorAll('.bukhari-book-switch button')];
         return {overflow:root.scrollWidth-root.clientWidth,
-            clipped:cards.filter(el=>{
+            columns:getComputedStyle(root.querySelector('.bukhari-card-grid')).gridTemplateColumns.split(' ').length,
+            clipped:[...cards,...buttons].filter(el=>{
                 const b=el.getBoundingClientRect();
                 return b.left<-2||b.right>innerWidth+2||el.scrollWidth>el.clientWidth+4;
-            }).map(el=>el.textContent.trim().slice(0,38))};
+            }).map(el=>el.textContent.trim().slice(0,38)),
+            titles:cards.filter(card=>{
+                const el=card.querySelector('.bukhari-card-title');
+                return el.scrollWidth>el.clientWidth+3||el.scrollHeight>el.clientHeight+3;
+            }).map(card=>card.querySelector('.bukhari-card-title').innerText)};
     });
     assert.ok(mobileBook.overflow<=3 && !mobileBook.clipped.length,
-        'Un hadith du recueil est tronqué sur '+width+'px : '+JSON.stringify(mobileBook));
-    await page.locator('.hadith-kutub-hadith').first().click();
-    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
-    assert.ok(await page.locator('.hadith-reader-french').isVisible(),'Traduction non lisible sur mobile');
-    await page.locator('#athar-immersive-quick').click();
-    await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
+        'Galerie Bukhârî coupée sur '+width+'px : '+JSON.stringify(mobileBook));
+    assert.deepEqual(mobileBook.titles,[],'Titre rogné sur '+width+'px');
+    assert.equal(mobileBook.columns,1,'Une carte par ligne sur téléphone');
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.ok(await page.locator('.bukhari-reader-translation').isVisible(),'Français absent sur mobile');
+    const readerGeometry=await page.evaluate(()=>{
+        const reader=document.querySelector('.bukhari-reader-pro');
+        const components=[reader.querySelector('.bukhari-reader-original'),reader.querySelector('.bukhari-reader-translation')];
+        return {overflow:reader.scrollWidth-reader.clientWidth,
+            clipped:components.filter(el=>el.scrollWidth>el.clientWidth+3).map(el=>el.className)};
+    });
+    assert.ok(readerGeometry.overflow<=3 && !readerGeometry.clipped.length,
+        'Lecteur trop large : '+width+'px '+JSON.stringify(readerGeometry));
+    await page.locator('.bukhari-reader-source summary').click();
+    assert.ok(await page.locator('.bukhari-reader-external').isVisible(),'Sunnah.com absent sur mobile');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
     await page.locator('.hadith-kutub-back').click();
     await page.locator('.hadith-kutub-book').last().click();
     await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});
