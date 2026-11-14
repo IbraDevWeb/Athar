@@ -10,7 +10,8 @@ const ATHAR_KUTUB_SITTA = Object.freeze({
                 "arabicName": "صحيح البخاري",
                 "compiler": "Imam al-Bukhârî",
                 "type": "Sahîh",
-                "description": "Recueil organisé en livres et chapitres.",
+                "description": "Les 50 premiers hadiths, du commencement de la Révélation à la Foi.",
+                "importedCount": 50,
                 "dataPath": "data/kutub-sitta/bukhari.json"
         },
         {
