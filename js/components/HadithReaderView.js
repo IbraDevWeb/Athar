@@ -16,9 +16,9 @@ const HadithReaderView = {
         const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
         const isKutubHadith = Vue.computed(() => Boolean(props.hadith?.number != null && props.hadith?.bookNumber != null));
         const isBukhari = Vue.computed(() => isKutubHadith.value && /^Sahih al-Bukhari [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
-        const isMuslim = Vue.computed(() => isKutubHadith.value && /^Sahih Muslim Introduction [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
+        const isMuslim = Vue.computed(() => isKutubHadith.value && /^Sahih Muslim (?:Introduction )?[1-9][0-9]*$/.test(String(props.hadith?.id||'')));
         const isPremiumReader = Vue.computed(() => isBukhari.value || isMuslim.value);
-        const bukhariBook = Vue.computed(() => isMuslim.value ? 'Introduction — science de la transmission' : Number(props.hadith?.bookNumber)===1
+        const bukhariBook = Vue.computed(() => isMuslim.value ? (Number(props.hadith?.bookNumber) === 0 ? 'Introduction — science de la transmission' : 'La Foi') : Number(props.hadith?.bookNumber)===1
             ? 'Le commencement de la Révélation' : 'La Foi');
         const translationNotice = Vue.computed(() => clean(props.hadith?.translationNotice || ''));
         const collection = Vue.computed(() => {
@@ -151,7 +151,7 @@ const HadithReaderView = {
                     <p class="bukhari-reader-book">{{ bukhariBook }}</p>
                     <div class="bukhari-reader-meta">
                         <span>{{ isMuslim ? 'Narration' : 'Hadith' }} n° {{ hadith.number }}</span><span aria-hidden="true">·</span>
-                        <span>{{ isMuslim ? "Introduction, narration " + hadith.inBookNumber : "Livre " + hadith.bookNumber + ", hadith " + hadith.inBookNumber }}</span>
+                        <span>{{ isMuslim ? bukhariBook + ", référence " + hadith.number : "Livre " + hadith.bookNumber + ", hadith " + hadith.inBookNumber }}</span>
                     </div>
                 </header>
 
@@ -209,14 +209,14 @@ const HadithReaderView = {
                                 <div class="bukhari-reader-source-records">
                                     <div><span>Recueil</span><strong>{{ isMuslim ? "Sahîh Muslim" : "Sahîh al-Bukhârî" }}</strong></div>
                                     <div><span>Numérotation</span><strong>Hadith {{ hadith.number }}</strong></div>
-                                    <div><span>Section</span><strong>{{ isMuslim ? "Introduction" : hadith.bookNumber + " · " + bukhariBook }}</strong></div>
+                                    <div><span>Section</span><strong>{{ isMuslim ? bukhariBook : hadith.bookNumber + " · " + bukhariBook }}</strong></div>
                                     <div><span>Dans la section</span><strong>{{ isMuslim ? "Narration" : "Hadith" }} {{ hadith.inBookNumber }}</strong></div>
                                 </div>
                                 <p v-if="translationNotice" class="hadith-reader-translation-notice">{{ translationNotice }}</p>
-                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et commentaires savants.<span v-if="isMuslim"> L’Introduction de Muslim contient aussi des propos de transmetteurs et n’est pas intégralement régie par le statut du corpus principal.</span></p>
+                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et commentaires savants.<span v-if="isMuslim && hadith.bookNumber===0"> L’Introduction de Muslim contient aussi des propos de transmetteurs et n’est pas intégralement régie par le statut du corpus principal.</span></p>
                                 <a v-if="hadith.source_url && hadith.source_url.startsWith('https://sunnah.com/')"
                                     :href="hadith.source_url" target="_blank" rel="noopener noreferrer" class="bukhari-reader-external">
-                                    {{ isMuslim ? 'Consulter l’Introduction sur Sunnah.com' : 'Consulter le hadith sur Sunnah.com' }} <i data-lucide="external-link" aria-hidden="true"></i>
+                                    Consulter le texte sur Sunnah.com <i data-lucide="external-link" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </details>
