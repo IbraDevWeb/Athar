@@ -19,18 +19,18 @@ for (const entry of data) {
 }
 // Bibliographie vérifiable : une fiche = son numéro exact dans Hisn al-Muslim.
 // Les textes de récitation ne doivent plus comporter de coupures silencieuses.
-assert.equal((read('adhkar_data.js').match(/\\[cite:/gi)||[]).length,0,'Annotations de citation techniques dans le corpus');
+assert.equal((read('adhkar_data.js').match(/\[cite:/gi)||[]).length,0,'Annotations de citation techniques dans le corpus');
 for (const entry of data) {
   assert.equal(entry.source_url,'https://sunnah.com/hisn/'+entry.id,'Référence individuelle manquante : '+entry.id);
   assert.ok(entry.source.includes('Hisn al-Muslim n° '+entry.id),'Source éditoriale non localisable : '+entry.id);
   for (const field of ['arabic','phonetic','translation','context']) {
-    assert.ok(!/\\.{3}|…/.test(String(entry[field]||'')),
+    assert.ok(!/\.{3}|…/.test(String(entry[field]||'')),
       'Texte de récitation encore abrégé : '+entry.id+'/'+field);
   }
 }
 assert.ok(data.find(x=>x.id===14).arabic.startsWith('اللَّهُمَّ اجْعَلْنِي'),
   'Le texte d’ablution ne doit pas contenir un fragment de la prière pour la lumière');
-assert.equal((data.find(x=>x.id===4).arabic.match(/\\{(?:19\\d|200)\\}/g)||[]).length,11,
+assert.equal((data.find(x=>x.id===4).arabic.match(/\{(?:19\d|200)\}/g)||[]).length,11,
   'Le Coran 3:190–200 doit être présent intégralement en arabe');
 assert.ok(data.find(x=>x.id===4).additional_source_url.includes('quran.com/'),
   'Le lien de la traduction complète du Coran doit être disponible');
