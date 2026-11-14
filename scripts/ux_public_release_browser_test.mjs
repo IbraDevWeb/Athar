@@ -249,44 +249,74 @@ async function desktop() {
     await page.locator('.hadith-kutub-tabs button').nth(1).click();
     assert.equal(await page.locator('.hadith-kutub-book').count(),6,'Les six livres ne sont pas présents');
     assert.equal(await page.locator('.hadith-pro-card').count(),0,'Le corpus courant est mélangé aux recueils vides');
-    // Première livraison : 50 hadiths de Bukhârî, sans toucher aux autres recueils.
+    // Catalogue Bukhârî, sur le modèle visuel Tabîb al-Qulûb.
     await page.locator('.hadith-kutub-book').first().click();
-    await page.locator('.hadith-kutub-hadith').first().waitFor({state:'visible'});
-    assert.match(await page.locator('.hadith-kutub-book-counts').innerText(),/2 livres.*50 hadiths/s,
-        'Le recueil de Bukhârî ne contient pas ses 50 hadiths');
-    assert.equal(await page.locator('.hadith-kutub-hadith').count(),18,'Les hadiths doivent être chargés par lots');
-    assert.match(await page.locator('.hadith-kutub-hadith').first().innerText(),/N° 1/);
-    await page.locator('.hadith-kutub-imported-controls select').selectOption('faith');
-    assert.equal(await page.locator('.hadith-kutub-hadith').count(),18,'Le filtre Livre de la Foi a perdu des entrées');
-    assert.match(await page.locator('.hadith-kutub-hadith').first().innerText(),/N° 8/);
-    await page.locator('.hadith-kutub-imported-controls select').selectOption('revelation');
-    assert.equal(await page.locator('.hadith-kutub-hadith').count(),7,'Le Livre de la Révélation doit contenir 7 récits');
-    await page.locator('.hadith-kutub-imported-controls select').selectOption('all');
-    await page.locator('.hadith-kutub-hadith').first().click();
-    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
-    assert.match(await page.locator('.hadith-reader-heading h1').innerText(),/Hadith n° 1/);
-    assert.ok(await page.locator('.hadith-reader-arabic blockquote').innerText().then(t=>t.length>150),
-        'Texte arabe original absent');
-    assert.ok(await page.locator('.hadith-reader-french p').innerText().then(t=>t.length>90),
-        'Texte français absent');
-    assert.equal(await page.locator('.hadith-reader-lessons-view').count(),0,'Ne pas inventer d’enseignements');
-    await page.locator('.hadith-reader-endnotes summary').click();
-    assert.ok(await page.locator('.hadith-reader-translation-notice').isVisible(),
-        'Limite de provenance du français non affichée');
-    assert.ok(await page.locator('a[href="https://sunnah.com/bukhari:1"]').count()===1,
-        'Référence exacte vers Sunnah.com absente');
-    await page.locator('#athar-immersive-quick').click();
-    await page.locator('.hadith-kutub-book-view').waitFor({state:'visible',timeout:15000});
-    assert.match(await page.locator('.hadith-kutub-book-head h2').innerText(),/Bukhârî/,
-        'Retour à la bibliothèque générale au lieu du recueil ouvert');
-    await page.locator('.hadith-kutub-imported-controls input').fill('50');
-    await page.locator('.hadith-kutub-hadith').filter({hasText:'Hadith n° 50'}).first().waitFor({state:'visible'});
-    await page.locator('.hadith-kutub-hadith').filter({hasText:'Hadith n° 50'}).first().click();
-    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
-    assert.ok((await page.locator('.hadith-reader-arabic blockquote').innerText()).length>150,
-        'Texte original du hadith 50 manquant');
-    await page.locator('#athar-immersive-quick').click();
-    await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
+    await page.locator('.bukhari-card').first().waitFor({state:'visible',timeout:15000});
+    assert.equal(await page.locator('.bukhari-card').count(),12,'Le recueil doit commencer par douze cartes');
+    assert.match(await page.locator('.bukhari-showcase-hero h2').innerText(),/Bukhârî/);
+    assert.match(await page.locator('.bukhari-card-title').first().innerText(),/intentions/i);
+    assert.equal(await page.locator('.hadith-pro-heading').count(),0,'En-tête redondant après ouverture');
+    assert.equal(await page.locator('.hadith-kutub-tabs').count(),0,'Double navigation dans Bukhârî');
+    const gallery=await page.evaluate(()=>{
+        const root=document.querySelector('.bukhari-book-view');
+        const cards=[...root.querySelectorAll('.bukhari-card')];
+        const titles=cards.map(card=>card.querySelector('.bukhari-card-title'));
+        return {overflow:root.scrollWidth-root.clientWidth,
+            columns:getComputedStyle(root.querySelector('.bukhari-card-grid')).gridTemplateColumns.split(' ').length,
+            cardY:cards[0].getBoundingClientRect().top,
+            clipped:titles.filter(el=>el.scrollWidth>el.clientWidth+2||el.scrollHeight>el.clientHeight+2).map(el=>el.textContent)};
+    });
+    assert.ok(gallery.overflow<=3,'Galerie débordante : '+JSON.stringify(gallery));
+    assert.equal(gallery.columns,3,'Trois cartes attendues sur PC');
+    assert.deepEqual(gallery.clipped,[],'Des titres sont tronqués');
+    assert.ok(gallery.cardY<1150,'Le catalogue commence trop bas');
+    await page.locator('.bukhari-book-switch button').nth(1).click();
+    assert.equal(await page.locator('.bukhari-card').count(),7,'Le livre Révélation doit contenir 7 hadiths');
+    await page.locator('.bukhari-book-switch button').nth(2).click();
+    assert.equal(await page.locator('.bukhari-card').count(),12,'Le livre Foi reste paginé par douze');
+    assert.match(await page.locator('.bukhari-card-number').first().innerText(),/8/);
+    await page.locator('.bukhari-book-switch button').first().click();
+    await page.locator('.bukhari-card-favorite').first().click();
+    assert.equal(await page.locator('.bukhari-card-favorite').first().getAttribute('aria-pressed'),'true','Favoris non activés');
+    await page.locator('.bukhari-catalog-favorites').click();
+    assert.equal(await page.locator('.bukhari-card').count(),1,'Filtre favoris incorrect');
+    await page.locator('.bukhari-catalog-favorites').click();
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.match(await page.locator('.bukhari-reader-hero h1').innerText(),/intentions/i);
+    assert.match(await page.locator('.bukhari-reader-meta').innerText(),/Hadith n° 1/);
+    assert.ok((await page.locator('.bukhari-reader-original blockquote').innerText()).length>150,'Arabe absent');
+    assert.ok((await page.locator('.bukhari-reader-translation p').first().innerText()).length>90,'Français absent');
+    assert.equal(await page.locator('.hadith-reader-lessons-view').count(),0,'Enseignements inventés');
+    assert.equal(await page.locator('.bukhari-reader-source').getAttribute('open'),null,'Sources non repliées');
+    assert.equal(await page.locator('.bukhari-reader-source a[href*="github.com"]').count(),0,'Lien GitHub visible');
+    await page.locator('.bukhari-reader-source summary').click();
+    assert.ok(await page.locator('.hadith-reader-translation-notice').isVisible(),'Limite de traduction absente');
+    assert.equal(await page.locator('a[href="https://sunnah.com/bukhari:1"]').count(),1,'Source Sunnah.com absente');
+    await page.locator('.bukhari-reader-language-switch button').nth(1).click();
+    assert.equal(await page.locator('.bukhari-reader-translation').count(),0,'Arabe seul inopérant');
+    await page.locator('.bukhari-reader-language-switch button').nth(2).click();
+    assert.equal(await page.locator('.bukhari-reader-original').count(),0,'Français seul inopérant');
+    await page.locator('.bukhari-reader-language-switch button').first().click();
+    const personalNote='Réflexion test, à conserver';
+    await page.locator('.bukhari-reader-journal textarea').fill(personalNote);
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible',timeout:15000});
+    assert.equal(await page.locator('.bukhari-card').count(),12,'Retour au recueil inopérant');
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.equal(await page.locator('.bukhari-reader-journal textarea').inputValue(),personalNote,'Note perdue');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    await page.locator('.bukhari-catalog-search input').fill('Gabriel interroge');
+    await page.locator('.bukhari-card').first().waitFor({state:'visible'});
+    assert.equal(await page.locator('.bukhari-card').count(),1,'Recherche par titre imprécise');
+    assert.match(await page.locator('.bukhari-card-number').innerText(),/50/);
+    await page.locator('.bukhari-card-link').click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.ok((await page.locator('.bukhari-reader-original blockquote').innerText()).length>150,'Hadith 50 arabe absent');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
     await page.locator('.hadith-kutub-back').click();
     for (let index=1; index<6; index++) {
         await page.locator('.hadith-kutub-book').nth(index).click();
