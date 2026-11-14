@@ -249,11 +249,51 @@ async function desktop() {
     await page.locator('.hadith-kutub-tabs button').nth(1).click();
     assert.equal(await page.locator('.hadith-kutub-book').count(),6,'Les six livres ne sont pas présents');
     assert.equal(await page.locator('.hadith-pro-card').count(),0,'Le corpus courant est mélangé aux recueils vides');
-    for (let index=0; index<6; index++) {
+    // Première livraison : 50 hadiths de Bukhârî, sans toucher aux autres recueils.
+    await page.locator('.hadith-kutub-book').first().click();
+    await page.locator('.hadith-kutub-hadith').first().waitFor({state:'visible'});
+    assert.match(await page.locator('.hadith-kutub-book-counts').innerText(),/2 livres.*50 hadiths/s,
+        'Le recueil de Bukhârî ne contient pas ses 50 hadiths');
+    assert.equal(await page.locator('.hadith-kutub-hadith').count(),18,'Les hadiths doivent être chargés par lots');
+    assert.match(await page.locator('.hadith-kutub-hadith').first().innerText(),/N° 1/);
+    await page.locator('.hadith-kutub-imported-controls select').selectOption('faith');
+    assert.equal(await page.locator('.hadith-kutub-hadith').count(),18,'Le filtre Livre de la Foi a perdu des entrées');
+    assert.match(await page.locator('.hadith-kutub-hadith').first().innerText(),/N° 8/);
+    await page.locator('.hadith-kutub-imported-controls select').selectOption('revelation');
+    assert.equal(await page.locator('.hadith-kutub-hadith').count(),7,'Le Livre de la Révélation doit contenir 7 récits');
+    await page.locator('.hadith-kutub-imported-controls select').selectOption('all');
+    await page.locator('.hadith-kutub-hadith').first().click();
+    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
+    assert.match(await page.locator('.hadith-reader-heading h1').innerText(),/Hadith n° 1/);
+    assert.ok(await page.locator('.hadith-reader-arabic blockquote').innerText().then(t=>t.length>150),
+        'Texte arabe original absent');
+    assert.ok(await page.locator('.hadith-reader-french p').innerText().then(t=>t.length>90),
+        'Texte français absent');
+    assert.equal(await page.locator('.hadith-reader-lessons-view').count(),0,'Ne pas inventer d’enseignements');
+    await page.locator('.hadith-reader-endnotes summary').click();
+    assert.ok(await page.locator('.hadith-reader-translation-notice').isVisible(),
+        'Limite de provenance du français non affichée');
+    assert.ok(await page.locator('a[href="https://sunnah.com/bukhari:1"]').count()===1,
+        'Référence exacte vers Sunnah.com absente');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.hadith-kutub-book-view').waitFor({state:'visible',timeout:15000});
+    assert.match(await page.locator('.hadith-kutub-book-head h2').innerText(),/Bukhârî/,
+        'Retour à la bibliothèque générale au lieu du recueil ouvert');
+    await page.locator('.hadith-kutub-imported-controls input').fill('50');
+    await page.locator('.hadith-kutub-hadith').filter({hasText:'Hadith n° 50'}).first().waitFor({state:'visible'});
+    await page.locator('.hadith-kutub-hadith').filter({hasText:'Hadith n° 50'}).first().click();
+    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
+    assert.ok((await page.locator('.hadith-reader-arabic blockquote').innerText()).length>150,
+        'Texte original du hadith 50 manquant');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
+    await page.locator('.hadith-kutub-back').click();
+    for (let index=1; index<6; index++) {
         await page.locator('.hadith-kutub-book').nth(index).click();
         await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
         await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});
-        assert.match(await page.locator('.hadith-kutub-book-counts').innerText(),/0 chapitre.*0 hadith/s,'Un recueil supposé vide possède du contenu');
+        assert.match(await page.locator('.hadith-kutub-book-counts').innerText(),/0 livre.*0 hadith/s,
+            'Un autre recueil supposé vide possède du contenu');
         assert.match(await page.locator('.hadith-kutub-empty h3').innerText(),/prêt à être rempli/i);
         await page.getByRole('button',{name:'Tous les recueils'}).click();
     }
@@ -739,6 +779,25 @@ async function mobile(width,height) {
     assert.equal(await page.locator('.hadith-kutub-book').count(),6,'Six recueils manquants sur téléphone');
     const bookWidth=await page.locator('.hadith-kutub-book').first().boundingBox();
     assert.ok(bookWidth && bookWidth.width<=width,'Carte de recueil trop large sur téléphone');
+    await page.locator('.hadith-kutub-book').first().click();
+    await page.locator('.hadith-kutub-hadith').first().waitFor({state:'visible'});
+    const mobileBook=await page.evaluate(()=>{
+        const root=document.querySelector('.hadith-kutub-book-view');
+        const cards=[...root.querySelectorAll('.hadith-kutub-hadith')];
+        return {overflow:root.scrollWidth-root.clientWidth,
+            clipped:cards.filter(el=>{
+                const b=el.getBoundingClientRect();
+                return b.left<-2||b.right>innerWidth+2||el.scrollWidth>el.clientWidth+4;
+            }).map(el=>el.textContent.trim().slice(0,38))};
+    });
+    assert.ok(mobileBook.overflow<=3 && !mobileBook.clipped.length,
+        'Un hadith du recueil est tronqué sur '+width+'px : '+JSON.stringify(mobileBook));
+    await page.locator('.hadith-kutub-hadith').first().click();
+    await page.locator('.hadith-reader-pro').waitFor({state:'visible'});
+    assert.ok(await page.locator('.hadith-reader-french').isVisible(),'Traduction non lisible sur mobile');
+    await page.locator('#athar-immersive-quick').click();
+    await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
+    await page.locator('.hadith-kutub-back').click();
     await page.locator('.hadith-kutub-book').last().click();
     await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});
     assert.match(await page.locator('.hadith-kutub-book-head h2').innerText(),/Ibn Mâjah/,'Navigation du dernier recueil cassée');
