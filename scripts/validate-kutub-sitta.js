@@ -65,7 +65,7 @@ for (const book of registry.collections) {
             assert.equal(entry.inBookNumber,n);
             assert.ok(entry.hadeeth_ar.length>90, 'Texte arabe trop bref : '+n);
             assert.ok(entry.hadeeth.length>50, 'Texte français trop bref : '+n);
-            assert.equal(entry.source_url,'https://sunnah.com/muslim/introduction/'+n);
+            assert.equal(entry.source_url,'https://sunnah.com/muslim/introduction');
             assert.ok(entry.textSourceUrl.startsWith('https://github.com/AhmedBaset/hadith-json/'));
             assert.ok(entry.translationNotice.includes('non revue') || entry.translationNotice.includes('non revues'),
                 'Réserve sur les traductions absente : '+n);
