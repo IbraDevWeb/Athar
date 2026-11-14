@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v72-muslim-numbering-corrected';
+    const APP_VERSION = 'athar-pro-v73-adhkar-source-integrity';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

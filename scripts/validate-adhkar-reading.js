@@ -17,6 +17,29 @@ for (const entry of data) {
     assert.ok(String(entry[field]??'').trim(), 'Champ documentaire vide : '+entry.id+'/'+field);
   }
 }
+// Bibliographie vérifiable : une fiche = son numéro exact dans Hisn al-Muslim.
+// Les textes de récitation ne doivent plus comporter de coupures silencieuses.
+assert.equal((read('adhkar_data.js').match(/\[cite:/gi)||[]).length,0,'Annotations de citation techniques dans le corpus');
+for (const entry of data) {
+  assert.equal(entry.source_url,'https://sunnah.com/hisn/'+entry.id,'Référence individuelle manquante : '+entry.id);
+  assert.ok(entry.source.includes('Hisn al-Muslim n° '+entry.id),'Source éditoriale non localisable : '+entry.id);
+  for (const field of ['arabic','phonetic','translation','context']) {
+    assert.ok(!/\.{3}|…/.test(String(entry[field]||'')),
+      'Texte de récitation encore abrégé : '+entry.id+'/'+field);
+  }
+}
+assert.ok(data.find(x=>x.id===14).arabic.startsWith('اللَّهُمَّ اجْعَلْنِي'),
+  'Le texte d’ablution ne doit pas contenir un fragment de la prière pour la lumière');
+assert.equal((data.find(x=>x.id===4).arabic.match(/\{(?:19\d|200)\}/g)||[]).length,11,
+  'Le Coran 3:190–200 doit être présent intégralement en arabe');
+assert.ok(data.find(x=>x.id===4).additional_source_url.includes('quran.com/'),
+  'Le lien de la traduction complète du Coran doit être disponible');
+assert.ok(data.find(x=>x.id===24).additional_source_url.endsWith('/bukhari:3370'),
+  'La formule de salawât doit être documentée séparément de la consigne du Hisn');
+for (const token of [':href="selected.source_url"',':href="selected.additional_source_url"',
+                    'selected.translation_label','selected.editorial_note']) {
+  assert.ok(code.includes(token),'Affichage des références et avertissements incomplet : '+token);
+}
 const categories=new Set(data.map(x=>x.category));
 assert.ok(categories.size>=7,'Des contextes de dhikr ont disparu');
 for(const marker of [
@@ -54,7 +77,7 @@ for (const scope of ['.library-pro-root','.timeline-pro','.hadith-pro-root','.gl
 }
 assert.ok(config.includes("css/adhkar-calm-reading.css?v=\${APP_VERSION}"),'Feuille de lecture non chargée');
 assert.ok(worker.includes('css/adhkar-calm-reading.css'), 'Feuille Adhkâr absente du cache');
-assert.ok(worker.includes('js/components/AdhkarView.js?v=athar-adhkar-reading-v1'),'Composant Adhkâr non versionné');
+assert.ok(worker.includes('js/components/AdhkarView.js?v=athar-adhkar-sources-v1'),'Composant Adhkâr non versionné');
 assert.ok(config.indexOf("'athar-adhkar-calm-reading'")>config.indexOf("'athar-library-stream-numeric'"),
  'La finition Adhkâr doit se charger après le style transversal');
 console.log('Adhkâr validés : '+data.length+' invocations, '+categories.size+' contextes, compteur et sources conservés.');

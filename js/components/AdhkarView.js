@@ -30,7 +30,12 @@ const AdhkarView = {
                 translation: clean(item.translation),
                 context: clean(item.context),
                 virtue: clean(item.virtue),
-                source: clean(item.source)
+                source: clean(item.source),
+                source_url: clean(item.source_url),
+                additional_source_url: clean(item.additional_source_url),
+                additional_source_label: clean(item.additional_source_label),
+                translation_label: clean(item.translation_label),
+                editorial_note: clean(item.editorial_note)
             }));
         });
 
@@ -465,7 +470,7 @@ const AdhkarView = {
 
                         <section class="adhkar-pro-reading-grid" aria-label="Lecture et sens">
                             <article v-if="selected.phonetic"><span>Translittération</span><p class="phonetic">{{ selected.phonetic }}</p></article>
-                            <article><span>Sens en français</span><p>{{ selected.translation }}</p></article>
+                            <article><span>{{ selected.translation_label || "Sens en français" }}</span><p>{{ selected.translation }}</p></article>
                         </section>
 
                         <section class="adhkar-pro-counter-zone" aria-label="Compteur de répétitions">
@@ -494,7 +499,12 @@ const AdhkarView = {
                             <summary>Contexte et référence <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
                             <div class="adhkar-pro-reader-notes-body">
                                 <div><strong>Contexte d’usage</strong><p>{{ selected.context || 'Consulter la source complète pour le contexte détaillé.' }}</p></div>
-                                <div><strong>Référence indiquée</strong><p>{{ selected.source || 'Source non précisée dans la fiche.' }}</p></div>
+                                <div><strong>Référence bibliographique</strong><p>{{ selected.source || 'Source non précisée dans la fiche.' }}</p></div>
+                                <div v-if="selected.source_url || selected.additional_source_url"><strong>Textes de référence</strong>
+                                    <p v-if="selected.source_url"><a class="adhkar-source-link" :href="selected.source_url" target="_blank" rel="noopener noreferrer">Consulter Hisn al-Muslim n° {{ selected.id }}</a></p>
+                                    <p v-if="selected.additional_source_url"><a class="adhkar-source-link" :href="selected.additional_source_url" target="_blank" rel="noopener noreferrer">{{ selected.additional_source_label || 'Consulter la source complémentaire' }}</a></p>
+                                </div>
+                                <div v-if="selected.editorial_note"><strong>Précision éditoriale</strong><p>{{ selected.editorial_note }}</p></div>
                                 <div v-if="selected.virtue"><strong>Mérite rapporté</strong><p>{{ selected.virtue }}</p></div>
                             </div>
                         </details>

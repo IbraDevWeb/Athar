@@ -155,6 +155,10 @@ async function desktop() {
     assert.match(await page.locator('.adhkar-pro-counter-heading strong').innerText(),/1\s*\/\s*1/,'Le compteur ne fonctionne pas');
     await page.locator('.adhkar-pro-reader-notes > summary').click();
     assert.ok(await page.locator('.adhkar-pro-reader-notes-body').isVisible(),'Les références ne peuvent pas être dépliées');
+    const hisnSource = page.locator('.adhkar-pro-reader-notes-body .adhkar-source-link').first();
+    assert.ok(await hisnSource.isVisible(),'Le lien de la référence précise doit être visible');
+    assert.equal(await hisnSource.getAttribute('href'),'https://sunnah.com/hisn/1',
+        'La référence doit ouvrir la notice exacte de Hisn al-Muslim');
     await page.locator('.adhkar-pro-reader > header button').last().click();
     await page.locator('.adhkar-pro-reader-close').click();
     await page.locator('.adhkar-pro-library-toolbar > button').first().click();
