@@ -19,7 +19,8 @@ const HadithsView = {
         const bookError = Vue.ref('');
         const bookQuery = Vue.ref('');
         const bookChapter = Vue.ref('all');
-        const bookVisibleLimit = Vue.ref(18);
+        const bookVisibleLimit = Vue.ref(12);
+        const bookFavoritesOnly = Vue.ref(false);
         const selectedBook = Vue.computed(() => books.find(book => book.id === selectedBookId.value) || null);
         const bookChapters = Vue.computed(() => bookPayload.value?.chapters || []);
         const bookHadiths = Vue.computed(() => bookPayload.value?.hadiths || []);
@@ -34,12 +35,33 @@ const HadithsView = {
         const filteredBookHadiths = Vue.computed(() => {
             const terms = normalize(bookQuery.value).split(/\s+/).filter(Boolean);
             return bookHadiths.value.filter(h => {
-                const searchText = normalize([h.title, h.hadeeth, h.hadeeth_ar, h.id, h.attribution].join(' '));
+                const searchText = normalize([h.title,h.readingTitle,h.hadeeth,h.hadeeth_ar,h.id,h.attribution,h.number].join(' '));
                 return (bookChapter.value === 'all' || h.chapterId === bookChapter.value)
+                    && (!bookFavoritesOnly.value || state.favorites.includes(String(h.id)))
                     && terms.every(term => searchText.includes(term));
             });
         });
         const visibleBookHadiths = Vue.computed(() => filteredBookHadiths.value.slice(0, bookVisibleLimit.value));
+        const bookCounts = Vue.computed(() => {
+            const counts=new Map();
+            for (const entry of bookHadiths.value) counts.set(entry.chapterId,(counts.get(entry.chapterId)||0)+1);
+            return counts;
+        });
+        const bookFavoriteCount = Vue.computed(() => bookHadiths.value.filter(entry => state.favorites.includes(String(entry.id))).length);
+        const isBookFavorite = entry => state.favorites.includes(String(entry.id));
+        const toggleBookFavorite = (entry,event) => {
+            event?.preventDefault();event?.stopPropagation();
+            if(!entry) return;
+            const id=String(entry.id);
+            state.favorites=isBookFavorite(entry) ? state.favorites.filter(x=>x!==id) : [...state.favorites,id];
+            save();refreshIcons();
+        };
+        const bookLead = entry => {
+            const text=String(entry?.hadeeth||'').replace(/\s+/g,' ').trim();
+            // L'aperçu, et jamais le texte intégral, peut omettre « Rapporté par … : ».
+            const match=/^Rapporté par [^:]{2,125}:\s*/i.exec(text);
+            return bookExcerpt(match?text.slice(match[0].length):text,205);
+        };
         let bookRequestId = 0;
         const state = Vue.reactive({ favorites: [], read: {}, recent: [], notes: {} });
 
@@ -174,7 +196,8 @@ const HadithsView = {
             bookLoading.value = true;
             bookQuery.value = '';
             bookChapter.value = 'all';
-            bookVisibleLimit.value = 18;
+            bookVisibleLimit.value = book.id === 'bukhari' ? 12 : 18;
+            bookFavoritesOnly.value = false;
             refreshIcons();
             try {
                 const response = await fetch(book.dataPath);
@@ -226,7 +249,11 @@ const HadithsView = {
         Vue.watch([query, themeFilter, collectionFilter, gradeFilter, favoritesOnly, unreadOnly, sortMode], () => { visibleLimit.value = 18; refreshIcons(); });
         Vue.watch(visibleLimit, refreshIcons);
         Vue.watch([section, bookQuery, bookChapter, selectedBookId], () => {
-            bookVisibleLimit.value = 18;
+            bookVisibleLimit.value = selectedBookId.value === 'bukhari' ? 12 : 18;
+            refreshIcons();
+        });
+        Vue.watch(bookFavoritesOnly, () => {
+            bookVisibleLimit.value = 12;
             refreshIcons();
         });
         Vue.watch(bookVisibleLimit, refreshIcons);
@@ -236,7 +263,8 @@ const HadithsView = {
             recentItem, activeFilters, resetFilters, chooseTheme, toggleFavorite, open, random, clean,
             section, books, selectedBook, selectedBookId, selectSection, openBook, closeBook,
             bookPayload, bookLoading, bookError, bookQuery, bookChapter, bookChapters, bookHadiths,
-            filteredBookHadiths, visibleBookHadiths, bookVisibleLimit, openBookHadith, bookExcerpt, bookName
+            filteredBookHadiths, visibleBookHadiths, bookVisibleLimit, openBookHadith, bookExcerpt, bookName, bookLead,
+            bookCounts, bookFavoriteCount, bookFavoritesOnly, isBookFavorite, toggleBookFavorite
         };
     },
     template: `
