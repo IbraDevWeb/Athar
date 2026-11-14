@@ -950,6 +950,19 @@
     font:400 12px/1.8 Inter,system-ui,sans-serif;
     overflow-wrap:break-word;
 }
+.adhkar-pro-shell .adhkar-source-link {
+    display:inline-block;
+    color:var(--ad-accent);
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:3px;
+    overflow-wrap:anywhere;
+}
+.adhkar-pro-shell .adhkar-source-link:focus-visible {
+    outline:2px solid var(--ad-accent);
+    outline-offset:3px;
+    border-radius:3px;
+}
 .adhkar-pro-shell .adhkar-pro-reader > footer {
     flex:0 0 auto;
     display:grid;
