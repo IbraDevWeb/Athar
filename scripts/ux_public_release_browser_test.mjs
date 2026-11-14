@@ -809,7 +809,7 @@ async function mobile(width,height) {
     assert.ok(await page.locator('.adhkar-pro-reader-notes-body').isVisible(),'Sources non accessibles sur smartphone');
     await page.locator('.adhkar-pro-counter').click();
     await page.locator('.adhkar-pro-reader-close').click();
-    assert.equal(await page.locator('.adhkar-pro-reader').count(),0,'Le lecteur ne se ferme pas');
+    await page.locator('.adhkar-pro-reader').waitFor({state:'detached',timeout:10000});
     await home(page);
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
     assert.ok(overflow<=3,'Un débordement horizontal apparaît sur téléphone : '+overflow);
