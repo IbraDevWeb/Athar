@@ -14,9 +14,11 @@ const HadithReaderView = {
         const normalize = value => clean(value).toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
         const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
         const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
-        const isKutubHadith = Vue.computed(() => Boolean(props.hadith?.number && props.hadith?.bookNumber));
+        const isKutubHadith = Vue.computed(() => Boolean(props.hadith?.number != null && props.hadith?.bookNumber != null));
         const isBukhari = Vue.computed(() => isKutubHadith.value && /^Sahih al-Bukhari [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
-        const bukhariBook = Vue.computed(() => Number(props.hadith?.bookNumber)===1
+        const isMuslim = Vue.computed(() => isKutubHadith.value && /^Sahih Muslim Introduction [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
+        const isPremiumReader = Vue.computed(() => isBukhari.value || isMuslim.value);
+        const bukhariBook = Vue.computed(() => isMuslim.value ? 'Introduction — science de la transmission' : Number(props.hadith?.bookNumber)===1
             ? 'Le commencement de la Révélation' : 'La Foi');
         const translationNotice = Vue.computed(() => clean(props.hadith?.translationNotice || ''));
         const collection = Vue.computed(() => {
@@ -79,7 +81,7 @@ const HadithReaderView = {
         };
         const saveNote = () => { state.notes[uid.value] = note.value; save(); };
         const copyText = async () => {
-            const text = [isBukhari.value ? props.hadith?.readingTitle : props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution]
+            const text = [isPremiumReader.value ? props.hadith?.readingTitle : props.hadith?.title, props.hadith?.hadeeth_ar, props.hadith?.hadeeth, props.hadith?.attribution]
                 .filter(Boolean).join('\n\n');
             try {
                 await navigator.clipboard.writeText(text);
@@ -107,14 +109,14 @@ const HadithReaderView = {
             saveNote();
         });
         return {
-            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, isBukhari, bukhariBook, translationNotice, isFavorite, isRead,
+            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, isBukhari, isMuslim, isPremiumReader, bukhariBook, translationNotice, isFavorite, isRead,
             hints, hintsAr, wordMeanings, explanationParagraphs, explanationArabicParagraphs, studyQuestions,
             formatMeaning, toggleFavorite, saveNote, copyText, jumpTo
         };
     },
     template: `
-    <section class="hadith-reader-pro" :class="{'bukhari-reader-pro':isBukhari}">
-        <template v-if="isBukhari">
+    <section class="hadith-reader-pro" :class="{'bukhari-reader-pro':isPremiumReader}">
+        <template v-if="isPremiumReader">
             <main class="bukhari-reader-shell">
                 <div class="bukhari-reader-toolbar">
                     <button type="button" class="bukhari-reader-back" @click="closeReader">
@@ -140,16 +142,16 @@ const HadithReaderView = {
                     </div>
                 </div>
                 <header class="bukhari-reader-hero hadith-reader-heading">
-                    <span class="bukhari-reader-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> La tradition prophétique</span>
+                    <span class="bukhari-reader-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> {{ isMuslim ? "Science de la transmission" : "La tradition prophétique" }}</span>
                     <span class="bukhari-reader-hero-icon" aria-hidden="true">
                         <i :data-lucide="hadith.readingIcon||'book-open'"></i>
                     </span>
-                    <span class="bukhari-reader-hero-arabic" lang="ar" dir="rtl">صحيح البخاري</span>
+                    <span class="bukhari-reader-hero-arabic" lang="ar" dir="rtl">{{ isMuslim ? "صحيح مسلم" : "صحيح البخاري" }}</span>
                     <h1>{{ hadith.readingTitle||hadith.title }}</h1>
                     <p class="bukhari-reader-book">{{ bukhariBook }}</p>
                     <div class="bukhari-reader-meta">
                         <span>Hadith n° {{ hadith.number }}</span><span aria-hidden="true">·</span>
-                        <span>Livre {{ hadith.bookNumber }}, hadith {{ hadith.inBookNumber }}</span>
+                        <span>{{ isMuslim ? "Introduction, narration " + hadith.inBookNumber : "Livre " + hadith.bookNumber + ", hadith " + hadith.inBookNumber }}</span>
                     </div>
                 </header>
 
@@ -205,13 +207,13 @@ const HadithReaderView = {
                             </summary>
                             <div class="bukhari-reader-source-body">
                                 <div class="bukhari-reader-source-records">
-                                    <div><span>Recueil</span><strong>Sahîh al-Bukhârî</strong></div>
+                                    <div><span>Recueil</span><strong>{{ isMuslim ? "Sahîh Muslim" : "Sahîh al-Bukhârî" }}</strong></div>
                                     <div><span>Numérotation</span><strong>Hadith {{ hadith.number }}</strong></div>
-                                    <div><span>Livre</span><strong>{{ hadith.bookNumber }} · {{ bukhariBook }}</strong></div>
-                                    <div><span>Dans le livre</span><strong>Hadith {{ hadith.inBookNumber }}</strong></div>
+                                    <div><span>Section</span><strong>{{ isMuslim ? "Introduction" : hadith.bookNumber + " · " + bukhariBook }}</strong></div>
+                                    <div><span>Dans la section</span><strong>{{ isMuslim ? "Narration" : "Hadith" }} {{ hadith.inBookNumber }}</strong></div>
                                 </div>
                                 <p v-if="translationNotice" class="hadith-reader-translation-notice">{{ translationNotice }}</p>
-                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et des commentaires savants.</p>
+                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et commentaires savants.<span v-if="isMuslim"> L’Introduction de Muslim contient aussi des propos de transmetteurs et n’est pas intégralement régie par le statut du corpus principal.</span></p>
                                 <a v-if="hadith.source_url && hadith.source_url.startsWith('https://sunnah.com/')"
                                     :href="hadith.source_url" target="_blank" rel="noopener noreferrer" class="bukhari-reader-external">
                                     Consulter le hadith sur Sunnah.com <i data-lucide="external-link" aria-hidden="true"></i>
