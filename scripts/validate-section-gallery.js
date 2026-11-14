@@ -49,7 +49,11 @@ assert.ok(hadith.includes('ATHAR_KUTUB_SITTA.collections'), 'Les six recueils ne
 assert.ok(glossary.includes('glossary-pro-categories') && glossary.includes('glossary-pro-card-icon'), 'Nouvel affichage du lexique incomplet');
 assert.ok(glossary.includes('visibleLimit = Vue.ref(24)') && glossary.includes('loadMore'), 'Pagination du lexique absente');
 for (const key of ['adhkar-pro-card-grid','adhkar-pro-routine-grid','adhkar-pro-reader-layer']) assert.ok(adhkar.includes(key));
-for (const key of ['timeline-pro-event-card','timeline-pro-era-grid','timeline-pro-path-grid']) assert.ok(timeline.includes(key));
+for (const key of ['timeline-pro-event-card','timeline-pro-periods','timeline-pro-path-list','timeline-pro-reading-apparatus']) {
+    assert.ok(timeline.includes(key),'Composant chronologique manquant : '+key);
+}
+assert.ok(!timeline.includes('timeline-pro-era-grid') && !timeline.includes('timeline-pro-modes'),
+    'La refonte doit présenter une frise unique et non trois tableaux de bord.');
 const glossaryData = vm.runInNewContext(read('glossary_data.js') + '\nGLOSSARY_DATA');
 const hadithData = vm.runInNewContext(read('hadiths_data.js') + '\nSTORED_HADITHS');
 assert.ok(Object.keys(glossaryData).length >= 300,'Le lexique a été réduit');
