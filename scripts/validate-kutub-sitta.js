@@ -64,6 +64,7 @@ for (const book of registry.collections) {
             assert.equal(entry.id,intro?'Sahih Muslim Introduction '+n:'Sahih Muslim '+n);
             assert.equal(entry.bookNumber,intro?0:1);
             assert.equal(entry.chapterId,intro?'introduction':'faith');
+            assert.equal(entry.inBookNumber,intro?[1,2,3,4,6,14,15][n-1]:entry.inBookNumber,'Numérotation de l’Introduction incorrecte : '+n);
             assert.ok(entry.inBookNumber>=1,'Référence dans le livre manquante : '+n);
             assert.ok(entry.hadeeth_ar.length>90,'Texte arabe absent : '+n);
             assert.ok(entry.hadeeth.length>50,'Version française absente : '+n);
