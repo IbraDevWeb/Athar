@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v66-timeline-intuitive';
+    const APP_VERSION = 'athar-pro-v67-library-numbered';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -108,6 +108,8 @@ tailwind.config = {
     ensureStylesheet(`css/hadith-editorial-finish.css?v=${APP_VERSION}`, 'athar-hadith-editorial-finish');
     // Frise autonome : la nouvelle interface doit primer sur le thème de galeries.
     ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
+    // Catalogue numéroté après les styles communs et la Frise : surcharge limitée à la bibliothèque.
+    ensureStylesheet(`css/library-stream-numeric.css?v=${APP_VERSION}`, 'athar-library-stream-numeric');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');

@@ -103,6 +103,7 @@ const ctx = {
     contentFilter: 'all',
     activeLetter: 'Tous',
     sortMode: 'alpha',
+    numberFilter: 'all',
     recentHistory: [],
     visibleLimit: 18,
     safeArray: component.methods.safeArray,
@@ -124,6 +125,48 @@ ctx.activeCategory = 'Badr';
 if (!ctx.catalogItems.length || ctx.catalogItems.some(item=>!item.tags.includes('Badr'))) throw new Error('Thème rapide Badr non filtrant.');
 ctx.activeCategory = 'Tous';
 if (component.computed.quickCategories.call(ctx).length < 4) throw new Error('Thèmes rapides introuvables.');
+
+// Numéros Athar : tri stable, tranches dynamiques et recherche exacte.
+if (component.data.call({headerSearchQuery:''}).sortMode !== 'number-asc')
+    throw new Error('La bibliothèque doit proposer en premier le classement numérique croissant.');
+const ranges = component.computed.numberRanges.call(ctx);
+if (!ranges.length || ranges[0].start !== 1 || !ranges.some(range=>range.start >= 101))
+    throw new Error('Tranches numériques non calculées sur les fiches réelles.');
+if (ranges.reduce((count,range)=>count+range.count,0) !== chapters.length)
+    throw new Error('Des biographies ont disparu des tranches de numéros.');
+ctx.sortMode = 'number-asc';
+const asc = ctx.catalogItems.map(item=>Number(item.id));
+if (asc.some((n,i)=>i && n<asc[i-1])) throw new Error('Les biographies ne sont pas triées par numéro croissant.');
+ctx.sortMode = 'number-desc';
+const desc = ctx.catalogItems.map(item=>Number(item.id));
+if (desc.some((n,i)=>i && n>desc[i-1])) throw new Error('Le tri décroissant est inopérant.');
+ctx.sortMode = 'number-asc';
+ctx.numberFilter = ranges[0].id;
+const firstRange = ctx.catalogItems.map(item=>Number(item.id));
+if (firstRange.length !== ranges[0].count ||
+    firstRange.some(id=>id<ranges[0].start||id>ranges[0].end))
+    throw new Error('La tranche numérique n’affiche pas les bons identifiants.');
+ctx.numberFilter='all';
+ctx.query = String(chapters[0].id);
+if (ctx.catalogItems.length !== 1 || Number(ctx.catalogItems[0].id) !== Number(chapters[0].id))
+    throw new Error('La recherche par numéro exact ne fonctionne pas.');
+ctx.query='';
+for (const marker of [
+    'library-pro-number-nav','library-pro-number-heading','numberRanges()',
+    'numberFilter: \'all\'','number-asc','number-desc',
+    'aria-label="Choisir une tranche de numéros"','placeholder="Nom, mot-clé ou n° exact…"'
+]) if (!componentSource.includes(marker)) throw new Error('Navigation numérique absente : '+marker);
+const freshCss=fs.readFileSync('css/library-stream-numeric.css','utf8');
+for (const marker of [
+    '.library-pro-number-nav','.library-pro-selection .library-pro-card',
+    '.library-pro-results-heading','@media(max-width:600px)','@media(max-width:370px)',
+    'prefers-reduced-motion:reduce'
+]) if (!freshCss.includes(marker)) throw new Error('Finition catalogue manquante : '+marker);
+if (!config.includes('css/library-stream-numeric.css?v=${APP_VERSION}') ||
+    !worker.includes('css/library-stream-numeric.css'))
+    throw new Error('La nouvelle feuille de style ne sera pas chargée en PWA.');
+if (config.indexOf("'athar-timeline-pro'") >= config.indexOf("'athar-library-stream-numeric'"))
+    throw new Error('Le thème du catalogue doit s’appliquer après les thèmes communs.');
 if (!componentSource.includes('aria-label="Chercher une histoire"') || !componentSource.includes('aria-pressed="favorite(item.id)"')) throw new Error('Contrôles de sélection non accessibles.');
 if (!css.includes('.library-pro-selection .library-pro-card') || !css.includes('.library-pro-load-more')) throw new Error('Refonte des cartes ou pagination non stylée.');
 if (!css.includes('@media (max-width: 600px)')) throw new Error('Affichage mobile de la sélection manquant.');

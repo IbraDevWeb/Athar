@@ -210,6 +210,44 @@ async function desktop() {
     const firstBatch = page.locator('.library-pro-selection-results .library-pro-card');
     assert.equal(await firstBatch.count(),18,'La page de sélection doit afficher 18 cartes au départ');
     assert.equal(await page.locator('.library-pro-card-metrics').count(),0,'Les quatre blocs de statistiques ne doivent plus encombrer les cartes');
+    // Numéros de fiches : tranches réelles, tri numérique et recherche exacte.
+    const displayedNumbers=async()=>await page.locator('.library-pro-card-index').allInnerTexts();
+    const numbers=await displayedNumbers();
+    const ids=numbers.map(value=>Number(value.replace(/\D/g,'')));
+    assert.ok(ids.length===18 && ids.every((id,index)=>index===0||id>=ids[index-1]),'Le catalogue doit commencer par la numérotation croissante : '+JSON.stringify(numbers));
+    const numericNav=page.locator('.library-pro-number-nav');
+    assert.ok(await numericNav.locator('button').count()>=7,'Les tranches de numéros doivent être accessibles');
+    await numericNav.locator('button').nth(2).click();
+    const rangeIds=(await displayedNumbers()).map(value=>Number(value.replace(/\D/g,'')));
+    assert.ok(rangeIds.length>0&&rangeIds.every(id=>id>=21&&id<=40),'La tranche 21 à 40 est erronée : '+JSON.stringify(rangeIds));
+    await page.locator('#library-sort').selectOption('number-desc');
+    const descending=(await displayedNumbers()).map(value=>Number(value.replace(/\D/g,'')));
+    assert.ok(descending.every((id,index)=>index===0||id<=descending[index-1]),'Le tri numérique décroissant ne fonctionne pas');
+    await page.locator('#library-sort').selectOption('number-asc');
+    await numericNav.locator('button').first().click();
+    await page.locator('.library-pro-selection-search input').fill('37');
+    assert.equal(await firstBatch.count(),1,'La recherche du numéro 37 doit retourner une seule fiche');
+    assert.match(await firstBatch.first().locator('.library-pro-card-index').innerText(),/37/);
+    await page.locator('.library-pro-selection-search input').fill('');
+    await numericNav.locator('button').last().click();
+    assert.ok(await firstBatch.count()>0,'Les notices au-delà de 200 doivent rester accessibles');
+    await numericNav.locator('button').first().click();
+    assert.equal(await firstBatch.count(),18,'La liste complète doit être rétablie');
+    const geometry=await page.evaluate(()=>{
+        const root=document.querySelector('.library-pro-selection');
+        const cards=[...root.querySelectorAll('.library-pro-card')];
+        const ranges=[...root.querySelectorAll('.library-pro-number-nav button')];
+        return {
+            count:cards.length,top:cards[0]?.getBoundingClientRect().top,
+            clipped:ranges.filter(el=>{const b=el.getBoundingClientRect();return b.left<-2||b.right>innerWidth+2||el.scrollWidth>el.clientWidth+3}).map(el=>el.textContent.trim()),
+            titleClipped:cards.some(card=>{const el=card.querySelector('h2');return el.scrollHeight>el.clientHeight+2 || el.scrollWidth>el.clientWidth+2}),
+            scroll:root.scrollWidth-root.clientWidth
+        };
+    });
+    assert.deepEqual(geometry.clipped,[],'Tranches numériques coupées sur PC');
+    assert.ok(!geometry.titleClipped,'Un nom de personnage est tronqué');
+    assert.ok(geometry.scroll<=3,'Le catalogue déborde horizontalement');
+
     await page.locator('.library-pro-quick-categories button').filter({hasText:'Badr'}).click();
     assert.ok(await firstBatch.count()>0,'Le thème Badr doit conserver des résultats');
     assert.ok(await page.locator('.library-pro-active-filters').isVisible(),'Les filtres sélectionnés doivent être visibles');
@@ -568,6 +606,28 @@ async function mobile(width,height) {
     assert.ok(metrics.total>metrics.height && metrics.top>0,'La lecture ne doit pas être bloquée sur téléphone : '+JSON.stringify(metrics));
     await page.locator('#athar-immersive-quick').click();
     await page.locator('.library-pro-root').waitFor({state:'visible'});
+    await home(page);
+
+    // Bibliothèque numérotée : aucune tranche ou carte coupée sur écran étroit.
+    await navigate(page,'library');
+    await page.locator('.library-pro-number-nav button').first().waitFor({state:'visible'});
+    const libraryMobile = await page.evaluate(()=>{
+        const root=document.querySelector('.library-pro-selection');
+        const bounds=[...root.querySelectorAll('.library-pro-number-nav button,.library-pro-quick-categories button,.library-pro-card')];
+        const clipped=bounds.filter(el=>{
+            const r=el.getBoundingClientRect();
+            return r.left<-2||r.right>innerWidth+2||el.scrollWidth>el.clientWidth+4;
+        }).map(el=>({text:el.textContent.trim().slice(0,28),width:el.clientWidth,scroll:el.scrollWidth}));
+        return {
+            clipped,overflow:root.scrollWidth-root.clientWidth,
+            textCut:[...root.querySelectorAll('.library-pro-card h2')].filter(el=>el.scrollHeight>el.clientHeight+2||el.scrollWidth>el.clientWidth+2).map(el=>el.textContent)
+        };
+    });
+    assert.deepEqual(libraryMobile.clipped,[],'Cartes ou numéros tronqués à '+width+'px : '+JSON.stringify(libraryMobile));
+    assert.deepEqual(libraryMobile.textCut,[],'Noms de biographies coupés à '+width+'px');
+    assert.ok(libraryMobile.overflow<=3,'Le catalogue dépasse la largeur du smartphone');
+    await page.locator('.library-pro-number-nav button').nth(1).click();
+    assert.ok(await page.locator('.library-pro-card-index').count()>0,'Tranche de numéros inactive sur mobile');
     await home(page);
 
     // Les cinq pages de fiches doivent respecter la largeur du smartphone.
