@@ -83,7 +83,9 @@
       "source_url": "https://sunnah.com/bukhari:1",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les actes valent par les intentions",
+      "readingIcon": "target"
     },
     {
       "id": "Sahih al-Bukhari 2",
@@ -99,7 +101,9 @@
       "source_url": "https://sunnah.com/bukhari:2",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Comment descend la Révélation",
+      "readingIcon": "cloud"
     },
     {
       "id": "Sahih al-Bukhari 3",
@@ -115,7 +119,9 @@
       "source_url": "https://sunnah.com/bukhari:3",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les premiers instants de la Révélation",
+      "readingIcon": "book-open"
     },
     {
       "id": "Sahih al-Bukhari 4",
@@ -131,7 +137,9 @@
       "source_url": "https://sunnah.com/bukhari:4",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le retour de la Révélation",
+      "readingIcon": "sunrise"
     },
     {
       "id": "Sahih al-Bukhari 5",
@@ -147,7 +155,9 @@
       "source_url": "https://sunnah.com/bukhari:5",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Recevoir et réciter le Coran",
+      "readingIcon": "scroll-text"
     },
     {
       "id": "Sahih al-Bukhari 6",
@@ -163,7 +173,9 @@
       "source_url": "https://sunnah.com/bukhari:6",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La générosité au mois de Ramadan",
+      "readingIcon": "hand-heart"
     },
     {
       "id": "Sahih al-Bukhari 7",
@@ -179,7 +191,9 @@
       "source_url": "https://sunnah.com/bukhari:7",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/1.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/1.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Abou Soufyân devant Héraclius",
+      "readingIcon": "messages-square"
     },
     {
       "id": "Sahih al-Bukhari 8",
@@ -195,7 +209,9 @@
       "source_url": "https://sunnah.com/bukhari:8",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les cinq piliers de l’islam",
+      "readingIcon": "landmark"
     },
     {
       "id": "Sahih al-Bukhari 9",
@@ -211,7 +227,9 @@
       "source_url": "https://sunnah.com/bukhari:9",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les branches de la foi",
+      "readingIcon": "flower"
     },
     {
       "id": "Sahih al-Bukhari 10",
@@ -227,7 +245,9 @@
       "source_url": "https://sunnah.com/bukhari:10",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Préserver autrui de sa langue et de sa main",
+      "readingIcon": "shield-check"
     },
     {
       "id": "Sahih al-Bukhari 11",
@@ -243,7 +263,9 @@
       "source_url": "https://sunnah.com/bukhari:11",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le musulman qui ne nuit pas",
+      "readingIcon": "shield"
     },
     {
       "id": "Sahih al-Bukhari 12",
@@ -259,7 +281,9 @@
       "source_url": "https://sunnah.com/bukhari:12",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Nourrir et saluer les autres",
+      "readingIcon": "hand-heart"
     },
     {
       "id": "Sahih al-Bukhari 13",
@@ -275,7 +299,9 @@
       "source_url": "https://sunnah.com/bukhari:13",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Aimer pour son frère",
+      "readingIcon": "heart-handshake"
     },
     {
       "id": "Sahih al-Bukhari 14",
@@ -291,7 +317,9 @@
       "source_url": "https://sunnah.com/bukhari:14",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "L’amour du Messager et les proches",
+      "readingIcon": "heart"
     },
     {
       "id": "Sahih al-Bukhari 15",
@@ -307,7 +335,9 @@
       "source_url": "https://sunnah.com/bukhari:15",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Aimer le Messager plus que tous",
+      "readingIcon": "heart"
     },
     {
       "id": "Sahih al-Bukhari 16",
@@ -323,7 +353,9 @@
       "source_url": "https://sunnah.com/bukhari:16",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Goûter à la douceur de la foi",
+      "readingIcon": "sparkles"
     },
     {
       "id": "Sahih al-Bukhari 17",
@@ -339,7 +371,9 @@
       "source_url": "https://sunnah.com/bukhari:17",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "L’amour envers les Ansâr",
+      "readingIcon": "users"
     },
     {
       "id": "Sahih al-Bukhari 18",
@@ -355,7 +389,9 @@
       "source_url": "https://sunnah.com/bukhari:18",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "L’engagement et la fidélité",
+      "readingIcon": "handshake"
     },
     {
       "id": "Sahih al-Bukhari 19",
@@ -371,7 +407,9 @@
       "source_url": "https://sunnah.com/bukhari:19",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Préserver sa religion dans les épreuves",
+      "readingIcon": "mountain"
     },
     {
       "id": "Sahih al-Bukhari 20",
@@ -387,7 +425,9 @@
       "source_url": "https://sunnah.com/bukhari:20",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Des œuvres à la mesure de chacun",
+      "readingIcon": "scale"
     },
     {
       "id": "Sahih al-Bukhari 21",
@@ -403,7 +443,9 @@
       "source_url": "https://sunnah.com/bukhari:21",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Trois qualités de la douceur de la foi",
+      "readingIcon": "sparkles"
     },
     {
       "id": "Sahih al-Bukhari 22",
@@ -419,7 +461,9 @@
       "source_url": "https://sunnah.com/bukhari:22",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le poids d’une foi infime",
+      "readingIcon": "circle-dot"
     },
     {
       "id": "Sahih al-Bukhari 23",
@@ -435,7 +479,9 @@
       "source_url": "https://sunnah.com/bukhari:23",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La foi dans le rêve des chemises",
+      "readingIcon": "shirt"
     },
     {
       "id": "Sahih al-Bukhari 24",
@@ -451,7 +497,9 @@
       "source_url": "https://sunnah.com/bukhari:24",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La pudeur fait partie de la foi",
+      "readingIcon": "heart"
     },
     {
       "id": "Sahih al-Bukhari 25",
@@ -467,7 +515,9 @@
       "source_url": "https://sunnah.com/bukhari:25",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le témoignage, la prière et la zakât",
+      "readingIcon": "landmark"
     },
     {
       "id": "Sahih al-Bukhari 26",
@@ -483,7 +533,9 @@
       "source_url": "https://sunnah.com/bukhari:26",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Quelles œuvres ont le plus de mérite ?",
+      "readingIcon": "circle-help"
     },
     {
       "id": "Sahih al-Bukhari 27",
@@ -499,7 +551,9 @@
       "source_url": "https://sunnah.com/bukhari:27",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le jugement des cœurs appartient à Allah",
+      "readingIcon": "scale"
     },
     {
       "id": "Sahih al-Bukhari 28",
@@ -515,7 +569,9 @@
       "source_url": "https://sunnah.com/bukhari:28",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Offrir à manger et saluer",
+      "readingIcon": "hand-heart"
     },
     {
       "id": "Sahih al-Bukhari 29",
@@ -531,7 +587,9 @@
       "source_url": "https://sunnah.com/bukhari:29",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "L’ingratitude et la reconnaissance",
+      "readingIcon": "message-circle"
     },
     {
       "id": "Sahih al-Bukhari 30",
@@ -547,7 +605,9 @@
       "source_url": "https://sunnah.com/bukhari:30",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La dignité de ceux qui nous servent",
+      "readingIcon": "users"
     },
     {
       "id": "Sahih al-Bukhari 31",
@@ -563,7 +623,9 @@
       "source_url": "https://sunnah.com/bukhari:31",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les affrontements entre musulmans",
+      "readingIcon": "shield-alert"
     },
     {
       "id": "Sahih al-Bukhari 32",
@@ -579,7 +641,9 @@
       "source_url": "https://sunnah.com/bukhari:32",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La foi et la question du polythéisme",
+      "readingIcon": "book-open"
     },
     {
       "id": "Sahih al-Bukhari 33",
@@ -595,7 +659,9 @@
       "source_url": "https://sunnah.com/bukhari:33",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Trois signes d’hypocrisie",
+      "readingIcon": "shield-alert"
     },
     {
       "id": "Sahih al-Bukhari 34",
@@ -611,7 +677,9 @@
       "source_url": "https://sunnah.com/bukhari:34",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Quatre caractéristiques d’hypocrisie",
+      "readingIcon": "shield-alert"
     },
     {
       "id": "Sahih al-Bukhari 35",
@@ -627,7 +695,9 @@
       "source_url": "https://sunnah.com/bukhari:35",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Prier pendant la nuit du Destin",
+      "readingIcon": "moon-star"
     },
     {
       "id": "Sahih al-Bukhari 36",
@@ -643,7 +713,9 @@
       "source_url": "https://sunnah.com/bukhari:36",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La foi et le combat dans la voie d’Allah",
+      "readingIcon": "flag"
     },
     {
       "id": "Sahih al-Bukhari 37",
@@ -659,7 +731,9 @@
       "source_url": "https://sunnah.com/bukhari:37",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les prières nocturnes du Ramadan",
+      "readingIcon": "moon"
     },
     {
       "id": "Sahih al-Bukhari 38",
@@ -675,7 +749,9 @@
       "source_url": "https://sunnah.com/bukhari:38",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le jeûne de Ramadan avec foi",
+      "readingIcon": "calendar-days"
     },
     {
       "id": "Sahih al-Bukhari 39",
@@ -691,7 +767,9 @@
       "source_url": "https://sunnah.com/bukhari:39",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La facilité et l’équilibre dans la religion",
+      "readingIcon": "sprout"
     },
     {
       "id": "Sahih al-Bukhari 40",
@@ -707,7 +785,9 @@
       "source_url": "https://sunnah.com/bukhari:40",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le changement de direction de la prière",
+      "readingIcon": "compass"
     },
     {
       "id": "Sahih al-Bukhari 41",
@@ -723,7 +803,9 @@
       "source_url": "https://sunnah.com/bukhari:41",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Les œuvres après l’entrée dans l’islam",
+      "readingIcon": "sunrise"
     },
     {
       "id": "Sahih al-Bukhari 42",
@@ -739,7 +821,9 @@
       "source_url": "https://sunnah.com/bukhari:42",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La récompense des bonnes actions",
+      "readingIcon": "star"
     },
     {
       "id": "Sahih al-Bukhari 43",
@@ -755,7 +839,9 @@
       "source_url": "https://sunnah.com/bukhari:43",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Une adoration régulière et mesurée",
+      "readingIcon": "repeat"
     },
     {
       "id": "Sahih al-Bukhari 44",
@@ -771,7 +857,9 @@
       "source_url": "https://sunnah.com/bukhari:44",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La foi, même du poids d’un grain",
+      "readingIcon": "circle-dot"
     },
     {
       "id": "Sahih al-Bukhari 45",
@@ -787,7 +875,9 @@
       "source_url": "https://sunnah.com/bukhari:45",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Le verset de l’achèvement de la religion",
+      "readingIcon": "book-open"
     },
     {
       "id": "Sahih al-Bukhari 46",
@@ -803,7 +893,9 @@
       "source_url": "https://sunnah.com/bukhari:46",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Un homme interroge sur les obligations",
+      "readingIcon": "messages-square"
     },
     {
       "id": "Sahih al-Bukhari 47",
@@ -819,7 +911,9 @@
       "source_url": "https://sunnah.com/bukhari:47",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Accompagner le cortège funéraire",
+      "readingIcon": "users"
     },
     {
       "id": "Sahih al-Bukhari 48",
@@ -835,7 +929,9 @@
       "source_url": "https://sunnah.com/bukhari:48",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Insulter et tuer un musulman",
+      "readingIcon": "shield-alert"
     },
     {
       "id": "Sahih al-Bukhari 49",
@@ -851,7 +947,9 @@
       "source_url": "https://sunnah.com/bukhari:49",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "La discussion qui précéda la nuit du Destin",
+      "readingIcon": "moon-star"
     },
     {
       "id": "Sahih al-Bukhari 50",
@@ -867,7 +965,15 @@
       "source_url": "https://sunnah.com/bukhari:50",
       "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-bukhari/sections/2.json",
       "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-bukhari/sections/2.json",
-      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence."
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés avec certitude. À confronter à une édition de référence.",
+      "readingTitle": "Gabriel interroge sur l’islam, la foi et l’ihsân",
+      "readingIcon": "book-open-check"
     }
-  ]
+  ],
+  "editorialPresentation": {
+    "scope": "Titres de navigation Athar, non attribués à l’auteur du Sahîh et ne remplaçant ni le matn ni les intitulés originaux des chapitres.",
+    "visualInspiration": "Al-Adhkâr et Tabîb al-Qulûb : cartes et lecture calme, références consultables en second plan.",
+    "sourcePolicy": "Ne montrer que les références externes à la tradition documentaire (Sunnah.com) ; conserver les données de provenance de l’import dans sourceRecords, hors interface publique.",
+    "noTafsir": "Aucune explication, chaîne supplémentaire ou recommandation juridique inventée."
+  }
 }
