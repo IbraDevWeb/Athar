@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v67-library-numbered';
+    const APP_VERSION = 'athar-pro-v68-adhkar-reading';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -110,6 +110,8 @@ tailwind.config = {
     ensureStylesheet(`css/timeline-pro.css?v=${APP_VERSION}`, 'athar-timeline-pro');
     // Catalogue numéroté après les styles communs et la Frise : surcharge limitée à la bibliothèque.
     ensureStylesheet(`css/library-stream-numeric.css?v=${APP_VERSION}`, 'athar-library-stream-numeric');
+    // Refonte Al-Adhkâr chargée en dernier sans modifier les autres sections.
+    ensureStylesheet(`css/adhkar-calm-reading.css?v=${APP_VERSION}`, 'athar-adhkar-calm-reading');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
