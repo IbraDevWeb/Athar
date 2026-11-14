@@ -14,6 +14,8 @@ const HadithReaderView = {
         const normalize = value => clean(value).toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
         const uid = Vue.computed(() => String(props.hadith?.id || props.hadith?.title || 'hadith'));
         const reference = Vue.computed(() => clean(props.hadith?.id || 'Référence non indiquée'));
+        const isKutubHadith = Vue.computed(() => Boolean(props.hadith?.number && props.hadith?.bookNumber));
+        const translationNotice = Vue.computed(() => clean(props.hadith?.translationNotice || ''));
         const collection = Vue.computed(() => {
             const text = normalize(String(props.hadith?.id || '') + ' ' + String(props.hadith?.attribution || ''));
             const matches = [];
@@ -27,6 +29,7 @@ const HadithReaderView = {
             return matches.length > 1 ? 'Recueils multiples' : (matches[0] || 'Autre recueil');
         });
         const narrator = Vue.computed(() => {
+            if (isKutubHadith.value) return 'Chaîne de transmission conservée dans le texte arabe intégral';
             const intro = clean(props.hadith?.hadeeth_intro || props.hadith?.hadeeth || '');
             const cut = intro.split(/ relate | rapporte | a relaté | رضي الله عنه| رضي الله عنها/i)[0];
             return cut.replace(/^(d'après|selon)\s+/i,'').replace(/[,:؛]+$/g,'').trim() || 'Transmetteur non précisé';
@@ -101,7 +104,7 @@ const HadithReaderView = {
             saveNote();
         });
         return {
-            languageMode, note, copied, clean, collection, reference, narrator, isFavorite, isRead,
+            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, translationNotice, isFavorite, isRead,
             hints, hintsAr, wordMeanings, explanationParagraphs, explanationArabicParagraphs, studyQuestions,
             formatMeaning, toggleFavorite, saveNote, copyText, jumpTo
         };
@@ -133,8 +136,8 @@ const HadithReaderView = {
 
             <nav class="hadith-reader-jump" aria-label="Accès aux sections du hadith">
                 <button type="button" @click="jumpTo('hadith-reading-text')">Texte</button>
-                <button type="button" @click="jumpTo('hadith-reading-explanation')">Explication</button>
-                <button type="button" @click="jumpTo('hadith-reading-lessons')">À retenir</button>
+                <button v-if="!isKutubHadith || explanationParagraphs.length" type="button" @click="jumpTo('hadith-reading-explanation')">Explication</button>
+                <button v-if="!isKutubHadith || hints.length" type="button" @click="jumpTo('hadith-reading-lessons')">À retenir</button>
                 <button type="button" @click="jumpTo('hadith-reading-notes')">Mes notes</button>
             </nav>
 
@@ -153,13 +156,14 @@ const HadithReaderView = {
                         <blockquote :style="{fontSize:(settings.fontSize+12)+'px'}">{{ clean(hadith.hadeeth_ar) }}</blockquote>
                     </div>
                     <div v-if="languageMode!=='arabic'" class="hadith-reader-french">
+                        <span v-if="isKutubHadith" class="hadith-reader-translation-label">Version française de l’édition numérique</span>
                         <p :style="{fontSize:settings.fontSize+'px'}">{{ clean(hadith.hadeeth) }}</p>
                     </div>
                     <p v-if="languageMode==='arabic' && !hadith.hadeeth_ar" class="hadith-reader-unavailable">Texte arabe non disponible dans la base.</p>
                 </div>
             </section>
 
-            <section id="hadith-reading-explanation" class="hadith-reader-section hadith-reader-explanation-view">
+            <section v-if="!isKutubHadith || explanationParagraphs.length" id="hadith-reading-explanation" class="hadith-reader-section hadith-reader-explanation-view">
                 <div class="hadith-reader-section-head"><h2>Comprendre</h2></div>
                 <div class="hadith-reader-content" :style="{fontSize:settings.fontSize+'px'}">
                     <p v-for="(paragraph,index) in explanationParagraphs" :key="index">{{ paragraph }}</p>
@@ -173,7 +177,7 @@ const HadithReaderView = {
                 </details>
             </section>
 
-            <section id="hadith-reading-lessons" class="hadith-reader-section hadith-reader-lessons-view">
+            <section v-if="!isKutubHadith || hints.length" id="hadith-reading-lessons" class="hadith-reader-section hadith-reader-lessons-view">
                 <div class="hadith-reader-section-head"><h2>À retenir</h2></div>
                 <ol v-if="hints.length" class="hadith-reader-lessons">
                     <li v-for="(hint,index) in hints" :key="index">
@@ -209,6 +213,13 @@ const HadithReaderView = {
                         <div><span>Transmetteur présenté</span><strong>{{ narrator }}</strong><p v-if="hadith.hadeeth_intro">{{ clean(hadith.hadeeth_intro) }}</p></div>
                     </div>
                     <p v-if="hadith.attribution_ar" class="hadith-reader-attribution-ar" lang="ar" dir="rtl">{{ hadith.attribution_ar }}</p>
+                    <p v-if="isKutubHadith" class="hadith-reader-translation-notice">{{ translationNotice }}</p>
+                    <p v-if="hadith.translationSourceUrl && hadith.translationSourceUrl.startsWith('https://')" class="hadith-reader-source-link">
+                        <a :href="hadith.translationSourceUrl" target="_blank" rel="noopener noreferrer">Édition française consultée</a>
+                    </p>
+                    <p v-if="hadith.textSourceUrl && hadith.textSourceUrl.startsWith('https://')" class="hadith-reader-source-link">
+                        <a :href="hadith.textSourceUrl" target="_blank" rel="noopener noreferrer">Édition arabe consultée</a>
+                    </p>
                     <p v-if="hadith.source_url && hadith.source_url.startsWith('https://')" class="hadith-reader-source-link">
                         <a :href="hadith.source_url" target="_blank" rel="noopener noreferrer">Consulter la source documentaire</a>
                     </p>
