@@ -4,7 +4,7 @@
 
 Le recueil `data/kutub-sitta/muslim.json` couvre **les 50 premières références usuelles**, telles qu'identifiées par Sunnah.com :
 
-- **1 à 7** : `Introduction / المقدمة`, contenant aussi des propos de savants et transmetteurs qui ne sont pas tous considérés comme hadiths authentifiés.
+- **1 à 7** : `Introduction / المقدمة`, correspondant aux narrations internes **1, 2, 3, 4, 6, 14 et 15** sur Sunnah.com. L’Introduction contient aussi des propos de savants et transmetteurs qui ne sont pas tous considérés comme hadiths authentifiés.
 - **8 à 50** : `Livre de la foi / كتاب الإيمان`. Pour chaque numéro avec plusieurs versions ou chaînes (`8 a`, `8 b`, etc.), **seule la première variante** est importée. Les variantes restantes n'ont pas été ajoutées dans cette tranche.
 
 La numérotation interne de l'API (`hadithnumber`, p. ex. `93` pour `8.01`) est conservée dans `editionHadithnumber` et `editionArabicNumber`, distincts du numéro de référence de Sunnah.com.
