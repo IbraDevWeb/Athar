@@ -48,6 +48,29 @@ for (const book of registry.collections) {
             assert.ok(entry.translationNotice.includes('non identifiés') || entry.translationNotice.includes('non identifiés') ||
                 entry.translationNotice.includes('non identifi'), 'Limite de traduction non signalée : '+n);
         }
+    } else if (book.id === 'muslim') {
+        assert.equal(book.importedCount, 50, 'La carte Muslim doit annoncer 50 narrations');
+        assert.equal(payload.hadiths.length, 50, 'Il faut exactement 50 narrations');
+        assert.deepEqual(payload.hadiths.map(x=>x.number), Array.from({length:50},(_,i)=>i+1));
+        assert.deepEqual(Array.from(payload.chapters,x=>x.id), ['introduction']);
+        assert.ok(payload.sourceRecords.length>=3, 'Sources numériques de Muslim absentes');
+        assert.ok(payload.editorialStatus.includes('transmetteurs'), 'Prudence sur l’Introduction absente');
+        assert.ok(payload.editorialPresentation.scope.includes('non attribués'), 'Titres non présentés comme éditoriaux');
+        assert.equal(new Set(payload.hadiths.map(x=>x.readingTitle)).size,50,'Titres de lecture répétés');
+        for (const entry of payload.hadiths) {
+            const n=entry.number;
+            assert.equal(entry.id, 'Sahih Muslim Introduction '+n);
+            assert.equal(entry.bookNumber, 0, 'L’Introduction ne doit pas être prise pour le Livre de la foi');
+            assert.equal(entry.chapterId, 'introduction');
+            assert.equal(entry.inBookNumber,n);
+            assert.ok(entry.hadeeth_ar.length>90, 'Texte arabe trop bref : '+n);
+            assert.ok(entry.hadeeth.length>50, 'Texte français trop bref : '+n);
+            assert.equal(entry.source_url,'https://sunnah.com/muslim/introduction');
+            assert.ok(entry.textSourceUrl.startsWith('https://github.com/AhmedBaset/hadith-json/'));
+            assert.ok(entry.translationNotice.includes('non revue') || entry.translationNotice.includes('non revues'),
+                'Réserve sur les traductions absente : '+n);
+            assert.ok(!entry.grade, 'Ne pas attribuer automatiquement le statut sahîh aux récits de l’Introduction');
+        }
     } else {
         assert.deepEqual(payload.sourceRecords, [], 'Provenance fictive : ' + book.id);
         assert.deepEqual(payload.chapters, [], 'Chapitres non encore vérifiés : ' + book.id);
@@ -76,9 +99,9 @@ assert.ok(reader.includes('translationNotice') && reader.includes('hadith.transl
  'La source de traduction doit être consultable dans le lecteur historique.');
 assert.ok(reader.includes('bukhari-reader-hero') && reader.includes('bukhari-reader-original') &&
     reader.includes('bukhari-reader-journal'), 'L’immersion Tabîb inspirée est absente.');
-const start=reader.indexOf('<template v-if="isBukhari">');
+const start=reader.indexOf('<template v-if="isPremiumReader">');
 const stop=reader.indexOf('<template v-else>',start);
-assert.ok(start>=0 && stop>start,'La fiche de Bukhârî doit être séparée du lecteur thématique.');
+assert.ok(start>=0 && stop>start,'Le lecteur des recueils historiques doit rester séparé du lecteur thématique.');
 const bukhariReader=reader.slice(start,stop);
 assert.ok(bukhariReader.includes('https://sunnah.com/'),'Sunnah.com doit être accessible depuis la fiche');
 assert.ok(!bukhariReader.includes('translationSourceUrl') && !bukhariReader.includes('textSourceUrl') &&
@@ -101,6 +124,10 @@ for (const outOfScope of ['.library-pro-root','.timeline-pro','.adhkar-pro-shell
 assert.ok(cssBukhari.includes('.hadith-kutub-list-excerpt') && cssBukhari.includes('@media(max-width:690px)'),
  'La nouvelle liste de hadiths n’est pas responsive.');
 
+assert.ok(reader.includes('isMuslim') && reader.includes('isPremiumReader'),
+ 'Le lecteur bilingue doit prendre en charge les narrations de Muslim.');
+assert.ok(view.includes("['bukhari','muslim'].includes(selectedBook.id)"),
+ 'Le catalogue premium doit afficher les deux recueils.');
 const html = read('index.html'), worker = read('service-worker.js');
 const registryPos = html.indexOf('js/kutub-sitta-registry.js');
 const viewPos = html.indexOf('js/components/HadithsView.js');
@@ -116,4 +143,4 @@ for (const book of registry.collections) {
 assert.ok(assets.some(path=>path.includes('css/bukhari-tabib-inspired.css')),
     'Nouvelle finition Bukhârî absente du précache PWA.');
 assert.ok(assets.length < 65, 'Précache PWA trop volumineux en fichiers');
-console.log('Kutub as-Sitta : 50 lectures éditorialisées, 50 textes authentiquement présents, sources externes, cinq autres recueils et 50 thématiques préservés.');
+console.log('Kutub as-Sitta : 50 hadiths Bukhari et 50 narrations de l’Introduction de Muslim, sources documentées, quatre autres recueils et 50 thématiques préservés.');

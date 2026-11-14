@@ -20,7 +20,8 @@ const ATHAR_KUTUB_SITTA = Object.freeze({
                 "arabicName": "صحيح مسلم",
                 "compiler": "Imam Muslim ibn al-Hajjâj",
                 "type": "Sahîh",
-                "description": "Recueil de hadiths classés par thèmes et transmissions.",
+                "description": "Les 50 premières narrations de l’Introduction : transmission et vérification des récits.",
+                "importedCount": 50,
                 "dataPath": "data/kutub-sitta/muslim.json"
         },
         {

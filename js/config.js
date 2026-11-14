@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v70-bukhari-tabib-reading';
+    const APP_VERSION = 'athar-pro-v71-muslim-first-50';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
