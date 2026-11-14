@@ -7,7 +7,7 @@ Ce fichier importe les **50 premiers hadiths de la numérotation usuelle** de Sa
 - **1 à 7** : Livre 1, commencement de la Révélation (كتاب بدء الوحي).
 - **8 à 50** : Livre 2, la Foi (كتاب الإيمان).
 - **51 et suivants** : non encore importés.
-- Sahîh Muslim possède désormais 50 narrations de son Introduction ; les quatre autres recueils des Kutub as-Sitta restent vides.
+- Sahîh Muslim possède désormais ses 50 premières références usuelles (Introduction 1–7 puis Livre de la foi 8–50) ; les quatre autres recueils des Kutub as-Sitta restent vides.
 
 ## Origine des textes
 

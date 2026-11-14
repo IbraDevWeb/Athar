@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v71-muslim-first-50';
+    const APP_VERSION = 'athar-pro-v72-muslim-numbering-corrected';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

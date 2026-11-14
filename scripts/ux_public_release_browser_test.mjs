@@ -318,7 +318,41 @@ async function desktop() {
     await page.locator('.bukhari-reader-back').click();
     await page.locator('.bukhari-book-view').waitFor({state:'visible'});
     await page.locator('.hadith-kutub-back').click();
-    for (let index=1; index<6; index++) {
+    // Sahîh Muslim : les références 1–7 (Introduction) et 8–50 (Livre de la foi) ont été importées.
+    await page.locator('.hadith-kutub-book').nth(1).click();
+    await page.locator('.bukhari-card').first().waitFor({state:'visible',timeout:15000});
+    assert.equal(await page.locator('.bukhari-card').count(),12,'Muslim doit commencer avec 12 cartes');
+    assert.match(await page.locator('.bukhari-showcase-hero h2').innerText(),/Muslim/);
+    assert.equal(await page.locator('.bukhari-book-switch button').count(),3,'Introduction et Foi doivent être accessibles');
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.match(await page.locator('.bukhari-reader-meta').innerText(),/Narration n° 1/);
+    assert.ok((await page.locator('.bukhari-reader-original blockquote').innerText()).length>90,'Muslim 1 : arabe absent');
+    await page.locator('.bukhari-reader-source summary').click();
+    assert.equal(await page.locator('a[href="https://sunnah.com/muslim:1"]').count(),1,'Muslim 1 : source absente');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    await page.locator('.bukhari-book-switch button').nth(2).click();
+    assert.match(await page.locator('.bukhari-card-number').first().innerText(),/8/);
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.match(await page.locator('.bukhari-reader-book').innerText(),/Foi/);
+    assert.match(await page.locator('.bukhari-reader-meta').innerText(),/8/);
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    await page.locator('.bukhari-catalog-search input').fill('50');
+    await page.locator('.bukhari-card').first().waitFor({state:'visible'});
+    assert.match(await page.locator('.bukhari-card-number').first().innerText(),/50/);
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.ok((await page.locator('.bukhari-reader-original blockquote').innerText()).length>150,'Muslim 50 : arabe absent');
+    assert.ok((await page.locator('.bukhari-reader-translation p').first().innerText()).length>80,'Muslim 50 : français absent');
+    await page.locator('.bukhari-reader-source summary').click();
+    assert.equal(await page.locator('a[href="https://sunnah.com/muslim:50"]').count(),1,'Muslim 50 : source absente');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    await page.locator('.hadith-kutub-back').click();
+    for (let index=2; index<6; index++) {
         await page.locator('.hadith-kutub-book').nth(index).click();
         await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
         await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});

@@ -49,27 +49,36 @@ for (const book of registry.collections) {
                 entry.translationNotice.includes('non identifi'), 'Limite de traduction non signalée : '+n);
         }
     } else if (book.id === 'muslim') {
-        assert.equal(book.importedCount, 50, 'La carte Muslim doit annoncer 50 narrations');
-        assert.equal(payload.hadiths.length, 50, 'Il faut exactement 50 narrations');
-        assert.deepEqual(payload.hadiths.map(x=>x.number), Array.from({length:50},(_,i)=>i+1));
-        assert.deepEqual(Array.from(payload.chapters,x=>x.id), ['introduction']);
-        assert.ok(payload.sourceRecords.length>=3, 'Sources numériques de Muslim absentes');
-        assert.ok(payload.editorialStatus.includes('transmetteurs'), 'Prudence sur l’Introduction absente');
-        assert.ok(payload.editorialPresentation.scope.includes('non attribués'), 'Titres non présentés comme éditoriaux');
+        assert.equal(book.importedCount, 50, 'Le registre de Muslim doit annoncer 50 entrées');
+        assert.equal(payload.hadiths.length,50,'Les références 1 à 50 de Muslim sont incomplètes');
+        assert.deepEqual(payload.hadiths.map(x=>x.number),Array.from({length:50},(_,i)=>i+1));
+        assert.deepEqual(Array.from(payload.chapters,x=>x.id),['introduction','faith']);
+        assert.equal(payload.chapters[0].lastHadith,7);
+        assert.equal(payload.chapters[1].firstHadith,8);
+        assert.ok(payload.sourceRecords.length>=4,'Notices de provenance insuffisantes');
+        assert.ok(payload.editorialStatus.includes('transmetteurs'),'Réserve relative à l’Introduction manquante');
+        assert.ok(payload.editorialPresentation.scope.includes('non attribués'),'Titres éditoriaux non distingués');
         assert.equal(new Set(payload.hadiths.map(x=>x.readingTitle)).size,50,'Titres de lecture répétés');
         for (const entry of payload.hadiths) {
-            const n=entry.number;
-            assert.equal(entry.id, 'Sahih Muslim Introduction '+n);
-            assert.equal(entry.bookNumber, 0, 'L’Introduction ne doit pas être prise pour le Livre de la foi');
-            assert.equal(entry.chapterId, 'introduction');
-            assert.equal(entry.inBookNumber,n);
-            assert.ok(entry.hadeeth_ar.length>90, 'Texte arabe trop bref : '+n);
-            assert.ok(entry.hadeeth.length>50, 'Texte français trop bref : '+n);
-            assert.equal(entry.source_url,'https://sunnah.com/muslim/introduction');
-            assert.ok(entry.textSourceUrl.startsWith('https://github.com/AhmedBaset/hadith-json/'));
-            assert.ok(entry.translationNotice.includes('non revue') || entry.translationNotice.includes('non revues'),
-                'Réserve sur les traductions absente : '+n);
-            assert.ok(!entry.grade, 'Ne pas attribuer automatiquement le statut sahîh aux récits de l’Introduction');
+            const n=entry.number, intro=n<=7;
+            assert.equal(entry.id,intro?'Sahih Muslim Introduction '+n:'Sahih Muslim '+n);
+            assert.equal(entry.bookNumber,intro?0:1);
+            assert.equal(entry.chapterId,intro?'introduction':'faith');
+            assert.equal(entry.inBookNumber,intro?[1,2,3,4,6,14,15][n-1]:entry.inBookNumber,'Numérotation de l’Introduction incorrecte : '+n);
+            assert.ok(entry.inBookNumber>=1,'Référence dans le livre manquante : '+n);
+            assert.ok(entry.hadeeth_ar.length>90,'Texte arabe absent : '+n);
+            assert.ok(entry.hadeeth.length>50,'Version française absente : '+n);
+            assert.equal(entry.source_url,'https://sunnah.com/muslim:'+n);
+            assert.ok(entry.textSourceUrl.startsWith('https://github.com/'));
+            assert.ok(entry.translationNotice.includes('non revue') || entry.translationNotice.includes('non revues') ||
+                entry.translationNotice.includes('non identifiés'),'Prudence sur la traduction absente : '+n);
+            assert.ok(!entry.grade,'Aucune appréciation individuelle non sourcée : '+n);
+            if (!intro) {
+                assert.ok(/^[0-9]+(?:[.][0-9]+)?$/.test(entry.editionArabicNumber),'Variante source absente : '+n);
+                assert.equal(Number(entry.editionArabicNumber.split('.')[0]),n,'Mauvaise numérotation arabe : '+n);
+                assert.ok(entry.textSourceUrl.includes('/ara-muslim/sections/1.json'));
+                assert.ok(entry.translationSourceUrl.includes('/fra-muslim/sections/1.json'));
+            }
         }
     } else {
         assert.deepEqual(payload.sourceRecords, [], 'Provenance fictive : ' + book.id);
