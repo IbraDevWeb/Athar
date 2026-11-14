@@ -1,14 +1,14 @@
 /* Athar — Bibliothèque / catalogue épuré, lisible et numéroté.
    Appliqué en dernier. Aucune autre rubrique, ni les fiches de lecture, n'est modifiée. */
 .library-pro-root {
-    --lib-accent:#90692e;
+    --lib-accent:#916622;
     --lib-ink:#302b24;
     --lib-muted:#776f62;
     --lib-paper:#faf8f3;
     --lib-card:#fffefa;
     --lib-soft:#f3ede2;
     --lib-line:rgba(137,109,64,.18);
-    --ax-accent:#90692e;
+    --ax-accent:#916622;
     --ax-rgb:188,149,82;
     --ax-ink:#302b24;
     --ax-muted:#776f62;
