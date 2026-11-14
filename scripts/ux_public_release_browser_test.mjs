@@ -263,6 +263,50 @@ async function desktop() {
     await page.locator('.library-pro-root').waitFor({state:'visible'});
     await home(page);
 
+    // Frise refondue : un seul fil, périodes accessibles et fiches lisibles.
+    await navigate(page,'timeline');
+    await page.locator('.timeline-pro-event-card').first().waitFor({state:'visible'});
+    assert.equal(await page.locator('.timeline-pro-modes,.timeline-pro-period-rail').count(),0,'Les anciennes interfaces de navigation n’ont pas été retirées');
+    assert.ok(await page.locator('.timeline-pro-periods button').count()>=7,'Les périodes historiques ne sont pas accessibles');
+    assert.equal(await page.locator('.timeline-pro-paths').getAttribute('open'),null,'Les parcours facultatifs doivent être repliés');
+    const timelineGeometry=await page.evaluate(()=>{
+        const root=document.querySelector('.timeline-pro');
+        const cards=[...root.querySelectorAll('.timeline-pro-event-card')];
+        const choices=[...root.querySelectorAll('.timeline-pro-periods button')];
+        const rect=el=>el.getBoundingClientRect();
+        return {
+            overflow:root.scrollWidth-root.clientWidth,
+            clipped:choices.filter(el=>rect(el).left<-2||rect(el).right>innerWidth+2||el.scrollWidth>el.clientWidth+3).map(el=>el.textContent.trim()),
+            firstCardY:rect(cards[0]).top,
+            cards:cards.length,
+            heading:root.querySelector('.timeline-pro-hero h1').innerText
+        };
+    });
+    assert.equal(timelineGeometry.overflow<=3,true,'La frise déborde : '+JSON.stringify(timelineGeometry));
+    assert.deepEqual(timelineGeometry.clipped,[],'Un choix de période est tronqué');
+    assert.ok(timelineGeometry.firstCardY<1150,'Trop d’interface avant les premiers récits');
+    assert.match(timelineGeometry.heading,/l’histoire/i);
+    await page.locator('.timeline-pro-periods button').nth(1).click();
+    assert.equal(await page.locator('.timeline-pro-period').count(),1,'Filtrer une période doit masquer les autres');
+    assert.ok(await page.locator('.timeline-pro-event-card').count()<=7,'Les premiers événements doivent être paginés');
+    await page.locator('.timeline-pro-event-card').first().click();
+    await page.locator('.timeline-pro-drawer').waitFor({state:'visible'});
+    assert.equal(await page.locator('.timeline-pro-reading-method').getAttribute('open'),null,'Sources et fiabilité doivent rester au second plan');
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('.timeline-pro-drawer').count(),0,'La touche Échap doit fermer le récit');
+    await page.locator('.timeline-pro-periods button').first().click();
+    await page.locator('.timeline-pro-paths > summary').click();
+    assert.ok(await page.locator('.timeline-pro-path-list button').count()>=3,'Parcours suggérés indisponibles');
+    await page.locator('.timeline-pro-path-list button').first().click();
+    assert.ok(await page.locator('.timeline-pro-active-path').isVisible(),'Le parcours choisi doit être visible');
+    await page.getByRole('button',{name:'Quitter le parcours'}).click();
+    await page.locator('.timeline-pro-paths > summary').click();
+    await page.locator('.timeline-pro-search input').fill('Oumama');
+    assert.ok(await page.locator('.timeline-pro-event-card').count()>0,'La recherche historique échoue');
+    assert.equal(await page.locator('.timeline-pro-period').count(),1,'La recherche ne devrait montrer que les périodes concernées');
+    await page.locator('.timeline-pro-search input').fill('');
+    await home(page);
+
     // Régression historique : le port d’Oumâma pendant la prière n'est pas daté « ≈ 612 ».
     await navigate(page, 'timeline');
     await page.locator('.timeline-pro-search input').fill('Oumama');
@@ -543,6 +587,32 @@ async function mobile(width,height) {
         assert.ok(rect.x>=-3 && rect.x+rect.width<=width+3,'Débordement de carte sur mobile : '+view+'/'+width);
         await home(page);
     }
+
+    // Frise responsive : événements, périodes et fenêtre de lecture sans débordement.
+    await navigate(page,'timeline');
+    await page.locator('.timeline-pro-event-card').first().waitFor({state:'visible'});
+    const timelineMobile=await page.evaluate(()=>{
+        const root=document.querySelector('.timeline-pro');
+        const els=[...root.querySelectorAll('.timeline-pro-periods button,.timeline-pro-event-card,.timeline-pro-search')];
+        return {overflow:root.scrollWidth-root.clientWidth,
+            clipped:els.filter(el=>{
+                const b=el.getBoundingClientRect();
+                return b.left < -2 || b.right > innerWidth+2 || el.scrollWidth > el.clientWidth+4;
+            }).map(el=>el.className+' '+el.textContent.trim().slice(0,35)),
+            cardWidth:root.querySelector('.timeline-pro-event-card').getBoundingClientRect().width
+        };
+    });
+    assert.ok(timelineMobile.overflow<=3,'Frise plus large que l’écran : '+width+'px '+JSON.stringify(timelineMobile));
+    assert.deepEqual(timelineMobile.clipped,[],'Date, filtre ou événement rogné sur '+width+'px : '+JSON.stringify(timelineMobile));
+    assert.ok(timelineMobile.cardWidth>width*.60,'Fiche trop étroite sur mobile : '+width);
+    await page.locator('.timeline-pro-event-card').first().click();
+    await page.locator('.timeline-pro-drawer').waitFor({state:'visible'});
+    const panel=await page.locator('.timeline-pro-drawer').boundingBox();
+    assert.ok(panel && panel.width<=width+2,'Lecteur de la frise plus large que l’écran');
+    await page.locator('.timeline-pro-reading-method summary').click();
+    assert.ok(await page.locator('.timeline-pro-reading-apparatus').isVisible(),'Les sources doivent être consultables sur mobile');
+    await page.locator('.timeline-pro-drawer-close').click();
+    await home(page);
 
     // Sous-sections Kutub as-Sitta aussi navigables sur smartphone.
     await navigate(page,'hadiths');

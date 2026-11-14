@@ -2,13 +2,14 @@ const TimelineView = {
     props: ['chapters', 'openChapterById', 'formatText'],
 
     setup(props) {
-        const mode = Vue.ref('timeline');
+        // Une seule vue chronologique ; les parcours et critères sont facultatifs.
         const query = Vue.ref('');
         const periodFilter = Vue.ref('all');
         const tagFilter = Vue.ref('all');
         const activePathId = Vue.ref(null);
-        const density = Vue.ref('comfortable');
         const selectedEvent = Vue.ref(null);
+        const visibleCounts = Vue.ref({});
+        const PAGE_SIZE = 7;
 
         const periods = [
             { id: 'origins', label: 'Avant l’Hégire', short: 'Pré-Hégire', min: -9999, max: 0, color: '#64748b', icon: 'sunrise', description: 'Jeunesses, conversions, persécutions et premiers départs avant l’installation à Médine.' },
@@ -59,113 +60,268 @@ const TimelineView = {
         });
         const activePath = Vue.computed(() => pathways.value.find(item => item.id === activePathId.value) || null);
         const activePathIds = Vue.computed(() => new Set(activePath.value?.eventIds || []));
+        const periodChoices = Vue.computed(() => periods.map(period => ({
+            ...period,
+            count: allEvents.value.filter(item => item.periodId === period.id).length
+        })).filter(period => period.count));
         const filteredEvents = Vue.computed(() => {
             const needle = normalized(query.value.trim());
-            return allEvents.value.filter(item => {
-                if (periodFilter.value !== 'all' && item.period.id !== periodFilter.value) return false;
-                if (tagFilter.value !== 'all' && !item.tags.includes(tagFilter.value)) return false;
-                if (activePath.value && !activePathIds.value.has(item.id)) return false;
-                if (!needle) return true;
-                return normalized([item.rawYear, item.companionName, item.arabicName, item.subtitle, item.desc, item.period.label, ...item.tags].join(' ')).includes(needle);
+            return allEvents.value.filter(event => {
+                if (periodFilter.value !== 'all' && event.periodId !== periodFilter.value) return false;
+                if (tagFilter.value !== 'all' && !event.tags.includes(tagFilter.value)) return false;
+                if (activePath.value && !activePathIds.value.has(event.id)) return false;
+                return !needle || normalized([
+                    event.rawYear, event.companionName, event.arabicName,
+                    event.subtitle, event.desc, event.period.label, ...event.tags
+                ].join(' ')).includes(needle);
             });
         });
-        const groupedEvents = Vue.computed(() => periods.map(period => ({ ...period, events: filteredEvents.value.filter(item => item.period.id === period.id) })).filter(group => group.events.length));
-        const stats = Vue.computed(() => {
-            const located = allEvents.value.filter(item => item.period.id !== 'undated');
-            return { events: allEvents.value.length, figures: new Set(allEvents.value.map(item => item.companionId)).size, periods: new Set(located.map(item => item.period.id)).size, undated: allEvents.value.filter(item => item.period.id === 'undated').length, withYear: allEvents.value.filter(item => item.precision === 'reported').length };
-        });
-        const eraSummaries = Vue.computed(() => periods.map(period => {
-            const events = allEvents.value.filter(item => item.period.id === period.id);
-            return { ...period, events, figures: [...new Set(events.map(item => item.companionName))], count: events.length };
-        }).filter(item => item.count));
-
-        const clearFilters = () => { query.value = ''; periodFilter.value = 'all'; tagFilter.value = 'all'; activePathId.value = null; };
-        const openEvent = event => { selectedEvent.value = event; Vue.nextTick(() => window.lucide?.createIcons()); };
-        const closeEvent = () => { selectedEvent.value = null; };
-        const openBiography = event => { closeEvent(); props.openChapterById(event.companionId); };
-        const setMode = value => { mode.value = value; Vue.nextTick(() => window.lucide?.createIcons()); };
-        const selectPeriod = id => {
-            periodFilter.value = id;
-            mode.value = 'timeline';
-            Vue.nextTick(() => { document.getElementById(`timeline-period-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); window.lucide?.createIcons(); });
+        const groupedEvents = Vue.computed(() => periods.map(period => {
+            const events = filteredEvents.value.filter(item => item.periodId === period.id);
+            const limit = visibleCounts.value[period.id] || PAGE_SIZE;
+            return {...period, events, visibleEvents:events.slice(0,limit),
+                remaining:Math.max(0,events.length-limit)};
+        }).filter(group => group.events.length));
+        const stats = Vue.computed(() => ({
+            events:allEvents.value.length,
+            figures:new Set(allEvents.value.map(item => item.companionId)).size,
+            undated:allEvents.value.filter(item => item.periodId === 'undated').length
+        }));
+        const currentPeriodName = Vue.computed(() => periodFilter.value === 'all'
+            ? 'Tous les événements'
+            : (periods.find(p => p.id === periodFilter.value)?.label || 'Les événements'));
+        const hasFilters = Vue.computed(() => Boolean(query.value || periodFilter.value !== 'all'
+            || tagFilter.value !== 'all' || activePathId.value));
+        const preview = text => {
+            const plain = String(text || '').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+            if (plain.length <= 192) return plain;
+            const cut = plain.slice(0,193);
+            return cut.slice(0,Math.max(120,cut.lastIndexOf(' '))).trimEnd() + '…';
         };
-        const startPath = path => { activePathId.value = path.id; periodFilter.value = 'all'; tagFilter.value = 'all'; query.value = ''; mode.value = 'timeline'; Vue.nextTick(() => window.lucide?.createIcons()); };
-        Vue.watch([mode, query, periodFilter, tagFilter, activePathId, density], () => Vue.nextTick(() => window.lucide?.createIcons()));
-        Vue.onMounted(() => Vue.nextTick(() => window.lucide?.createIcons()));
+        const refreshIcons = () => Vue.nextTick(() => window.lucide?.createIcons());
+        const clearFilters = () => {
+            query.value = ''; periodFilter.value = 'all'; tagFilter.value = 'all';
+            activePathId.value = null;
+        };
+        const selectPeriod = id => {
+            if (id !== 'all' && !periods.some(item => item.id === id)) return;
+            periodFilter.value = id;
+            activePathId.value = null;
+        };
+        const showMore = group => {
+            visibleCounts.value = {
+                ...visibleCounts.value,
+                [group.id]: (visibleCounts.value[group.id] || PAGE_SIZE) + PAGE_SIZE
+            };
+            refreshIcons();
+        };
+        const startPath = path => {
+            activePathId.value = path.id;
+            periodFilter.value = 'all';
+            tagFilter.value = 'all';
+            query.value = '';
+            refreshIcons();
+        };
+        let previousFocus = null;
+        const openEvent = event => {
+            previousFocus = document.activeElement;
+            selectedEvent.value = event;
+            Vue.nextTick(() => {
+                window.lucide?.createIcons();
+                document.querySelector('.timeline-pro-drawer-close')?.focus();
+            });
+        };
+        const closeEvent = (restoreFocus = true) => {
+            selectedEvent.value = null;
+            if (restoreFocus) Vue.nextTick(() => previousFocus?.isConnected && previousFocus.focus());
+        };
+        const openBiography = event => {
+            closeEvent(false);
+            props.openChapterById(event.companionId);
+        };
+        const onDialogKeydown = event => {
+            if (!selectedEvent.value) return;
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closeEvent();
+            }
+            if (event.key !== 'Tab') return;
+            const dialog = document.querySelector('.timeline-pro-drawer');
+            const items = [...(dialog?.querySelectorAll('button:not([disabled]),a[href],summary,[tabindex]:not([tabindex="-1"])') || [])]
+                .filter(el => el.getClientRects().length);
+            if (!items.length) return;
+            const first=items[0], last=items[items.length-1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault(); last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault(); first.focus();
+            }
+        };
+        Vue.watch([query,periodFilter,tagFilter,activePathId], () => {
+            visibleCounts.value = {};
+            refreshIcons();
+        });
+        Vue.onMounted(() => {
+            document.addEventListener('keydown',onDialogKeydown);
+            refreshIcons();
+        });
+        Vue.onUnmounted(() => document.removeEventListener('keydown',onDialogKeydown));
 
-        return { mode, query, periodFilter, tagFilter, activePathId, density, selectedEvent, periods, tags, pathways, activePath, filteredEvents, groupedEvents, stats, eraSummaries, clearFilters, openEvent, closeEvent, openBiography, setMode, selectPeriod, startPath };
+        return {
+            query,periodFilter,tagFilter,activePathId,selectedEvent,periods,periodChoices,
+            tags,pathways,activePath,filteredEvents,groupedEvents,stats,currentPeriodName,hasFilters,
+            preview,clearFilters,selectPeriod,startPath,showMore,openEvent,closeEvent,openBiography
+        };
     },
-
     template: `
+
     <section class="timeline-pro">
         <div class="timeline-pro-container">
             <header class="timeline-pro-hero">
-                <div class="timeline-pro-hero-copy">
-                    <span class="timeline-pro-eyebrow"><i data-lucide="history"></i> Histoire structurée</span>
-                    <h1>Frise <em>chronologique</em></h1>
-                    <p>Parcourez les événements, les personnages et les grandes périodes de l’histoire, puis approfondissez les détails qui vous intéressent.</p>
-                    <div class="timeline-pro-actions"><button class="timeline-pro-primary" @click="setMode('timeline')"><i data-lucide="list-tree"></i> Explorer la chronologie</button><button class="timeline-pro-secondary" @click="setMode('paths')"><i data-lucide="route"></i> Parcours guidés</button></div>
+                <span class="timeline-pro-eyebrow"><i data-lucide="milestone" aria-hidden="true"></i> Repères historiques</span>
+                <h1>Le fil de <em>l’histoire</em></h1>
+                <p>Parcourir les événements dans l’ordre, rencontrer celles et ceux qui les ont vécus, puis accéder à leur récit.</p>
+                <div class="timeline-pro-hero-stats">
+                    <span><strong>{{ stats.events }}</strong> événements</span>
+                    <span aria-hidden="true">·</span>
+                    <span><strong>{{ stats.figures }}</strong> figures historiques</span>
                 </div>
-                <aside class="timeline-pro-stats"><div><strong>{{ stats.events }}</strong><span>événements</span></div><div><strong>{{ stats.figures }}</strong><span>figures</span></div><div><strong>{{ stats.periods }}</strong><span>périodes</span></div><div><strong>{{ stats.undated }}</strong><span>dates à documenter</span></div></aside>
             </header>
 
-            <nav class="timeline-pro-modes" aria-label="Modes de la frise"><button :class="{active:mode==='timeline'}" @click="setMode('timeline')"><i data-lucide="milestone"></i> Chronologie</button><button :class="{active:mode==='eras'}" @click="setMode('eras')"><i data-lucide="columns-3"></i> Périodes</button><button :class="{active:mode==='paths'}" @click="setMode('paths')"><i data-lucide="route"></i> Parcours</button></nav>
+            <div class="timeline-pro-explore">
+                <nav class="timeline-pro-periods" aria-label="Choisir une période">
+                    <button type="button" :class="{active:periodFilter==='all' && !activePath}" :aria-pressed="periodFilter==='all' && !activePath" @click="selectPeriod('all')">
+                        Toutes les périodes <small>{{ stats.events }}</small>
+                    </button>
+                    <button v-for="period in periodChoices" :key="period.id" type="button"
+                        :class="{active:periodFilter===period.id}" :aria-pressed="periodFilter===period.id"
+                        @click="selectPeriod(period.id)">
+                        {{ period.label }} <small>{{ period.count }}</small>
+                    </button>
+                </nav>
 
-            <div class="timeline-pro-toolbar">
-                <label class="timeline-pro-search"><i data-lucide="search"></i><input v-model="query" type="search" placeholder="Personnage, événement, bataille, ville…"></label>
-                <select v-model="periodFilter" aria-label="Filtrer par période"><option value="all">Toutes les périodes</option><option v-for="period in periods" :key="period.id" :value="period.id">{{ period.label }}</option></select>
-                <select v-model="tagFilter" aria-label="Filtrer par catégorie"><option value="all">Toutes les catégories</option><option v-for="tag in tags" :key="tag" :value="tag">{{ tag }}</option></select>
-                <button class="timeline-pro-density" @click="density=density==='compact'?'comfortable':'compact'" :title="density==='compact'?'Affichage aéré':'Affichage compact'"><i :data-lucide="density==='compact'?'rows-3':'list-collapse'"></i></button>
-                <button v-if="query||periodFilter!=='all'||tagFilter!=='all'||activePathId" class="timeline-pro-reset" @click="clearFilters"><i data-lucide="rotate-ccw"></i> Réinitialiser</button>
+                <div class="timeline-pro-toolbar">
+                    <label class="timeline-pro-search">
+                        <i data-lucide="search" aria-hidden="true"></i>
+                        <input v-model="query" type="search" aria-label="Rechercher dans la chronologie"
+                            placeholder="Rechercher une personne, un lieu, un événement…" autocomplete="off">
+                        <button v-if="query" type="button" @click.prevent="query=''" aria-label="Effacer la recherche">
+                            <i data-lucide="x" aria-hidden="true"></i>
+                        </button>
+                    </label>
+                    <label class="timeline-pro-tag-filter">
+                        <span>Catégorie</span>
+                        <select v-model="tagFilter" aria-label="Filtrer les événements par catégorie">
+                            <option value="all">Toutes</option>
+                            <option v-for="tag in tags" :key="tag" :value="tag">{{ tag }}</option>
+                        </select>
+                    </label>
+                    <button v-if="hasFilters" type="button" class="timeline-pro-reset" @click="clearFilters">
+                        <i data-lucide="rotate-ccw" aria-hidden="true"></i> Effacer
+                    </button>
+                </div>
+
+                <details class="timeline-pro-paths">
+                    <summary><span><i data-lucide="route" aria-hidden="true"></i> Explorer un parcours thématique</span>
+                        <i data-lucide="chevron-down" aria-hidden="true"></i>
+                    </summary>
+                    <div class="timeline-pro-path-list">
+                        <button v-for="path in pathways" :key="path.id" type="button"
+                            :class="{active:activePathId===path.id}" @click="startPath(path)">
+                            <strong>{{ path.title }}</strong>
+                            <span>{{ path.eventIds.length }} repères <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                </details>
+                <div v-if="activePath" class="timeline-pro-active-path">
+                    <span><i data-lucide="route" aria-hidden="true"></i> Parcours : <strong>{{ activePath.title }}</strong></span>
+                    <button type="button" @click="activePathId=null" aria-label="Quitter le parcours"><i data-lucide="x" aria-hidden="true"></i></button>
+                </div>
             </div>
 
-            <div v-if="activePath" class="timeline-pro-active-path" :style="{'--path-color':activePath.color}"><i :data-lucide="activePath.icon"></i><div><span>Parcours actif</span><strong>{{ activePath.title }}</strong><small>{{ filteredEvents.length }} repères sélectionnés</small></div><button @click="activePathId=null"><i data-lucide="x"></i></button></div>
-
-            <details class="timeline-pro-reading-method"><summary>À propos des dates et des sources</summary><p>{{ stats.undated }} repères sans année déterminée. Les méthodes de datation et les références figurent dans les détails de chaque événement.</p><button @click="selectPeriod('undated')">Voir les dates à préciser</button></details>
-
-            <section v-if="mode==='timeline'" class="timeline-pro-workspace" :class="'is-'+density">
-                <aside class="timeline-pro-period-rail">
-                    <header><span>Naviguer</span><strong>{{ filteredEvents.length }} résultats</strong></header>
-                    <button v-for="period in periods" :key="period.id" :class="{active:periodFilter===period.id}" @click="selectPeriod(period.id)"><i :data-lucide="period.icon" :style="{color:period.color}"></i><span><strong>{{ period.label }}</strong><small>{{ period.short }}</small></span></button>
-                    
-                </aside>
-                <div class="timeline-pro-stream">
-                    <div v-if="!groupedEvents.length" class="timeline-pro-empty"><i data-lucide="calendar-x"></i><strong>Aucun événement trouvé</strong><p>Modifiez les filtres ou réinitialisez la recherche.</p><button @click="clearFilters">Tout afficher</button></div>
-                    <section v-for="group in groupedEvents" :key="group.id" class="timeline-pro-period" :id="'timeline-period-'+group.id" :style="{'--period-color':group.color}">
-                        <header class="timeline-pro-period-head"><span class="timeline-pro-period-icon"><i :data-lucide="group.icon"></i></span><div><small>{{ group.short }}</small><h2>{{ group.label }}</h2><p>{{ group.description }}</p></div><b>{{ group.events.length }}</b></header>
-                        <div class="timeline-pro-event-list">
-                            <article v-for="event in group.events" :key="event.id" class="timeline-pro-event" @click="openEvent(event)">
-                                <div class="timeline-pro-date"><strong>{{ event.rawYear }}</strong></div><span class="timeline-pro-dot"></span>
-                                <button class="timeline-pro-event-card"><div class="timeline-pro-event-person"><span class="timeline-pro-arabic">{{ event.arabicName }}</span><div><small>{{ event.subtitle || group.label }}</small><h3>{{ event.companionName }}</h3></div><i v-if="event.isVerified" data-lucide="badge-check"></i></div><p v-html="formatText(event.desc)"></p><footer><span v-for="tag in event.tags.slice(0,3)" :key="tag">{{ tag }}</span><b>Voir le détail <i data-lucide="arrow-up-right"></i></b></footer></button>
-                            </article>
-                        </div>
+            <section class="timeline-pro-results" aria-label="Événements chronologiques">
+                <header class="timeline-pro-results-header">
+                    <div>
+                        <span>À explorer</span>
+                        <h2>{{ activePath ? activePath.title : currentPeriodName }}</h2>
+                    </div>
+                    <p aria-live="polite">{{ filteredEvents.length }} repère{{ filteredEvents.length>1?'s':'' }}</p>
+                </header>
+                <div v-if="!groupedEvents.length" class="timeline-pro-empty" role="status">
+                    <i data-lucide="search-x" aria-hidden="true"></i>
+                    <h3>Aucun événement trouvé</h3>
+                    <p>Essaie un autre terme ou retire les filtres.</p>
+                    <button type="button" @click="clearFilters">Tout afficher</button>
+                </div>
+                <div v-else class="timeline-pro-stream">
+                    <section v-for="group in groupedEvents" :key="group.id" class="timeline-pro-period"
+                        :id="'timeline-period-'+group.id" :style="{'--period-color':group.color}">
+                        <header class="timeline-pro-period-head">
+                            <span class="timeline-pro-period-icon" aria-hidden="true"><i :data-lucide="group.icon"></i></span>
+                            <div>
+                                <span class="timeline-pro-period-range">{{ group.short }}</span>
+                                <h3>{{ group.label }}</h3>
+                                <p>{{ group.description }}</p>
+                            </div>
+                            <span class="timeline-pro-period-total">{{ group.events.length }} repères</span>
+                        </header>
+                        <ol class="timeline-pro-event-list">
+                            <li v-for="event in group.visibleEvents" :key="event.id" class="timeline-pro-event">
+                                <span class="timeline-pro-date">{{ event.rawYear }}</span>
+                                <span class="timeline-pro-dot" aria-hidden="true"></span>
+                                <button type="button" class="timeline-pro-event-card" @click="openEvent(event)"
+                                    :aria-label="'Lire le récit de '+event.companionName+', '+event.rawYear">
+                                    <span class="timeline-pro-event-person">
+                                        <strong>{{ event.companionName }}</strong>
+                                        <span v-if="event.arabicName" class="timeline-pro-arabic" lang="ar" dir="rtl">{{ event.arabicName }}</span>
+                                    </span>
+                                    <span class="timeline-pro-event-summary">{{ preview(event.desc) }}</span>
+                                    <span class="timeline-pro-event-bottom">
+                                        <span>{{ event.subtitle || group.label }}</span>
+                                        <b>Lire le récit <i data-lucide="arrow-right" aria-hidden="true"></i></b>
+                                    </span>
+                                </button>
+                            </li>
+                        </ol>
+                        <button v-if="group.remaining" class="timeline-pro-more" type="button" @click="showMore(group)">
+                            Afficher {{ Math.min(group.remaining,7) }} repères supplémentaires
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
+                        </button>
                     </section>
                 </div>
+                <details class="timeline-pro-method">
+                    <summary>À propos des dates et des références <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+                    <p>Les périodes correspondent aux repères disponibles dans les biographies. Certains événements n’ont pas d’année connue : ils sont regroupés dans « Date à préciser » sans datation inventée. Les sources et variantes sont accessibles dans chaque récit.</p>
+                </details>
             </section>
-
-            <section v-if="mode==='eras'" class="timeline-pro-era-view"><header class="timeline-pro-section-heading"><div><span>Lecture par grandes périodes</span><h2>Comprendre les changements de contexte</h2></div><p>Chaque période regroupe les événements disponibles dans les biographies de la bibliothèque.</p></header><div class="timeline-pro-era-grid"><article v-for="era in eraSummaries" :key="era.id" :style="{'--period-color':era.color}"><div class="timeline-pro-era-top"><span><i :data-lucide="era.icon"></i></span><b>{{ era.short }}</b></div><h3>{{ era.label }}</h3><p>{{ era.description }}</p><div class="timeline-pro-era-metrics"><span><strong>{{ era.count }}</strong> événements</span><span><strong>{{ era.figures.length }}</strong> figures</span></div><div class="timeline-pro-era-figures"><span v-for="name in era.figures.slice(0,5)" :key="name">{{ name }}</span><small v-if="era.figures.length>5">+ {{ era.figures.length-5 }} autres</small></div><button @click="selectPeriod(era.id)"><i data-lucide="arrow-right"></i> Explorer cette période</button></article></div></section>
-
-            <section v-if="mode==='paths'" class="timeline-pro-path-view"><header class="timeline-pro-section-heading"><div><span>Parcours guidés</span><h2>Suivre un fil historique</h2></div><p>Des sélections éditoriales pour éviter de se perdre dans l’ensemble des événements.</p></header><div class="timeline-pro-path-grid"><article v-for="path in pathways" :key="path.id" :style="{'--path-color':path.color}"><span class="timeline-pro-path-icon"><i :data-lucide="path.icon"></i></span><small>{{ path.eventIds.length }} repères</small><h3>{{ path.title }}</h3><b>{{ path.subtitle }}</b><p>{{ path.description }}</p><button @click="startPath(path)"><i data-lucide="play"></i> Commencer le parcours</button></article></div></section>
         </div>
 
-        <div v-if="selectedEvent" class="timeline-pro-backdrop" @click.self="closeEvent">
-            <article class="timeline-pro-drawer" :style="{'--period-color':selectedEvent.period.color}">
-                <header>
-                    <span><i :data-lucide="selectedEvent.period.icon"></i></span>
-                    <div><small>{{ selectedEvent.period.label }}</small><h2>{{ selectedEvent.rawYear }}</h2></div>
-                    <button @click="closeEvent" aria-label="Fermer le détail"><i data-lucide="x"></i></button>
+        <div v-if="selectedEvent" class="timeline-pro-backdrop" @click.self="closeEvent()">
+            <article class="timeline-pro-drawer" role="dialog" aria-modal="true" :aria-label="'Récit historique : '+selectedEvent.companionName">
+                <header class="timeline-pro-drawer-header">
+                    <div>
+                        <span class="timeline-pro-drawer-period">{{ selectedEvent.period.label }}</span>
+                        <h2>{{ selectedEvent.rawYear }}</h2>
+                    </div>
+                    <button type="button" class="timeline-pro-drawer-close" @click="closeEvent()" aria-label="Fermer le récit">
+                        <i data-lucide="x" aria-hidden="true"></i>
+                    </button>
                 </header>
                 <div class="timeline-pro-drawer-scroll">
                     <section class="timeline-pro-drawer-person">
-                        <p class="timeline-pro-drawer-arabic">{{ selectedEvent.arabicName }}</p>
-                        <span>{{ selectedEvent.subtitle }}</span><h3>{{ selectedEvent.companionName }}</h3><p>{{ selectedEvent.intro }}</p>
+                        <span v-if="selectedEvent.arabicName" class="timeline-pro-drawer-arabic" lang="ar" dir="rtl">{{ selectedEvent.arabicName }}</span>
+                        <h3>{{ selectedEvent.companionName }}</h3>
+                        <p v-if="selectedEvent.subtitle">{{ selectedEvent.subtitle }}</p>
                     </section>
                     <section class="timeline-pro-drawer-event">
-                        <span>Événement</span><p v-html="formatText(selectedEvent.desc)"></p>
+                        <h4>Le récit</h4>
+                        <div class="timeline-pro-event-full" v-html="formatText(selectedEvent.desc)"></div>
                     </section>
-                    <div class="timeline-pro-drawer-tags"><span v-for="tag in selectedEvent.tags" :key="tag">{{ tag }}</span></div>
+                    <div v-if="selectedEvent.tags.length" class="timeline-pro-drawer-tags">
+                        <span v-for="tag in selectedEvent.tags" :key="tag">{{ tag }}</span>
+                    </div>
                     <details class="timeline-pro-reading-method">
-                        <summary>Sources, variantes et fiabilité</summary>
+                        <summary>Sources, variantes et fiabilité <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
                         <div class="timeline-pro-reading-apparatus">
                             <p v-if="selectedEvent.originalDesc"><strong>Formulation documentaire et variantes :</strong> {{ selectedEvent.originalYear }} — {{ selectedEvent.originalDesc }}</p>
                             <p><strong>Précision de datation :</strong> {{ selectedEvent.dateBadge }}. {{ selectedEvent.detail }}</p>
@@ -177,12 +333,18 @@ const TimelineView = {
                             <p v-if="selectedEvent.reference?.note">{{ selectedEvent.reference.note }}</p>
                             <p v-if="selectedEvent.source"><strong>Ouvrage principal :</strong> {{ selectedEvent.source }}</p>
                             <a v-if="selectedEvent.sourceReadUrl" :href="selectedEvent.sourceReadUrl" target="_blank" rel="noopener noreferrer">Consulter la notice source (référence générale)</a>
-                            <p>Athar conserve les variantes de datation sans inventer une année absente du témoignage.</p>
+                            <p>Athar présente les variantes sans attribuer une année qui n’est pas établie par la notice.</p>
                         </div>
                     </details>
                 </div>
-                <footer><button @click="openBiography(selectedEvent)"><i data-lucide="book-open"></i> Ouvrir la biographie complète</button></footer>
+                <footer>
+                    <button type="button" @click="openBiography(selectedEvent)">
+                        <i data-lucide="book-open" aria-hidden="true"></i> Ouvrir la biographie
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                </footer>
             </article>
         </div>
-    </section>`
+    </section>
+    `
 };
