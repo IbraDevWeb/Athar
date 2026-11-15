@@ -73,6 +73,9 @@ jobs:
       - name: Validate published Usûl course and hidden belief section
         run: node scripts/validate-usul-public.js
 
+      - name: Validate Tabib Istikhâra source and intact corpus
+        run: node scripts/validate-tabib-istikhara.js
+
       - name: Validate Adhkar and immersive navigation
         run: node scripts/validate-immersive-adhkar.js
 
