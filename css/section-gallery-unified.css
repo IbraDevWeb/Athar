@@ -527,3 +527,58 @@
     }
     .library-pro-resume-inline > button { max-width:100%; }
 }
+
+/* Tabib al-Qulûb — fiches pédagogiques enrichies (Istikhâra et 51–62).
+ * Rendu volontairement contenu : les autres fiches et sections ne changent pas. */
+.tabib-detail-root.tabib-detail-enriched .tabib-learning-essence {
+    padding: 17px 21px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .025);
+}
+.tabib-detail-root.tabib-detail-enriched .tabib-learning-essence-label {
+    display: block;
+    font: 700 10px/1.5 Inter, system-ui, sans-serif;
+    letter-spacing: .12em;
+}
+.tabib-detail-root.tabib-detail-enriched .tabib-learning-essence-text {
+    margin-top: 7px;
+    max-width: 75ch;
+    font-family: Inter, system-ui, sans-serif !important;
+    font-size: 15px !important;
+    font-style: normal;
+    font-weight: 450;
+    letter-spacing: normal;
+    line-height: 1.75 !important;
+    overflow-wrap: break-word;
+}
+.tabib-detail-root.tabib-detail-enriched .tabib-source-link {
+    display: inline-block;
+    max-width: 100%;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px !important;
+    font-weight: 600;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    vertical-align: middle;
+}
+/* Protection additionnelle : aucune icône externe ne doit remplir une carte. */
+.tabib-detail-root.tabib-detail-enriched .tabib-source-link :is(svg, i[data-lucide], .athar-icon-host) {
+    max-width: 14px !important;
+    max-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+    flex: 0 0 14px;
+}
+@media (max-width: 640px) {
+    .tabib-detail-root.tabib-detail-enriched .tabib-learning-essence {
+        padding: 15px 17px;
+        border-radius: 13px;
+    }
+    .tabib-detail-root.tabib-detail-enriched .tabib-learning-essence-text {
+        font-size: 14px !important;
+        line-height: 1.75 !important;
+    }
+    .tabib-detail-root.tabib-detail-enriched .tabib-source-link {
+        font-size: 11px !important;
+    }
+}
