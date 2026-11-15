@@ -9,6 +9,7 @@ const app = createApp({
         'glossary-view': GlossaryView,
         'hadiths-view': HadithsView,
         'ussul-view': UssulView,
+        'maliki-fiqh-view': MalikiFiqhView,
         'hadith-reader-view': HadithReaderView,
         'tabib-view': TabibView,
         'tabib-detail-view': TabibDetailView,
@@ -24,6 +25,7 @@ const app = createApp({
         let safeGlossary = {};
         let safeHadiths = [];
         let safeUssul = [];
+        const malikiFiqhCourse = typeof ATHAR_MALIKI_FIQH_COURSE !== 'undefined' ? ATHAR_MALIKI_FIQH_COURSE : null;
         let safeSilsila = []; // Sera rempli par la transformation ci-dessous
         let safeSilsilaThemes = {};
 
@@ -95,7 +97,7 @@ const app = createApp({
         const viewMode = ref('home');
         // Liste blanche de publication : les autres modules restent dans le dépôt mais ne sont pas accessibles.
         const publishedViews = new Set([
-            'home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul',
+            'home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul', 'fiqh-maliki',
             'reader', 'hadith-reader', 'tabib-detail', 'adhkar-reader'
         ]);
         const isAvailableView = mode => publishedViews.has(mode);
@@ -418,7 +420,7 @@ const app = createApp({
             openRandomChapter, goHome,
             currentTheme, 
             openScholarFiche, 
-            silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul, extensionsList, navBtnClass,
+            silsilaThemes: safeSilsilaThemes, safeSilsila, silsilaRootId, safeUssul, malikiFiqhCourse, extensionsList, navBtnClass,
             
             // Du composable useFavorites
             viewFilter,
