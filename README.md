@@ -2,7 +2,7 @@
 
 Athar est une application web **pédagogique et non commerciale**, publiée comme site statique sur GitHub Pages.
 
-## Huit rubriques publiques
+## Neuf rubriques publiques
 
 - Bibliothèque : biographies, récits et références documentaires ;
 - Frise Chrono : événements historiques ;
@@ -12,6 +12,7 @@ Athar est une application web **pédagogique et non commerciale**, publiée comm
 - Al-Adhkar : invocations ;
 - Tasbih : compteur avec sauvegarde locale ;
 - **Usûl al-Fiqh :** sept leçons intégrales, vidéos associées, approfondissements, recherche et lexique fondé sur les textes d’origine. Voir [la note de restauration](./data/ussul/README.md).
+- **Fiqh malikite :** première fiche consacrée à la préface de *Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl* (al-Hattâb), avec arabe, explications, lexique et quiz. Voir [les sources et limites du pilote](./data/fiqh-maliki/README.md).
 
 ## Kutub as-Sitta : premières tranches disponibles
 
@@ -33,7 +34,7 @@ python -m http.server 8000
 ```
 
 Ouvrir `http://localhost:8000`. Les données des huit rubriques sont des fichiers locaux `*_data.js`.
-Les préférences, la progression des leçons d’Usûl et le compteur Tasbih sont conservés dans le navigateur de l'utilisateur.
+Les préférences, la progression des leçons d’Usûl, l’état « fiche lue » de l’introduction au Fiqh malikite et le compteur Tasbih sont conservés dans le navigateur de l'utilisateur.
 
 ## Principes éditoriaux
 
