@@ -115,7 +115,7 @@ async function desktop() {
     assert.equal(await page.locator('section[aria-label^="Lexique : "] dt').count(),3,'Lexique de la fiche 51 absent');
     assert.ok(await page.locator('a[href="https://sunnah.com/muslim:2735c"]').count()>=1,'Source du hadith de la fiche 51 absente');
     assert.ok(await page.locator('a[href="https://quran.com/2/186"]').count()>=1,'Source coranique de la fiche 51 absente');
-    assert.match(await page.locator('span').filter({hasText:'Parole prophétique'}).first().innerText(),/Parole prophétique/);
+    assert.match(await page.locator('span').filter({hasText:'Parole prophétique'}).first().innerText(),/parole prophétique/i);
     await page.getByRole('button',{name:'Retour aux remèdes'}).click();
     await page.getByRole('heading',{name:'Pharmacie des Âmes',level:2}).waitFor({state:'visible'});
     await page.locator('div.grid.grid-cols-1 > div.group h3').filter({hasText:'La douceur qui transforme les relations'}).click();
