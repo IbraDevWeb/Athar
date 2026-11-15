@@ -91,8 +91,8 @@ const BeliefLearningView = {
           <span class="belief-kicker">Cours &amp; formation</span>
           <p class="belief-book-arabic" lang="ar" dir="rtl">{{ course.arabicTitle }}</p>
           <h1>{{ course.title }}</h1>
-          <h2>{{ course.title }}</h2>
-          <p>{{ course.subtitle }}</p>
+          <h2>Formation &amp; lexique</h2>
+          <p>{{ course.introduction || course.subtitle }}</p>
           <button type="button" class="belief-primary" @click="resume">
             <i :data-lucide="lastId?'book-open-check':'play'" aria-hidden="true"></i>
             {{ lastId?'Reprendre le parcours':'Commencer le parcours' }}
@@ -171,6 +171,7 @@ const BeliefLearningView = {
               <button type="button" @click="stopVideo"><i data-lucide="square" aria-hidden="true"></i>Arrêter</button>
             </div>
             <p class="belief-caption">Lecteur externe chargé uniquement sur clic. Si l’intégration échoue, ouvrir la vidéo sur YouTube.</p>
+            <p v-if="activeLesson.transcriptStatus==='non_verifie'" class="belief-caption">L’audio a été transmis séparément. L’identité entre le lien vidéo précédent et l’enregistrement fourni n’a pas été vérifiée.</p>
           </section>
           <section class="belief-transcript" aria-label="Cours écrit">
             <div class="belief-section-head"><h3>Le cours écrit</h3><small>Transcription fidèle</small></div>
