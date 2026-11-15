@@ -1,7 +1,7 @@
 const TabibDetailView = {
     props: ['remedy', 'closeRemedy', 'settings'],
     template: `
-    <div class="max-w-4xl mx-auto px-4 py-8 pb-24 min-h-full">
+    <div class="tabib-detail-root max-w-4xl mx-auto px-4 py-8 pb-24 min-h-full" :class="{ 'tabib-detail-enriched': !!remedy.learning }">
         
         <button @click="closeRemedy" class="mb-8 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-brand-gold transition-colors group">
             <div class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:bg-brand-gold group-hover:text-white group-hover:border-transparent transition-all">
@@ -20,9 +20,9 @@ const TabibDetailView = {
 
         <div class="grid gap-8 animate-fade-in">
             
-            <div v-if="remedy.learning" class="bg-white dark:bg-brand-dark-lighter rounded-3xl p-6 md:p-8 border border-emerald-100 dark:border-emerald-900/50 shadow-sm">
-                <span class="text-[10px] uppercase tracking-widest font-bold text-emerald-700 dark:text-emerald-300">Le cœur de la démarche</span>
-                <p class="mt-3 font-serif text-xl md:text-2xl text-brand-dark dark:text-gray-100 leading-relaxed">{{ remedy.learning.essence }}</p>
+            <div v-if="remedy.learning" class="tabib-learning-essence bg-white dark:bg-brand-dark-lighter rounded-2xl px-5 py-4 md:px-6 md:py-5 border border-emerald-100 dark:border-emerald-900/50 shadow-sm">
+                <span class="tabib-learning-essence-label text-[10px] uppercase tracking-widest font-bold text-emerald-700 dark:text-emerald-300">Le cœur de la démarche</span>
+                <p class="tabib-learning-essence-text mt-2 font-sans text-sm md:text-base text-brand-dark dark:text-gray-100 leading-relaxed">{{ remedy.learning.essence }}</p>
             </div>
 
             <div v-if="remedy.quran" class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-3xl p-8 border border-emerald-100 dark:border-emerald-800/30 relative overflow-hidden shadow-sm">
@@ -34,7 +34,7 @@ const TabibDetailView = {
                     </p>
                     <div class="bg-white/60 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 text-center border border-emerald-100/50 dark:border-emerald-900/30">
                         <p class="text-emerald-800 dark:text-emerald-200 text-lg font-serif italic mb-3">{{ remedy.quran.fr }}</p>
-                        <a v-if="remedy.quran.sourceUrl" :href="remedy.quran.sourceUrl" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 dark:text-emerald-400 underline underline-offset-4">— {{ remedy.quran.ref }} <i data-lucide="external-link" class="inline w-3 h-3"></i></a>
+                        <a v-if="remedy.quran.sourceUrl" :href="remedy.quran.sourceUrl" target="_blank" rel="noopener noreferrer" class="tabib-source-link text-xs font-bold text-emerald-700 dark:text-emerald-400 underline underline-offset-4">— {{ remedy.quran.ref }}</a>
                         <span v-else class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">— {{ remedy.quran.ref }}</span>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ const TabibDetailView = {
                     </div>
                     <div class="mt-4 text-xs text-gray-400">Source : {{ remedy.hadith.source }}</div>
                     <p v-if="remedy.hadith.translationNote" class="mt-3 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{{ remedy.hadith.translationNote }}</p>
-                    <a v-if="remedy.hadith.sourceUrl" :href="remedy.hadith.sourceUrl" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-sm text-emerald-700 dark:text-emerald-300 underline underline-offset-4">Lire le hadith à sa source <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                    <a v-if="remedy.hadith.sourceUrl" :href="remedy.hadith.sourceUrl" target="_blank" rel="noopener noreferrer" class="tabib-source-link mt-3 inline-block text-xs text-emerald-700 dark:text-emerald-300 underline underline-offset-4">Lire le hadith à sa source</a>
                 </div>
             </div>
 
@@ -122,9 +122,7 @@ const TabibDetailView = {
                 </h3>
                 <ul class="space-y-3">
                     <li v-for="(source, index) in remedy.learning.sources" :key="index">
-                        <a :href="source.url" target="_blank" rel="noopener noreferrer" class="inline-flex items-start gap-2 text-sm text-emerald-700 dark:text-emerald-300 underline underline-offset-4">
-                            {{ source.label }} <i data-lucide="external-link" class="w-4 h-4 mt-0.5"></i>
-                        </a>
+                        <a :href="source.url" target="_blank" rel="noopener noreferrer" class="tabib-source-link inline-block text-xs text-emerald-700 dark:text-emerald-300 underline underline-offset-4">{{ source.label }}</a>
                     </li>
                 </ul>
             </section>
