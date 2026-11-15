@@ -122,6 +122,28 @@ async function desktop() {
     await page.getByRole('heading',{name:'La douceur qui transforme les relations',level:1}).waitFor({state:'visible'});
     assert.ok(await page.locator('a[href="https://sunnah.com/muslim:2594a"]').count()>=1,'Source de la fiche 62 absente');
     assert.equal(await page.locator('section[aria-label^="Questions fréquentes : "] details').count(),3,'Questions de la fiche 62 absentes');
+    const tabibDesktopVisual=await page.evaluate(()=>{
+        const root=document.querySelector('.tabib-detail-root.tabib-detail-enriched');
+        const lead=root?.querySelector('.tabib-learning-essence-text');
+        const links=[...root.querySelectorAll('a.tabib-source-link')];
+        const quran=root.querySelector('a[href="https://quran.com/3/159"]');
+        return {
+            font:lead?parseFloat(getComputedStyle(lead).fontSize):null,
+            leadHeight:lead?.getBoundingClientRect().height,
+            leadContent:lead?.textContent.trim(),
+            quranSource:!!quran,
+            linkCount:links.length,
+            maxLinkHeight:Math.max(0,...links.map(link=>link.getBoundingClientRect().height)),
+            maxLinkWidth:Math.max(0,...links.map(link=>link.getBoundingClientRect().width)),
+            badIcons:root.querySelectorAll('a.tabib-source-link i[data-lucide],a.tabib-source-link svg').length
+        };
+    });
+    assert.ok(tabibDesktopVisual.font>=13&&tabibDesktopVisual.font<=16,'Texte « cœur de la démarche » trop grand sur PC : '+JSON.stringify(tabibDesktopVisual));
+    assert.ok(tabibDesktopVisual.leadHeight<=90,'Le cœur de la démarche occupe trop de hauteur : '+JSON.stringify(tabibDesktopVisual));
+    assert.ok(tabibDesktopVisual.quranSource&&tabibDesktopVisual.linkCount>=3,'Liens des sources absents de la fiche');
+    assert.equal(tabibDesktopVisual.badIcons,0,'Une icône géante subsiste dans les liens de sources');
+    assert.ok(tabibDesktopVisual.maxLinkHeight<=52&&tabibDesktopVisual.maxLinkWidth<=900,'Lien géant sur PC : '+JSON.stringify(tabibDesktopVisual));
+
     await page.getByRole('button',{name:'Retour aux remèdes'}).click();
     await home(page);
 
@@ -1053,6 +1075,28 @@ async function mobile(width,height) {
     await page.locator('.adhkar-pro-reader-close').click();
     await page.locator('.adhkar-pro-reader').waitFor({state:'detached',timeout:10000});
     await home(page);
+    await navigate(page,'tabib');
+    await page.locator('div.grid.grid-cols-1 > div.group h3').filter({hasText:'La douceur qui transforme les relations'}).click();
+    await page.locator('.tabib-learning-essence-text').waitFor({state:'visible'});
+    const tabibMobileVisual=await page.evaluate(()=>{
+        const root=document.querySelector('.tabib-detail-root.tabib-detail-enriched');
+        const lead=root.querySelector('.tabib-learning-essence-text');
+        const links=[...root.querySelectorAll('a.tabib-source-link')];
+        return {
+            font:parseFloat(getComputedStyle(lead).fontSize),
+            leadWidth:lead.getBoundingClientRect().width,
+            cardWidth:root.querySelector('.tabib-learning-essence').getBoundingClientRect().width,
+            badIcons:root.querySelectorAll('a.tabib-source-link i[data-lucide],a.tabib-source-link svg').length,
+            maxLinkHeight:Math.max(0,...links.map(x=>x.getBoundingClientRect().height)),
+            horizontalOverflow:root.scrollWidth-root.clientWidth
+        };
+    });
+    assert.ok(tabibMobileVisual.font>=13&&tabibMobileVisual.font<=15,'Texte principal Tabib trop grand sur '+width+'px : '+JSON.stringify(tabibMobileVisual));
+    assert.equal(tabibMobileVisual.badIcons,0,'Icône géante dans les sources sur '+width+'px');
+    assert.ok(tabibMobileVisual.maxLinkHeight<=85&&tabibMobileVisual.horizontalOverflow<=3,'Débordement de la nouvelle fiche Tabib sur '+width+'px : '+JSON.stringify(tabibMobileVisual));
+    await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+    await home(page);
+
     await navigate(page,'ussul');
     await page.locator('.ussul-pro-course-card').first().waitFor({state:'visible'});
     assert.equal(await page.locator('.ussul-pro-course-card').count(),7,'Usûl absent sur mobile');
