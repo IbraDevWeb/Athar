@@ -10,7 +10,8 @@ const HomeView = {
             { view: 'tabib', title: 'Tabib Al-Qulub', detail: 'Des ressources pour méditer et prendre soin du cœur.', icon: 'heart-pulse', number: '05' },
             { view: 'adhkar', title: 'Al-Adhkar', detail: 'Des invocations et rappels à consulter au quotidien.', icon: 'sunrise', number: '06' },
             { view: 'tasbih', title: 'Tasbih', detail: 'Un compteur simple et accessible pour le dhikr.', icon: 'rotate-cw', number: '07' },
-            { view: 'ussul', title: 'Usûl al-Fiqh', detail: 'Sept cours complets, lexique des notions et lecture guidée.', icon: 'scale', number: '08' }
+            { view: 'ussul', title: 'Usûl al-Fiqh', detail: 'Sept cours complets, lexique des notions et lecture guidée.', icon: 'scale', number: '08' },
+            { view: 'fiqh-maliki', title: 'Fiqh malikite', detail: 'Découvrir Mawâhib al-Jalîl : première fiche, lexique et révision.', icon: 'book-marked', number: '09' }
         ];
 
         const currentIndex = Vue.ref(0);
