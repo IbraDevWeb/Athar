@@ -398,6 +398,8 @@ async function desktop() {
     await page.locator('.sharh-notes textarea').fill(localNote);
     await page.locator('.sharh-complete button').click();
     assert.match(await page.locator('.sharh-complete button').innerText(),/Annuler la validation/);
+    // Tester le chargement volontaire sans dépendre de la disponibilité réseau de YouTube.
+    await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><html><body>Lecteur simulé</body></html>'}));
     await page.locator('.sharh-video-preview button').click();
     assert.equal(await page.locator('.sharh-video iframe').count(),1,'Le lecteur vidéo ne se charge pas');
     assert.match(await page.locator('.sharh-video iframe').getAttribute('src'),/youtube-nocookie.com\/embed\/14JeEI318Xc/,
