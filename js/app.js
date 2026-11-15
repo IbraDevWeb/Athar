@@ -8,6 +8,7 @@ const app = createApp({
         'library-view': LibraryView,
         'glossary-view': GlossaryView,
         'hadiths-view': HadithsView,
+        'sharh-study-view': SharhStudyView,
         'hadith-reader-view': HadithReaderView,
         'tabib-view': TabibView,
         'tabib-detail-view': TabibDetailView,
