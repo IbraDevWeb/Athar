@@ -196,7 +196,7 @@ const HadithsView = {
             bookLoading.value = true;
             bookQuery.value = '';
             bookChapter.value = 'all';
-            bookVisibleLimit.value = ['bukhari','muslim'].includes(book.id) ? 12 : 18;
+            bookVisibleLimit.value = ['bukhari','muslim','abu-dawud'].includes(book.id) ? 12 : 18;
             bookFavoritesOnly.value = false;
             refreshIcons();
             try {
@@ -206,7 +206,7 @@ const HadithsView = {
                 if (data.schemaVersion !== 1 || data.collectionId !== book.id
                     || !Array.isArray(data.chapters) || !Array.isArray(data.hadiths)
                     || !Array.isArray(data.sourceRecords)) throw new Error('Données du recueil non conformes');
-                if (['bukhari','muslim'].includes(book.id) && (
+                if (['bukhari','muslim','abu-dawud'].includes(book.id) && (
                     data.hadiths.length !== 50 ||
                     data.hadiths.some((entry,index)=>entry.number!==index+1 || !entry.hadeeth_ar || !entry.hadeeth)
                 )) throw new Error('Import des 50 premiers textes incomplet ou non trié');
@@ -249,7 +249,7 @@ const HadithsView = {
         Vue.watch([query, themeFilter, collectionFilter, gradeFilter, favoritesOnly, unreadOnly, sortMode], () => { visibleLimit.value = 18; refreshIcons(); });
         Vue.watch(visibleLimit, refreshIcons);
         Vue.watch([section, bookQuery, bookChapter, selectedBookId], () => {
-            bookVisibleLimit.value = ['bukhari','muslim'].includes(selectedBookId.value) ? 12 : 18;
+            bookVisibleLimit.value = ['bukhari','muslim','abu-dawud'].includes(selectedBookId.value) ? 12 : 18;
             refreshIcons();
         });
         Vue.watch(bookFavoritesOnly, () => {
@@ -270,7 +270,7 @@ const HadithsView = {
     template: `
     <section class="hadith-pro-root">
         <div class="hadith-pro-container">
-            <header v-if="!['bukhari','muslim'].includes(selectedBook?.id)" class="hadith-pro-heading">
+            <header v-if="!['bukhari','muslim','abu-dawud'].includes(selectedBook?.id)" class="hadith-pro-heading">
                 <div>
                     <span class="hadith-pro-eyebrow"><i data-lucide="scroll-text" aria-hidden="true"></i> Bibliothèque des transmissions</span>
                     <h1>Les hadiths</h1>
@@ -278,7 +278,7 @@ const HadithsView = {
                 </div>
             </header>
 
-            <nav v-if="!['bukhari','muslim'].includes(selectedBook?.id)" class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
+            <nav v-if="!['bukhari','muslim','abu-dawud'].includes(selectedBook?.id)" class="hadith-kutub-tabs" aria-label="Bibliothèques de hadiths">
                 <button type="button" :class="{active:section==='library'}" :aria-pressed="section==='library'" @click="selectSection('library')">
                     <i data-lucide="book-open" aria-hidden="true"></i> Hadiths disponibles
                     <span>{{ stats.total }}</span>
@@ -416,11 +416,11 @@ const HadithsView = {
                     <p class="hadith-kutub-footnote">Les recueils seront complétés progressivement. Les {{ stats.total }} hadiths déjà disponibles restent dans la bibliothèque actuelle.</p>
                 </template>
 
-                <section v-else class="hadith-kutub-book-view" :class="{'bukhari-book-view':['bukhari','muslim'].includes(selectedBook.id)}" :aria-label="'Recueil '+selectedBook.name">
+                <section v-else class="hadith-kutub-book-view" :class="{'bukhari-book-view':['bukhari','muslim','abu-dawud'].includes(selectedBook.id)}" :aria-label="'Recueil '+selectedBook.name">
                     <button type="button" class="hadith-kutub-back" @click="closeBook">
                         <i data-lucide="arrow-left" aria-hidden="true"></i> Tous les recueils
                     </button>
-                    <header v-if="!['bukhari','muslim'].includes(selectedBook.id)" class="hadith-kutub-book-head">
+                    <header v-if="!['bukhari','muslim','abu-dawud'].includes(selectedBook.id)" class="hadith-kutub-book-head">
                         <div>
                             <span class="hadith-pro-eyebrow">{{ selectedBook.type }} · {{ selectedBook.compiler }}</span>
                             <h2>{{ selectedBook.name }}</h2>
@@ -431,12 +431,14 @@ const HadithsView = {
                     <header v-else class="bukhari-showcase-hero">
                         <span class="bukhari-showcase-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> Aux sources des transmissions</span>
                         <span class="bukhari-showcase-arabic" lang="ar" dir="rtl">{{ selectedBook.arabicName }}</span>
-                        <h2>Sahîh <em>{{ selectedBook.id==='muslim' ? 'Muslim' : 'al-Bukhârî' }}</em></h2>
+                        <h2 v-if="selectedBook.id==='abu-dawud'">Sunan <em>Abî Dâwûd</em></h2>
+                        <h2 v-else>Sahîh <em>{{ selectedBook.id==='muslim' ? 'Muslim' : 'al-Bukhârî' }}</em></h2>
                         <p v-if="selectedBook.id==='muslim'">Les 50 premières références de Sahîh Muslim : 1 à 7 dans l’Introduction, puis 8 à 50 dans le Livre de la foi. Une première variante par numéro, en arabe et en français. L’Introduction inclut aussi des propos de transmetteurs.</p>
+                        <p v-else-if="selectedBook.id==='abu-dawud'">Les 50 premières références de Sunan Abî Dâwûd, toutes dans le Livre de la purification. Textes arabes, version française et appréciations attribuées à leurs auteurs : certaines chaînes sont jugées faibles et les avis peuvent diverger.</p>
                         <p v-else>Les cinquante premiers hadiths, du commencement de la Révélation aux premières questions sur la foi. Découvrez leurs textes complets en arabe et en français.</p>
                         <div class="bukhari-showcase-meta">
                             <span><strong>50</strong> hadiths</span><span aria-hidden="true">·</span>
-                            <span><strong>{{ bookPayload?.chapters?.length || 2 }}</strong> {{ selectedBook.id==='muslim'?'sections':'livres' }}</span><span aria-hidden="true">·</span>
+                            <span><strong>{{ bookPayload?.chapters?.length || 1 }}</strong> {{ selectedBook.id==='muslim'?'sections':'livres' }}</span><span aria-hidden="true">·</span>
                             <span>Lecture bilingue</span>
                         </div>
                     </header>
@@ -451,7 +453,7 @@ const HadithsView = {
                         <button type="button" @click="openBook(selectedBook)">Réessayer</button>
                     </div>
                     <template v-else-if="bookPayload">
-                        <div v-if="['bukhari','muslim'].includes(selectedBook.id) && bookHadiths.length" class="bukhari-catalog">
+                        <div v-if="['bukhari','muslim','abu-dawud'].includes(selectedBook.id) && bookHadiths.length" class="bukhari-catalog">
                             <nav class="bukhari-book-switch" :aria-label="'Explorer les sections de '+selectedBook.name">
                                 <button type="button" :aria-pressed="bookChapter==='all'" :class="{active:bookChapter==='all'}"
                                     @click="bookChapter='all'">Tous les hadiths <small>{{ bookHadiths.length }}</small></button>
@@ -516,7 +518,7 @@ const HadithsView = {
                                     Afficher plus de hadiths <i data-lucide="chevron-down" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <p class="bukhari-catalog-note">Les intitulés de ces cartes sont des repères éditoriaux, distincts des textes transmis. Dans l’Introduction de Muslim, certaines narrations sont des propos de transmetteurs, pas des paroles attribuées au Prophète.</p>
+                            <p class="bukhari-catalog-note">Les intitulés de ces cartes sont des repères éditoriaux, distincts des textes transmis. Dans l’Introduction de Muslim, certaines narrations sont des propos de transmetteurs, pas des paroles attribuées au Prophète. Dans les Sunan d’Abî Dâwûd, les appréciations peuvent différer selon les spécialistes ; elles sont attribuées dans la fiche.</p>
                         </div>
                         <template v-else>
                         <div class="hadith-kutub-book-counts" aria-label="Contenu importé">
