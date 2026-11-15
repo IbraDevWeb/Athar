@@ -43,7 +43,7 @@ const APP_SHELL = [
     './js/components/HadithsView.js?v=athar-abu-dawud-50-v2',
     './js/components/HadithReaderView.js?v=athar-abu-dawud-50-reader-v1',
     './js/components/TabibView.js?v=athar-tabib-12-v1',
-    './js/components/TabibDetailView.js?v=athar-tabib-12-v1',
+    './js/components/TabibDetailView.js?v=athar-tabib-layout-fix-v1',
     './js/components/AdhkarView.js?v=athar-adhkar-sources-v1',
     './js/components/AdhkarReaderView.js',
     './css/tasbih-pro.css?v=athar-pro-v80-tabib-layout-fix-v1',
