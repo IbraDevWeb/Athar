@@ -17,9 +17,13 @@ const HadithReaderView = {
         const isKutubHadith = Vue.computed(() => Boolean(props.hadith?.number != null && props.hadith?.bookNumber != null));
         const isBukhari = Vue.computed(() => isKutubHadith.value && /^Sahih al-Bukhari [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
         const isMuslim = Vue.computed(() => isKutubHadith.value && /^Sahih Muslim (?:Introduction )?[1-9][0-9]*$/.test(String(props.hadith?.id||'')));
-        const isPremiumReader = Vue.computed(() => isBukhari.value || isMuslim.value);
-        const bukhariBook = Vue.computed(() => isMuslim.value ? (Number(props.hadith?.bookNumber) === 0 ? 'Introduction — science de la transmission' : 'La Foi') : Number(props.hadith?.bookNumber)===1
-            ? 'Le commencement de la Révélation' : 'La Foi');
+        const isAbuDawud = Vue.computed(() => isKutubHadith.value && /^Sunan Abi Dawud [1-9][0-9]*$/.test(String(props.hadith?.id||'')));
+        const isPremiumReader = Vue.computed(() => isBukhari.value || isMuslim.value || isAbuDawud.value);
+        const premiumCollectionName = Vue.computed(() => isAbuDawud.value ? 'Sunan Abî Dâwûd' : (isMuslim.value ? 'Sahîh Muslim' : 'Sahîh al-Bukhârî'));
+        const premiumCollectionArabic = Vue.computed(() => isAbuDawud.value ? 'سنن أبي داود' : (isMuslim.value ? 'صحيح مسلم' : 'صحيح البخاري'));
+        const bukhariBook = Vue.computed(() => isAbuDawud.value ? 'La Purification' : isMuslim.value
+            ? (Number(props.hadith?.bookNumber) === 0 ? 'Introduction — science de la transmission' : 'La Foi')
+            : Number(props.hadith?.bookNumber)===1 ? 'Le commencement de la Révélation' : 'La Foi');
         const translationNotice = Vue.computed(() => clean(props.hadith?.translationNotice || ''));
         const collection = Vue.computed(() => {
             const text = normalize(String(props.hadith?.id || '') + ' ' + String(props.hadith?.attribution || ''));
@@ -109,7 +113,7 @@ const HadithReaderView = {
             saveNote();
         });
         return {
-            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, isBukhari, isMuslim, isPremiumReader, bukhariBook, translationNotice, isFavorite, isRead,
+            languageMode, note, copied, clean, collection, reference, narrator, isKutubHadith, isBukhari, isMuslim, isAbuDawud, isPremiumReader, premiumCollectionName, premiumCollectionArabic, bukhariBook, translationNotice, isFavorite, isRead,
             hints, hintsAr, wordMeanings, explanationParagraphs, explanationArabicParagraphs, studyQuestions,
             formatMeaning, toggleFavorite, saveNote, copyText, jumpTo
         };
@@ -142,11 +146,11 @@ const HadithReaderView = {
                     </div>
                 </div>
                 <header class="bukhari-reader-hero hadith-reader-heading">
-                    <span class="bukhari-reader-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> {{ isMuslim ? "Science de la transmission" : "La tradition prophétique" }}</span>
+                    <span class="bukhari-reader-kicker"><i data-lucide="book-open-check" aria-hidden="true"></i> {{ isAbuDawud ? "Les Sunan · la purification" : (isMuslim ? "Science de la transmission" : "La tradition prophétique") }}</span>
                     <span class="bukhari-reader-hero-icon" aria-hidden="true">
                         <i :data-lucide="hadith.readingIcon||'book-open'"></i>
                     </span>
-                    <span class="bukhari-reader-hero-arabic" lang="ar" dir="rtl">{{ isMuslim ? "صحيح مسلم" : "صحيح البخاري" }}</span>
+                    <span class="bukhari-reader-hero-arabic" lang="ar" dir="rtl">{{ premiumCollectionArabic }}</span>
                     <h1>{{ hadith.readingTitle||hadith.title }}</h1>
                     <p class="bukhari-reader-book">{{ bukhariBook }}</p>
                     <div class="bukhari-reader-meta">
@@ -207,13 +211,19 @@ const HadithReaderView = {
                             </summary>
                             <div class="bukhari-reader-source-body">
                                 <div class="bukhari-reader-source-records">
-                                    <div><span>Recueil</span><strong>{{ isMuslim ? "Sahîh Muslim" : "Sahîh al-Bukhârî" }}</strong></div>
+                                    <div><span>Recueil</span><strong>{{ premiumCollectionName }}</strong></div>
                                     <div><span>Numérotation</span><strong>Hadith {{ hadith.number }}</strong></div>
                                     <div><span>Section</span><strong>{{ isMuslim ? bukhariBook : hadith.bookNumber + " · " + bukhariBook }}</strong></div>
                                     <div><span>Dans la section</span><strong>{{ isMuslim ? "Narration" : "Hadith" }} {{ hadith.inBookNumber }}</strong></div>
                                 </div>
+                                <div v-if="isAbuDawud && Array.isArray(hadith.grades) && hadith.grades.length" class="bukhari-reader-source-records" aria-label="Appréciations documentées">
+                                    <div v-for="(assessment,index) in hadith.grades" :key="index">
+                                        <span>{{ assessment.scholar }}</span><strong>{{ assessment.assessment }}</strong>
+                                    </div>
+                                </div>
+                                <p v-if="isAbuDawud && hadith.gradeEditorialNotice" class="hadith-reader-translation-notice">{{ hadith.gradeEditorialNotice }}</p>
                                 <p v-if="translationNotice" class="hadith-reader-translation-notice">{{ translationNotice }}</p>
-                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et commentaires savants.<span v-if="isMuslim && hadith.bookNumber===0"> L’Introduction de Muslim contient aussi des propos de transmetteurs et n’est pas intégralement régie par le statut du corpus principal.</span></p>
+                                <p class="bukhari-reader-source-caution">Le titre de lecture est éditorial. Le texte complet ci-dessus reste distinct des explications et commentaires savants.<span v-if="isMuslim && hadith.bookNumber===0"> L’Introduction de Muslim contient aussi des propos de transmetteurs et n’est pas intégralement régie par le statut du corpus principal.</span><span v-if="isAbuDawud"> Les appréciations des spécialistes diffèrent selon les récits et les chaînes ; la présence d’un hadith dans les Sunan ne suffit pas à le déclarer authentique.</span></p>
                                 <a v-if="hadith.source_url && hadith.source_url.startsWith('https://sunnah.com/')"
                                     :href="hadith.source_url" target="_blank" rel="noopener noreferrer" class="bukhari-reader-external">
                                     Consulter le texte sur Sunnah.com <i data-lucide="external-link" aria-hidden="true"></i>
