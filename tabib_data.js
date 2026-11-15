@@ -182,29 +182,72 @@ const TABIB_DATA = [
             },
             {
                 id: 8,
-                title: "Indécision (Istikhara)",
-                intro: "Lorsque vous hésitez entre deux choix importants et cherchez la guidance divine pour votre avenir.",
-                icon: "split",
-                tags: ["Choix", "Avenir", "Mariage", "Travail", "Hésitation", "Décision"],
+                title: "L’istikhâra — remettre son choix à Allah",
+                intro: "Quand une décision importante se présente, demander à Allah ce qui est véritablement bon, sans attendre de rêve ni de signe mystérieux.",
+                icon: "compass",
+                tags: ["Choix", "Avenir", "Mariage", "Travail", "Hésitation", "Décision", "Istikhara", "Foi", "Prière"],
                 source_type: "Sunnah",
                 quran: {
                     ar: "وَشَاوِرْهُمْ فِي الْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ",
-                    fr: "Et consulte-les à propos des affaires; puis une fois que tu t'es décidé, confie-toi donc à Allah.",
-                    ref: "Sourate Ali 'Imran, 3:159"
+                    fr: "Consulte-les au sujet des affaires ; puis, lorsque tu as pris ta décision, place ta confiance en Allah.",
+                    ref: "Coran, Âl ‘Imrân, 3:159 — extrait du verset"
                 },
                 hadith: {
-                    ar: "اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ...",
-                    phonetic: "Allahumma inni astakhiruka bi'ilmika wa astaqdiruka bi-qudratika... (Dou'a de l'Istikhara complète)",
-                    fr: "(Invocation de la consultation). 'Ô Allah, je Te consulte de par Ta science et je T'implore de par Ton pouvoir... Si Tu sais que cette affaire est un bien pour moi, facilite-la moi...'",
-                    source: "Bukhari"
+                    ar: "اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ، وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ، وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ، فَإِنَّكَ تَقْدِرُ وَلَا أَقْدِرُ، وَتَعْلَمُ وَلَا أَعْلَمُ، وَأَنْتَ عَلَّامُ الْغُيُوبِ. اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي ثُمَّ بَارِكْ لِي فِيهِ، وَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ، وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ ثُمَّ أَرْضِنِي بِهِ.",
+                    phonetic: "Allâhumma innî astakhîruka bi-‘ilmika, wa astaqdiruka bi-qudratika, wa as’aluka min fadlika-l-‘azîm. Fa-innaka taqdiru wa lâ aqdiru, wa ta‘lamu wa lâ a‘lamu, wa anta ‘allâmu-l-ghuyûb. Allâhumma in kunta ta‘lamu anna hâdha-l-amra khayrun lî fî dînî wa ma‘âshî wa ‘âqibati amrî, fa-qdurhu lî wa yassirhu lî thumma bârik lî fîh. Wa in kunta ta‘lamu anna hâdha-l-amra sharrun lî fî dînî wa ma‘âshî wa ‘âqibati amrî, fa-srifhu ‘annî wa-srifnî ‘anhu, wa-qdur liya-l-khayra haythu kâna thumma ardinî bih.",
+                    fr: "Ô Allah, je Te demande de choisir pour moi par Ta science, et je sollicite Ta puissance par Ton pouvoir. Je Te demande de Ton immense grâce. Tu es capable et je ne le suis pas ; Tu sais et je ne sais pas ; Tu connais parfaitement l’invisible. Ô Allah, si Tu sais que cette affaire est un bien pour ma religion, ma vie et l’issue de mon affaire, destine-la-moi, facilite-la-moi et bénis-la pour moi. Et si Tu sais que cette affaire est un mal pour ma religion, ma vie et l’issue de mon affaire, détourne-la de moi et détourne-moi d’elle ; destine-moi le bien où qu’il se trouve, puis rends-moi satisfait de ce bien.",
+                    source: "Sahîh al-Bukhârî, n° 1166 (d’après Jâbir ibn ‘Abd Allâh)",
+                    sourceUrl: "https://sunnah.com/bukhari:1166",
+                    translationNote: "Traduction du sens reformulée pour Athar. Le hadith comporte également une variante mentionnant le présent et l’avenir ; la version ci-dessus suit la formulation « issue de mon affaire ». La transcription phonétique est indicative et ne remplace pas l’arabe."
                 },
-                tafsir: "L'Istikhara n'est pas la recherche d'un rêve ou d'un signe mystique coloré, c'est une demande de décret pratique. Vous demandez à Allah : 'Si c'est bien, facilite-le et bénis-le. Si c'est mal, bloque-le et apaise mon cœur'. C'est le remède ultime à l'anxiété du choix. Vous déposez le fardeau de la décision, qui est trop lourd pour votre savoir limité, entre les mains de Celui qui sait tout (Al-'Alim) et qui peut tout. Après l'avoir faite, avancez : ce qui se passera sera le choix d'Allah.",
+                tafsir: "L’istikhâra signifie demander à Allah de choisir ce qui est le meilleur. On ne Lui demande pas simplement de confirmer le choix que l’on préfère déjà : on reconnaît que Sa science embrasse ce que la nôtre ignore. L’invocation recherche à la fois le bien, sa facilité et sa bénédiction ; si l’affaire est nuisible, elle demande d’en être éloigné et de recevoir la satisfaction de ce qu’Allah destine. Le hadith enseigne une prière de deux unités surérogatoires suivie d’une invocation dans laquelle on nomme son affaire. Cette démarche peut accompagner les renseignements que l’on prend, la consultation des personnes fiables et une décision raisonnable : elle ne les remplace pas. Ni le hadith de Jâbir ni les explications des savants cités ne font d’un rêve, d’une couleur, d’un sentiment particulier ou de chaque obstacle un verdict automatique. Après avoir prié, on peut agir avec confiance, sans rechercher obsessionnellement des signes.",
                 actions: [
-                    "La Prière de Consultation : Faire 2 raka'at surérogatoires puis réciter l'invocation spécifique.",
-                    "La Consultation (Istichara) : Demander l'avis des gens de science, d'expérience et de confiance avant de décider.",
-                    "L'Action : Ne pas attendre immobile. Avancez vers votre choix. Si les portes s'ouvrent, c'est la réponse. Si elles se ferment, c'est aussi la réponse.",
-                    "Le Détachement : Accepter le résultat, quel qu'il soit, comme étant le meilleur décret pour vous."
-                ]
+                    "Clarifier le choix : identifier une décision permise et concrète, vérifier les faits et demander conseil aux personnes compétentes et dignes de confiance.",
+                    "Prier deux rak‘ât surérogatoires : accomplir une prière non obligatoire, à un moment où la prière est permise.",
+                    "Dire l’invocation : après les deux rak‘ât, réciter la supplication de Jâbir et nommer l’affaire concernée à « cette affaire » (هَذَا الْأَمْرَ).",
+                    "Faire son choix avec discernement : tenir compte des informations disponibles, agir avec confiance en Allah et ne pas attendre un rêve pour avancer.",
+                    "Accueillir l’issue avec patience : ne pas déduire d’un simple contretemps que l’istikhâra aurait donné un « non » ; continuer à prendre les moyens appropriés."
+                ],
+                learning: {
+                    essence: "Je ne demande pas à Allah de valider mon envie ; je Lui demande le bien, même s’il ne correspond pas à mon premier souhait.",
+                    stepsTitle: "Comment pratiquer l’istikhâra ?",
+                    mythsTitle: "Ce qu’il faut éviter de croire",
+                    questions: [
+                        {
+                            question: "Dois-je voir un rêve après la prière ?",
+                            answer: "Non. Le hadith ne demande aucun rêve. L’absence de rêve, de vision ou de sentiment inhabituel ne signifie pas que la prière a échoué."
+                        },
+                        {
+                            question: "Une porte fermée signifie-t-elle forcément « non » ?",
+                            answer: "Non. Les difficultés et facilités peuvent entrer dans le déroulement des événements, mais il n’existe pas de règle permettant de transformer chaque détail en signe divin certain."
+                        },
+                        {
+                            question: "Dois-je renoncer à réfléchir ou à demander conseil ?",
+                            answer: "Non. Le Coran évoque la consultation et la confiance en Allah (3:159). La prière ne dispense ni de vérifier les faits ni de prendre ses responsabilités."
+                        },
+                        {
+                            question: "Dans quels domaines peut-on la pratiquer ?",
+                            answer: "Pour des choix permis : mariage, travail, voyage, projet, etc. Elle ne sert pas à décider s’il faut accomplir une obligation ou commettre un interdit déjà établi."
+                        },
+                        {
+                            question: "Et si je suis encore indécis ?",
+                            answer: "Il est possible de renouveler cette demande et de consulter de nouveau. Le hadith de Jâbir n’impose pas un nombre précis de nuits ni un résultat émotionnel particulier."
+                        }
+                    ],
+                    glossary: [
+                        { term: "Istikhâra — الاستخارة", meaning: "Demander à Allah le meilleur choix pour une affaire." },
+                        { term: "Istishâra — الاستشارة", meaning: "Consulter des personnes de confiance et compétentes." },
+                        { term: "Tawakkul — التوكل", meaning: "Placer sa confiance en Allah en prenant les moyens appropriés." },
+                        { term: "Khayr — الخير", meaning: "Le bien que l’on recherche auprès d’Allah, y compris lorsque ses conséquences nous échappent." },
+                        { term: "Baraka — البركة", meaning: "La bénédiction que l’on demande à Allah pour l’affaire entreprise." }
+                    ],
+                    sources: [
+                        { label: "Sahîh al-Bukhârî 1166 — hadith de Jâbir, texte arabe", url: "https://sunnah.com/bukhari:1166" },
+                        { label: "Coran 3:159 — consulter et placer sa confiance en Allah", url: "https://www.quran.is/french/3" },
+                        { label: "Dar al-Iftâ d’Égypte, « Al-Istikharah » (15 janvier 2024)", url: "https://www.dar-alifta.org/fr/fatwa/details/744/al-istikharah" },
+                        { label: "Dar al-Iftâ d’Égypte, « Prière d’Al-Istikhara » (23 mars 2015)", url: "https://dar-alifta.org/fr/fatwa/details/8292/priere-d%E2%80%99al-istikhara" }
+                    ]
+                }
             },
             {
                 id: 9,
