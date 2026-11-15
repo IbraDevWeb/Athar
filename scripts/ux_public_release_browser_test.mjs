@@ -356,7 +356,35 @@ async function desktop() {
     await page.locator('.bukhari-reader-back').click();
     await page.locator('.bukhari-book-view').waitFor({state:'visible'});
     await page.locator('.hadith-kutub-back').click();
-    for (let index=2; index<6; index++) {
+    // Sunan Abî Dâwûd : 50 références du Livre de la purification dans le lecteur bilingue.
+    await page.locator('.hadith-kutub-book').nth(2).click();
+    await page.locator('.bukhari-card').first().waitFor({state:'visible',timeout:15000});
+    assert.equal(await page.locator('.bukhari-card').count(),12,'Abî Dâwûd doit afficher 12 cartes au départ');
+    assert.match(await page.locator('.bukhari-showcase-hero h2').innerText(),/Dâwûd/);
+    assert.equal(await page.locator('.bukhari-book-switch button').count(),2,'Le seul livre Purification doit être accessible');
+    await page.locator('.bukhari-card-link').first().click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.match(await page.locator('.bukhari-reader-book').innerText(),/Purification/);
+    assert.ok((await page.locator('.bukhari-reader-original blockquote').innerText()).length>100,'Abî Dâwûd 1 : arabe absent');
+    assert.ok((await page.locator('.bukhari-reader-translation p').first().innerText()).length>50,'Abî Dâwûd 1 : français absent');
+    await page.locator('.bukhari-reader-source summary').click();
+    assert.equal(await page.locator('a[href="https://sunnah.com/abudawud:1"]').count(),1,'Abî Dâwûd 1 : source absente');
+    assert.ok(await page.locator('.bukhari-reader-source-records').count()>0,'Abî Dâwûd : appréciations non affichées');
+    assert.match(await page.locator('.bukhari-reader-source').innerText(),/Al-Albani/,'Abî Dâwûd : auteur de l’appréciation absent');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    await page.locator('.bukhari-catalog-search input').fill('Donner le siwâk à la personne la plus âgée');
+    assert.equal(await page.locator('.bukhari-card').count(),1,'Abî Dâwûd 50 doit être trouvable par titre');
+    assert.match(await page.locator('.bukhari-card-number').first().innerText(),/50/);
+    await page.locator('.bukhari-card-link').click();
+    await page.locator('.bukhari-reader-pro').waitFor({state:'visible'});
+    assert.ok((await page.locator('.bukhari-reader-original blockquote').innerText()).length>200,'Abî Dâwûd 50 : arabe absent');
+    await page.locator('.bukhari-reader-source summary').click();
+    assert.equal(await page.locator('a[href="https://sunnah.com/abudawud:50"]').count(),1,'Abî Dâwûd 50 : source absente');
+    await page.locator('.bukhari-reader-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    await page.locator('.hadith-kutub-back').click();
+    for (let index=3; index<6; index++) {
         await page.locator('.hadith-kutub-book').nth(index).click();
         await page.locator('.hadith-kutub-book-view').waitFor({state:'visible'});
         await page.locator('.hadith-kutub-empty h3').waitFor({state:'visible',timeout:12000});
