@@ -46,11 +46,11 @@ assert.ok(app.includes('TABIB_NEW_FICHES_DATA')&&app.includes('.concat('),'Les n
 assert.ok(detail.includes('remedy.hadith.label')&&detail.includes('remedy.quran.sourceUrl'),'Nouvelles sources et libellés non affichés');
 assert.ok(gallery.includes("item.source_type === 'Sunnah'"),'Type des fiches présenté comme invocation');
 const css=read('css/section-gallery-unified.css');
-assert.ok(detail.includes('tabib-learning-essence-text') && detail.includes('tabib-detail-enriched'),'Style de la fiche enrichie non appliqué');
-assert.ok(detail.includes('class="tabib-source-link') && !detail.includes('data-lucide="external-link"'),'Icônes de sources géantes encore présentes');
-assert.ok(css.includes('.tabib-detail-root.tabib-detail-enriched .tabib-learning-essence-text'),'Typographie Tabib non ciblée');
-assert.ok(css.includes('font-size: 15px !important') && css.includes('font-size: 14px !important'),'Taille du texte non maîtrisée en desktop/mobile');
-assert.ok(css.includes('.tabib-detail-root.tabib-detail-enriched .tabib-source-link'),'Liens de sources sans limites de rendu');
+assert.ok(detail.includes('tabib-detail-enriched'),'Présentation enrichie des fiches perdue');
+assert.ok(!detail.includes('Le cœur de la démarche') && !detail.includes('tabib-learning-essence') && !detail.includes('remedy.learning.essence'),'Encadré « Le cœur de la démarche » encore affiché');
+assert.ok(!css.includes('tabib-learning-essence'),'Styles obsolètes de l’encadré toujours présents');
+assert.ok(detail.includes('class="tabib-source-link') && !detail.includes('data-lucide="external-link"'),'Liens de sources mal présentés');
+assert.ok(css.includes('.tabib-detail-root.tabib-detail-enriched .tabib-source-link'),'Styles des sources perdus');
 
 assert.ok(html.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'Fichier non chargé en ligne');
 assert.ok(html.indexOf('tabib_data.js')<html.indexOf('tabib_new_fiches_data.js')&&html.indexOf('tabib_new_fiches_data.js')<html.indexOf('js/app.js'),'Ordre de scripts incorrect');
