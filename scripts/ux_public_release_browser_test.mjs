@@ -105,6 +105,22 @@ async function desktop() {
     assert.equal(await page.locator('section[aria-label="Vocabulaire de la prière de consultation"] dt').count(),5,'Le lexique Istikhâra est incomplet');
     assert.ok(await page.locator('a[href="https://sunnah.com/bukhari:1166"]').count()>=1,'Source précise Sahîh al-Bukhârî absente');
     await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+
+    // Douze nouveaux remèdes pédagogiques (51–62) avec sources, lexique et questions.
+    assert.equal(await page.getByRole('heading',{level:3}).count(),62,'Le catalogue doit proposer 62 fiches Tabib');
+    await page.getByRole('heading',{name:'Quand l’exaucement semble tarder',level:3}).click();
+    await page.getByRole('heading',{name:'Quand l’exaucement semble tarder',level:1}).waitFor({state:'visible'});
+    assert.equal(await page.locator('section[aria-label^="Questions fréquentes : "] details').count(),3,'Questions de la fiche 51 absentes');
+    assert.equal(await page.locator('section[aria-label^="Lexique : "] dt').count(),3,'Lexique de la fiche 51 absent');
+    assert.ok(await page.locator('a[href="https://sunnah.com/muslim:2735c"]').count()>=1,'Source du hadith de la fiche 51 absente');
+    assert.ok(await page.locator('a[href="https://quran.com/2/186"]').count()>=1,'Source coranique de la fiche 51 absente');
+    assert.match(await page.locator('span').filter({hasText:'Parole prophétique'}).first().innerText(),/Parole prophétique/);
+    await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+    await page.getByRole('heading',{name:'La douceur qui transforme les relations',level:3}).click();
+    await page.getByRole('heading',{name:'La douceur qui transforme les relations',level:1}).waitFor({state:'visible'});
+    assert.ok(await page.locator('a[href="https://sunnah.com/muslim:2594a"]').count()>=1,'Source de la fiche 62 absente');
+    assert.equal(await page.locator('section[aria-label^="Questions fréquentes : "] details').count(),3,'Questions de la fiche 62 absentes');
+    await page.getByRole('button',{name:'Retour aux remèdes'}).click();
     await home(page);
 
     // Système de galeries : palette spécifique et cartes lisibles sur ordinateur.
