@@ -13,6 +13,7 @@
         transmission: 'Transmission',
         atlas: 'Atlas Interactif',
         ussul: 'Usûl al-Fiqh',
+        'fiqh-maliki': 'Fiqh malikite',
         constellation: 'Constellation',
         eloquence: 'Éloquence',
         roots: 'Racines',
@@ -95,7 +96,7 @@
     };
 
     const navigate = view => {
-        const published = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul']);
+        const published = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul', 'fiqh-maliki']);
         if (!published.has(view)) return;
         const target = findSidebarButton(view);
         if (target) {
@@ -137,6 +138,7 @@
         const markers = [
             ['library', '.library-pro-root'],
             ['ussul', '.ussul-pro-root'],
+            ['fiqh-maliki', '.fiqh-m-root'],
             ['hadiths', '.hadith-pro-root, .hadiths-pro-root'],
             ['timeline', '.timeline-pro-container'],
             ['transmission', '.transmission-view, .transmission-pro-root'],
