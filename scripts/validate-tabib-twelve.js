@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+// Entrées 51–62 : contrats éditoriaux, source des citations, conservation des 50 fiches historiques.
+const fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const read=p=>fs.readFileSync(p,'utf8');
+const original=read('tabib_data.js'),added=read('tabib_new_fiches_data.js');
+const app=read('js/app.js'),html=read('index.html'),worker=read('service-worker.js');
+const config=read('js/config.js'),detail=read('js/components/TabibDetailView.js'),gallery=read('js/components/TabibView.js');
+new vm.Script(original);new vm.Script(added);new vm.Script(detail);new vm.Script(gallery);
+const ctx=vm.createContext({});vm.runInContext(original,ctx);vm.runInContext(added,ctx);
+const prev=vm.runInContext('TABIB_DATA',ctx),next=vm.runInContext('TABIB_NEW_FICHES_DATA',ctx);
+const oldSha=crypto.createHash('sha1').update('blob '+Buffer.byteLength(original)+'\0'+original).digest('hex');
+assert.equal(oldSha,'f0a497e3a3de883039e6f158de22103f845ec15a','Le corpus original des 50 fiches a été modifié');
+assert.equal(prev.length,50,'Le corpus initial doit rester intact');
+assert.equal(next.length,12,'Douze nouvelles fiches attendues');
+const all=[...prev,...next];
+assert.deepEqual(all.map(x=>x.id),Array.from({length:62},(_,i)=>i+1),'IDs ou ordre de fiches incorrects');
+const refs=new Set();
+for(let i=0;i<next.length;i++){
+ const item=next[i],id=51+i;
+ assert.equal(item.id,id);
+ assert.ok(item.title&&item.intro&&item.tafsir.length>260,'Fiche insuffisamment explicative '+id);
+ assert.ok(Array.isArray(item.tags)&&item.tags.includes('Foi'),'Le filtre Foi doit montrer la fiche '+id);
+ assert.equal(item.source_type,'Sunnah');
+ assert.ok(item.quran?.ar?.length>=17&&item.quran?.fr?.length>=20,'Passage coranique manquant : '+id);
+ assert.match(item.quran.ref,/^Coran \d+:\d+ — extrait du verset$/,'Référence coranique inexacte '+id);
+ assert.match(item.quran.sourceUrl,/^https:\/\/quran\.com\/\d+\/\d+$/,'URL Coran inexacte '+id);
+ assert.ok(item.hadith?.ar?.length>=20&&item.hadith?.fr?.length>=34,'Hadith manquant '+id);
+ assert.ok(item.hadith.phonetic.length>=12,'Phonétique indiquée manquante '+id);
+ assert.match(item.hadith.sourceUrl,/^https:\/\/sunnah\.com\/(muslim|bukhari|tirmidhi):\d+[a-z]?$/,'Lien hadith invalide '+id);
+ assert.match(item.hadith.translationNote,/traduction du sens/i);
+ assert.equal(item.hadith.label,'Parole prophétique','Ne pas appeler un hadith une invocation à tort');
+ assert.equal(item.actions.length,4,'Quatre exercices pratiques attendus '+id);
+ const l=item.learning;
+ assert.ok(l.essence.length>=35&&l.stepsTitle&&l.mythsTitle);
+ assert.equal(l.questions.length,3,'Trois réponses détaillées attendues '+id);
+ assert.equal(l.glossary.length,3,'Trois notions de lexique attendues '+id);
+ assert.equal(l.sources.length,2,'Coran et hadith primaire nécessaires '+id);
+ assert.equal(l.sources[0].url,item.quran.sourceUrl);
+ assert.equal(l.sources[1].url,item.hadith.sourceUrl);
+ for(const q of l.questions)assert.ok(q.question.length>12&&q.answer.length>40,'FAQ courte '+id);
+ for(const g of l.glossary)assert.ok(g.term.length>5&&g.meaning.length>12,'Définition manquante '+id);
+ assert.ok(!refs.has(item.hadith.sourceUrl),'Hadith identique réutilisé pour différentes fiches');
+ refs.add(item.hadith.sourceUrl);
+}
+assert.ok(app.includes('TABIB_NEW_FICHES_DATA')&&app.includes('.concat('),'Les nouvelles fiches ne sont pas jointes au catalogue');
+assert.ok(detail.includes('remedy.hadith.label')&&detail.includes('remedy.quran.sourceUrl'),'Nouvelles sources et libellés non affichés');
+assert.ok(gallery.includes("item.source_type === 'Sunnah'"),'Type des fiches présenté comme invocation');
+assert.ok(html.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'Fichier non chargé en ligne');
+assert.ok(html.indexOf('tabib_data.js')<html.indexOf('tabib_new_fiches_data.js')&&html.indexOf('tabib_new_fiches_data.js')<html.indexOf('js/app.js'),'Ordre de scripts incorrect');
+assert.ok(worker.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'PWA ne charge pas les nouveaux textes');
+assert.ok(config.includes("const APP_VERSION = 'athar-pro-v79-tabib-12-v1'"));
+assert.ok(worker.includes("const CACHE_VERSION = 'athar-pro-v79-tabib-12-v1'"));
+const shell=vm.runInNewContext(worker.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/)[1]);
+assert.ok(shell.length<65&&new Set(shell).size===shell.length,'PWA : ressources trop nombreuses ou doublons');
+console.log('Tabib : 50 fiches originales identiques + 12 nouvelles fiches 51-62 ; 12 passages coraniques, 12 hadiths distincts et vérifiables, 36 questions et 36 définitions.');
