@@ -80,6 +80,43 @@ for (const book of registry.collections) {
                 assert.ok(entry.translationSourceUrl.includes('/fra-muslim/sections/1.json'));
             }
         }
+    } else if (book.id === 'abu-dawud') {
+        assert.equal(book.importedCount,50,'Le catalogue Abî Dâwûd doit annoncer 50 hadiths');
+        assert.equal(payload.hadiths.length,50,'Les 50 premières références de Sunan Abî Dâwûd sont incomplètes');
+        assert.deepEqual(payload.hadiths.map(h=>h.number),Array.from({length:50},(_,i)=>i+1),'Numérotation 1–50 incorrecte');
+        assert.equal(payload.range.first,1);
+        assert.equal(payload.range.last,50);
+        assert.equal(payload.chapters.length,1,'Les 50 premières références appartiennent au Livre de la purification');
+        assert.deepEqual(Array.from(payload.chapters,x=>x.id),['purification']);
+        assert.equal(payload.chapters[0].bookNumber,1);
+        assert.equal(payload.chapters[0].firstHadith,1);
+        assert.equal(payload.chapters[0].lastHadith,50);
+        assert.equal(payload.sourceRecords.length,3,'Source arabe, source française et index Sunnah.com requis');
+        assert.ok(payload.editorialStatus.includes('faibles'),'L’avertissement sur les chaînes jugées faibles est absent');
+        assert.ok(payload.editorialPresentation.scope.includes('non attribués'),'Le titre éditorial doit rester distinct du texte');
+        assert.equal(new Set(payload.hadiths.map(h=>h.readingTitle)).size,50,'Titres de lecture éditoriaux répétés');
+        for(const entry of payload.hadiths) {
+            const n=entry.number;
+            assert.equal(entry.id,'Sunan Abi Dawud '+n,'Identifiant erroné : '+n);
+            assert.equal(entry.bookNumber,1,'Livre erroné : '+n);
+            assert.equal(entry.inBookNumber,n,'Numéro interne erroné : '+n);
+            assert.equal(entry.chapterId,'purification','Chapitre erroné : '+n);
+            assert.ok(entry.hadeeth_ar.length>=90,'Texte arabe absent ou tronqué : '+n);
+            assert.ok(entry.hadeeth.length>=40,'Version française absente : '+n);
+            assert.equal(entry.source_url,'https://sunnah.com/abudawud:'+n);
+            assert.ok(entry.textSourceUrl.endsWith('/ara-abudawud/sections/1.json'),'Provenance arabe manquante : '+n);
+            assert.ok(entry.translationSourceUrl.endsWith('/fra-abudawud/sections/1.json'),'Provenance française manquante : '+n);
+            assert.ok(entry.translationNotice.includes('traducteur'),'Prudence de traduction absente : '+n);
+            assert.ok(Array.isArray(entry.grades) && entry.grades.length>0,'Appréciations sourcées absentes : '+n);
+            assert.ok(entry.grades.every(g=>g.scholar && g.assessment),'Auteur ou appréciation non identifié : '+n);
+            assert.ok(entry.gradeEditorialNotice.includes('peuvent diverger'),'Avertissement sur divergences absent : '+n);
+            assert.ok(!entry.grade,'Un jugement global sans auteur a été ajouté : '+n);
+            assert.ok(typeof entry.readingTitle==='string' && entry.readingTitle.length>18,'Titre éditorial absent : '+n);
+        }
+        assert.ok(payload.hadiths.find(h=>h.number===3).grades.some(g=>g.assessment==='Daif'),
+            'Le hadith 3 est jugé faible dans la source et ne doit pas être dit sahîh');
+        assert.ok(payload.hadiths.find(h=>h.number===5).grades.some(g=>g.assessment==='Shadh'),
+            'Le jugement shâdh rapporté pour le hadith 5 doit être conservé');
     } else {
         assert.deepEqual(payload.sourceRecords, [], 'Provenance fictive : ' + book.id);
         assert.deepEqual(payload.chapters, [], 'Chapitres non encore vérifiés : ' + book.id);
@@ -133,10 +170,10 @@ for (const outOfScope of ['.library-pro-root','.timeline-pro','.adhkar-pro-shell
 assert.ok(cssBukhari.includes('.hadith-kutub-list-excerpt') && cssBukhari.includes('@media(max-width:690px)'),
  'La nouvelle liste de hadiths n’est pas responsive.');
 
-assert.ok(reader.includes('isMuslim') && reader.includes('isPremiumReader'),
- 'Le lecteur bilingue doit prendre en charge les narrations de Muslim.');
-assert.ok(view.includes("['bukhari','muslim'].includes(selectedBook.id)"),
- 'Le catalogue premium doit afficher les deux recueils.');
+assert.ok(reader.includes('isMuslim') && reader.includes('isAbuDawud') && reader.includes('isPremiumReader'),
+ 'Le lecteur bilingue doit prendre en charge Muslim et Abî Dâwûd.');
+assert.ok(view.includes("['bukhari','muslim','abu-dawud'].includes(selectedBook.id)"),
+ 'Le catalogue premium doit afficher les trois recueils remplis.');
 const html = read('index.html'), worker = read('service-worker.js');
 const registryPos = html.indexOf('js/kutub-sitta-registry.js');
 const viewPos = html.indexOf('js/components/HadithsView.js');
@@ -152,4 +189,4 @@ for (const book of registry.collections) {
 assert.ok(assets.some(path=>path.includes('css/bukhari-tabib-inspired.css')),
     'Nouvelle finition Bukhârî absente du précache PWA.');
 assert.ok(assets.length < 65, 'Précache PWA trop volumineux en fichiers');
-console.log('Kutub as-Sitta : 50 hadiths Bukhari et 50 narrations de l’Introduction de Muslim, sources documentées, quatre autres recueils et 50 thématiques préservés.');
+console.log('Kutub as-Sitta : Bukhârî 1–50, Muslim 1–50, Abî Dâwûd 1–50 ; trois recueils en préparation et 50 thématiques préservés.');
