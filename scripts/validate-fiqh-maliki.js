@@ -18,7 +18,7 @@ assert.equal(book.intro.lexicon.length,6);
 assert.ok(book.intro.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>40));
 assert.equal(book.intro.quiz.length,3);
 for(const q of book.intro.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation);
-assert.equal(book.intro.quote.arabic,'إِلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ');
+assert.equal(book.intro.quote.arabic,'إلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ');
 assert.ok(book.intro.quote.arabic.split(/\s+/).length<=15);
 assert.ok(book.intro.quote.label.includes('pas une traduction littérale'));
 assert.equal(book.intro.sources.length,2);
