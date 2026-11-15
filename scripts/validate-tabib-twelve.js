@@ -45,11 +45,18 @@ for(let i=0;i<next.length;i++){
 assert.ok(app.includes('TABIB_NEW_FICHES_DATA')&&app.includes('.concat('),'Les nouvelles fiches ne sont pas jointes au catalogue');
 assert.ok(detail.includes('remedy.hadith.label')&&detail.includes('remedy.quran.sourceUrl'),'Nouvelles sources et libellés non affichés');
 assert.ok(gallery.includes("item.source_type === 'Sunnah'"),'Type des fiches présenté comme invocation');
+const css=read('css/section-gallery-unified.css');
+assert.ok(detail.includes('tabib-learning-essence-text') && detail.includes('tabib-detail-enriched'),'Style de la fiche enrichie non appliqué');
+assert.ok(detail.includes('class="tabib-source-link') && !detail.includes('data-lucide="external-link"'),'Icônes de sources géantes encore présentes');
+assert.ok(css.includes('.tabib-detail-root.tabib-detail-enriched .tabib-learning-essence-text'),'Typographie Tabib non ciblée');
+assert.ok(css.includes('font-size: 15px !important') && css.includes('font-size: 14px !important'),'Taille du texte non maîtrisée en desktop/mobile');
+assert.ok(css.includes('.tabib-detail-root.tabib-detail-enriched .tabib-source-link'),'Liens de sources sans limites de rendu');
+
 assert.ok(html.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'Fichier non chargé en ligne');
 assert.ok(html.indexOf('tabib_data.js')<html.indexOf('tabib_new_fiches_data.js')&&html.indexOf('tabib_new_fiches_data.js')<html.indexOf('js/app.js'),'Ordre de scripts incorrect');
 assert.ok(worker.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'PWA ne charge pas les nouveaux textes');
-assert.ok(config.includes("const APP_VERSION = 'athar-pro-v79-tabib-12-v1'"));
-assert.ok(worker.includes("const CACHE_VERSION = 'athar-pro-v79-tabib-12-v1'"));
+assert.ok(config.includes("const APP_VERSION = 'athar-pro-v80-tabib-layout-fix-v1'"));
+assert.ok(worker.includes("const CACHE_VERSION = 'athar-pro-v80-tabib-layout-fix-v1'"));
 const shell=vm.runInNewContext(worker.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/)[1]);
 assert.ok(shell.length<65&&new Set(shell).size===shell.length,'PWA : ressources trop nombreuses ou doublons');
 console.log('Tabib : 50 fiches originales identiques + 12 nouvelles fiches 51-62 ; 12 passages coraniques, 12 hadiths distincts et vérifiables, 36 questions et 36 définitions.');
