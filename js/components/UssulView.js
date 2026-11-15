@@ -12,6 +12,9 @@ const UssulView = {
             videoOpen: false,
             videoMode: 'theater',
             videoError: false,
+            showGlossary: false,
+            glossarySearch: '',
+            glossaryVisibleCount: 36,
             dragPosition: { x: null, y: null },
             dragState: null
         };
@@ -31,6 +34,38 @@ const UssulView = {
                 return this.normalize(text).includes(q);
             });
         },
+        glossaryEntries() {
+            // Lexique indexé depuis les termes {…} réellement présents dans les sept cours.
+            // Aucune définition n'est inventée : on reprend GLOSSARY_DATA, ou un extrait du cours.
+            const dictionary = typeof GLOSSARY_DATA !== 'undefined' ? GLOSSARY_DATA : {};
+            const entries = new Map();
+            for (const lesson of this.lessons) {
+                for (const [sectionIndex,section] of (lesson.sections || []).entries()) {
+                    const texts = [section.content,section.deepDive?.content].filter(Boolean);
+                    for (const original of texts) {
+                        const matches = String(original).matchAll(/\{([^{}\r\n]{1,72})\}/g);
+                        for (const match of matches) {
+                            const term=match[1].trim();
+                            const key=this.normalize(term);
+                            if(!term || !key) continue;
+                            const existing=entries.get(key);
+                            if(existing){existing.occurrences++;continue;}
+                            const plain=String(original).replace(/<br\s*\/?\s*>/gi,' ').replace(/\*\*/g,'').replace(/[{}]/g,'').replace(/\s+/g,' ').trim();
+                            const position=plain.toLocaleLowerCase('fr').indexOf(term.toLocaleLowerCase('fr'));
+                            const excerpt=position>=0 ? plain.slice(Math.max(0,position-68),Math.min(plain.length,position+term.length+128)) : plain.slice(0,190);
+                            const defined=dictionary[term.toLocaleLowerCase('fr')] || dictionary[key];
+                            entries.set(key,{term,definition:typeof defined?.def==='string'?defined.def:'',excerpt,lesson,sectionIndex,occurrences:1});
+                        }
+                    }
+                }
+            }
+            return [...entries.values()].sort((a,b)=>a.term.localeCompare(b.term,'fr',{sensitivity:'base'}));
+        },
+        filteredGlossary() {
+            const q=this.normalize(this.glossarySearch);
+            return !q ? this.glossaryEntries : this.glossaryEntries.filter(x=>this.normalize([x.term,x.definition,x.excerpt,x.lesson.title].join(' ')).includes(q));
+        },
+        visibleGlossary() { return this.filteredGlossary.slice(0,this.glossaryVisibleCount); },
         currentIndex() {
             return this.activeLesson ? this.lessons.indexOf(this.activeLesson) : -1;
         },
@@ -126,6 +161,17 @@ const UssulView = {
                 completedLessons: this.completedLessons,
                 lastLessonId: this.lastLessonId
             }));
+        },
+        openGlossary() {
+            this.showGlossary=true;
+            this.glossaryVisibleCount=36;
+            this.$nextTick(this.refreshIcons);
+        },
+        closeGlossary() { this.showGlossary=false;this.$nextTick(this.refreshIcons); },
+        goToGlossaryEntry(entry) {
+            this.closeGlossary();
+            this.selectLesson(entry.lesson);
+            this.$nextTick(()=>this.scrollToSection(entry.sectionIndex));
         },
         selectLesson(lesson) {
             if (!lesson) return;
@@ -300,9 +346,10 @@ const UssulView = {
             </button>
             <div class="ussul-pro-brand">
                 <span lang="ar" dir="rtl">أصول الفقه</span>
-                <b>{{ activeLesson ? activeLesson.title : 'Oussoul al-Fiqh' }}</b>
+                <b>{{ activeLesson ? activeLesson.title : 'Usûl al-Fiqh' }}</b>
             </div>
             <div class="ussul-pro-header-actions">
+                <button @click="showGlossary?closeGlossary():openGlossary()" class="ussul-glossary-launch" :aria-expanded="showGlossary" aria-controls="ussul-course-lexicon"><i data-lucide="book-a"></i><span>Lexique</span></button>
                 <button v-if="activeLesson" @click="showMobileToc=!showMobileToc" class="ussul-mobile-toc-button"><i data-lucide="list"></i></button>
                 <button v-if="activeLesson" @click="openVideo('theater')" class="ussul-video-launch"><i data-lucide="play"></i><span>Voir le cours</span></button>
             </div>
@@ -313,12 +360,12 @@ const UssulView = {
                 <div class="ussul-pro-hero-copy">
                     <span class="ussul-pro-kicker">Parcours académique</span>
                     <p class="ussul-pro-arabic" lang="ar" dir="rtl">أصول الفقه</p>
-                    <h1>Oussoul al-Fiqh</h1>
-                    <p>Maîtrisez les fondements de la jurisprudence islamique à travers les cours déjà présents dans Athar.</p>
+                    <h1>Usûl al-Fiqh</h1>
+                    <p>Étudier les fondements de la jurisprudence à partir des leçons complètes, des références et des notions du cours.</p>
                     <div class="ussul-pro-stats">
-                        <span><b>{{ lessons.length }}</b> cours</span>
-                        <span><b>{{ totalSections }}</b> chapitres</span>
-                        <span><b>{{ completionPercent }}%</b> terminé</span>
+                        <span>{{ lessons.length }} cours</span>
+                        <span>{{ totalSections }} parties</span>
+                        <button type="button" @click="openGlossary"><i data-lucide="book-a"></i>{{ glossaryEntries.length }} termes du lexique</button>
                     </div>
                 </div>
                 <div class="ussul-pro-progress-card">
@@ -391,6 +438,27 @@ const UssulView = {
                 </article>
             </div>
         </div>
+
+        <section v-if="showGlossary" id="ussul-course-lexicon" class="ussul-glossary-layer" aria-label="Lexique du parcours Usûl al-Fiqh">
+            <div class="ussul-glossary-panel">
+                <header>
+                    <div><span class="ussul-pro-kicker">Notions des leçons</span><h2>Lexique</h2><p>Termes repérés dans les textes conservés. Une définition est donnée lorsqu'elle existe dans le lexique d'Athar ; sinon, l'extrait original du cours apporte le contexte.</p></div>
+                    <button type="button" @click="closeGlossary" aria-label="Fermer le lexique"><i data-lucide="x"></i></button>
+                </header>
+                <label class="ussul-glossary-search"><i data-lucide="search"></i><input v-model="glossarySearch" type="search" placeholder="Rechercher une notion, une définition…" aria-label="Rechercher dans le lexique"></label>
+                <p class="ussul-glossary-count">{{ filteredGlossary.length }} termes · extraits issus du corpus existant</p>
+                <div class="ussul-glossary-grid">
+                    <article v-for="entry in visibleGlossary" :key="entry.term" class="ussul-glossary-entry">
+                        <h3>{{ entry.term }}</h3>
+                        <p v-if="entry.definition" class="ussul-glossary-definition">{{ entry.definition }}</p>
+                        <p class="ussul-glossary-context"><span>Dans le cours</span> {{ entry.excerpt }}</p>
+                        <button @click="goToGlossaryEntry(entry)" type="button">Voir dans la leçon <i data-lucide="arrow-up-right"></i></button>
+                    </article>
+                </div>
+                <p v-if="!filteredGlossary.length" class="ussul-glossary-noresults">Aucun terme trouvé.</p>
+                <button v-if="visibleGlossary.length<filteredGlossary.length" class="ussul-glossary-more" @click="glossaryVisibleCount+=36">Afficher davantage de notions</button>
+            </div>
+        </section>
 
         <div v-if="videoOpen" class="ussul-video-layer" :class="'mode-'+videoMode" @click.self="videoMode==='theater' && minimizeVideo()">
             <section ref="videoPlayer" class="ussul-video-player" :class="'is-'+videoMode" :style="playerStyle">
