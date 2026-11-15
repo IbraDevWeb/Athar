@@ -1,7 +1,1776 @@
 {
   "schemaVersion": 1,
   "collectionId": "abu-dawud",
-  "sourceRecords": [],
-  "chapters": [],
-  "hadiths": []
+  "range": {
+    "first": 1,
+    "last": 50,
+    "numbering": "Sunan Abî Dâwûd 1–50 : numérotation usuelle Sunnah.com, livre 1 / Kitâb at-Tahâra ; correspondance 1 à 1 de l'édition numérique."
+  },
+  "editorialStatus": "Premières 50 références du Livre de la purification, arabe et traduction française numérique. Aucun jugement global d'authenticité : les appréciations varient et certaines narrations sont jugées faibles par certains spécialistes. Traduction non revue par un spécialiste ; titres de cartes purement éditoriaux.",
+  "chapters": [
+    {
+      "id": "purification",
+      "bookNumber": 1,
+      "titleFr": "La Purification",
+      "titleAr": "كتاب الطهارة",
+      "firstHadith": 1,
+      "lastHadith": 50
+    }
+  ],
+  "sourceRecords": [
+    {
+      "id": "source-ar",
+      "name": "fawazahmed0/hadith-api · ara-abudawud, Purification",
+      "language": "ar",
+      "repository": "https://github.com/fawazahmed0/hadith-api",
+      "ref": "1",
+      "path": "editions/ara-abudawud/sections/1.json",
+      "blobSha": "1a6bd887593dce51fd73814a258c02ae844dcc43",
+      "sourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "numbering": "1 à 50 ; livre 1"
+    },
+    {
+      "id": "source-fr",
+      "name": "fawazahmed0/hadith-api · fra-abudawud, Purification",
+      "language": "fr",
+      "repository": "https://github.com/fawazahmed0/hadith-api",
+      "ref": "1",
+      "path": "editions/fra-abudawud/sections/1.json",
+      "blobSha": "34d340f5bbe85cb0b454ef0ae708ae71537037fc",
+      "sourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translator": "non identifié",
+      "editorialCaution": "Texte numérique en français sans vérification éditoriale spécialisée ; la présence des grades dans l'API ne remplace pas une édition savante."
+    },
+    {
+      "id": "sunnah",
+      "name": "Sunnah.com · livre de la Purification, hadiths 1 à 50",
+      "url": "https://sunnah.com/abudawud/1",
+      "numbering": "Sunan Abi Dawud 1 à 50, book 1, hadith 1–50"
+    }
+  ],
+  "editorialPresentation": {
+    "scope": "Titres de lecture éditoriaux, non attribués à Abû Dâwûd ou aux transmetteurs ; les textes arabes et versions françaises sont reproduits séparément, et les appréciations de grade proviennent de l'édition numérique, sans certification par Athar."
+  },
+  "hadiths": [
+    {
+      "id": "Sunan Abi Dawud 1",
+      "number": 1,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 1,
+      "title": "Hadith n° 1",
+      "readingTitle": "S'éloigner des regards pour se soulager",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مَسْلَمَةَ بْنِ قَعْنَبٍ الْقَعْنَبِيُّ، حَدَّثَنَا عَبْدُ الْعَزِيزِ، - يَعْنِي ابْنَ مُحَمَّدٍ - عَنْ مُحَمَّدٍ، - يَعْنِي ابْنَ عَمْرٍو - عَنْ أَبِي سَلَمَةَ، عَنِ الْمُغِيرَةِ بْنِ شُعْبَةَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا ذَهَبَ الْمَذْهَبَ أَبْعَدَ ‏.‏",
+      "hadeeth": "Rapporté par Mughirah ibn Shu'bah : Lorsque le Prophète ﷺ sortait pour se soulager, il allait dans un endroit éloigné",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 1",
+      "source_url": "https://sunnah.com/abudawud:1",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 2",
+      "number": 2,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 2,
+      "title": "Hadith n° 2",
+      "readingTitle": "Choisir un lieu isolé pour ses besoins",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسَدَّدُ بْنُ مُسَرْهَدٍ، حَدَّثَنَا عِيسَى بْنُ يُونُسَ، أَخْبَرَنَا إِسْمَاعِيلُ بْنُ عَبْدِ الْمَلِكِ، عَنْ أَبِي الزُّبَيْرِ، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا أَرَادَ الْبَرَازَ انْطَلَقَ حَتَّى لاَ يَرَاهُ أَحَدٌ ‏.‏",
+      "hadeeth": "Rapporté par Jabir ibn Abdullah : Lorsque le Prophète ﷺ avait besoin de se soulager, il s’éloignait afin que personne ne puisse le voir",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 2",
+      "source_url": "https://sunnah.com/abudawud:2",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 3",
+      "number": 3,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 3,
+      "title": "Hadith n° 3",
+      "readingTitle": "Le récit d'Abû Mûsâ sur les besoins naturels",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، حَدَّثَنَا حَمَّادٌ، أَخْبَرَنَا أَبُو التَّيَّاحِ، حَدَّثَنِي شَيْخٌ، قَالَ لَمَّا قَدِمَ عَبْدُ اللَّهِ بْنُ عَبَّاسٍ الْبَصْرَةَ فَكَانَ يُحَدَّثُ عَنْ أَبِي مُوسَى، فَكَتَبَ عَبْدُ اللَّهِ إِلَى أَبِي مُوسَى يَسْأَلُهُ عَنْ أَشْيَاءَ، فَكَتَبَ إِلَيْهِ أَبُو مُوسَى إِنِّي كُنْتُ مَعَ رَسُولِ اللَّهِ صلى الله عليه وسلم ذَاتَ يَوْمٍ فَأَرَادَ أَنْ يَبُولَ فَأَتَى دَمِثًا فِي أَصْلِ جِدَارٍ فَبَالَ ثُمَّ قَالَ صلى الله عليه وسلم ‏ \"‏ إِذَا أَرَادَ أَحَدُكُمْ أَنْ يَبُولَ فَلْيَرْتَدْ لِبَوْلِهِ مَوْضِعًا ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Abu al-Tayyah d’après un shaykh : Lorsque Abdullah ibn Abbas arriva à Bassorah, les gens lui rapportèrent des récits venant d’Abu Musa. Ibn Abbas lui écrivit alors pour lui demander des précisions sur certains points. En réponse, Abu Musa lui écrivit ceci : Un jour, j’étais avec le Messager d’Allah ﷺ. Il voulait uriner. Il est alors allé vers un terrain meuble au pied d’un mur et a uriné là. Puis le Prophète ﷺ a dit : « Si l’un de vous veut uriner, qu’il cherche un endroit comme celui-ci pour le faire. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 3",
+      "source_url": "https://sunnah.com/abudawud:3",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 4",
+      "number": 4,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 4,
+      "title": "Hadith n° 4",
+      "readingTitle": "L'invocation avant d'entrer aux toilettes",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسَدَّدُ بْنُ مُسَرْهَدٍ، حَدَّثَنَا حَمَّادُ بْنُ زَيْدٍ، وَعَبْدُ الْوَارِثِ، عَنْ عَبْدِ الْعَزِيزِ بْنِ صُهَيْبٍ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم إِذَا دَخَلَ الْخَلاَءَ - قَالَ عَنْ حَمَّادٍ قَالَ ‏\"‏ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ ‏\"‏ ‏.‏ وَقَالَ عَنْ عَبْدِ الْوَارِثِ - قَالَ ‏\"‏ أَعُوذُ بِاللَّهِ مِنَ الْخُبُثِ وَالْخَبَائِثِ ‏\"‏ ‏.‏ قَالَ أَبُو دَاوُد رَوَاهُ شُعْبَةُ عَنْ عَبْدِ الْعَزِيزِ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ وَقَالَ مَرَّةً أَعُوذُ بِاللَّهِ و قَالَ وُهَيْبٌ فَلْيَتَعَوَّذْ بِاللَّهِ",
+      "hadeeth": "Rapporté par Anas b. Malik : Lorsque le Messager d’Allah ﷺ entrait aux toilettes, il disait avant d’entrer : « Ô Allah, je cherche refuge auprès de Toi. » Ceci selon la version de Hammad. ‘Abd al-Warith rapporte une autre version : « Je cherche refuge auprès d’Allah contre les diables mâles et femelles. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 4",
+      "source_url": "https://sunnah.com/abudawud:4",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (142) Sahih Muslim (375)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 5",
+      "number": 5,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 5,
+      "title": "Hadith n° 5",
+      "readingTitle": "Une autre transmission de l'invocation d'Anas",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا الْحَسَنُ بْنُ عَمْرٍو، - يَعْنِي السَّدُوسِيَّ - حَدَّثَنَا وَكِيعٌ، عَنْ شُعْبَةَ، عَنْ عَبْدِ الْعَزِيزِ، - هُوَ ابْنُ صُهَيْبٍ - عَنْ أَنَسٍ، بِهَذَا الْحَدِيثِ قَالَ ‏\"‏ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ ‏\"‏ ‏.‏ وَقَالَ شُعْبَةُ وَقَالَ مَرَّةً ‏\"‏ أَعُوذُ بِاللَّهِ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Anas : Une autre tradition rapporte qu’il disait : « Ô Allah, je cherche refuge auprès de Toi. » Shu’bah a dit : Anas rapportait parfois les paroles : « Je cherche refuge auprès d’Allah. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 5",
+      "source_url": "https://sunnah.com/abudawud:5",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Shadh"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Shadh"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 6",
+      "number": 6,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 6,
+      "title": "Hadith n° 6",
+      "readingTitle": "Chercher refuge avant d'entrer aux toilettes",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عَمْرُو بْنُ مَرْزُوقٍ، أَخْبَرَنَا شُعْبَةُ، عَنْ قَتَادَةَ، عَنِ النَّضْرِ بْنِ أَنَسٍ، عَنْ زَيْدِ بْنِ أَرْقَمَ، عَنْ رَسُولِ اللَّهِ صلى الله عليه وسلم قَالَ ‏ \"‏ إِنَّ هَذِهِ الْحُشُوشَ مُحْتَضَرَةٌ فَإِذَا أَتَى أَحَدُكُمُ الْخَلاَءَ فَلْيَقُلْ أَعُوذُ بِاللَّهِ مِنَ الْخُبُثِ وَالْخَبَائِثِ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Zayd ibn Arqam : Le Messager d’Allah ﷺ a dit : « Ces lieux d’aisance sont fréquentés par les djinns et les diables. Donc, lorsque l’un d’entre vous s’y rend, qu’il dise : “Je cherche refuge auprès d’Allah contre les diables mâles et femelles.” »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 6",
+      "source_url": "https://sunnah.com/abudawud:6",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 7",
+      "number": 7,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 7,
+      "title": "Hadith n° 7",
+      "readingTitle": "Les règles de conduite expliquées à Salmân",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسَدَّدُ بْنُ مُسَرْهَدٍ، حَدَّثَنَا أَبُو مُعَاوِيَةَ، عَنِ الأَعْمَشِ، عَنْ إِبْرَاهِيمَ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ يَزِيدَ، عَنْ سَلْمَانَ، قَالَ قِيلَ لَهُ لَقَدْ عَلَّمَكُمْ نَبِيُّكُمْ كُلَّ شَىْءٍ حَتَّى الْخِرَاءَةَ ‏.‏ قَالَ أَجَلْ لَقَدْ نَهَانَا صلى الله عليه وسلم أَنْ نَسْتَقْبِلَ الْقِبْلَةَ بِغَائِطٍ أَوْ بَوْلٍ وَأَنْ لاَ نَسْتَنْجِيَ بِالْيَمِينِ وَأَنْ لاَ يَسْتَنْجِيَ أَحَدُنَا بِأَقَلَّ مِنْ ثَلاَثَةِ أَحْجَارٍ أَوْ يَسْتَنْجِيَ بِرَجِيعٍ أَوْ عَظْمٍ ‏.‏",
+      "hadeeth": "Rapporté par Salman al-Farsi : On a dit à Salman : « Votre Prophète vous enseigne tout, même ce qui concerne les besoins naturels. » Il a répondu : « Oui. Il nous a interdit de nous tourner vers la qiblah pour uriner ou pour satisfaire nos besoins, de nous nettoyer avec la main droite, d’utiliser moins de trois pierres, ou d’utiliser des excréments ou des os pour se nettoyer. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 7",
+      "source_url": "https://sunnah.com/abudawud:7",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Muslim (262)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 8",
+      "number": 8,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 8,
+      "title": "Hadith n° 8",
+      "readingTitle": "Les règles de conduite lors des besoins naturels",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مُحَمَّدٍ النُّفَيْلِيُّ، حَدَّثَنَا ابْنُ الْمُبَارَكِ، عَنْ مُحَمَّدِ بْنِ عَجْلاَنَ، عَنِ الْقَعْقَاعِ بْنِ حَكِيمٍ، عَنْ أَبِي صَالِحٍ، عَنْ أَبِي هُرَيْرَةَ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ إِنَّمَا أَنَا لَكُمْ بِمَنْزِلَةِ الْوَالِدِ أُعَلِّمُكُمْ فَإِذَا أَتَى أَحَدُكُمُ الْغَائِطَ فَلاَ يَسْتَقْبِلِ الْقِبْلَةَ وَلاَ يَسْتَدْبِرْهَا وَلاَ يَسْتَطِبْ بِيَمِينِهِ ‏\"‏ ‏.‏ وَكَانَ يَأْمُرُ بِثَلاَثَةِ أَحْجَارٍ وَيَنْهَى عَنِ الرَّوْثِ وَالرِّمَّةِ ‏.‏",
+      "hadeeth": "Rapporté par Abu Huraira رضي الله عنه : Le Messager d’Allah ﷺ a dit : « Je suis comme un père pour vous. Lorsque l’un de vous va aux toilettes, il ne doit ni faire face ni tourner le dos à la qiblah. Il ne doit pas se nettoyer avec la main droite. » Le Prophète ﷺ a aussi ordonné aux musulmans d’utiliser trois pierres et leur a interdit d’utiliser des excréments ou des os en décomposition",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 8",
+      "source_url": "https://sunnah.com/abudawud:8",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 9",
+      "number": 9,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 9,
+      "title": "Hadith n° 9",
+      "readingTitle": "Ne pas se tourner vers la qibla",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسَدَّدُ بْنُ مُسَرْهَدٍ، حَدَّثَنَا سُفْيَانُ، عَنِ الزُّهْرِيِّ، عَنْ عَطَاءِ بْنِ يَزِيدَ اللَّيْثِيِّ، عَنْ أَبِي أَيُّوبَ، رِوَايَةً قَالَ ‏ \"‏ إِذَا أَتَيْتُمُ الْغَائِطَ فَلاَ تَسْتَقْبِلُوا الْقِبْلَةَ بِغَائِطٍ وَلاَ بَوْلٍ وَلَكِنْ شَرِّقُوا أَوْ غَرِّبُوا ‏\"‏ ‏.‏ فَقَدِمْنَا الشَّامَ فَوَجَدْنَا مَرَاحِيضَ قَدْ بُنِيَتْ قِبَلَ الْقِبْلَةِ فَكُنَّا نَنْحَرِفُ عَنْهَا وَنَسْتَغْفِرُ اللَّهَ ‏.‏",
+      "hadeeth": "Rapporté par Abu Ayyub : Le Prophète ﷺ a dit : « Lorsque vous allez aux toilettes, ne tournez ni votre visage ni votre dos vers la qiblah pour uriner ou satisfaire vos besoins, mais tournez-vous plutôt vers l’est ou l’ouest. » (Abu Ayyub a ajouté : « Lorsque nous sommes arrivés en Syrie, nous avons constaté que les toilettes étaient déjà construites en direction de la qiblah. Nous détournions alors notre visage et demandions pardon à Allah. »)",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 9",
+      "source_url": "https://sunnah.com/abudawud:9",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (394) Sahih Muslim (264)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 10",
+      "number": 10,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 10,
+      "title": "Hadith n° 10",
+      "readingTitle": "L'interdiction de faire face aux deux qiblas",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، حَدَّثَنَا وُهَيْبٌ، حَدَّثَنَا عَمْرُو بْنُ يَحْيَى، عَنْ أَبِي زَيْدٍ، عَنْ مَعْقِلِ بْنِ أَبِي مَعْقِلٍ الأَسَدِيِّ، قَالَ نَهَى رَسُولُ اللَّهِ صلى الله عليه وسلم أَنْ نَسْتَقْبِلَ الْقِبْلَتَيْنِ بِبَوْلٍ أَوْ غَائِطٍ ‏.‏ قَالَ أَبُو دَاوُدَ وَأَبُو زَيْدٍ هُوَ مَوْلَى بَنِي ثَعْلَبَةَ ‏.‏",
+      "hadeeth": "Rapporté par Ma'qil ibn Abu Ma'qil al-Asadi : Le Messager d’Allah ﷺ nous a interdit de faire face aux deux qiblahs au moment d’uriner ou de satisfaire ses besoins",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 10",
+      "source_url": "https://sunnah.com/abudawud:10",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Munkar"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 11",
+      "number": 11,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 11,
+      "title": "Hadith n° 11",
+      "readingTitle": "L'explication d'Ibn ‘Umar sur la qibla",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى بْنِ فَارِسٍ، حَدَّثَنَا صَفْوَانُ بْنُ عِيسَى، عَنِ الْحَسَنِ بْنِ ذَكْوَانَ، عَنْ مَرْوَانَ الأَصْفَرِ، قَالَ رَأَيْتُ ابْنَ عُمَرَ أَنَاخَ رَاحِلَتَهُ مُسْتَقْبِلَ الْقِبْلَةِ ثُمَّ جَلَسَ يَبُولُ إِلَيْهَا فَقُلْتُ يَا أَبَا عَبْدِ الرَّحْمَنِ أَلَيْسَ قَدْ نُهِيَ عَنْ هَذَا قَالَ بَلَى إِنَّمَا نُهِيَ عَنْ ذَلِكَ فِي الْفَضَاءِ فَإِذَا كَانَ بَيْنَكَ وَبَيْنَ الْقِبْلَةِ شَىْءٌ يَسْتُرُكَ فَلاَ بَأْسَ ‏.‏",
+      "hadeeth": "Marwan al-Asfar a dit : J’ai vu Ibn Umar faire agenouiller son chameau face à la qiblah, puis il s’est assis et a uriné dans cette direction. Je lui ai dit : « Abu AbdurRahman, cela n’a-t-il pas été interdit ? » Il a répondu : « Bien sûr, cela n’a été interdit qu’en terrain découvert ; mais lorsqu’il y a quelque chose entre toi et la qiblah qui te cache, il n’y a pas de mal. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 11",
+      "source_url": "https://sunnah.com/abudawud:11",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 12",
+      "number": 12,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 12,
+      "title": "Hadith n° 12",
+      "readingTitle": "Ce qu'Ibn ‘Umar observa depuis un toit",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مَسْلَمَةَ، عَنْ مَالِكٍ، عَنْ يَحْيَى بْنِ سَعِيدٍ، عَنْ مُحَمَّدِ بْنِ يَحْيَى بْنِ حَبَّانَ، عَنْ عَمِّهِ، وَاسِعِ بْنِ حَبَّانَ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ، قَالَ لَقَدِ ارْتَقَيْتُ عَلَى ظَهْرِ الْبَيْتِ فَرَأَيْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم عَلَى لَبِنَتَيْنِ مُسْتَقْبِلَ بَيْتِ الْمَقْدِسِ لِحَاجَتِهِ",
+      "hadeeth": "Rapporté par ‘Abd Allah b. ‘Umar : Je suis monté sur le toit de la maison et j’ai vu le Messager d’Allah ﷺ assis sur deux briques, tourné vers Jérusalem (Bayt al-Maqdis), pour satisfaire ses besoins",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 12",
+      "source_url": "https://sunnah.com/abudawud:12",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (145) Sahih Muslim (266)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 13",
+      "number": 13,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 13,
+      "title": "Hadith n° 13",
+      "readingTitle": "Le témoignage de Jâbir sur l'orientation",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا وَهْبُ بْنُ جَرِيرٍ، حَدَّثَنَا أَبِي قَالَ، سَمِعْتُ مُحَمَّدَ بْنَ إِسْحَاقَ، يُحَدِّثُ عَنْ أَبَانَ بْنِ صَالِحٍ، عَنْ مُجَاهِدٍ، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ، قَالَ نَهَى نَبِيُّ اللَّهِ صلى الله عليه وسلم أَنْ نَسْتَقْبِلَ الْقِبْلَةَ بِبَوْلٍ فَرَأَيْتُهُ قَبْلَ أَنْ يُقْبَضَ بِعَامٍ يَسْتَقْبِلُهَا ‏.‏",
+      "hadeeth": "Rapporté par Jabir ibn Abdullah : Le Prophète d’Allah ﷺ nous a interdit de faire face à la qiblah en urinant. Puis, je l’ai vu, une année avant sa mort, faire face à la qiblah pour uriner ou satisfaire ses besoins",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 13",
+      "source_url": "https://sunnah.com/abudawud:13",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 14",
+      "number": 14,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 14,
+      "title": "Hadith n° 14",
+      "readingTitle": "Préserver son intimité avant de s'accroupir",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا زُهَيْرُ بْنُ حَرْبٍ، حَدَّثَنَا وَكِيعٌ، عَنِ الأَعْمَشِ، عَنْ رَجُلٍ، عَنِ ابْنِ عُمَرَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا أَرَادَ حَاجَةً لاَ يَرْفَعُ ثَوْبَهُ حَتَّى يَدْنُوَ مِنَ الأَرْضِ ‏.‏ قَالَ أَبُو دَاوُدَ رَوَاهُ عَبْدُ السَّلاَمِ بْنُ حَرْبٍ عَنِ الأَعْمَشِ عَنْ أَنَسِ بْنِ مَالِكٍ وَهُوَ ضَعِيفٌ ‏.‏ قَالَ أَبُو عِيسَى الرَّمْلِيُّ حَدَّثَنَا أَحْمَدُ بْنُ الْوَلِيدِ حَدَّثَنَا عَمْرُو بْنُ عَوْنٍ أَخْبَرَنَا عَبْدُ السَّلاَمِ بِهِ ‏.‏",
+      "hadeeth": "Rapporté par Abdullah ibn Umar : Quand le Prophète ﷺ voulait satisfaire ses besoins, il ne relevait pas son vêtement avant d’être accroupi près du sol. Abu Dawud a dit : Cette tradition a été transmise par ‘Abd al-Salam b. Harb d’après al-A’mash, de la part d’Anas b. Malik. Cette chaîne de transmission est faible (car il n’est pas établi qu’al-A’mash ait entendu cela d’Anas b. Malik)",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 14",
+      "source_url": "https://sunnah.com/abudawud:14",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 15",
+      "number": 15,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 15,
+      "title": "Hadith n° 15",
+      "readingTitle": "Un avertissement sur l'intimité entre deux personnes",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عُبَيْدُ اللَّهِ بْنُ عُمَرَ بْنِ مَيْسَرَةَ، حَدَّثَنَا ابْنُ مَهْدِيٍّ، حَدَّثَنَا عِكْرِمَةُ بْنُ عَمَّارٍ، عَنْ يَحْيَى بْنِ أَبِي كَثِيرٍ، عَنْ هِلاَلِ بْنِ عِيَاضٍ، قَالَ حَدَّثَنِي أَبُو سَعِيدٍ، قَالَ سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ ‏ \"‏ لاَ يَخْرُجُ الرَّجُلاَنِ يَضْرِبَانِ الْغَائِطَ كَاشِفَيْنِ عَنْ عَوْرَتِهِمَا يَتَحَدَّثَانِ فَإِنَّ اللَّهَ عَزَّ وَجَلَّ يَمْقُتُ عَلَى ذَلِكَ ‏\"‏ ‏.‏ قَالَ أَبُو دَاوُدَ هَذَا لَمْ يُسْنِدْهُ إِلاَّ عِكْرِمَةُ بْنُ عَمَّارٍ ‏.‏",
+      "hadeeth": "Rapporté par Abu Sa’id al-Khudri : J’ai entendu le Messager d’Allah ﷺ dire : « Lorsque deux personnes vont ensemble pour satisfaire leurs besoins, découvrent leurs parties intimes et discutent ensemble, Allah, le Grand et Majestueux, se met en colère contre cet acte. » Abu Dawud a dit : Cette tradition n’a été rapportée que par ‘Ikrimah b. ‘Ammar",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 15",
+      "source_url": "https://sunnah.com/abudawud:15",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 16",
+      "number": 16,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 16,
+      "title": "Hadith n° 16",
+      "readingTitle": "Le salut pendant les besoins naturels",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عُثْمَانُ، وَأَبُو بَكْرٍ ابْنَا أَبِي شَيْبَةَ قَالاَ حَدَّثَنَا عُمَرُ بْنُ سَعْدٍ، عَنْ سُفْيَانَ، عَنِ الضَّحَّاكِ بْنِ عُثْمَانَ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، قَالَ مَرَّ رَجُلٌ عَلَى النَّبِيِّ صلى الله عليه وسلم وَهُوَ يَبُولُ فَسَلَّمَ عَلَيْهِ فَلَمْ يَرُدَّ عَلَيْهِ ‏.‏ قَالَ أَبُو دَاوُدَ وَرُوِيَ عَنِ ابْنِ عُمَرَ وَغَيْرِهِ أَنَّ النَّبِيَّ صلى الله عليه وسلم تَيَمَّمَ ثُمَّ رَدَّ عَلَى الرَّجُلِ السَّلاَمَ ‏.‏",
+      "hadeeth": "Rapporté par Ibn ‘Umar : Un homme est passé devant le Prophète ﷺ alors qu’il urinait et l’a salué. Le Prophète ﷺ ne lui a pas rendu le salut. Abu Dawud a dit : Il est rapporté d’après Ibn ‘Umar que le Prophète ﷺ a fait le tayammum, puis il a rendu le salut à cet homme",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 16",
+      "source_url": "https://sunnah.com/abudawud:16",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Muslim (370)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 17",
+      "number": 17,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 17,
+      "title": "Hadith n° 17",
+      "readingTitle": "Répondre au salut après avoir fait ses ablutions",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا عَبْدُ الأَعْلَى، حَدَّثَنَا سَعِيدٌ، عَنْ قَتَادَةَ، عَنِ الْحَسَنِ، عَنْ حُضَيْنِ بْنِ الْمُنْذِرِ أَبِي سَاسَانَ، عَنِ الْمُهَاجِرِ بْنِ قُنْفُذٍ، أَنَّهُ أَتَى النَّبِيَّ صلى الله عليه وسلم وَهُوَ يَبُولُ فَسَلَّمَ عَلَيْهِ فَلَمْ يَرُدَّ عَلَيْهِ حَتَّى تَوَضَّأَ ثُمَّ اعْتَذَرَ إِلَيْهِ فَقَالَ ‏\"‏ إِنِّي كَرِهْتُ أَنْ أَذْكُرَ اللَّهَ عَزَّ وَجَلَّ إِلاَّ عَلَى طُهْرٍ ‏\"‏ ‏.‏ أَوْ قَالَ ‏\"‏ عَلَى طَهَارَةٍ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Muhajir ibn Qunfudh : Muhajir est venu voir le Prophète ﷺ alors qu’il urinait. Il l’a salué. Le Prophète ﷺ ne lui a pas répondu avant d’avoir fait ses ablutions. Il s’est ensuite excusé en disant : « Je n’aime pas mentionner Allah si je ne suis pas en état de pureté. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 17",
+      "source_url": "https://sunnah.com/abudawud:17",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 18",
+      "number": 18,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 18,
+      "title": "Hadith n° 18",
+      "readingTitle": "Se souvenir d'Allah en toute circonstance",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ الْعَلاَءِ، حَدَّثَنَا ابْنُ أَبِي زَائِدَةَ، عَنْ أَبِيهِ، عَنْ خَالِدِ بْنِ سَلَمَةَ، - يَعْنِي الْفَأْفَاءَ - عَنِ الْبَهِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، قَالَتْ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَذْكُرُ اللَّهَ عَزَّ وَجَلَّ عَلَى كُلِّ أَحْيَانِهِ ‏.‏",
+      "hadeeth": "Rapporté par Aïsha (la mère des croyants) رضي الله عنها : Le Messager d’Allah ﷺ se rappelait Allah, le Grand et Majestueux, à tout moment",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 18",
+      "source_url": "https://sunnah.com/abudawud:18",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Muslim (373)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 19",
+      "number": 19,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 19,
+      "title": "Hadith n° 19",
+      "readingTitle": "Le récit sur le retrait de la bague",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا نَصْرُ بْنُ عَلِيٍّ، عَنْ أَبِي عَلِيٍّ الْحَنَفِيِّ، عَنْ هَمَّامٍ، عَنِ ابْنِ جُرَيْجٍ، عَنِ الزُّهْرِيِّ، عَنْ أَنَسٍ، قَالَ كَانَ النَّبِيُّ صلى الله عليه وسلم إِذَا دَخَلَ الْخَلاَءَ وَضَعَ خَاتَمَهُ ‏.‏ قَالَ أَبُو دَاوُدَ هَذَا حَدِيثٌ مُنْكَرٌ وَإِنَّمَا يُعْرَفُ عَنِ ابْنِ جُرَيْجٍ عَنْ زِيَادِ بْنِ سَعْدٍ عَنِ الزُّهْرِيِّ عَنْ أَنَسٍ أَنَّ النَّبِيَّ صلى الله عليه وسلم اتَّخَذَ خَاتَمًا مِنْ وَرِقٍ ثُمَّ أَلْقَاهُ ‏.‏ وَالْوَهَمُ فِيهِ مِنْ هَمَّامٍ وَلَمْ يَرْوِهِ إِلاَّ هَمَّامٌ ‏.‏",
+      "hadeeth": "Rapporté par Anas ibn Malik : Lorsque le Prophète ﷺ entrait aux toilettes, il retirait sa bague. Abu Dawud a dit : Ceci est une tradition munkar, c’est-à-dire qu’elle contredit la version bien connue rapportée par des narrateurs fiables. Selon la version bien connue d’Anas : Le Prophète ﷺ s’était fait faire une bague en argent, puis il l’a retirée. L’erreur vient de Hammam (le narrateur de la première tradition citée). Cette version n’est rapportée que par Hammam",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 19",
+      "source_url": "https://sunnah.com/abudawud:19",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Munkar"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 20",
+      "number": 20,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 20,
+      "title": "Hadith n° 20",
+      "readingTitle": "Deux tombes et les souillures de l'urine",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا زُهَيْرُ بْنُ حَرْبٍ، وَهَنَّادُ بْنُ السَّرِيِّ، قَالاَ حَدَّثَنَا وَكِيعٌ، حَدَّثَنَا الأَعْمَشُ، قَالَ سَمِعْتُ مُجَاهِدًا، يُحَدِّثُ عَنْ طَاوُسٍ، عَنِ ابْنِ عَبَّاسٍ، قَالَ مَرَّ رَسُولُ اللَّهِ صلى الله عليه وسلم عَلَى قَبْرَيْنِ فَقَالَ ‏\"‏ إِنَّهُمَا يُعَذَّبَانِ وَمَا يُعَذَّبَانِ فِي كَبِيرٍ أَمَّا هَذَا فَكَانَ لاَ يَسْتَنْزِهُ مِنَ الْبَوْلِ وَأَمَّا هَذَا فَكَانَ يَمْشِي بِالنَّمِيمَةِ ‏\"‏ ‏.‏ ثُمَّ دَعَا بِعَسِيبٍ رَطْبٍ فَشَقَّهُ بِاثْنَيْنِ ثُمَّ غَرَسَ عَلَى هَذَا وَاحِدًا وَعَلَى هَذَا وَاحِدًا وَقَالَ ‏\"‏ لَعَلَّهُ يُخَفَّفُ عَنْهُمَا مَا لَمْ يَيْبَسَا ‏\"‏ ‏.‏ قَالَ هَنَّادٌ ‏\"‏ يَسْتَتِرُ ‏\"‏ ‏.‏ مَكَانَ ‏\"‏ يَسْتَنْزِهُ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Ibn ‘Abbas : Le Prophète ﷺ est passé devant deux tombes et a dit : « Les deux personnes qui sont là sont punies, mais pas pour un grand péché. L’une ne se protégeait pas de l’urine, l’autre colportait des propos. » Il a ensuite demandé une branche fraîche, l’a coupée en deux et a planté une moitié sur chaque tombe, puis a dit : « Peut-être que leur châtiment sera allégé tant que ces branches resteront fraîches. » Une autre version de Hannad dit : « L’un d’eux ne se couvrait pas en urinant. » Cette version ne contient pas les mots : « Il ne se protégeait pas de l’urine. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 20",
+      "source_url": "https://sunnah.com/abudawud:20",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (6052) Sahih Muslim (292)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 21",
+      "number": 21,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 21,
+      "title": "Hadith n° 21",
+      "readingTitle": "Deux versions d'un récit sur l'urine",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عُثْمَانُ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا جَرِيرٌ، عَنْ مَنْصُورٍ، عَنْ مُجَاهِدٍ، عَنِ ابْنِ عَبَّاسٍ، عَنِ النَّبِيِّ صلى الله عليه وسلم بِمَعْنَاهُ قَالَ ‏\"‏ كَانَ لاَ يَسْتَتِرُ مِنْ بَوْلِهِ ‏\"‏ ‏.‏ وَقَالَ أَبُو مُعَاوِيَةَ ‏\"‏ يَسْتَنْزِهُ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Ibn ‘Abbas : Une tradition du Prophète ﷺ au sens similaire. La version de Jarir dit : « Il ne se couvrait pas en urinant. » Celle d’Abu Mu’awiyah dit : « Il ne se protégeait pas (de l’urine). »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 21",
+      "source_url": "https://sunnah.com/abudawud:21",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (216)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 22",
+      "number": 22,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 22,
+      "title": "Hadith n° 22",
+      "readingTitle": "Se dissimuler au moment de ses besoins",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا عَبْدُ الْوَاحِدِ بْنُ زِيَادٍ، حَدَّثَنَا الأَعْمَشُ، عَنْ زَيْدِ بْنِ وَهْبٍ، عَنْ عَبْدِ الرَّحْمَنِ ابْنِ حَسَنَةَ، قَالَ انْطَلَقْتُ أَنَا وَعَمْرُو بْنُ الْعَاصِ، إِلَى النَّبِيِّ صلى الله عليه وسلم فَخَرَجَ وَمَعَهُ دَرَقَةٌ ثُمَّ اسْتَتَرَ بِهَا ثُمَّ بَالَ فَقُلْنَا انْظُرُوا إِلَيْهِ يَبُولُ كَمَا تَبُولُ الْمَرْأَةُ ‏.‏ فَسَمِعَ ذَلِكَ فَقَالَ ‏\"‏ أَلَمْ تَعْلَمُوا مَا لَقِيَ صَاحِبُ بَنِي إِسْرَائِيلَ كَانُوا إِذَا أَصَابَهُمُ الْبَوْلُ قَطَعُوا مَا أَصَابَهُ الْبَوْلُ مِنْهُمْ فَنَهَاهُمْ فَعُذِّبَ فِي قَبْرِهِ ‏\"‏ ‏.‏ قَالَ أَبُو دَاوُدَ قَالَ مَنْصُورٌ عَنْ أَبِي وَائِلٍ عَنْ أَبِي مُوسَى فِي هَذَا الْحَدِيثِ قَالَ ‏\"‏ جِلْدَ أَحَدِهِمْ ‏\"‏ ‏.‏ وَقَالَ عَاصِمٌ عَنْ أَبِي وَائِلٍ عَنْ أَبِي مُوسَى عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ جَسَدَ أَحَدِهِمْ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Amr ibn al-‘As, selon AbdurRahman ibn Hasanah : Lui et Amr ibn al-‘As sont allés voir le Prophète ﷺ. Il est sorti avec un bouclier en cuir à la main, s’est couvert avec et a uriné. Nous avons alors dit : « Regardez-le, il urine comme une femme. » Le Prophète ﷺ a entendu cela et a dit : « Ne savez-vous pas ce qui est arrivé à une personne parmi les enfants d’Israël ? Quand de l’urine les touchait, ils coupaient la partie touchée ; mais cet homme leur a interdit de le faire, et il a été puni dans sa tombe. » Abu Dawud a dit : Une version d’Abu Musa dit : « Il a coupé sa peau. » Une autre version d’Abu Musa dit : « Il a coupé une partie de son corps. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 22",
+      "source_url": "https://sunnah.com/abudawud:22",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih Muquf"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 23",
+      "number": 23,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 23,
+      "title": "Hadith n° 23",
+      "readingTitle": "Un récit au sujet du fait d'uriner debout",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا حَفْصُ بْنُ عُمَرَ، وَمُسْلِمُ بْنُ إِبْرَاهِيمَ، قَالاَ حَدَّثَنَا شُعْبَةُ، ح وَحَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا أَبُو عَوَانَةَ، - وَهَذَا لَفْظُ حَفْصٍ - عَنْ سُلَيْمَانَ، عَنْ أَبِي وَائِلٍ، عَنْ حُذَيْفَةَ، قَالَ أَتَى رَسُولُ اللَّهِ صلى الله عليه وسلم سُبَاطَةَ قَوْمٍ فَبَالَ قَائِمًا ثُمَّ دَعَا بِمَاءٍ فَمَسَحَ عَلَى خُفَّيْهِ ‏.‏ قَالَ أَبُو دَاوُدَ قَالَ مُسَدَّدٌ قَالَ فَذَهَبْتُ أَتَبَاعَدُ فَدَعَانِي حَتَّى كُنْتُ عِنْدَ عَقِبِهِ ‏.‏",
+      "hadeeth": "Rapporté par Hudhayfah : Le Messager d’Allah ﷺ est allé sur un tas d’ordures appartenant à des gens et a uriné debout. Il a ensuite demandé de l’eau et a essuyé ses chaussures. Abu Dawud a dit : Musaddad, un narrateur, a rapporté : Je me suis éloigné de lui. Il m’a alors appelé et je suis revenu jusqu’à ses talons",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 23",
+      "source_url": "https://sunnah.com/abudawud:23",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (224) Sahih Muslim (273)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 24",
+      "number": 24,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 24,
+      "title": "Hadith n° 24",
+      "readingTitle": "Un récipient employé durant la nuit",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ عِيسَى، حَدَّثَنَا حَجَّاجٌ، عَنِ ابْنِ جُرَيْجٍ، عَنْ حُكَيْمَةَ بِنْتِ أُمَيْمَةَ بِنْتِ رُقَيْقَةَ، عَنْ أُمِّهَا، أَنَّهَا قَالَتْ كَانَ لِلنَّبِيِّ صلى الله عليه وسلم قَدَحٌ مِنْ عَيْدَانٍ تَحْتَ سَرِيرِهِ يَبُولُ فِيهِ بِاللَّيْلِ ‏.‏",
+      "hadeeth": "Rapporté par Umaymah, fille de Ruqayqah : Le Prophète ﷺ avait un récipient en bois sous son lit dans lequel il urinait la nuit",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 24",
+      "source_url": "https://sunnah.com/abudawud:24",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 25",
+      "number": 25,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 25,
+      "title": "Hadith n° 25",
+      "readingTitle": "Deux comportements qui attirent le blâme",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا إِسْمَاعِيلُ بْنُ جَعْفَرٍ، عَنِ الْعَلاَءِ بْنِ عَبْدِ الرَّحْمَنِ، عَنْ أَبِيهِ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏\"‏ اتَّقُوا اللاَّعِنَيْنِ ‏\"‏ ‏.‏ قَالُوا وَمَا اللاَّعِنَانِ يَا رَسُولَ اللَّهِ قَالَ ‏\"‏ الَّذِي يَتَخَلَّى فِي طَرِيقِ النَّاسِ أَوْ ظِلِّهِمْ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Abu Huraira رضي الله عنه : Le Prophète ﷺ a dit : « Prenez garde à deux choses qui provoquent les malédictions. » Ils ont demandé : « Ô Messager d’Allah ﷺ, quelles sont ces choses qui provoquent les malédictions ? » Il a répondu : « Faire ses besoins dans les points d’eau, sur les chemins, ou à l’ombre (des arbres) où les gens se reposent. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 25",
+      "source_url": "https://sunnah.com/abudawud:25",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Muslim (269)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 26",
+      "number": 26,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 26,
+      "title": "Hadith n° 26",
+      "readingTitle": "Trois lieux à préserver des souillures",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا إِسْحَاقُ بْنُ سُوَيْدٍ الرَّمْلِيُّ، وَعُمَرُ بْنُ الْخَطَّابِ أَبُو حَفْصٍ، وَحَدِيثُهُ، أَتَمُّ أَنَّ سَعِيدَ بْنَ الْحَكَمِ، حَدَّثَهُمْ قَالَ أَخْبَرَنَا نَافِعُ بْنُ يَزِيدَ، حَدَّثَنِي حَيْوَةُ بْنُ شُرَيْحٍ، أَنَّ أَبَا سَعِيدٍ الْحِمْيَرِيَّ، حَدَّثَهُ عَنْ مُعَاذِ بْنِ جَبَلٍ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ اتَّقُوا الْمَلاَعِنَ الثَّلاَثَ الْبَرَازَ فِي الْمَوَارِدِ وَقَارِعَةِ الطَّرِيقِ وَالظِّلِّ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Mu’adh ibn Jabal : Le Messager d’Allah ﷺ a dit : « Prenez garde à trois choses qui provoquent les malédictions : faire ses besoins dans les points d’eau, sur les chemins, ou à l’ombre (des arbres). »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 26",
+      "source_url": "https://sunnah.com/abudawud:26",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Hasan Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 27",
+      "number": 27,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 27,
+      "title": "Hadith n° 27",
+      "readingTitle": "Ne pas uriner dans son lieu de bain",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا أَحْمَدُ بْنُ مُحَمَّدِ بْنِ حَنْبَلٍ، وَالْحَسَنُ بْنُ عَلِيٍّ، قَالاَ حَدَّثَنَا عَبْدُ الرَّزَّاقِ، قَالَ أَحْمَدُ حَدَّثَنَا مَعْمَرٌ، أَخْبَرَنِي أَشْعَثُ، وَقَالَ الْحَسَنُ، عَنْ أَشْعَثَ بْنِ عَبْدِ اللَّهِ، عَنِ الْحَسَنِ، عَنْ عَبْدِ اللَّهِ بْنِ مُغَفَّلٍ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ لاَ يَبُولَنَّ أَحَدُكُمْ فِي مُسْتَحَمِّهِ ثُمَّ يَغْتَسِلُ فِيهِ ‏\"‏ ‏.‏ قَالَ أَحْمَدُ ‏\"‏ ثُمَّ يَتَوَضَّأُ فِيهِ فَإِنَّ عَامَّةَ الْوَسْوَاسِ مِنْهُ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Abdullah ibn Mughaffal : Le Messager d’Allah ﷺ a dit : « Aucun de vous ne doit uriner dans son bain, puis s’y laver ensuite. » La version d’Ahmad ajoute : « Puis y faire ses ablutions, car cela provoque de mauvaises pensées. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 27",
+      "source_url": "https://sunnah.com/abudawud:27",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 28",
+      "number": 28,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 28,
+      "title": "Hadith n° 28",
+      "readingTitle": "Une transmission sur la propreté des lieux",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا أَحْمَدُ بْنُ يُونُسَ، حَدَّثَنَا زُهَيْرٌ، عَنْ دَاوُدَ بْنِ عَبْدِ اللَّهِ، عَنْ حُمَيْدٍ الْحِمْيَرِيِّ، - وَهُوَ ابْنُ عَبْدِ الرَّحْمَنِ - قَالَ لَقِيتُ رَجُلاً صَحِبَ النَّبِيَّ صلى الله عليه وسلم كَمَا صَحِبَهُ أَبُو هُرَيْرَةَ قَالَ نَهَى رَسُولُ اللَّهِ صلى الله عليه وسلم أَنْ يَمْتَشِطَ أَحَدُنَا كُلَّ يَوْمٍ أَوْ يَبُولَ فِي مُغْتَسَلِهِ ‏.‏",
+      "hadeeth": "Rapporté par un homme parmi les Compagnons : Humayd al-Himyari a dit : J’ai rencontré un homme (compagnon du Prophète) qui restait avec le Prophète ﷺ autant qu’Abu Hurayrah. Il a ajouté : Le Messager d’Allah ﷺ nous a interdit de nous peigner les cheveux tous les jours ou d’uriner à l’endroit où l’on prend son bain",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 28",
+      "source_url": "https://sunnah.com/abudawud:28",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 29",
+      "number": 29,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 29,
+      "title": "Hadith n° 29",
+      "readingTitle": "L'interdiction d'uriner dans un trou",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عُبَيْدُ اللَّهِ بْنُ عُمَرَ بْنِ مَيْسَرَةَ، حَدَّثَنَا مُعَاذُ بْنُ هِشَامٍ، حَدَّثَنِي أَبِي، عَنْ قَتَادَةَ، عَنْ عَبْدِ اللَّهِ بْنِ سَرْجِسَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم نَهَى أَنْ يُبَالَ فِي الْجُحْرِ ‏.‏ قَالَ قَالُوا لِقَتَادَةَ مَا يُكْرَهُ مِنَ الْبَوْلِ فِي الْجُحْرِ قَالَ كَانَ يُقَالُ إِنَّهَا مَسَاكِنُ الْجِنِّ ‏.‏",
+      "hadeeth": "Rapporté par Abdullah ibn Sarjis : Le Prophète ﷺ a interdit d’uriner dans un trou. On a demandé à Qatadah (un rapporteur) pourquoi il était déconseillé d’uriner dans un trou. Il a répondu : Il est dit que ces trous sont les demeures des djinns",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 29",
+      "source_url": "https://sunnah.com/abudawud:29",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 30",
+      "number": 30,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 30,
+      "title": "Hadith n° 30",
+      "readingTitle": "Demander pardon après les toilettes",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عَمْرُو بْنُ مُحَمَّدٍ النَّاقِدُ، حَدَّثَنَا هَاشِمُ بْنُ الْقَاسِمِ، حَدَّثَنَا إِسْرَائِيلُ، عَنْ يُوسُفَ بْنِ أَبِي بُرْدَةَ، عَنْ أَبِيهِ، حَدَّثَتْنِي عَائِشَةُ، رضى الله عنها أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا خَرَجَ مِنَ الْغَائِطِ قَالَ ‏ \"‏ غُفْرَانَكَ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Aishah (la mère des croyants) رضي الله عنها : Quand le Prophète ﷺ sortait des toilettes, il disait : « Accorde-moi Ton pardon »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 30",
+      "source_url": "https://sunnah.com/abudawud:30",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 31",
+      "number": 31,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 31,
+      "title": "Hadith n° 31",
+      "readingTitle": "L'usage de la main droite et de la gauche",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسْلِمُ بْنُ إِبْرَاهِيمَ، وَمُوسَى بْنُ إِسْمَاعِيلَ، قَالاَ حَدَّثَنَا أَبَانُ، حَدَّثَنَا يَحْيَى، عَنْ عَبْدِ اللَّهِ بْنِ أَبِي قَتَادَةَ، عَنْ أَبِيهِ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ إِذَا بَالَ أَحَدُكُمْ فَلاَ يَمَسَّ ذَكَرَهُ بِيَمِينِهِ وَإِذَا أَتَى الْخَلاَءَ فَلاَ يَتَمَسَّحْ بِيَمِينِهِ وَإِذَا شَرِبَ فَلاَ يَشْرَبْ نَفَسًا وَاحِدًا ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Abu Qatadah : Le Prophète ﷺ a dit : « Quand l’un d’entre vous urine, il ne doit pas toucher son sexe avec la main droite, et quand il va aux toilettes, il ne doit pas se nettoyer avec la main droite. Et quand il boit, il ne doit pas boire d’un seul trait. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 31",
+      "source_url": "https://sunnah.com/abudawud:31",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (153، 154) Sahih Muslim (267)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 32",
+      "number": 32,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 32,
+      "title": "Hadith n° 32",
+      "readingTitle": "Le rôle de la main droite pour manger et boire",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ آدَمَ بْنِ سُلَيْمَانَ الْمِصِّيصِيُّ، حَدَّثَنَا ابْنُ أَبِي زَائِدَةَ، قَالَ حَدَّثَنِي أَبُو أَيُّوبَ، - يَعْنِي الإِفْرِيقِيَّ - عَنْ عَاصِمٍ، عَنِ الْمُسَيَّبِ بْنِ رَافِعٍ، وَمَعْبَدٍ، عَنْ حَارِثَةَ بْنِ وَهْبٍ الْخُزَاعِيِّ، قَالَ حَدَّثَتْنِي حَفْصَةُ، زَوْجُ النَّبِيِّ صلى الله عليه وسلم أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَجْعَلُ يَمِينَهُ لِطَعَامِهِ وَشَرَابِهِ وَثِيَابِهِ وَيَجْعَلُ شِمَالَهُ لِمَا سِوَى ذَلِكَ ‏.‏",
+      "hadeeth": "Rapporté par Hafsah (la mère des croyants) رضي الله عنها : Le Prophète ﷺ utilisait sa main droite pour manger et boire, et sa main gauche pour d’autres usages",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 32",
+      "source_url": "https://sunnah.com/abudawud:32",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 33",
+      "number": 33,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 33,
+      "title": "Hadith n° 33",
+      "readingTitle": "Les usages de la main droite et de la gauche",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا أَبُو تَوْبَةَ الرَّبِيعُ بْنُ نَافِعٍ، حَدَّثَنِي عِيسَى بْنُ يُونُسَ، عَنِ ابْنِ أَبِي عَرُوبَةَ، عَنْ أَبِي مَعْشَرٍ، عَنْ إِبْرَاهِيمَ، عَنْ عَائِشَةَ، قَالَتْ كَانَتْ يَدُ رَسُولِ اللَّهِ صلى الله عليه وسلم الْيُمْنَى لِطُهُورِهِ وَطَعَامِهِ وَكَانَتْ يَدُهُ الْيُسْرَى لِخَلاَئِهِ وَمَا كَانَ مِنْ أَذًى ‏.‏",
+      "hadeeth": "Rapporté par Aishah (la mère des croyants) رضي الله عنها : Le Prophète ﷺ utilisait sa main droite pour prendre de l’eau pour les ablutions et pour manger, et sa main gauche pour se nettoyer et pour tout ce qui était désagréable",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 33",
+      "source_url": "https://sunnah.com/abudawud:33",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 34",
+      "number": 34,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 34,
+      "title": "Hadith n° 34",
+      "readingTitle": "Une autre chaîne du récit de ‘Â'isha",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ حَاتِمِ بْنِ بَزِيعٍ، حَدَّثَنَا عَبْدُ الْوَهَّابِ بْنُ عَطَاءٍ، عَنْ سَعِيدٍ، عَنْ أَبِي مَعْشَرٍ، عَنْ إِبْرَاهِيمَ، عَنِ الأَسْوَدِ، عَنْ عَائِشَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم بِمَعْنَاهُ ‏.‏",
+      "hadeeth": "Aishah رضي الله عنها a également rapporté un hadith au sens similaire par une autre chaîne de transmetteurs",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 34",
+      "source_url": "https://sunnah.com/abudawud:34",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 35",
+      "number": 35,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 35,
+      "title": "Hadith n° 35",
+      "readingTitle": "Le khôl et les règles de nettoyage",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ مُوسَى الرَّازِيُّ، أَخْبَرَنَا عِيسَى بْنُ يُونُسَ، عَنْ ثَوْرٍ، عَنِ الْحُصَيْنِ الْحُبْرَانِيِّ، عَنْ أَبِي سَعِيدٍ، عَنْ أَبِي هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ مَنِ اكْتَحَلَ فَلْيُوتِرْ مَنْ فَعَلَ فَقَدْ أَحْسَنَ وَمَنْ لاَ فَلاَ حَرَجَ وَمَنِ اسْتَجْمَرَ فَلْيُوتِرْ مَنْ فَعَلَ فَقَدْ أَحْسَنَ وَمَنْ لاَ فَلاَ حَرَجَ وَمَنْ أَكَلَ فَمَا تَخَلَّلَ فَلْيَلْفِظْ وَمَا لاَكَ بِلِسَانِهِ فَلْيَبْتَلِعْ مَنْ فَعَلَ فَقَدْ أَحْسَنَ وَمَنْ لاَ فَلاَ حَرَجَ وَمَنْ أَتَى الْغَائِطَ فَلْيَسْتَتِرْ فَإِنْ لَمْ يَجِدْ إِلاَّ أَنْ يَجْمَعَ كَثِيبًا مِنْ رَمْلٍ فَلْيَسْتَدْبِرْهُ فَإِنَّ الشَّيْطَانَ يَلْعَبُ بِمَقَاعِدِ بَنِي آدَمَ مَنْ فَعَلَ فَقَدْ أَحْسَنَ وَمَنْ لاَ فَلاَ حَرَجَ ‏\"‏ ‏.‏ قَالَ أَبُو دَاوُدَ رَوَاهُ أَبُو عَاصِمٍ عَنْ ثَوْرٍ قَالَ حُصَيْنٌ الْحِمْيَرِيُّ وَرَوَاهُ عَبْدُ الْمَلِكِ بْنُ الصَّبَّاحِ عَنْ ثَوْرٍ فَقَالَ أَبُو سَعِيدٍ الْخَيْرُ ‏.‏ قَالَ أَبُو دَاوُدَ أَبُو سَعِيدٍ الْخَيْرُ هُوَ مِنْ أَصْحَابِ النَّبِيِّ صلى الله عليه وسلم ‏.‏",
+      "hadeeth": "Rapporté par Abu Hurayrah رضي الله عنه : Le Prophète ﷺ a dit : « Celui qui met du khôl (collyre) doit le faire un nombre impair de fois. S’il le fait, c’est bien, sinon il n’y a pas de mal. Celui qui se nettoie avec des cailloux doit en utiliser un nombre impair. S’il le fait, c’est bien, sinon il n’y a pas de mal. Celui qui mange doit jeter ce qu’il enlève avec un cure-dent et avaler ce qui reste sur sa langue. S’il le fait, c’est bien, sinon il n’y a pas de mal. Celui qui va aux toilettes doit se cacher, et s’il ne peut que rassembler un tas de sable, il doit s’asseoir dos à ce tas, car le diable se moque des parties intimes des enfants d’Adam. S’il le fait, c’est bien, sinon il n’y a pas de mal. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 35",
+      "source_url": "https://sunnah.com/abudawud:35",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 36",
+      "number": 36,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 36,
+      "title": "Hadith n° 36",
+      "readingTitle": "Un récit transmis par Ruwayfi‘ ibn Thâbit",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا يَزِيدُ بْنُ خَالِدِ بْنِ عَبْدِ اللَّهِ بْنِ مَوْهَبٍ الْهَمْدَانِيُّ، حَدَّثَنَا الْمُفَضَّلُ، - يَعْنِي ابْنَ فَضَالَةَ الْمِصْرِيَّ - عَنْ عَيَّاشِ بْنِ عَبَّاسٍ الْقِتْبَانِيِّ، أَنَّ شُيَيْمَ بْنَ بَيْتَانَ، أَخْبَرَهُ عَنْ شَيْبَانَ الْقِتْبَانِيِّ، قَالَ إِنَّ مَسْلَمَةَ بْنَ مُخَلَّدٍ اسْتَعْمَلَ رُوَيْفِعَ بْنَ ثَابِتٍ، عَلَى أَسْفَلِ الأَرْضِ ‏.‏ قَالَ شَيْبَانُ فَسِرْنَا مَعَهُ مِنْ كُومِ شَرِيكٍ إِلَى عَلْقَمَاءَ أَوْ مِنْ عَلْقَمَاءَ إِلَى كُومِ شَرِيكٍ - يُرِيدُ عَلْقَامَ - فَقَالَ رُوَيْفِعٌ إِنْ كَانَ أَحَدُنَا فِي زَمَنِ رَسُولِ اللَّهِ صلى الله عليه وسلم لَيَأْخُذُ نِضْوَ أَخِيهِ عَلَى أَنَّ لَهُ النِّصْفَ مِمَّا يَغْنَمُ وَلَنَا النِّصْفُ وَإِنْ كَانَ أَحَدُنَا لَيَطِيرُ لَهُ النَّصْلُ وَالرِّيشُ وَلِلآخَرِ الْقَدَحُ ‏.‏ ثُمَّ قَالَ قَالَ لِي رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ يَا رُوَيْفِعُ لَعَلَّ الْحَيَاةَ سَتَطُولُ بِكَ بَعْدِي فَأَخْبِرِ النَّاسَ أَنَّهُ مَنْ عَقَدَ لِحْيَتَهُ أَوْ تَقَلَّدَ وَتَرًا أَوِ اسْتَنْجَى بِرَجِيعِ دَابَّةٍ أَوْ عَظْمٍ فَإِنَّ مُحَمَّدًا صلى الله عليه وسلم مِنْهُ بَرِيءٌ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Ruwayfi' ibn Thabit : Shayban al-Qatbani a rapporté que Maslamah ibn Mukhallad a nommé Ruwayfi' ibn Thabit gouverneur du Bas-Egypte. Il a ajouté : Nous avons voyagé avec lui de Kum Sharik à Alqamah ou d’Alqamah à Kum Sharik (le rapporteur hésite). Ruwayfi' a dit : À l’époque du Prophète ﷺ, l’un de nous empruntait un chameau à un autre à condition de partager le butin, la moitié pour l’un, l’autre moitié pour l’autre. Parfois, l’un recevait la pointe d’une flèche et une plume, l’autre la tige de la flèche comme part du butin. Il a ensuite rapporté : Le Messager d’Allah ﷺ a dit : « Ruwayfi', tu vivras peut-être longtemps après moi, alors dis aux gens que si quelqu’un attache sa barbe ou porte un fil autour du cou pour se protéger du mauvais œil, ou se nettoie avec des excréments d’animaux ou des os, Muhammad n’a rien à voir avec lui. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 36",
+      "source_url": "https://sunnah.com/abudawud:36",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 37",
+      "number": 37,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 37,
+      "title": "Hadith n° 37",
+      "readingTitle": "Une autre voie de transmission du récit précédent",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا يَزِيدُ بْنُ خَالِدٍ، حَدَّثَنَا مُفَضَّلٌ، عَنْ عَيَّاشٍ، أَنَّ شُيَيْمَ بْنَ بَيْتَانَ، أَخْبَرَهُ بِهَذَا الْحَدِيثِ، أَيْضًا عَنْ أَبِي سَالِمٍ الْجَيْشَانِيِّ، عَنْ عَبْدِ اللَّهِ بْنِ عَمْرٍو، يَذْكُرُ ذَلِكَ وَهُوَ مَعَهُ مُرَابِطٌ بِحِصْنِ بَابِ أَلْيُونَ ‏.‏ قَالَ أَبُو دَاوُدَ حِصْنُ أَلْيُونَ عَلَى جَبَلٍ بِالْفُسْطَاطِ ‏.‏ قَالَ أَبُو دَاوُدَ وَهُوَ شَيْبَانُ بْنُ أُمَيَّةَ يُكْنَى أَبَا حُذَيْفَةَ ‏.‏",
+      "hadeeth": "Abu Salim al-Jaishani a également rapporté ce hadith d’après 'Abd Allah ibn 'Amr. Il l’a transmis alors qu’il assiégeait la forteresse à la porte d’Alyun. Abu Dawud a dit : La forteresse d’Alyun se trouve sur la montagne à Fustat. Abu Dawud a aussi précisé que la kunyah (surnom) de Shaiban ibn Umayyah est Abu Hudhaifah",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 37",
+      "source_url": "https://sunnah.com/abudawud:37",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 38",
+      "number": 38,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 38,
+      "title": "Hadith n° 38",
+      "readingTitle": "L'interdiction de se nettoyer avec des os",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا أَحْمَدُ بْنُ مُحَمَّدِ بْنِ حَنْبَلٍ، حَدَّثَنَا رَوْحُ بْنُ عُبَادَةَ، حَدَّثَنَا زَكَرِيَّا بْنُ إِسْحَاقَ، حَدَّثَنَا أَبُو الزُّبَيْرِ، أَنَّهُ سَمِعَ جَابِرَ بْنَ عَبْدِ اللَّهِ، يَقُولُ نَهَانَا رَسُولُ اللَّهِ صلى الله عليه وسلم أَنْ نَتَمَسَّحَ بِعَظْمٍ أَوْ بَعْرٍ ‏.‏",
+      "hadeeth": "Rapporté par Jabir ibn Abd Allah : Le Messager d’Allah ﷺ nous a interdit d’utiliser un os ou des excréments pour se nettoyer",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 38",
+      "source_url": "https://sunnah.com/abudawud:38",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Muslim (263)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 39",
+      "number": 39,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 39,
+      "title": "Hadith n° 39",
+      "readingTitle": "Le récit de la délégation des djinns",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا حَيْوَةُ بْنُ شُرَيْحٍ الْحِمْصِيُّ، حَدَّثَنَا ابْنُ عَيَّاشٍ، عَنْ يَحْيَى بْنِ أَبِي عَمْرٍو السَّيْبَانِيِّ، عَنْ عَبْدِ اللَّهِ بْنِ الدَّيْلَمِيِّ، عَنْ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ، قَالَ قَدِمَ وَفْدُ الْجِنِّ عَلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالُوا يَا مُحَمَّدُ انْهَ أُمَّتَكَ أَنْ يَسْتَنْجُوا بِعَظْمٍ أَوْ رَوْثَةٍ أَوْ حُمَمَةٍ فَإِنَّ اللَّهَ تَعَالَى جَعَلَ لَنَا فِيهَا رِزْقًا ‏.‏ قَالَ فَنَهَى النَّبِيُّ صلى الله عليه وسلم عَنْ ذَلِكَ ‏.‏",
+      "hadeeth": "Rapporté par Abdullah ibn Mas'ud : Une délégation de djinns est venue voir le Prophète ﷺ et a dit : « Ô Muhammad, interdis à ta communauté de se nettoyer avec des os, des excréments ou du charbon, car Allah y a mis notre nourriture. » Alors le Prophète ﷺ leur a interdit de le faire",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 39",
+      "source_url": "https://sunnah.com/abudawud:39",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 40",
+      "number": 40,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 40,
+      "title": "Hadith n° 40",
+      "readingTitle": "Se nettoyer avec trois pierres",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا سَعِيدُ بْنُ مَنْصُورٍ، وَقُتَيْبَةُ بْنُ سَعِيدٍ، قَالاَ حَدَّثَنَا يَعْقُوبُ بْنُ عَبْدِ الرَّحْمَنِ، عَنْ أَبِي حَازِمٍ، عَنْ مُسْلِمِ بْنِ قُرْطٍ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏ \"‏ إِذَا ذَهَبَ أَحَدُكُمْ إِلَى الْغَائِطِ فَلْيَذْهَبْ مَعَهُ بِثَلاَثَةِ أَحْجَارٍ يَسْتَطِيبُ بِهِنَّ فَإِنَّهَا تُجْزِئُ عَنْهُ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Aishah (la mère des croyants) رضي الله عنها : Le Messager d’Allah ﷺ a dit : « Quand l’un de vous va aux toilettes, il doit prendre avec lui trois pierres pour se nettoyer, car cela lui suffira. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 40",
+      "source_url": "https://sunnah.com/abudawud:40",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 41",
+      "number": 41,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 41,
+      "title": "Hadith n° 41",
+      "readingTitle": "Trois pierres non souillées pour le nettoyage",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مُحَمَّدٍ النُّفَيْلِيُّ، حَدَّثَنَا أَبُو مُعَاوِيَةَ، عَنْ هِشَامِ بْنِ عُرْوَةَ، عَنْ عَمْرِو بْنِ خُزَيْمَةَ، عَنْ عُمَارَةَ بْنِ خُزَيْمَةَ، عَنْ خُزَيْمَةَ بْنِ ثَابِتٍ، قَالَ سُئِلَ رَسُولُ اللَّهِ صلى الله عليه وسلم عَنْ الاِسْتِطَابَةِ فَقَالَ ‏ \"‏ بِثَلاَثَةِ أَحْجَارٍ لَيْسَ فِيهَا رَجِيعٌ ‏\"‏ ‏.‏ قَالَ أَبُو دَاوُدَ كَذَا رَوَاهُ أَبُو أُسَامَةَ وَابْنُ نُمَيْرٍ عَنْ هِشَامٍ يَعْنِي ابْنَ عُرْوَةَ ‏.‏",
+      "hadeeth": "Rapporté par Khuzaymah ibn Thabit : On a interrogé le Prophète ﷺ au sujet de la purification après être allé aux toilettes. Il a dit : « (Il faut se nettoyer) avec trois pierres qui ne doivent pas être souillées par des excréments. » Abu Dawud a ajouté : Un hadith similaire a été rapporté par Abu Usamah et Ibn Numair d’après Hisham",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 41",
+      "source_url": "https://sunnah.com/abudawud:41",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 42",
+      "number": 42,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 42,
+      "title": "Hadith n° 42",
+      "readingTitle": "L'eau proposée après avoir uriné",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، وَخَلَفُ بْنُ هِشَامٍ الْمُقْرِئُ، قَالاَ حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يَحْيَى التَّوْأَمُ، ح وَحَدَّثَنَا عَمْرُو بْنُ عَوْنٍ، قَالَ أَخْبَرَنَا أَبُو يَعْقُوبَ التَّوْأَمُ، عَنْ عَبْدِ اللَّهِ بْنِ أَبِي مُلَيْكَةَ، عَنْ أُمِّهِ، عَنْ عَائِشَةَ، قَالَتْ بَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَقَامَ عُمَرُ خَلْفَهُ بِكُوزٍ مِنْ مَاءٍ فَقَالَ ‏\"‏ مَا هَذَا يَا عُمَرُ ‏\"‏ ‏.‏ فَقَالَ هَذَا مَاءٌ تَتَوَضَّأُ بِهِ ‏.‏ قَالَ ‏\"‏ مَا أُمِرْتُ كُلَّمَا بُلْتُ أَنْ أَتَوَضَّأَ وَلَوْ فَعَلْتُ لَكَانَتْ سُنَّةً ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Aishah (la mère des croyants) رضي الله عنها : Le Prophète ﷺ a uriné et Omar se tenait derrière lui avec une cruche d’eau. Il a dit : « Qu’est-ce que c’est, Omar ? » Il a répondu : « De l’eau pour que tu fasses tes ablutions. » Il a dit : « Je n’ai pas été ordonné de faire mes ablutions à chaque fois que j’urine. Si je le faisais, cela deviendrait une obligation. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 42",
+      "source_url": "https://sunnah.com/abudawud:42",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Daif"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 43",
+      "number": 43,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 43,
+      "title": "Hadith n° 43",
+      "readingTitle": "Un récipient d'eau apporté dans un jardin",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا وَهْبُ بْنُ بَقِيَّةَ، عَنْ خَالِدٍ، - يَعْنِي الْوَاسِطِيَّ - عَنْ خَالِدٍ، - يَعْنِي الْحَذَّاءَ - عَنْ عَطَاءِ بْنِ أَبِي مَيْمُونَةَ، عَنْ أَنَسِ بْنِ مَالِكٍ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم دَخَلَ حَائِطًا وَمَعَهُ غُلاَمٌ مَعَهُ مِيضَأَةٌ وَهُوَ أَصْغَرُنَا فَوَضَعَهَا عِنْدَ السِّدْرَةِ فَقَضَى حَاجَتَهُ فَخَرَجَ عَلَيْنَا وَقَدِ اسْتَنْجَى بِالْمَاءِ ‏.‏",
+      "hadeeth": "Rapporté par Anas ibn Malik : Le Messager d’Allah ﷺ est entré dans un jardin. Un jeune garçon, le plus jeune d’entre nous, l’accompagnait avec une cruche d’eau. Il l’a posée près d’un jujubier. Le Prophète ﷺ s’est soulagé, puis il est revenu vers nous après s’être nettoyé avec de l’eau",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 43",
+      "source_url": "https://sunnah.com/abudawud:43",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (152) Sahih Muslim (270)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 44",
+      "number": 44,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 44,
+      "title": "Hadith n° 44",
+      "readingTitle": "Les gens de Qubâ' et l'amour de la purification",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ الْعَلاَءِ، أَخْبَرَنَا مُعَاوِيَةُ بْنُ هِشَامٍ، عَنْ يُونُسَ بْنِ الْحَارِثِ، عَنْ إِبْرَاهِيمَ بْنِ أَبِي مَيْمُونَةَ، عَنْ أَبِي صَالِحٍ، عَنْ أَبِي هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ نَزَلَتْ هَذِهِ الآيَةُ فِي أَهْلِ قُبَاءَ ‏{‏ فِيهِ رِجَالٌ يُحِبُّونَ أَنْ يَتَطَهَّرُوا ‏}‏ قَالَ كَانُوا يَسْتَنْجُونَ بِالْمَاءِ فَنَزَلَتْ فِيهِمْ هَذِهِ الآيَةُ ‏.‏",
+      "hadeeth": "Rapporté par Abu Hurayrah رضي الله عنه : Le Prophète ﷺ a dit : Le verset suivant a été révélé au sujet des gens de Quba’ : « En son sein se trouvent des hommes qui aiment se purifier » (sourate 9, verset 108). Abu Hurayrah a expliqué : Ils se nettoyaient avec de l’eau après s’être soulagés. C’est donc à leur sujet que le verset a été révélé",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 44",
+      "source_url": "https://sunnah.com/abudawud:44",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Hasan Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 45",
+      "number": 45,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 45,
+      "title": "Hadith n° 45",
+      "readingTitle": "L'eau utilisée après les besoins naturels",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ خَالِدٍ، حَدَّثَنَا أَسْوَدُ بْنُ عَامِرٍ، حَدَّثَنَا شَرِيكٌ، وَهَذَا، لَفْظُهُ ح وَحَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ اللَّهِ، - يَعْنِي الْمُخَرِّمِيَّ - حَدَّثَنَا وَكِيعٌ، عَنْ شَرِيكٍ، عَنْ إِبْرَاهِيمَ بْنِ جَرِيرٍ، عَنِ الْمُغِيرَةِ، عَنْ أَبِي زُرْعَةَ، عَنْ أَبِي هُرَيْرَةَ، قَالَ كَانَ النَّبِيُّ صلى الله عليه وسلم إِذَا أَتَى الْخَلاَءَ أَتَيْتُهُ بِمَاءٍ فِي تَوْرٍ أَوْ رَكْوَةٍ فَاسْتَنْجَى ‏.‏ قَالَ أَبُو دَاوُدَ فِي حَدِيثِ وَكِيعٍ ثُمَّ مَسَحَ يَدَهُ عَلَى الأَرْضِ ثُمَّ أَتَيْتُهُ بِإِنَاءٍ آخَرَ فَتَوَضَّأَ ‏.‏ قَالَ أَبُو دَاوُدَ وَحَدِيثُ الأَسْوَدِ بْنِ عَامِرٍ أَتَمُّ ‏.‏",
+      "hadeeth": "Rapporté par Abu Hurayrah رضي الله عنه : Quand le Prophète ﷺ allait aux toilettes, je lui apportais de l’eau dans un petit récipient ou une outre, et il se nettoyait. Ensuite, il essuyait sa main sur le sol. Puis je lui apportais un autre récipient et il faisait ses ablutions. Abu Dawud a dit : La version transmise par al-Aswad ibn 'Amir est plus complète",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 45",
+      "source_url": "https://sunnah.com/abudawud:45",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Hasan Lighairihi"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 46",
+      "number": 46,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 46,
+      "title": "Hadith n° 46",
+      "readingTitle": "Le siwâk et la prière de la nuit",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، عَنْ سُفْيَانَ، عَنْ أَبِي الزِّنَادِ، عَنِ الأَعْرَجِ، عَنْ أَبِي هُرَيْرَةَ، يَرْفَعُهُ قَالَ ‏ \"‏ لَوْلاَ أَنْ أَشُقَّ، عَلَى الْمُؤْمِنِينَ لأَمَرْتُهُمْ بِتَأْخِيرِ الْعِشَاءِ وَبِالسِّوَاكِ عِنْدَ كُلِّ صَلاَةٍ ‏\"‏ ‏.‏",
+      "hadeeth": "Rapporté par Abu Hurayrah رضي الله عنه : Le Prophète ﷺ a dit : « Si je ne craignais pas de mettre les croyants en difficulté, je leur aurais ordonné de retarder la prière du soir (‘isha) et d’utiliser le siwak à chaque prière. »",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 46",
+      "source_url": "https://sunnah.com/abudawud:46",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (887، 7240) Sahih Muslim (252)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 47",
+      "number": 47,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 47,
+      "title": "Hadith n° 47",
+      "readingTitle": "Le siwâk avant chaque prière",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ مُوسَى، أَخْبَرَنَا عِيسَى بْنُ يُونُسَ، حَدَّثَنَا مُحَمَّدُ بْنُ إِسْحَاقَ، عَنْ مُحَمَّدِ بْنِ إِبْرَاهِيمَ التَّيْمِيِّ، عَنْ أَبِي سَلَمَةَ بْنِ عَبْدِ الرَّحْمَنِ، عَنْ زَيْدِ بْنِ خَالِدٍ الْجُهَنِيِّ، قَالَ سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ ‏ \"‏ لَوْلاَ أَنْ أَشُقَّ عَلَى أُمَّتِي لأَمَرْتُهُمْ بِالسِّوَاكِ عِنْدَ كُلِّ صَلاَةٍ ‏\"‏ ‏.‏ قَالَ أَبُو سَلَمَةَ فَرَأَيْتُ زَيْدًا يَجْلِسُ فِي الْمَسْجِدِ وَإِنَّ السِّوَاكَ مِنْ أُذُنِهِ مَوْضِعُ الْقَلَمِ مِنْ أُذُنِ الْكَاتِبِ فَكُلَّمَا قَامَ إِلَى الصَّلاَةِ اسْتَاكَ ‏.‏",
+      "hadeeth": "Rapporté par Zayd ibn Khalid al-Juhani : J’ai entendu le Messager d’Allah ﷺ dire : « Si cela n’était pas difficile pour ma communauté, je leur aurais ordonné d’utiliser le siwak à chaque prière. » Abu Salamah a dit : Zayd ibn Khalid venait à la mosquée pour la prière avec un siwak accroché à son oreille, comme un secrétaire porte un stylo, et chaque fois qu’il se levait pour prier, il l’utilisait",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 47",
+      "source_url": "https://sunnah.com/abudawud:47",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Daif"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 48",
+      "number": 48,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 48,
+      "title": "Hadith n° 48",
+      "readingTitle": "Les ablutions renouvelées avant une prière",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ عَوْفٍ الطَّائِيُّ، حَدَّثَنَا أَحْمَدُ بْنُ خَالِدٍ، حَدَّثَنَا مُحَمَّدُ بْنُ إِسْحَاقَ، عَنْ مُحَمَّدِ بْنِ يَحْيَى بْنِ حَبَّانَ، عَنْ عَبْدِ اللَّهِ بْنِ عَبْدِ اللَّهِ بْنِ عُمَرَ، قَالَ قُلْتُ أَرَأَيْتَ تَوَضُّؤَ ابْنِ عُمَرَ لِكُلِّ صَلاَةٍ طَاهِرًا وَغَيْرَ طَاهِرٍ عَمَّ ذَاكَ فَقَالَ حَدَّثَتْنِيهِ أَسْمَاءُ بِنْتُ زَيْدِ بْنِ الْخَطَّابِ أَنَّ عَبْدَ اللَّهِ بْنَ حَنْظَلَةَ بْنِ أَبِي عَامِرٍ حَدَّثَهَا أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم أُمِرَ بِالْوُضُوءِ لِكُلِّ صَلاَةٍ طَاهِرًا وَغَيْرَ طَاهِرٍ فَلَمَّا شَقَّ ذَلِكَ عَلَيْهِ أُمِرَ بِالسِّوَاكِ لِكُلِّ صَلاَةٍ فَكَانَ ابْنُ عُمَرَ يَرَى أَنَّ بِهِ قُوَّةً فَكَانَ لاَ يَدَعُ الْوُضُوءَ لِكُلِّ صَلاَةٍ ‏.‏ قَالَ أَبُو دَاوُدَ إِبْرَاهِيمُ بْنُ سَعْدٍ رَوَاهُ عَنْ مُحَمَّدِ بْنِ إِسْحَاقَ قَالَ عُبَيْدُ اللَّهِ بْنُ عَبْدِ اللَّهِ ‏.‏",
+      "hadeeth": "Rapporté par Abdullah ibn Abdullah ibn Umar : Muhammad ibn Yahya ibn Habban a demandé à Abdullah ibn Abdullah ibn Umar pourquoi Ibn Umar faisait ses ablutions avant chaque prière, qu’il ait ou non déjà les ablutions. Il a répondu : Asma’, fille de Zayd ibn al-Khattab, m’a rapporté qu’Abdullah ibn Hanzalah ibn Abu Amir lui avait dit que le Messager d’Allah ﷺ avait d’abord reçu l’ordre de faire les ablutions avant chaque prière, qu’il les ait ou non. Quand cela est devenu difficile pour lui, il a reçu l’ordre d’utiliser le siwak à chaque prière. Comme Ibn Umar pensait avoir la force de faire les ablutions avant chaque prière, il n’a jamais abandonné cette pratique. Abu Dawud a dit : Ibrahim ibn Sa’d a rapporté ce hadith d’après Muhammad ibn Ishaq, et il y mentionne le nom de ‘Ubaid Allah ibn Abdullah (au lieu de ‘Abd Allah ibn ‘Abd Allah ibn Umar)",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 48",
+      "source_url": "https://sunnah.com/abudawud:48",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Hasan"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Hasan"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 49",
+      "number": 49,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 49,
+      "title": "Hadith n° 49",
+      "readingTitle": "Le siwâk lors d'une rencontre avec le Prophète",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُسَدَّدٌ، وَسُلَيْمَانُ بْنُ دَاوُدَ الْعَتَكِيُّ، قَالاَ حَدَّثَنَا حَمَّادُ بْنُ زَيْدٍ، عَنْ غَيْلاَنَ بْنِ جَرِيرٍ، عَنْ أَبِي بُرْدَةَ، عَنْ أَبِيهِ، قَالَ مُسَدَّدٌ قَالَ أَتَيْنَا رَسُولَ اللَّهِ صلى الله عليه وسلم نَسْتَحْمِلُهُ فَرَأَيْتُهُ يَسْتَاكُ عَلَى لِسَانِهِ - قَالَ أَبُو دَاوُدَ وَقَالَ سُلَيْمَانُ قَالَ دَخَلْتُ عَلَى النَّبِيِّ صلى الله عليه وسلم وَهُوَ يَسْتَاكُ وَقَدْ وَضَعَ السِّوَاكَ عَلَى طَرَفِ لِسَانِهِ - وَهُوَ يَقُولُ ‏ \"‏ إِهْ إِهْ ‏\"‏ ‏.‏ يَعْنِي يَتَهَوَّعُ ‏.‏ قَالَ أَبُو دَاوُدَ قَالَ مُسَدَّدٌ فَكَانَ حَدِيثًا طَوِيلاً اخْتَصَرْتُهُ ‏.‏",
+      "hadeeth": "Rapporté par Abu Burdah, d’après son père (Abu Musa al-Ash’ari) رضي الله عنه : Selon la version de Musaddad : Nous sommes allés voir le Messager d’Allah ﷺ pour qu’il nous fournisse une monture, et nous l’avons trouvé en train d’utiliser le siwak, l’une de ses extrémités sur la langue (il se rinçait la bouche). Selon la version de Sulaiman : Je suis entré chez le Prophète ﷺ qui utilisait le siwak, le tenant sur le côté de sa langue, ce qui produisait un bruit de gargarisme. Abu Dawud a dit : Musaddad a dit que le hadith était plus long, mais il l’a raccourci",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 49",
+      "source_url": "https://sunnah.com/abudawud:49",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Sahih Bukhari (244) Sahih Muslim (254)"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    },
+    {
+      "id": "Sunan Abi Dawud 50",
+      "number": 50,
+      "chapterId": "purification",
+      "bookNumber": 1,
+      "inBookNumber": 50,
+      "title": "Hadith n° 50",
+      "readingTitle": "Donner le siwâk à la personne la plus âgée",
+      "readingIcon": "droplets",
+      "hadeeth_ar": "حَدَّثَنَا مُحَمَّدُ بْنُ عِيسَى، حَدَّثَنَا عَنْبَسَةُ بْنُ عَبْدِ الْوَاحِدِ، عَنْ هِشَامِ بْنِ عُرْوَةَ، عَنْ أَبِيهِ، عَنْ عَائِشَةَ، قَالَتْ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَسْتَنُّ وَعِنْدَهُ رَجُلاَنِ أَحَدُهُمَا أَكْبَرُ مِنَ الآخَرِ فَأُوحِيَ إِلَيْهِ فِي فَضْلِ السِّوَاكِ ‏ \"‏ أَنْ كَبِّرْ ‏\"‏ ‏.‏ أَعْطِ السِّوَاكَ أَكْبَرَهُمَا ‏.‏ قَالَ أَحْمَدُ - هُوَ ابْنُ حَزْمٍ - قَالَ لَنَا أَبُو سَعِيدٍ هُوَ ابْنُ الأَعْرَابِيِّ هَذَا مِمَّا تَفَرَّدَ بِهِ أَهْلُ الْمَدِينَةِ ‏.‏",
+      "hadeeth": "Rapporté par Aishah (la mère des croyants) رضي الله عنها : Le Messager d’Allah ﷺ utilisait le siwak, et deux hommes, dont l’un était plus âgé, étaient avec lui. Une révélation lui est venue au sujet du mérite du siwak. On lui a demandé de respecter l’aîné et de lui donner le siwak",
+      "attribution": "Sunan Abî Dâwûd, livre de la Purification, hadith 50",
+      "source_url": "https://sunnah.com/abudawud:50",
+      "textSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/ara-abudawud/sections/1.json",
+      "translationSourceUrl": "https://github.com/fawazahmed0/hadith-api/blob/1/editions/fra-abudawud/sections/1.json",
+      "translationNotice": "Version française numérique diffusée par hadith-api ; traducteur et édition non identifiés. Texte et appréciations à confronter aux sources et à une édition de référence.",
+      "grades": [
+        {
+          "scholar": "Al-Albani",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Muhammad Muhyi Al-Din Abdul Hamid",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Shuaib Al Arnaut",
+          "assessment": "Sahih"
+        },
+        {
+          "scholar": "Zubair Ali Zai",
+          "assessment": "Isnaad Sahih"
+        }
+      ],
+      "gradeEditorialNotice": "Appréciations reproduites de l'édition numérique, attribuées aux auteurs mentionnés ; elles peuvent diverger et ne constituent pas une certification par Athar."
+    }
+  ]
 }
