@@ -6,7 +6,7 @@ const mobile=read('js/components/MobileExperience.js'), config=read('js/config.j
 const worker=read('service-worker.js');
 const immersive=read('js/components/GlobalFullscreen.js');
 const immersiveCss=read('css/immersive-only.css');
-const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih'];
+const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih','belief'];
 const published=allowed.slice(1), errors=[];
 const check=(ok,msg)=>{if(!ok)errors.push(msg)};
 const nav=[...index.matchAll(/@click="setView\('([^']+)'\)/g)].map(x=>x[1]);
@@ -15,7 +15,7 @@ for(const mode of published){
  check(home.includes("view: '"+mode+"'"),'Accueil incomplet : '+mode);
 }
 check(nav.every(x=>allowed.includes(x)),'Navigation non publiée : '+nav.filter(x=>!allowed.includes(x)));
-check((home.match(/view: '/g)||[]).length===7,'Accueil : nombre de cartes incorrect');
+check((home.match(/view: '/g)||[]).length===8,'Accueil : nombre de cartes incorrect');
 check(app.includes('if (!isAvailableView(mode))'),'Garde de navigation manquant');
 check(app.includes('watch(viewMode, mode =>'),'Garde de changement direct manquant');
 check(mobile.includes("['adhkar', 'Al-Adhkar', 'sunrise']"),'Dock mobile erroné');
@@ -41,4 +41,4 @@ const version=config.match(/const APP_VERSION = '([^']+)'/)?.[1];
 check(Boolean(version)&&worker.includes("const CACHE_VERSION = '"+version+"'"),'Version PWA incorrecte');
 check((index.match(/<div\b/g)||[]).length===(index.match(/<\/div>/g)||[]).length,'Balises div déséquilibrées');
 if(errors.length){errors.forEach(x=>console.error(x));process.exit(1)}
-console.log('Sept rubriques publiques : navigation, accueil et cache autonomes validés.');
+console.log('Huit rubriques publiques : navigation, accueil et cache autonomes validés.');
