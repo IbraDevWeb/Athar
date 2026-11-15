@@ -89,7 +89,7 @@ const TabibDetailView = {
                 </div>
             </div>
 
-            <section v-if="remedy.learning" class="bg-white dark:bg-brand-dark-lighter rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700" aria-label="Questions courantes sur l’istikhâra">
+            <section v-if="remedy.learning" class="bg-white dark:bg-brand-dark-lighter rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700" :aria-label="remedy.id === 8 ? 'Questions courantes sur l’istikhâra' : 'Questions fréquentes : ' + remedy.title">
                 <h3 class="font-display text-xl font-bold text-brand-dark dark:text-white mb-2 flex items-center gap-3">
                     <i data-lucide="message-circle-question" class="w-5 h-5 text-emerald-600"></i> {{ remedy.learning.mythsTitle }}
                 </h3>
@@ -104,7 +104,7 @@ const TabibDetailView = {
                 </div>
             </section>
 
-            <section v-if="remedy.learning" class="bg-white dark:bg-brand-dark-lighter rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700" aria-label="Vocabulaire de la prière de consultation">
+            <section v-if="remedy.learning" class="bg-white dark:bg-brand-dark-lighter rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700" :aria-label="remedy.id === 8 ? 'Vocabulaire de la prière de consultation' : 'Lexique : ' + remedy.title">
                 <h3 class="font-display text-xl font-bold text-brand-dark dark:text-white mb-5 flex items-center gap-3">
                     <i data-lucide="book-a" class="w-5 h-5 text-emerald-600"></i> Petit lexique
                 </h3>
