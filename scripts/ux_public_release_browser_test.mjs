@@ -92,6 +92,21 @@ async function desktop() {
         await home(page);
     }
 
+    // Tabib al-Qulûb : la fiche Istikhâra complète remplace la version abrégée sans doublon.
+    await navigate(page, 'tabib');
+    await page.getByRole('heading',{name:'L’istikhâra — remettre son choix à Allah'}).click();
+    await page.getByRole('heading',{name:'L’istikhâra — remettre son choix à Allah',level:1}).waitFor({state:'visible'});
+    assert.ok((await page.locator('p[dir="rtl"]').first().innerText()).length>35,'Verset non affiché');
+    const duaa=page.locator('p[dir="rtl"]').last();
+    assert.ok((await duaa.innerText()).length>500,'Invocation Istikhâra encore abrégée');
+    assert.equal(await page.locator('section[aria-label="Questions courantes sur l’istikhâra"] details').count(),5,'Les cinq questions de la fiche manquent');
+    await page.locator('section[aria-label="Questions courantes sur l’istikhâra"] details').first().locator('summary').click();
+    assert.match(await page.locator('section[aria-label="Questions courantes sur l’istikhâra"] details').first().innerText(),/Le hadith ne demande aucun rêve/);
+    assert.equal(await page.locator('section[aria-label="Vocabulaire de la prière de consultation"] dt').count(),5,'Le lexique Istikhâra est incomplet');
+    assert.ok(await page.locator('a[href="https://sunnah.com/bukhari:1166"]').count()>=1,'Source précise Sahîh al-Bukhârî absente');
+    await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+    await home(page);
+
     // Système de galeries : palette spécifique et cartes lisibles sur ordinateur.
     for (const [view,rootSelector,cardSelector,accent] of [
         ['library','.library-pro-root','.library-pro-selection .library-pro-card','#916622'],
