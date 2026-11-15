@@ -7,7 +7,7 @@ new vm.Script(data,{filename:'tabib_data.js'});new vm.Script(detail,{filename:'T
 const cards=vm.runInNewContext(data+'\nTABIB_DATA');
 assert.equal(cards.length,50,'Les 50 fiches initiales doivent être conservées');
 assert.equal(new Set(cards.map(c=>c.id)).size,50,'Les identifiants doivent rester uniques');
-assert.deepEqual(cards.map(c=>c.id),Array.from({length:50},(_,i)=>i+1),'Ordre du corpus modifié');
+assert.deepEqual(Array.from(cards,c=>c.id),Array.from({length:50},(_,i)=>i+1),'Ordre du corpus modifié');
 const item=cards.find(c=>c.id===8);
 assert.ok(item,'Fiche istikhâra absente');
 assert.match(item.title,/istikhâra/i);
