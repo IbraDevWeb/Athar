@@ -6,7 +6,7 @@ const mobile=read('js/components/MobileExperience.js'), config=read('js/config.j
 const worker=read('service-worker.js');
 const immersive=read('js/components/GlobalFullscreen.js');
 const immersiveCss=read('css/immersive-only.css');
-const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih','ussul'];
+const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih','ussul','fiqh-maliki'];
 const published=allowed.slice(1), errors=[];
 const check=(ok,msg)=>{if(!ok)errors.push(msg)};
 const nav=[...index.matchAll(/@click="setView\('([^']+)'\)/g)].map(x=>x[1]);
@@ -20,7 +20,9 @@ check(!home.includes("view: 'belief'"),'Croyance visible sur l’accueil');
 check(!immersive.includes("['belief',"),'Croyance affichée dans le menu immersif');
 check(!index.includes('BeliefLearningView.js') && !index.includes('belief_course_data.js'),'Scripts Croyance encore chargés');
 check(!worker.includes('belief_course_data.js') && !worker.includes('BeliefLearningView.js'),'Croyance présente dans les ressources publiques PWA');
-check((home.match(/view: '/g)||[]).length===8,'Accueil : nombre de cartes incorrect');
+check(index.includes('<maliki-fiqh-view') && index.includes('fiqh_maliki_data.js') && index.includes('MalikiFiqhView.js'),'Fiqh malikite non chargé');
+check(immersive.includes("['fiqh-maliki', 'Fiqh malikite', 'book-marked']"),'Fiqh absent du menu immersif');
+check((home.match(/view: '/g)||[]).length===9,'Accueil : nombre de cartes incorrect');
 check(app.includes('if (!isAvailableView(mode))'),'Garde de navigation manquant');
 check(app.includes('watch(viewMode, mode =>'),'Garde de changement direct manquant');
 check(mobile.includes("['adhkar', 'Al-Adhkar', 'sunrise']"),'Dock mobile erroné');
@@ -46,4 +48,4 @@ const version=config.match(/const APP_VERSION = '([^']+)'/)?.[1];
 check(Boolean(version)&&worker.includes("const CACHE_VERSION = '"+version+"'"),'Version PWA incorrecte');
 check((index.match(/<div\b/g)||[]).length===(index.match(/<\/div>/g)||[]).length,'Balises div déséquilibrées');
 if(errors.length){errors.forEach(x=>console.error(x));process.exit(1)}
-console.log('Huit rubriques publiques : navigation, accueil et cache autonomes validés.');
+console.log('Neuf rubriques publiques : navigation, accueil et cache autonomes validés.');
