@@ -105,6 +105,7 @@ async function desktop() {
     assert.equal(await page.locator('section[aria-label="Vocabulaire de la prière de consultation"] dt').count(),5,'Le lexique Istikhâra est incomplet');
     assert.ok(await page.locator('a[href="https://sunnah.com/bukhari:1166"]').count()>=1,'Source précise Sahîh al-Bukhârî absente');
     await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+    await page.getByRole('heading',{name:'Pharmacie des Âmes',level:2}).waitFor({state:'visible'});
 
     // Douze nouveaux remèdes pédagogiques (51–62) avec sources, lexique et questions.
     assert.equal(await page.locator('div.grid.grid-cols-1 > div.group').count(),62,'Le catalogue doit proposer 62 fiches Tabib');
@@ -116,6 +117,7 @@ async function desktop() {
     assert.ok(await page.locator('a[href="https://quran.com/2/186"]').count()>=1,'Source coranique de la fiche 51 absente');
     assert.match(await page.locator('span').filter({hasText:'Parole prophétique'}).first().innerText(),/Parole prophétique/);
     await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+    await page.getByRole('heading',{name:'Pharmacie des Âmes',level:2}).waitFor({state:'visible'});
     await page.locator('div.grid.grid-cols-1 > div.group h3').filter({hasText:'La douceur qui transforme les relations'}).click();
     await page.getByRole('heading',{name:'La douceur qui transforme les relations',level:1}).waitFor({state:'visible'});
     assert.ok(await page.locator('a[href="https://sunnah.com/muslim:2594a"]').count()>=1,'Source de la fiche 62 absente');
