@@ -6,7 +6,7 @@ const mobile=read('js/components/MobileExperience.js'), config=read('js/config.j
 const worker=read('service-worker.js');
 const immersive=read('js/components/GlobalFullscreen.js');
 const immersiveCss=read('css/immersive-only.css');
-const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih','belief'];
+const allowed=['home','library','timeline','glossary','hadiths','tabib','adhkar','tasbih','ussul'];
 const published=allowed.slice(1), errors=[];
 const check=(ok,msg)=>{if(!ok)errors.push(msg)};
 const nav=[...index.matchAll(/@click="setView\('([^']+)'\)/g)].map(x=>x[1]);
@@ -15,6 +15,11 @@ for(const mode of published){
  check(home.includes("view: '"+mode+"'"),'Accueil incomplet : '+mode);
 }
 check(nav.every(x=>allowed.includes(x)),'Navigation non publiée : '+nav.filter(x=>!allowed.includes(x)));
+check(!nav.includes('belief'),'La rubrique Croyance doit être masquée');
+check(!home.includes("view: 'belief'"),'Croyance visible sur l’accueil');
+check(!immersive.includes("['belief',"),'Croyance affichée dans le menu immersif');
+check(!index.includes('BeliefLearningView.js') && !index.includes('belief_course_data.js'),'Scripts Croyance encore chargés');
+check(!worker.includes('belief_course_data.js') && !worker.includes('BeliefLearningView.js'),'Croyance présente dans les ressources publiques PWA');
 check((home.match(/view: '/g)||[]).length===8,'Accueil : nombre de cartes incorrect');
 check(app.includes('if (!isAvailableView(mode))'),'Garde de navigation manquant');
 check(app.includes('watch(viewMode, mode =>'),'Garde de changement direct manquant');
