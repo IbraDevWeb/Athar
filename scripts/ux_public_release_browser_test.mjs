@@ -400,7 +400,7 @@ async function desktop() {
     assert.match(await page.locator('.sharh-complete button').innerText(),/Annuler la validation/);
     await page.locator('.sharh-video-preview button').click();
     assert.equal(await page.locator('.sharh-video iframe').count(),1,'Le lecteur vidéo ne se charge pas');
-    assert.match(await page.locator('.sharh-video iframe').getAttribute('src'),/youtube-nocookie.com\\/embed\\/14JeEI318Xc/,
+    assert.match(await page.locator('.sharh-video iframe').getAttribute('src'),/youtube-nocookie.com\/embed\/14JeEI318Xc/,
         'Le lecteur doit utiliser le lien communiqué sans intégration directe youtu.be');
     await page.locator('.sharh-video-actions button').first().click();
     assert.ok(await page.locator('.sharh-video.is-floating').count()===1,'Le mode fenêtre flottante est absent');
