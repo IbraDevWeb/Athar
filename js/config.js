@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v78-istikhara-v1';
+    const APP_VERSION = 'athar-pro-v79-tabib-12-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

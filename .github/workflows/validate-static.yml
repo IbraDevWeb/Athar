@@ -76,6 +76,9 @@ jobs:
       - name: Validate Tabib Istikhâra source and intact corpus
         run: node scripts/validate-tabib-istikhara.js
 
+      - name: Validate twelve additional Tabib fiches and unchanged original fifty
+        run: node scripts/validate-tabib-twelve.js
+
       - name: Validate Adhkar and immersive navigation
         run: node scripts/validate-immersive-adhkar.js
 

@@ -35,9 +35,9 @@ for(let i=0;i<others.length;i++)h=Math.imul(h^others.charCodeAt(i),16777619)>>>0
 assert.equal(h.toString(16),'bf68eb6f','Une autre fiche Tabib a été modifiée');
 for(const token of ['v-if="remedy.learning"','remedy.learning.questions','remedy.learning.glossary','remedy.learning.sources','remedy.hadith.sourceUrl','remedy.hadith.translationNote','rel="noopener noreferrer"'])assert.ok(detail.includes(token),'Vue enrichie incomplète : '+token);
 assert.ok(html.includes('tabib_data.js?v=athar-istikhara-v1'),'Données non actualisées');
-assert.ok(html.includes('TabibDetailView.js?v=athar-istikhara-v1'),'Lecteur non actualisé');
+assert.ok(html.includes('TabibDetailView.js?v=athar-tabib-12-v1'),'Lecteur non actualisé');
 assert.ok(sw.includes('tabib_data.js?v=athar-istikhara-v1'),'Données absentes du cache versionné');
-assert.ok(sw.includes('TabibDetailView.js?v=athar-istikhara-v1'),'Composant absent du cache versionné');
-assert.ok(config.includes("const APP_VERSION = 'athar-pro-v78-istikhara-v1'"));
-assert.ok(sw.includes("const CACHE_VERSION = 'athar-pro-v78-istikhara-v1'"));
+assert.ok(sw.includes('TabibDetailView.js?v=athar-tabib-12-v1'),'Composant absent du cache versionné');
+assert.ok(config.includes("const APP_VERSION = 'athar-pro-v79-tabib-12-v1'"));
+assert.ok(sw.includes("const CACHE_VERSION = 'athar-pro-v79-tabib-12-v1'"));
 console.log('Tabib Istikhâra : invocation entière, 5 étapes, 5 FAQ, 5 notions, 4 sources ; 49 autres fiches inchangées.');
