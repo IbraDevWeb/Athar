@@ -35,6 +35,7 @@ assert.ok(!view.includes('v-html'),'Les notes et contenus ne doivent pas être i
 assert.ok(view.includes('v-if="!videoOpen"'),'La vidéo doit attendre un clic');
 assert.ok(!view.includes('src="https://youtu.be/'),'Ne pas injecter une URL de partage dans une iframe');
 assert.ok(host.includes('sharh-study-view')&&host.includes("selectedBook.id==='abu-dawud'"),'Le cours doit rester rattaché au recueil');
+assert.ok(host.includes("components: { 'sharh-study-view': SharhStudyView }"),'Composant enfant non déclaré localement dans HadithsView');
 assert.ok(host.includes('sharhOpen')&&host.includes('closeSharh'),'Impossible de revenir au recueil');
 assert.ok(app.includes("'sharh-study-view': SharhStudyView"),'Composant non enregistré');
 for(const token of ['sharh_course_data.js','SharhStudyView.js','HadithsView.js','js/app.js']) {
