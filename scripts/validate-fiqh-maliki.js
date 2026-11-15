@@ -24,7 +24,7 @@ assert.ok(book.intro.quote.label.includes('pas une traduction littérale'));
 assert.equal(book.intro.sources.length,2);
 assert.ok(book.intro.sources.some(x=>x.url.startsWith('https://islamweb.net/ar/library/content/19/1/')));
 assert.ok(book.nextChapter.status.includes('aucune fiche publiée'));
-for(const t of ['role="tablist"','role="tabpanel"','course.intro.sections','course.intro.lexicon','course.intro.quiz','course.intro.quote.arabic','course.intro.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+for(const t of ['role="tablist"','role="tabpanel"','course.intro.sections','props.course?.intro?.lexicon','course.intro.quiz','course.intro.quote.arabic','course.intro.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 assert.ok(html.includes('<maliki-fiqh-view :course="malikiFiqhCourse"'));
 for(const p of ['fiqh_maliki_data.js','js/components/MalikiFiqhView.js','css/fiqh-maliki.css'])assert.ok(fs.existsSync(p),'Ressource Fiqh absente '+p);
