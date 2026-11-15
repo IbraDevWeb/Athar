@@ -70,8 +70,8 @@ jobs:
       - name: Validate six empty Kutub as-Sitta collections
         run: node scripts/validate-kutub-sitta.js
 
-      - name: Validate Sharh study reader and video sources
-        run: node scripts/validate-sharh-study.js
+      - name: Validate independent belief learning section
+        run: node scripts/validate-belief-learning.js
 
       - name: Validate Adhkar and immersive navigation
         run: node scripts/validate-immersive-adhkar.js
