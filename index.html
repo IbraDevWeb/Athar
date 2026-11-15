@@ -17,7 +17,7 @@
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/config.js?v=athar-belief-v1"></script>
+    <script src="js/config.js?v=athar-usul-refined-v1"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -115,8 +115,8 @@
             <button @click="setView('tasbih')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'tasbih' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
                 <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tasbih
             </button>
-            <button @click="setView('belief')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'belief' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
-                <i data-lucide="graduation-cap" class="w-4 h-4"></i> Apprentissage de la croyance
+            <button @click="setView('ussul')" :class="['w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-200', viewMode === 'ussul' ? 'bg-brand-dark text-brand-gold dark:bg-white dark:text-brand-dark shadow-lg' : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-brand-dark-lighter']">
+                <i data-lucide="scale" class="w-4 h-4"></i> Usûl al-Fiqh
             </button>
         </div>
 
@@ -217,9 +217,9 @@
                     <span :class="viewMode === 'tasbih' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
                     <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tasbih
                 </button>
-                <button @click="setView('belief'); mobileMenuOpen=false" :class="navBtnClass('belief')">
-                    <span :class="viewMode === 'belief' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
-                    <i data-lucide="graduation-cap" class="w-4 h-4"></i> Apprentissage de la croyance
+                <button @click="setView('ussul'); mobileMenuOpen=false" :class="navBtnClass('ussul')">
+                    <span :class="viewMode === 'ussul' ? 'bg-brand-gold shadow-[0_0_8px_rgba(197,160,89,0.6)]' : 'bg-gray-200 dark:bg-gray-700'" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0"></span>
+                    <i data-lucide="scale" class="w-4 h-4"></i> Usûl al-Fiqh
                 </button>
             </div>
 
@@ -317,10 +317,6 @@
                                 :close-remedy="closeRemedy"
                                 :settings="settings">
                             </tabib-detail-view>
-                        </div>
-
-                        <div v-else-if="viewMode === 'belief'" class="h-full" key="belief">
-                            <belief-learning-view :course="beliefCourse" :close-study="() => setView('home')"></belief-learning-view>
                         </div>
 
                         <div v-else-if="viewMode === 'hadiths'" class="h-full" key="hadiths">
@@ -455,14 +451,14 @@
     <script src="glossary_data.js"></script>
     <script src="hadiths_data.js"></script>
     <script src="js/kutub-sitta-registry.js?v=athar-kutub-sitta-v3"></script>
-    <script src="belief_course_data.js?v=athar-belief-v1"></script>
+    <script src="ussul_data.js?v=athar-usul-core-v1"></script>
     <script src="tabib_data.js"></script>
     <script src="adhkar_data.js?v=athar-adhkar-sources-v1"></script>
     <script src="js/timeline-chronology.js?v=athar-timeline-v2"></script>
     <script src="js/components/TimelineView.js?v=athar-timeline-intuitive-v1"></script>
     <script src="js/components/LibraryView.js?v=athar-library-numbered-v1"></script>
     <script src="js/components/GlossaryView.js"></script>
-    <script src="js/components/BeliefLearningView.js?v=athar-belief-v1"></script>
+    <script src="js/components/UssulView.js?v=athar-usul-refined-v1"></script>
     <script src="js/components/HadithsView.js?v=athar-abu-dawud-50-v2"></script>
     <script src="js/components/HadithReaderView.js?v=athar-abu-dawud-50-reader-v1"></script>
     <script src="js/components/TabibView.js"></script>
@@ -475,7 +471,7 @@
 
     <script src="js/composables/useFavorites.js"></script>
     <script src="./js/composables/useSettings.js"></script>
-    <script src="js/app.js?v=athar-core-belief-v1"></script>
+    <script src="js/app.js?v=athar-core-usul-v1"></script>
 
 </body>
 </html>
