@@ -12,7 +12,8 @@ const sections = [
     ['tabib', 'Tabib Al-Qulub'],
     ['adhkar', 'Al-Adhkar'],
     ['tasbih', 'Tasbih'],
-    ['ussul', 'Usûl al-Fiqh']
+    ['ussul', 'Usûl al-Fiqh'],
+    ['fiqh-maliki', 'Fiqh malikite']
 ];
 const allowed = ['home', ...sections.map(([view]) => view)];
 const blocked = ['transmission', 'atlas', 'belief', 'constellation', 'scriptorium', 'research'];
@@ -40,13 +41,13 @@ async function ready(page) {
     assert.equal(info.fullscreenButton, false, 'Aucun bouton pour entrer ou quitter le grand écran.');
     assert.equal(info.fullscreenElement, false, "Ne pas appeler l'API plein écran du navigateur.");
     assert.equal(info.nativeMenu, false, "L'ancien menu mobile ne doit pas être monté.");
-    assert.equal(await page.locator('.ap-launch-grid button').count(), 8);
+    assert.equal(await page.locator('.ap-launch-grid button').count(), 9);
     assert.equal(await page.locator('#athar-lens').count(), 0);
 
     const drawer = page.locator('#athar-immersive-drawer [data-athar-view]');
     await drawer.first().waitFor({ state: 'attached' });
     const menuViews = await drawer.evaluateAll(nodes => nodes.map(node => node.dataset.atharView).sort());
-    assert.deepEqual(menuViews, [...allowed].sort(), 'Les 8 rubriques et Accueil doivent être les seuls liens de navigation.');
+    assert.deepEqual(menuViews, [...allowed].sort(), 'Les 9 rubriques et Accueil doivent être les seuls liens de navigation.');
     for(const view of blocked) {
         assert.ok(!menuViews.includes(view), 'Une rubrique non publiée a été affichée : ' + view);
     }
@@ -484,6 +485,29 @@ async function desktop() {
     assert.equal(await page.locator('.ussul-video-layer').count(),0,'Le lecteur vidéo ne se ferme pas');
     await page.locator('.ussul-pro-back').click();
     await page.locator('.ussul-pro-back').click();
+    await ready(page);
+
+    // Fiqh malikite : une seule fiche pilote tirée de la préface d'al-Hattâb.
+    await navigate(page,'fiqh-maliki');
+    await page.locator('.fiqh-m-root').waitFor({state:'visible'});
+    assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
+    assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties dans la fiche introductive attendues');
+    assert.ok(await page.locator('a[href="https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"]').count()>=1,'Livre original non référencé');
+    assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/الْإِيجَازِ/,'Extrait arabe de l’auteur non visible');
+    assert.equal(await page.locator('.fiqh-m-current').count(),1,'Plusieurs cours publiés par erreur');
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
+    assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique initial de six notions absent');
+    await page.locator('.fiqh-m-search input').fill('Mukhtasar');
+    assert.ok(await page.locator('.fiqh-m-term').count()>=1 && await page.locator('.fiqh-m-term').count()<6,'Recherche du lexique inactive');
+    assert.match(await page.locator('.fiqh-m-term h3').first().innerText(),/Mukhtasar/);
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
+    assert.equal(await page.locator('.fiqh-m-question').count(),3,'Les trois questions de compréhension manquent');
+    await page.locator('.fiqh-m-choices button').first().click();
+    assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
+    await page.locator('.fiqh-m-complete').click();
+    assert.match(await page.locator('.fiqh-m-complete').innerText(),/marquée comme lue/);
+    await page.locator('.fiqh-m-back').click();
     await ready(page);
 
     // UX : l'accès aux histoires doit être immédiat, lisible et léger.
@@ -1092,6 +1116,25 @@ async function mobile(width,height) {
     assert.equal(tabibMobileVisual.badIcons,0,'Icône géante dans les sources sur '+width+'px');
     assert.ok(tabibMobileVisual.maxLinkHeight<=85&&tabibMobileVisual.horizontalOverflow<=3,'Débordement de la nouvelle fiche Tabib sur '+width+'px : '+JSON.stringify(tabibMobileVisual));
     await page.getByRole('button',{name:'Retour aux remèdes'}).click();
+    await home(page);
+
+    await navigate(page,'fiqh-maliki');
+    await page.locator('.fiqh-m-root').waitFor({state:'visible'});
+    const fiqhVisual=await page.evaluate(()=>{
+        const root=document.querySelector('.fiqh-m-root');
+        const content=root.querySelector('.fiqh-m-content');
+        const links=[...root.querySelectorAll('a[href^="https://"]')];
+        return {overflow:root.scrollWidth-root.clientWidth,
+            rootWidth:root.getBoundingClientRect().width,
+            contentWidth:content.getBoundingClientRect().width,
+            leadFont:parseFloat(getComputedStyle(root.querySelector('.fiqh-m-lead')).fontSize),
+            oversizedLinks:links.filter(a=>a.getBoundingClientRect().height>110).length};
+    });
+    assert.ok(fiqhVisual.overflow<=3&&fiqhVisual.rootWidth<=width+2,'Fiqh malikite déborde sur '+width+' px : '+JSON.stringify(fiqhVisual));
+    assert.ok(fiqhVisual.contentWidth<=width&&fiqhVisual.leadFont<=14&&!fiqhVisual.oversizedLinks,'Fiche Fiqh massive sur mobile : '+JSON.stringify(fiqhVisual));
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
+    assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique Fiqh absent sur mobile');
+    await page.locator('.fiqh-m-back').click();
     await home(page);
 
     await navigate(page,'ussul');

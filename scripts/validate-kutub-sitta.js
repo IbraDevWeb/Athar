@@ -188,5 +188,5 @@ for (const book of registry.collections) {
 }
 assert.ok(assets.some(path=>path.includes('css/bukhari-tabib-inspired.css')),
     'Nouvelle finition Bukhârî absente du précache PWA.');
-assert.ok(assets.length < 65, 'Précache PWA trop volumineux en fichiers');
+assert.ok(assets.length < 70, 'Précache PWA trop volumineux en fichiers');
 console.log('Kutub as-Sitta : Bukhârî 1–50, Muslim 1–50, Abî Dâwûd 1–50 ; trois recueils en préparation et 50 thématiques préservés.');

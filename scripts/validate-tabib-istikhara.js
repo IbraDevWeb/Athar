@@ -38,6 +38,6 @@ assert.ok(html.includes('tabib_data.js?v=athar-istikhara-v1'),'Données non actu
 assert.ok(html.includes('TabibDetailView.js?v=athar-tabib-no-essence-v1'),'Lecteur non actualisé');
 assert.ok(sw.includes('tabib_data.js?v=athar-istikhara-v1'),'Données absentes du cache versionné');
 assert.ok(sw.includes('TabibDetailView.js?v=athar-tabib-no-essence-v1'),'Composant absent du cache versionné');
-assert.ok(config.includes("const APP_VERSION = 'athar-pro-v81-tabib-no-essence-v1'"));
-assert.ok(sw.includes("const CACHE_VERSION = 'athar-pro-v81-tabib-no-essence-v1'"));
+assert.ok(config.includes("const APP_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1'"));
+assert.ok(sw.includes("const CACHE_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1'"));
 console.log('Tabib Istikhâra : invocation entière, 5 étapes, 5 FAQ, 5 notions, 4 sources ; 49 autres fiches inchangées.');

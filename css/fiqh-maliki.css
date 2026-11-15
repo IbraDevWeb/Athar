@@ -1,0 +1,153 @@
+/* Athar · Fiqh malikite — première fiche. Styles isolés, sobres et responsive. */
+.fiqh-m-root {
+  --fm-bg:#f6f7f5; --fm-paper:#fff; --fm-ink:#232d29; --fm-muted:#66736d;
+  --fm-line:#e1e7e2; --fm-accent:#527768; --fm-soft:#edf2ed;
+  --fm-soft-text:#335c4b; --fm-gold:#9d855d;
+  position:relative;display:flex;flex-direction:column;width:100%;height:100%;min-height:0;
+  overflow:hidden;background:var(--fm-bg);color:var(--fm-ink);
+  font:400 13px/1.75 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+}
+.dark .fiqh-m-root {
+  --fm-bg:#141a17;--fm-paper:#1c2420;--fm-ink:#eaf0e9;--fm-muted:#afbab0;
+  --fm-line:#36463c;--fm-accent:#a7c2a8;--fm-soft:#25342b;--fm-soft-text:#c3decb;
+  --fm-gold:#cab18a;
+}
+.fiqh-m-root *,.fiqh-m-root *::before,.fiqh-m-root *::after {box-sizing:border-box}
+.fiqh-m-root :is(h1,h2,h3,p,figure,blockquote){margin:0}
+.fiqh-m-root :is(button,input){font:inherit}
+.fiqh-m-root :is(button,a){cursor:pointer}
+.fiqh-m-root :is(button,a,input):focus-visible{outline:2px solid var(--fm-accent);outline-offset:3px}
+.fiqh-m-root :is(i[data-lucide],.athar-icon-host,svg){width:16px;height:16px;flex:none;max-width:16px;max-height:16px}
+.fiqh-m-root .athar-icon-host>svg{width:100%;height:100%;max-width:100%;max-height:100%}
+.fiqh-m-scroll{min-height:0;overflow:auto;overscroll-behavior:contain;scroll-behavior:smooth;flex:1}
+.fiqh-m-wrap{max-width:1190px;margin:0 auto;padding:0 clamp(16px,4vw,46px) 75px}
+.fiqh-m-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0 15px;border-bottom:1px solid var(--fm-line)}
+.fiqh-m-back{display:flex;align-items:center;gap:8px;background:none;border:0;padding:5px 0;color:var(--fm-ink);font-size:12px;font-weight:700}
+.fiqh-m-back:hover{color:var(--fm-accent)}
+.fiqh-m-top-title{font-size:11px;font-weight:650;color:var(--fm-muted)}
+.fiqh-m-top-title span{color:var(--fm-gold);padding:0 5px}
+.fiqh-m-top-state{display:flex;align-items:center;gap:7px;color:var(--fm-accent);font-size:10px;font-weight:700}
+.fiqh-m-small-dot{width:6px;height:6px;border-radius:50%;background:var(--fm-accent)}
+.fiqh-m-hero{padding:clamp(30px,5vw,54px) 0 clamp(25px,4vw,43px);border-bottom:1px solid var(--fm-line)}
+.fiqh-m-eyebrow{font-size:10px;font-weight:750;letter-spacing:.16em;text-transform:uppercase;color:var(--fm-accent)}
+.fiqh-m-arabic-heading{font:400 clamp(22px,3vw,31px)/1.8 Amiri,serif;color:var(--fm-gold);text-align:left;margin-top:12px!important}
+.fiqh-m-hero h1{font-size:clamp(31px,4.4vw,49px);font-weight:640;letter-spacing:-.043em;line-height:1.22;max-width:800px}
+.fiqh-m-hero h1 em{font:italic 500 1em Georgia,serif;color:var(--fm-accent);letter-spacing:-.045em}
+.fiqh-m-lead{margin-top:13px!important;color:var(--fm-muted);font-size:14px;max-width:620px;line-height:1.83}
+.fiqh-m-hero-meta{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px;color:var(--fm-muted);font-size:11px}
+.fiqh-m-hero-meta span{display:flex;align-items:center;gap:8px}
+.fiqh-m-hero-meta svg{color:var(--fm-accent);width:15px;height:15px}
+.fiqh-m-workspace{display:grid;grid-template-columns:minmax(170px,230px) minmax(0,1fr);gap:clamp(22px,4vw,55px);padding-top:33px;align-items:start}
+.fiqh-m-sidebar{border:1px solid var(--fm-line);background:var(--fm-paper);border-radius:9px;padding:19px 14px 18px;position:sticky;top:14px}
+.fiqh-m-aside-label{color:var(--fm-muted);font-size:9px;font-weight:740;letter-spacing:.13em;padding:0 5px}
+.fiqh-m-aside-gap{margin-top:25px!important}
+.fiqh-m-current,.fiqh-m-coming{display:flex;align-items:flex-start;gap:10px;min-width:0;padding:13px 8px;border-radius:6px;margin-top:8px}
+.fiqh-m-current{background:var(--fm-soft)}
+.fiqh-m-current-num,.fiqh-m-coming-num{font-size:11px;color:var(--fm-accent);font-weight:750;min-width:20px}
+.fiqh-m-current>div,.fiqh-m-coming>div{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}
+.fiqh-m-current strong{font-size:11px;line-height:1.45}
+.fiqh-m-current small,.fiqh-m-coming small{font-size:10px;color:var(--fm-muted);line-height:1.5}
+.fiqh-m-current>i{color:var(--fm-accent)}
+.fiqh-m-coming{color:var(--fm-muted)}
+.fiqh-m-coming>div span{font-size:11px;line-height:1.5}
+.fiqh-m-coming>i{opacity:.5}
+.fiqh-m-aside-note{font-size:10px;color:var(--fm-muted);line-height:1.65;margin-top:13px!important;padding:0 5px}
+.fiqh-m-content{min-width:0}
+.fiqh-m-book-strip{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:23px 25px;border:1px solid var(--fm-line);background:var(--fm-paper);border-radius:9px}
+.fiqh-m-book-strip>div{min-width:0}
+.fiqh-m-book-strip h2{margin-top:7px;font-size:16px;line-height:1.5;letter-spacing:-.01em;font-weight:700}
+.fiqh-m-book-strip p{font:400 17px/1.8 Amiri,serif;margin-top:2px;color:var(--fm-muted)}
+.fiqh-m-book-details{font-size:10px;color:var(--fm-muted)}
+.fiqh-m-source-button{flex:none;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--fm-line);border-radius:5px;padding:9px 12px;color:var(--fm-accent);font-size:11px;font-weight:730;text-decoration:none;max-width:100%;white-space:nowrap}
+.fiqh-m-source-button:hover{background:var(--fm-soft)}
+.fiqh-m-source-button svg{width:14px;height:14px}
+.fiqh-m-tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--fm-line);padding-top:22px;margin-bottom:26px}
+.fiqh-m-tabs button{display:inline-flex;align-items:center;gap:8px;padding:12px 15px;border:0;background:transparent;border-bottom:2px solid transparent;color:var(--fm-muted);font-size:11px;font-weight:730;white-space:nowrap}
+.fiqh-m-tabs button:hover{color:var(--fm-accent)}
+.fiqh-m-tabs button.is-active{color:var(--fm-accent);border-color:var(--fm-accent)}
+.fiqh-m-tabs button svg{width:15px;height:15px}
+.fiqh-m-tab-pane{min-height:260px}
+.fiqh-m-reader-heading{padding:0 0 23px}
+.fiqh-m-reader-heading h2{margin-top:8px;font-size:clamp(22px,3vw,30px);line-height:1.34;font-weight:660;letter-spacing:-.025em}
+.fiqh-m-reader-heading>p{margin-top:10px;font-size:12px;line-height:1.9;color:var(--fm-muted);max-width:680px}
+.fiqh-m-prose{border-top:1px solid var(--fm-line)}
+.fiqh-m-section{padding:22px 0 24px;border-bottom:1px solid var(--fm-line)}
+.fiqh-m-section-index{color:var(--fm-accent);font-size:10px;font-weight:710;letter-spacing:.09em}
+.fiqh-m-section h3{font-size:17px;line-height:1.47;font-weight:690;letter-spacing:-.01em;margin-top:8px;margin-bottom:12px}
+.fiqh-m-section>p{font-size:13px;line-height:2;color:var(--fm-ink);margin-top:11px}
+.fiqh-m-section>.fiqh-m-reference{display:flex;align-items:flex-start;gap:8px;color:var(--fm-muted);font-size:10px;line-height:1.75;margin-top:16px}
+.fiqh-m-reference svg{width:13px;height:13px;color:var(--fm-gold);margin-top:2px}
+.fiqh-m-quote{margin-top:27px;padding:21px 26px;background:var(--fm-soft);border-left:2px solid var(--fm-accent);border-radius:0 7px 7px 0}
+.fiqh-m-quote figcaption{font-size:9px;letter-spacing:.15em;font-weight:760;color:var(--fm-accent)}
+.fiqh-m-quote blockquote{font:400 clamp(22px,3vw,30px)/2 Amiri,serif;color:var(--fm-ink);margin:13px 0}
+.fiqh-m-quote p{font-size:12px;line-height:1.83}
+.fiqh-m-quote small{display:block;margin-top:8px;font-size:10px;color:var(--fm-muted)}
+.fiqh-m-lesson-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:29px 0}
+.fiqh-m-complete{display:flex;align-items:center;gap:9px;background:var(--fm-ink);color:var(--fm-paper);border:1px solid var(--fm-ink);border-radius:6px;padding:11px 15px;font-size:11px;font-weight:750}
+.fiqh-m-complete.is-done{background:var(--fm-soft);color:var(--fm-soft-text);border-color:var(--fm-line)}
+.fiqh-m-text-action{display:flex;align-items:center;gap:8px;color:var(--fm-accent);background:transparent;border:0;padding:9px;font-weight:710;font-size:11px}
+.fiqh-m-search{display:flex;gap:10px;align-items:center;border:1px solid var(--fm-line);border-radius:6px;background:var(--fm-paper);padding:0 14px;max-width:550px;margin-bottom:17px}
+.fiqh-m-search svg{color:var(--fm-muted)}
+.fiqh-m-search input{width:100%;min-height:46px;min-width:0;background:transparent;border:0;outline:0;color:var(--fm-ink);font-size:12px}
+.fiqh-m-terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.fiqh-m-term{background:var(--fm-paper);border:1px solid var(--fm-line);border-radius:7px;padding:18px 20px;min-width:0}
+.fiqh-m-term-arabic{display:block;color:var(--fm-accent);font:400 24px/1.75 Amiri,serif}
+.fiqh-m-term h3{font-size:14px;font-weight:720;margin:5px 0}
+.fiqh-m-term p{font-size:11px;color:var(--fm-muted);line-height:1.83}
+.fiqh-m-empty{padding:30px 0;color:var(--fm-muted)}
+.fiqh-m-question{border-top:1px solid var(--fm-line);padding:23px 0}
+.fiqh-m-question-number{color:var(--fm-accent);font-size:10px;letter-spacing:.1em;font-weight:740}
+.fiqh-m-question h3{font-size:15px;line-height:1.6;margin:6px 0 15px;font-weight:690}
+.fiqh-m-choices{display:grid;gap:8px}
+.fiqh-m-choices button{display:flex;align-items:flex-start;gap:11px;text-align:left;padding:12px 14px;border:1px solid var(--fm-line);border-radius:6px;background:var(--fm-paper);color:var(--fm-ink);font-size:12px;line-height:1.65}
+.fiqh-m-choices button>span{display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:4px;color:var(--fm-accent);background:var(--fm-soft);font-weight:740;font-size:10px}
+.fiqh-m-choices button:hover{border-color:var(--fm-accent)}
+.fiqh-m-choices button.is-picked{border-color:var(--fm-gold)}
+.fiqh-m-choices button.is-correct{border-color:var(--fm-accent);background:var(--fm-soft)}
+.fiqh-m-choices button.is-wrong{border-color:#b28065}
+.fiqh-m-answer{font-size:11px;line-height:1.9;color:var(--fm-muted);margin-top:13px!important}
+.fiqh-m-answer strong{color:var(--fm-ink)}
+.fiqh-m-result{background:var(--fm-soft);border:1px solid var(--fm-line);padding:14px 18px;border-radius:6px;font-weight:700;font-size:12px}
+.fiqh-m-footer{border-top:1px solid var(--fm-line);padding:25px 0 5px;margin-top:24px;color:var(--fm-muted)}
+.fiqh-m-footer>p{display:flex;align-items:flex-start;gap:10px;font-size:10px;line-height:1.8}
+.fiqh-m-footer>p svg{color:var(--fm-accent);margin-top:1px}
+.fiqh-m-footer>div{display:flex;gap:8px 20px;flex-wrap:wrap;margin-top:13px}
+.fiqh-m-footer a{display:inline-flex;align-items:center;gap:5px;color:var(--fm-accent);font-size:10px;line-height:1.7;text-decoration:underline;text-underline-offset:3px}
+.fiqh-m-footer a svg{width:12px;height:12px}
+@media(max-width:850px){
+ .fiqh-m-workspace{grid-template-columns:1fr;gap:23px;padding-top:24px}
+ .fiqh-m-sidebar{position:static;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px 12px;padding:13px}
+ .fiqh-m-sidebar>.fiqh-m-aside-label,.fiqh-m-sidebar>.fiqh-m-aside-gap{grid-column:1/-1}
+ .fiqh-m-sidebar>.fiqh-m-aside-gap{margin-top:8px!important}
+ .fiqh-m-sidebar>.fiqh-m-aside-note{grid-column:1/-1;margin-top:4px!important}
+ .fiqh-m-current,.fiqh-m-coming{margin-top:0}
+}
+@media(max-width:540px){
+ .fiqh-m-wrap{padding:0 16px 65px}
+ .fiqh-m-top{padding:13px 0}
+ .fiqh-m-top-title{display:none}
+ .fiqh-m-hero{padding:26px 0 25px}
+ .fiqh-m-hero h1{font-size:32px}
+ .fiqh-m-arabic-heading{font-size:24px}
+ .fiqh-m-lead{font-size:12px}
+ .fiqh-m-hero-meta{gap:10px 13px;font-size:10px}
+ .fiqh-m-sidebar{grid-template-columns:1fr}
+ .fiqh-m-current,.fiqh-m-coming{min-height:46px}
+ .fiqh-m-book-strip{align-items:flex-start;flex-direction:column;padding:17px 18px;gap:14px}
+ .fiqh-m-book-strip h2{font-size:15px}
+ .fiqh-m-source-button{white-space:normal}
+ .fiqh-m-tabs{gap:0;justify-content:space-between;padding-top:14px;margin-bottom:22px}
+ .fiqh-m-tabs button{padding:11px 7px;font-size:10px;gap:5px}
+ .fiqh-m-tabs button svg{width:13px;height:13px}
+ .fiqh-m-reader-heading h2{font-size:24px}
+ .fiqh-m-section h3{font-size:16px}
+ .fiqh-m-section>p{font-size:12px;line-height:1.9}
+ .fiqh-m-quote{padding:17px 18px}
+ .fiqh-m-quote blockquote{font-size:24px}
+ .fiqh-m-terms{grid-template-columns:1fr}
+ .fiqh-m-lesson-bottom{align-items:stretch}
+ .fiqh-m-complete{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+ .fiqh-m-root *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
