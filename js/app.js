@@ -8,7 +8,7 @@ const app = createApp({
         'library-view': LibraryView,
         'glossary-view': GlossaryView,
         'hadiths-view': HadithsView,
-        'sharh-study-view': SharhStudyView,
+        'belief-learning-view': BeliefLearningView,
         'hadith-reader-view': HadithReaderView,
         'tabib-view': TabibView,
         'tabib-detail-view': TabibDetailView,
@@ -93,9 +93,10 @@ const app = createApp({
 
         // --- ÉTATS RÉACTIFS ---
         const viewMode = ref('home');
+        const beliefCourse = typeof ATHAR_BELIEF_COURSE !== 'undefined' ? ATHAR_BELIEF_COURSE : null;
         // Liste blanche de publication : les autres modules restent dans le dépôt mais ne sont pas accessibles.
         const publishedViews = new Set([
-            'home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih',
+            'home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'belief',
             'reader', 'hadith-reader', 'tabib-detail', 'adhkar-reader'
         ]);
         const isAvailableView = mode => publishedViews.has(mode);
@@ -399,7 +400,7 @@ const app = createApp({
         };
 
         return {
-            dataError, viewMode, headerSearchQuery, 
+            dataError, viewMode, beliefCourse, headerSearchQuery, 
             allChapters: safeChapters, 
             filteredChapters, displayedChapters, mainScroll, globalTimeline, filteredGlossary,
             filteredHadiths, currentHadith, openHadith,
