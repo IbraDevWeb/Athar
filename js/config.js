@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v81-tabib-no-essence-v1';
+    const APP_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -81,7 +81,7 @@ tailwind.config = {
     document.title = "Athar Pro — Bibliothèque et outils d'étude";
     setMeta('meta[name="description"]', 'Biographies, chronologie, lexique, hadiths, Tabib Al-Qulub, adhkar et tasbih dans Athar Pro.');
     setMeta('meta[property="og:title"]', "Athar Pro — Bibliothèque et outils d'étude");
-    setMeta('meta[property="og:description"]', 'Explorez les sept rubriques disponibles dans Athar Pro.');
+    setMeta('meta[property="og:description"]', 'Explorez les neuf rubriques disponibles dans Athar Pro.');
 
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
@@ -117,6 +117,7 @@ tailwind.config = {
     // Galerie et fiches 01–50 de Bukhârî : chargées en dernier, sans affecter le reste du site.
     ensureStylesheet(`css/bukhari-tabib-inspired.css?v=${APP_VERSION}`, 'athar-bukhari-tabib-inspired');
     ensureStylesheet(`css/ussul-pro.css?v=${APP_VERSION}`, 'athar-usul-refined');
+    ensureStylesheet(`css/fiqh-maliki.css?v=${APP_VERSION}`, 'athar-fiqh-maliki-intro');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');
