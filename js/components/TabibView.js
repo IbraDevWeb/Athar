@@ -39,6 +39,7 @@ const TabibView = {
                             <i :data-lucide="item.icon" class="w-6 h-6"></i>
                         </div>
                         <span v-if="item.source_type === 'Coran'" class="px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-600 border border-amber-100">Ayat</span>
+                        <span v-else-if="item.source_type === 'Sunnah'" class="px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider bg-blue-50 text-blue-600 border border-blue-100">Sunnah</span>
                         <span v-else class="px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider bg-blue-50 text-blue-600 border border-blue-100">Dou'a</span>
                     </div>
 
