@@ -11,7 +11,8 @@ const sections = [
     ['hadiths', 'Hadiths'],
     ['tabib', 'Tabib Al-Qulub'],
     ['adhkar', 'Al-Adhkar'],
-    ['tasbih', 'Tasbih']
+    ['tasbih', 'Tasbih'],
+    ['belief', 'Apprentissage de la croyance']
 ];
 const allowed = ['home', ...sections.map(([view]) => view)];
 const blocked = ['transmission', 'atlas', 'ussul', 'constellation', 'scriptorium', 'research'];
@@ -39,13 +40,13 @@ async function ready(page) {
     assert.equal(info.fullscreenButton, false, 'Aucun bouton pour entrer ou quitter le grand écran.');
     assert.equal(info.fullscreenElement, false, "Ne pas appeler l'API plein écran du navigateur.");
     assert.equal(info.nativeMenu, false, "L'ancien menu mobile ne doit pas être monté.");
-    assert.equal(await page.locator('.ap-launch-grid button').count(), 7);
+    assert.equal(await page.locator('.ap-launch-grid button').count(), 8);
     assert.equal(await page.locator('#athar-lens').count(), 0);
 
     const drawer = page.locator('#athar-immersive-drawer [data-athar-view]');
     await drawer.first().waitFor({ state: 'attached' });
     const menuViews = await drawer.evaluateAll(nodes => nodes.map(node => node.dataset.atharView).sort());
-    assert.deepEqual(menuViews, [...allowed].sort(), 'Les 7 rubriques et Accueil doivent être les seuls liens de navigation.');
+    assert.deepEqual(menuViews, [...allowed].sort(), 'Les 8 rubriques et Accueil doivent être les seuls liens de navigation.');
     for(const view of blocked) {
         assert.ok(!menuViews.includes(view), 'Une rubrique non publiée a été affichée : ' + view);
     }
@@ -383,39 +384,7 @@ async function desktop() {
     assert.equal(await page.locator('a[href="https://sunnah.com/abudawud:50"]').count(),1,'Abî Dâwûd 50 : source absente');
     await page.locator('.bukhari-reader-back').click();
     await page.locator('.bukhari-book-view').waitFor({state:'visible'});
-    // Sharh du recueil : entrée discrète, vidéo différée, sauvegarde de cours et retour au livre.
-    const sharhBridge=page.locator('.hadith-sharh-bridge');
-    assert.ok(await sharhBridge.isVisible(),'Le parcours de Sharh Abî Dâwûd est introuvable');
-    await sharhBridge.locator('button').click();
-    await page.locator('.sharh-study').waitFor({state:'visible'});
-    assert.match(await page.locator('.sharh-hero h1').innerText(),/Sharh/);
-    assert.equal(await page.locator('.sharh-lesson-card').count(),1,'Une seule vidéo est actuellement fournie');
-    assert.equal(await page.locator('.sharh-video iframe').count(),0,'La vidéo ne doit pas se charger sur l’accueil');
-    await page.locator('.sharh-lesson-card button').click();
-    await page.locator('.sharh-reading').waitFor({state:'visible'});
-    assert.equal(await page.locator('.sharh-video iframe').count(),0,'La vidéo externe doit attendre un clic');
-    const localNote='Note de test du parcours Sharh';
-    await page.locator('.sharh-notes textarea').fill(localNote);
-    await page.locator('.sharh-complete button').click();
-    assert.match(await page.locator('.sharh-complete button').innerText(),/Annuler la validation/);
-    // Tester le chargement volontaire sans dépendre de la disponibilité réseau de YouTube.
-    await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><html><body>Lecteur simulé</body></html>'}));
-    await page.locator('.sharh-video-preview button').click();
-    assert.equal(await page.locator('.sharh-video iframe').count(),1,'Le lecteur vidéo ne se charge pas');
-    assert.match(await page.locator('.sharh-video iframe').getAttribute('src'),/youtube-nocookie.com\/embed\/14JeEI318Xc/,
-        'Le lecteur doit utiliser le lien communiqué sans intégration directe youtu.be');
-    await page.locator('.sharh-video-actions button').first().click();
-    assert.ok(await page.locator('.sharh-video.is-floating').count()===1,'Le mode fenêtre flottante est absent');
-    await page.locator('.sharh-video-actions button').first().click();
-    await page.locator('.sharh-video-actions button').last().click();
-    assert.equal(await page.locator('.sharh-video iframe').count(),0,'Arrêter doit décharger le lecteur');
-    await page.locator('.sharh-reader-nav button').first().click();
-    await page.locator('.sharh-progress strong').waitFor({state:'visible'});
-    assert.match(await page.locator('.sharh-progress strong').innerText(),/100/,'Progression non sauvegardée');
-    await page.locator('.sharh-primary').click();
-    assert.equal(await page.locator('.sharh-notes textarea').inputValue(),localNote,'Notes de cours perdues');
-    await page.locator('.sharh-topbar .sharh-back').click();
-    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    assert.equal(await page.locator('.hadith-sharh-bridge').count(),0,'Le cours de croyance ne doit plus apparaître dans Sunan Abî Dâwûd');
     await page.locator('.hadith-kutub-back').click();
     for (let index=3; index<6; index++) {
         await page.locator('.hadith-kutub-book').nth(index).click();
@@ -429,6 +398,36 @@ async function desktop() {
     await page.locator('.hadith-kutub-tabs button').nth(0).click();
     assert.equal(await page.locator('.hadith-pro-card').count(),18,'Le corpus original ne revient pas');
     await home(page);
+    // La croyance est la huitième rubrique principale et non une sous-section des hadiths.
+    await navigate(page,'belief');
+    await page.locator('.belief-study').waitFor({state:'visible',timeout:15000});
+    assert.match(await page.locator('.belief-hero h1').innerText(),/Apprentissage de la croyance/);
+    assert.equal(await page.locator('.belief-lesson-card').count(),1,'Un seul audio a été fourni');
+    assert.equal(await page.locator('.belief-video iframe').count(),0,'Aucune connexion YouTube avant clic');
+    await page.locator('.belief-lesson-card button').click();
+    await page.locator('.belief-reading').waitFor({state:'visible'});
+    assert.equal(await page.locator('.belief-transcript-empty').count(),1,'Le cours écrit ne doit pas inventer de transcription');
+    assert.ok(await page.locator('.belief-glossary-grid > div').count()>=4,'Lexique introductif non disponible');
+    const note='Note de test du parcours de croyance';
+    await page.locator('.belief-notes textarea').fill(note);
+    await page.locator('.belief-complete button').click();
+    assert.match(await page.locator('.belief-complete button').innerText(),/Annuler la validation/);
+    await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><html><body>Lecteur simulé</body></html>'}));
+    await page.locator('.belief-video-preview button').click();
+    assert.equal(await page.locator('.belief-video iframe').count(),1,'Le lecteur différé est absent');
+    assert.match(await page.locator('.belief-video iframe').getAttribute('src'),/youtube-nocookie.com\/embed\/14JeEI318Xc/,'Mauvaise source YouTube');
+    await page.locator('.belief-video-actions button').first().click();
+    assert.equal(await page.locator('.belief-video.is-floating').count(),1,'Fenêtre flottante absente');
+    await page.locator('.belief-video-actions button').first().click();
+    await page.locator('.belief-video-actions button').last().click();
+    assert.equal(await page.locator('.belief-video iframe').count(),0,'Le lecteur ne s’arrête pas');
+    await page.locator('.belief-reader-nav button').first().click();
+    await page.locator('.belief-progress strong').waitFor({state:'visible'});
+    assert.match(await page.locator('.belief-progress strong').innerText(),/100/,'Progression non conservée');
+    await page.locator('.belief-primary').click();
+    assert.equal(await page.locator('.belief-notes textarea').inputValue(),note,'Notes non conservées');
+    await page.locator('.belief-topbar .belief-back').click();
+    await ready(page);
 
     // UX : l'accès aux histoires doit être immédiat, lisible et léger.
     await navigate(page, 'library');
