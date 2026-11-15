@@ -73,6 +73,9 @@ jobs:
       - name: Validate published Usûl course and hidden belief section
         run: node scripts/validate-usul-public.js
 
+      - name: Validate sourced Fiqh Maliki introduction and ninth section
+        run: node scripts/validate-fiqh-maliki.js
+
       - name: Validate Tabib Istikhâra source and intact corpus
         run: node scripts/validate-tabib-istikhara.js
 
