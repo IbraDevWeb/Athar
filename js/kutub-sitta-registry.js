@@ -30,7 +30,7 @@ const ATHAR_KUTUB_SITTA = Object.freeze({
                 "arabicName": "سنن أبي داود",
                 "compiler": "Abou Dâwoud as-Sijistânî",
                 "type": "Sunan",
-                "description": "Les 50 premiers hadiths du Livre de la purification, en arabe et en français ; les appréciations des transmetteurs sont sourcées.",
+                "description": "Les 50 premiers hadiths du Livre de la purification, en arabe et en français ; les appréciations des spécialistes sont attribuées.",
                 "importedCount": 50,
                 "dataPath": "data/kutub-sitta/abu-dawud.json"
         },
