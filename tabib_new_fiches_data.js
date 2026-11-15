@@ -456,7 +456,7 @@ const TABIB_NEW_FICHES_DATA = [
         },
         {
           "term": "Îmân — الإيمان",
-          "meaning": "Foi."
+          "meaning": "Foi en Allah et adhésion intérieure à la révélation."
         },
         {
           "term": "Ghadd al-basar — غضّ البصر",
@@ -693,7 +693,7 @@ const TABIB_NEW_FICHES_DATA = [
         },
         {
           "term": "Hikma — الحكمة",
-          "meaning": "Sagesse."
+          "meaning": "Sagesse dans la connaissance, le jugement et la manière de parler."
         },
         {
           "term": "Jidâl — الجدال",
@@ -772,7 +772,7 @@ const TABIB_NEW_FICHES_DATA = [
         },
         {
           "term": "Niyya — النية",
-          "meaning": "Intention."
+          "meaning": "Intention qui donne une direction à l’acte accompli."
         },
         {
           "term": "‘Amal — العمل",
