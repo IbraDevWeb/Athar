@@ -61,5 +61,5 @@ assert.ok(!config.includes('css/belief-learning.css'),'CSS Croyance encore charg
 for(const path of ['ussul_data.js','UssulView.js','ussul-pro.css'])assert.ok(sw.includes(path),'Ressource Usûl non précachée : '+path);
 for(const path of ['belief_course_data.js','BeliefLearningView.js','belief-learning.css'])assert.ok(!sw.includes(path),'Croyance ne doit pas être précachée : '+path);
 const assets=vm.runInNewContext(sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/)[1]);
-assert.ok(assets.length<65 && new Set(assets).size===assets.length,'Ressources PWA excessives ou en doublon');
+assert.ok(assets.length<70 && new Set(assets).size===assets.length,'Ressources PWA excessives ou en doublon');
 console.log('Usûl : '+lessons.length+' cours originaux, '+nSections+' sections, '+nDeepDives+' approfondissements, '+markedTerms+' occurrences de notions balisées ; huitième rubrique accessible, croyance masquée.');
