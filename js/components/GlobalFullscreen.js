@@ -3,7 +3,7 @@
     const ROOT_CLASS = 'athar-app-fullscreen';
     const STORAGE_KEY = 'athar_immersive_last_view';
     const SETTINGS_KEY = 'athar_settings';
-    const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul']);
+    const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul', 'fiqh-maliki']);
     const NAV_GROUPS = [
         {
             label: 'Essentiel',
@@ -11,7 +11,7 @@
                 ['home', 'Accueil', 'home'], ['library', 'Bibliothèque', 'library'], ['timeline', 'Frise Chrono', 'clock'],
                 ['glossary', 'Lexique', 'book-a'], ['hadiths', 'Hadiths', 'scroll-text'], ['tabib', 'Tabib Al-Qulub', 'heart-pulse'],
                 ['adhkar', 'Al-Adhkar', 'sunrise'], ['tasbih', 'Tasbih', 'rotate-cw'], ['transmission', 'Transmission', 'git-fork'],
-                ['atlas', 'Atlas Interactif', 'map'], ['ussul', 'Usûl al-Fiqh', 'scale']
+                ['atlas', 'Atlas Interactif', 'map'], ['ussul', 'Usûl al-Fiqh', 'scale'], ['fiqh-maliki', 'Fiqh malikite', 'book-marked']
             ]
         },
         {
