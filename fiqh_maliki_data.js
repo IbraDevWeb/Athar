@@ -64,7 +64,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       }
     ],
     "quote": {
-      "arabic": "إِلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ",
+      "arabic": "إلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ",
       "meaning": "Al-Hattâb explique ici que la grande concision du Mukhtasar peut rendre sa lecture particulièrement difficile.",
       "label": "Court extrait de la préface — sens expliqué, pas une traduction littérale."
     },
