@@ -34,7 +34,8 @@ const TabibDetailView = {
                     </p>
                     <div class="bg-white/60 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 text-center border border-emerald-100/50 dark:border-emerald-900/30">
                         <p class="text-emerald-800 dark:text-emerald-200 text-lg font-serif italic mb-3">{{ remedy.quran.fr }}</p>
-                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">— {{ remedy.quran.ref }}</span>
+                        <a v-if="remedy.quran.sourceUrl" :href="remedy.quran.sourceUrl" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 dark:text-emerald-400 underline underline-offset-4">— {{ remedy.quran.ref }} <i data-lucide="external-link" class="inline w-3 h-3"></i></a>
+                        <span v-else class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">— {{ remedy.quran.ref }}</span>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@ const TabibDetailView = {
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold via-emerald-500 to-brand-gold"></div>
                 
                 <div class="text-center relative z-10">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-gold border-b border-brand-gold/20 pb-1 mb-8 inline-block">Invocation Prophétique</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-gold border-b border-brand-gold/20 pb-1 mb-8 inline-block">{{ remedy.hadith.label || 'Invocation Prophétique' }}</span>
 
                     <p class="font-arabic text-3xl md:text-4xl text-brand-dark dark:text-gray-100 text-center" dir="rtl" :style="{ fontSize: (settings.fontSize + (remedy.learning ? 2 : 10)) + 'px', lineHeight: remedy.learning ? '2.15' : '2.8' }">
                         {{ remedy.hadith.ar }}
