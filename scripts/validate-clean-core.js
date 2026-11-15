@@ -27,9 +27,9 @@ for(const url of assets) {
 }
 const imports=[...html.matchAll(/<script[^>]*\bsrc=["']([^"']+)["']/g)].map(m=>m[1]).filter(x=>!/^https?:/.test(x));
 for(const url of imports) assert(fs.existsSync(path.join(root,url.split('?')[0])), 'Script public absent : '+url);
-const names=['HomeView','TimelineView','LibraryView','GlossaryView','HadithsView','HadithReaderView','TabibView','TabibDetailView','AdhkarView','AdhkarReaderView','ReaderView','TasbihView'];
+const names=['HomeView','TimelineView','LibraryView','GlossaryView','HadithsView','HadithReaderView','BeliefLearningView','TabibView','TabibDetailView','AdhkarView','AdhkarReaderView','ReaderView','TasbihView'];
 for(const name of names) assert(imports.some(url=>url.startsWith('js/components/'+name+'.js')), 'Composant absent du site : '+name);
 for(const name of ['transmission_data.js','atlas_data.js','ussul_data.js','constellation_part1.js']) {
   assert(!imports.includes(name), 'Module non publié téléchargé : '+name);
 }
-console.log('Athar : seulement sept rubriques chargées, '+assets.length+' ressources PWA, 2 workflows, aucun RAG.');
+console.log('Athar : huit rubriques chargées, '+assets.length+' ressources PWA, 2 workflows, aucun RAG.');

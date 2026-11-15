@@ -1,6 +1,6 @@
-// Sharh — lecteur vidéo et notes, inspiré de l'ancien parcours Oussoul al-Fiqh.
+// Croyance — lecteur vidéo et notes, inspiré de l'ancien parcours Oussoul al-Fiqh.
 // Les métadonnées et le contenu de la vidéo ne sont pas présumés vérifiés.
-const SharhStudyView = {
+const BeliefLearningView = {
   props: ['course', 'closeStudy'],
   data() {
     return {
@@ -31,7 +31,7 @@ const SharhStudyView = {
   },
   mounted() {
     try {
-      const saved=JSON.parse(localStorage.getItem('athar_sharh_abu_dawud_v1')||'{}');
+      const saved=JSON.parse(localStorage.getItem('athar_belief_learning_v1')||'{}');
       const ids=new Set(this.lessons.map(x=>x.id));
       this.done=Array.isArray(saved.done)?saved.done.filter(x=>ids.has(x)):[];
       this.lastId=ids.has(saved.lastId)?saved.lastId:null;
@@ -45,7 +45,7 @@ const SharhStudyView = {
   methods: {
     icons() { this.$nextTick(()=>window.lucide?.createIcons()); },
     persist() {
-      try { localStorage.setItem('athar_sharh_abu_dawud_v1',JSON.stringify({
+      try { localStorage.setItem('athar_belief_learning_v1',JSON.stringify({
         done:this.done,notes:this.notes,lastId:this.lastId
       })); } catch(_) {}
     },
@@ -79,40 +79,40 @@ const SharhStudyView = {
     }
   },
   template: `
-  <section class="sharh-study" aria-label="Parcours de Sharh">
-    <header class="sharh-topbar">
-      <button class="sharh-back" type="button" @click="leave"><i data-lucide="arrow-left" aria-hidden="true"></i> Revenir au recueil</button>
-      <span>ATHAR <span aria-hidden="true">/</span> ÉTUDE COMMENTÉE</span>
+  <section class="belief-study" aria-label="Apprentissage de la croyance">
+    <header class="belief-topbar">
+      <button class="belief-back" type="button" @click="leave"><i data-lucide="arrow-left" aria-hidden="true"></i> Retour à l’accueil</button>
+      <span>ATHAR <span aria-hidden="true">/</span> CROYANCE</span>
     </header>
 
-    <div v-if="!activeLesson" class="sharh-index">
-      <div class="sharh-hero">
-        <div class="sharh-hero-main">
-          <span class="sharh-kicker">Parcours de lecture &amp; écoute</span>
-          <p class="sharh-book-arabic" lang="ar" dir="rtl">{{ course.bookArabic }}</p>
-          <h1>{{ course.name }}</h1>
-          <h2>{{ course.bookTitle }}</h2>
-          <p>{{ course.subtitle }}</p>
-          <button type="button" class="sharh-primary" @click="resume">
+    <div v-if="!activeLesson" class="belief-index">
+      <div class="belief-hero">
+        <div class="belief-hero-main">
+          <span class="belief-kicker">Cours &amp; formation</span>
+          <p class="belief-book-arabic" lang="ar" dir="rtl">{{ course.arabicTitle }}</p>
+          <h1>{{ course.title }}</h1>
+          <h2>Formation &amp; lexique</h2>
+          <p>{{ course.introduction || course.subtitle }}</p>
+          <button type="button" class="belief-primary" @click="resume">
             <i :data-lucide="lastId?'book-open-check':'play'" aria-hidden="true"></i>
             {{ lastId?'Reprendre le parcours':'Commencer le parcours' }}
           </button>
         </div>
-        <aside class="sharh-progress" aria-label="Progression du parcours">
+        <aside class="belief-progress" aria-label="Progression du parcours">
           <span>Ma progression</span>
           <strong>{{ percent }}<small>%</small></strong>
-          <div class="sharh-track" role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" aria-label="Progression"><span :style="{width:percent+'%'}"></span></div>
+          <div class="belief-track" role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" aria-label="Progression"><span :style="{width:percent+'%'}"></span></div>
           <p>{{ doneCount }} / {{ lessons.length }} leçon{{ lessons.length>1?'s':'' }} terminée{{ doneCount>1?'s':'' }}</p>
           <small>Progression sauvegardée sur cet appareil</small>
         </aside>
       </div>
-      <div class="sharh-program-head">
-        <div><span class="sharh-kicker">Le programme</span><h2>Les leçons</h2></div>
+      <div class="belief-program-head">
+        <div><span class="belief-kicker">Parcours</span><h2>Les cours</h2></div>
         <label><i data-lucide="search" aria-hidden="true"></i><input v-model="query" type="search" aria-label="Rechercher une leçon" placeholder="Rechercher une leçon"></label>
       </div>
-      <div class="sharh-lesson-list">
-        <article v-for="lesson in filteredLessons" :key="lesson.id" class="sharh-lesson-card">
-          <span class="sharh-num">{{ String(lesson.number).padStart(2,'0') }}</span>
+      <div class="belief-lesson-list">
+        <article v-for="lesson in filteredLessons" :key="lesson.id" class="belief-lesson-card">
+          <span class="belief-num">{{ String(lesson.number).padStart(2,'0') }}</span>
           <div><small>{{ done.includes(lesson.id)?'Leçon terminée':'Cours vidéo' }}</small>
             <h3>{{ lesson.title }}</h3><p>{{ lesson.subtitle }}</p>
           </div>
@@ -122,20 +122,20 @@ const SharhStudyView = {
         </article>
         <p v-if="!filteredLessons.length">Aucune leçon ne correspond à cette recherche.</p>
       </div>
-      <p class="sharh-caution"><i data-lucide="info" aria-hidden="true"></i> {{ course.editorialNote }}</p>
+      <p class="belief-caution"><i data-lucide="info" aria-hidden="true"></i> {{ course.editorialNote }}</p>
     </div>
 
-    <div v-else class="sharh-reader">
-      <div class="sharh-reader-nav">
+    <div v-else class="belief-reader">
+      <div class="belief-reader-nav">
         <button type="button" @click="goIndex"><i data-lucide="arrow-left" aria-hidden="true"></i> Toutes les leçons</button>
-        <button type="button" class="sharh-outline-toggle" @click="mobileOutline=!mobileOutline" :aria-expanded="mobileOutline"><i data-lucide="list" aria-hidden="true"></i> Sommaire</button>
+        <button type="button" class="belief-outline-toggle" @click="mobileOutline=!mobileOutline" :aria-expanded="mobileOutline"><i data-lucide="list" aria-hidden="true"></i> Sommaire</button>
       </div>
-      <div class="sharh-reader-grid">
-        <aside class="sharh-sidebar" :class="{'is-open':mobileOutline}" aria-label="Sommaire du parcours">
-          <span class="sharh-kicker">Le programme</span>
-          <h2>{{ course.bookTitle }}</h2>
+      <div class="belief-reader-grid">
+        <aside class="belief-sidebar" :class="{'is-open':mobileOutline}" aria-label="Sommaire du parcours">
+          <span class="belief-kicker">Le programme</span>
+          <h2>{{ course.title }}</h2>
           <p>{{ doneCount }} / {{ lessons.length }} leçons terminées</p>
-          <div class="sharh-track" role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" aria-label="Progression"><span :style="{width:percent+'%'}"></span></div>
+          <div class="belief-track" role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" aria-label="Progression"><span :style="{width:percent+'%'}"></span></div>
           <nav aria-label="Choisir une leçon">
             <button v-for="lesson in lessons" :key="lesson.id" type="button" :class="{'is-current':lesson.id===activeId}" :aria-current="lesson.id===activeId?'step':null" @click="choose(lesson)">
               <span>{{ String(lesson.number).padStart(2,'0') }}</span><span>{{ lesson.title }}</span>
@@ -143,21 +143,21 @@ const SharhStudyView = {
             </button>
           </nav>
         </aside>
-        <main class="sharh-reading">
-          <header class="sharh-lesson-header">
-            <span class="sharh-kicker">Leçon {{ String(activeLesson.number).padStart(2,'0') }}</span>
+        <main class="belief-reading">
+          <header class="belief-lesson-header">
+            <span class="belief-kicker">Leçon {{ String(activeLesson.number).padStart(2,'0') }}</span>
             <h2>{{ activeLesson.title }}</h2><p>{{ activeLesson.subtitle }}</p>
           </header>
           <section aria-label="Cours en vidéo">
-            <div class="sharh-section-head">
-              <h3>Le cours en vidéo</h3>
+            <div class="belief-section-head">
+              <h3>L’enregistrement de la leçon</h3>
               <a :href="activeLesson.videoUrl" target="_blank" rel="noopener noreferrer">Sur YouTube <i data-lucide="external-link" aria-hidden="true"></i></a>
             </div>
-            <div class="sharh-video" :class="{'is-floating':floating}">
-              <div v-if="floating" class="sharh-video-floatbar">
+            <div class="belief-video" :class="{'is-floating':floating}">
+              <div v-if="floating" class="belief-video-floatbar">
                 <span>Lecture vidéo</span><button type="button" @click="toggleFloating" aria-label="Agrandir la vidéo"><i data-lucide="maximize-2"></i></button>
               </div>
-              <div v-if="!videoOpen" class="sharh-video-preview">
+              <div v-if="!videoOpen" class="belief-video-preview">
                 <small>LEÇON {{ String(activeLesson.number).padStart(2,'0') }}</small>
                 <button type="button" @click="play" aria-label="Charger la vidéo YouTube"><i data-lucide="play" aria-hidden="true"></i></button>
                 <p>Charger la vidéo</p>
@@ -166,35 +166,62 @@ const SharhStudyView = {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div class="sharh-video-actions" v-if="videoOpen">
+            <div class="belief-video-actions" v-if="videoOpen">
               <button type="button" @click="toggleFloating"><i :data-lucide="floating?'maximize-2':'picture-in-picture-2'" aria-hidden="true"></i>{{ floating?'Grand format':'Fenêtre flottante' }}</button>
               <button type="button" @click="stopVideo"><i data-lucide="square" aria-hidden="true"></i>Arrêter</button>
             </div>
-            <p class="sharh-caption">Lecteur externe chargé uniquement sur clic. Si l’intégration échoue, ouvrir la vidéo sur YouTube.</p>
+            <p class="belief-caption">Lecteur externe chargé uniquement sur clic. Si l’intégration échoue, ouvrir la vidéo sur YouTube.</p>
+            <p v-if="activeLesson.transcriptStatus==='non_verifie'" class="belief-caption">L’audio a été transmis séparément. L’identité entre le lien vidéo précédent et l’enregistrement fourni n’a pas été vérifiée.</p>
           </section>
-          <section class="sharh-notes" aria-label="Notes personnelles">
-            <div class="sharh-section-head"><h3>Mes notes de cours</h3><small>Enregistrées localement</small></div>
+          <section class="belief-transcript" aria-label="Cours écrit">
+            <div class="belief-section-head"><h3>Le cours écrit</h3><small>Transcription fidèle</small></div>
+            <template v-if="activeLesson.sections && activeLesson.sections.length">
+              <article v-for="(section,index) in activeLesson.sections" :key="index" class="belief-written-section">
+                <span>Partie {{ index+1 }}</span>
+                <h4>{{ section.heading }}</h4>
+                <p v-for="(paragraph,i) in section.paragraphs" :key="i">{{ paragraph }}</p>
+              </article>
+            </template>
+            <div v-else class="belief-transcript-empty">
+              <i data-lucide="book-text" aria-hidden="true"></i>
+              <div><strong>Transcription non encore vérifiée</strong>
+                <p>Aucun propos de l’enregistrement n’est reconstitué ou attribué sans transcription fiable. Le contenu écrit et ses références seront ajoutés après vérification.</p>
+              </div>
+            </div>
+          </section>
+          <section class="belief-glossary" aria-label="Lexique">
+            <div class="belief-section-head"><h3>Lexique pour commencer</h3><small>{{ course.glossary?.length || 0 }} notions</small></div>
+            <p class="belief-caption">{{ course.glossaryNotice }}</p>
+            <dl class="belief-glossary-grid">
+              <div v-for="entry in course.glossary" :key="entry.id">
+                <dt><span lang="ar" dir="rtl">{{ entry.arabic }}</span><strong>{{ entry.term }}</strong></dt>
+                <dd>{{ entry.definition }}</dd>
+              </div>
+            </dl>
+          </section>
+          <section class="belief-notes" aria-label="Notes personnelles">
+            <div class="belief-section-head"><h3>Mes notes de cours</h3><small>Enregistrées localement</small></div>
             <textarea :value="notes[activeLesson.id]||''" @input="saveNote" rows="6"
               aria-label="Notes de cette leçon" placeholder="Notions, références, questions à approfondir…"></textarea>
-            <p class="sharh-caption">Les notes restent sur cet appareil.</p>
+            <p class="belief-caption">Les notes restent sur cet appareil.</p>
           </section>
-          <section class="sharh-method">
-            <h3>Repères pour l’étude</h3>
-            <ul><li>Identifier le passage du livre effectivement commenté.</li>
+          <section class="belief-method">
+            <h3>Étudier avec méthode</h3>
+            <ul><li>Identifier les notions réellement abordées dans l’enregistrement.</li>
               <li>Relever les sources mentionnées par l’enseignant.</li>
-              <li>Confronter les notes au texte original et distinguer transmission et explication.</li></ul>
-            <p>Ces questions de méthode ne sont pas un résumé de la vidéo.</p>
+              <li>Distinguer les propos de l’enseignant, les textes cités et les explications personnelles.</li></ul>
+            <p>Ces repères sont généraux et ne constituent pas un résumé de l’audio.</p>
           </section>
-          <div class="sharh-complete">
+          <div class="belief-complete">
             <span>{{ isDone?'Leçon terminée':'À votre rythme' }}</span>
             <button type="button" :class="{'is-done':isDone}" @click="toggleDone"><i :data-lucide="isDone?'check-circle-2':'circle-check'" aria-hidden="true"></i>{{ isDone?'Annuler la validation':'Marquer comme terminée' }}</button>
           </div>
-          <nav class="sharh-prev-next" aria-label="Leçons suivantes et précédentes">
+          <nav class="belief-prev-next" aria-label="Leçons suivantes et précédentes">
             <button v-if="previousLesson" type="button" @click="choose(previousLesson)"><i data-lucide="arrow-left"></i> Précédente</button><span v-else></span>
             <button v-if="nextLesson" type="button" @click="choose(nextLesson)">Suivante <i data-lucide="arrow-right"></i></button>
             <button v-else type="button" @click="goIndex">Retour au programme <i data-lucide="arrow-right"></i></button>
           </nav>
-          <p class="sharh-caution"><i data-lucide="info" aria-hidden="true"></i>{{ course.editorialNote }}</p>
+          <p class="belief-caution"><i data-lucide="info" aria-hidden="true"></i>{{ course.editorialNote }}</p>
         </main>
       </div>
     </div>
