@@ -185,7 +185,7 @@ const app = createApp({
         });
 
         const filteredRemedies = computed(() => {
-            let data = (typeof TABIB_DATA !== 'undefined') ? TABIB_DATA : [];
+            let data = (typeof TABIB_DATA !== 'undefined' ? TABIB_DATA : []).concat(typeof TABIB_NEW_FICHES_DATA !== 'undefined' ? TABIB_NEW_FICHES_DATA : []);
             if (tabibFilter.value !== 'Tous') {
                 const map = {
                     'Tristesse': ['Tristesse', 'Peine', 'Dépression', 'Solitude', 'Deuil'],
