@@ -3,15 +3,15 @@
     const ROOT_CLASS = 'athar-app-fullscreen';
     const STORAGE_KEY = 'athar_immersive_last_view';
     const SETTINGS_KEY = 'athar_settings';
-    const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'belief']);
+    const PUBLISHED_VIEWS = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'ussul']);
     const NAV_GROUPS = [
         {
             label: 'Essentiel',
             items: [
                 ['home', 'Accueil', 'home'], ['library', 'Bibliothèque', 'library'], ['timeline', 'Frise Chrono', 'clock'],
                 ['glossary', 'Lexique', 'book-a'], ['hadiths', 'Hadiths', 'scroll-text'], ['tabib', 'Tabib Al-Qulub', 'heart-pulse'],
-                ['adhkar', 'Al-Adhkar', 'sunrise'], ['tasbih', 'Tasbih', 'rotate-cw'], ['belief', 'Apprentissage de la croyance', 'graduation-cap'], ['transmission', 'Transmission', 'git-fork'],
-                ['atlas', 'Atlas Interactif', 'map'], ['ussul', 'Oussoul Al-Fiqh', 'scale']
+                ['adhkar', 'Al-Adhkar', 'sunrise'], ['tasbih', 'Tasbih', 'rotate-cw'], ['transmission', 'Transmission', 'git-fork'],
+                ['atlas', 'Atlas Interactif', 'map'], ['ussul', 'Usûl al-Fiqh', 'scale']
             ]
         },
         {

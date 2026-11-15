@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v76-belief-eight-v1';
+    const APP_VERSION = 'athar-pro-v77-usul-refined-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
@@ -116,7 +116,7 @@ tailwind.config = {
     ensureStylesheet(`css/adhkar-calm-reading.css?v=${APP_VERSION}`, 'athar-adhkar-calm-reading');
     // Galerie et fiches 01–50 de Bukhârî : chargées en dernier, sans affecter le reste du site.
     ensureStylesheet(`css/bukhari-tabib-inspired.css?v=${APP_VERSION}`, 'athar-bukhari-tabib-inspired');
-    ensureStylesheet(`css/belief-learning.css?v=${APP_VERSION}`, 'athar-belief-learning');
+    ensureStylesheet(`css/ussul-pro.css?v=${APP_VERSION}`, 'athar-usul-refined');
 
     ensureScript(`js/components/GlobalFullscreen.js?v=${APP_VERSION}`, 'athar-global-fullscreen');
     ensureScript(`js/components/MobileExperience.js?v=${APP_VERSION}`, 'athar-mobile-experience');

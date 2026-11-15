@@ -11,7 +11,7 @@ Athar est une application web **pédagogique et non commerciale**, publiée comm
 - Tabib Al-Qulub : rappels spirituels ;
 - Al-Adhkar : invocations ;
 - Tasbih : compteur avec sauvegarde locale ;
-- **Apprentissage de la croyance :** cours, lecteur vidéo, notes personnelles, progression et lexique introductif. Voir [les limites de la transcription de l’audio](./data/belief/README.md).
+- **Usûl al-Fiqh :** sept leçons intégrales, vidéos associées, approfondissements, recherche et lexique fondé sur les textes d’origine. Voir [la note de restauration](./data/ussul/README.md).
 
 ## Kutub as-Sitta : premières tranches disponibles
 
@@ -24,6 +24,8 @@ Les trois autres recueils restent en préparation. Les textes français des coll
 Le projet public n'utilise plus de RAG, d'index vectoriel, d'API d'intelligence artificielle ou de serveur Render.
 Les modules pédagogiques encore en préparation peuvent rester dans le dépôt mais ne sont pas téléchargés par l'interface publique.
 
+**Apprentissage de la croyance** a été masqué de l’accueil, des menus et du chargement public. Ses fichiers de travail restent dans le dépôt pour une éventuelle reprise, mais la rubrique n’est pas accessible par la navigation de l’application.
+
 ## Démarrage local
 
 ```bash
@@ -31,7 +33,7 @@ python -m http.server 8000
 ```
 
 Ouvrir `http://localhost:8000`. Les données des huit rubriques sont des fichiers locaux `*_data.js`.
-Les préférences, les notes de cours, la progression et le compteur Tasbih sont conservés dans le navigateur de l'utilisateur.
+Les préférences, la progression des leçons d’Usûl et le compteur Tasbih sont conservés dans le navigateur de l'utilisateur.
 
 ## Principes éditoriaux
 
