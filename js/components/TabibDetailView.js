@@ -20,11 +20,6 @@ const TabibDetailView = {
 
         <div class="grid gap-8 animate-fade-in">
             
-            <div v-if="remedy.learning" class="tabib-learning-essence bg-white dark:bg-brand-dark-lighter rounded-2xl px-5 py-4 md:px-6 md:py-5 border border-emerald-100 dark:border-emerald-900/50 shadow-sm">
-                <span class="tabib-learning-essence-label text-[10px] uppercase tracking-widest font-bold text-emerald-700 dark:text-emerald-300">Le cœur de la démarche</span>
-                <p class="tabib-learning-essence-text mt-2 font-sans text-sm md:text-base text-brand-dark dark:text-gray-100 leading-relaxed">{{ remedy.learning.essence }}</p>
-            </div>
-
             <div v-if="remedy.quran" class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-3xl p-8 border border-emerald-100 dark:border-emerald-800/30 relative overflow-hidden shadow-sm">
                 <div class="absolute top-0 right-0 p-6 opacity-5"><i data-lucide="book-open" class="w-32 h-32 text-emerald-900 dark:text-white"></i></div>
                 <div class="relative z-10">
