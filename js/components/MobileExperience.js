@@ -10,6 +10,7 @@
         tabib: 'Tabib Al-Qulub',
         adhkar: 'Al-Adhkar',
         tasbih: 'Tasbih',
+        belief: 'Apprentissage de la croyance',
         transmission: 'Transmission',
         atlas: 'Atlas Interactif',
         ussul: 'Oussoul Al-Fiqh',
@@ -95,7 +96,7 @@
     };
 
     const navigate = view => {
-        const published = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih']);
+        const published = new Set(['home', 'library', 'timeline', 'glossary', 'hadiths', 'tabib', 'adhkar', 'tasbih', 'belief']);
         if (!published.has(view)) return;
         const target = findSidebarButton(view);
         if (target) {
@@ -136,6 +137,7 @@
         if (!main) return null;
         const markers = [
             ['library', '.library-pro-root'],
+            ['belief', '.belief-study'],
             ['ussul', '.ussul-pro-root'],
             ['hadiths', '.hadith-pro-root, .hadiths-pro-root'],
             ['timeline', '.timeline-pro-container'],
