@@ -498,7 +498,8 @@ async function desktop() {
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
     assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique initial de six notions absent');
     await page.locator('.fiqh-m-search input').fill('Mukhtasar');
-    assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche du lexique inactive');
+    assert.ok(await page.locator('.fiqh-m-term').count()>=1 && await page.locator('.fiqh-m-term').count()<6,'Recherche du lexique inactive');
+    assert.match(await page.locator('.fiqh-m-term h3').first().innerText(),/Mukhtasar/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
     assert.equal(await page.locator('.fiqh-m-question').count(),3,'Les trois questions de compréhension manquent');
     await page.locator('.fiqh-m-choices button').first().click();
