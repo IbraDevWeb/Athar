@@ -1,4 +1,5 @@
 const HadithsView = {
+    components: { 'sharh-study-view': SharhStudyView },
     props: ['hadiths', 'searchQuery', 'openHadith'],
     setup(props) {
         const STORAGE_KEY = 'athar_hadith_v2';
