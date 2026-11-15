@@ -2,7 +2,7 @@
 
 Athar est une application web **pédagogique et non commerciale**, publiée comme site statique sur GitHub Pages.
 
-## Sept rubriques publiques
+## Huit rubriques publiques
 
 - Bibliothèque : biographies, récits et références documentaires ;
 - Frise Chrono : événements historiques ;
@@ -10,14 +10,14 @@ Athar est une application web **pédagogique et non commerciale**, publiée comm
 - Hadiths : textes, références et lecture ;
 - Tabib Al-Qulub : rappels spirituels ;
 - Al-Adhkar : invocations ;
-- Tasbih : compteur avec sauvegarde locale.
+- Tasbih : compteur avec sauvegarde locale ;
+- **Apprentissage de la croyance :** cours, lecteur vidéo, notes personnelles, progression et lexique introductif. Voir [les limites de la transcription de l’audio](./data/belief/README.md).
 
 ## Kutub as-Sitta : premières tranches disponibles
 
 - **Sahîh al-Bukhârî :** 50 premiers hadiths.
 - **Sahîh Muslim :** 50 premières références, de l'Introduction au Livre de la foi.
 - **Sunan Abî Dâwûd :** 50 premières références du Livre de la purification, avec les différentes appréciations d'authenticité attribuées à leurs auteurs. Voir [provenance et précautions éditoriales](./data/kutub-sitta/README-ABU-DAWUD.md).
-  - **Étudier le Sharh :** parcours vidéo distinct, notes et progression locales, accessible depuis la fiche du recueil. [Fonctionnement et limites de la source vidéo](./data/kutub-sitta/README-SHARH-ABU-DAWUD.md).
 
 Les trois autres recueils restent en préparation. Les textes français des collections importées sont issus d'éditions numériques dont le traducteur n'est pas toujours identifié ; ils ne remplacent pas une édition critique ni une validation savante.
 
@@ -30,8 +30,8 @@ Les modules pédagogiques encore en préparation peuvent rester dans le dépôt 
 python -m http.server 8000
 ```
 
-Ouvrir `http://localhost:8000`. Les données des sept rubriques sont des fichiers locaux `*_data.js`.
-Les préférences et le compteur Tasbih sont conservés dans le navigateur de l'utilisateur.
+Ouvrir `http://localhost:8000`. Les données des huit rubriques sont des fichiers locaux `*_data.js`.
+Les préférences, les notes de cours, la progression et le compteur Tasbih sont conservés dans le navigateur de l'utilisateur.
 
 ## Principes éditoriaux
 
