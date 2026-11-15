@@ -1,4 +1,5 @@
 const HadithsView = {
+    components: { 'sharh-study-view': SharhStudyView },
     props: ['hadiths', 'searchQuery', 'openHadith'],
     setup(props) {
         const STORAGE_KEY = 'athar_hadith_v2';
@@ -14,6 +15,8 @@ const HadithsView = {
         const section = Vue.ref('library');
         const books = ATHAR_KUTUB_SITTA.collections;
         const selectedBookId = Vue.ref(null);
+        const sharhOpen = Vue.ref(false);
+        const sharhCourse = typeof ATHAR_SHARH_ABU_DAWUD !== 'undefined' ? ATHAR_SHARH_ABU_DAWUD : null;
         const bookPayload = Vue.ref(null);
         const bookLoading = Vue.ref(false);
         const bookError = Vue.ref('');
@@ -221,7 +224,14 @@ const HadithsView = {
                 }
             }
         };
+        const openSharh = () => {
+            if (selectedBook.value?.id !== 'abu-dawud' || !sharhCourse) return;
+            sharhOpen.value = true;
+            refreshIcons();
+        };
+        const closeSharh = () => { sharhOpen.value = false; refreshIcons(); };
         const closeBook = () => {
+            sharhOpen.value = false;
             bookRequestId += 1;
             selectedBookId.value = null;
             bookPayload.value = null;
@@ -262,6 +272,7 @@ const HadithsView = {
             sortMode, showFilters, visibleLimit, visibleItems, filtered, themes, collections, grades, stats,
             recentItem, activeFilters, resetFilters, chooseTheme, toggleFavorite, open, random, clean,
             section, books, selectedBook, selectedBookId, selectSection, openBook, closeBook,
+            sharhOpen, sharhCourse, openSharh, closeSharh,
             bookPayload, bookLoading, bookError, bookQuery, bookChapter, bookChapters, bookHadiths,
             filteredBookHadiths, visibleBookHadiths, bookVisibleLimit, openBookHadith, bookExcerpt, bookName, bookLead,
             bookCounts, bookFavoriteCount, bookFavoritesOnly, isBookFavorite, toggleBookFavorite
@@ -269,7 +280,8 @@ const HadithsView = {
     },
     template: `
     <section class="hadith-pro-root">
-        <div class="hadith-pro-container">
+        <sharh-study-view v-if="sharhOpen" :course="sharhCourse" :close-study="closeSharh"></sharh-study-view>
+        <div v-else class="hadith-pro-container">
             <header v-if="!['bukhari','muslim','abu-dawud'].includes(selectedBook?.id)" class="hadith-pro-heading">
                 <div>
                     <span class="hadith-pro-eyebrow"><i data-lucide="scroll-text" aria-hidden="true"></i> Bibliothèque des transmissions</span>
@@ -443,6 +455,10 @@ const HadithsView = {
                         </div>
                     </header>
 
+                    <div v-if="selectedBook.id==='abu-dawud' && sharhCourse" class="hadith-sharh-bridge">
+                        <div><span>Parcours d’étude</span><h3>Étudier le Sharh</h3><p>Un lecteur vidéo, des notes et une progression, inspirés du parcours Usûl al-Fiqh.</p></div>
+                        <button type="button" @click="openSharh">Ouvrir le parcours <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+                    </div>
                     <div v-if="bookLoading" class="hadith-kutub-empty" role="status">
                         <i data-lucide="loader-circle" aria-hidden="true"></i>
                         <p>Ouverture du recueil…</p>

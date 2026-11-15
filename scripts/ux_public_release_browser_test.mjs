@@ -383,6 +383,39 @@ async function desktop() {
     assert.equal(await page.locator('a[href="https://sunnah.com/abudawud:50"]').count(),1,'Abî Dâwûd 50 : source absente');
     await page.locator('.bukhari-reader-back').click();
     await page.locator('.bukhari-book-view').waitFor({state:'visible'});
+    // Sharh du recueil : entrée discrète, vidéo différée, sauvegarde de cours et retour au livre.
+    const sharhBridge=page.locator('.hadith-sharh-bridge');
+    assert.ok(await sharhBridge.isVisible(),'Le parcours de Sharh Abî Dâwûd est introuvable');
+    await sharhBridge.locator('button').click();
+    await page.locator('.sharh-study').waitFor({state:'visible'});
+    assert.match(await page.locator('.sharh-hero h1').innerText(),/Sharh/);
+    assert.equal(await page.locator('.sharh-lesson-card').count(),1,'Une seule vidéo est actuellement fournie');
+    assert.equal(await page.locator('.sharh-video iframe').count(),0,'La vidéo ne doit pas se charger sur l’accueil');
+    await page.locator('.sharh-lesson-card button').click();
+    await page.locator('.sharh-reading').waitFor({state:'visible'});
+    assert.equal(await page.locator('.sharh-video iframe').count(),0,'La vidéo externe doit attendre un clic');
+    const localNote='Note de test du parcours Sharh';
+    await page.locator('.sharh-notes textarea').fill(localNote);
+    await page.locator('.sharh-complete button').click();
+    assert.match(await page.locator('.sharh-complete button').innerText(),/Annuler la validation/);
+    // Tester le chargement volontaire sans dépendre de la disponibilité réseau de YouTube.
+    await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><html><body>Lecteur simulé</body></html>'}));
+    await page.locator('.sharh-video-preview button').click();
+    assert.equal(await page.locator('.sharh-video iframe').count(),1,'Le lecteur vidéo ne se charge pas');
+    assert.match(await page.locator('.sharh-video iframe').getAttribute('src'),/youtube-nocookie.com\/embed\/14JeEI318Xc/,
+        'Le lecteur doit utiliser le lien communiqué sans intégration directe youtu.be');
+    await page.locator('.sharh-video-actions button').first().click();
+    assert.ok(await page.locator('.sharh-video.is-floating').count()===1,'Le mode fenêtre flottante est absent');
+    await page.locator('.sharh-video-actions button').first().click();
+    await page.locator('.sharh-video-actions button').last().click();
+    assert.equal(await page.locator('.sharh-video iframe').count(),0,'Arrêter doit décharger le lecteur');
+    await page.locator('.sharh-reader-nav button').first().click();
+    await page.locator('.sharh-progress strong').waitFor({state:'visible'});
+    assert.match(await page.locator('.sharh-progress strong').innerText(),/100/,'Progression non sauvegardée');
+    await page.locator('.sharh-primary').click();
+    assert.equal(await page.locator('.sharh-notes textarea').inputValue(),localNote,'Notes de cours perdues');
+    await page.locator('.sharh-topbar .sharh-back').click();
+    await page.locator('.bukhari-book-view').waitFor({state:'visible'});
     await page.locator('.hadith-kutub-back').click();
     for (let index=3; index<6; index++) {
         await page.locator('.hadith-kutub-book').nth(index).click();
