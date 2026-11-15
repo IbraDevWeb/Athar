@@ -51,6 +51,7 @@ assert.ok(nav.includes("['ussul', 'Usûl al-Fiqh'") && !nav.includes("['belief',
 assert.ok(mobile.includes("ussul: 'Usûl al-Fiqh'") && !mobile.includes("belief: '"),'Navigation mobile incorrecte');
 assert.ok(html.includes("setView('ussul')") && !html.includes("setView('belief')"),'Menu non mis à jour');
 assert.ok(html.includes("<ussul-view") && !html.includes("<belief-learning-view"),'Rendu de module incorrect');
+assert.ok(html.includes(":go-home=\"() => setView('home')\""),'Quitter Usûl doit revenir à l’accueil, pas à Bibliothèque');
 assert.ok(html.indexOf('ussul_data.js')>0 && html.indexOf('ussul_data.js')<html.indexOf('UssulView.js') && html.indexOf('UssulView.js')<html.indexOf('js/app.js'),'Ordre de chargement invalide');
 assert.ok(!html.includes('belief_course_data.js') && !html.includes('BeliefLearningView.js'),'Ressources Croyance encore chargées');
 assert.ok(css.includes('.ussul-glossary-panel') && css.includes('.ussul-pro-prose') && css.includes('.ussul-video-player.is-floating'),'Design incomplet');
