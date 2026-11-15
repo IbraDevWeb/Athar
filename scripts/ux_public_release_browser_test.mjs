@@ -12,10 +12,10 @@ const sections = [
     ['tabib', 'Tabib Al-Qulub'],
     ['adhkar', 'Al-Adhkar'],
     ['tasbih', 'Tasbih'],
-    ['belief', 'Apprentissage de la croyance']
+    ['ussul', 'Usûl al-Fiqh']
 ];
 const allowed = ['home', ...sections.map(([view]) => view)];
-const blocked = ['transmission', 'atlas', 'ussul', 'constellation', 'scriptorium', 'research'];
+const blocked = ['transmission', 'atlas', 'belief', 'constellation', 'scriptorium', 'research'];
 
 const header = page => page.locator('#athar-immersive-current');
 const main = page => page.locator('.athar-global-mainframe > main');
@@ -398,35 +398,39 @@ async function desktop() {
     await page.locator('.hadith-kutub-tabs button').nth(0).click();
     assert.equal(await page.locator('.hadith-pro-card').count(),18,'Le corpus original ne revient pas');
     await home(page);
-    // La croyance est la huitième rubrique principale et non une sous-section des hadiths.
-    await navigate(page,'belief');
-    await page.locator('.belief-study').waitFor({state:'visible',timeout:15000});
-    assert.match(await page.locator('.belief-hero h1').innerText(),/Apprentissage de la croyance/);
-    assert.equal(await page.locator('.belief-lesson-card').count(),1,'Un seul audio a été fourni');
-    assert.equal(await page.locator('.belief-video iframe').count(),0,'Aucune connexion YouTube avant clic');
-    await page.locator('.belief-lesson-card button').click();
-    await page.locator('.belief-reading').waitFor({state:'visible'});
-    assert.equal(await page.locator('.belief-transcript-empty').count(),1,'Le cours écrit ne doit pas inventer de transcription');
-    assert.ok(await page.locator('.belief-glossary-grid > div').count()>=4,'Lexique introductif non disponible');
-    const note='Note de test du parcours de croyance';
-    await page.locator('.belief-notes textarea').fill(note);
-    await page.locator('.belief-complete button').click();
-    assert.match(await page.locator('.belief-complete button').innerText(),/Annuler la validation/);
+    // Usûl al-Fiqh est la huitième rubrique publique, avec les cours et le lexique d'origine.
+    await navigate(page,'ussul');
+    await page.locator('.ussul-pro-root').waitFor({state:'visible',timeout:15000});
+    assert.equal(await page.locator('.ussul-pro-course-card').count(),7,'Les sept cours historiques ne sont pas visibles');
+    assert.match(await page.locator('.ussul-pro-hero h1').innerText(),/Usûl al-Fiqh/);
+    assert.equal(await page.locator('.belief-study').count(),0,'La section Croyance reste visible');
+    await page.locator('.ussul-glossary-launch').click();
+    await page.locator('#ussul-course-lexicon').waitFor({state:'visible'});
+    assert.ok(await page.locator('.ussul-glossary-entry').count()>=20,'Les notions du lexique sont manquantes');
+    await page.locator('.ussul-glossary-search input').fill('Mutakallimin');
+    assert.ok(await page.locator('.ussul-glossary-entry').count()>=1,'Recherche lexique inactive');
+    await page.locator('.ussul-glossary-entry button').first().click();
+    await page.locator('.ussul-pro-reader').waitFor({state:'visible'});
+    assert.ok(await page.locator('.ussul-pro-content-section').count()>0,'Texte complet de la leçon absent');
+    assert.ok(await page.locator('.ussul-pro-deep-dive').count()>0,'Approfondissements historiques perdus');
+    assert.ok(await page.locator('.ussul-pro-prose .term-highlight').count()>0,'Termes du corpus non mis en relief');
+    await page.locator('.ussul-pro-lesson-actions button').filter({hasText:'Marquer comme terminée'}).click();
+    await page.locator('.ussul-pro-back').click();
+    await page.locator('.ussul-pro-course-grid').waitFor({state:'visible'});
+    assert.match(await page.locator('.ussul-pro-progress-card').innerText(),/1 leçon terminée/,'Progression non conservée');
     await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><html><body>Lecteur simulé</body></html>'}));
-    await page.locator('.belief-video-preview button').click();
-    assert.equal(await page.locator('.belief-video iframe').count(),1,'Le lecteur différé est absent');
-    assert.match(await page.locator('.belief-video iframe').getAttribute('src'),/youtube-nocookie.com\/embed\/14JeEI318Xc/,'Mauvaise source YouTube');
-    await page.locator('.belief-video-actions button').first().click();
-    assert.equal(await page.locator('.belief-video.is-floating').count(),1,'Fenêtre flottante absente');
-    await page.locator('.belief-video-actions button').first().click();
-    await page.locator('.belief-video-actions button').last().click();
-    assert.equal(await page.locator('.belief-video iframe').count(),0,'Le lecteur ne s’arrête pas');
-    await page.locator('.belief-reader-nav button').first().click();
-    await page.locator('.belief-progress strong').waitFor({state:'visible'});
-    assert.match(await page.locator('.belief-progress strong').innerText(),/100/,'Progression non conservée');
-    await page.locator('.belief-primary').click();
-    assert.equal(await page.locator('.belief-notes textarea').inputValue(),note,'Notes non conservées');
-    await page.locator('.belief-topbar .belief-back').click();
+    await page.locator('.ussul-pro-course-video').first().click();
+    await page.locator('.ussul-video-player.is-theater').waitFor({state:'visible'});
+    assert.equal(await page.locator('.ussul-video-frame iframe').count(),1,'Le lecteur intégré du cours ne s’ouvre pas');
+    assert.match(await page.locator('.ussul-video-frame iframe').getAttribute('src'),/youtube-nocookie.com\/embed\//,'Mauvaise origine vidéo');
+    await page.locator('.ussul-video-player button[title="Réduire en PiP"]').click();
+    await page.locator('.ussul-video-player.is-floating').waitFor({state:'visible'});
+    await page.locator('.ussul-video-player button[title="Agrandir"]').click();
+    await page.locator('.ussul-video-player.is-theater').waitFor({state:'visible'});
+    await page.locator('.ussul-video-player button[title="Fermer"]').click();
+    assert.equal(await page.locator('.ussul-video-layer').count(),0,'Le lecteur vidéo ne se ferme pas');
+    await page.locator('.ussul-pro-back').click();
+    await page.locator('.ussul-pro-back').click();
     await ready(page);
 
     // UX : l'accès aux histoires doit être immédiat, lisible et léger.
@@ -1015,6 +1019,15 @@ async function mobile(width,height) {
     await page.locator('.adhkar-pro-counter').click();
     await page.locator('.adhkar-pro-reader-close').click();
     await page.locator('.adhkar-pro-reader').waitFor({state:'detached',timeout:10000});
+    await home(page);
+    await navigate(page,'ussul');
+    await page.locator('.ussul-pro-course-card').first().waitFor({state:'visible'});
+    assert.equal(await page.locator('.ussul-pro-course-card').count(),7,'Usûl absent sur mobile');
+    await page.locator('.ussul-glossary-launch').click();
+    await page.locator('.ussul-glossary-panel').waitFor({state:'visible'});
+    const glossaryWidth=await page.locator('.ussul-glossary-panel').boundingBox();
+    assert.ok(glossaryWidth&&glossaryWidth.width<=width+2,'Lexique trop large sur '+width+'px');
+    await page.locator('.ussul-glossary-panel>header>button').click();
     await home(page);
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
     assert.ok(overflow<=3,'Un débordement horizontal apparaît sur téléphone : '+overflow);
