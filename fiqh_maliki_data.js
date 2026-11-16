@@ -4750,131 +4750,694 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "number": "11",
     "status": "disponible",
     "title": "Se purifier avec une eau limitée : puits, souillure et nécessité",
-    "subtitle": "Étudier le cas d’une personne en janâba disposant d’un puits peu rempli, la manière d’éviter de souiller l’eau et les précisions sur le ghusl dans un bassin.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « فرع أتى الجنب بئرا قليلة الماء » et « فرع الغسل في الحياض قبل غسل الأذى » (t. 1, p. 76–77)",
+    "subtitle": "Onze lectures suivies de la Mudawwana et d’al-Hattâb : comment préserver une eau peu abondante et distinguer la levée de la janâba du nettoyage des souillures.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « فرع أتى الجنب بئرا قليلة الماء » et « فرع الغسل في الحياض قبل غسل الأذى » · Mawâhib al-Jalîl, t. 1, p. 76–77",
+    "goals": [
+      "Restituer les circonstances exactes du cas de la Mudawwana : janâba, souillure de la main, puits peu rempli et absence d’ustensile.",
+      "Expliquer pourquoi Mâlik recommande de chercher un moyen d’enlever la souillure avant de puiser et d’accomplir le ghusl.",
+      "Comprendre la réserve de Mâlik envers l’immersion directe, sans l’assimiler immédiatement à l’invalidité.",
+      "Lire la condition de quantité dans le jugement d’Ibn al-Qâsim sur un ghusl déjà accompli dans l’eau.",
+      "Expliquer le rôle de l’alternative disponible et de la nécessité dans la transmission de ‘Alî rapportant Mâlik.",
+      "Situer les procédés de puisage anciens rapportés d’Ibn Nâfi‘, d’Abû ‘Imrân et d’Ibn Rushd et leurs limites.",
+      "Suivre l’analyse de Sanad sur la réduction de la souillure et les capacités matérielles de la personne.",
+      "Comprendre l’objection sur l’eau du ghusl qui retombe dans le puits, et la réponse fondée sur un prélèvement limité.",
+      "Identifier le second cas rapporté de ‘Abd al-Haqq : ghusl dans un bassin avant d’enlever une souillure.",
+      "Distinguer le ghusl dans une eau réellement modifiée, où la janâba demeure dans la transmission étudiée, de l’eau demeurée inchangée.",
+      "Expliquer pourquoi un nettoyage complémentaire du corps n’équivaut pas nécessairement à refaire le ghusl avec une nouvelle intention."
+    ],
     "sections": [
       {
-        "id": "well",
-        "eyebrow": "01 · Une difficulté concrète",
-        "title": "Pourquoi l’auteur rapporte-t-il le cas d’un puits avec très peu d’eau ?",
+        "id": "well-case",
+        "eyebrow": "01 · Une difficulté bien précise",
+        "title": "Pourquoi les auteurs commencent-ils par une personne qui arrive devant un puits ?",
+        "passage": {
+          "arabic": "أتى الجنب بئرا قليلة الماء وبيده قذر وليس معه ما يغرف به",
+          "translation": "« Une personne en état de janâba arrive près d’un puits où l’eau est peu abondante ; elle a une souillure à la main et rien pour puiser. »",
+          "explanation": "Ce sont les circonstances du cas que la Mudawwana rapporte, puis qu’al-Hattâb cite. Il ne s’agit pas d’une règle générale énoncée hors contexte : trois difficultés sont réunies, et chacune comptera dans la réponse.",
+          "sourceLabel": "Présentation du cas dans la Mudawwana, reproduite par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
         "paragraphs": [
-          "Al-Hattâb cite une question de la Mudawwana : une personne en état de janâba arrive près d’un puits dont l’eau est peu abondante, avec une souillure sur la main, sans objet pour puiser. La difficulté ne porte pas seulement sur le ghusl : comment accéder à l’eau sans y introduire inutilement une souillure ? Les faits précis du cas structurent la réponse transmise.",
-          "Dans cette situation, Mâlik recommande de chercher une manière d’enlever la souillure des mains, de recueillir l’eau, puis d’accomplir le lavage. La réponse privilégie donc une solution permettant de préserver l’eau et d’éviter l’immersion directe. Il faut cependant distinguer cette recommandation de la question ultérieure : que se passe-t-il si la personne s’est tout de même lavée dans l’eau ?"
+          "Nous entrons dans une question qui peut sembler assez inhabituelle à quelqu’un qui dispose de l’eau du robinet. Une personne est en état de janâba : elle a donc besoin du grand lavage rituel. Elle arrive devant un puits dont l’eau est peu abondante. Or elle a une souillure sur la main et ne possède ni seau ni récipient pour prélever l’eau. Voilà la situation soumise à Mâlik dans la Mudawwana. Il faut entendre toutes ces circonstances avant d’aller chercher la réponse.",
+          "La difficulté n’est pas simplement de savoir si l’eau du puits est pure. Elle est de savoir comment accomplir le ghusl tout en évitant d’introduire dans une réserve limitée la souillure que la personne porte sur sa main. La janâba et la souillure matérielle ne sont pas la même chose : l’une concerne l’état rituel, l’autre une matière à enlever. Si l’on confond les deux, on ne comprendra ni la précaution demandée par Mâlik ni les aménagements discutés ensuite."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, citation de la Mudawwana : « أتى الجنب بئرا قليلة الماء وبيده قذر وليس معه ما يغرف به »."
+        "steps": [
+          {
+            "label": "La janâba est un état rituel",
+            "text": "Le mot junub désigne la personne qui doit accomplir un ghusl. Ce n’est pas une affirmation selon laquelle son corps serait matériellement impur en toutes ses parties."
+          },
+          {
+            "label": "Une souillure est présente sur la main",
+            "text": "Le terme qadhar attire l’attention sur la matière à enlever. Les auteurs chercheront d’abord à la réduire pour préserver l’eau commune."
+          },
+          {
+            "label": "Le manque d’ustensile compte",
+            "text": "S’il existait un récipient propre pour puiser facilement, la difficulté serait moins grande. L’absence d’outil explique les solutions inhabituelles décrites plus loin."
+          },
+          {
+            "label": "Le puits contient peu d’eau",
+            "text": "La quantité et l’accès à l’eau font partie du cas. Nous ne pouvons pas remplacer cette situation par n’importe quelle rivière ou une réserve abondante."
+          }
+        ],
+        "example": {
+          "title": "Une halte au cours d’un voyage",
+          "text": "Imagine un voyageur qui trouve un vieux puits. Il doit accomplir le grand lavage, mais sa main porte une souillure et il n’a pas de seau. On comprend qu’il hésite à descendre ou à introduire directement sa main dans l’eau. Cet exemple reprend les éléments du cas ancien pour les rendre visibles ; il ne prétend pas reconstituer un événement réellement survenu ni donner une instruction de sécurité pour descendre dans un puits."
+        },
+        "takeaway": "Le problème rassemble trois données : la nécessité du ghusl, une souillure présente sur la main et l’absence de moyen ordinaire de puiser une eau peu abondante. La réponse des juristes s’explique à partir de leur réunion.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 76, citation de la Mudawwana : « أتى الجنب بئرا قليلة الماء وبيده قذر وليس معه ما يغرف به ». Scénario pédagogique fictif."
       },
       {
-        "id": "procedure",
-        "eyebrow": "02 · La solution recherchée",
-        "title": "Pourquoi les auteurs parlent-ils de stratégies pour prélever l’eau ?",
+        "id": "malik-response",
+        "eyebrow": "02 · Le conseil transmis de Mâlik",
+        "title": "Pourquoi rechercher d’abord un moyen de puiser plutôt que d’entrer dans l’eau ?",
+        "passage": {
+          "arabic": "يحتال حتى يغسل يديه ويغرف ويغتسل",
+          "translation": "« Il cherchera un moyen de laver ses mains, puis de puiser de l’eau et d’accomplir le ghusl. »",
+          "explanation": "Ces mots sont une réponse attribuée à l’imam Mâlik dans la Mudawwana. Al-Hattâb les transmet et les fait ensuite expliquer par plusieurs juristes : il faut donc attribuer la recommandation à Mâlik, et non au seul commentateur.",
+          "sourceLabel": "Mâlik, propos transmis dans la Mudawwana et cités par al-Hattâb, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
         "paragraphs": [
-          "Le commentaire rapporte diverses solutions citées par Ibn Nâfi‘, Ibn Rushd et d’autres : se servir d’un tissu propre ou d’un autre moyen disponible pour prélever l’eau, afin de laver la main souillée avant de puiser et de se laver. Les propositions correspondent aux matériels et aux circonstances du cas étudié. Elles montrent qu’on cherche d’abord à résoudre le problème plutôt qu’à se jeter dans le puits.",
-          "Ce passage ne permet pas de transformer chacune des techniques anciennes mentionnées en instruction sanitaire actuelle : ce sont des illustrations juridiques et matérielles historiquement situées. Pour comprendre al-Hattâb, il suffit de retenir la logique : réduire l’impureté présente sur la main, préserver l’eau et distinguer l’effort possible de l’incapacité réelle."
+          "Écoutons la réponse attribuée à Mâlik. Il n’invite pas la personne à renoncer immédiatement au ghusl parce qu’elle n’a pas d’ustensile. Il lui demande de chercher une manière de nettoyer d’abord les mains, de prélever ensuite l’eau et de procéder au grand lavage. Le mot arabe يحتال renvoie à la recherche d’un moyen pratique, d’une solution adaptée aux circonstances. La règle n’est pas de faire un geste compliqué pour lui-même : il s’agit de préserver l’eau autant que possible.",
+          "Cette manière de raisonner est précieuse. La personne a besoin de l’eau, mais elle doit éviter d’en compromettre l’usage en y introduisant directement la souillure présente sur sa main. Mâlik oriente donc vers une préparation de l’accès à l’eau. Al-Hattâb ne s’arrête pas à cette formule générale : il rapporte plusieurs moyens très concrets proposés par les savants pour faire ce que Mâlik demande. Nous les étudierons en conservant la différence entre le principe et les moyens propres à un contexte ancien."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, transmissions d’Ibn Nâfi‘, Ibn Rushd et commentaire de Sannad sur les moyens de puiser."
+        "steps": [
+          {
+            "label": "Chercher une solution avant de renoncer",
+            "text": "Le propos n’est pas une obligation de posséder un seau : il montre que l’on doit employer les moyens possibles pour préserver l’eau et accomplir la purification."
+          },
+          {
+            "label": "Laver la main en premier",
+            "text": "Cette étape vise la souillure présente sur la main, afin qu’elle ne soit pas directement introduite dans la petite réserve d’eau."
+          },
+          {
+            "label": "Puiser avant de se laver",
+            "text": "La réponse distingue le fait de prendre de l’eau du fait de s’immerger dans la réserve. Cette distinction jouera un rôle dans la discussion qui suit."
+          },
+          {
+            "label": "Une parole attribuée correctement",
+            "text": "Al-Hattâb cite ici Mâlik dans la Mudawwana. Les explications détaillées des méthodes seront, elles, attribuées à leurs propres auteurs."
+          }
+        ],
+        "example": {
+          "title": "Un récipient improvisé, pas un rituel supplémentaire",
+          "text": "Dans une situation fictive, une personne trouve une matière propre qui permet de prélever un peu d’eau sans plonger sa main souillée dans le puits. Elle peut alors commencer par nettoyer sa main, avant d’accomplir son lavage. Cet exemple n’ajoute aucune condition nouvelle au ghusl : il illustre l’effort pratique que la parole de Mâlik invite à fournir pour préserver la petite quantité d’eau disponible."
+        },
+        "takeaway": "La première réponse attribuée à Mâlik consiste à rechercher un moyen d’enlever la souillure, puis de puiser de l’eau et de faire le ghusl. Elle distingue l’obligation de se purifier de la manière matérielle d’accéder à l’eau.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, citation de Mâlik dans la Mudawwana. Exemple inventé pour la leçon."
+      },
+      {
+        "id": "malik-avoid",
+        "eyebrow": "03 · Ce que Mâlik préfère éviter",
+        "title": "Pourquoi ne dit-il pas simplement à la personne de se laver dans le puits ?",
+        "passage": {
+          "arabic": "وكره أن يقول يغتسل فيها",
+          "translation": "« Il répugna à dire : “Qu’il se lave directement dedans.” »",
+          "explanation": "Le propos est transmis à la suite de la réponse de Mâlik. Il indique une réserve envers l’immersion directe ; la suite du commentaire précisera que cette réserve ne doit pas être assimilée automatiquement à l’invalidité d’un ghusl accompli.",
+          "sourceLabel": "Récit de la réponse de Mâlik dans la Mudawwana, cité par al-Hattâb, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
+        "paragraphs": [
+          "La formulation mérite d’être entendue exactement. Mâlik ne donne pas l’immersion directe comme première réponse. Le texte dit qu’il répugne à proposer de se laver dans le puits. Pourquoi ? Dans le cas examiné, la personne porte déjà une souillure à la main ; elle dispose de peu d’eau et ne peut pas la prélever facilement. Entrer dans cette réserve présente donc une difficulté que l’on peut parfois éviter en recherchant un autre moyen.",
+          "Mais il faut savoir lire une réserve juridique sans lui ajouter une conséquence que l’auteur n’a pas énoncée. Dire que Mâlik n’a pas voulu recommander cette solution n’équivaut pas à dire que tout ghusl réalisé dans l’eau d’un puits serait nécessairement invalide. Ibn al-Qâsim envisage précisément le cas où la personne s’est tout de même lavée dedans. La suite du texte montrera également que l’existence d’une autre possibilité ou d’une véritable nécessité modifie l’appréciation."
+        ],
+        "steps": [
+          {
+            "label": "Une réserve de formulation",
+            "text": "Le texte dit que Mâlik répugne à conseiller l’immersion. Il faut conserver cette nuance au lieu d’en faire une interdiction absolue."
+          },
+          {
+            "label": "L’état de la main est déterminant",
+            "text": "La souillure présente explique pourquoi le prélèvement d’eau et son nettoyage préalable sont préférables dans les circonstances décrites."
+          },
+          {
+            "label": "L’alternative n’est pas toujours disponible",
+            "text": "L’absence d’ustensile rend le cas difficile. La question de la nécessité sera examinée expressément dans les transmissions suivantes."
+          },
+          {
+            "label": "La validité demande un autre examen",
+            "text": "La pratique que l’on préfère éviter n’est pas toujours identique à un acte invalide. Ibn al-Qâsim abordera cette question séparément."
+          }
+        ],
+        "example": {
+          "title": "La différence entre préférer et invalider",
+          "text": "Un étudiant résume : « Mâlik interdit tout lavage dans un puits. » Son enseignant lui demande de relire les mots du passage et l’avis d’Ibn al-Qâsim juste après. Il devient alors évident que le texte discute une réserve et une situation particulière, et non une interdiction énoncée pour toute eau souterraine. Cet échange est imaginé pour montrer comment garder la précision de la transmission."
+        },
+        "takeaway": "Dans le cas du puits, Mâlik préfère que la personne retire d’abord la souillure et prélève l’eau plutôt que de s’immerger. Cette préférence ne tranche pas, à elle seule, la validité d’un ghusl déjà accompli.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 76, Mudawwana, réponse de Mâlik et suite attribuée à Ibn al-Qâsim. Dialogue pédagogique fictif."
+      },
+      {
+        "id": "ibn-qasim",
+        "eyebrow": "04 · Si le ghusl a déjà été accompli",
+        "title": "Comment Ibn al-Qâsim juge-t-il la purification réalisée dans l’eau ?",
+        "passage": {
+          "arabic": "فإن اغتسل فيها أجزأه ولم ينجسها إذا كان الماء معينا",
+          "translation": "« S’il s’y lave, cela lui suffit et il ne rend pas l’eau impure lorsque celle-ci est abondante. »",
+          "explanation": "Ce sont les mots d’Ibn al-Qâsim cités par al-Hattâb. La mention « إذا كان الماء معينا » constitue une condition : la traduction « abondante » rend ici le sens du volume d’eau suffisamment important dans le contexte discuté.",
+          "sourceLabel": "Ibn al-Qâsim dans la Mudawwana, cité par al-Hattâb, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
+        "paragraphs": [
+          "Après le conseil attribué à Mâlik, Ibn al-Qâsim examine un fait différent : la personne ne s’est pas contentée de chercher une solution, elle a finalement accompli son lavage dans l’eau. Le jugement demande alors de savoir si son ghusl a rempli sa fonction et si le contact a rendu l’eau impure. Ibn al-Qâsim répond favorablement à la validité du lavage dans le cas qu’il délimite, en mentionnant que l’eau possède une quantité capable de supporter la situation décrite.",
+          "Il ne faut pas oublier cette dernière condition pour transformer la phrase en principe absolu. Ibn al-Qâsim ne dit pas que toute eau, quelle que soit sa quantité et quel que soit son changement, demeure purifiante après qu’on y a introduit une souillure. Sa réponse distingue l’acte accompli et le statut de l’eau, puis les rattache au volume en question. Voilà pourquoi la réserve de Mâlik et l’explication d’Ibn al-Qâsim ne se contredisent pas nécessairement : elles ne répondent pas exactement à la même question."
+        ],
+        "steps": [
+          {
+            "label": "« Ajza’ahu » : cela lui suffit",
+            "text": "Le mot porte sur la suffisance du ghusl accompli pour la purification envisagée. Ce n’est pas simplement une appréciation morale du geste."
+          },
+          {
+            "label": "L’eau ne devient pas automatiquement impure",
+            "text": "Ibn al-Qâsim précise l’effet sur le volume d’eau : il ne le tient pas pour impur dans le cas qu’il décrit."
+          },
+          {
+            "label": "Une condition de quantité",
+            "text": "La phrase mentionne expressément le caractère de l’eau. Elle ne doit pas être étendue à un puits dont une souillure aurait réellement modifié les propriétés."
+          },
+          {
+            "label": "La réserve et la validité ne se confondent pas",
+            "text": "On peut préférer éviter une manière de se laver tout en reconnaissant qu’un acte accompli dans certaines conditions reste valable."
+          }
+        ],
+        "example": {
+          "title": "Le jugement d’un acte déjà terminé",
+          "text": "Imagine qu’une personne ait accompli le ghusl directement dans une grande réserve, avant de connaître la précaution recommandée par Mâlik. Sa question ne serait plus seulement « que vaut-il mieux faire ? », mais « mon lavage compte-t-il dans les circonstances où je l’ai fait ? ». Ibn al-Qâsim traite précisément ce second type de question, avec une condition concernant l’eau. La scène est pédagogique et ne prononce pas de jugement personnalisé."
+        },
+        "takeaway": "Ibn al-Qâsim rapporte la suffisance du lavage réalisé dans l’eau dans la situation conditionnée qu’il décrit. Il distingue ainsi la conduite recommandée par Mâlik du jugement porté sur une purification déjà accomplie.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, transmission d’Ibn al-Qâsim dans la Mudawwana."
       },
       {
         "id": "necessity",
-        "eyebrow": "03 · Si l’on ne peut faire autrement",
-        "title": "L’immersion est-elle toujours assimilée à l’invalidation de la purification ?",
+        "eyebrow": "05 · Le besoin peut-il modifier l’appréciation ?",
+        "title": "Pourquoi l’existence d’une autre eau change-t-elle la discussion ?",
+        "passage": {
+          "arabic": "إنما كره له الاغتسال فيه إذا وجد منه بدلا",
+          "translation": "« La réprobation concerne celui qui dispose d’une autre possibilité. »",
+          "explanation": "‘Alî transmet ici une précision attribuée à Mâlik, également rapportée par Ibn Wahb dans le commentaire. Le passage ajoute que l’immersion peut être admise en cas de nécessité lorsque la quantité d’eau le permet.",
+          "sourceLabel": "‘Alî rapportant de Mâlik, mention d’Ibn Wahb, cités par al-Hattâb, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
         "paragraphs": [
-          "Al-Hattâb rapporte d’Ibn al-Qâsim que, si la personne a malgré tout accompli le ghusl dans l’eau du puits, son lavage peut être valable lorsque l’eau est de la quantité décrite par la transmission et n’a pas été rendue impure selon le cas étudié. D’autres formulations font intervenir l’existence ou non d’une autre eau, et une explication attribuée à Mâlik réserve la réprobation à la situation où l’on dispose d’un substitut.",
-          "Il faut lire ensemble la quantité, la souillure effectivement présente et la nécessité. La formule « mieux vaut éviter » ne signifie pas automatiquement « cela ne compte pas ». Inversement, un cas de besoin ne permet pas d’affirmer que toute eau manifestement altérée par une impureté redeviendrait purifiante. Le commentaire distingue les circonstances au lieu de produire un principe sans exception."
+          "Le texte ne s’arrête pas à la quantité. Une transmission de ‘Alî, rapportant les paroles de Mâlik, précise que la réprobation concerne l’individu qui possède une autre possibilité. Cela change beaucoup la manière d’enseigner la règle. Une personne capable de se purifier autrement sans compromettre le puits n’est pas dans la même situation que celle qui n’a réellement aucun moyen de remplacer cette eau. Le commentaire nous apprend à prendre les circonstances de la personne au sérieux.",
+          "La phrase poursuit en évoquant l’usage nécessaire lorsque l’eau est suffisamment abondante pour le supporter. Il ne s’agit pas de faire disparaître par magie une souillure visible, ni de déclarer toute immersion valable quelles que soient les conditions. Nous devons conserver la nécessité, la quantité d’eau et le problème initial dans notre raisonnement. Ibn Nâjî expliquera même que ce qui est réprouvé en présence d’un choix peut devenir le moyen retenu lorsqu’il n’y a pas d’autre solution."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, propos rapportés d’Ibn al-Qâsim, de ‘Alî et d’Ibn Wahb et note sur l’usage lorsqu’on n’a pas d’autre eau."
+        "steps": [
+          {
+            "label": "Le choix réel change la situation",
+            "text": "La même manière d’employer l’eau n’a pas toujours le même contexte selon que l’on possède ou non une alternative."
+          },
+          {
+            "label": "« Darûra » : un besoin contraignant",
+            "text": "Le passage parle d’une personne qui ne peut pas faire autrement, et non de quelqu’un qui préfère seulement gagner du temps."
+          },
+          {
+            "label": "La quantité d’eau demeure pertinente",
+            "text": "L’autorisation discutée est rattachée à une eau suffisamment importante pour supporter le cas ; elle ne supprime pas les autres règles sur l’altération."
+          },
+          {
+            "label": "Les paroles ont plusieurs transmetteurs",
+            "text": "Le commentaire attribue cette précision à Mâlik par l’intermédiaire de ‘Alî et mentionne également la transmission d’Ibn Wahb."
+          }
+        ],
+        "example": {
+          "title": "Deux voyageurs face à deux possibilités",
+          "text": "Deux voyageurs sont en état de janâba. Le premier dispose d’un récipient propre qui lui permet de prélever de l’eau hors du puits. Le second n’a aucun matériel et ne peut trouver d’autre source. Leur difficulté pratique n’est pas identique. Cette scène fictive sert à comprendre pourquoi le commentaire distingue celui qui a une alternative et celui qui est contraint ; elle ne remplace pas l’examen d’un cas particulier."
+        },
+        "takeaway": "La transmission attribuée à Mâlik restreint la réprobation au cas où une autre possibilité existe. La nécessité est donc prise en compte, mais sans effacer les conditions liées à la quantité d’eau et à une éventuelle impureté réelle.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 76, propos de ‘Alî rapportant Mâlik, mention d’Ibn Wahb et explication d’Ibn Nâjî."
       },
       {
-        "id": "washing-basin",
-        "eyebrow": "04 · Cas voisin : bassin de ghusl",
-        "title": "Que se passe-t-il lorsqu’on entre dans le bassin avant de se débarrasser d’une souillure ?",
+        "id": "improvising",
+        "eyebrow": "06 · Avec quoi prélever l’eau ?",
+        "title": "Pourquoi les commentateurs évoquent-ils un tissu ou même la bouche ?",
+        "passage": {
+          "arabic": "يأخذه بطرف ثوبه",
+          "translation": "« Il prend de l’eau à l’aide du bord de son vêtement. »",
+          "explanation": "Al-Hattâb rapporte cette explication d’Ibn Nâfi‘, puis la possibilité d’un prélèvement par la bouche dans le Samâ‘ de Mûsâ. D’autres auteurs, dont Ibn Rushd, reprennent ces moyens en les assortissant de précautions.",
+          "sourceLabel": "Ibn Nâfi‘ cité par Abû al-Hasan, puis Samâ‘ de Mûsâ et Ibn Rushd, rapportés par al-Hattâb, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
         "paragraphs": [
-          "Dans un développement suivant, al-Hattâb cite ‘Abd al-Haqq : si une personne s’est lavée dans un bassin ou une petite cuve avant d’enlever la saleté de son corps, il faut examiner si une caractéristique de l’eau a changé. Le passage distingue clairement le cas où l’eau est effectivement modifiée de celui où elle ne l’est pas ; les qualifications et les conséquences sur le lavage ne sont pas identiques.",
-          "Il rapporte aussi des nuances sur le lavage ultérieur du corps pour la souillure, sans nécessairement renouveler l’intention de lever la janâba lorsque celle-ci a déjà été levée selon l’analyse considérée. Cette précision renvoie à la distinction entre état rituel et souillure matérielle, étudiée dès la fiche 02. Elle ne remplace pas une étude détaillée des conditions de validité du ghusl."
+          "Nous arrivons aux moyens pratiques que les auteurs ont imaginés pour exécuter le conseil de Mâlik. L’un propose d’utiliser le bord d’un vêtement afin de récupérer de l’eau sans introduire la main souillée dans la réserve. Une autre transmission évoque le prélèvement par la bouche. Ces solutions peuvent surprendre un lecteur moderne, mais elles répondent à un problème précis : une petite quantité d’eau, aucun récipient et la nécessité de nettoyer une souillure avant le ghusl.",
+          "Il faut lire aussi les réserves. Abû ‘Imrân précise que l’eau passée dans la bouche ne doit pas être laissée assez longtemps pour prendre les propriétés d’une eau mêlée à la salive ; Ibn Rushd distingue encore le cas où cette eau aurait effectivement été modifiée. Nous n’avons pas ici une recommandation générale de transporter l’eau dans la bouche. Ce sont des procédés historiques discutés pour un cas de nécessité, dont le statut dépend de l’état réel de l’eau."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 77, « فرع الغسل في الحياض قبل غسل الأذى », avis de ‘Abd al-Haqq et transmissions d’al-Bâjî et d’Ibn al-Qâsim."
+        "steps": [
+          {
+            "label": "Le bord du vêtement comme moyen de puisage",
+            "text": "Ibn Nâfi‘ explique le mot يحتال en proposant une ressource matérielle disponible sur place, sans qu’il s’agisse d’un geste cultuel supplémentaire."
+          },
+          {
+            "label": "La bouche comme moyen possible",
+            "text": "Le passage rapporte ce procédé dans un contexte de manque d’ustensile. Il ne doit pas devenir une pratique de purification recommandée en général."
+          },
+          {
+            "label": "La salive peut poser une autre question",
+            "text": "Abû ‘Imrân et Ibn Rushd examinent si l’eau conserve ses propriétés. Ils ne traitent pas de la même manière une eau inchangée et une eau devenue mêlée à une autre matière."
+          },
+          {
+            "label": "Le principe reste celui de Mâlik",
+            "text": "Réduire la souillure de la main et préserver la réserve demeure l’objectif. Les moyens évoqués servent à atteindre cette fin dans des circonstances difficiles."
+          }
+        ],
+        "example": {
+          "title": "Une solution qui dépend des moyens disponibles",
+          "text": "Imagine une personne qui ne dispose que d’un vêtement propre pour accéder à une petite réserve. Dans le cadre ancien décrit par Ibn Nâfi‘, le bord du tissu peut servir à prélever un peu d’eau pour laver la main souillée. Il ne faut pas reproduire cette scène comme un protocole sanitaire actuel : elle permet d’expliquer comment les juristes cherchent un moyen sans abandonner les principes de purification."
+        },
+        "takeaway": "Les moyens proposés par Ibn Nâfi‘ et les autres auteurs sont des réponses pratiques au manque d’ustensile. Les précautions concernant l’eau passée dans la bouche montrent que la pureté de l’eau utilisée doit toujours être examinée.",
+        "sourceNote": "Source : al-Hattâb, tome 1, p. 76, propos rapportés d’Ibn Nâfi‘, d’Abû ‘Imrân et d’Ibn Rushd. Exemple fictif."
+      },
+      {
+        "id": "sanad-advice",
+        "eyebrow": "07 · Quand même puiser est difficile",
+        "title": "Comment Sanad propose-t-il de réduire la souillure ?",
+        "passage": {
+          "arabic": "ينبغي أن يتلطف في إزالة النجاسة من يده وتقليلها",
+          "translation": "« Il convient de procéder avec soin pour enlever, ou au moins réduire, l’impureté de sa main. »",
+          "explanation": "Il s’agit de l’explication de Sanad citée par al-Hattâb. Sanad examine notamment la différence entre un bassin et un puits dans lequel l’eau prélevée pour le ghusl peut retomber.",
+          "sourceLabel": "Sanad, propos rapportés par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
+        "paragraphs": [
+          "Sanad remarque qu’il ne suffit pas de dire « il puisera de l’eau » sans regarder la configuration du lieu. Dans un bassin, l’eau que l’on prend peut être facilement déplacée hors de la réserve ; dans un puits, une personne qui se lave à l’intérieur risque de voir l’eau retomber au fond. Il cherche donc à réduire autant que possible la matière impure présente sur les mains, plutôt qu’à traiter le problème comme s’il existait un seau ou un sol plat.",
+          "Il décrit plusieurs manières de s’y prendre avec les moyens disponibles, notamment l’usage de la bouche pour humecter les mains, puis leur essuyage contre une surface, lorsque la personne ne peut pas faire autrement. Ce sont des scénarios matériels extrêmes, dont le détail nous renseigne sur l’effort demandé par la jurisprudence. Il ne faut ni y voir une consigne d’entrer dans un puits dangereux, ni créer une obligation de répéter ces gestes dans les situations ordinaires."
+        ],
+        "steps": [
+          {
+            "label": "La configuration du puits compte",
+            "text": "Sanad distingue le puits du bassin : une partie de l’eau employée au lavage peut revenir vers la réserve selon l’endroit où la personne se trouve."
+          },
+          {
+            "label": "L’objectif reste d’éliminer la matière",
+            "text": "Il parle d’enlever ou de réduire la souillure perceptible. Cette précision évite de confondre la présence matérielle d’une impureté et l’état rituel de janâba."
+          },
+          {
+            "label": "Adapter l’effort aux capacités",
+            "text": "Le passage prévoit la personne qui ne peut pas multiplier des déplacements ou qui manque d’outils. L’effort demandé correspond à ce qui lui est possible."
+          },
+          {
+            "label": "Une description historique n’est pas une instruction de sécurité",
+            "text": "L’illustration concerne un cas ancien de purification. Elle ne prescrit pas de descendre physiquement dans un puits ou d’utiliser une eau dangereuse."
+          }
+        ],
+        "example": {
+          "title": "Un problème d’accès autant que de purification",
+          "text": "Dans un cas fictif, une personne dispose d’un peu d’eau mais ne peut pas la transférer facilement vers un endroit propre. Elle doit commencer par réfléchir à la manière de réduire la souillure présente sur sa main avec ce qu’elle possède, plutôt que d’agir comme si elle avait tous les ustensiles souhaités. L’exemple reprend la logique de Sanad sans recommander ses procédés anciens pour une installation moderne."
+        },
+        "takeaway": "Sanad explique comment réduire la souillure dans une situation matérielle difficile, en tenant compte des possibilités réelles de la personne. Son raisonnement montre que le fiqh ne sépare pas le jugement des moyens disponibles.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 76, citation de Sanad sur l’accès à l’eau du puits et la réduction de la souillure."
+      },
+      {
+        "id": "sanad-objection",
+        "eyebrow": "08 · Pourquoi prélever si l’eau retombe ?",
+        "title": "Quelle réponse Sanad apporte-t-il à cette objection ?",
+        "passage": {
+          "arabic": "فإنه إذا اغترف وقلل الماء وبالغ في التدلك",
+          "translation": "« Lorsqu’il puise une petite quantité d’eau et prend soin de bien frotter [le corps]… »",
+          "explanation": "Sanad répond à l’objection selon laquelle l’eau versée sur la personne retomberait de toute façon dans le puits. Il explique qu’un puisage limité et un frottement approprié réduisent cette retombée ; il invoque également le sens apparent de la réserve envers le bain dans l’eau stagnante.",
+          "sourceLabel": "Sanad cité par al-Hattâb, tome 1, p. 76, discussion après « فإن قيل ما فائدة رفعه الماء… ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+        },
+        "paragraphs": [
+          "Sanad pose lui-même une objection intéressante : à quoi bon prélever l’eau pour se la verser dessus si elle retourne finalement dans le puits ? Ne serait-ce pas la même chose que de se plonger directement dans la réserve ? Il ne balaie pas la question. Il explique qu’un lavage réalisé avec une petite quantité d’eau, accompagné d’un frottement soigneux, ne produit pas nécessairement un écoulement important vers le fond du puits.",
+          "Il ajoute que, même lorsqu’un peu d’eau revient vers le puits, la personne peut essayer de puiser ensuite ailleurs dans la réserve. Il évoque aussi la volonté de respecter le sens apparent de l’interdiction de se laver directement dans une eau stagnante. Nous devons voir ce que Sanad cherche à préserver : une distinction entre prélever et s’immerger, même lorsqu’elle devient plus difficile à établir dans un puits. Le texte expose un raisonnement, non une règle géométrique valable pour toute installation."
+        ],
+        "steps": [
+          {
+            "label": "Une objection est explicitement formulée",
+            "text": "Le commentaire ne cache pas la difficulté : dans un puits, l’eau utilisée pour le lavage peut retourner là où elle a été prise."
+          },
+          {
+            "label": "La quantité prélevée peut réduire le retour",
+            "text": "Sanad envisage un emploi mesuré de l’eau et un frottement du corps, plutôt qu’un écoulement abondant vers la réserve."
+          },
+          {
+            "label": "Le lieu du puisage peut varier",
+            "text": "Le texte évoque la possibilité de prendre ensuite l’eau à un autre endroit du puits, selon la situation matérielle."
+          },
+          {
+            "label": "L’attention au texte de l’interdiction",
+            "text": "Sanad mentionne le souci de respecter la réserve exprimée au sujet du lavage directement dans l’eau stagnante."
+          }
+        ],
+        "example": {
+          "title": "Un geste qui semble inutile au premier regard",
+          "text": "Un élève demande pourquoi ne pas simplement entrer dans un petit bassin, puisque l’eau employée risque de s’y retrouver. L’enseignant lui fait lire l’objection que Sanad a lui-même formulée et la différence qu’il propose entre un prélèvement mesuré et une immersion. L’élève comprend que la quantité d’eau répandue et la manière de l’utiliser participent à l’analyse. Ce dialogue est fictif."
+        },
+        "takeaway": "La réponse de Sanad montre que deux gestes extérieurs proches peuvent avoir des effets différents sur une réserve d’eau. Il ne réduit pas le problème à une règle mécanique et tient compte de la façon dont l’eau est prélevée et utilisée.",
+        "sourceNote": "Source : al-Hattâb, tome 1, p. 76, citation de Sanad et examen de l’objection sur le retour de l’eau dans le puits."
+      },
+      {
+        "id": "basin-intro",
+        "eyebrow": "09 · Une seconde question : le bassin de ghusl",
+        "title": "Que se passe-t-il si la personne se lave avant d’enlever une souillure ?",
+        "passage": {
+          "arabic": "إن اغتسل به في الحياض أو في القصرية قبل أن يغسل الأذى عن نفسه",
+          "translation": "« S’il se lave dans les bassins ou dans une petite cuve avant d’avoir enlevé la souillure présente sur son corps… »",
+          "explanation": "Al-Hattâb introduit un développement voisin en citant Abû al-Hasan rapportant ‘Abd al-Haqq dans al-Tahdhîb. Le sujet devient la validité du ghusl selon que l’eau est réellement altérée ou non.",
+          "sourceLabel": "‘Abd al-Haqq dans al-Tahdhîb, transmis par Abû al-Hasan et cité par al-Hattâb, t. 1, p. 77.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/116/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Le second passage étudié dans cette fiche nous place devant un bassin ou une petite cuve. Une personne en état de janâba y accomplit son ghusl, alors qu’elle n’a pas d’abord retiré une souillure matérielle de son corps. Il faut maintenant poser une question différente de celle du puits : quel effet cette souillure a-t-elle réellement eu sur l’eau employée ? ‘Abd al-Haqq, cité par al-Hattâb, commence précisément par demander d’observer les propriétés de l’eau.",
+          "Cette situation rappelle la distinction essentielle entre deux opérations de la purification : sortir d’un état de janâba, et enlever une najâsa présente sur le corps. Elles ne sont pas interchangeables. Une personne peut avoir accompli les gestes du ghusl alors qu’il reste encore à examiner l’effet d’une souillure sur l’eau. La suite du texte ne prononce donc pas automatiquement le même jugement dans tous les bassins. Elle examine séparément une eau modifiée et une eau demeurée inchangée."
+        ],
+        "steps": [
+          {
+            "label": "Le nouveau cas concerne un bassin ou une cuve",
+            "text": "Le commentaire ne parle plus seulement du puits difficile d’accès. Il envisage une immersion dans une eau contenue et le contact avec une souillure déjà présente."
+          },
+          {
+            "label": "La souillure devait être enlevée",
+            "text": "L’eau peut entrer en contact avec une matière impure que la personne n’avait pas retirée avant le lavage."
+          },
+          {
+            "label": "Le critère de l’altération",
+            "text": "‘Abd al-Haqq demande de regarder si l’une des propriétés de l’eau a réellement changé. C’est le point qui séparera les deux issues."
+          },
+          {
+            "label": "L’attribution à ‘Abd al-Haqq",
+            "text": "Les mots étudiés sont rapportés par Abû al-Hasan dans le commentaire d’al-Hattâb. Ils ne sont pas une formule originale de Khalîl."
+          }
+        ],
+        "example": {
+          "title": "Un bassin utilisé trop tôt",
+          "text": "Imagine une personne qui commence son ghusl dans une petite cuve, puis se rend compte qu’elle n’a pas d’abord nettoyé une souillure présente sur sa peau. Pour étudier ce cas, il ne suffit pas de dire qu’elle avait besoin d’un ghusl : il faut aussi considérer la matière qui a pu entrer dans l’eau et la modifier. Le scénario est créé pour illustrer le problème juridique, sans déterminer la validité d’un ghusl réel."
+        },
+        "takeaway": "Dans le cas du bassin, la question porte sur l’effet d’une souillure matérielle sur l’eau pendant le ghusl. ‘Abd al-Haqq distingue cette question de l’état rituel de janâba et demande d’examiner l’eau avant de conclure.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 77, propos d’Abû al-Hasan rapportant ‘Abd al-Haqq, « فرع الغسل في الحياض قبل غسل الأذى »."
+      },
+      {
+        "id": "basin-changed",
+        "eyebrow": "10 · Si l’eau a été réellement altérée",
+        "title": "Pourquoi le ghusl n’est-il alors pas suffisant ?",
+        "passage": {
+          "arabic": "فإن تغير أحد أوصافه لم يجزه غسله وحكم الجنابة باق",
+          "translation": "« Si l’une de ses caractéristiques change, son ghusl ne lui suffit pas et l’état de janâba demeure. »",
+          "explanation": "Cette conclusion est attribuée à ‘Abd al-Haqq dans le commentaire d’al-Hattâb. Elle est conditionnée par un changement effectif des propriétés de l’eau provoqué dans le cas étudié.",
+          "sourceLabel": "‘Abd al-Haqq, propos cités par Abû al-Hasan puis al-Hattâb, tome 1, p. 77.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/116/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Nous pouvons maintenant comprendre la première issue. La personne entre dans le bassin avant d’avoir enlevé la souillure de son corps. Si l’eau en est réellement modifiée, ‘Abd al-Haqq indique que le grand lavage ne remplit pas sa fonction : l’état de janâba demeure. Il ne s’agit pas d’une simple préférence pour un bain plus propre. La raison donnée est le changement de l’eau dans la situation étudiée.",
+          "Il serait pourtant faux de généraliser cette phrase à tout ghusl accompli dans un bassin. Le texte a commencé par une condition : l’eau a changé. La nature de la matière et l’effet réel sur l’eau restent donc fondamentaux. La transmission distingue expressément, dès la phrase suivante, une eau qui n’a pas été modifiée. Un enseignant doit conserver ces deux branches du raisonnement ensemble, faute de quoi il attribuerait au juriste une conclusion plus large que celle qu’il défend."
+        ],
+        "steps": [
+          {
+            "label": "Le changement est une condition expresse",
+            "text": "La phrase commence par « si l’une de ses caractéristiques change ». Elle ne traite donc pas tous les bains réalisés dans une même réserve."
+          },
+          {
+            "label": "Le jugement porte sur la suffisance du ghusl",
+            "text": "Dans le cas de l’eau altérée, ‘Abd al-Haqq dit que le lavage n’a pas levé l’état de janâba."
+          },
+          {
+            "label": "L’impureté matérielle et la janâba sont liées par le cas",
+            "text": "C’est la souillure qui affecte l’eau ; l’incapacité du ghusl à lever la janâba est une conséquence examinée ensuite."
+          },
+          {
+            "label": "Il faut lire aussi l’hypothèse opposée",
+            "text": "La phrase suivante prévoit une eau demeurée inchangée. Sans elle, la lecture de la règle serait incomplète."
+          }
+        ],
+        "example": {
+          "title": "Une conclusion dont il manque la condition",
+          "text": "Un étudiant écrit dans son cahier : « Celui qui se lave dans une cuve alors qu’il est souillé demeure forcément junub. » Le professeur lui demande de retrouver la condition mentionnée par ‘Abd al-Haqq : l’une des propriétés de l’eau a-t-elle réellement changé ? Sans cette information, la conclusion est trop large. Ce dialogue fictif sert à apprendre à lire la condition avec le jugement."
+        },
+        "takeaway": "Dans l’hypothèse d’une eau réellement altérée par la souillure, ‘Abd al-Haqq indique que le ghusl ne suffit pas à lever la janâba. Cette décision ne doit pas être transportée sans examen à une eau demeurée inchangée.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 77, citation de ‘Abd al-Haqq, cas du changement d’une propriété de l’eau."
+      },
+      {
+        "id": "basin-unchanged",
+        "eyebrow": "11 · Si l’eau n’a pas changé",
+        "title": "Pourquoi la question d’une seconde ablution du corps ne signifie-t-elle pas un second ghusl de janâba ?",
+        "passage": {
+          "arabic": "وإن لم يتغير فغسله يجزيه",
+          "translation": "« Si elle ne change pas, son ghusl lui suffit. »",
+          "explanation": "Cette deuxième issue est rapportée de ‘Abd al-Haqq. Les précisions suivantes distinguent la levée de la janâba du fait de relaver le corps pour ôter d’éventuelles souillures, notamment selon la recommandation transmise par al-Bâjî.",
+          "sourceLabel": "‘Abd al-Haqq cité par Abû al-Hasan et al-Hattâb, t. 1, p. 77.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/116/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Le même auteur envisage maintenant une eau qui n’a subi aucune modification. Il dit que le ghusl est alors suffisant. Mais il ajoute qu’il peut convenir de laver ensuite le corps avec une eau pure pour enlever les souillures, sans refaire l’intention de lever la janâba. Pourquoi cette précision ? Parce que le grand lavage rituel et le nettoyage d’une matière impure répondent à deux questions distinctes. Dans l’analyse considérée, la première est déjà réglée.",
+          "Le passage ne s’arrête pas à une formule unique. Al-Hattâb rapporte d’Ibn al-Qâsim, dans le cadre de ce cas discuté, une répétition de la prière accomplie dans son temps ; il cite également al-Bâjî qui présente le relavage du corps comme recommandé. ‘Abd al-Haqq précise que l’on ne forme pas alors une seconde intention de lever la janâba, puisqu’elle a déjà été levée selon l’hypothèse. Il faut conserver ces attributions pour ne pas transformer plusieurs nuances en une règle indistincte."
+        ],
+        "steps": [
+          {
+            "label": "Le ghusl peut être suffisant",
+            "text": "‘Abd al-Haqq distingue l’absence de modification de l’eau du cas précédent, où l’eau avait réellement changé."
+          },
+          {
+            "label": "Le corps peut encore devoir être nettoyé",
+            "text": "Une souillure matérielle et un état rituel ne se confondent pas. Le texte discute un lavage complémentaire portant sur les matières à enlever."
+          },
+          {
+            "label": "La seconde intention n’est pas celle du ghusl initial",
+            "text": "‘Abd al-Haqq explique qu’on ne renouvelle pas l’intention de lever la janâba si celle-ci a déjà été levée dans la première purification."
+          },
+          {
+            "label": "Les avis sur le relavage sont attribués",
+            "text": "Ibn al-Qâsim, al-Bâjî et ‘Abd al-Haqq sont mentionnés avec des précisions distinctes. Leur présentation n’est pas un consensus sur tous les cas."
+          }
+        ],
+        "example": {
+          "title": "Se laver de nouveau ne signifie pas recommencer le même rite",
+          "text": "Une personne a accompli son ghusl dans une eau demeurée inchangée, mais elle doit encore nettoyer soigneusement une matière qui a pu se trouver sur son corps. La question porte sur ce nettoyage : faut-il pour autant refaire une intention de lever la janâba ? Dans la lecture d’‘Abd al-Haqq rapportée ici, non, puisque l’état rituel a déjà été levé. Cet exemple illustre le raisonnement et ne constitue pas une réponse individuelle à une situation réelle."
+        },
+        "takeaway": "Dans l’analyse de ‘Abd al-Haqq, un ghusl accompli dans une eau demeurée inchangée peut suffire à lever la janâba, alors que le nettoyage d’une souillure corporelle reste discuté séparément. Les précisions d’al-Bâjî et d’Ibn al-Qâsim doivent conserver leurs attributions.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 77, propos de ‘Abd al-Haqq, d’Ibn al-Qâsim et d’al-Bâjî. Exemple inventé pour la leçon."
       }
     ],
     "quote": {
       "arabic": "يَحْتَالُ حَتَّى يَغْسِلَ يَدَيْهِ وَيَغْرِفَ وَيَغْتَسِلَ",
-      "meaning": "Dans le cas du puits peu rempli, la Mudawwana rapporte que Mâlik préconise de trouver un moyen de laver d’abord les mains, puis de puiser de l’eau et d’accomplir le ghusl.",
-      "label": "Propos attribué à Mâlik dans la Mudawwana, cité par al-Hattâb, t. 1, p. 76 — explication du sens."
+      "meaning": "Dans le cas d’une personne en état de janâba, ayant une souillure à la main et aucun outil pour puiser dans un puits peu rempli, Mâlik recommande de rechercher un moyen de laver d’abord la main, puis de prélever l’eau et de faire le ghusl.",
+      "label": "Paroles attribuées à l’imam Mâlik dans la Mudawwana, citées par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 76."
     },
     "lexicon": [
       {
         "arabic": "الْجُنُب",
         "term": "Junub",
-        "definition": "Personne se trouvant en état de janâba et à laquelle s’applique la purification majeure selon ses conditions."
+        "definition": "Personne en état de janâba, qui a besoin du grand lavage rituel. Cet état ne signifie pas que tous ses membres sont matériellement souillés."
+      },
+      {
+        "arabic": "الْجَنَابَة",
+        "term": "Janâba",
+        "definition": "État d’impureté rituelle majeure, distinct d’une souillure physique présente sur le corps. Le ghusl a notamment pour objet de lever cet état."
       },
       {
         "arabic": "بِئْر",
         "term": "Bi’r",
-        "definition": "Puits : le passage traite spécifiquement d’un puits peu rempli et difficile d’accès pour prélever l’eau."
+        "definition": "Puits, ici une réserve peu remplie et difficile d’accès. Le cas dépend aussi de l’absence d’un moyen ordinaire pour prélever l’eau."
       },
       {
         "arabic": "قَذَر",
         "term": "Qadhar",
-        "definition": "Souillure ou saleté présente sur les mains dans le cas rapporté, distincte de la janâba elle-même."
+        "definition": "Souillure ou saleté présente sur les mains dans le cas rapporté. Sa suppression doit être distinguée de la levée de la janâba."
       },
       {
-        "arabic": "يَغْرِف",
-        "term": "Yaghrif",
-        "definition": "Puiser ou recueillir de l’eau, action que les auteurs cherchent à rendre possible sans la souiller."
+        "arabic": "الِاغْتِرَاف",
+        "term": "Ightirâf",
+        "definition": "Action de puiser ou de prélever l’eau. Les juristes la distinguent de l’immersion du corps directement dans la réserve."
       },
       {
-        "arabic": "الْحَاجَة وَالضَّرُورَة",
-        "term": "Hâja wa darûra",
-        "definition": "Besoin et nécessité : circonstances dont la présence peut modifier la manière de considérer une pratique."
+        "arabic": "الْحِيلَة",
+        "term": "Hîla",
+        "definition": "Recherche d’un moyen pratique permettant de surmonter une difficulté matérielle. Ici, il s’agit de nettoyer la main avant de puiser."
       },
       {
-        "arabic": "غُسْل الْجَنَابَة",
-        "term": "Ghusl al-janâba",
-        "definition": "Grand lavage rituel associé à la janâba, distingué dans le commentaire de la suppression d’une souillure."
+        "arabic": "الْمُدَوَّنَة",
+        "term": "Al-Mudawwana",
+        "definition": "Source majeure du droit malikite, dans laquelle est rapportée la réponse attribuée à Mâlik au sujet du puits peu rempli."
+      },
+      {
+        "arabic": "الْبَدَل",
+        "term": "Badal",
+        "definition": "Possibilité de remplacement ou autre solution disponible. Le commentaire précise que la réserve envers l’immersion dépend aussi de son existence."
+      },
+      {
+        "arabic": "الضَّرُورَة",
+        "term": "Darûra",
+        "definition": "Situation de nécessité prise en compte dans le jugement juridique. Elle doit être réelle et lue avec les conditions du cas étudié."
+      },
+      {
+        "arabic": "الْمَاءُ الْمَعِين",
+        "term": "Mâ’ ma‘în",
+        "definition": "Expression qualifiant une eau suffisamment abondante dans la transmission d’Ibn al-Qâsim, condition importante pour la validité discutée."
+      },
+      {
+        "arabic": "الْقَصْرِيَّة",
+        "term": "Qasriyya",
+        "definition": "Petite cuve ou récipient où une personne peut accomplir le ghusl. Le passage en examine le cas lorsque la souillure n’a pas été enlevée auparavant."
+      },
+      {
+        "arabic": "الْحِيَاض",
+        "term": "Hiyâd",
+        "definition": "Bassins où l’on peut se laver. Le texte les rapproche des petites cuves pour examiner une eau modifiée ou non par une souillure."
+      },
+      {
+        "arabic": "الْأَذَى",
+        "term": "Adhâ",
+        "definition": "Souillure présente sur le corps que l’on doit examiner et enlever. Son traitement ne se confond pas avec la levée de la janâba."
+      },
+      {
+        "arabic": "تَغَيُّرُ الْمَاءِ",
+        "term": "Taghayyur al-mâ’",
+        "definition": "Modification réelle de l’une des propriétés de l’eau. ‘Abd al-Haqq lui attribue un rôle décisif pour le statut du ghusl étudié."
+      },
+      {
+        "arabic": "الْإِجْزَاء",
+        "term": "Ijzâ’",
+        "definition": "Suffisance juridique d’un acte pour remplir sa fonction. Le commentaire emploie cette notion lorsqu’il examine si le ghusl accompli compte."
+      },
+      {
+        "arabic": "نِيَّةُ رَفْعِ الْجَنَابَة",
+        "term": "Niyyat raf‘ al-janâba",
+        "definition": "Intention de lever la janâba lors du ghusl. Le texte distingue cette intention d’un lavage complémentaire destiné à ôter une souillure."
+      },
+      {
+        "arabic": "الِاسْتِحْبَاب",
+        "term": "Istihbâb",
+        "definition": "Caractère recommandé d’un acte. Al-Bâjî emploie cette qualification pour un lavage ultérieur du corps dans une situation précise."
+      },
+      {
+        "arabic": "التَّدَلُّك",
+        "term": "Tadalluk",
+        "definition": "Frottement du corps lors du lavage, mentionné par Sanad lorsqu’il explique comment utiliser une petite quantité d’eau sans en faire retomber beaucoup dans le puits."
       }
     ],
     "quiz": [
       {
-        "question": "Quel élément rend le cas du puits difficile ?",
+        "question": "Quel ensemble de circonstances rend le cas de la Mudawwana particulièrement difficile ?",
         "choices": [
-          "La personne possède une grande réserve d’eau et un seau propre.",
-          "La personne a une main souillée et ne dispose pas de moyen ordinaire pour puiser l’eau.",
-          "Il s’agit d’un problème sur le jeûne."
-        ],
-        "answer": 1,
-        "explanation": "Le passage de la Mudawwana précise le peu d’eau, la présence d’une souillure et l’absence d’outil pour recueillir l’eau."
-      },
-      {
-        "question": "Quelle orientation la réponse attribuée à Mâlik met-elle d’abord en avant ?",
-        "choices": [
-          "Chercher un moyen de nettoyer la main et de puiser l’eau avant le ghusl.",
-          "Considérer automatiquement le puits comme impur.",
-          "Abandonner toute purification sans rechercher de solution."
+          "Un puits peu rempli, une main souillée et aucun objet pour puiser.",
+          "Une rivière abondante et plusieurs seaux propres.",
+          "Un bain déjà accompli avec une eau potable."
         ],
         "answer": 0,
-        "explanation": "Mâlik invite à trouver un moyen de réduire la souillure et de recueillir l’eau pour préserver son usage."
+        "explanation": "La difficulté réunit la janâba à lever, une souillure matérielle sur la main, une réserve peu abondante et l’absence d’outil. L’analyse juridique dépend de ces circonstances réunies."
       },
       {
-        "question": "Que faut-il distinguer dans le cas voisin du bassin de ghusl ?",
+        "question": "Que préconise d’abord Mâlik dans la Mudawwana ?",
         "choices": [
-          "La température du bassin et le lieu de résidence.",
-          "La couleur des vêtements uniquement.",
-          "L’eau effectivement modifiée par une souillure et l’eau qui demeure sans changement."
+          "Entrer immédiatement dans le puits sans réfléchir.",
+          "Chercher un moyen de laver la main, puis de puiser et d’accomplir le ghusl.",
+          "Renoncer à toute purification même lorsque des moyens existent."
+        ],
+        "answer": 1,
+        "explanation": "La formule « يحتال حتى يغسل يديه ويغرف ويغتسل » exprime la recherche d’un moyen pratique. Il faut réduire la souillure avant de prélever l’eau plutôt que négliger sa préservation."
+      },
+      {
+        "question": "Comment comprendre « وكره أن يقول يغتسل فيها » ?",
+        "choices": [
+          "Mâlik évite de conseiller l’immersion directe dans le cas décrit.",
+          "Mâlik invalide explicitement tous les bains dans tous les puits.",
+          "Le texte ne parle plus du tout de purification."
+        ],
+        "answer": 0,
+        "explanation": "La réserve attribuée à Mâlik concerne l’immersion dans cette situation précise. Ibn al-Qâsim examine ensuite la validité d’un ghusl déjà accompli ; la réserve et l’invalidité ne sont donc pas synonymes."
+      },
+      {
+        "question": "Quelle précision Ibn al-Qâsim apporte-t-il au sujet du ghusl déjà accompli dans le puits ?",
+        "choices": [
+          "Il est toujours invalide, quelle que soit l’eau.",
+          "Il suffit dans le cas qu’il décrit, avec une condition concernant la quantité d’eau.",
+          "Il implique nécessairement que toutes les souillures disparaissent."
+        ],
+        "answer": 1,
+        "explanation": "Ibn al-Qâsim rapporte que le ghusl peut suffire sans rendre l’eau impure lorsque l’eau possède la quantité indiquée. Il ne transforme pas cette condition en permission générale d’altérer une petite réserve."
+      },
+      {
+        "question": "Selon la transmission de ‘Alî rapportant Mâlik, quand la réprobation de l’immersion prend-elle tout son sens ?",
+        "choices": [
+          "Quand la personne dispose d’une autre possibilité pour se purifier.",
+          "Uniquement lorsque l’eau est parfaitement glacée.",
+          "Quand il n’existe aucun autre moyen et que l’eau est suffisante."
+        ],
+        "answer": 0,
+        "explanation": "La transmission précise que la réserve concerne le cas où une alternative existe. Elle évoque l’emploi de l’eau en nécessité, sous les conditions mentionnées dans le texte."
+      },
+      {
+        "question": "À quel auteur est attribuée l’utilisation du bord du vêtement comme moyen de prélèvement ?",
+        "choices": [
+          "À Ibn Nâfi‘, dont l’explication est rapportée par Abû al-Hasan.",
+          "À Khalîl dans une règle autonome du Mukhtasar.",
+          "À al-Bâjî dans la discussion du bain en cuve."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb rapporte, par l’intermédiaire d’Abû al-Hasan, qu’Ibn Nâfi‘ explique la recherche d’un moyen en proposant d’utiliser le bord d’un vêtement pour prélever l’eau."
+      },
+      {
+        "question": "Pourquoi les auteurs discutent-ils des effets de l’eau passée dans la bouche ?",
+        "choices": [
+          "Pour en faire une condition obligatoire du ghusl.",
+          "Parce qu’elle peut être modifiée par la salive, ce qui constitue une autre question juridique.",
+          "Parce que tout puits doit être vidé avant chaque prière."
+        ],
+        "answer": 1,
+        "explanation": "Le prélèvement par la bouche est cité comme moyen possible, mais les auteurs précisent que l’eau ne doit pas perdre ses propriétés. Une eau effectivement modifiée ne reçoit pas le même jugement."
+      },
+      {
+        "question": "Quelle question Sanad pose-t-il à propos de l’eau prélevée au fond d’un puits ?",
+        "choices": [
+          "Pourquoi prélever si l’eau du lavage risque de retomber dans la réserve ?",
+          "Combien coûte un puits en monnaie ancienne ?",
+          "Pourquoi interdire toute ablution à l’extérieur ?"
+        ],
+        "answer": 0,
+        "explanation": "Sanad examine lui-même l’objection selon laquelle l’eau utilisée pour se laver pourrait revenir dans le puits. Il explique la différence avec l’immersion en considérant la quantité prélevée et le frottement."
+      },
+      {
+        "question": "Dans le cas du bassin, à quelle autorité appartient la discussion transmise par Abû al-Hasan ?",
+        "choices": [
+          "À ‘Abd al-Haqq, dont l’avis est cité dans le commentaire d’al-Hattâb.",
+          "À l’auteur de la fiche 01 d’Athar.",
+          "À un savant dont le nom n’est pas indiqué."
+        ],
+        "answer": 0,
+        "explanation": "Le passage sur le ghusl avant d’enlever la souillure est rapporté de ‘Abd al-Haqq dans al-Tahdhîb par Abû al-Hasan, puis intégré au commentaire d’al-Hattâb."
+      },
+      {
+        "question": "Que dit ‘Abd al-Haqq lorsque l’eau a été réellement modifiée par la souillure ?",
+        "choices": [
+          "Le ghusl reste toujours suffisant.",
+          "Le ghusl ne suffit pas et l’état de janâba demeure dans le cas examiné.",
+          "L’eau devient nécessairement abondante."
+        ],
+        "answer": 1,
+        "explanation": "La phrase « فإن تغير أحد أوصافه لم يجزه غسله وحكم الجنابة باق » dépend explicitement du changement de l’une des propriétés de l’eau. Il faut conserver cette condition."
+      },
+      {
+        "question": "Dans l’analyse de ‘Abd al-Haqq, qu’en est-il du ghusl si l’eau n’a pas changé ?",
+        "choices": [
+          "Il peut être suffisant, la question du nettoyage d’une souillure restant distincte.",
+          "Il est toujours invalide quelle que soit la quantité.",
+          "Il faut obligatoirement prendre une seconde intention de janâba."
+        ],
+        "answer": 0,
+        "explanation": "‘Abd al-Haqq dit que le ghusl suffit quand l’eau n’a pas été modifiée, puis distingue le lavage éventuel du corps pour enlever une souillure sans renouveler l’intention de lever la janâba."
+      },
+      {
+        "question": "Quelle méthode de lecture respecte le mieux ces deux passages ?",
+        "choices": [
+          "Confondre la janâba avec toute saleté présente sur le corps.",
+          "Oublier les conditions de quantité et de nécessité.",
+          "Distinguer les autorités, les souillures matérielles, la validité du ghusl et les circonstances de l’accès à l’eau."
         ],
         "answer": 2,
-        "explanation": "‘Abd al-Haqq et les avis cités distinguent les conséquences selon que l’eau a été modifiée ou non."
+        "explanation": "La Mudawwana, Ibn al-Qâsim, les précisions sur la nécessité et la discussion de ‘Abd al-Haqq ne portent pas toujours sur la même question. Les comprendre exige de conserver leurs auteurs et leurs conditions."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage arabe Mawâhib al-Jalîl",
-        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
-      },
-      {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 76, puits peu rempli et état de nécessité",
+        "label": "Islamweb — al-Hattâb, Mawâhib al-Jalîl, tome 1, page 76 : le puits peu rempli et les moyens de puiser",
         "url": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
       },
       {
-        "label": "Islamweb — t. 1, p. 77, ghusl dans un bassin avant le nettoyage de la souillure",
+        "label": "Islamweb — al-Hattâb, tome 1, page 77 : ghusl dans un bassin avant d’enlever une souillure",
         "url": "https://islamweb.net/ar/library/content/19/116/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+      },
+      {
+        "label": "Usul — texte arabe et édition de Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       }
     ]
   },
