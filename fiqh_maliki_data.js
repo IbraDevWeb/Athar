@@ -957,7 +957,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       {
         "arabic": "الْمَشْهُور",
         "term": "Mashhûr",
-        "definition": "Avis reconnu comme connu ou prépondérant dans les transmissions de l’école ; le terme n’efface pas les autres avis historiques."
+        "definition": "Avis présenté comme connu dans les transmissions de l’école, sans que le mot signifie automatiquement « consensus » ni supprime les autres avis historiques."
       }
     ],
     "quiz": [
