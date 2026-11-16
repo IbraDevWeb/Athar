@@ -5728,6 +5728,286 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "Le hadith cité par al-Hattâb constitue un fondement direct du jugement du chat. Il doit être attribué au Prophète ﷺ, avec mention de la transmission de Mâlik, et non présenté comme une simple opinion d’un juriste postérieur.",
         "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78, hadith du chat transmis par Mâlik dans le Muwatta’, avec mention de la variante du Tirmidhî."
+      },
+      {
+        "id": "commentators-cat",
+        "eyebrow": "08 · Comment al-Nawawî et al-Khattâbî comprennent-ils le hadith du chat ?",
+        "title": "Comment al-Nawawî et al-Khattâbî comprennent-ils le hadith du chat ?",
+        "passage": {
+          "arabic": "والأظهر أنها للنوعين كما في روايات الواو",
+          "translation": "« Ce qui paraît le plus juste, c’est que les deux catégories sont visées, conformément aux versions qui portent “et”. »",
+          "explanation": "Al-Hattâb cite al-Nawawî à propos de la variante « ou » et du sens de la formule prophétique sur les animaux qui circulent parmi les habitants. Il rapporte aussi deux lectures proposées par al-Khattâbî, tout en notant que la seconde s’accorde plus difficilement avec la mention de la non-impureté.",
+          "sourceLabel": "Al-Nawawî, propos rapportés par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78 ; lecture d’al-Khattâbî également citée.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Après le hadith, al-Hattâb ne s’empresse pas de tourner la page. Il rapporte une discussion d’al-Nawawî sur le petit mot qui sépare les deux formes de l’expression « ceux qui circulent parmi vous ». Une version comporte « ou », une autre « et ». Al-Nawawî estime que le sens porte sur les deux catégories, comme le montrent les transmissions utilisant la conjonction « et ». Ce détail mérite d’être conservé, car il montre l’attention des juristes à la formulation des preuves avant d’en tirer un jugement.",
+          "Le commentaire cite également al-Khattâbî. Il propose deux manières de comprendre la comparaison : le chat circule dans la maison comme ceux qui y rendent service, ou bien il va et vient en quête de nourriture et d’assistance. Al-Hattâb rapporte que le second sens paraît moins conforme à la première partie du hadith, celle qui dit que le chat n’est pas impur. L’argument principal ne concerne donc pas seulement la bienveillance envers l’animal, mais son contact ordinaire et le jugement de pureté qui lui est attaché."
+        ],
+        "steps": [
+          {
+            "label": "La conjonction fait partie de la transmission",
+            "text": "Al-Nawawî ne fait pas une remarque gratuite de grammaire : il compare les versions pour comprendre ce que le texte prophétique désigne."
+          },
+          {
+            "label": "Le premier sens expliqué par al-Khattâbî",
+            "text": "Le chat se trouve près des habitants comme les personnes qui circulent dans la maison pour servir ses occupants."
+          },
+          {
+            "label": "Le second sens est rapporté avec réserve",
+            "text": "Al-Khattâbî évoque aussi le fait de venir chercher une aide. Le commentaire fait remarquer que cette lecture éclaire moins directement la mention de la non-impureté."
+          },
+          {
+            "label": "La proximité du chat explique l’exception",
+            "text": "Les savants lient les paroles du hadith à la fréquence des contacts, mais ne confondent jamais cela avec une souillure distincte observée."
+          }
+        ],
+        "example": {
+          "title": "Un mot de hadith qui oblige à lire attentivement",
+          "text": "Un élève relève que son livre donne « ou » alors qu’un autre écrit « et » dans le hadith du chat. Il croit que les deux versions doivent mener à des jugements opposés. L’explication d’al-Nawawî montre pourquoi il faut examiner les transmissions et le sens général avant de conclure. Ce dialogue est fictif : il illustre la méthode des commentateurs sans prétendre établir lui-même une nouvelle critique des chaînes de transmission."
+        },
+        "takeaway": "Al-Hattâb transmet ici l’effort d’explication d’al-Nawawî et d’al-Khattâbî. L’intérêt du passage est de comprendre pourquoi le hadith concerne le contact habituel du chat et comment une différence de formulation est discutée sans exagération.",
+        "sourceNote": "Al-Hattâb, t. 1, p. 78, al-Nawawî sur les versions du hadith, al-Khattâbî sur ses deux lectures et mention d’Abû Bakr Ibn al-‘Arabî."
+      },
+      {
+        "id": "food-mashhur",
+        "eyebrow": "09 · Pourquoi al-Hattâb traite-t-il différemment l’eau et la nourriture ?",
+        "title": "Pourquoi al-Hattâb traite-t-il différemment l’eau et la nourriture ?",
+        "passage": {
+          "arabic": "وما ذكره المصنف من التفرقة بين الماء والطعام هو المشهور وهو مذهب المدونة",
+          "translation": "« La distinction faite par l’auteur entre l’eau et la nourriture est l’avis célèbre, et c’est la position de la Mudawwana. »",
+          "explanation": "Al-Hattâb précise que Khalîl a conservé une différence entre l’eau et la nourriture dans certains cas de reste suspect. Il rattache explicitement cette distinction à l’avis mashhûr et à la Mudawwana.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78, explication de « أو كان طعاما ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Le Mukhtasar mentionne ensuite la nourriture, et al-Hattâb explique pourquoi elle ne reçoit pas exactement le même traitement que la petite quantité d’eau considérée précédemment. Le commentaire présente comme célèbre dans l’école la distinction entre une eau que l’on peut écarter en raison d’une suspicion et un aliment que l’on ne rejette pas pour ce seul motif. Il renvoie, pour cette manière de distinguer, à la Mudawwana. Le but n’est pas de prétendre qu’un aliment ne pourrait jamais être souillé.",
+          "Cette nuance devient plus claire quand on regarde l’enjeu pratique. Une petite réserve d’eau peut parfois être remplacée, tandis que jeter une nourriture a une portée différente et demande une raison. Mais le texte ne supprime pas la règle d’une souillure effectivement constatée sur la bouche d’un animal au moment où il mange ou boit. Les savants discutent ici des cas de doute et de présomption ; nous ne devons pas employer leur raisonnement pour déclarer sain un aliment qui présenterait des signes avérés de contamination."
+        ],
+        "steps": [
+          {
+            "label": "La différence vient de Khalîl",
+            "text": "La formule « ou s’il s’agit de nourriture » fait partie de sa phrase. Al-Hattâb explique ensuite le fondement de cette exception."
+          },
+          {
+            "label": "Le mashhûr est attribué",
+            "text": "Le commentateur rattache cette distinction à la Mudawwana et la présente comme l’avis célèbre, avant d’exposer deux autres opinions."
+          },
+          {
+            "label": "La nourriture n’est pas insensible à l’impureté",
+            "text": "Si une matière impure est réellement présente, on ne peut pas utiliser le raisonnement sur le doute pour l’ignorer."
+          },
+          {
+            "label": "La question ne porte pas sur la sécurité alimentaire moderne",
+            "text": "L’analyse est celle du fiqh rituel et des restes laissés par un animal. Une décision sanitaire actuelle peut exiger d’autres précautions."
+          }
+        ],
+        "example": {
+          "title": "Un récipient de lait et une écuelle d’eau",
+          "text": "Imagine un animal dont les habitudes font craindre le contact de matières impures. Il a bu successivement dans une écuelle d’eau et dans un récipient de lait, sans qu’aucune impureté soit directement constatée. La question des juristes est de savoir si le simple soupçon conduit à écarter les deux contenus de la même façon. La Mudawwana et l’avis célèbre rapporté par al-Hattâb distinguent ces deux situations. L’exemple n’affirme rien sur la salubrité du lait."
+        },
+        "takeaway": "Al-Hattâb rapporte que l’avis mashhûr distingue l’eau de la nourriture lorsque la souillure n’est pas certaine. Cette distinction n’est ni une permission de consommer un aliment visiblement souillé ni une recommandation générale de gaspiller l’eau.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78, « أو كان طعاما » et « التفرقة بين الماء والطعام », position de la Mudawwana."
+      },
+      {
+        "id": "mudawwana-animals",
+        "eyebrow": "10 · Que précise la Mudawwana sur les oiseaux et les animaux qui approchent des souillures ?",
+        "title": "Que précise la Mudawwana sur les oiseaux et les animaux qui approchent des souillures ?",
+        "passage": {
+          "arabic": "إن شربت من طعام لبن أو غيره أكل إلا أن يكون في أفواهها وقت شربها أذى فلا يؤكل",
+          "translation": "« Si ces animaux boivent d’un aliment, comme du lait, on peut le consommer ; sauf si une souillure se trouve sur leur bouche au moment de boire. »",
+          "explanation": "Al-Hattâb reproduit ici un passage de la Mudawwana au sujet notamment des oiseaux, des oies, des volailles laissées libres et de certains prédateurs. La réserve porte sur la présence d’une souillure au moment du contact.",
+          "sourceLabel": "Al-Mudawwana, passage cité littéralement par al-Hattâb, t. 1, p. 78.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Pour comprendre ce que signifie la distinction précédente, al-Hattâb ne donne pas seulement une explication abstraite. Il cite la Mudawwana : elle évoque les oiseaux, les oies, les poules qui circulent librement et des animaux susceptibles d’approcher des matières décomposées. Lorsque ces animaux ont bu dans du lait ou dans un autre aliment, la transmission ne commande pas automatiquement de jeter la nourriture sur la seule base de leurs habitudes.",
+          "Mais la Mudawwana ajoute aussitôt une condition qui change la question : si une souillure se trouve effectivement sur leur bouche au moment où ils boivent, on ne traite plus le cas comme un simple doute. Ce détail est important, car il nous évite de présenter les anciens juristes comme indifférents à ce qui est visible. Leur discussion vise à savoir jusqu’où l’on peut aller sur une présomption et à quel moment une preuve matérielle demande un autre jugement."
+        ],
+        "steps": [
+          {
+            "label": "Les exemples sont concrets",
+            "text": "La Mudawwana ne raisonne pas sur tous les êtres vivants de la même manière : elle cite plusieurs animaux qui peuvent circuler près des souillures."
+          },
+          {
+            "label": "Le lait est pris comme exemple d’aliment",
+            "text": "La transmission mentionne un aliment liquide pour illustrer la question. Il faut distinguer le principe du risque réellement observé."
+          },
+          {
+            "label": "La bouche doit être examinée dans le cas décrit",
+            "text": "La réserve change lorsque l’on constate une souillure au moment de la prise d’aliment. Ce n’est plus un simple soupçon."
+          },
+          {
+            "label": "La transmission vient de la Mudawwana",
+            "text": "Le commentateur la cite pour expliquer la position qu’il présente comme célèbre. L’attribution n’est pas à déplacer vers un autre juriste."
+          }
+        ],
+        "example": {
+          "title": "Une poule s’approche d’un récipient",
+          "text": "Dans un cas fictif, une poule qui circule librement boit dans un récipient de lait. Une personne sait qu’elle a parfois accès à des matières sales, mais elle ne constate rien sur son bec. Une autre personne a vu une souillure déterminée sur ce bec au moment du contact. La Mudawwana ne traite pas les deux observations comme identiques. Le scénario aide à lire les mots du texte, sans fournir une recommandation de consommation ni une évaluation microbiologique."
+        },
+        "takeaway": "La transmission de la Mudawwana distingue le fait qu’un animal fréquente des souillures de la présence constatée d’une matière impure sur sa bouche au moment du contact. C’est une distinction que tout résumé de l’avis célèbre doit conserver.",
+        "sourceNote": "Al-Hattâb, t. 1, p. 78, citation de la Mudawwana sur les oiseaux, les volailles, les prédateurs et la présence d’un « أذى » sur la bouche."
+      },
+      {
+        "id": "three-views",
+        "eyebrow": "11 · Quels sont exactement les trois avis qu’al-Hattâb rapporte ?",
+        "title": "Quels sont exactement les trois avis qu’al-Hattâb rapporte ?",
+        "passage": {
+          "arabic": "وفي المسألة ثلاثة أقوال",
+          "translation": "« Dans cette question, il existe trois avis. »",
+          "explanation": "Al-Hattâb présente explicitement trois directions : présumer l’impureté de l’eau et des aliments, conserver leur pureté initiale, ou distinguer entre l’eau et la nourriture. La troisième est présentée comme mashhûr dans le passage.",
+          "sourceLabel": "Al-Hattâb, t. 1, p. 78, énumération de « ثلاثة أقوال ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Voici un endroit où il faut prendre le temps de lire. Al-Hattâb ne se contente pas de retenir une conclusion. Il annonce lui-même qu’il existe trois avis. Le premier regarde l’habitude de l’animal et incline à présumer l’impureté de l’eau comme de la nourriture, d’où leur abandon. Le deuxième part de la pureté initiale des choses, tant qu’une souillure n’est pas établie, et conserve les deux. Le troisième, présenté comme célèbre dans l’école, fait une distinction : on écarte l’eau suspecte sans écarter l’aliment sur ce seul motif.",
+          "Ces trois analyses ne répondent pas à la question de la même façon, car elles ne donnent pas le même poids à une probabilité et à l’état initialement pur de ce qui a été touché. Il serait trompeur de raconter qu’al-Hattâb aurait démontré une unanimité là où il rapporte une divergence. L’étudiant doit savoir expliquer l’argument de chaque position avant de dire laquelle est qualifiée de mashhûr dans le commentaire. C’est exactement ce qui rend ce passage intéressant à étudier avec un enseignant."
+        ],
+        "steps": [
+          {
+            "label": "Premier avis : la présomption d’impureté",
+            "text": "On donne du poids à ce qui se produit habituellement : le soupçon conduit à écarter aussi bien l’eau que la nourriture."
+          },
+          {
+            "label": "Deuxième avis : la pureté initiale",
+            "text": "On conserve le statut de pureté tant qu’une contamination réelle n’est pas prouvée. Al-Hattâb associe cette préférence à Ibn Rushd."
+          },
+          {
+            "label": "Troisième avis : distinguer les deux",
+            "text": "L’avis célèbre rapporté écarte l’eau tout en conservant la nourriture lorsqu’il n’existe qu’une présomption de souillure."
+          },
+          {
+            "label": "Aucun de ces avis ne nie le cas d’une souillure constatée",
+            "text": "La divergence présentée porte sur une situation d’incertitude. Une contamination réellement établie demande son propre examen juridique."
+          }
+        ],
+        "example": {
+          "title": "Trois lecteurs devant la même question",
+          "text": "Un animal qui peut fréquenter des souillures a touché deux récipients, sans qu’on ait vu de matière impure sur sa bouche. Un premier juriste privilégierait la prudence sur les deux contenus. Un deuxième conserverait leur pureté initiale. Un troisième distinguerait la petite quantité d’eau et l’aliment. Cette scène fictive donne une image des trois raisonnements qu’al-Hattâb expose ; elle n’affirme pas que la qualité sanitaire des contenus a été contrôlée."
+        },
+        "takeaway": "Al-Hattâb rapporte trois avis authentiquement différents dans l’analyse du doute. Il présente le troisième comme l’avis célèbre, mais il faut aussi comprendre pourquoi d’autres savants ont retenu la présomption d’impureté ou celle de pureté.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78, « وفي المسألة ثلاثة أقوال » et présentation des trois directions."
+      },
+      {
+        "id": "ibn-rushd",
+        "eyebrow": "12 · Pourquoi Ibn Rushd préfère-t-il la présomption de pureté ?",
+        "title": "Pourquoi Ibn Rushd préfère-t-il la présomption de pureté ?",
+        "passage": {
+          "arabic": "والثاني الحمل على الطهارة فيها نظر إلى الأصل واختاره ابن رشد",
+          "translation": "« Le deuxième avis considère ces choses comme pures en tenant compte de leur état initial ; Ibn Rushd l’a choisi. »",
+          "explanation": "Al-Hattâb attribue explicitement à Ibn Rushd le choix du deuxième des trois avis. Le mot « al-asl » renvoie ici au statut initial de pureté, face à une souillure qui n’est pas prouvée.",
+          "sourceLabel": "Ibn Rushd, avis choisi selon la transmission d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Dans cette discussion, Ibn Rushd préfère partir de ce que l’on sait déjà : l’eau et l’aliment étaient considérés comme purs avant le contact. Si aucune matière impure n’est établie, pourquoi abandonner cette qualification sur la seule base des habitudes de l’animal ? Al-Hattâb rapporte ce raisonnement comme le deuxième avis, puis précise qu’Ibn Rushd l’a choisi. Il ne faut donc pas présenter cette position comme une invention moderne ou comme une lecture extérieure à la tradition malikite.",
+          "Attention cependant : cette préférence ne revient pas à fermer les yeux sur une souillure constatée. Elle concerne une incertitude. Lorsqu’on sait qu’une matière impure s’est mêlée à l’eau, ou qu’on l’a vue sur la bouche de l’animal au moment du contact, la question change. Le principe évoqué par Ibn Rushd apprend à ne pas transformer une possibilité en certitude, tout en conservant les distinctions matérielles que les autres pages du livre nous ont enseignées."
+        ],
+        "steps": [
+          {
+            "label": "« Al-asl » : le point de départ",
+            "text": "Dans cette analyse, le jugement initial de pureté demeure tant qu’un fait suffisant ne vient pas l’écarter."
+          },
+          {
+            "label": "Ibn Rushd est expressément nommé",
+            "text": "La préférence n’est pas attribuée anonymement à une école entière : al-Hattâb dit qu’Ibn Rushd l’a choisie."
+          },
+          {
+            "label": "Le désaccord porte sur l’incertitude",
+            "text": "Une eau dont l’impureté est établie ne se retrouve pas automatiquement dans l’hypothèse de simple soupçon discutée ici."
+          },
+          {
+            "label": "Une position rapportée n’est pas le mashhûr du passage",
+            "text": "Al-Hattâb conserve le choix d’Ibn Rushd tout en qualifiant un autre avis de célèbre ; il faut exposer les deux sans les fusionner."
+          }
+        ],
+        "example": {
+          "title": "Raisonner à partir de ce qui est établi",
+          "text": "Un récipient était propre avant qu’un animal ne s’en approche. Après son passage, personne n’a observé de souillure et l’eau n’a pas changé. Celui qui suit le raisonnement attribué à Ibn Rushd refuse de transformer l’habitude possible de l’animal en preuve certaine contre cette eau. Ce cas fictif illustre la présomption de pureté, sans résoudre les questions de santé ou de qualité alimentaire qu’une situation réelle pourrait soulever."
+        },
+        "takeaway": "Ibn Rushd, selon al-Hattâb, choisit de conserver le statut initialement pur de l’eau et de la nourriture lorsque la souillure n’est pas établie. Cette préférence constitue un avis distinct de l’avis mashhûr exposé à la même page.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78, « نظر إلى الأصل واختاره ابن رشد ». Exemple pédagogique."
+      },
+      {
+        "id": "water-food-priority",
+        "eyebrow": "13 · Comment Ibn Yûnus, Ibn Nâjî et Ibn Farhûn expliquent-ils le traitement différent de l’eau ?",
+        "title": "Comment Ibn Yûnus, Ibn Nâjî et Ibn Farhûn expliquent-ils le traitement différent de l’eau ?",
+        "passage": {
+          "arabic": "والثالث المشهور يطرح الماء دون الطعام",
+          "translation": "« Le troisième avis, qui est le célèbre, consiste à écarter l’eau, mais non la nourriture. »",
+          "explanation": "Al-Hattâb présente ici le mashhûr, puis rapporte Ibn Nâjî citant Ibn Yûnus, ainsi qu’Ibn al-Hâjib, le Tawdîh et Ibn Farhûn, pour expliquer la possibilité d’écarter l’eau suspecte sans jeter la nourriture.",
+          "sourceLabel": "Al-Hattâb, t. 1, p. 78, troisième avis ; propos d’Ibn Nâjî, Ibn Yûnus, Ibn al-Hâjib, Tawdîh et Ibn Farhûn.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Après l’avis d’Ibn Rushd, al-Hattâb revient à celui qu’il qualifie de célèbre : dans le doute envisagé, l’eau peut être écartée sans que l’on écarte la nourriture. Il ne s’agit pas d’une affirmation selon laquelle l’aliment serait par nature incapable de recevoir une impureté. Le commentateur transmet ensuite les explications des juristes : Ibn Nâjî cite Ibn Yûnus et rapproche son analyse de ce que dit Ibn al-Hâjib. Le Tawdîh précise le sens de la distinction.",
+          "Ibn Farhûn apporte une formulation supplémentaire : l’eau ne possède pas le même caractère protégé que la nourriture lorsqu’il s’agit de la jeter dans le cadre de ce raisonnement. Il faut comprendre cette comparaison historique, sans en faire une permission de gaspiller les ressources sans motif. Le passage suivant montrera d’ailleurs que certains auteurs s’interrogent sur la limite entre écarter une eau suspecte et gaspiller de l’eau de manière injustifiée. Ici, chaque argument conserve son auteur."
+        ],
+        "steps": [
+          {
+            "label": "Le mashhûr du passage",
+            "text": "Le troisième avis écarte l’eau dans cette situation de soupçon, mais ne fait pas jeter la nourriture sur le même fondement."
+          },
+          {
+            "label": "Ibn Nâjî cite Ibn Yûnus",
+            "text": "Al-Hattâb transmet leur explication du traitement différent de l’eau. Il ne la présente pas comme sa propre invention."
+          },
+          {
+            "label": "Ibn al-Hâjib et le Tawdîh sont convoqués",
+            "text": "Le commentaire rapproche les formulations et en explicite le sens : l’eau suspecte peut être écartée plus facilement que la nourriture."
+          },
+          {
+            "label": "Ibn Farhûn insiste sur la valeur particulière de l’aliment",
+            "text": "La comparaison porte sur l’idée de jeter dans cette question de doute, et non sur une permission indéfinie de gaspiller l’eau."
+          }
+        ],
+        "example": {
+          "title": "Un seau et une réserve de nourriture",
+          "text": "Une personne hésite devant une petite quantité d’eau suspecte et devant une nourriture dont la contamination n’est pas prouvée. Dans l’avis célèbre que cite al-Hattâb, les deux ne sont pas écartés de la même façon. Mais si quelqu’un en déduisait qu’il est bon de vider sans raison tous les réservoirs d’eau, il changerait de question. Le commentaire apporte justement une discussion supplémentaire sur cette limite. Cet exemple fictif sert uniquement à distinguer les arguments des auteurs."
+        },
+        "takeaway": "Al-Hattâb attribue le raisonnement de l’avis célèbre et les explications de sa distinction entre eau et nourriture à plusieurs juristes nommés. L’argument historique ne doit pas être détaché de l’incertitude qui a suscité la question.",
+        "sourceNote": "Al-Hattâb, tome 1, p. 78, Ibn Nâjî rapportant Ibn Yûnus, rapprochement avec Ibn al-Hâjib, explication du Tawdîh et propos d’Ibn Farhûn."
+      },
+      {
+        "id": "water-waste",
+        "eyebrow": "14 · Pourquoi les auteurs discutent-ils ensuite du gaspillage d’eau ?",
+        "title": "Pourquoi les auteurs discutent-ils ensuite du gaspillage d’eau ?",
+        "passage": {
+          "arabic": "والسرف فيه غلو وبدعة",
+          "translation": "« L’excès dans son usage est une exagération et une innovation blâmable. »",
+          "explanation": "Ces mots d’Abû Muhammad sont cités au sein de la discussion rapportée par le Sâhib al-Jam‘. Al-Hattâb transmet ensuite la réponse d’Ibn Nâjî, l’avis d’al-Barzalî et des propos d’al-Nawawî sur l’excès d’eau. Il s’agit de positions attribuées, non d’un consensus inventé.",
+          "sourceLabel": "Abû Muhammad, propos cités par le Sâhib al-Jam‘, rapportés par al-Hattâb, t. 1, p. 78.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        },
+        "paragraphs": [
+          "Après avoir expliqué qu’on peut écarter l’eau dans certains cas de doute, les juristes se demandent si cela signifie qu’on pourrait la jeter sans aucune raison. Le Sâhib al-Jam‘ relève la difficulté et mentionne la formule d’Abû Muhammad sur l’excès dans l’usage de l’eau. Il propose de distinguer l’abandon d’une eau réellement suspecte du gaspillage effectué sans motif. Al-Hattâb conserve cette objection dans son commentaire au lieu de passer directement à la question suivante.",
+          "Ibn Nâjî répond que les propos ne portent pas nécessairement sur le même usage : l’excès pendant un acte cultuel de purification se distingue, dans son analyse, du fait de verser de l’eau en dehors de ce cadre. Al-Hattâb mentionne que son maître al-Barzalî était de cet avis. Il rapporte enfin les paroles d’al-Nawawî sur l’interdiction de l’excès en eau, même au bord de la mer, avec une divergence sur la qualification de cet excès. Ces propos ne nous autorisent pas à déclarer le gaspillage permis de manière générale ; ils montrent que les juristes examinent aussi le contexte et la portée de chaque expression."
+        ],
+        "steps": [
+          {
+            "label": "La question vient du Sâhib al-Jam‘",
+            "text": "Il rapproche le fait de jeter l’eau et les paroles d’Abû Muhammad pour demander si l’autorisation doit être limitée à un motif réel."
+          },
+          {
+            "label": "Ibn Nâjî propose une conciliation",
+            "text": "Il distingue l’excès dans une purification cultuelle et l’écoulement d’eau hors de ce cadre, selon la formulation qu’il rapporte."
+          },
+          {
+            "label": "Al-Barzalî est mentionné",
+            "text": "Al-Hattâb indique que son maître suivait également cette analyse. C’est une attribution supplémentaire à ne pas omettre."
+          },
+          {
+            "label": "Al-Nawawî discute aussi la gravité de l’excès",
+            "text": "Le commentaire rapporte l’interdiction de gaspiller l’eau et la discussion sur le caractère réprouvé ou interdit de l’excès. Il ne s’agit pas d’un blanc-seing pour jeter l’eau."
+          }
+        ],
+        "example": {
+          "title": "Écarter une eau suspecte ou laisser couler sans raison",
+          "text": "Une personne renonce à une petite quantité d’eau parce qu’elle présente, dans un cas précis, une suspicion pertinente pour la purification. Une autre laisse volontairement couler une grande quantité d’eau propre alors qu’elle pourrait la conserver. Les deux gestes ne posent pas automatiquement la même question. Les auteurs cités par al-Hattâb discutent justement de la différence entre un motif juridique d’écarter l’eau et l’excès dans son utilisation. L’exemple est inventé pour lire leur débat, non pour établir une règle de gestion de l’eau."
+        },
+        "takeaway": "La discussion finale confirme que l’avis sur le su’r ne doit pas être isolé des autres règles. Al-Hattâb rapporte les objections du Sâhib al-Jam‘, la conciliation d’Ibn Nâjî, la position d’al-Barzalî et les propos d’al-Nawawî sur l’excès, en conservant leurs nuances.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78, Sâhib al-Jam‘, Abû Muhammad, Ibn Nâjî, al-Barzalî et al-Nawawî."
       }
     ],
     "quote": {
