@@ -528,18 +528,29 @@ async function desktop() {
 
     await page.locator('.fiqh-m-lesson-link').nth(1).click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/purification/i);
-    assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties sur la purification attendues');
+    assert.equal(await page.locator('.fiqh-m-section').count(),5,'La fiche 02 doit comporter cinq lectures guidées');
+    assert.equal(await page.locator('.fiqh-m-goals li').count(),5,'Les objectifs pédagogiques de la fiche 02 manquent');
+    assert.equal(await page.locator('.fiqh-m-passage').count(),5,'Cinq citations arabes intégrées attendues');
+    assert.equal(await page.locator('.fiqh-m-passage-translation').count(),5,'Traductions de passage manquantes');
+    assert.equal(await page.locator('.fiqh-m-breakdown').count(),5,'Décompositions pédagogiques manquantes');
+    assert.equal(await page.locator('.fiqh-m-case').count(),5,'Exemples concrets manquants');
+    assert.equal(await page.locator('.fiqh-m-takeaway').count(),5,'À retenir manquants');
+    assert.equal(await page.locator('.fiqh-m-passage-link').count(),5,'Les liens directs vers les passages originaux doivent être présents');
+    assert.match(await page.locator('.fiqh-m-passage').nth(2).innerText(),/المشهور أنه لا يرفع الحدث/,'Mashhûr sur le tayammum non visible');
+    assert.match(await page.locator('.fiqh-m-passage').nth(3).innerText(),/المشهور في المذهب/,'Mashhûr sur le khabath non visible');
     assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/ما صدق عليه اسم ماء بلا قيد/);
-    assert.ok(await page.locator('a[href*="/ar/library/content/19/84/"]').count()>=1,'Référence précise du livre de la purification manquante');
-    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','La lecture de la fiche 01 ne doit pas valider la fiche 02');
+    assert.ok(await page.locator('a[href*="/ar/library/content/19/84/"]').count()>=1,'Première source du Kitâb al-Tahâra absente');
+    assert.ok(await page.locator('a[href*="/ar/library/content/19/85/"]').count()>=1,'Source sur l’eau mutlaq absente');
+    assert.equal(await page.locator('.fiqh-m-section').first().locator('p:not(.fiqh-m-reference)').first().evaluate(el => getComputedStyle(el).textAlign),'justify','Les paragraphes français doivent être justifiés');
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','La fiche 01 ne doit pas valider la fiche 02');
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
-    assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique de purification incomplet');
+    assert.equal(await page.locator('.fiqh-m-term').count(),10,'Dix termes requis pour la fiche 02');
     await page.locator('.fiqh-m-search input').fill('mutlaq');
-    assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche du lexique de la fiche 02 inactive');
+    assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche du vocabulaire technique inactive');
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
-    assert.equal(await page.locator('.fiqh-m-question').count(),3,'Quiz de purification incomplet');
-    assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Le quiz de la fiche 01 a contaminé la fiche 02');
-    await page.locator('.fiqh-m-choices button').first().click();
+    assert.equal(await page.locator('.fiqh-m-question').count(),7,'Sept questions corrigées attendues');
+    assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Réponses de la fiche 01 présentes par erreur');
+    await page.locator('.fiqh-m-question').first().locator('.fiqh-m-choices button').nth(1).click();
     assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
     await page.locator('.fiqh-m-complete').click();
@@ -547,10 +558,10 @@ async function desktop() {
     assert.deepEqual(await page.evaluate(() => [
         localStorage.getItem('athar_fiqh_maliki_intro_01_done'),
         localStorage.getItem('athar_fiqh_maliki_tahara_02_done')
-    ]),['1','1'],'Les lectures des fiches doivent rester enregistrées séparément');
+    ]),['1','1'],'Le suivi des fiches 01 et 02 doit rester distinct');
     await page.locator('.fiqh-m-lesson-link').first().click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
-    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Le suivi de la fiche 01 a été perdu');
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','La progression de la fiche 01 a été perdue');
 
     // Fiche 03 : ses lectures, questions et lexique ne doivent pas se mélanger aux fiches précédentes.
     assert.equal(await page.locator('.fiqh-m-lesson-link').count(),12,'Les douze fiches doivent être accessibles');

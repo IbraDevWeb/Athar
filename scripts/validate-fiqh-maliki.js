@@ -38,17 +38,38 @@ assert.equal(book.intro.sources.length,2);
 assert.ok(book.intro.sources.some(x=>x.url.startsWith('https://islamweb.net/ar/library/content/19/1/')));
 assert.equal(book.purification.number,'02');
 assert.equal(book.purification.id,'tahara-02');
-assert.equal(book.purification.sections.length,4);
-assert.deepEqual(Array.from(book.purification.sections,x=>x.id),['opening','meaning','distinction','water']);
-for(const section of book.purification.sections) assert.ok(section.title&&section.paragraphs.length>=2&&section.sourceNote);
-assert.equal(book.purification.lexicon.length,6);
-assert.ok(book.purification.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=40));
-assert.equal(book.purification.quiz.length,3);
-for(const q of book.purification.quiz) assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation);
-assert.equal(book.purification.quote.arabic,'بالمطلق وهو ما صدق عليه اسم ماء بلا قيد');
-assert.ok(book.purification.quote.label.includes('Mukhtasar de Khalîl'),'Attribution du texte de Khalîl perdue');
-assert.equal(book.purification.sources.length,2);
-assert.ok(book.purification.sources.some(x=>x.url.startsWith('https://www.islamweb.net/ar/library/content/19/84/')));
+assert.equal(book.purification.sections.length,5,'La fiche 02 doit approfondir cinq étapes');
+assert.equal(book.purification.goals.length,5);
+assert.deepEqual(Array.from(book.purification.sections,x=>x.id),['opening','meaning','hadath','distinction','water']);
+assert.deepEqual(Array.from(book.purification.sections,x=>x.passage.arabic),[
+ 'النزاهة والنظافة من الأدناس والأوساخ',
+ 'رفع الحدث وإزالة النجاسة',
+ 'المشهور أنه لا يرفع الحدث',
+ 'فما ذكره هو المشهور في المذهب',
+ 'ما صدق عليه اسم ماء بلا قيد'
+],'Citations arabes du Livre de la purification altérées');
+for(const section of book.purification.sections){
+ assert.ok(section.title&&section.paragraphs.length===2&&section.sourceNote);
+ assert.ok(section.paragraphs.every(p=>p.length>=350),'Une explication de la fiche 02 est trop courte : '+section.id);
+ assert.ok(section.passage?.arabic&&section.passage.translation&&section.passage.explanation,'Citation non expliquée');
+ assert.ok(section.passage.sourceUrl?.startsWith('https://'),'Lien direct au passage original manquant');
+ assert.ok(section.steps.length>=3&&section.steps.every(step=>step.label&&step.text.length>=130),'Décomposition insuffisante : '+section.id);
+ assert.ok(section.example?.text.length>=280&&section.takeaway?.length>=150,'Exemple ou enseignement trop court');
+ assert.ok(section.sourceNote.includes('t. 1'),'Référence de page manquante');
+}
+assert.ok(book.purification.sections[2].passage.explanation.includes('mashhûr'),'L’avis connu sur le tayammum doit être contextualisé');
+assert.ok(book.purification.sections[3].passage.explanation.includes('mashhûr'),'L’avis connu sur le khabath doit être contextualisé');
+assert.equal(book.purification.lexicon.length,10);
+assert.ok(book.purification.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=80));
+assert.equal(book.purification.quiz.length,7);
+for(const q of book.purification.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation.length>=95);
+assert.equal(book.purification.quote.arabic,'ما صدق عليه اسم ماء بلا قيد');
+assert.ok(book.purification.quote.label.includes('Khalîl'),'Attribution du texte de Khalîl perdue');
+assert.equal(book.purification.sources.length,3);
+assert.ok(book.purification.sources.some(x=>x.url.includes('/ar/library/content/19/84/')));
+assert.ok(book.purification.sources.some(x=>x.url.includes('/ar/library/content/19/85/')));
+assert.ok(view.includes('fiqh-m-passage-link')&&view.includes('section.passage.sourceUrl'),'Lien à chaque passage original absent');
+assert.ok(css.includes('text-align:justify')&&css.includes('hyphens:auto'),'Justification des paragraphes absente');
 assert.equal(book.naturalWaters.id,'natural-waters-03');
 assert.equal(book.naturalWaters.number,'03');
 assert.equal(book.naturalWaters.sections.length,4);
@@ -149,4 +170,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : catalogue et 12 fiches vérifiés ; fiche 01 = 4 lectures guidées, 8 termes, 5 questions ; fiches 02-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures guidées, 10 termes, 7 questions ; fiches 03-12 préservées ; '+shell.length+' ressources PWA.');

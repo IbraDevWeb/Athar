@@ -252,7 +252,7 @@ const MalikiFiqhView = {
                             <div class="fiqh-m-reader-heading">
                                 <span class="fiqh-m-eyebrow">FICHE {{ lesson.number }} · {{ lesson.sourceSection }}</span>
                                 <h2>{{ lesson.title }}</h2>
-                                <p v-if="lesson.goals">Nous allons lire la préface ensemble. Chaque court extrait arabe est traduit, expliqué ligne par ligne puis illustré par un exemple. Les exemples inventés pour apprendre sont distingués des propos de l’auteur.</p>
+                                <p v-if="lesson.goals">Nous allons étudier le passage arabe progressivement : chaque extrait est traduit, expliqué dans son contexte, puis illustré par un exemple concret. Les paroles de Khalîl, les explications d’al-Hattâb et les exemples pédagogiques restent clairement distingués.</p>
                                 <p v-else>Une fiche basée sur un passage identifié du livre. Les explications en français sont des synthèses pédagogiques, et non une traduction intégrale ni un avis juridique personnel.</p>
                             </div>
 
@@ -273,6 +273,9 @@ const MalikiFiqhView = {
                                         <p class="fiqh-m-passage-translation"><strong>Traduction :</strong> {{ section.passage.translation }}</p>
                                         <p class="fiqh-m-passage-context">{{ section.passage.explanation }}</p>
                                         <small>{{ section.passage.sourceLabel }}</small>
+                                        <a v-if="section.passage.sourceUrl" class="fiqh-m-passage-link" :href="section.passage.sourceUrl" target="_blank" rel="noopener noreferrer" :aria-label="'Consulter le passage original : ' + section.passage.sourceLabel">
+                                            Voir le passage original <i data-lucide="external-link" aria-hidden="true"></i>
+                                        </a>
                                     </figure>
                                     <p v-for="(paragraph,i) in section.paragraphs" :key="i">{{ paragraph }}</p>
                                     <div v-if="section.steps?.length" class="fiqh-m-breakdown">
