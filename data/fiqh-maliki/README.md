@@ -204,18 +204,33 @@ Chaque lecture contient **un extrait arabe identifié, sa traduction de sens, un
 
 Les formulations de Khalîl, les prises de position personnelles d’al-Hattâb et les paroles de savants cités sont attribuées séparément. Les exemples imaginés ne constituent pas des fatwas. La fiche 07 et les fiches 09–12 sont conservées, ainsi que le suivi existant `athar_fiqh_maliki_eaux_08_done`.
 
-### Fiche 09 — L'eau courante et l'eau stagnante
+### Fiche 09 — Eau courante et stagnante : dix lectures de Mawâhib al-Jalîl
 
-Passage : « وراكد يغتسل فيه », **Khalîl**, commenté par al-Hattâb (t. 1, p. 73–75).
+**Refonte pédagogique du 16 novembre 2026.** Cette fiche reprend les pages **73–75** du tome 1 du commentaire d’al-Hattâb. Les paroles de Khalîl et les prises de position du commentateur sont soigneusement distinguées des arguments qu’il rapporte d’al-Mâzarî, d’Ibn al-Hâjib, d’Ibn ‘Abd al-Salâm, d’Ibn ‘Arafa, de l’auteur d’al-Tirâz, d’Ibn ‘Abd al-Barr et des autres savants.
 
-1. Rapprochement de l'eau courante et de l'eau abondante, sous des conditions précises.
-2. Distinguer l'amont, le lieu de chute d'une souillure et l'aval, sans règle absolue sur toute eau courante.
-3. Distinguer petite cuve, bassin et grande étendue d'eau stagnante où l'on se lave.
-4. Examen du volume, de la contamination, de la modification réelle et de la nature du lavage.
+**Les dix lectures :**
 
-Sources primaires : [Islamweb, t. 1, p. 73–74](https://islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1) et [Islamweb, t. 1, p. 74–75](https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1).
+1. L’eau courante rapprochée de l’eau abondante — « أما الماء الجاري فحكمه كالكثير » (al-Mâzarî cité, p. 73).
+2. Quantité et continuité du courant — « إذا كان المجموع كثيرا والجرية لا انفكاك لها » (Ibn al-Hâjib cité, p. 73).
+3. Pourquoi l’eau en amont n’a pas rencontré la souillure — « لأن ما قبل محل السقوط غير مخالط » (Ibn ‘Abd al-Salâm cité, p. 73).
+4. Ce qu’al-Hattâb préfère — « والظاهر ما قاله ابن عبد السلام وابن عرفة » (p. 73).
+5. L’impureté entraînée par le courant : amont, portion mêlée et prudence immédiate — « فإن كانت جارية مع الماء فما فوقها طاهر إجماعا » (al-Tirâz cité, p. 73).
+6. Le statut de l’eau qui suit le passage d’une souillure — « إن الماء الجاري إذا وقعت فيه نجاسة جرى بها فما بعدها منه طاهر » (Ibn ‘Abd al-Barr cité, p. 73–74).
+7. Les mots de Khalîl sur l’eau stagnante — « وراكد يغتسل فيه » (p. 75).
+8. Grande étendue, petite cuve et bassin intermédiaire — « فأما المستبحر والماء المعين كالغدير الكبير والبركة الكبيرة » (al-Hattâb, p. 75).
+9. Le mashhûr et la position plus stricte sur une petite quantité d’eau — « وأما على القول المشهور الذي مشى عليه المصنف فهو طاهر مطهر » (al-Hattâb, p. 75).
+10. L’eau où des personnes se lavent souvent — « لأنه يسرع إليه التغير ولا يفطن به » (al-Hattâb, p. 75–76 dans l’extrait).
 
-**Format conservé pour les fiches 08 et 09 :** quatre développements longs, un extrait arabe court attribué, six termes arabes définis et trois questions à choix multiples corrigées. Les déclarations de l'auteur du *Mukhtasar*, celles du commentateur et les avis de ses sources sont distingués.
+Le format reste celui des fiches précédentes : pour chaque étape, **extrait arabe attribué, traduction de sens, explication du contexte, deux développements en français, quatre explications progressives, un cas concret explicitement fictif, une synthèse et un lien direct vers le texte original**. Au total : **10 objectifs, 10 lectures, 15 notions de lexique et 12 questions corrigées**.
+
+**Sources primaires :**
+- [Usul — texte complet et édition Mawâhib al-Jalîl](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil)
+- [Islamweb — tome 1, p. 73–74 : eau courante](https://www.islamweb.net/ar/library/content/19/111/)
+- [Islamweb — tome 1, p. 75 : eau stagnante](https://www.islamweb.net/ar/library/content/19/113/)
+
+**Méthode :** aucune mesure de volume n’est inventée, la nature du changement de l’eau est distinguée du seul contact avec une impureté et les avis divergents ne sont pas présentés comme des consensus. Les autres fiches, ainsi que la progression existante `athar_fiqh_maliki_eaux_09_done`, restent inchangées.
+
+ Les déclarations de l'auteur du *Mukhtasar*, celles du commentateur et les avis de ses sources sont distingués.
 
 
 ## Fiches 10 à 12 — Cas complémentaires du Livre de la purification

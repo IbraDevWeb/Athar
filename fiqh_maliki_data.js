@@ -3510,131 +3510,638 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "flowing-stagnant-water-09",
     "number": "09",
     "status": "disponible",
-    "title": "L’eau courante et l’eau stagnante",
-    "subtitle": "Lire la distinction entre rivière, bassin et petite quantité : mouvement de l’eau, souillure localisée et prudence face aux différences de situation.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « الماء الجاري حكمه كالكثير » et « وراكد يغتسل فيه » (Mawâhib al-Jalîl, t. 1, p. 73–75)",
+    "title": "L’eau courante et stagnante : suivre les distinctions des juristes",
+    "subtitle": "La rivière, le lieu où tombe une impureté, le petit bassin et la grande étendue d’eau : dix lectures guidées des pages 73 à 75 de Mawâhib al-Jalîl.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · تنبيهات, tome 1, pages 73–75 : « الماء الجاري فحكمه كالكثير » puis « وراكد يغتسل فيه »",
+    "goals": [
+      "Comprendre à quelles conditions al-Hattâb rapporte que l’eau courante reçoit le jugement de l’eau abondante.",
+      "Lire avec précision la condition d’Ibn al-Hâjib concernant la quantité et la continuité du courant.",
+      "Expliquer pourquoi l’emplacement de la chute d’une impureté est pertinent, sans attribuer le même jugement à toute la rivière.",
+      "Identifier les divergences d’Ibn ‘Abd al-Salâm, d’Ibn ‘Arafa et d’al-Ubbî, ainsi que la préférence exprimée par al-Hattâb.",
+      "Lire la différence entre une souillure emportée par l’eau et une souillure restant sur place, telle que la décrit al-Tirâz.",
+      "Comprendre les réserves des auteurs concernant l’eau en aval et le rôle d’une modification réellement constatée.",
+      "Étudier les mots de Khalîl sur l’eau stagnante dans laquelle on se lave, en distinguant usages isolés et lavages répétés.",
+      "Comparer petite cuve, bassin intermédiaire et grande étendue d’eau, sous les conditions mentionnées par le commentaire.",
+      "Reconnaître la différence entre l’avis mashhûr et l’analyse plus stricte d’Ibn al-Qâsim sur l’eau peu abondante.",
+      "Comprendre pourquoi al-Hattâb rattache la réprobation de certaines eaux stagnantes à la répétition des bains et aux circonstances, sans inventer de règle universelle."
+    ],
     "sections": [
       {
         "id": "water-flow",
-        "eyebrow": "01 · Eau courante",
-        "title": "Pourquoi le commentaire rapproche-t-il l’eau courante d’une grande quantité ?",
+        "eyebrow": "ÉTAPE 01 · QUAND LE COURANT COMPTE",
+        "title": "Pourquoi l’eau d’une rivière est-elle rapprochée d’une eau abondante ?",
+        "passage": {
+          "arabic": "أما الماء الجاري فحكمه كالكثير",
+          "translation": "« Quant à l’eau courante, son jugement est celui de l’eau abondante. »",
+          "explanation": "Cette formule est rapportée par al-Hattâb comme étant celle d’al-Mâzarî. Ibn ‘Arafa transmet également cette position. Il faut poursuivre la lecture, car les savants précisent ensuite les circonstances dans lesquelles ce rapprochement peut être retenu.",
+          "sourceLabel": "Al-Mâzarî, cité par al-Hattâb dans le cinquième tanbîh, t. 1, p. 73.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
         "paragraphs": [
-          "Dans ses remarques, al-Hattâb rapporte d’al-Mâzarî et d’Ibn Rushd que l’eau courante est, dans les situations considérées, rapprochée d’une eau abondante. Il explicite les conditions relevées par les auteurs : la continuité de l’écoulement et la quantité prise en considération jouent un rôle dans l’analyse. Une simple goutte qui circule ou un écoulement interrompu ne doit donc pas être assimilé automatiquement à un large cours d’eau.",
-          "Le commentateur étudie une eau dans laquelle une souillure peut entrer sans en modifier les caractéristiques sensibles. Si la souillure altère effectivement l’eau, les règles relatives à l’altération, étudiées dans la fiche 06, redeviennent pertinentes. Dire « c’est une rivière, donc toujours purifiant » serait contraire à la démarche précise de l’auteur."
+          "Les fiches précédentes nous ont appris à ne pas mettre toutes les eaux dans une seule catégorie. Al-Hattâb aborde maintenant une eau que personne ne garde dans un récipient : l’eau qui circule. Il cite al-Mâzarî, lequel rapproche son jugement de celui d’une eau abondante. La raison de cette comparaison se comprend mieux quand on imagine un cours d’eau où une quantité nouvelle d’eau remplace continuellement celle qui vient de passer. Ce mouvement doit toutefois être apprécié dans les conditions réelles que discutent les juristes.",
+          "Il serait tentant de s’arrêter au premier énoncé et d’en déduire qu’aucune souillure ne peut affecter une rivière. Ce n’est pas ce que fait al-Hattâb. Il rapporte immédiatement des précisions sur la quantité réunie, la continuité de l’écoulement et le lieu où une impureté entre dans l’eau. L’image d’une rivière aide à comprendre, mais la règle n’est pas simplement « ça bouge, donc c’est pur » : il faut encore considérer l’intensité du courant et la présence éventuelle d’une altération."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 73–74, remarque sur « الماء الجاري فحكمه كالكثير » et conditions discutées par al-Mâzarî, Ibn Rushd et Ibn al-Hâjib."
+        "steps": [
+          {
+            "label": "« Jârî » : une eau qui se déplace",
+            "text": "Le terme décrit un écoulement réel. Une rigole qui cesse de couler par intermittence n’a pas nécessairement toutes les caractéristiques d’un cours d’eau continu."
+          },
+          {
+            "label": "« Kathîr » : une comparaison juridique",
+            "text": "Dire que l’eau courante a le jugement de l’eau abondante signifie une analogie de traitement dans un cadre donné, non que chaque portion visible du courant représente matériellement une grande quantité."
+          },
+          {
+            "label": "L’attribution à al-Mâzarî",
+            "text": "Dans ce passage, al-Hattâb cite et commente des autorités antérieures. Ce premier énoncé n’est pas une formule du Mukhtasar de Khalîl."
+          },
+          {
+            "label": "Le changement effectif de l’eau reste pertinent",
+            "text": "Le raisonnement ne supprime pas la question d’une eau dont une propriété aurait réellement changé sous l’effet d’une matière impure. La discussion sur le courant ne doit pas effacer celle des fiches 05 et 06."
+          }
+        ],
+        "example": {
+          "title": "Une rivière et une mince rigole",
+          "text": "Imagine un ruisseau qui coule toute la journée et, à côté, une rigole recevant de l’eau quelques instants lorsqu’une roue actionne une pompe. On pourrait appeler les deux « eau courante » dans la conversation ordinaire. Les juristes, eux, examinent la continuité et la quantité d’eau qui circule. Le cours ne donne pas ici un jugement sur ces deux installations fictives ; il montre simplement pourquoi les mots employés par les auteurs méritent d’être précisés."
+        },
+        "takeaway": "Al-Hattâb commence par rapporter le rapprochement entre l’eau courante et l’eau abondante, puis il en discute les limites. Cette formule doit être lue comme le point de départ de l’analyse, non comme une dispense d’examiner le courant ou la modification de l’eau.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 73, cinquième tanbîh, propos d’al-Mâzarî transmis par Ibn ‘Arafa. Exemple de la rivière et de la rigole créé pour Athar."
+      },
+      {
+        "id": "conditions",
+        "eyebrow": "ÉTAPE 02 · CE QU’AJOUTE IBN AL-HÂJIB",
+        "title": "Une eau peut-elle être courante sans former un courant suffisamment continu ?",
+        "passage": {
+          "arabic": "إذا كان المجموع كثيرا والجرية لا انفكاك لها",
+          "translation": "« Lorsque la quantité réunie est importante et que l’écoulement ne connaît pas de rupture. »",
+          "explanation": "Al-Hattâb reproduit cette condition attribuée à Ibn al-Hâjib. Elle nuance la formule générale sur l’eau courante et distingue un écoulement continu d’une eau amenée par une installation dont le flux peut s’interrompre.",
+          "sourceLabel": "Ibn al-Hâjib, citation rapportée et discutée par al-Hattâb, t. 1, p. 73.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
+        "paragraphs": [
+          "Après al-Mâzarî, le commentaire mentionne Ibn al-Hâjib. Celui-ci apporte deux précisions à la comparaison entre l’eau courante et l’eau abondante : la quantité prise en considération doit être importante, et la circulation ne doit pas être interrompue. L’intérêt de cette phrase est de nous rappeler que le mot « courant » n’a pas la même portée pour un fleuve, un mince filet d’eau ou une installation qui ne libère de l’eau que par moments.",
+          "Les auteurs discutent alors de ce que signifie « la quantité réunie ». S’agit-il de toute l’eau qui participe au même écoulement, ou seulement de la portion qui est en relation avec le lieu où une impureté est tombée ? Cette interrogation prépare une divergence technique que nous lirons ensuite. Il ne suffit pas d’additionner mentalement tous les litres qui pourraient passer pendant une journée : le texte parle du courant tel qu’il existe au moment du cas étudié."
+        ],
+        "steps": [
+          {
+            "label": "« Al-majmû‘ » : ce que l’on réunit dans le calcul",
+            "text": "La formule vise une quantité d’eau considérée comme un ensemble. Les juristes discuteront plus loin des limites de cet ensemble lorsque l’impureté tombe à un endroit précis."
+          },
+          {
+            "label": "« Al-jarya » : l’écoulement effectivement continu",
+            "text": "Le passage ne raisonne pas simplement sur une eau qui a été mobile auparavant. Il s’intéresse au mouvement réel de l’eau et au lien entre les portions qui circulent."
+          },
+          {
+            "label": "L’exemple de la sâniya",
+            "text": "Le commentaire évoque une installation où l’eau circule grâce au fonctionnement d’un dispositif. Cette référence sert à distinguer un flux discontinu d’un courant qui ne s’interrompt pas."
+          },
+          {
+            "label": "Ne pas inventer un volume minimal",
+            "text": "La phrase ne fournit pas un seuil unique en litres permettant de classer tous les ruisseaux et bassins. Nous conservons donc la condition telle qu’elle est formulée."
+          }
+        ],
+        "example": {
+          "title": "Une eau qui s’interrompt toutes les quelques minutes",
+          "text": "Suppose qu’une conduite verse de l’eau dans une rigole uniquement pendant qu’une machine fonctionne. Dès qu’elle s’arrête, le mouvement cesse et il ne reste que de petites portions d’eau. La comparaison avec une rivière alimentée en permanence n’est plus aussi évidente. Le but de cet exemple n’est pas de délivrer un jugement pour un système d’irrigation contemporain : nous voulons comprendre pourquoi Ibn al-Hâjib parle expressément de continuité et de quantité réunie."
+        },
+        "takeaway": "Ibn al-Hâjib ne présente pas l’écoulement comme une qualité suffisante en toutes circonstances. La quantité et l’absence d’interruption ont leur place dans la discussion, sans qu’al-Hattâb fixe pour autant une mesure universelle applicable à tous les cours d’eau.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 73, transmission de la précision d’Ibn al-Hâjib dans le cinquième tanbîh. Exemple moderne non tiré du livre."
       },
       {
         "id": "where-falls",
-        "eyebrow": "02 · Situer l’impureté",
-        "title": "Une impureté située en aval affecte-t-elle nécessairement l’amont ?",
+        "eyebrow": "ÉTAPE 03 · À PARTIR D’OÙ EXAMINER L’EAU ?",
+        "title": "Pourquoi Ibn ‘Abd al-Salâm s’intéresse-t-il au point de chute de l’impureté ?",
+        "passage": {
+          "arabic": "لأن ما قبل محل السقوط غير مخالط",
+          "translation": "« Car l’eau située avant le lieu de la chute n’a pas été en contact avec cette impureté. »",
+          "explanation": "Al-Hattâb attribue ce raisonnement à Ibn ‘Abd al-Salâm. Celui-ci s’oppose à une lecture qui compterait sans distinction tout le courant depuis son origine.",
+          "sourceLabel": "Ibn ‘Abd al-Salâm, objection citée par al-Hattâb, t. 1, p. 73.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
         "paragraphs": [
-          "Le commentaire distingue les portions de l’eau avant et après l’endroit où se trouve la souillure. Al-Hattâb retient l’idée que ce qui est en amont d’une souillure entraînée vers l’aval n’est pas atteint par ce qui se produit plus bas. Il discute en revanche la portion où circule la souillure et les zones proches en aval, en citant des analyses de l’eau qui entraîne la matière ou passe sur elle.",
-          "Il ne suffit donc pas de savoir que l’eau « coule ». Le point d’entrée de l’impureté, le sens de circulation, sa persistance et un changement éventuel des propriétés importent. Le texte évoque des précautions pour les eaux proches de la souillure ; il ne donne pas une autorisation générale de prendre n’importe quelle eau en aval d’une contamination."
+          "Imagine un cours d’eau allant de gauche à droite. Une matière impure y tombe à un point déterminé. En amont, l’eau continue de s’approcher de ce lieu ; en aval, elle s’en éloigne. Ibn ‘Abd al-Salâm demande alors si l’on peut vraiment considérer toute la longueur du cours d’eau comme un seul volume mélangé à la matière. Sa réponse est négative pour la partie située avant la chute : elle n’est pas entrée en contact avec ce qui vient de tomber plus loin.",
+          "Cette précision intéresse directement l’étudiant. Il ne suffit pas de constater qu’une rivière est longue pour conclure que chaque segment doit être additionné à tous les autres. La question devient : quelles portions d’eau sont effectivement concernées par la souillure ? Ibn ‘Arafa soutient également ce raisonnement. Al-Ubbî propose cependant une manière plus large de comprendre le volume lié au courant. Al-Hattâb expose les deux analyses avant de marquer sa préférence."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 73–74, distinction du lieu de chute, des portions amont/aval et des remarques issues d’al-Tirâz."
+        "steps": [
+          {
+            "label": "Le point de chute est une limite utile",
+            "text": "C’est le lieu précis où la matière entre dans le cours d’eau. En le repérant, on évite de traiter le cours d’eau entier comme si toutes ses parties avaient été touchées."
+          },
+          {
+            "label": "L’amont et l’aval ne sont pas symétriques",
+            "text": "Dans le mouvement supposé par les auteurs, l’eau venant de l’amont n’a pas encore rencontré l’impureté tombée en contrebas. L’eau située plus loin demande une autre analyse."
+          },
+          {
+            "label": "La discussion porte sur le mélange effectif",
+            "text": "Ibn ‘Abd al-Salâm ne nie pas la continuité du cours d’eau. Il demande si la relation entre ses parties justifie de les compter toutes dans le même ensemble juridiquement concerné."
+          },
+          {
+            "label": "Une objection n’est pas encore la synthèse finale",
+            "text": "Al-Hattâb rapporte une objection et une réponse savante. Il en donne ensuite sa lecture personnelle, que nous distinguerons de celle des auteurs cités."
+          }
+        ],
+        "example": {
+          "title": "Trois personnes regardent la même rivière",
+          "text": "Place mentalement trois observateurs : l’un en amont d’un endroit où une souillure est tombée, un autre au niveau de cet endroit, et le dernier plus bas. Tous parlent de la même rivière, mais pas de la même eau au même instant. L’exercice invite à préciser le lieu auquel on se réfère avant d’appliquer une qualification juridique. Il est volontairement schématique : un cours d’eau réel peut présenter des remous ou une pollution qui imposent une analyse matérielle différente."
+        },
+        "takeaway": "L’objection d’Ibn ‘Abd al-Salâm souligne que l’on ne peut pas traiter automatiquement la totalité d’un courant comme une eau effectivement mêlée à l’impureté. Le lieu de chute et le mouvement de l’eau sont des données essentielles à la suite de la discussion.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 73, remarque d’Ibn ‘Abd al-Salâm et discussion avec Ibn ‘Arafa et al-Ubbî. Exemple fictif pour Athar."
+      },
+      {
+        "id": "hattab-choice",
+        "eyebrow": "ÉTAPE 04 · LA PRÉFÉRENCE DU COMMENTATEUR",
+        "title": "Quand al-Hattâb tranche entre deux lectures, que retient-il pour l’amont ?",
+        "passage": {
+          "arabic": "والظاهر ما قاله ابن عبد السلام وابن عرفة",
+          "translation": "« Ce qui paraît le plus juste est ce qu’ont dit Ibn ‘Abd al-Salâm et Ibn ‘Arafa. »",
+          "explanation": "Ici, la parole appartient à al-Hattâb lui-même. Il privilégie leur analyse : ce qui se trouve en amont du point de chute n’a pas de rapport avec la souillure tombée plus loin.",
+          "sourceLabel": "Prise de position d’al-Hattâb, tome 1, p. 73, après la discussion des objections.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
+        "paragraphs": [
+          "Dans ce passage, al-Hattâb ne se contente plus de citer. Il dit clairement quelle lecture lui semble la plus juste : celle d’Ibn ‘Abd al-Salâm et d’Ibn ‘Arafa. Leur analyse lui paraît fidèle à la situation d’une eau qui s’écoule dans un sens donné. Une impureté tombée en contrebas n’affecte pas, dans le cas décrit, l’eau qui est déjà en amont et ne revient pas vers son point de chute.",
+          "Il va même plus loin lorsqu’il rapporte une restriction attribuée à Ibn Hârûn, relative au cas où la personne se trouve très près du lieu de chute. Al-Hattâb estime que cette proximité ne change pas le raisonnement si l’eau coule réellement sans revenir en arrière. Son argument n’est pas fondé sur une distance chiffrée, mais sur le mouvement du courant tel qu’il le suppose. Si l’eau peut refluer, nous ne sommes plus automatiquement dans la même situation."
+        ],
+        "steps": [
+          {
+            "label": "« Al-zâhir » : ce qui apparaît le plus juste",
+            "text": "Cette expression permet de reconnaître la préférence d’al-Hattâb. Elle ne transforme pas les propos précédents d’al-Ubbî en erreurs volontairement dissimulées."
+          },
+          {
+            "label": "La direction réelle de l’eau",
+            "text": "L’argument du commentateur repose sur une eau qui continue de descendre sans revenir vers l’amont. La condition ne doit pas être oubliée lors d’un exemple."
+          },
+          {
+            "label": "La proximité n’est pas le seul critère",
+            "text": "Al-Hattâb discute l’objection d’Ibn Hârûn : même très près de la chute, le simple voisinage ne suffit pas lorsque l’eau ne peut pas revenir en arrière."
+          },
+          {
+            "label": "L’importance d’attribuer les conclusions",
+            "text": "Ibn ‘Abd al-Salâm présente un raisonnement ; al-Hattâb déclare ensuite qu’il le préfère. On évite ainsi de confondre une opinion rapportée avec un choix du commentateur."
+          }
+        ],
+        "example": {
+          "title": "Deux endroits très proches du même ruisseau",
+          "text": "Une personne se trouve juste avant une petite chute où une impureté a été déposée. Elle se demande si la proximité suffit à donner à l’eau située en amont le même jugement que celle du point de contact. Dans le courant unidirectionnel étudié par al-Hattâb, c’est le mouvement qui structure l’analyse, pas seulement la distance. Ce cas est créé pour comprendre son raisonnement ; il ne dispense pas d’examiner les remous et les contaminations réelles d’un ruisseau particulier."
+        },
+        "takeaway": "Al-Hattâb préfère l’argument d’Ibn ‘Abd al-Salâm et d’Ibn ‘Arafa : pour une eau réellement courante qui ne revient pas vers l’amont, le point où l’impureté tombe ne doit pas être traité comme s’il affectait déjà toute l’eau située avant lui.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 73, « قلت : والظاهر ما قاله ابن عبد السلام وابن عرفة » et réponse à la restriction d’Ibn Hârûn."
+      },
+      {
+        "id": "moving-impurity",
+        "eyebrow": "ÉTAPE 05 · UNE IMPURETÉ EMPORTÉE PAR LE COURANT",
+        "title": "Que distingue l’auteur d’al-Tirâz quand la souillure se déplace avec l’eau ?",
+        "passage": {
+          "arabic": "فإن كانت جارية مع الماء فما فوقها طاهر إجماعا",
+          "translation": "« Si elle est emportée avec l’eau, ce qui se trouve en amont est pur, selon l’unanimité qu’il mentionne. »",
+          "explanation": "Cette phrase appartient à l’auteur d’al-Tirâz, cité longuement par al-Hattâb. Son analyse porte sur une impureté mobile et distingue plusieurs portions du cours d’eau.",
+          "sourceLabel": "Al-Tirâz, citation rapportée par al-Hattâb, t. 1, p. 73.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
+        "paragraphs": [
+          "L’auteur d’al-Tirâz propose un examen plus concret de la souillure. Si une impureté se déplace avec l’eau, on commence par distinguer ce qui la précède, ce qui circule avec elle et ce qui se trouve après son passage. Le texte dit que l’eau située en amont est pure dans le cas envisagé, puis il traite la portion du courant qui accompagne la matière de manière spécifique. Il ne donne donc pas un jugement indistinct à toute la rivière.",
+          "Il ajoute une recommandation de prudence concernant l’eau qui suit immédiatement une impureté mobile. Celle-ci peut ne pas être séparée de la matière aussi nettement qu’on l’imagine, notamment lorsque le vent contrarie ou modifie le déplacement. Cette remarque ne transforme pas tout l’aval en eau impure : elle enseigne que la position des parties du courant doit être comprise avec la manière dont la matière se déplace réellement. Le passage distingue aussi un deuxième cas, où la souillure reste sur place pendant que l’eau coule sur elle."
+        ],
+        "steps": [
+          {
+            "label": "Une souillure entraînée avec l’eau",
+            "text": "C’est le premier cas de l’auteur d’al-Tirâz. Le mouvement de la matière elle-même importe, car il détermine quelles portions d’eau lui sont associées."
+          },
+          {
+            "label": "La portion qui accompagne la matière",
+            "text": "Le texte la traite à part : elle se déplace avec la souillure et ne peut pas être assimilée sans réflexion à une eau éloignée du point de contact."
+          },
+          {
+            "label": "La prudence pour l’eau toute proche",
+            "text": "Al-Tirâz déconseille de se précipiter sur une portion d’eau très proche du passage d’une souillure, car la vitesse du courant et le vent peuvent compliquer son trajet."
+          },
+          {
+            "label": "L’unanimité doit être située",
+            "text": "Lorsque l’auteur emploie « ijmâ‘ », il l’applique au cas formulé : l’eau située en amont d’une impureté mobile. Il ne prononce pas une unanimité sur toutes les situations fluviales."
+          }
+        ],
+        "example": {
+          "title": "Une feuille flottante utilisée pour comprendre le mouvement",
+          "text": "Imagine une feuille flottant sur une rivière, à laquelle nous substituons mentalement une matière juridiquement impure pour le raisonnement. L’eau juste devant elle, celle qui la porte et celle qui l’a dépassée ne sont pas nécessairement dans la même relation avec la matière. Le déplacement peut aussi être influencé par le vent. Cette image volontairement simple aide à suivre al-Tirâz, mais elle ne constitue pas une évaluation de la sécurité d’une eau réelle et ne vaut pas fatwa."
+        },
+        "takeaway": "Al-Tirâz sépare l’amont, la portion d’eau qui accompagne la souillure et l’eau immédiatement voisine. Sa prudence repose sur le déplacement réel de la matière : on ne doit pas étendre son propos à toute l’eau d’une rivière sans les conditions de son exemple.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 73, citation d’al-Tirâz sur une impureté entraînée par le courant, suivie de la distinction avec une impureté immobile."
+      },
+      {
+        "id": "downstream",
+        "eyebrow": "ÉTAPE 06 · QU’EN EST-IL DE L’AVAL ?",
+        "title": "Pourquoi le commentaire conserve-t-il plusieurs analyses de l’eau après le point de chute ?",
+        "passage": {
+          "arabic": "إن الماء الجاري إذا وقعت فيه نجاسة جرى بها فما بعدها منه طاهر",
+          "translation": "« Si une souillure tombe dans l’eau courante et est emportée par elle, l’eau qui vient après est pure. »",
+          "explanation": "Al-Hattâb cite ici Ibn ‘Abd al-Barr, dans al-Kâfî, puis évoque le raisonnement d’al-Qâdî ‘Iyâd. Ces phrases se lisent avec les distinctions antérieures entre présence de la matière, quantité d’eau et changement effectif.",
+          "sourceLabel": "Ibn ‘Abd al-Barr, al-Kâfî, cité par al-Hattâb dans le cinquième tanbîh, t. 1, p. 73–74.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
+        "paragraphs": [
+          "Il faut maintenant regarder ce qui se passe après le point où une souillure est tombée. Ibn ‘Abd al-Barr, cité par al-Hattâb, rapporte une règle concernant l’eau courante qui entraîne l’impureté et laisse passer de l’eau après elle. Le commentateur rappelle aussi les développements d’al-Tawdîh et d’al-Qâdî ‘Iyâd. On retrouve constamment les mêmes questions : la matière reste-t-elle à l’endroit de la chute ? Quel volume circule ? Une propriété de l’eau a-t-elle changé ?",
+          "Al-Hattâb relève que certains développements d’al-Tawdîh ne paraissent pas entièrement concordants avec les positions rapportées d’Ibn ‘Abd al-Salâm et d’Ibn ‘Arafa. Il cite également une discussion autour du hadith qui interdit d’uriner dans une eau stagnante, sans en faire une permission générale de souiller les rivières. La distinction entre eau courante et eau dormante est un outil du raisonnement juridique ; elle ne doit jamais être transformée en autorisation de contaminer l’eau d’autrui."
+        ],
+        "steps": [
+          {
+            "label": "La situation en aval dépend du trajet",
+            "text": "Une impureté qui est emportée et une impureté qui reste au même endroit ne produisent pas nécessairement le même schéma de contact avec l’eau."
+          },
+          {
+            "label": "Le changement des caractéristiques de l’eau",
+            "text": "Le chapitre doit être lu avec les règles sur une eau réellement modifiée par une matière impure. Le mouvement ne permet pas de nier un changement effectivement présent."
+          },
+          {
+            "label": "Le raisonnement tiré du hadith",
+            "text": "Le commentaire évoque une tradition sur l’eau stagnante pour éclairer la différence avec l’eau courante. Cela ne doit pas être interprété comme une permission morale ou juridique de polluer."
+          },
+          {
+            "label": "Différentes analyses sont conservées",
+            "text": "Al-Hattâb cite Ibn ‘Abd al-Barr, ‘Iyâd et al-Tawdîh et signale des tensions entre certaines formulations. Il ne les simplifie pas en une règle valable à tous les instants de tout courant."
+          }
+        ],
+        "example": {
+          "title": "Après le passage d’une matière dans un fossé",
+          "text": "Suppose qu’une matière impure soit entraînée puis disparaisse du champ de vision dans un fossé qui coule. Une personne veut examiner l’eau qui continue de venir. Pour étudier cette situation, elle doit préciser si la matière est encore en contact avec l’eau prélevée, si l’eau a été altérée et ce que l’on peut établir du trajet. Le fait de ne plus voir la matière ne remplace pas cet examen. Cet exemple montre les questions posées par le commentaire, sans déclarer cette eau potable ou utilisable dans une situation réelle."
+        },
+        "takeaway": "Pour l’eau en aval, al-Hattâb rapporte une analyse selon laquelle le courant peut emporter la souillure et être suivi d’eau demeurant pure. Mais il discute aussi les limites de ce raisonnement et les circonstances qui imposent de distinguer les portions effectivement mêlées à la matière.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 73–74 ; propos d’Ibn ‘Abd al-Barr dans al-Kâfî, discussion d’al-Tawdîh et mention d’al-Qâdî ‘Iyâd."
       },
       {
         "id": "stagnant",
-        "eyebrow": "03 · Eau stagnante",
-        "title": "Bassin, récipient ou grande mare : faut-il une seule réponse ?",
+        "eyebrow": "ÉTAPE 07 · LA FORMULE DE KHALÎL",
+        "title": "Pourquoi Khalîl mentionne-t-il une eau stagnante dans laquelle on se lave ?",
+        "passage": {
+          "arabic": "وراكد يغتسل فيه",
+          "translation": "« Et une eau stagnante dans laquelle on se lave. »",
+          "explanation": "Ces mots sont de Khalîl. Al-Hattâb les explique comme un cas où l’usage de l’eau pour la purification peut être réprouvé, en examinant le sens de « on s’y lave » et la répétition des bains.",
+          "sourceLabel": "Formule de Khalîl expliquée par al-Hattâb, t. 1, p. 75.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
         "paragraphs": [
-          "Khalîl évoque aussi l’eau stagnante dans laquelle on se lave (« وراكد يغتسل فيه »). Al-Hattâb précise les différentes configurations : une grande réserve d’eau, une quantité comparable à celle d’un petit récipient et une quantité intermédiaire comme celle d’un bassin. Son commentaire ne réduit pas la qualification à la seule absence de mouvement.",
-          "Si une caractéristique de l’eau est effectivement modifiée, il faut déterminer quelle substance l’a changée. Lorsqu’aucune altération n’est constatée, la taille du volume, l’état des personnes qui s’y sont lavées et la nature de l’usage interviennent dans les exemples rapportés. Le cas du petit récipient où une personne en état de janâba s’est lavée renvoie en particulier à l’eau utilisée, et non automatiquement à une impureté matérielle."
+          "Nous quittons maintenant le courant pour une eau qui reste dans un même endroit : un bassin, une mare ou une cuve. Khalîl emploie une formule brève sur l’eau stagnante dans laquelle on se lave. Al-Hattâb commence par dire que l’expression peut recevoir plusieurs lectures. L’une, qui lui paraît conforme aux mots employés, vise une eau où des personnes viennent régulièrement se laver. Il ne faut donc pas imaginer seulement une personne qui met brièvement la main dans un récipient.",
+          "Pourquoi insister sur la répétition ? Parce que le statut de cette eau peut dépendre de plusieurs facteurs : le volume du bassin, la présence d’une personne en état de janâba, l’existence de souillures, la fréquence des lavages et la modification éventuelle de l’eau. Al-Hattâb va classer les situations plutôt que d’interdire indistinctement tous les bassins. Cette manière de déplier une phrase très concise est particulièrement utile pour apprendre à lire le Mukhtasar."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 74–75, explication de « وراكد يغتسل فيه » : réserve abondante, petit récipient, bassin et contexte du ghusl."
+        "steps": [
+          {
+            "label": "« Râkid » : une eau qui demeure sur place",
+            "text": "Le terme désigne une eau stagnante, contrairement à l’eau qui s’écoule de façon continue. Il ne signifie pas par lui-même que l’eau est impure."
+          },
+          {
+            "label": "« Yughtasalu fîhi » : se laver dans l’eau",
+            "text": "L’expression décrit une immersion ou un lavage dans le même volume d’eau. Elle ne correspond pas à tous les cas où une personne prélève de l’eau pour la verser ailleurs."
+          },
+          {
+            "label": "La répétition des bains selon al-Hattâb",
+            "text": "Le commentateur explique qu’il peut s’agir d’une eau destinée à être utilisée plusieurs fois pour se laver. Cette lecture permet de comprendre la réprobation discutée."
+          },
+          {
+            "label": "Le texte ne donne pas un verdict unique",
+            "text": "Al-Hattâb écarte certains très grands volumes de la réprobation et distingue d’autres cas. Pour apprendre la règle, il faut donc lire les catégories qui suivent."
+          }
+        ],
+        "example": {
+          "title": "Une cuve et une vaste mare ne sont pas une seule situation",
+          "text": "Imagine une petite cuve dans laquelle on entre pour se laver, puis une vaste mare alimentée naturellement et utilisée de manière occasionnelle. Dire seulement « ce sont deux eaux stagnantes » ne suffit pas pour leur appliquer le même jugement. Le volume disponible, l’état des personnes et la fréquence d’usage changent les questions que l’on doit poser. Cette comparaison est fictive et sert à comprendre le texte, sans évaluer une installation ou une eau réelle."
+        },
+        "takeaway": "La phrase de Khalîl sur l’eau stagnante reçoit chez al-Hattâb une explication qui fait une place importante à la répétition des lavages. Elle n’autorise pas à considérer toute eau immobile comme réprouvée ou impure : le commentaire examine les volumes et les usages.",
+        "sourceNote": "Source : Khalîl, « وراكد يغتسل فيه », commenté par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 75. Exemples créés pour Athar."
       },
       {
-        "id": "no-mechanical-rule",
-        "eyebrow": "04 · Synthèse et précautions",
-        "title": "Comment préserver les distinctions plutôt que d’inventer un seuil unique ?",
+        "id": "stagnant-sizes",
+        "eyebrow": "ÉTAPE 08 · GRAND BASSIN, PETITE CUVE, BASSIN MOYEN",
+        "title": "Comment al-Hattâb sépare-t-il les volumes d’eau stagnante ?",
+        "passage": {
+          "arabic": "فأما المستبحر والماء المعين كالغدير الكبير والبركة الكبيرة",
+          "translation": "« Quant à la très grande étendue d’eau, comme une grande mare ou un grand bassin… »",
+          "explanation": "Début d’une distinction développée par al-Hattâb. Il exclut les très grandes eaux de la réprobation étudiée, puis examine une petite cuve et un bassin intermédiaire selon des conditions particulières.",
+          "sourceLabel": "Explication d’al-Hattâb, tome 1, p. 75, catégories d’eaux stagnantes.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
         "paragraphs": [
-          "Les trois critères à reprendre lors d’une lecture guidée sont : la quantité d’eau et la continuité du courant ; la situation précise de la souillure ou de l’eau utilisée ; enfin, un changement réel des caractéristiques de l’eau. Le commentaire rapporte aussi une distinction entre une substance pure sans effet perceptible et une souillure : l’absence de changement ne fait pas entrer systématiquement ces deux situations dans la même catégorie.",
-          "Ces passages ont été écrits pour résoudre des problèmes juridiques précis. Athar n’en déduit ni seuil moderne de litres ni diagnostic sanitaire sur un puits, un bassin ou une rivière. La fiche aide à lire le texte d’al-Hattâb, à repérer ses citations et ses réserves, et à éviter de confondre eau stagnante, eau usée, eau contaminée et eau dont les propriétés ont effectivement changé."
+          "Al-Hattâb commence par une observation que l’on comprend facilement : une grande étendue d’eau ne se présente pas comme un petit récipient. Il mentionne les grands bassins, les grandes mares et certains puits abondants, pour lesquels il rapporte l’absence de réprobation. À l’opposé, une petite cuve peut être directement affectée par le fait qu’une personne s’y lave alors qu’elle a des souillures sur le corps ou qu’elle accomplit un ghusl destiné à lever la janâba.",
+          "Entre ces deux cas, il place notamment les bassins d’une taille moyenne, comme les abreuvoirs. C’est ici que les transmissions deviennent plus délicates. Il faut distinguer une modification établie, une impureté présente sans modification, et une eau devenue utilisée pour lever le hadath. Al-Hattâb ne définit pas des frontières en litres. Il raisonne à partir des catégories de ses auteurs, de la quantité relativement disponible et de l’état de l’eau avant et après le lavage."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 73–75, synthèse pédagogique des discussions sur eau courante, eau stagnante et cause du changement."
+        "steps": [
+          {
+            "label": "La grande eau : « mustabh ir » et « ma‘în »",
+            "text": "Ces termes désignent une étendue ou une réserve importante. Le commentaire cite des exemples concrets pour montrer que leur statut ne suit pas celui de la petite cuve."
+          },
+          {
+            "label": "La petite cuve : « qasriyya »",
+            "text": "Le cas d’un récipient peu abondant appelle une attention particulière lorsque l’eau a été mise en contact avec une souillure ou a servi à lever le hadath."
+          },
+          {
+            "label": "Le bassin intermédiaire",
+            "text": "Le ḥawd, ou bassin, peut faire l’objet de discussions parce qu’il n’a pas nécessairement les caractéristiques d’une très grande étendue ou d’un petit bol."
+          },
+          {
+            "label": "La nature de l’usage est essentielle",
+            "text": "Une personne en janâba, une personne dont les membres sont souillés et une personne déjà propre ne posent pas exactement la même question. Le statut du corps compte avec le volume."
+          }
+        ],
+        "example": {
+          "title": "Comparer trois contenants sans inventer de chiffres",
+          "text": "Sur une feuille, dessine une petite bassine, un bassin d’abreuvement et une grande mare. Dans chaque cas, demande-toi quelle quantité est présente, qui s’y lave, si une impureté a réellement atteint l’eau et si ses caractéristiques ont changé. La leçon ne donne aucun seuil numérique pour conclure automatiquement. Cet exercice de classement montre ce que fait al-Hattâb lorsqu’il sépare les très grandes eaux, les petites cuves et les volumes intermédiaires."
+        },
+        "takeaway": "Le commentaire ne résume pas l’eau stagnante par une seule interdiction. Al-Hattâb distingue les grandes eaux dont l’usage n’est pas réprouvé dans le cas étudié, les petits volumes plus sensibles et des bassins intermédiaires dont le jugement demande une analyse plus détaillée.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 75, distinction entre mustabh ir, qasriyya et ḥawd. Exemple comparatif d’Athar."
+      },
+      {
+        "id": "mashhur",
+        "eyebrow": "ÉTAPE 09 · QUAND LES AVIS DIVERGENT SUR UNE PETITE EAU",
+        "title": "Pourquoi le commentateur ne suit-il pas ici toutes les conclusions d’Ibn Nâjî ?",
+        "passage": {
+          "arabic": "وأما على القول المشهور الذي مشى عليه المصنف فهو طاهر مطهر",
+          "translation": "« Quant à l’avis célèbre suivi par l’auteur, cette eau est pure et purifiante. »",
+          "explanation": "Al-Hattâb distingue le mashhûr d’une position plus stricte sur une faible quantité d’eau qui a reçu une impureté sans être réellement modifiée. Il discute notamment la lecture d’Ibn Nâjî et celle attribuée à Ibn al-Qâsim.",
+          "sourceLabel": "Analyse d’al-Hattâb, t. 1, p. 75, réponse aux transmissions d’Ibn Nâjî.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
+        "paragraphs": [
+          "Quand le passage arrive aux petits et moyens volumes, al-Hattâb rapporte une discussion à propos de la Mudawwana. Ibn Nâjî privilégie une lecture sévère d’un texte dans lequel une eau de bassin est dite altérée par un bain. Mais al-Hattâb observe que cette lecture correspond à un autre avis : celui selon lequel une petite quantité d’eau devient impure du seul fait qu’une souillure la touche, même sans modifier ses propriétés. Il rattache cette position à Ibn al-Qâsim et à certaines transmissions d’après Mâlik.",
+          "Le commentateur rappelle alors l’avis qu’il présente comme célèbre dans le cadre du Mukhtasar : une eau non modifiée par la souillure reste pure et purifiante, même si son emploi peut être réprouvé dans certaines circonstances. Cette distinction ne doit pas être effacée. Si l’eau a réellement changé de couleur, de goût ou d’odeur à cause d’une impureté, nous ne sommes plus dans ce cas. Et si la question porte seulement sur une eau déjà utilisée pour un ghusl, nous devons également reprendre les règles spécifiques étudiées dans la fiche 07."
+        ],
+        "steps": [
+          {
+            "label": "Le mashhûr n’est pas une unanimité",
+            "text": "Al-Hattâb reconnaît explicitement l’existence de transmissions divergentes. Il précise seulement quelle qualification correspond à l’avis célèbre suivi dans le texte."
+          },
+          {
+            "label": "Ibn Nâjî et l’interprétation du mot « altéré »",
+            "text": "Le commentaire explique que la lecture d’Ibn Nâjî s’inscrit dans une position juridique distincte sur l’effet d’une souillure non perceptible dans une faible quantité d’eau."
+          },
+          {
+            "label": "La position attribuée à Ibn al-Qâsim",
+            "text": "Cette opinion plus stricte ne doit pas être présentée comme le jugement du mashhûr suivi par Khalîl. Il faut conserver l’attribution au juriste cité."
+          },
+          {
+            "label": "Pureté et réprobation doivent rester séparées",
+            "text": "Une eau peut être qualifiée de pure et purifiante dans le cas décrit, tout en faisant l’objet d’une réprobation d’usage liée à la situation."
+          }
+        ],
+        "example": {
+          "title": "Une eau demeurée inchangée dans une bassine",
+          "text": "Une personne apprend qu’une petite souillure a atteint une bassine, mais aucune caractéristique de l’eau n’a changé. Pour étudier la question, elle rencontre une opinion qui assimile cette eau à une eau impure et un avis qui la maintient pure et purifiante tout en pouvant réprouver son emploi. Elle ne doit pas mélanger les deux sans attribution. Le cas est imaginé pour comprendre le désaccord rapporté par al-Hattâb : il ne juge pas une eau réellement inspectée."
+        },
+        "takeaway": "Al-Hattâb replace les conclusions d’Ibn Nâjî dans leur cadre doctrinal et rappelle la qualification qu’il présente comme mashhûr. L’étudiant doit identifier la nature du désaccord et distinguer une eau réellement modifiée de celle qui ne l’est pas.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 75, échange sur le bassin stagnant, Ibn Nâjî, Ibn al-Qâsim et avis mashhûr."
+      },
+      {
+        "id": "repeated-bathing",
+        "eyebrow": "ÉTAPE 10 · LA FRÉQUENCE DES BAINS ET LES RISQUES ÉVOQUÉS",
+        "title": "Pourquoi al-Hattâb insiste-t-il sur l’eau où beaucoup de personnes se lavent ?",
+        "passage": {
+          "arabic": "لأنه يسرع إليه التغير ولا يفطن به",
+          "translation": "« Parce qu’elle peut se modifier rapidement sans que l’on s’en aperçoive. »",
+          "explanation": "Al-Hattâb explique ici l’interprétation de la formule de Khalîl lorsque les bains se répètent dans une même eau. Il cite aussi des discussions sur les bassins de hammam et veille à distinguer les raisonnements associés au mashhûr d’autres opinions plus strictes.",
+          "sourceLabel": "Explication personnelle d’al-Hattâb, t. 1, p. 75, fin du commentaire de « وراكد يغتسل فيه ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        },
+        "paragraphs": [
+          "Al-Hattâb revient finalement aux mots de Khalîl : « une eau stagnante dans laquelle on se lave ». Il propose de comprendre l’expression comme visant notamment une eau où les lavages se répètent. Ce n’est pas un détail de vocabulaire. Une eau qui reçoit de nombreux bains, parfois accomplis par des personnes portant des souillures, peut être exposée à des modifications ou à des matières qu’on ne remarque pas aussitôt. Le commentateur rattache ainsi la réprobation discutée à la manière dont le bassin est réellement utilisé.",
+          "Il rapporte à ce sujet des propos anciens sur certains bassins de hammam et les discussions d’Ibn al-Qâsim, d’Ibn Rushd et d’al-Bisâtî. Mais il ne faut pas les fusionner en une seule règle. Al-Hattâb relève, à propos d’une lecture plus stricte, qu’elle dépend d’une conception particulière du petit volume et de l’effet d’une souillure. Dans le cadre du mashhûr, l’eau non modifiée conserve son statut purifiant, tandis que la répétition des bains peut justifier une réprobation de son emploi. Cette leçon ne remplace ni les règles de santé publique ni l’analyse d’une piscine actuelle."
+        ],
+        "steps": [
+          {
+            "label": "Le bain répété : un contexte différent d’un bain isolé",
+            "text": "Le commentaire interprète la formule de Khalîl à la lumière d’une eau fréquemment utilisée pour le lavage. Les circonstances contribuent à comprendre pourquoi son emploi peut être réprouvé."
+          },
+          {
+            "label": "Une altération parfois difficile à remarquer",
+            "text": "Al-Hattâb mentionne la possibilité qu’une eau se modifie rapidement sans que le changement soit immédiatement aperçu. Cela ne prouve pas que tout bassin partagé soit juridiquement impur."
+          },
+          {
+            "label": "Des avis historiques à distinguer",
+            "text": "Les propos d’Ibn al-Qâsim et d’Ibn Rushd doivent être lus avec les réserves d’al-Hattâb sur leur fondement juridique. Il faut éviter d’en faire une position universelle."
+          },
+          {
+            "label": "Ne pas confondre fiqh et sécurité sanitaire",
+            "text": "La validité rituelle d’une eau et sa qualité sanitaire sont deux questions différentes. Une eau peut exiger un contrôle de santé même lorsqu’aucune modification religieusement pertinente n’a été établie."
+          }
+        ],
+        "example": {
+          "title": "Une eau de bain partagée à plusieurs reprises",
+          "text": "Une petite installation est utilisée tout au long de la journée par différentes personnes. Un lecteur dit : « Elle est immobile, donc elle est impure. » Un autre répond : « Je ne vois aucun changement, donc toute discussion est inutile. » Al-Hattâb ne suit ni l’un ni l’autre de ces raccourcis : il considère le volume, la répétition des lavages, les souillures éventuelles et les opinions propres au cas. La scène est inventée pour enseigner son raisonnement et ne qualifie aucun bassin actuel."
+        },
+        "takeaway": "Dans sa lecture de Khalîl, al-Hattâb accorde un rôle à la répétition des lavages pour expliquer la réprobation de certaines eaux stagnantes. Il maintient cependant les distinctions entre la présence d’une impureté, la modification réelle, l’avis mashhûr et les transmissions divergentes.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 75–76 dans la pagination du passage Islamweb /113, développement sur les bains répétés et discussions de hammam."
       }
     ],
     "quote": {
       "arabic": "وراكد يغتسل فيه",
-      "meaning": "Khalîl mentionne l’eau stagnante dans laquelle on se lave. Al-Hattâb refuse d’en faire un cas unique : il distingue les grandes réserves, les petits récipients et les situations intermédiaires, en tenant compte de l’état de l’eau.",
-      "label": "Extrait du Mukhtasar de Khalîl cité et expliqué par al-Hattâb, t. 1, p. 74–75 ; explication du sens, non avis autonome."
+      "meaning": "Khalîl évoque l’eau stagnante dans laquelle on se lave. Al-Hattâb explique que cette formule doit être comprise selon la quantité d’eau, la répétition des bains, la présence éventuelle de souillures et les divergences rapportées ; il ne considère pas toute eau immobile comme impure.",
+      "label": "Formule de Khalîl citée et expliquée par al-Hattâb, tome 1, p. 75, texte Islamweb."
     },
     "lexicon": [
       {
-        "arabic": "مَاءٌ جَارٍ",
+        "arabic": "الْمَاءُ الْجَارِي",
         "term": "Mâ’ jârî",
-        "definition": "Eau courante ; sa continuité et la portion considérée sont prises en compte dans la discussion juridique."
+        "definition": "Eau courante qui s’écoule. Son jugement est rapproché par certains auteurs de celui de l’eau abondante, sous les conditions et les distinctions exposées dans le commentaire."
       },
       {
-        "arabic": "مَاءٌ رَاكِد",
+        "arabic": "الْمَاءُ الرَّاكِد",
         "term": "Mâ’ râkid",
-        "definition": "Eau stagnante, dont l’état et la quantité sont analysés selon les circonstances des lavages et des souillures."
+        "definition": "Eau stagnante, qui ne circule pas comme un cours d’eau. Son seul caractère immobile ne suffit pas à la qualifier d’impure ou à prononcer une réprobation générale."
       },
       {
         "arabic": "الْجِرْيَة",
         "term": "Al-jirya",
-        "definition": "Portion ou courant d’eau considéré dans l’analyse d’une souillure se déplaçant avec l’écoulement."
+        "definition": "Portion ou continuité de l’écoulement prise en compte dans la discussion sur une eau courante, sa quantité et sa relation avec le lieu où tombe une impureté."
       },
       {
         "arabic": "مَحَلُّ الْوُقُوع",
         "term": "Mahall al-wuqû‘",
-        "definition": "Emplacement où la souillure tombe dans l’eau ; sert à distinguer les parties amont et aval."
+        "definition": "Lieu où une matière impure tombe dans l’eau. Cette localisation permet de distinguer l’amont, la zone de contact et les portions situées plus loin dans le courant."
       },
       {
         "arabic": "الْمَاءُ الْكَثِير",
         "term": "Al-mâ’ al-kathîr",
-        "definition": "Grande quantité d’eau dans les distinctions du commentaire, à ne pas traduire par un seuil inventé."
+        "definition": "Eau considérée comme abondante dans le raisonnement juridique. Certains auteurs lui rapprochent le courant continu, sans donner ici un seuil unique exprimé en litres."
       },
       {
         "arabic": "الْقَصْرِيَّة",
         "term": "Al-qasriyya",
-        "definition": "Petit récipient ou cuve de lavage mentionné dans l’examen des eaux stagnantes et des eaux déjà utilisées."
+        "definition": "Petit récipient ou cuve évoqué pour distinguer les effets possibles d’une immersion de ceux observés dans une grande étendue d’eau ou un bassin intermédiaire."
+      },
+      {
+        "arabic": "الْمُسْتَبْحِر",
+        "term": "Al-mustabhir",
+        "definition": "Très grande masse d’eau ou étendue importante. Al-Hattâb la distingue de la petite cuve lorsqu’il examine la réprobation d’un bain dans une eau stagnante."
+      },
+      {
+        "arabic": "الْحَوْض",
+        "term": "Al-hawd",
+        "definition": "Bassin ou abreuvoir dont la taille et l’usage peuvent appeler une analyse intermédiaire entre une petite cuve et une vaste étendue d’eau."
+      },
+      {
+        "arabic": "الْمَنْبَع",
+        "term": "Al-manba‘",
+        "definition": "Source ou lieu d’origine d’un écoulement. Dans la leçon, il ne faut pas compter automatiquement tout ce qui vient de l’amont comme de l’eau effectivement mêlée à une souillure."
+      },
+      {
+        "arabic": "الْمُخَالَطَة",
+        "term": "Al-mukhâlata",
+        "definition": "Contact ou mélange dont les juristes examinent la réalité et la portée. Le simple fait d’appartenir à la même rivière ne signifie pas que toute l’eau a touché l’impureté."
+      },
+      {
+        "arabic": "الْمَشْهُور",
+        "term": "Al-mashhûr",
+        "definition": "Avis qualifié de célèbre dans l’école malikite. Dans le passage sur l’eau stagnante, al-Hattâb le distingue expressément d’une position plus stricte attribuée à Ibn al-Qâsim."
+      },
+      {
+        "arabic": "الْكَرَاهَة",
+        "term": "Al-karâha",
+        "definition": "Caractère réprouvé d’un usage dans des conditions précises. Il ne doit pas être confondu avec l’impureté de l’eau ni avec l’invalidité automatique d’un acte."
+      },
+      {
+        "arabic": "الْجَنَابَة",
+        "term": "Al-janâba",
+        "definition": "État d’impureté rituelle majeure qui appelle un ghusl. L’état de la personne entrant dans une eau stagnante peut influencer le raisonnement sur l’eau employée."
+      },
+      {
+        "arabic": "تَغَيُّرُ الْمَاءِ",
+        "term": "Taghayyur al-mâ’",
+        "definition": "Modification d’une propriété de l’eau. Le commentaire demande de distinguer un changement réellement établi d’une simple crainte, et d’identifier la nature de ce qui l’a causé."
+      },
+      {
+        "arabic": "الْمَاءُ الْمُسْتَعْمَل",
+        "term": "Al-mâ’ al-musta‘mal",
+        "definition": "Eau ayant déjà été employée pour une purification. Les fiches précédentes ont montré qu’il faut préciser quel acte a été accompli et dans quelles conditions l’eau a été recueillie."
       }
     ],
     "quiz": [
       {
-        "question": "Quelle formule générale al-Hattâb rapporte-t-il pour l’eau courante ?",
+        "question": "Dans le cinquième tanbîh, qui al-Hattâb cite-t-il pour dire que l’eau courante reçoit le jugement d’une eau abondante ?",
         "choices": [
-          "Elle se traite dans certains cas comme une eau abondante.",
-          "Toute eau courante est souillée.",
-          "La circulation de l’eau n’a jamais d’importance."
+          "Al-Mâzarî.",
+          "Khalîl dans la formule « وراكد يغتسل فيه ».",
+          "Un auteur moderne non identifié."
         ],
         "answer": 0,
-        "explanation": "Le commentaire cite l’assimilation à l’eau abondante tout en discutant la continuité et les circonstances de l’écoulement."
+        "explanation": "Al-Hattâb rapporte d’abord la formulation d’al-Mâzarî, également transmise par Ibn ‘Arafa. Il précise ensuite la quantité, la continuité et les divergences concernant le point où tombe une impureté."
       },
       {
-        "question": "Pourquoi distinguer l’amont et l’aval d’une souillure ?",
+        "question": "Quelle précision Ibn al-Hâjib ajoute-t-il à la comparaison de l’eau courante et abondante ?",
         "choices": [
-          "Parce que les règles changent chaque jour.",
-          "Parce que le lieu de chute et le sens du courant sont pertinents pour apprécier les portions d’eau.",
-          "Parce qu’un cours d’eau ne peut jamais entraîner d’impureté."
+          "Toute eau immobile reste toujours purifiante.",
+          "Il faut une quantité réunie importante et un écoulement sans interruption.",
+          "Il faut que la rivière ait exactement une profondeur donnée."
         ],
         "answer": 1,
-        "explanation": "L’auteur distingue la portion en amont, le lieu de la souillure et les portions qui la suivent."
+        "explanation": "La formule citée est « إذا كان المجموع كثيرا والجرية لا انفكاك لها ». Le commentaire ne convertit pas ces critères en seuils universels ni en chiffres de volume."
       },
       {
-        "question": "Dans l’analyse de l’eau stagnante, quel ensemble de facteurs est pertinent ?",
+        "question": "Pourquoi Ibn ‘Abd al-Salâm n’inclut-il pas automatiquement toute l’eau en amont dans le volume mêlé à la souillure ?",
         "choices": [
-          "Uniquement la couleur du récipient.",
-          "Uniquement la date de mise en eau.",
-          "Le volume, la présence d’un changement et les conditions du lavage."
+          "Parce que l’eau en amont n’a pas été en contact avec l’impureté tombée plus bas.",
+          "Parce que l’eau située en amont est toujours stagnante.",
+          "Parce qu’il refuse toute comparaison avec l’eau abondante."
+        ],
+        "answer": 0,
+        "explanation": "Son objection s’appuie sur le lieu de chute : l’eau qui le précède n’a pas rencontré la matière. Al-Hattâb rapporte aussi d’autres analyses avant d’exprimer sa préférence."
+      },
+      {
+        "question": "De quel avis al-Hattâb dit-il « والظاهر » lorsqu’il compare les lectures de l’amont ?",
+        "choices": [
+          "De celui qui nie le sens du courant.",
+          "De celui d’Ibn ‘Abd al-Salâm et d’Ibn ‘Arafa.",
+          "D’une opinion unanime sur toutes les eaux."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb approuve le raisonnement des deux savants : dans une eau réellement courante qui ne revient pas vers l’amont, la souillure tombée en aval n’affecte pas la portion située avant elle."
+      },
+      {
+        "question": "Que distingue l’auteur d’al-Tirâz lorsque l’impureté se déplace avec le cours d’eau ?",
+        "choices": [
+          "L’amont, la portion qui accompagne la matière et l’eau qui vient après.",
+          "Une seule eau entièrement impure en toutes circonstances.",
+          "Uniquement la température de l’eau."
+        ],
+        "answer": 0,
+        "explanation": "La citation d’al-Tirâz commence par l’eau située en amont, puis s’intéresse à la portion du courant qui accompagne la souillure et à l’eau immédiatement voisine de son passage."
+      },
+      {
+        "question": "Pourquoi l’auteur d’al-Tirâz conseille-t-il d’éviter l’eau immédiatement proche du passage de la souillure ?",
+        "choices": [
+          "Parce que tout vent rend automatiquement l’eau impure.",
+          "Parce que le trajet de la souillure peut ne pas coïncider exactement avec le courant, notamment lorsque le vent intervient.",
+          "Parce que le courant s’arrête nécessairement."
+        ],
+        "answer": 1,
+        "explanation": "Al-Tirâz tient compte de la possibilité que l’eau devance la matière, particulièrement lorsque les vents sont forts. Sa réserve porte sur un cas de proximité et de mouvement, non sur toute la rivière."
+      },
+      {
+        "question": "Quel propos al-Hattâb rapporte-t-il d’Ibn ‘Abd al-Barr concernant l’eau après une souillure entraînée par le courant ?",
+        "choices": [
+          "Elle reste obligatoirement altérée à jamais.",
+          "Il faut la traiter comme de l’eau de rose.",
+          "L’eau qui vient ensuite peut être pure dans le cas décrit."
         ],
         "answer": 2,
-        "explanation": "Le commentaire oppose grande quantité, petit récipient et volume intermédiaire, en examinant l’état de l’eau."
+        "explanation": "Dans al-Kâfî, Ibn ‘Abd al-Barr est cité pour la situation où le cours d’eau emporte la souillure. Il faut lire cette règle avec les conditions sur le contact et la modification effective de l’eau."
+      },
+      {
+        "question": "Dans « وراكد يغتسل فيه », quel est le sujet du passage de Khalîl ?",
+        "choices": [
+          "L’eau stagnante où l’on se lave, expliquée notamment à partir de la répétition des bains.",
+          "Toute eau naturelle qui a été chauffée.",
+          "L’obligation de se laver dans une rivière."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb explique la formule de Khalîl en considérant notamment une eau immobile fréquemment utilisée pour les bains. Le volume et l’état des personnes restent pertinents."
+      },
+      {
+        "question": "Quelles catégories al-Hattâb distingue-t-il lorsqu’il examine l’eau stagnante ?",
+        "choices": [
+          "Les eaux provenant de trois régions du monde.",
+          "Une très grande étendue, une petite cuve et des bassins intermédiaires.",
+          "Seulement les eaux dont la couleur est bleue."
+        ],
+        "answer": 1,
+        "explanation": "Le commentaire examine séparément la grande mare ou le bassin très abondant, la petite qasriyya et le hawd. Il ne donne pas un seuil chiffré unique pour toutes ces situations."
+      },
+      {
+        "question": "Comment al-Hattâb présente-t-il la position plus stricte attribuée à Ibn al-Qâsim au sujet d’une petite eau touchée par une souillure ?",
+        "choices": [
+          "Comme un avis discuté, distinct du mashhûr retenu dans le passage.",
+          "Comme un consensus absolu de tous les malikites.",
+          "Comme une règle sur la qualité sanitaire de toutes les piscines."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb replace l’analyse d’Ibn Nâjî dans la position qui considère la petite eau souillée même sans changement. Il rappelle ensuite le mashhûr qui maintient la pureté et le pouvoir purifiant de l’eau inchangée."
+      },
+      {
+        "question": "Pourquoi al-Hattâb retient-il l’idée de lavages répétés pour expliquer certaines réprobations de l’eau stagnante ?",
+        "choices": [
+          "Parce que la répétition rend toujours toute eau nécessairement impure.",
+          "Parce que l’usage fréquent peut exposer l’eau à des changements et à des souillures difficiles à constater immédiatement.",
+          "Parce que toute mare est strictement équivalente à une petite bassine."
+        ],
+        "answer": 1,
+        "explanation": "Le commentaire fait entrer la fréquence des bains dans l’interprétation du texte de Khalîl. Cela justifie une réserve sans effacer les distinctions entre l’eau non modifiée et celle dont une propriété a réellement changé."
+      },
+      {
+        "question": "Une personne voit une eau qui coule et affirme : « Elle est forcément utilisable pour mes ablutions. » Quelle réponse reflète la méthode du livre ?",
+        "choices": [
+          "La seule présence d’un courant dispense d’examiner l’eau.",
+          "Il faut systématiquement considérer toute rivière comme impure.",
+          "Il faut vérifier le courant, le point de contact, la quantité et les éventuelles modifications avant de conclure."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb rapporte des règles conditionnées par le flux, le lieu de chute, la nature de la matière et ses effets. Une affirmation générale sur toute eau en mouvement effacerait précisément les distinctions enseignées."
       }
     ],
     "sources": [
       {
-        "label": "Usul — texte arabe de Mawâhib al-Jalîl",
+        "label": "Usul — Mawâhib al-Jalîl, texte arabe et notice bibliographique",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 73–74 : eau courante et emplacement de la souillure",
-        "url": "https://islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        "label": "Islamweb — al-Hattâb, tome 1, p. 73–74, « الماء الجاري حكمه كالكثير »",
+        "url": "https://www.islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
       },
       {
-        "label": "Islamweb — t. 1, p. 74–75 : eau stagnante dans laquelle on se lave",
+        "label": "Islamweb — al-Hattâb, tome 1, p. 75, « وراكد يغتسل فيه »",
         "url": "https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
       }
     ]
