@@ -487,11 +487,22 @@ async function desktop() {
     await page.locator('.ussul-pro-back').click();
     await ready(page);
 
-    // Fiqh malikite : deux fiches disponibles, indépendantes et sourcées.
+    // Fiqh malikite : le catalogue est l'entrée principale, comme pour Usûl.
     await navigate(page,'fiqh-maliki');
-    await page.locator('.fiqh-m-root').waitFor({state:'visible'});
+    await page.locator('.fiqh-m-index').waitFor({state:'visible'});
+    assert.match(await page.locator('#fiqh-m-index-heading').innerText(),/Fiqh malikite/);
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),6,'Le catalogue doit afficher les six fiches');
+    assert.match(await page.locator('.fiqh-m-index-progress').innerText(),/fiche/);
+    await page.locator('.fiqh-m-index-search input').fill('rosée');
+    assert.ok(await page.locator('.fiqh-m-catalog-card').count()>=1 && await page.locator('.fiqh-m-catalog-card').count()<6,'La recherche dans les cours et le lexique est inactive');
+    assert.match(await page.locator('.fiqh-m-catalog-card h2').first().innerText(),/eaux naturelles/i);
+    await page.locator('.fiqh-m-index-search input').fill('expression introuvable xyz 987');
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),0,'Aucun résultat ne devrait correspondre à cette recherche');
+    await page.locator('.fiqh-m-index-search input').fill('');
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),6,'Toutes les cartes doivent réapparaître');
+    await page.locator('.fiqh-m-catalog-main').first().click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
-    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),2,'Les deux fiches doivent être accessibles');
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),6,'Les six fiches doivent rester accessibles dans le lecteur');
     assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties dans la fiche introductive attendues');
     assert.ok(await page.locator('a[href="https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"]').count()>=1,'Livre original non référencé');
     assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/الْإِيجَازِ/,'Extrait arabe de la préface non visible');
@@ -535,7 +546,7 @@ async function desktop() {
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Le suivi de la fiche 01 a été perdu');
 
     // Fiche 03 : ses lectures, questions et lexique ne doivent pas se mélanger aux fiches précédentes.
-    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),3,'Trois fiches disponibles attendues');
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),6,'Les six fiches doivent être accessibles');
     await page.locator('.fiqh-m-lesson-link').nth(2).click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/eaux naturelles/i);
     assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties sur les eaux naturelles attendues');
@@ -594,6 +605,13 @@ async function desktop() {
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture historique de la fiche 03 perdue');
 
     await page.locator('.fiqh-m-back').click();
+    await page.locator('.fiqh-m-index').waitFor({state:'visible'});
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),6,'Retour au sommaire impossible');
+    assert.match(await page.locator('.fiqh-m-index-progress').innerText(),/6 fiches lues sur 6/,'Progression du sommaire incorrecte');
+    await page.locator('.fiqh-m-index-resume').click();
+    assert.match(await page.locator('#fiqh-m-heading').innerText(),/eaux naturelles/i,'Reprendre la dernière fiche ne fonctionne pas');
+    await page.locator('.fiqh-m-back').click();
+    await page.locator('.fiqh-m-index-back').click();
     await ready(page);
 
     // UX : l'accès aux histoires doit être immédiat, lisible et léger.
