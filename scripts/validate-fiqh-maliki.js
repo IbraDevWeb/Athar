@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Fiqh malikite : contrôle des six fiches, fondées sur les passages vérifiés d'al-Hattâb.
+// Fiqh malikite : contrôle des douze fiches, fondées sur les passages vérifiés d'al-Hattâb.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const read=p=>fs.readFileSync(p,'utf8');
 const data=read('fiqh_maliki_data.js'),view=read('js/components/MalikiFiqhView.js'),css=read('css/fiqh-maliki.css');
@@ -198,8 +198,41 @@ assert.equal(book.impureContact.quote.arabic,'وَيَسِيرٌ كَآنِيَ�
 assert.ok(book.impureContact.sources.some(x=>x.url.startsWith('https://usul.ai/')));
 for(const id of ['/19/101/','/19/109/'])assert.ok(book.impureContact.sources.some(x=>x.url.includes(id)),'Source originale manquante : '+id);
 assert.ok(css.includes('text-align:justify')&&css.includes('hyphens:auto'),'Justification française absente');
+assert.equal(book.usedWater.id,'used-water-07');assert.equal(book.usedWater.number,'07');
+assert.equal(book.usedWater.goals.length,7,'Sept objectifs détaillés sont attendus pour la fiche 07');
+assert.equal(book.usedWater.sections.length,7,'Sept lectures guidées attendues pour la fiche 07');
+assert.deepEqual(Array.from(book.usedWater.sections,s=>s.id),[
+ 'third-category','what-used-means','availability','different-opinions','reasoning','quantity','context-and-limits'
+],'Ordre des sept lectures non respecté');
+assert.deepEqual(Array.from(book.usedWater.sections,s=>s.passage.arabic),[
+ 'وكره ماء مستعمل في حدث',
+ 'الماء المتنازع فيه هو المجموع عن الأعضاء لا ما يفضل في الإناء بعد الطهارة',
+ 'فإن لم يجد غيره تطهر به ولا يتيمم مع وجوده',
+ 'ومقابل المشهور في الماء المستعمل في الحدث قولان',
+ 'والراجح في تعليل الكراهة كونه مختلفا في طهوريته',
+ 'ولا شك أن المحكوم له بالكراهة هو اليسير',
+ 'تعين عليه ذلك ولا يجوز له التيمم'
+],'Extraits arabes vérifiés altérés');
+for(const section of book.usedWater.sections){
+ assert.ok(section.paragraphs.length===2&&section.paragraphs.every(p=>p.length>=420),'Fiche 07 : développements insuffisants : '+section.id);
+ assert.ok(section.passage?.arabic&&section.passage?.translation&&section.passage?.explanation&&section.passage?.sourceLabel&&section.passage?.sourceUrl?.includes('/19/107/'),'Fiche 07 : citation et lien manquants : '+section.id);
+ assert.ok(section.steps?.length>=4&&section.steps.every(st=>st.label&&st.text.length>=130),'Fiche 07 : notions trop courtes : '+section.id);
+ assert.ok(section.example?.title&&section.example.text.length>=390,'Fiche 07 : exemple pédagogique absent : '+section.id);
+ assert.ok(section.takeaway.length>=170&&section.sourceNote.includes('t. 1'),'Fiche 07 : synthèse et référence manquantes : '+section.id);
+}
+assert.ok(book.usedWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Formule originale de Khalîl non attribuée');
+assert.ok(book.usedWater.sections[1].passage.sourceLabel.includes('Al-Qarâfî'),'Citation de la Dhakhîra mal attribuée');
+assert.ok(book.usedWater.sections[3].paragraphs.some(x=>x.includes('Asbagh')),'Divergences insuffisamment documentées');
+assert.ok(book.usedWater.sections[4].passage.sourceLabel.includes('al-Hattâb'),'Argument personnel du commentateur non identifié');
+assert.equal(book.usedWater.lexicon.length,12,'Douze entrées de lexique requises dans la fiche 07');
+assert.equal(new Set(book.usedWater.lexicon.map(x=>x.term)).size,12,'Doublons dans le lexique 07');
+assert.ok(book.usedWater.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=90),'Définition de lexique insuffisante 07');
+assert.equal(book.usedWater.quiz.length,9,'Neuf questions corrigées attendues dans la fiche 07');
+for(const q of book.usedWater.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation.length>=115,'Question ou correction incomplète fiche 07');
+assert.equal(book.usedWater.quote.arabic,'وكره ماء مستعمل في حدث');
+assert.ok(book.usedWater.sources.some(x=>x.url===book.book.sourceUrl));
+assert.ok(book.usedWater.sources.some(x=>x.url.includes('/19/107/')),'Source arabe de la fiche 07 absente');
 const advancedLessons = [
- {key:'usedWater',number:'07',id:'used-water-07',ids:['third-category','what-used-means','different-opinions','context-and-limits'],quote:'وكره ماء مستعمل في حدث',urls:['/19/107/']},
  {key:'recommendedWater',number:'08',id:'recommended-used-water-08',ids:['why-distinguish','source-disagreement','washes','classify'],quote:'وفي غيره تردد',urls:['/19/108/']},
  {key:'flowingWater',number:'09',id:'flowing-stagnant-water-09',ids:['water-flow','where-falls','stagnant','no-mechanical-rule'],quote:'وراكد يغتسل فيه',urls:['/19/111/','/19/113/']}
 ];
@@ -218,7 +251,7 @@ for(const spec of advancedLessons){
  assert.ok(entry.sources.some(x=>x.url===book.book.sourceUrl));
  for(const path of spec.urls) assert.ok(entry.sources.some(x=>x.url.includes(path)),'Source arabe manquante : '+path);
 }
-assert.equal(new Set(advancedLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,18,'Les 18 entrées de lexique doivent être distinctes entre les trois fiches');
+assert.equal(new Set(['usedWater',...advancedLessons.map(x=>x.key)].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,24,'Les 24 termes de lexique des fiches 07–09 doivent être distincts');
 const latestLessons = [
  {key:'publicBasins',number:'10',id:'public-basins-10',ids:['context','changed','unchanged','renewal'],quote:'وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ',urls:['/19/114/']},
  {key:'limitedWell',number:'11',id:'well-necessity-11',ids:['well','procedure','necessity','washing-basin'],quote:'يَحْتَالُ حَتَّى يَغْسِلَ يَدَيْهِ وَيَغْرِفَ وَيَغْتَسِلَ',urls:['/19/115/','/19/116/']},
@@ -261,4 +294,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiches 07-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiches 08-12 préservées ; '+shell.length+' ressources PWA.');

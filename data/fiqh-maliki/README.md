@@ -1,6 +1,6 @@
 # Fiqh malikite · Parcours 01–12
 
-**État au 16 novembre 2026 : douze fiches, avec une fiche 01 remaniée en cours guidé sur la branche de refonte.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 16 novembre 2026 : douze fiches, avec les fiches 01 à 07 remaniées progressivement en cours guidés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -160,16 +160,29 @@ La fiche est intégrée à la navigation existante ; **12 fiches disponibles**, 
 
 Ces trois fiches suivent le développement de la discussion sur les eaux dans *Mawâhib al-Jalîl*, tome 1, **pages 67–75**. Elles sont une synthèse pédagogique en français du commentaire d'al-Hattâb, sans traduction exhaustive ni jugement juridique nouveau.
 
-### Fiche 07 — L'eau déjà utilisée pour la purification rituelle
+### Fiche 07 — L’eau déjà utilisée : sept lectures commentées du fiqh malikite
 
-Passage : « وكره ماء مستعمل في حدث », **Khalîl**, reproduit et commenté par al-Hattâb (t. 1, p. 67–68).
+**Refonte pédagogique du 16 novembre 2026.** La fiche 07, auparavant composée de quatre synthèses, propose désormais **sept lectures guidées** de *Mawâhib al-Jalîl*, tome 1, p. 67–68. L’objectif est de lire directement des extraits de Khalîl, d’al-Hattâb et de juristes qu’il cite, sans confondre l’avis célèbre, les opinions divergentes ni les situations pratiques.
 
-1. L'eau « utilisée » n'est pas synonyme d'eau impure : distinction entre purifiant et réprouvé selon le *mashhûr*.
-2. L'eau qui a effectivement coulé des membres ou recueillie après usage n'est pas identique au reliquat d'eau resté dans un récipient.
-3. L'avis célèbre et les autres avis historiques sont distingués ; le commentaire ne prétend pas à une unanimité.
-4. Raisonnement contextualisé selon usage, quantité, présence de saleté et disponibilité d'une autre eau.
+### Les sept lectures
 
-Source primaire : [Islamweb, t. 1, p. 67–68](https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+1. **« وكره ماء مستعمل في حدث » (Khalîl, p. 67)** — eau purifiante dont l’utilisation peut être réprouvée dans le mashhûr ; distinguer *tahûr*, *makrûh* et *najis*.
+2. **« الماء المتنازع فيه هو المجموع عن الأعضاء… » (al-Qarâfî, cité par al-Hattâb, p. 67)** — eau recueillie après le lavage, reliquat du récipient, eau encore sur le membre, et condition d’absence de souillure.
+3. **« فإن لم يجد غيره تطهر به… » (al-Hattâb, p. 67)** — lorsque aucune autre eau n’est disponible, utiliser l’eau qualifiée de purifiante par l’avis *mashhûr* plutôt que recourir automatiquement au tayammum.
+4. **« ومقابل المشهور… قولان » (al-Hattâb, p. 67)** — les deux opinions en divergence, leurs transmissions et la réserve sur une attribution à al-Abharî.
+5. **« والراجح في تعليل الكراهة… » (al-Hattâb, p. 67)** — les justifications rapportées et la préférence du commentateur pour l’argument lié au désaccord sur le pouvoir purifiant.
+6. **« ولا شك أن المحكوم له بالكراهة هو اليسير » (al-Hattâb, p. 67)** — quantité limitée, regroupement de plusieurs eaux, désaccord entre Ibn ‘Abd al-Salâm et Ibn al-Imâm, et préférence exprimée par al-Hattâb.
+7. **« تعين عليه ذلك ولا يجوز له التيمم » (al-Hattâb, p. 68)** — cas d’eau récupérable pour terminer des ablutions, réponse rapportée d’Ibn Abî Zayd, objection d’Ibn Hârûn et conclusion contextualisée.
+
+**Format de chaque étape :** citation originale arabe vérifiée et attribuée, traduction de sens, contextualisation, **deux paragraphes développés**, quatre notions expliquées, exemple concret *explicitement pédagogique*, conclusion à retenir et **lien direct** vers le passage. La fiche comporte **sept objectifs, douze entrées de lexique et neuf questions corrigées**.
+
+### Sources primaires
+
+- [Usul — Mawâhib al-Jalîl : texte et notice bibliographique](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+- [Islamweb — Mawâhib al-Jalîl, tome 1, p. 67–68, commentaire de « وكره ماء مستعمل في حدث »](https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+- [Islamweb — al-Qarâfî, Dhakhîra, t. 1, p. 175 : délimitation de l’eau utilisée](https://www.islamweb.net/ar/library/content/92/111/%D8%A7%D9%84%D9%88%D8%B3%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1).
+
+**Précautions :** « pur » et « purifiant » ne sont pas interchangeables ; les opinions rapportées ne sont pas artificiellement mises au même rang ; les situations modernes sont inventées et ne délivrent pas de fatwa. Les fiches 01–06 et 08–12 ainsi que la clé de progression `athar_fiqh_maliki_eaux_07_done` sont conservées.
 
 ### Fiche 08 — L'eau employée pour les actes recommandés
 
@@ -193,7 +206,7 @@ Passage : « وراكد يغتسل فيه », **Khalîl**, commenté par al-Hatt
 
 Sources primaires : [Islamweb, t. 1, p. 73–74](https://islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1) et [Islamweb, t. 1, p. 74–75](https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1).
 
-**Format conservé :** quatre développements longs, un extrait arabe court attribué, six termes arabes définis et trois questions à choix multiples corrigées **pour chacune des trois fiches**. Les déclarations de l'auteur du *Mukhtasar*, celles du commentateur et les avis de ses sources sont distingués.
+**Format conservé pour les fiches 08 et 09 :** quatre développements longs, un extrait arabe court attribué, six termes arabes définis et trois questions à choix multiples corrigées. Les déclarations de l'auteur du *Mukhtasar*, celles du commentateur et les avis de ses sources sont distingués.
 
 
 ## Fiches 10 à 12 — Cas complémentaires du Livre de la purification

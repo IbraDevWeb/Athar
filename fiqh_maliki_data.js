@@ -2444,118 +2444,448 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "used-water-07",
     "number": "07",
     "status": "disponible",
-    "title": "L’eau déjà utilisée pour la purification rituelle",
-    "subtitle": "Comprendre le statut de l’eau recueillie après les ablutions ou le ghusl, la portée de la réprobation et les avis rapportés dans l’école malikite.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, passage « وكره ماء مستعمل في حدث » (Mawâhib al-Jalîl, t. 1, p. 67–68)",
+    "title": "L’eau déjà utilisée : comprendre le jugement et ses nuances",
+    "subtitle": "Sept lectures guidées sur l’eau des ablutions et du ghusl : définitions, avis célèbre, cas de besoin, divergences et méthode de lecture d’al-Hattâb.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « وكره ماء مستعمل في حدث » · Mawâhib al-Jalîl, t. 1, p. 67–68",
     "sections": [
       {
         "id": "third-category",
-        "eyebrow": "01 · Une troisième catégorie",
-        "title": "Une eau utilisée est-elle forcément impure ?",
+        "eyebrow": "ÉTAPE 01 · UNE TROISIÈME CATÉGORIE D’EAU",
+        "title": "Pourquoi une eau peut-elle être purifiante et néanmoins réprouvée ?",
         "paragraphs": [
-          "Après avoir traité l’eau purifiante et l’eau qui ne peut pas servir à purifier, al-Hattâb explique que Khalîl ouvre une troisième catégorie : l’eau dont l’utilisation est réprouvée tout en étant considérée comme purifiante selon l’avis qu’il présente comme célèbre dans l’école. Le terme makrûh ne doit donc pas être lu comme synonyme de najis : il désigne ici une réprobation de l’emploi dans des conditions données, non une souillure matérielle de l’eau.",
-          "Le texte porte sur l’eau employée pour lever un hadath, c’est-à-dire un état d’impureté rituelle. L’explication précise que cette réprobation est envisagée lorsqu’une autre eau peut être utilisée. En l’absence d’autre eau, al-Hattâb rapporte, selon l’avis célèbre, qu’on se purifie avec cette eau plutôt que de recourir au tayammum. Il ne faut pas transformer cette règle contextualisée en interdiction générale de réutiliser toute eau ayant touché un corps propre."
+          "Après avoir traité l’eau purifiante et l’eau qui ne peut pas servir à purifier, al-Hattâb explique que Khalîl ouvre une troisième catégorie : l’eau dont l’utilisation est réprouvée tout en étant considérée comme purifiante selon l’avis qu’il présente comme célèbre dans l’école. Le terme makrûh ne doit donc pas être lu comme synonyme de najis : il désigne ici une réprobation de l’emploi dans des conditions données, non une souillure matérielle de l’eau. C’est justement pour cela que le livre utilise plusieurs termes au lieu de dire simplement « propre » ou « sale ». Une qualification porte sur ce que l’eau peut accomplir juridiquement, une autre sur le caractère conseillé ou réprouvé de son emploi.",
+          "Le texte porte sur l’eau employée pour lever un hadath, c’est-à-dire un état d’impureté rituelle. L’explication précise que cette réprobation est envisagée lorsqu’une autre eau peut être utilisée. En l’absence d’autre eau, al-Hattâb rapporte, selon l’avis célèbre, qu’on se purifie avec cette eau plutôt que de recourir au tayammum. Il ne faut pas transformer cette règle contextualisée en interdiction générale de réutiliser toute eau ayant touché un corps propre. Ce chapitre poursuit donc les classifications des eaux sans effacer ce qui a été appris auparavant. L’état rituel à lever, l’usage effectif de l’eau et la présence d’une solution alternative sont autant d’éléments nécessaires à la bonne lecture."
         ],
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 67, début de « وكره ماء مستعمل في حدث », distinction entre « طهور », « مكروه » et avis مشهور."
+        "sourceNote": "Source : Khalîl, « وكره ماء مستعمل في حدث », commentaire d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 67. Exemple créé pour Athar.",
+        "passage": {
+          "arabic": "وكره ماء مستعمل في حدث",
+          "translation": "« L’emploi d’une eau déjà utilisée pour lever un hadath est réprouvé. »",
+          "explanation": "Formule de Khalîl reprise et commentée par al-Hattâb : la réprobation n’exclut pas ici le pouvoir purifiant de l’eau dans le mashhûr.",
+          "sourceLabel": "Texte de Khalîl cité par al-Hattâb, t. 1, p. 67.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "steps": [
+          {
+            "label": "« Musta‘mal » : une eau effectivement employée",
+            "text": "Le terme ne signifie pas simplement qu’un robinet a été ouvert ou qu’une personne a puisé dans un contenant. La manière dont l’eau a servi à la purification doit être examinée."
+          },
+          {
+            "label": "« Hadath » : un état rituel",
+            "text": "Le hadath n’est pas une saleté visible, mais un état juridique dont la levée est nécessaire pour certains actes. Il ne faut donc pas supposer que l’eau a rencontré une souillure."
+          },
+          {
+            "label": "« Tahûr » : le pouvoir de purifier",
+            "text": "La possibilité d’utiliser juridiquement cette eau pour une nouvelle purification est distinguée de sa simple pureté. Le mashhûr présenté ici maintient cette possibilité."
+          },
+          {
+            "label": "« Makrûh » : une réprobation circonstanciée",
+            "text": "Le mot indique une appréciation négative du réemploi dans le contexte précis du passage. Il ne signifie pas automatiquement impureté, invalidité, ni interdiction absolue."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : l’eau récupérée dans une bassine",
+          "text": "Une personne réalise ses ablutions en laissant couler l’eau de ses mains dans une bassine. Un observateur dit : « Cette eau a servi, donc elle est impure. » Un second dit : « Elle a l’air propre, donc son réemploi ne peut être réprouvé. » Chacun confond des notions différentes. Le cours invite à examiner si l’eau demeure purifiante et si son emploi entre dans la catégorie décrite par Khalîl. Cette scène est imaginée pour comprendre les mots, et non pour décider de la validité d’ablutions particulières."
+        },
+        "takeaway": "Dans la lecture du mashhûr proposée par al-Hattâb, une eau ayant servi à lever un hadath reste purifiante, mais son réemploi peut être réprouvé. Retenir une seule étiquette, comme « sale » ou « interdite », ferait disparaître la distinction essentielle du passage."
       },
       {
         "id": "what-used-means",
-        "eyebrow": "02 · Définir précisément",
-        "title": "De quelle eau parle-t-on : eau tombée des membres ou eau restant dans le récipient ?",
+        "eyebrow": "ÉTAPE 02 · DÉFINIR EXACTEMENT L’EAU UTILISÉE",
+        "title": "L’eau restée dans le récipient a-t-elle vraiment été utilisée ?",
         "paragraphs": [
-          "Al-Hattâb reprend les explications de ses prédécesseurs : le débat concerne notamment l’eau recueillie après avoir coulé sur les membres ou, selon des configurations distinctes, l’eau dans laquelle la personne s’est lavée. Il précise que le raisonnement suppose que les membres ne portent ni souillure ni saleté ayant elle-même modifié le statut de l’eau ; sinon, d’autres règles entrent en jeu.",
-          "Une distinction essentielle est explicitement relevée : l’eau restante dans le récipient après les ablutions n’est pas automatiquement de « l’eau utilisée » au sens technique débattu. De même, l’eau présente sur le membre pendant qu’on l’emploie ne doit pas être assimilée sans nuance à l’eau recueillie après usage. Cela empêche de déclarer « utilisée » toute eau simplement puisée dans une cruche pour accomplir le wudû’. "
+          "Al-Hattâb reprend les explications de ses prédécesseurs : le débat concerne notamment l’eau recueillie après avoir coulé sur les membres ou, selon des configurations distinctes, l’eau dans laquelle la personne s’est lavée. Il précise que le raisonnement suppose que les membres ne portent ni souillure ni saleté ayant elle-même modifié le statut de l’eau ; sinon, d’autres règles entrent en jeu. Cette définition précise empêche d’étendre trop loin un terme technique. Le parcours réel de l’eau compte davantage que le simple fait qu’elle se trouve dans la même pièce ou le même récipient qu’une personne en train de se purifier.",
+          "Une distinction essentielle est explicitement relevée : l’eau restante dans le récipient après les ablutions n’est pas automatiquement de « l’eau utilisée » au sens technique débattu. De même, l’eau présente sur le membre pendant qu’on l’emploie ne doit pas être assimilée sans nuance à l’eau recueillie après usage. Cela empêche de déclarer « utilisée » toute eau simplement puisée dans une cruche pour accomplir le wudû’. De plus, le passage rapporté de la Dhakhîra précise que l’eau allant d’une partie d’un même membre à une autre ne devient pas, de ce seul fait, l’eau recueillie dont le statut est discuté. Cela écarte une confusion fréquente dans la pratique."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 67–68, « تنبيهات الأول », distinction de l’eau recueillie après écoulement, du reliquat du récipient et de l’eau encore sur le membre."
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 67, premier tanbîh et citation de la Dhakhîra d’al-Qarâfî. Exemple pédagogique d’Athar.",
+        "passage": {
+          "arabic": "الماء المتنازع فيه هو المجموع عن الأعضاء لا ما يفضل في الإناء بعد الطهارة",
+          "translation": "« L’eau faisant l’objet du désaccord est celle recueillie après le lavage des membres, et non l’eau restante dans le récipient. »",
+          "explanation": "Al-Hattâb cite ici la Dhakhîra d’al-Qarâfî : une précision fondamentale sur l’objet réel de la divergence, distincte des paroles de Khalîl.",
+          "sourceLabel": "Al-Qarâfî, al-Dhakhîra, cité par al-Hattâb, t. 1, p. 67, premier tanbîh.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "steps": [
+          {
+            "label": "Le reliquat non puisé",
+            "text": "L’eau restée au fond d’une cruche après avoir servi de réserve n’est pas automatiquement classée comme eau musta‘mala. Le texte cité par al-Hattâb l’écarte explicitement du litige."
+          },
+          {
+            "label": "L’eau recueillie après lavage",
+            "text": "L’eau qui s’est détachée des membres après avoir accompli la purification est au centre de la discussion. C’est le type d’eau désigné dans la citation de la Dhakhîra."
+          },
+          {
+            "label": "L’eau en cours de circulation",
+            "text": "La même eau peut parcourir un membre pendant son lavage. Cela ne permet pas de dire qu’elle perd immédiatement son statut dès qu’elle touche une partie de ce membre."
+          },
+          {
+            "label": "L’existence d’une souillure",
+            "text": "La discussion suppose l’absence de souillure et de matière modifiant l’eau indépendamment de l’usage rituel. Si une substance l’altère, on revient aux distinctions des fiches précédentes."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : trois eaux qu’il ne faut pas confondre",
+          "text": "Une cruche contient encore de l’eau non versée. Une petite assiette a recueilli l’eau tombée après le lavage des mains. Une troisième bassine a servi à y plonger directement les membres. Il serait inexact de les appeler toutes trois « eau utilisée » sans autre précision. Al-Hattâb distingue justement le reliquat, le liquide recueilli et des situations de lavage dans un contenant. Ce dispositif en trois récipients est un exemple d’apprentissage, pas la description d’un cas tranché."
+        },
+        "takeaway": "L’expression « eau utilisée » ne s’applique pas indifféremment à l’eau d’une cruche, à celle qui s’écoule du corps et à celle qui demeure sur le membre. Avant d’en déduire un jugement, il faut identifier l’eau réellement concernée par le désaccord rapporté."
+      },
+      {
+        "id": "availability",
+        "eyebrow": "ÉTAPE 03 · QUAND IL N’EXISTE PAS D’AUTRE EAU",
+        "title": "Pourquoi le texte distingue-t-il la disponibilité d’une autre eau ?",
+        "passage": {
+          "arabic": "فإن لم يجد غيره تطهر به ولا يتيمم مع وجوده",
+          "translation": "« S’il ne trouve pas d’autre eau, il se purifie avec celle-ci et ne fait pas le tayammum en sa présence. »",
+          "explanation": "Al-Hattâb explique lui-même cette conséquence de la position mashhûr : la réprobation du réemploi est liée à l’existence d’une autre eau utilisable.",
+          "sourceLabel": "Paroles d’al-Hattâb, t. 1, p. 67, exposé du mashhûr.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Nous savons désormais distinguer les différents types d’eau. Il reste à comprendre pourquoi al-Hattâb ajoute une condition pratique à sa règle : l’eau déjà utilisée est réprouvée quand il en existe une autre. Ce détail n’est pas décoratif. Il montre que la qualification makrûh ne peut pas être interprétée de la même façon quand une personne possède beaucoup d’eau et quand elle ne dispose plus que de l’eau recueillie après sa purification.",
+          "Selon l’avis célèbre qu’il présente, si aucune autre eau n’est disponible, cette eau demeure utilisée pour se purifier plutôt que de recourir au tayammum. Le commentaire évoque des conséquences juridiques en cas de choix contraire. Il faut cependant rester dans le cas défini : eau ayant servi à lever un hadath, sans autre altération, et question précise de sa disponibilité. On n’extrapole pas cette phrase à n’importe quel liquide ou situation de nécessité."
+        ],
+        "steps": [
+          {
+            "label": "La condition « avec une autre eau »",
+            "text": "La réprobation exposée par al-Hattâb est liée à l’existence d’une autre eau. Sans lire cette condition, on transformerait une règle nuancée en affirmation absolue."
+          },
+          {
+            "label": "Le tayammum est une purification encadrée",
+            "text": "Il ne suffit pas de préférer ne pas utiliser une eau pour conclure qu’un recours au tayammum est permis. Il faut examiner ce que l’école considère encore comme purifiant."
+          },
+          {
+            "label": "Le statut mashhûr",
+            "text": "Al-Hattâb signale lui-même qu’il expose la position célèbre de l’école. Il ne prétend pas que toute opinion divergente a disparu, ce que la suite du passage démontre."
+          },
+          {
+            "label": "Identifier la situation réelle",
+            "text": "On doit savoir si une autre eau existe, si l’eau est effectivement celle du cas étudié et si aucune autre circonstance ne modifie son jugement. Le contexte précède l’application."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : une halte où l’eau manque",
+          "text": "Pendant un déplacement, une personne a accompli une partie de sa purification et recueilli de l’eau qui s’est écoulée de membres propres. Elle n’a pas d’autre réserve à sa disposition. Dire immédiatement « l’eau a déjà servi, le tayammum s’impose » effacerait la nuance du mashhûr expliquée par al-Hattâb. Le scénario sert à comprendre pourquoi la disponibilité compte ; il ne vaut ni consultation juridique ni jugement sur une situation de voyage précise."
+        },
+        "takeaway": "Selon le mashhûr présenté par al-Hattâb, l’eau déjà employée pour lever un hadath demeure purifiante : en présence d’une autre eau, son réemploi est réprouvé ; en son absence, elle est utilisée plutôt que de passer automatiquement au tayammum.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 67, passage « فإن لم يجد غيره ». Exemple créé pour Athar."
       },
       {
         "id": "different-opinions",
-        "eyebrow": "03 · Avis rapportés",
-        "title": "Pourquoi al-Hattâb cite-t-il d’autres qualifications juridiques ?",
+        "eyebrow": "ÉTAPE 04 · L’AVIS CÉLÈBRE ET LES DEUX AUTRES",
+        "title": "Comment lire un désaccord sans lui attribuer une fausse unanimité ?",
         "paragraphs": [
-          "Le commentaire ne cache pas les divergences historiques. Face à l’avis célèbre qui maintient le caractère purifiant en réprouvant l’usage lorsqu’une autre eau est disponible, al-Hattâb signale notamment une opinion suivant laquelle cette eau n’est pas purifiante. Il cite aussi une position qui la considère comme douteuse et propose alors d’associer une purification avec cette eau et le tayammum dans le contexte décrit.",
-          "Ces transmissions ne doivent pas être mises artificiellement au même rang ni effacées. Il faut lire à chaque fois qui rapporte la position et la façon dont al-Hattâb présente le mashhûr. Son analyse des motifs de la réprobation souligne d’ailleurs que la divergence portant sur la qualité purifiante de l’eau est une explication importante de la précaution retenue."
+          "Le commentaire ne cache pas les divergences historiques. Face à l’avis célèbre qui maintient le caractère purifiant en réprouvant l’usage lorsqu’une autre eau est disponible, al-Hattâb signale notamment une opinion suivant laquelle cette eau n’est pas purifiante. Il cite aussi une position qui la considère comme douteuse et propose alors d’associer une purification avec cette eau et le tayammum dans le contexte décrit. Les chaînes d’attribution sont importantes : la première opinion est transmise notamment par Asbagh d’après Mâlik et par Ibn al-Qassâr d’après Ibn al-Qâsim. La deuxième est rattachée par Ibn Bashîr à al-Abharî, mais cette attribution a été contestée.",
+          "Ces transmissions ne doivent pas être mises artificiellement au même rang ni effacées. Il faut lire à chaque fois qui rapporte la position et la façon dont al-Hattâb présente le mashhûr. Son analyse des motifs de la réprobation souligne d’ailleurs que la divergence portant sur la qualité purifiante de l’eau est une explication importante de la précaution retenue. Ainsi, le passage ne nous demande ni d’effacer ces transmissions ni de les traiter comme des consignes interchangeables. Pour étudier une école juridique, il faut distinguer qui rapporte une position, à qui elle est attribuée et laquelle est désignée comme célèbre."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 67, avis rapportés d’Asbagh, Ibn al-Qâsim, al-Abharî et discussion de la cause de la réprobation."
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 67, « ومقابل المشهور » ; transmissions d’Asbagh, Ibn al-Qâsim, Ibn Bashîr et al-Abharî. Exemple créé pour Athar.",
+        "passage": {
+          "arabic": "ومقابل المشهور في الماء المستعمل في الحدث قولان",
+          "translation": "« En opposition à l’avis célèbre, deux autres positions existent pour l’eau utilisée afin de lever un hadath. »",
+          "explanation": "Al-Hattâb distingue expressément le mashhûr des deux opinions rapportées : l’une nie le pouvoir purifiant de l’eau, l’autre le tient pour douteux.",
+          "sourceLabel": "Paroles d’al-Hattâb, t. 1, p. 67, exposition des divergences.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "steps": [
+          {
+            "label": "L’avis mashhûr reste identifié",
+            "text": "Le maintien du pouvoir purifiant et la réprobation conditionnelle constituent la position qu’al-Hattâb présente comme célèbre. Les autres avis sont introduits comme des oppositions."
+          },
+          {
+            "label": "Une eau jugée non purifiante",
+            "text": "L’un des avis rapportés retire à l’eau sa capacité à lever un hadath. Cela ne doit pas être reformulé comme si tous les juristes la qualifiaient d’eau matériellement impure."
+          },
+          {
+            "label": "Une eau dont le statut est jugé incertain",
+            "text": "L’autre position conduit, dans le cadre décrit, à joindre l’utilisation de cette eau au tayammum pour une prière. Ce n’est pas le mashhûr présenté précédemment."
+          },
+          {
+            "label": "L’attribution est elle-même discutée",
+            "text": "Al-Hattâb rapporte qu’Ibn Bashîr attribue cette position à al-Abharî, mais qu’une contestation existe. Un cours rigoureux doit conserver la réserve sans la transformer en certitude."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : trois conclusions à annoter",
+          "text": "Sur ton cahier, tu notes trois phrases : « Elle reste purifiante », « Elle n’est plus purifiante » et « Sa capacité à purifier est incertaine ». Si tu les recopies sans étiquette, personne ne saura laquelle le livre retient comme mashhûr. Il faut identifier la première comme avis célèbre dans le passage, attribuer correctement les autres et ne pas supprimer les réserves sur les transmissions. Cet exercice reproduit la structure du désaccord, sans établir de nouvelle fatwa."
+        },
+        "takeaway": "Le commentaire reconnaît deux avis divergents en plus du mashhûr : un avis selon lequel l’eau n’est pas purifiante, et un avis selon lequel son pouvoir purifiant est incertain. Leur existence ne supprime pas la hiérarchie des avis que l’auteur donne."
+      },
+      {
+        "id": "reasoning",
+        "eyebrow": "ÉTAPE 05 · POURQUOI L’USAGE EST-IL RÉPROUVÉ ?",
+        "title": "La réprobation vient-elle d’une saleté ou d’un désaccord juridique ?",
+        "passage": {
+          "arabic": "والراجح في تعليل الكراهة كونه مختلفا في طهوريته",
+          "translation": "« L’explication la plus prépondérante de la réprobation est qu’il existe un désaccord sur son pouvoir purifiant. »",
+          "explanation": "Al-Hattâb rapporte différentes justifications puis indique celle qu’il juge plus forte. La phrase est sa prise de position, et non une formulation de Khalîl.",
+          "sourceLabel": "Propos d’al-Hattâb, t. 1, p. 67, causes de la réprobation.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Pourquoi réprouver l’emploi d’une eau que l’avis célèbre reconnaît pourtant comme purifiante ? Al-Hattâb n’invite pas le lecteur à inventer une propriété physique mystérieuse. Il recense plusieurs explications historiques : cette eau a déjà servi à une adoration, elle a permis de lever un état rituel, on ignore parfois si elle a été souillée, ou certains auteurs estiment qu’elle a perdu une « force ». Ce sont des raisonnements rapportés, pas des expériences établissant une transformation matérielle de l’eau.",
+          "Le commentaire exprime ensuite une préférence nette : la justification qu’al-Hattâb juge la plus prépondérante est le désaccord sur l’aptitude purifiante de cette eau. Comprendre cette préférence exige de relier l’étape présente à celle des avis divergents. La réprobation est alors comprise dans un cadre de prudence juridique face à une controverse, et non comme une affirmation que chaque goutte d’eau recueillie serait sale ou dangereuse."
+        ],
+        "steps": [
+          {
+            "label": "Des arguments exposés, non tous approuvés",
+            "text": "Quand le commentaire énumère « il a été dit », il rapporte des justifications concurrentes. Le lecteur doit repérer le moment où l’auteur donne sa propre préférence."
+          },
+          {
+            "label": "L’adoration déjà accomplie",
+            "text": "L’idée que l’eau a déjà servi à une adoration est bien mentionnée parmi les motifs. Elle ne signifie pas que tout usage religieux modifie nécessairement la nature physique de l’eau."
+          },
+          {
+            "label": "La justification privilégiée",
+            "text": "Al-Hattâb retient comme plus convaincante la divergence des juristes sur la qualité purifiante. On comprend alors que la question est méthodologique et juridique."
+          },
+          {
+            "label": "Ne pas transformer une image en science",
+            "text": "Les formules anciennes sur la « force » de l’eau ou les « péchés » sont rapportées comme des arguments historiques. Elles ne doivent pas devenir des certitudes expérimentales dans une fiche."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : reconnaître le raisonnement privilégié",
+          "text": "Imagine un commentaire contenant cinq explications possibles d’une règle puis une phrase : « La plus forte est la troisième. » Un résumé qui reproduirait les cinq raisons sans mentionner cette dernière phrase déformerait l’analyse de l’auteur. Ici, le choix d’al-Hattâb porte sur la divergence relative au pouvoir purifiant. Cet exercice vise à apprendre la lecture argumentative d’un commentaire ancien, et non à mesurer une prétendue transformation de l’eau."
+        },
+        "takeaway": "Al-Hattâb n’énumère pas des causes toutes équivalentes : il donne préférence à l’explication fondée sur la divergence concernant la qualité purifiante de l’eau. Il faut distinguer les motifs rapportés de l’argument que le commentateur juge prépondérant.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 67, « واختلف في علة كراهية الماء المستعمل ». Exemple d’analyse créé pour Athar."
+      },
+      {
+        "id": "quantity",
+        "eyebrow": "ÉTAPE 06 · PEU D’EAU OU EAU RASSEMBLÉE",
+        "title": "Si on réunit plusieurs eaux utilisées, leur statut change-t-il ?",
+        "passage": {
+          "arabic": "ولا شك أن المحكوم له بالكراهة هو اليسير",
+          "translation": "« Ce qui est qualifié de réprouvé ici concerne une petite quantité d’eau. »",
+          "explanation": "Al-Hattâb distingue la faible quantité de l’eau abondante et discute un désaccord sur des eaux usagées réunies en grande quantité.",
+          "sourceLabel": "Paroles d’al-Hattâb, t. 1, p. 67, deuxième tanbîh.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Après les conditions d’usage, la quantité d’eau devient un problème. L’eau qui s’écoule en petites quantités des membres n’est pas le même cas qu’une vaste étendue dans laquelle quelqu’un se lave. Al-Hattâb souligne le caractère réduit de l’eau dont le réemploi est réprouvé dans cette discussion. Le passage ne donne toutefois pas de conversion universelle en litres : il serait trompeur de fabriquer un seuil chiffré présenté comme une parole de l’auteur.",
+          "Il cite ensuite Ibn ‘Abd al-Salâm, qui se demande si la réprobation disparaît lorsque plusieurs eaux déjà utilisées sont recueillies jusqu’à constituer un volume important. Ibn al-Imâm conserve, pour sa part, la qualification acquise par les portions avant leur réunion. Al-Hattâb juge cette seconde analyse plus apparente. Il distingue ce problème de l’ajout d’eau nouvelle à une petite quantité d’eau déjà utilisée : le type de mélange compte autant que la quantité."
+        ],
+        "steps": [
+          {
+            "label": "« Yasîr » : la faible quantité",
+            "text": "La quantité réduite est une caractéristique pertinente dans le raisonnement. Rien dans cette citation ne permet de poser à elle seule un nombre de litres valable pour tous les cas."
+          },
+          {
+            "label": "Plusieurs eaux utilisées mises ensemble",
+            "text": "Le regroupement de petites quantités est précisément le sujet du désaccord transmis. Une collection de portions utilisées ne doit pas être assimilée sans discussion à une réserve d’eau neuve."
+          },
+          {
+            "label": "Ibn ‘Abd al-Salâm et Ibn al-Imâm",
+            "text": "Le premier envisage la disparition de la réprobation par regroupement ; le second maintient l’effet de la qualification initiale. Le texte transmet leurs analyses distinctement."
+          },
+          {
+            "label": "La préférence du commentateur",
+            "text": "Al-Hattâb estime la position d’Ibn al-Imâm plus apparente. Cela n’autorise pas à effacer le désaccord ni à inventer une mesure précise de volume."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : plusieurs bols réunis dans une cuve",
+          "text": "Tu places plusieurs petits bols contenant une eau qui s’est écoulée de membres propres dans une plus grande cuve. Le volume final est supérieur à celui de chaque bol. Suffit-il de dire que l’eau n’est plus concernée par la réprobation ? Non : c’est précisément la difficulté débattue dans le commentaire. Il faut également distinguer ce regroupement de l’ajout d’eau neuve. Les contenants sont inventés pour comprendre la question ; aucune règle de recyclage domestique n’est ici donnée."
+        },
+        "takeaway": "Le volume peut jouer un rôle dans l’analyse, mais le regroupement de plusieurs petites quantités d’eau déjà utilisée fait l’objet d’un désaccord transmis et examiné par al-Hattâb. Le passage ne fournit pas de seuil universel chiffré pour tous les contenants.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 67, deuxième tanbîh ; discussion d’Ibn ‘Abd al-Salâm et d’Ibn al-Imâm. Exemple créé pour Athar."
       },
       {
         "id": "context-and-limits",
-        "eyebrow": "04 · Savoir appliquer le texte",
-        "title": "Comment raisonner sur un récipient après des ablutions ?",
+        "eyebrow": "ÉTAPE 07 · LE CAS D’UNE EAU INSUFFISANTE",
+        "title": "Pourquoi al-Hattâb examine-t-il la récupération d’une eau pour finir les ablutions ?",
         "paragraphs": [
-          "Avant d’attribuer un jugement, l’étudiant doit demander : l’eau a-t-elle servi à lever le hadath ? S’agit-il du reliquat non utilisé d’un récipient, de l’eau qui s’est écoulée des membres, ou d’une quantité dans laquelle quelqu’un s’est plongé ? Des impuretés ou saletés sont-elles présentes ? Existe-t-il une autre eau ? Ces questions correspondent à des distinctions effectivement discutées dans le commentaire.",
-          "Al-Hattâb évoque également la question de la quantité et les désaccords concernant le regroupement d’eaux déjà utilisées. Cette fiche n’en déduit aucune mesure universelle ni règle de recyclage domestique. Son objectif est de montrer que « pure », « purifiante », « réprouvée » et « utilisée » sont des catégories juridiques distinctes qui exigent une description précise de la situation."
+          "Avant d’attribuer un jugement, l’étudiant doit demander : l’eau a-t-elle servi à lever le hadath ? S’agit-il du reliquat non utilisé d’un récipient, de l’eau qui s’est écoulée des membres, ou d’une quantité dans laquelle quelqu’un s’est plongé ? Des impuretés ou saletés sont-elles présentes ? Existe-t-il une autre eau ? Ces questions correspondent à des distinctions effectivement discutées dans le commentaire. Al-Hattâb rapporte à ce propos une réponse d’Ibn Abî Zayd et des discussions d’Ibn Hârûn et d’Ibn ‘Arafa. Le débat porte notamment sur la question de savoir à quel moment la purification d’un membre est achevée.",
+          "Al-Hattâb évoque également la question de la quantité et les désaccords concernant le regroupement d’eaux déjà utilisées. Cette fiche n’en déduit aucune mesure universelle ni règle de recyclage domestique. Son objectif est de montrer que « pure », « purifiante », « réprouvée » et « utilisée » sont des catégories juridiques distinctes qui exigent une description précise de la situation. Dans la conclusion du passage, lorsque la collecte est réalisable dans les conditions évoquées, l’eau récupérée doit être utilisée plutôt que de passer au tayammum. Ce point n’est pas une permission générale d’ignorer d’autres règles de pureté ou de nécessité."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 67–68, remarques sur la quantité, l’eau collectée, les récipients et les situations de besoin."
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 68, troisième tanbîh ; propos rapportés d’Ibn Abî Zayd, Ibn Hârûn et Ibn ‘Arafa. Exemple créé pour Athar.",
+        "passage": {
+          "arabic": "تعين عليه ذلك ولا يجوز له التيمم",
+          "translation": "« Cela lui incombe alors ; il ne lui est pas permis de faire le tayammum. »",
+          "explanation": "Conclusion d’al-Hattâb dans une situation limitée : recueillir l’eau écoulée après le lavage de certains membres pour achever ses ablutions, lorsque c’est possible.",
+          "sourceLabel": "Conclusion d’al-Hattâb, t. 1, p. 68, troisième tanbîh.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "steps": [
+          {
+            "label": "Décrire la quantité réellement disponible",
+            "text": "Le cas discuté concerne une quantité d’eau suffisante pour certains membres mais pas pour achever les ablutions comme d’habitude. Il faut établir ces faits avant de raisonner."
+          },
+          {
+            "label": "Peut-on recueillir l’eau qui s’écoule ?",
+            "text": "La discussion transmise d’Ibn Abî Zayd porte sur l’eau effectivement récupérable pour compléter la purification. Il ne s’agit pas d’une simple supposition abstraite."
+          },
+          {
+            "label": "Pourquoi les juristes discutent-ils le moment d’usage ?",
+            "text": "Ibn Hârûn et Ibn ‘Arafa examinent la question de savoir si chaque membre est purifié séparément ou si le résultat dépend de l’ensemble des ablutions."
+          },
+          {
+            "label": "Lire la conclusion dans son contexte",
+            "text": "Al-Hattâb résume le cas et sa conséquence, mais ce résumé ne remplace ni l’étude du tayammum ni l’examen des conditions supplémentaires d’une situation réelle."
+          }
+        ],
+        "example": {
+          "title": "Exemple pédagogique : rédiger les bonnes questions",
+          "text": "Une personne dit : « Il me reste très peu d’eau pour mes ablutions, puis-je récupérer ce qui coule ? » Avant de répondre, il faut préciser la quantité, le parcours de l’eau, la possibilité réelle de la recueillir, la présence éventuelle de souillures et la disponibilité d’une autre eau. Puis on relit le raisonnement des juristes rapportés par al-Hattâb. Cette mise en situation sert à apprendre la méthode du commentaire, pas à délivrer une fatwa individuelle."
+        },
+        "takeaway": "Le cas de l’eau recueillie pour achever les ablutions montre comment al-Hattâb passe d’une situation précise à l’étude de plusieurs raisonnements et à une conclusion contextualisée. On ne doit jamais faire d’une solution circonstanciée une règle universelle sans vérifier ses conditions."
       }
     ],
     "quote": {
       "arabic": "وكره ماء مستعمل في حدث",
-      "meaning": "Khalîl évoque une eau employée pour lever un état d’impureté rituelle. Al-Hattâb explique que, selon l’avis célèbre qu’il expose, elle reste purifiante mais son usage est réprouvé lorsqu’une autre eau est disponible.",
+      "meaning": "Khalîl parle de l’eau employée pour lever un hadath. Dans le mashhûr exposé par al-Hattâb, elle reste purifiante mais son réemploi est réprouvé lorsqu’une autre eau existe. Le commentaire distingue ensuite l’eau recueillie, le reliquat et les divergences.",
       "label": "Extrait du Mukhtasar de Khalîl reproduit par al-Hattâb, t. 1, p. 67 — explication du sens, non traduction exhaustive."
     },
     "lexicon": [
       {
         "arabic": "الْمَاءُ الْمُسْتَعْمَل",
         "term": "Mâ’ musta‘mal",
-        "definition": "Eau déjà employée pour un acte de purification ; la portée technique du mot dépend de la façon dont l’eau a été utilisée."
+        "definition": "Eau qui a effectivement servi à une purification rituelle. Le passage examine spécialement l’eau recueillie après l’écoulement sur les membres, et non toute eau simplement prélevée dans une cruche."
       },
       {
         "arabic": "الْحَدَث",
         "term": "Hadath",
-        "definition": "État rituel qui empêche certains actes cultuels tant que la purification exigée n’a pas été accomplie."
+        "definition": "État rituel dont la levée est requise pour certains actes d’adoration. Il ne s’agit pas en soi d’une saleté matérielle : le commentaire distingue le hadath des impuretés présentes sur le corps."
       },
       {
         "arabic": "مَكْرُوه",
         "term": "Makrûh",
-        "definition": "Usage réprouvé dans le contexte considéré ; cela ne signifie pas nécessairement que l’eau soit impure."
+        "definition": "Qualification d’un usage réprouvé dans des conditions déterminées. Ici, elle ne signifie pas que l’eau est devenue impure ni qu’elle a nécessairement perdu son pouvoir purifiant."
       },
       {
         "arabic": "طَهُور",
         "term": "Tahûr",
-        "definition": "Eau qualifiée de purifiante : elle peut être utilisée pour la purification rituelle selon les conditions reconnues."
+        "definition": "Terme désignant une eau apte à la purification rituelle. Dans le mashhûr discuté, l’eau déjà employée peut conserver cette qualité tout en faisant l’objet d’une réprobation de réemploi."
       },
       {
         "arabic": "الْمَشْهُور",
         "term": "Mashhûr",
-        "definition": "Avis présenté comme célèbre ou reconnu dans l’école ; cela n’implique pas l’absence d’autres avis historiques."
+        "definition": "Avis que le commentateur présente comme célèbre dans l’école malikite. Son identification n’efface pas les autres opinions, que l’auteur peut discuter ou attribuer à différents juristes."
       },
       {
         "arabic": "التَّيَمُّم",
         "term": "Tayammum",
-        "definition": "Purification sèche de substitution sous des conditions particulières ; le passage examine si l’eau utilisée permet d’y recourir."
+        "definition": "Purification de substitution soumise à des conditions particulières. Dans le passage étudié, al-Hattâb précise pourquoi la présence d’une eau toujours purifiante peut exclure d’y recourir."
+      },
+      {
+        "arabic": "طَاهِر",
+        "term": "Tâhir",
+        "definition": "Ce qui est pur au sens juridique. Cette qualité ne suffit pas, à elle seule, pour conclure qu’un liquide conserve le pouvoir de purifier rituellement."
+      },
+      {
+        "arabic": "نَجِس",
+        "term": "Najis",
+        "definition": "Ce qui est impur selon le droit rituel. Une eau dont l’emploi est réprouvé n’est pas nécessairement une eau qualifiée de najis."
+      },
+      {
+        "arabic": "الْخِلَاف",
+        "term": "Khilâf",
+        "definition": "La divergence entre juristes sur une question. Al-Hattâb souligne le désaccord relatif au pouvoir purifiant de l’eau déjà utilisée."
+      },
+      {
+        "arabic": "الْيَسِير",
+        "term": "Yasîr",
+        "definition": "Ce qui est de faible quantité. Le passage le distingue de l’eau abondante sans définir ici un seuil universel exprimé en litres."
+      },
+      {
+        "arabic": "التَّنْبِيه",
+        "term": "Tanbîh",
+        "definition": "Une précision ajoutée dans un commentaire juridique pour distinguer les cas, discuter une difficulté et éviter de mal appliquer une formulation brève."
+      },
+      {
+        "arabic": "الْأَرْجَح",
+        "term": "Arjah",
+        "definition": "Un avis ou une explication jugés prépondérants. Ce terme signale un choix argumenté parmi plusieurs possibilités, non une vérité matérielle démontrée."
       }
     ],
     "quiz": [
       {
-        "question": "Dans l’avis célèbre présenté par al-Hattâb, que devient l’eau recueillie après une purification rituelle, sans souillure ?",
+        "question": "Khalîl dit « وكره ماء مستعمل في حدث ». Que signifie sa formule selon le mashhûr expliqué par al-Hattâb ?",
         "choices": [
-          "Elle est forcément najis.",
-          "Elle reste purifiante, mais son réemploi est réprouvé si une autre eau est disponible.",
-          "Elle doit toujours être jetée même s’il n’existe aucune autre eau."
+          "Cette eau devient nécessairement najis.",
+          "Cette eau reste purifiante, mais son usage est réprouvé si une autre eau est disponible.",
+          "Cette eau ne peut jamais être réutilisée, même en cas de besoin."
         ],
         "answer": 1,
-        "explanation": "L’auteur distingue l’impureté de la réprobation et maintient la qualité purifiante dans l’avis célèbre."
+        "explanation": "Al-Hattâb distingue le caractère purifiant de l’eau (tahûr) et la réprobation de son emploi (makrûh). L’avis célèbre n’assimile pas l’eau déjà utilisée à une eau matériellement impure."
       },
       {
-        "question": "Quelle eau n’est pas automatiquement assimilée à l’eau « utilisée » du passage ?",
+        "question": "Que précise la citation de la Dhakhîra reprise par al-Hattâb sur le reliquat d’eau dans une cruche ?",
         "choices": [
-          "L’eau qui reste dans le récipient et n’a pas servi.",
-          "L’eau recueillie après écoulement sur les membres.",
-          "L’eau qui a servi à lever le hadath."
+          "L’eau restant dans la cruche est automatiquement utilisée.",
+          "L’eau restant dans la cruche n’est pas assimilée à l’eau recueillie après le lavage des membres.",
+          "Toute eau ayant approché des ablutions devient impure."
         ],
-        "answer": 0,
-        "explanation": "Al-Hattâb distingue explicitement l’eau restée dans le récipient de l’eau recueillie après usage."
+        "answer": 1,
+        "explanation": "Le texte exclut explicitement l’eau restante du récipient du champ du désaccord portant sur l’eau recueillie après le lavage. La manière dont l’eau a réellement servi est déterminante."
       },
       {
-        "question": "Que fait l’auteur lorsqu’il mentionne un avis selon lequel cette eau n’est plus purifiante ?",
+        "question": "Dans le mashhûr exposé, que fait-on si aucune autre eau purifiante n’est disponible ?",
         "choices": [
-          "Il affirme que tous les malikites sont unanimes.",
-          "Il supprime le jugement qu’il donne comme mashhûr.",
-          "Il rapporte une divergence sans confondre cette opinion avec l’avis célèbre."
+          "On abandonne automatiquement l’eau recueillie pour le tayammum.",
+          "On la considère définitivement impure.",
+          "On utilise cette eau pour se purifier au lieu de passer automatiquement au tayammum."
         ],
         "answer": 2,
-        "explanation": "Le commentaire expose plusieurs transmissions et signale la position considérée comme célèbre dans le madhhab."
+        "explanation": "Al-Hattâb écrit « فإن لم يجد غيره تطهر به ولا يتيمم مع وجوده ». La solution concerne le cas précis qu’il expose et non toutes les eaux altérées possibles."
+      },
+      {
+        "question": "Comment al-Hattâb présente-t-il l’opinion selon laquelle l’eau utilisée n’est plus purifiante ?",
+        "choices": [
+          "Comme une position divergente rapportée notamment par des transmissions d’Asbagh et d’Ibn al-Qassâr.",
+          "Comme la seule position malikite connue.",
+          "Comme une démonstration de contamination biologique."
+        ],
+        "answer": 0,
+        "explanation": "Il distingue le mashhûr de deux opinions opposées. L’une nie la capacité purifiante et reçoit des attributions précises ; elle ne peut pas être présentée comme un consensus."
+      },
+      {
+        "question": "Que signifie, dans le texte, l’autre avis qui considère l’eau comme « douteuse » ?",
+        "choices": [
+          "Il prouve que l’eau a changé de couleur.",
+          "Il conduit à associer cette eau et le tayammum dans le cas décrit, et ne constitue pas l’avis célèbre.",
+          "Il est identique au mashhûr."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb rapporte la position d’une eau au statut purifiant incertain, avec une attribution discutée à al-Abharî. Il faut distinguer cette transmission du mashhûr annoncé plus haut."
+      },
+      {
+        "question": "Quelle cause de la réprobation al-Hattâb préfère-t-il ?",
+        "choices": [
+          "La perte d’énergie mesurable de l’eau.",
+          "Le simple fait que toute eau réutilisée serait sale.",
+          "L’existence d’un désaccord juridique sur la capacité purifiante de l’eau."
+        ],
+        "answer": 2,
+        "explanation": "Le commentateur évoque plusieurs justifications historiques, puis écrit que l’explication la plus prépondérante est le désaccord sur la qualité purifiante. Cela ne décrit pas un phénomène physique prouvé."
+      },
+      {
+        "question": "Que montre la discussion sur le regroupement de petites eaux déjà utilisées ?",
+        "choices": [
+          "Un désaccord entre Ibn ‘Abd al-Salâm et Ibn al-Imâm, avec une préférence exprimée par al-Hattâb.",
+          "Un seuil universel fixé en litres par al-Hattâb.",
+          "Une unanimité sur la disparition de toute réprobation."
+        ],
+        "answer": 0,
+        "explanation": "Ibn ‘Abd al-Salâm envisage la disparition de la réprobation par regroupement ; Ibn al-Imâm conserve le statut des portions et al-Hattâb juge cette dernière analyse plus apparente."
+      },
+      {
+        "question": "L’eau qui passe d’une partie de l’avant-bras à une autre est-elle automatiquement identique à l’eau recueillie après les ablutions ?",
+        "choices": [
+          "Oui, tout contact suffit.",
+          "Non : l’eau encore sur le membre est distincte de celle recueillie après usage.",
+          "Oui : toute l’eau de la cruche est également concernée."
+        ],
+        "answer": 1,
+        "explanation": "La Dhakhîra, reprise par al-Hattâb, distingue la circulation sur le membre de l’eau collectée après lavage. Le simple contact avec une partie du corps ne suffit pas à classer l’eau."
+      },
+      {
+        "question": "Comment aborder la personne qui manque d’eau et souhaite récupérer l’eau des premiers membres pour finir ses ablutions ?",
+        "choices": [
+          "Répondre sans demander aucun détail.",
+          "Considérer que cette question n’existe pas dans le commentaire.",
+          "Identifier les faits, lire les conditions et les discussions des juristes avant d’appliquer la conclusion."
+        ],
+        "answer": 2,
+        "explanation": "Le troisième tanbîh évoque cette situation et des divergences techniques sur l’achèvement de la purification. Comprendre la solution suppose de décrire le cas avec précision plutôt que de généraliser."
       }
     ],
     "sources": [
@@ -2566,7 +2896,20 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       {
         "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 67–68 : eau employée pour lever le hadath",
         "url": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+      },
+      {
+        "label": "Islamweb — al-Qarâfî, al-Dhakhîra, t. 1, p. 175 : distinction entre eau recueillie et reliquat",
+        "url": "https://www.islamweb.net/ar/library/content/92/111/%D8%A7%D9%84%D9%88%D8%B3%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1"
       }
+    ],
+    "goals": [
+      "Lire la formule de Khalîl en distinguant une eau purifiante de l’emploi réprouvé de cette eau.",
+      "Reconnaître les différences entre eau recueillie après lavage, eau restée dans le récipient et eau encore sur le membre.",
+      "Expliquer la condition de disponibilité d’une autre eau dans le mashhûr exposé par al-Hattâb.",
+      "Identifier les deux opinions divergentes et les savants auxquels elles sont attribuées.",
+      "Comprendre pourquoi al-Hattâb privilégie le désaccord sur le pouvoir purifiant comme raison de la réprobation.",
+      "Suivre la discussion sur la faible quantité et les eaux déjà utilisées rassemblées.",
+      "Analyser le cas où une personne peut recueillir l’eau pour achever ses ablutions, sans transformer le cours en fatwa."
     ]
   },
   "recommendedWater": {
