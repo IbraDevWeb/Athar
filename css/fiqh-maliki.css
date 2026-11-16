@@ -232,3 +232,38 @@
  .fiqh-m-catalog-main{padding:23px 22px 17px}
 }
 @media(prefers-reduced-motion:reduce){.fiqh-m-catalog-card{transition:none}}
+
+/* Fiche 01 — cours guidé : citation > traduction > explication > exemple > repère. */
+.fiqh-m-goals{margin:0 0 25px;padding:23px 25px;border:1px solid var(--fm-line);border-radius:9px;background:var(--fm-paper)}
+.fiqh-m-goals h3{margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--fm-ink)}
+.fiqh-m-goals ul{list-style:none;display:grid;gap:10px;padding:0;margin:0}
+.fiqh-m-goals li{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.8;color:var(--fm-muted)}
+.fiqh-m-goals li svg{margin-top:4px;color:var(--fm-accent)}
+.fiqh-m-prose.is-guided .fiqh-m-section{padding:32px 0 38px}
+.fiqh-m-prose.is-guided .fiqh-m-section>h3{font-size:clamp(18px,2vw,22px);line-height:1.5;max-width:670px;margin:10px 0 20px}
+.fiqh-m-prose.is-guided .fiqh-m-section>p:not(.fiqh-m-reference):not(.fiqh-m-takeaway){font-size:14px;line-height:2.02;margin-top:17px;max-width:74ch}
+.fiqh-m-passage{margin:18px 0 24px;padding:22px 24px;background:var(--fm-paper);border:1px solid var(--fm-line);border-left:3px solid var(--fm-accent);border-radius:8px}
+.fiqh-m-passage figcaption{font-size:10px;font-weight:760;letter-spacing:.11em;color:var(--fm-accent)}
+.fiqh-m-passage blockquote{font:400 clamp(25px,3.5vw,35px)/1.9 Amiri,serif;color:var(--fm-ink);margin:13px 0;text-align:right}
+.fiqh-m-passage .fiqh-m-passage-translation{font-size:14px;line-height:1.9;color:var(--fm-ink)}
+.fiqh-m-passage .fiqh-m-passage-translation strong{color:var(--fm-accent)}
+.fiqh-m-passage .fiqh-m-passage-context{margin-top:9px!important;font-size:12px;line-height:1.85;color:var(--fm-muted)}
+.fiqh-m-passage small{display:block;margin-top:14px;font-size:10px;line-height:1.7;color:var(--fm-muted)}
+.fiqh-m-breakdown{margin:26px 0;padding:23px 24px;background:var(--fm-paper);border:1px solid var(--fm-line);border-radius:9px}
+.fiqh-m-breakdown h4,.fiqh-m-case h4{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:14px;line-height:1.6;color:var(--fm-ink);font-weight:750}
+.fiqh-m-breakdown h4 svg,.fiqh-m-case h4 svg{color:var(--fm-accent)}
+.fiqh-m-breakdown ol{list-style:decimal;margin:0;padding-left:24px;display:grid;gap:19px}
+.fiqh-m-breakdown li{padding-left:5px;font-size:12px;line-height:1.7;color:var(--fm-accent)}
+.fiqh-m-breakdown li strong{display:block;font-size:13px;color:var(--fm-ink);margin-bottom:5px}
+.fiqh-m-breakdown li p{margin:0;color:var(--fm-ink);font-size:13px;line-height:1.96}
+.fiqh-m-case{margin:25px 0;padding:23px 25px;border-radius:9px;border:1px solid var(--fm-line);background:var(--fm-soft)}
+.fiqh-m-case h4{margin-bottom:12px}
+.fiqh-m-case p{font-size:13px;line-height:2;color:var(--fm-ink)}
+.fiqh-m-prose.is-guided .fiqh-m-section>.fiqh-m-takeaway{margin-top:22px;padding-left:16px;border-left:3px solid var(--fm-gold);font-size:13px;line-height:1.95;color:var(--fm-ink)}
+.fiqh-m-takeaway strong{color:var(--fm-accent)}
+@media(max-width:610px){
+ .fiqh-m-goals{padding:18px 19px}
+ .fiqh-m-passage{padding:18px}
+ .fiqh-m-breakdown,.fiqh-m-case{padding:19px 18px}
+ .fiqh-m-prose.is-guided .fiqh-m-section>p:not(.fiqh-m-reference):not(.fiqh-m-takeaway){font-size:13px;line-height:1.95}
+}
