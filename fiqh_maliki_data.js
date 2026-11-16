@@ -4517,85 +4517,220 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     ],
     "quote": {
       "arabic": "وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ",
-      "meaning": "Al-Hattâb distingue le bassin où l’eau demeure longtemps de celui dont l’eau est rapidement vidée et remplacée. Le renouvellement est une circonstance qui atténue la difficulté dans le cas étudié.",
-      "label": "Extrait du commentaire d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76 — explication française du sens."
+      "meaning": "Al-Hattâb distingue une réserve où la même eau demeure longtemps de celle que l'on vide rapidement puis que l'on remplit d'une eau nouvelle. Les circonstances justifiant les réserves précédentes ne sont pas toutes identiques.",
+      "label": "Paroles d'al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 76. Traduction de sens et non citation du Mukhtasar de Khalîl."
     },
     "lexicon": [
       {
-        "arabic": "البِرَك",
+        "arabic": "الْبِرَك",
         "term": "Birak",
-        "definition": "Bassins ou réserves d’eau, ici aménagés pour les ablutions collectives et examinés selon leur usage."
+        "definition": "Bassins ou réserves d'eau. Ici, il s'agit d'installations destinées aux ablutions collectives, dont les usages répétés et la durée de conservation sont examinés par al-Hattâb."
       },
       {
-        "arabic": "المِيَاضِي",
+        "arabic": "الْمِيَاضِي",
         "term": "Miyâdî",
-        "definition": "Lieux ou installations consacrés aux ablutions, terme du passage sur les bassins collectifs."
+        "definition": "Lieux aménagés pour les ablutions. Le terme replace la question dans une installation commune, et non dans n'importe quelle eau ou récipient utilisé individuellement."
       },
       {
         "arabic": "أَوْصَافُ الْمَاءِ",
         "term": "Awsâf al-mâ’",
-        "definition": "Caractéristiques sensibles de l’eau dont une modification peut compter dans l’analyse juridique."
+        "definition": "Caractéristiques sensibles de l'eau, notamment la couleur, le goût et l'odeur. Leur modification doit être comprise à partir de la cause qui les a altérées."
       },
       {
-        "arabic": "الْكَرَاهَة",
-        "term": "Karâha",
-        "definition": "Réprobation juridique d’un usage dans certaines conditions, à distinguer de l’impureté constatée."
+        "arabic": "التَّغَيُّر",
+        "term": "Taghayyur",
+        "definition": "Modification réelle d'une propriété de l'eau. Dans ce passage, il faut la distinguer de la seule crainte d'une souillure dans un bassin fréquenté."
       },
       {
-        "arabic": "تَجْدِيدُ الْمَاءِ",
-        "term": "Tajdîd al-mâ’",
-        "definition": "Renouvellement de l’eau d’un bassin, opposé ici à son maintien prolongé dans le même récipient."
+        "arabic": "صِحَّةُ الْوُضُوء",
+        "term": "Sihhat al-wudû’",
+        "definition": "Validité juridique des ablutions. Al-Hattâb en parle pour le premier cas du bassin, celui d'une eau altérée dans les conditions examinées."
       },
       {
-        "arabic": "إِقَامَةُ الْمَاءِ",
+        "arabic": "كَرَاهَةُ الْوُضُوء",
+        "term": "Karâhat al-wudû’",
+        "definition": "Réprobation d'un emploi de l'eau pour les ablutions. Elle se distingue de la non-validité : le commentateur l'évoque pour une eau demeurée inchangée."
+      },
+      {
+        "arabic": "اخْتِلَافُ الْأَيْدِي وَالْأَرْجُل",
+        "term": "Ikhtilâf al-aydî wa-l-arjul",
+        "definition": "Passage successif des mains et des pieds dans un bassin. Ce contact répété est une raison expressément citée par al-Hattâb pour justifier la réserve étudiée."
+      },
+      {
+        "arabic": "الْغَالِب",
+        "term": "Al-ghâlib",
+        "definition": "Ce qui est habituel ou prédominant dans un contexte donné. Le commentaire emploie ce terme pour parler de souillures probables, sans prouver leur présence dans tout bassin."
+      },
+      {
+        "arabic": "النَّجَاسَة",
+        "term": "Najâsa",
+        "definition": "Impureté reconnue en droit rituel. La fiche distingue la simple possibilité de sa présence, son lavage effectivement établi et le changement de l'eau qu'elle peut causer."
+      },
+      {
+        "arabic": "التَّحَقُّق",
+        "term": "Tahaqquq",
+        "definition": "Caractère établi d'un fait. Le mot marque ici la différence entre une souillure seulement redoutée et le lavage certain d'impuretés dans la réserve."
+      },
+      {
+        "arabic": "كَثْرَةُ الْغَسْل",
+        "term": "Kathrat al-ghasl",
+        "definition": "Fréquence élevée de lavages. Al-Hattâb ajoute la répétition au cas où les impuretés ont effectivement été lavées dans le bassin, et non imaginées."
+      },
+      {
+        "arabic": "إِقَامَةُ الْمَاء",
         "term": "Iqâmat al-mâ’",
-        "definition": "Durée de présence de l’eau dans un bassin, circonstance mise en avant dans la réserve d’al-Hattâb."
+        "definition": "Durée pendant laquelle une même eau demeure dans le bassin. Le commentateur distingue une conservation prolongée d'une réserve vidée rapidement."
+      },
+      {
+        "arabic": "تَفْرِيغُ الْمَاء",
+        "term": "Tafrîgh al-mâ’",
+        "definition": "Action de vider une réserve d'eau. Dans la dernière nuance du passage, cette évacuation s'accompagne d'un remplacement par une eau nouvelle."
+      },
+      {
+        "arabic": "تَجْدِيدُ الْمَاء",
+        "term": "Tajdîd al-mâ’",
+        "definition": "Renouvellement de l'eau du bassin par une autre eau. Cette circonstance atténue la difficulté décrite lorsque la même eau reste longtemps dans l'installation."
+      },
+      {
+        "arabic": "فَأَمْرُهُ خَفِيف",
+        "term": "Fa-amruhu khafîf",
+        "definition": "Expression indiquant que la situation devient moins problématique. Al-Hattâb l'emploie pour une réserve vidée rapidement puis remplie d'une eau nouvelle."
       }
     ],
     "quiz": [
       {
-        "question": "Quelle circonstance al-Hattâb examine-t-il dans la fiche 10 ?",
+        "question": "De quelle installation al-Hattâb parle-t-il principalement ?",
         "choices": [
-          "Un bassin collectif où mains et pieds passent fréquemment.",
-          "La fonte de la grêle.",
-          "La pluie tombant directement sur les vêtements."
+          "Des bassins collectifs aménagés pour les ablutions.",
+          "De tous les océans sans distinction.",
+          "Uniquement des récipients domestiques."
         ],
         "answer": 0,
-        "explanation": "Le passage concerne expressément les bassins préparés pour les ablutions, avec circulation répétée des membres."
+        "explanation": "La discussion porte expressément sur des bassins où plusieurs personnes peuvent accomplir leurs ablutions, avec des contacts répétés et une eau qui peut demeurer longtemps dans la réserve."
       },
       {
-        "question": "Quelle nuance est explicitement donnée pour une eau inchangée dans ces bassins ?",
+        "question": "Pourquoi le changement d'une caractéristique de l'eau demande-t-il une analyse particulière ?",
         "choices": [
-          "Elle est toujours déclarée impure sans autre question.",
-          "La réprobation peut être liée au contexte d’usage, sans être identique au cas d’une eau altérée.",
-          "Le nombre de personnes n’a jamais aucune importance."
+          "Parce que toute eau colorée est nécessairement impure.",
+          "Parce que l'état de l'eau et la cause de son altération entrent dans son statut purifiant.",
+          "Parce qu'une eau sans odeur ne peut jamais recevoir de souillure."
         ],
         "answer": 1,
-        "explanation": "Al-Hattâb distingue l’eau dont une propriété a changé de celle dont l’utilisation est simplement réprouvée dans le contexte évoqué."
+        "explanation": "Le commentaire commence par le cas d'une eau modifiée dans un contexte de souillures. Il faut le lire avec les chapitres qui distinguent les différentes causes des changements de couleur, de goût ou d'odeur."
       },
       {
-        "question": "Quelle distinction apporte la fin du passage sur l’eau du bassin ?",
+        "question": "À quel cas la phrase « فلا يصح الوضوء بها » se rapporte-t-elle ?",
         "choices": [
-          "L’eau doit être glacée.",
-          "Un bassin profond est toujours interdit.",
-          "Une eau rapidement remplacée n’est pas analysée exactement comme une eau conservée longtemps."
+          "À une eau rapidement renouvelée et inchangée.",
+          "À tous les bassins publics de chaque époque.",
+          "À l'eau altérée dans les circonstances étudiées par al-Hattâb."
         ],
         "answer": 2,
-        "explanation": "La durée de séjour et le renouvellement sont des critères explicitement relevés par al-Hattâb."
+        "explanation": "La non-validité des ablutions suit immédiatement la condition du changement de l'eau. On déformerait la phrase en oubliant cette condition pour en faire une interdiction générale."
+      },
+      {
+        "question": "Quel jugement al-Hattâb énonce-t-il pour l'eau inchangée du bassin décrit ?",
+        "choices": [
+          "Une réprobation de l'usage pour les ablutions.",
+          "Une certitude que toute ablution y est invalide.",
+          "L'obligation de vider le bassin toutes les dix minutes."
+        ],
+        "answer": 0,
+        "explanation": "L'auteur parle de karâha pour cette deuxième hypothèse, en raison des contacts répétés et du contexte de souillures probables. Il ne faut pas confondre ce jugement avec celui de l'eau altérée."
+      },
+      {
+        "question": "Pourquoi l'expression « لاختلاف الأيدي والأرجل » est-elle importante ?",
+        "choices": [
+          "Elle définit le volume exact du bassin.",
+          "Elle décrit les passages répétés des membres dans la même eau.",
+          "Elle impose de refaire ses ablutions après chaque déplacement."
+        ],
+        "answer": 1,
+        "explanation": "La réprobation est expliquée par une utilisation collective où différentes mains et différents pieds sont en contact direct avec la réserve, et non par la seule présence de plusieurs fidèles dans une salle."
+      },
+      {
+        "question": "Que signifie « والغالب أن فيها النجاسة » dans ce contexte ?",
+        "choices": [
+          "Que chaque utilisateur est impur.",
+          "Que l'eau change toujours de couleur.",
+          "Qu'une présence de souillures est habituelle ou probable dans la situation décrite."
+        ],
+        "answer": 2,
+        "explanation": "Le commentaire évoque un risque fondé sur l'usage du bassin. Ce propos ne constitue pas la preuve d'une souillure précise dans chaque installation et ne remplace pas l'examen d'une altération réelle."
+      },
+      {
+        "question": "Qu'apporte le mot « تحقق » dans la discussion ?",
+        "choices": [
+          "Il indique qu'un lavage d'impuretés est effectivement établi.",
+          "Il exprime simplement un soupçon sans preuve.",
+          "Il signifie que l'eau est forcément chaude."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb passe ici de la crainte habituelle de souillures au cas où l'on sait réellement que des impuretés ont été lavées dans le bassin. Le degré de certitude doit être conservé."
+      },
+      {
+        "question": "Quelle autre circonstance le commentaire joint-il au lavage établi d'impuretés ?",
+        "choices": [
+          "Le sens de circulation de l'air.",
+          "La fréquence élevée de ces lavages.",
+          "La forme carrée du bassin."
+        ],
+        "answer": 1,
+        "explanation": "Le texte évoque également le caractère fréquent des lavages de souillures. La conclusion plus sévère appartient à cette hypothèse et ne peut pas être fondée sur un simple événement imaginé."
+      },
+      {
+        "question": "Comment al-Hattâb précise-t-il le cadre de sa discussion ?",
+        "choices": [
+          "Il donne un nombre d'heures précis.",
+          "Il impose une profondeur en mètres.",
+          "Il parle de bassins où la même eau demeure longtemps."
+        ],
+        "answer": 2,
+        "explanation": "La formule sur la durée de séjour de l'eau limite le cas décrit. Il serait erroné d'appliquer sans examen la même analyse à une installation où l'eau est évacuée et remplacée immédiatement."
+      },
+      {
+        "question": "Que dit-il à propos du bassin vidé puis rempli rapidement d'une autre eau ?",
+        "choices": [
+          "Que sa situation est moins problématique.",
+          "Que le simple renouvellement rend toute souillure sans effet.",
+          "Qu'il faut le fermer dans toutes les mosquées."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb considère que les circonstances deviennent plus légères quand l'eau est évacuée rapidement et remplacée. Il ne dispense pas d'examiner une impureté réellement établie."
+      },
+      {
+        "question": "Pourquoi faut-il distinguer karâha et non-validité ?",
+        "choices": [
+          "Parce que la karâha rend toujours les ablutions nulles.",
+          "Parce que le texte emploie ces jugements pour des situations différentes.",
+          "Parce que les deux expressions désignent uniquement le coût de l'eau."
+        ],
+        "answer": 1,
+        "explanation": "Le jugement de non-validité concerne l'eau altérée dans le cas étudié, tandis que la réprobation concerne une eau apparemment inchangée dans le bassin décrit. Les assimiler effacerait une distinction importante."
+      },
+      {
+        "question": "Quelle méthode respecte le mieux le passage entier ?",
+        "choices": [
+          "Déclarer impure toute eau collective.",
+          "Se fier uniquement à la taille du bassin.",
+          "Examiner l'état de l'eau, les souillures, les contacts répétés et la rapidité du renouvellement."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb distingue les circonstances successives au lieu d'énoncer une règle générale. Il faut conserver le changement réel, la présomption, le fait établi et la durée de conservation dans chaque raisonnement."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage arabe Mawâhib al-Jalîl",
-        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
-      },
-      {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 76, bassins collectifs",
+        "label": "Islamweb — al-Hattâb, Mawâhib al-Jalîl, tome 1, page 76, bassins collectifs et renouvellement",
         "url": "https://www.islamweb.net/ar/library/content/19/114/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D8%B1%D9%83-%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D8%A9-%D9%84%D9%84%D9%88%D8%B6%D9%88%D8%A1"
       },
       {
-        "label": "Islamweb — t. 1, p. 75, eau stagnante : contexte",
-        "url": "https://www.islamweb.net/amp/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+        "label": "Usul — texte arabe de Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — tome 1, page 75, discussion précédente sur l'eau stagnante",
+        "url": "https://www.islamweb.net/ar/library/content/19/113/"
       }
     ],
     "goals": [
