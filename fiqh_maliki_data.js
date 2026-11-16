@@ -1964,131 +1964,478 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "impure-contact-06",
     "number": "06",
     "status": "disponible",
-    "title": "L’eau et l’impureté : changement, quantité et avis rapportés",
-    "subtitle": "Étudier la différence entre une altération causée par une souillure et une eau touchée par une souillure sans changement perceptible.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, eau altérée (t. 1, p. 59–61) et eau en faible quantité (t. 1, p. 70–71)",
+    "title": "L’eau et l’impureté — comprendre le jugement et les divergences",
+    "subtitle": "Sept lectures expliquées à partir de Khalîl et d’al-Hattâb : eau réellement altérée, faible quantité d’eau restée inchangée, avis connu du madhhab, conditions d’usage, autres transmissions et preuve juridique.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, Mawâhib al-Jalîl, tome 1, p. 59 puis p. 70–72 selon la pagination Islamweb",
+    "goals": [
+      "Expliquer pourquoi une eau dont une propriété a effectivement changé à cause d’une impureté n’est pas le même cas qu’une eau qui est restée inchangée.",
+      "Comprendre ce qu’al-Hattâb veut dire lorsqu’il qualifie une eau modifiée par une impureté de najis.",
+      "Lire la formule de Khalîl concernant une petite quantité d’eau et reconnaître le rôle décisif des mots « qui n’a pas changé ».",
+      "Distinguer l’aptitude purifiante d’une eau et le caractère réprouvé de son utilisation lorsqu’une autre eau existe.",
+      "Comprendre pourquoi le commentaire parle de son utilisation lorsque l’on n’a aucune autre eau à disposition.",
+      "Identifier l’avis d’Ibn al-Qâsim et les autres opinions rapportées, sans les présenter comme le mashhûr.",
+      "Suivre le raisonnement des preuves et de la prise en compte de la divergence, puis savoir quelles questions poser avant de conclure sur un cas concret."
+    ],
     "sections": [
       {
-        "id": "changed",
-        "eyebrow": "01 · Le cas de base",
-        "title": "Si une impureté modifie une propriété de l’eau, quelle distinction est faite ?",
+        "id": "altered",
+        "eyebrow": "ÉTAPE 01 · LE CAS D’UNE EAU RÉELLEMENT ALTÉRÉE",
+        "title": "Si une impureté modifie l’eau, qu’est-ce qui change dans son jugement ?",
+        "passage": {
+          "arabic": "وإن كان ذلك الشيء الذي غير الماء نجسا فالماء نجس",
+          "translation": "« Si ce qui a modifié l’eau est impur, alors l’eau est impure. »",
+          "explanation": "Al-Hattâb part de la même règle que pour les substances pures, mais la cause du changement est différente. Ce qui importe est l’existence d’une modification réellement provoquée par une impureté, et non une simple crainte ou une trace inconnue.",
+          "sourceLabel": "Paroles d’al-Hattâb, commentaire du changement de l’eau, tome 1, p. 59.",
+          "sourceUrl": "https://www.islamweb.com/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Al-Hattâb distingue explicitement l’eau modifiée par une substance pure et celle modifiée par une substance impure. Lorsque l’impureté est la cause d’un changement de l’une des caractéristiques examinées, le commentaire décrit cette eau comme najis : elle ne convient ni aux usages ordinaires énumérés ni aux actes de purification rituelle.",
-          "Le passage indique que, pour ce cas d’altération causée par une impureté, la discussion ne dépend pas simplement du fait que le changement soit léger ou important, ni du fait que l’eau soit stagnante ou courante. Al-Hattâb signale toutefois un avis attribué à Ibn al-Mâjishûn sur le changement de la seule odeur : il faut distinguer le jugement qu’il présente comme connu de cette divergence. Enfin, on ne doit pas confondre la simple suspicion d’impureté avec une altération constatée et attribuée à cette impureté."
+          "Nous avons vu dans la fiche 05 que le lait, le safran ou une autre matière pure peuvent, lorsque les conditions sont réunies, faire perdre à l’eau son pouvoir purifiant sans rendre le liquide impur. La fiche 06 commence par une situation plus grave : la matière qui a réellement modifié l’eau est elle-même une impureté. Al-Hattâb exprime alors une conclusion différente : l’eau est qualifiée de najis. Pour lire correctement cette phrase, ne retiens pas seulement le mot « impure ». Regarde ce qui le précède : le commentateur parle de la chose qui a **modifié l’eau**. Il s’agit d’une eau effectivement altérée par une matière impure, et cette causalité est au cœur de la règle.",
+          "Dans son explication de Khalîl, al-Hattâb rappelle les propriétés concernées : couleur, goût ou odeur. L’étudiant doit donc distinguer l’impureté constatée, l’altération qu’elle provoque et le jugement qui en résulte. Cela ne signifie pas qu’il faut goûter une eau suspecte : les juristes discutent d’un critère juridique, pas d’une méthode d’analyse sanitaire à pratiquer soi-même. Il ne faut pas non plus décider que toute eau qui sent mauvais est nécessairement impure : une eau peut changer pour des causes différentes. La présence et l’effet d’une véritable najâsa doivent être établis dans les circonstances étudiées."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59–60, « وحكمه كمغيره » et remarque sur « ما تغير بنجس »."
+        "steps": [
+          {
+            "label": "« Le changement » ne se réduit pas à une impression",
+            "text": "Le texte vise une caractéristique de l’eau réellement modifiée. Une crainte non vérifiée, une couleur naturellement inhabituelle ou une odeur dont la cause demeure inconnue ne permettent pas, à elles seules, de décrire exactement le cas discuté."
+          },
+          {
+            "label": "Il faut identifier ce qui provoque l’altération",
+            "text": "La même modification visible ne reçoit pas automatiquement le même jugement selon qu’elle provient d’une matière pure, d’une impureté ou d’une caractéristique naturelle de l’eau. La cause est aussi importante que l’effet."
+          },
+          {
+            "label": "« Najis » est un jugement sur l’eau dans ce cas précis",
+            "text": "Le mot qualifie juridiquement l’eau effectivement modifiée par une impureté. Il ne décrit pas le degré de saleté qu’une personne voit à l’œil nu et ne constitue pas un jugement moral sur ceux qui l’ont utilisée."
+          },
+          {
+            "label": "Ne pas confondre cette situation avec le prochain chapitre",
+            "text": "Plus loin, Khalîl étudie une petite quantité d’eau au contact d’une impureté **sans changement de ses propriétés**. Ce deuxième cas fait l’objet d’autres distinctions : on ne doit pas lui appliquer sans examen la formule de la présente étape."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux récipients qui ne posent pas la même question",
+          "text": "Dans un premier récipient, une matière juridiquement impure identifiée est entrée dans l’eau et en a réellement modifié une propriété. Dans un second, on a seulement appris qu’une impureté avait touché l’eau, sans constater aucune modification de couleur, de goût ou d’odeur. L’étape 01 permet d’étudier le premier cas ; elle n’autorise pas à trancher automatiquement le second avec le même verdict. Cette comparaison est inventée pour apprendre et ne constitue pas une expertise d’une eau réelle."
+        },
+        "takeaway": "Lorsqu’une impureté identifiée provoque réellement la modification d’une propriété de l’eau dans le cadre traité par Khalîl, al-Hattâb la qualifie de najis. L’effet constaté et sa cause doivent être distingués de la simple présence ou crainte d’une souillure.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, commentaire de « وحكمه كمغيره ». L’exemple comparatif est une création pédagogique d’Athar."
       },
       {
-        "id": "notchanged",
-        "eyebrow": "02 · Le cas difficile",
-        "title": "Et si une impureté tombe dans l’eau sans modifier ses caractéristiques ?",
+        "id": "effects",
+        "eyebrow": "ÉTAPE 02 · LES CONSÉQUENCES DU JUGEMENT",
+        "title": "Une eau qualifiée d’impure peut-elle servir aux ablutions ou aux usages ordinaires ?",
+        "passage": {
+          "arabic": "لا يستعمل لا في العادات ولا في العبادات",
+          "translation": "« Elle ne s’utilise ni pour les usages habituels ni pour les actes d’adoration. »",
+          "explanation": "Al-Hattâb poursuit l’explication de l’eau réellement modifiée par une impureté. L’opposition entre usages courants et purification rituelle fait écho à la fiche précédente, mais cette fois le liquide est qualifié de najis.",
+          "sourceLabel": "Paroles d’al-Hattâb, tome 1, p. 59, suite du jugement sur l’eau modifiée par une impureté.",
+          "sourceUrl": "https://www.islamweb.com/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Khalîl examine ensuite le cas d’une petite quantité d’eau, comparable au contenu d’un récipient d’ablution ou de lavage rituel, dans laquelle une impureté est entrée sans changer sa couleur, son goût ni son odeur. Le texte ne traite plus de l’eau dont la modification par une impureté était avérée : c’est une autre situation juridique.",
-          "Al-Hattâb présente comme avis connu de l’école l’idée que cette eau reste purifiante, tout en mentionnant une réprobation de son usage lorsqu’une autre eau est disponible. Dans la formulation qu’il explique, s’il n’existe pas d’autre eau, son utilisation devient requise. Cette précision interdit d’enseigner simplement « toute eau touchée par une impureté devient inutilisable »."
+          "Pourquoi al-Hattâb ajoute-t-il cette phrase ? Dans la fiche 05, tu as découvert qu’un mélange transformé par une substance **pure** peut rester utilisable pour certains actes de la vie courante sans être apte aux ablutions. Ici, la situation a changé : l’eau est devenue impure à la suite d’une altération causée par une najâsa. C’est pour montrer la différence que le commentateur dit qu’elle ne s’emploie ni dans les usages ordinaires qu’il considère, ni pour les actes d’adoration. Il ne faut donc pas mélanger les deux conclusions au motif que, dans les deux scénarios, l’eau est devenue différente de ce qu’elle était.",
+          "Le commentaire poursuit avec d’autres distinctions sur la manière dont certaines matières peuvent être utilisées dans des contextes particuliers, mais ces remarques demanderaient une étude séparée. Pour notre leçon, le point fondamental est le classement juridique de l’eau lorsqu’une impureté en a changé les propriétés. Un autre avertissement s’impose : les critères religieux de pureté et les critères sanitaires ne sont pas interchangeables. On ne doit pas boire ou utiliser une eau potentiellement dangereuse simplement parce qu’un raisonnement de fiqh lui attribue une certaine catégorie ; la sécurité des personnes doit aussi être examinée."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 70–71 : « ويسير كآنية وضوء وغسل بنجس لم يتغير » et explication du mashhûr."
+        "steps": [
+          {
+            "label": "Pourquoi les « usages ordinaires » sont cités",
+            "text": "Al-Hattâb compare implicitement deux qualifications : une eau devenue pure mais non purifiante par un ajout pur, et une eau modifiée par une impureté. Il montre que leurs conséquences ne sont pas identiques."
+          },
+          {
+            "label": "L’usage rituel : wudû’ et ghusl",
+            "text": "Le commentaire traite des conditions de l’eau pour lever le hadath et supprimer le statut de souillure. L’eau effectivement rendue impure dans les conditions décrites ne conserve pas cette fonction."
+          },
+          {
+            "label": "L’usage courant n’est pas une autorisation sanitaire universelle",
+            "text": "Le texte appartient à une discussion de jurisprudence classique. Il ne remplace pas l’analyse des risques biologiques ou chimiques d’une eau, ni les précautions nécessaires lorsqu’un liquide est suspect."
+          },
+          {
+            "label": "Ce que la phrase ne permet pas d’affirmer",
+            "text": "Al-Hattâb ne dit pas ici que toute impureté qui effleure n’importe quelle quantité d’eau entraîne automatiquement cette conséquence. Nous sommes toujours dans le cas d’un changement réel dont la cause est impure."
+          }
+        ],
+        "example": {
+          "title": "Exemple : comparer une eau au safran et une eau souillée",
+          "text": "Deux récipients contiennent de l’eau dont la couleur a changé. Dans l’un, le changement vient du safran pur ; dans l’autre, une substance juridiquement impure identifiée a produit l’altération. Les deux eaux ne gardent pas le même statut malgré une apparence éventuellement comparable. L’exemple rappelle pourquoi il faut connaître la nature de la cause et ne pas juger seulement d’après la couleur. Il ne s’agit pas d’un test permettant de reconnaître une substance réelle dans un récipient."
+        },
+        "takeaway": "Al-Hattâb distingue clairement le liquide transformé par une matière pure de celui qui est réellement altéré par une impureté. Dans ce second cas, il refuse l’usage qu’il énumère, y compris la purification rituelle : ce n’est pas le jugement étudié dans la fiche 05.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, continuité de son explication de « وحكمه كمغيره ». Exemple pédagogique créé pour la fiche."
       },
       {
-        "id": "disagreement",
-        "eyebrow": "03 · Les variantes rapportées",
-        "title": "Pourquoi le commentaire mentionne-t-il plusieurs avis ?",
+        "id": "small-unchanged",
+        "eyebrow": "ÉTAPE 03 · UNE PETITE QUANTITÉ D’EAU INCHANGÉE",
+        "title": "Pourquoi Khalîl ouvre-t-il un nouveau cas alors que l’impureté a touché l’eau ?",
+        "passage": {
+          "arabic": "بنجس لم يتغير",
+          "translation": "« Par une impureté, sans que l’eau ait changé. »",
+          "explanation": "Ces mots viennent du Mukhtasar de Khalîl. Ils sont la condition centrale de son exemple : une petite quantité d’eau, du type de celle d’un récipient destiné aux ablutions ou au lavage, au contact d’une impureté, mais non altérée.",
+          "sourceLabel": "Khalîl cité par al-Hattâb, t. 1, p. 70–71, formule « ويسير كآنية وضوء وغسل ». ",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
         "paragraphs": [
-          "Le commentaire rapporte aussi un avis d’Ibn al-Qâsim selon lequel une petite quantité d’eau devient impure au seul contact d’une souillure, même sans changement sensible. Il mentionne également d’autres positions transmises et une discussion sur leur attribution. On ne peut donc pas transformer le jugement présenté comme célèbre en unanimité de tous les malikites.",
-          "Cette fiche distingue les niveaux de discours : la formulation de Khalîl, l’avis qu’al-Hattâb présente comme mashhûr, puis les autres avis historiques. Pour une situation réelle et incertaine, une analyse de toutes les conditions reste nécessaire ; un quiz ne remplace pas l’étude auprès d’un enseignant."
+          "Nous changeons maintenant de situation. Khalîl présente une petite quantité d’eau comparable à celle que contient un récipient d’ablutions ou de ghusl. Une impureté la touche, mais elle n’en modifie aucune caractéristique. Pourquoi avoir consacré quelques mots à un cas aussi particulier ? Parce que, pour un débutant, la tentation est forte de penser : « Dès qu’une impureté a touché l’eau, elle est impure. » Or le texte classique distingue **l’eau changée par une impureté** et **l’eau restée inchangée malgré un contact avec une impureté**. Cette distinction est le véritable objet du passage.",
+          "Les mots « lam yataghayyar » sont donc décisifs. Ils signifient que l’eau n’a pas changé. Si l’on oublie cette condition, on transforme la question du petit récipient en une répétition de la règle précédente, ce qui empêche de comprendre pourquoi les juristes ont discuté de son statut. Al-Hattâb explique aussi que Khalîl mentionne les récipients d’ablutions et de ghusl pour illustrer ce qu’il appelle une quantité faible. Il ne donne pas dans cette formule une quantité universelle en litres ; plus loin, il rapporte différents modes de délimitation. Il faut conserver cette prudence."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 71, avis d’Ibn al-Qâsim, transmissions d’Abû Mus‘ab et synthèses d’al-Lakhmî et d’Ibn Bashîr."
+        "steps": [
+          {
+            "label": "« Yasîr » : une petite quantité, non un chiffre inventé",
+            "text": "La formule de Khalîl prend les récipients de wudû’ et de ghusl comme exemples. Cette description sert à situer le cas, mais ne donne pas automatiquement un nombre de millilitres valable dans toute discussion."
+          },
+          {
+            "label": "« Najis » dans la phrase : le contact est établi",
+            "text": "Nous supposons ici une impureté réellement présente et entrée au contact de l’eau. Il ne s’agit pas d’une simple inquiétude personnelle sur une eau dont personne ne sait si elle a été touchée."
+          },
+          {
+            "label": "« Lam yataghayyar » : aucune modification pertinente",
+            "text": "La couleur, le goût et l’odeur n’ont pas été modifiés dans le cadre du passage. C’est la raison pour laquelle ce cas ne reçoit pas automatiquement le jugement de l’eau effectivement altérée."
+          },
+          {
+            "label": "Comprendre l’enchaînement des chapitres",
+            "text": "Le commentaire avance pas à pas : il traite l’eau altérée par une impureté, puis une eau en petite quantité mais inchangée. Les avis évoqués pour le deuxième cas ne doivent jamais faire disparaître la règle du premier."
+          }
+        ],
+        "example": {
+          "title": "Exemple : un récipient préparé pour les ablutions",
+          "text": "Supposons que tu disposes d’un petit récipient rempli pour le wudû’. Une impureté certaine y tombe, puis la personne constate, dans notre scénario, qu’aucune propriété pertinente de l’eau n’a changé. Tu n’es plus dans le premier cas de la leçon, celui d’une eau effectivement transformée ; tu entres dans la discussion que Khalîl a ouverte pour les petites quantités inchangées. L’exemple sert à situer l’étude, non à demander de tester cette eau en la goûtant ou à donner un avis sur un incident réel."
+        },
+        "takeaway": "Les mots « sans changement » sont une condition et non un détail secondaire. Le passage de Khalîl concerne une petite quantité d’eau touchée par une impureté certaine sans modification de ses propriétés : c’est ce cas qu’al-Hattâb analyse ensuite.",
+        "sourceNote": "Source : Mukhtasar de Khalîl et commentaire d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 70–71, début de « ويسير كآنية وضوء وغسل بنجس لم يتغير »."
       },
       {
-        "id": "synthesis",
-        "eyebrow": "04 · Raisonner sur un cas",
-        "title": "Quelles questions se poser avant de conclure ?",
+        "id": "mashhur",
+        "eyebrow": "ÉTAPE 04 · CE QUE DIT L’AVIS CONNU",
+        "title": "Comment une eau peut-elle rester purifiante alors que son usage est réprouvé ?",
+        "passage": {
+          "arabic": "فإنه طهور ولكنه يكره استعماله",
+          "translation": "« Elle demeure purifiante, mais son utilisation est réprouvée. »",
+          "explanation": "C’est l’explication d’al-Hattâb pour la petite eau inchangée que l’impureté a touchée. Il précise que cette présentation correspond au mashhûr de l’école et la relie à l’existence d’une autre eau disponible.",
+          "sourceLabel": "Paroles d’al-Hattâb, tome 1, p. 70–71, avis qu’il qualifie de « المشهور من المذهب ». ",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
         "paragraphs": [
-          "On peut résumer la démarche sans fabriquer de fatwa : premièrement, la présence d’une impureté est-elle établie ou seulement redoutée ? Deuxièmement, a-t-elle effectivement modifié la couleur, le goût ou l’odeur de l’eau ? Troisièmement, si aucun changement n’est constaté, quelle est la quantité d’eau et quelle opinion du madhhab est examinée ?",
-          "Ce cadre sert à lire les sources. Il ne suffit pas pour apprécier seul l’eau d’un puits, d’un bassin ou d’un récipient contemporain : les faits exacts peuvent changer la qualification juridique. Les autres cas abordés plus loin par al-Hattâb — eau courante, doute ou transformations ultérieures — seront traités séparément."
+          "Voici la partie la plus importante de la fiche. Al-Hattâb explique que, selon l’avis qu’il présente comme **mashhûr** dans le madhhab malikite, une petite quantité d’eau ayant été touchée par une impureté sans changement conserve sa qualité purifiante. Il ajoute toutefois qu’il est réprouvé de l’utiliser lorsqu’une autre eau est disponible. À première lecture, les deux propositions peuvent sembler contradictoires : comment l’eau pourrait-elle être bonne pour purifier et en même temps ne pas être le meilleur choix ? Mais une réprobation ne signifie pas nécessairement une invalidité de l’acte. Ce sont des catégories juridiques distinctes.",
+          "Le mot « tahûr » concerne la capacité à purifier. Le mot « makrûh » exprime ici une réprobation de l’usage dans certaines circonstances. L’étudiant qui confond ces qualifications risque de dire : « Si c’est makrûh, les ablutions ne comptent pas », alors que ce n’est pas ce qu’al-Hattâb affirme en exposant le mashhûr. Il rapporte la position d’al-Bâjî dans al-Muntaqâ, ainsi que les transmissions de juristes de l’école, pour clarifier ce jugement. Nous ne présentons pas pour autant ce mashhûr comme une unanimité : le commentaire expose plusieurs avis différents immédiatement après."
         ],
-        "sourceNote": "Synthèse pédagogique Athar à partir des passages t. 1, p. 59–61 et p. 70–71 ; distinction des cas, des sources et des avis."
+        "steps": [
+          {
+            "label": "« Tahûr » : le pouvoir purifiant est maintenu",
+            "text": "Dans le cas précis de petite eau inchangée, le mashhûr décrit par al-Hattâb maintient la capacité de l’eau à servir à la purification. L’eau n’est pas déclarée automatiquement najis par le seul contact."
+          },
+          {
+            "label": "« Makrûh » : une réprobation conditionnelle",
+            "text": "Lorsque l’on peut utiliser une autre eau, le commentaire explique que l’usage de celle qui a été touchée par une impureté est réprouvé. Ce jugement d’usage ne revient pas à nier la qualité purifiante qu’il vient d’affirmer."
+          },
+          {
+            "label": "Pourquoi la disponibilité d’une autre eau importe",
+            "text": "La présence d’une eau de remplacement fait partie des faits que le texte considère. Une réponse courte qui oublie cette condition ne rend pas fidèlement compte de la formulation donnée par le commentateur."
+          },
+          {
+            "label": "Identifier le mashhûr sans effacer le désaccord",
+            "text": "Quand al-Hattâb précise le statut de l’avis dans l’école, il aide le lecteur à ne pas attribuer à toutes les transmissions la même force doctrinale. Les autres positions existent, mais leur existence ne gomme pas son indication."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux récipients disponibles",
+          "text": "Une personne possède deux petits récipients : le premier contient une eau inchangée mais qui a été touchée par une impureté certaine ; le second contient une autre eau disponible et appropriée. Le passage sur le mashhûr explique pourquoi elle devrait privilégier l’eau de remplacement, même si la première n’a pas perdu dans cet avis sa qualité purifiante. L’exemple n’examine ni une contamination microbiologique ni un doute de la personne sur ce qu’elle a vu : il isole uniquement les conditions du texte."
+        },
+        "takeaway": "Pour le cas précis de la petite quantité d’eau restée inchangée, al-Hattâb présente comme mashhûr une eau toujours purifiante dont l’emploi est réprouvé quand une autre eau est disponible. Il faut donc distinguer le statut de l’eau et le jugement de son utilisation.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 70–71 ; comparaison avec al-Bâjî dans al-Muntaqâ."
+      },
+      {
+        "id": "no-other",
+        "eyebrow": "ÉTAPE 05 · QUAND AUCUNE AUTRE EAU N’EST DISPONIBLE",
+        "title": "Pourquoi al-Hattâb change-t-il le jugement de son utilisation dans cette situation ?",
+        "passage": {
+          "arabic": "فإن لم يجد غيره وجب عليه استعماله",
+          "translation": "« S’il n’en trouve pas d’autre, il lui incombe de l’utiliser. »",
+          "explanation": "Al-Hattâb ajoute immédiatement cette condition après avoir présenté la réprobation en présence d’une autre eau. La phrase appartient au cas de la petite eau inchangée et au mashhûr qu’il expose ; elle ne signifie pas qu’il faudrait utiliser de l’eau réellement devenue impure.",
+          "sourceLabel": "Propos d’al-Hattâb, tome 1, p. 70–71, condition d’absence d’une autre eau.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Nous venons de voir que l’usage d’une petite quantité d’eau touchée par une impureté sans altération est réprouvé lorsqu’une autre eau existe. Le commentaire poursuit aussitôt : si la personne n’a pas d’autre eau, elle doit employer celle-ci dans le cadre qu’il étudie. Cette phrase est capitale parce qu’elle révèle la cohérence du jugement précédent. Si l’eau était réellement dépourvue de qualité purifiante dans le mashhûr, sa simple indisponibilité ailleurs ne lui donnerait pas magiquement cette qualité. Mais puisqu’elle est déjà considérée comme tahûr dans le cas décrit, la situation peut faire changer le jugement de son utilisation.",
+          "Al-Hattâb s’appuie sur des transmissions de l’école qui distinguent précisément les circonstances. Il ne dit pas que toute personne en voyage doit utiliser n’importe quelle eau suspecte, ni qu’il faut ignorer un danger sanitaire. Il ne résout pas ici les cas où l’existence de l’impureté est incertaine ou où les caractéristiques de l’eau se sont effectivement modifiées. La phrase enseigne l’importance de lire l’exception avec son contexte : **petite eau inchangée, impureté ayant touché l’eau, aucune autre eau disponible et avis connu discuté**."
+        ],
+        "steps": [
+          {
+            "label": "L’absence d’alternative est une condition du passage",
+            "text": "Le commentaire ne parle pas de toutes les situations où l’eau serait rare. Il traite une petite quantité d’eau juridiquement purifiante selon le mashhûr malgré le contact avec une impureté sans altération."
+          },
+          {
+            "label": "Pourquoi « wajib » et « makrûh » ne se contredisent pas ici",
+            "text": "Ces qualifications concernent l’utilisation dans des circonstances différentes. Lorsque l’autre eau existe, l’usage est réprouvé ; lorsqu’elle n’existe pas, l’auteur expose une autre obligation dans son cadre."
+          },
+          {
+            "label": "Ne pas généraliser à l’eau réellement altérée",
+            "text": "Une eau devenue najis par modification provoquée par une impureté relève de la première étape. Il serait erroné de lui appliquer sans nuance la solution décrite pour une eau demeurée inchangée."
+          },
+          {
+            "label": "Le tayammum ne se décide pas à partir d’un seul mot",
+            "text": "Avant de conclure que le tayammum doit remplacer l’eau dans un cas réel, il faut connaître les règles de disponibilité, de capacité d’utilisation et les conditions étudiées dans leurs chapitres propres."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux voyages différents",
+          "text": "Imagine deux scénarios fictifs. Dans le premier, le voyageur dispose d’une eau de remplacement non affectée : la discussion du mashhûr lui fait préférer cette autre eau. Dans le deuxième, il n’en possède pas et la petite quantité touchée par une impureté est demeurée inchangée. Le texte étudié ne lui donne pas alors le même jugement d’usage. Nous ne déduisons toutefois pas une fatwa sur une eau réellement trouvée en voyage : il faudrait aussi vérifier les faits, les dangers et les autres conditions juridiques."
+        },
+        "takeaway": "Al-Hattâb adapte le jugement d’utilisation de l’eau selon l’existence d’une alternative, tout en maintenant la différence entre l’eau qui reste purifiante et celle qui a été effectivement rendue impure. Sa phrase doit être lue uniquement dans les circonstances qu’il a décrites.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 70–71, exposition de l’avis connu et condition d’absence d’une autre eau."
+      },
+      {
+        "id": "opinions",
+        "eyebrow": "ÉTAPE 06 · NE PAS CONFONDRE LES AVIS RAPPORTÉS",
+        "title": "Que dit Ibn al-Qâsim, et pourquoi al-Hattâb rapporte-t-il quatre positions ?",
+        "passage": {
+          "arabic": "وقال ابن القاسم",
+          "translation": "« Et Ibn al-Qâsim a dit… »",
+          "explanation": "Al-Hattâb introduit ici une opinion attribuée à Ibn al-Qâsim différente de celle qu’il vient de présenter comme mashhûr. Il expose ensuite les autres réponses et discute leur attribution chez Ibn Bashîr, al-Lakhmî et Abû Mus‘ab.",
+          "sourceLabel": "Introduction par al-Hattâb de l’avis d’Ibn al-Qâsim, tome 1, p. 70–71.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Après avoir expliqué le mashhûr, al-Hattâb écrit « Et Ibn al-Qâsim a dit… ». Pourquoi est-ce important ? Parce que cette nouvelle phrase ne répète pas simplement la conclusion précédente. Ibn al-Qâsim soutient, dans la transmission rapportée ici, que la petite eau devient impure par le seul contact avec une impureté, même si elle n’a pas changé. C’est une position plus stricte, mentionnée dans la Risâla et reliée à une transmission égyptienne de l’enseignement de Mâlik. Un lecteur inattentif pourrait la prendre pour la continuation du jugement précédent et attribuer les deux positions à une même conclusion. Le livre t’apprend justement à distinguer les auteurs.",
+          "Al-Hattâb rapporte ensuite d’autres réponses : l’eau serait douteuse et l’on réunirait les ablutions et le tayammum ; ou bien elle resterait purifiante sans réprobation. Il mentionne le travail d’Ibn Bashîr, d’al-Lakhmî et des discussions autour de la transmission d’Abû Mus‘ab. Il ajoute lui-même une remarque pour discuter la manière dont cette dernière position a été attribuée. Les désaccords ne sont donc pas une liste de quatre cases entre lesquelles le débutant choisirait au hasard. Ils sont des avis historiques, transmis avec des chaînes d’autorité et évalués par le commentateur."
+        ],
+        "steps": [
+          {
+            "label": "Premier avis : tahûr avec réprobation",
+            "text": "C’est le mashhûr exposé dans les étapes 04 et 05 : la petite eau inchangée conserve son pouvoir purifiant, mais son emploi est réprouvé en présence d’une autre eau."
+          },
+          {
+            "label": "Deuxième avis : impure par simple contact",
+            "text": "Ibn al-Qâsim est cité dans cette discussion pour la position selon laquelle l’eau en faible quantité devient impure dès le contact avec une najâsa, même sans modification des propriétés."
+          },
+          {
+            "label": "Troisième avis : un statut incertain",
+            "text": "Une transmission mentionne le doute et la combinaison des ablutions avec le tayammum. Son existence explique la diversité des raisonnements ; elle n’est pas introduite comme le mashhûr retenu par Khalîl."
+          },
+          {
+            "label": "Quatrième avis : tahûr sans réprobation",
+            "text": "Al-Lakhmî rapporte une position selon laquelle la petite eau restée inchangée serait purifiante sans réprobation, associée à une transmission d’Abû Mus‘ab. Le commentaire examine les objections relatives à son attribution."
+          },
+          {
+            "label": "Comment identifier celui qui parle",
+            "text": "« Ibn al-Qâsim a dit », « al-Lakhmî a rapporté », puis « je dis » introduisent des niveaux distincts. La présence d’un avis dans Mawâhib al-Jalîl n’implique pas automatiquement que ce soit la conclusion personnelle d’al-Hattâb."
+          }
+        ],
+        "example": {
+          "title": "Exemple : quatre réponses écrites sur une feuille",
+          "text": "Supposons qu’un étudiant recopie quatre réponses au même scénario : « eau purifiante mais réprouvée », « eau devenue impure », « eau au statut douteux », « eau purifiante sans réprobation ». Il serait incorrect de les présenter toutes comme « la règle malikite ». Pour travailler correctement, il doit inscrire à côté de chaque réponse son auteur, sa transmission et son statut dans le commentaire. Ce n’est qu’après avoir effectué cette lecture qu’il pourra expliquer pourquoi Khalîl et al-Hattâb mettent l’accent sur l’avis connu."
+        },
+        "takeaway": "Les divergences sont réelles, mais elles ne sont pas quatre consignes interchangeables. Al-Hattâb distingue l’avis connu des positions d’Ibn al-Qâsim, de la voie du doute et de la transmission associée à Abû Mus‘ab ; chaque opinion doit être présentée avec son auteur et son contexte.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 70–71, revue des positions et transmissions d’Ibn al-Qâsim, Ibn Bashîr, al-Lakhmî et Abû Mus‘ab."
+      },
+      {
+        "id": "reasoning",
+        "eyebrow": "ÉTAPE 07 · COMPRENDRE LE RAISONNEMENT",
+        "title": "Pourquoi la réprobation existe-t-elle si cette eau demeure purifiante ?",
+        "passage": {
+          "arabic": "مراعاة الخلاف",
+          "translation": "« La prise en considération de la divergence. »",
+          "explanation": "Al-Hattâb indique cette raison pour la réprobation de l’usage de la petite eau inchangée selon le mashhûr. Il évoque également une preuve prophétique et distingue la valeur de plusieurs formulations transmises.",
+          "sourceLabel": "Paroles d’al-Hattâb, t. 1, p. 71, explication de la karâha et des preuves.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Cette dernière étape rassemble ce que nous avons appris. Tu sais désormais que l’eau réellement modifiée par une impureté est un cas distinct de la petite eau restée inchangée. Mais une nouvelle question apparaît : si le mashhûr considère la seconde comme purifiante, pourquoi son usage est-il réprouvé lorsqu’une autre eau existe ? Al-Hattâb donne une réponse courte qu’il faut prendre le temps d’expliquer : il s’agit de tenir compte de la divergence juridique. En d’autres termes, puisque des juristes ont soutenu une position plus stricte, la présence d’une eau de remplacement permet d’éviter de recourir à une eau controversée tout en ne lui retirant pas automatiquement sa qualité purifiante.",
+          "Le commentaire discute également les preuves. Il cite le récit du puits de Budâ‘a, utilisé pour défendre le principe selon lequel l’eau conserve son caractère purifiant tant qu’un changement pertinent ne l’a pas rendue impure. Il évoque aussi une autre formulation relative aux changements de couleur, de goût et d’odeur, en précisant qu’al-Nawawî la juge faible comme hadith et que l’exception juridique est défendue par d’autres arguments. Il serait donc inexact de présenter toutes les paroles citées comme des traditions d’authenticité équivalente. Notre méthode reste celle d’al-Hattâb : examiner le texte, son attribution, le raisonnement juridique et la place du jugement dans le madhhab."
+        ],
+        "steps": [
+          {
+            "label": "« Murâ‘ât al-khilâf » : prendre en compte un désaccord",
+            "text": "Ici, la divergence explique une précaution dans le choix de l’eau lorsqu’une autre est disponible. Le commentaire ne dit pas que l’existence d’un désaccord transforme automatiquement toute eau purifiante en eau impure."
+          },
+          {
+            "label": "Pourquoi les hadiths cités demandent une lecture précise",
+            "text": "Al-Hattâb mentionne le récit de Budâ‘a dans son argumentation. Il distingue également d’une autre tradition dont al-Nawawî signale la faiblesse. L’étudiant ne doit pas confondre le raisonnement fondé sur une règle avec l’authenticité de chaque formule rapportée."
+          },
+          {
+            "label": "La quantité : pourquoi le commentateur refuse un seuil improvisé",
+            "text": "Khalîl donne l’exemple d’un récipient d’ablutions ou de ghusl ; al-Hattâb rapporte ensuite d’autres discussions sur le sens de la petite quantité. On ne peut donc pas ajouter arbitrairement un nombre de litres que ce passage ne fixe pas."
+          },
+          {
+            "label": "Trois questions qui empêchent les erreurs",
+            "text": "Une impureté a-t-elle été établie ? A-t-elle changé une propriété de l’eau ? Si non, parle-t-on d’une petite quantité et de quel avis du madhhab ? Ces questions structurent l’étude sans se substituer à un jugement sur un cas réel."
+          },
+          {
+            "label": "Quel enseignement doit rester après le quiz ?",
+            "text": "Le but n’est pas de retenir « impureté = eau inutilisable » ou l’inverse. Il est de savoir relire les conditions d’une règle, reconnaître le mashhûr et comprendre pourquoi le commentaire discute les avis qui s’en distinguent."
+          }
+        ],
+        "example": {
+          "title": "Exemple : raconter correctement un même incident",
+          "text": "Un débutant affirme : « Une impureté a touché mon eau, elle est forcément inutilisable. » Un autre répond : « Elle est forcément toujours valable. » Tous deux sont allés trop vite. La bonne méthode consiste à demander ce qui est réellement établi, si l’une des propriétés a changé, quelle quantité est en jeu et quelle qualification al-Hattâb donne à l’avis retenu. Lorsque la situation reste incertaine ou touche à des questions sanitaires, l’exercice pédagogique ne remplace ni une vérification sûre des faits ni l’avis d’un enseignant compétent."
+        },
+        "takeaway": "L’argumentation d’al-Hattâb articule le pouvoir purifiant de l’eau, la prudence liée à la divergence et la différence entre les preuves citées. Le jugement étudié n’est compréhensible qu’en conservant les conditions de chaque cas et le statut des avis rapportés.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 71–72, preuves, jugement du mashhûr, motif de réprobation et discussion sur la quantité d’eau."
       }
     ],
     "quote": {
       "arabic": "وَيَسِيرٌ كَآنِيَةِ وُضُوءٍ وَغُسْلٍ بِنَجَسٍ لَمْ يَتَغَيَّرْ",
-      "meaning": "Khalîl isole le cas d’une petite quantité d’eau touchée par une impureté sans changement perceptible. Al-Hattâb y expose l’avis connu et les autres opinions transmises.",
-      "label": "Extrait du Mukhtasar de Khalîl cité et commenté dans Mawâhib al-Jalîl, t. 1, p. 70–71 ; explication du sens."
+      "meaning": "Khalîl distingue le cas particulier d’une petite quantité d’eau touchée par une impureté sans changement. Al-Hattâb explique que l’avis connu maintient son pouvoir purifiant, tout en réprouvant son utilisation lorsqu’une autre eau est disponible, puis rapporte les autres avis de l’école.",
+      "label": "Extrait du Mukhtasar de Khalîl cité par al-Hattâb, tome 1, p. 70–71 ; traduction de sens et explication pédagogique."
     },
     "lexicon": [
       {
         "arabic": "نَجَاسَة",
         "term": "Najâsa",
-        "definition": "Impureté juridiquement considérée, distincte d’une simple impression de saleté ou d’une crainte sans preuve."
+        "definition": "Impureté reconnue juridiquement ; elle ne doit pas être confondue avec une simple impression de saleté ou avec une crainte qui n’a pas été établie."
+      },
+      {
+        "arabic": "نَجِس",
+        "term": "Najis",
+        "definition": "Qualificatif d’une chose juridiquement impure ; al-Hattâb l’emploie pour l’eau effectivement altérée par une impureté dans le passage étudié."
       },
       {
         "arabic": "مُتَنَجِّس",
         "term": "Mutanajjis",
-        "definition": "Chose affectée par une impureté selon des conditions déterminées ; ne doit pas être confondue avec l’impureté elle-même."
+        "definition": "Objet ou liquide affecté par une impureté selon les conditions du fiqh ; cela ne revient pas à déclarer impure toute eau simplement suspectée."
       },
       {
-        "arabic": "مَاء يَسِير",
-        "term": "Mâ’ yasîr",
-        "definition": "Petite quantité d’eau, ici illustrée par un récipient d’ablution ou de lavage ; la mesure exacte dépend des discussions."
+        "arabic": "أَوْصَافُ الْمَاءِ",
+        "term": "Awsâf al-mâ’",
+        "definition": "Caractéristiques de l’eau examinées par les juristes, notamment couleur, goût et odeur ; il faut distinguer leur changement de leur état initial."
       },
       {
-        "arabic": "لَمْ يَتَغَيَّر",
+        "arabic": "لَمْ يَتَغَيَّرْ",
         "term": "Lam yataghayyar",
-        "definition": "« N’a pas changé » : condition déterminante du passage sur la petite eau touchée par une impureté."
+        "definition": "« N’a pas changé » : condition essentielle du passage de Khalîl sur la petite quantité d’eau au contact d’une impureté."
+      },
+      {
+        "arabic": "مَاءٌ يَسِير",
+        "term": "Mâ’ yasîr",
+        "definition": "Petite quantité d’eau, illustrée ici par les récipients d’ablutions et de ghusl ; la discussion ne fixe pas un seuil numérique universel."
+      },
+      {
+        "arabic": "طَهُور",
+        "term": "Tahûr",
+        "definition": "Purifiant : qualité juridique permettant d’utiliser une eau pour la purification rituelle sous les conditions décrites dans le chapitre."
       },
       {
         "arabic": "مَكْرُوه",
         "term": "Makrûh",
-        "definition": "Qualificatif d’un usage réprouvé : il ne signifie pas automatiquement que l’eau est juridiquement impure."
+        "definition": "Réprouvé : jugement de l’utilisation d’une eau dans certaines circonstances, qui ne signifie pas nécessairement que l’eau elle-même est impure."
       },
       {
         "arabic": "الْمَشْهُور",
         "term": "Mashhûr",
-        "definition": "Avis présenté comme connu ou reconnu dans l’école par l’auteur ; il n’implique pas une absence de divergences."
+        "definition": "Avis reconnu comme connu dans l’école selon le commentateur, sans que cette qualification annule les autres transmissions ou signifie automatiquement unanimité."
+      },
+      {
+        "arabic": "مُرَاعَاةُ الْخِلَاف",
+        "term": "Murâ‘ât al-khilâf",
+        "definition": "Prise en considération d’une divergence juridique : al-Hattâb l’évoque comme explication de la réprobation en présence d’une autre eau."
+      },
+      {
+        "arabic": "التَّيَمُّم",
+        "term": "Tayammum",
+        "definition": "Purification de remplacement dans des conditions spécifiques ; une transmission citée dans le commentaire l’associe aux ablutions en cas de doute sur le statut de l’eau."
+      },
+      {
+        "arabic": "رِوَايَة",
+        "term": "Riwâya",
+        "definition": "Transmission d’une position juridique d’un savant ; le commentateur examine son attribution et son statut avant de l’intégrer à l’analyse."
       }
     ],
     "quiz": [
       {
-        "question": "Lorsque l’impureté modifie effectivement l’eau dans le cas étudié, quelle qualification apparaît ?",
+        "question": "Quelle différence fondamentale sépare la première partie de la fiche du passage sur la petite eau ?",
         "choices": [
-          "Najis (impure).",
-          "Toujours pure et purifiante.",
-          "Toujours pure mais non purifiante, quel que soit l’agent."
+          "La première concerne une eau réellement modifiée par une impureté ; la seconde une eau restée inchangée.",
+          "La première concerne les récipients et la seconde uniquement les vêtements.",
+          "Les deux parlent toujours d’une eau exactement identique."
         ],
         "answer": 0,
-        "explanation": "Le commentaire distingue un changement causé par une substance pure et un changement causé par une impureté."
+        "explanation": "Le changement réel des caractéristiques sous l’effet d’une najâsa est la condition du premier jugement. Dans la seconde discussion, Khalîl précise que l’eau n’a pas changé."
       },
       {
-        "question": "Que rapporte al-Hattâb pour une petite quantité d’eau touchée par une impureté sans changement perceptible ?",
+        "question": "Dans le cas de l’eau réellement altérée par une impureté, que dit al-Hattâb ?",
         "choices": [
-          "Tous les avis malikites sont unanimes sur son impureté.",
-          "L’avis célèbre la tient purifiante mais en réprouve l’usage lorsqu’une autre eau existe, tout en rapportant d’autres avis.",
-          "La question n’est jamais abordée."
+          "Elle devient toujours pure mais non purifiante.",
+          "Elle est qualifiée de najis dans le passage étudié.",
+          "Elle reste nécessairement utilisable pour le ghusl."
         ],
         "answer": 1,
-        "explanation": "Le commentaire identifie un mashhûr et mentionne expressément la position différente d’Ibn al-Qâsim."
+        "explanation": "Al-Hattâb distingue l’eau changée par une matière pure, qui reste pure sans être purifiante, de l’eau effectivement modifiée par une impureté, qu’il qualifie de najis."
       },
       {
-        "question": "Quelle erreur faut-il éviter dans la lecture du passage ?",
+        "question": "Pourquoi les mots « lam yataghayyar » sont-ils essentiels ?",
         "choices": [
-          "Identifier l’agent de changement.",
-          "Distinguer l’avis célèbre des avis rapportés.",
-          "Confondre l’eau effectivement altérée avec celle qui n’a pas changé."
+          "Ils fixent le seuil d’eau à vingt litres.",
+          "Ils signifient que l’eau est salée.",
+          "Ils indiquent que l’eau a été touchée sans modification pertinente de ses propriétés."
         ],
         "answer": 2,
-        "explanation": "Ces deux configurations sont discutées séparément ; les mélanger efface la précision du texte."
+        "explanation": "Khalîl introduit précisément un cas différent de l’eau effectivement altérée. Supprimer les mots « qui n’a pas changé » effacerait la raison même de la discussion."
+      },
+      {
+        "question": "Selon le mashhûr présenté par al-Hattâb, quel est le statut de cette petite eau inchangée ?",
+        "choices": [
+          "Elle demeure purifiante, mais son usage est réprouvé si une autre eau existe.",
+          "Elle est obligatoirement impure par le simple contact.",
+          "Elle ne peut jamais servir aux ablutions."
+        ],
+        "answer": 0,
+        "explanation": "Le commentaire qualifie cette eau de tahûr, puis précise une karâha en présence d’une autre eau. Ce sont deux qualifications juridiques distinctes."
+      },
+      {
+        "question": "Que précise al-Hattâb lorsqu’aucune autre eau n’est disponible dans ce cas ?",
+        "choices": [
+          "Il faut nécessairement jeter l’eau.",
+          "Il indique qu’il faut l’utiliser selon l’avis qu’il expose.",
+          "L’eau devient automatiquement impure."
+        ],
+        "answer": 1,
+        "explanation": "Cette précision concerne uniquement la petite eau inchangée que le mashhûr considère comme purifiante. Elle ne s’étend pas à l’eau effectivement rendue najis."
+      },
+      {
+        "question": "Quelle position différente est attribuée à Ibn al-Qâsim dans la discussion ?",
+        "choices": [
+          "Toutes les eaux de mer sont impures.",
+          "La petite eau ne peut jamais être touchée par une souillure.",
+          "La petite quantité d’eau peut devenir impure au simple contact, même sans changement."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb rapporte cette opinion plus stricte d’Ibn al-Qâsim en la distinguant de l’avis qu’il avait présenté auparavant comme mashhûr."
+      },
+      {
+        "question": "Combien de grandes positions al-Lakhmî distingue-t-il dans le passage expliqué ?",
+        "choices": [
+          "Quatre positions, dont la pureté sans réprobation, la pureté avec réprobation, l’impureté et le doute.",
+          "Une seule position unanimement admise.",
+          "Deux positions qui portent exclusivement sur l’eau de rose."
+        ],
+        "answer": 0,
+        "explanation": "Le commentaire discute quatre réponses à la situation de petite eau inchangée. Les connaître ne signifie pas les considérer comme des choix interchangeables pour le lecteur."
+      },
+      {
+        "question": "Que signifie ici murâ‘ât al-khilâf ?",
+        "choices": [
+          "Un jugement d’impureté automatique.",
+          "Tenir compte de la divergence, ce qui contribue à expliquer la réprobation malgré le maintien du pouvoir purifiant.",
+          "L’obligation de suivre tous les avis en même temps."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb donne la prise en compte de la divergence comme motif de réprobation lorsqu’une autre eau existe. Il ne retire pas pour autant au liquide sa qualité tahûr dans le mashhûr."
+      },
+      {
+        "question": "Quel réflexe représente le mieux la méthode d’étude de cette fiche ?",
+        "choices": [
+          "Appliquer le même jugement à toute eau qui aurait pu être touchée.",
+          "Inventer une limite universelle en millilitres pour éviter de lire les avis.",
+          "Identifier les faits, constater un éventuel changement et attribuer chaque avis avant de conclure."
+        ],
+        "answer": 2,
+        "explanation": "L’enseignement central consiste à respecter les conditions du cas, à distinguer l’altération et le simple contact et à reconnaître le statut des transmissions dans le commentaire."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage arabe et table des matières",
+        "label": "Usul — Mawâhib al-Jalîl, texte original et notice bibliographique",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 59–61, eau modifiée par une impureté",
-        "url": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        "label": "Islamweb — al-Hattâb, tome 1, p. 59 : eau réellement modifiée par une impureté",
+        "url": "https://www.islamweb.com/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
       },
       {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 70–71, petite eau et divergences",
+        "label": "Islamweb — al-Hattâb, tome 1, p. 70–72 : petite eau inchangée, mashhûr, divergences et preuves",
         "url": "https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
       }
     ]
