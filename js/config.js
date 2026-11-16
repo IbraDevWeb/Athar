@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v91-zoom-panning-v1';
+    const APP_VERSION = 'athar-pro-v92-fiqh-fiche-03-guidee-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

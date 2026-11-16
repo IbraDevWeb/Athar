@@ -63,27 +63,29 @@ L’extrait arabe final reprend la définition de Khalîl « ما صدق علي�
 
 **Précaution :** les scénarios contemporains sont explicitement des exemples d’apprentissage, et non des citations historiques ni des fatwas. Les règles détaillées du tayammum, des excuses concernant des souillures et des eaux modifiées relèvent de développements juridiques supplémentaires. Les autres fiches ne sont pas altérées ; l’ancienne clé de progression `athar_fiqh_maliki_tahara_02_done` reste conservée.
 
-## Fiche 03 — Eaux naturelles, pluie, mer, rosée et neige fondue
+## Fiche 03 — Les eaux naturelles : six lectures guidées du commentaire
 
-**Périmètre source :** *Mawâhib al-Jalîl*, tome 1, page 46 (provenances et eau de mer) ; page 51 (eau recueillie de la rosée et eau fondue après congélation).
+**Refonte pédagogique pilote du 16 novembre 2026.** Les quatre résumés précédents sont remplacés par six étapes détaillées qui partent d'extraits vérifiés du commentaire d'al-Hattâb, de la formule de Khalîl et d'une réponse de Mâlik citée par le commentateur. Chaque étape suit ce parcours : **citation arabe attribuée → traduction de sens → deux développements accessibles → 4 à 5 explications par notion → exemple concret identifié comme pédagogique → conclusion « à retenir » → lien au passage original**.
 
-Sources vérifiées :
+### Les six étapes
 
-- [Islamweb — t. 1, page 46](https://islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB) : « كماء المطر وماء الندى », « كماء البحر », et commentaire explicite sur l'eau de mer.
-- [Islamweb — t. 1, page 51, rosée](https://www.islamweb.net/ar/library/content/19/87/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB) : « وَإِنْ جُمِعَ مِنْ نَدًى », explication du mot nadâ et transmission de Mâlik sur l'eau effectivement recueillie.
-- [Islamweb — t. 1, page 51, eau fondue](https://www.islamweb.net/ar/library/content/19/88/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB) : « أو ذاب بعد جموده » et exemples de neige et de grêle fondues.
+1. **La provenance ne transforme pas nécessairement l'eau** — « ودخل في حده ما كانت إضافته بيانية كماء المطر وماء الندى » (al-Hattâb, p. 46). *Idâfa bayâniyya*, « eau de pluie », « eau de rose » et différence entre origine et préparation.
+2. **L'eau de mer** — « كماء البحر ولا خلاف في جواز التطهير به » (al-Hattâb, p. 46). Eau naturellement salée, pouvoir purifiant, réprobation rapportée d'Ibn ‘Umar et conclusion du commentateur.
+3. **La distinction des catégories** — « ومنها ما لا يسلبه الطهورية ولا يقتضي كراهة استعماله » (al-Hattâb, p. 51). Eau purifiante non réprouvée dans les cas étudiés, à distinguer de l'eau purifiante dont l'usage peut être réprouvé.
+4. **La rosée réellement recueillie** — « يتيمم إلا أن يجمع من الندى ما يتوضأ به » (réponse attribuée à Mâlik, transmise et commentée par al-Hattâb, p. 51). Explication de *nadâ* et de la quantité effectivement disponible.
+5. **Neige et grêle après fonte** — « لا فرق بين أن يكون مائعا من أصله أو يكون جامدا ثم ذاب بعد ذلك » (explication d'al-Hattâb, p. 51). Eau liquide de nouveau, fonte spontanée ou provoquée, et distinction avec un lavage qui exigerait d'autres règles pratiques.
+6. **L'avis *mashhûr* sur un cas particulier du sel** — « الظاهر حمل كلام المصنف على العموم لأن القول الأول هو المشهور » (prise de position d'al-Hattâb, p. 51). Trois positions transmises sur un liquide issu de sel redevenant liquide après déplacement ; ne pas confondre avec l'ajout de sel à une eau déjà liquide.
 
-Quatre étapes :
+**Leçon de méthode :** l'avis *mashhûr* est explicitement identifié lorsqu'al-Hattâb l'emploie ; les transmissions divergentes ne sont pas effacées. Les six exemples modernes sont des outils de compréhension, **non des citations ni des fatwas**.
 
-1. Qualificatifs de provenance (« eau de pluie », « eau de mer ») et notion d'eau *mutlaq*.
-2. Eau effectivement recueillie de la rosée.
-3. Neige et grêle après leur fonte.
-4. Distinction entre provenance, changement d'état et modification par une substance extérieure ; cette dernière question est reportée.
+**Parcours :** 5 objectifs, 6 développements à partir de passages arabes, 10 entrées de lexique et 8 questions corrigées. Les fiches 01–02 et 04–12, ainsi que les clés locales de suivi de lecture, restent inchangées. Le style de lecture justifié introduit dans la fiche 02 continue de s'appliquer ici.
 
-L'extrait court en arabe est **de Khalîl**, repris et commenté par **al-Hattâb**. Les quatre explications françaises, le lexique (six termes) et le quiz (trois questions) sont une **synthèse pédagogique Athar**, non une traduction exhaustive et non une fatwa.
+### Sources primaires
 
-Les développements sur les eaux mélangées, altérées ou touchées par une impureté figurent dans les fiches suivantes. Cette fiche ne les anticipe pas.
-
+- [Usul — Mawâhib al-Jalîl, notice du texte](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil)
+- [Islamweb — al-Hattâb, tome 1, page 46 : provenance et eau de mer](https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB)
+- [Islamweb — al-Hattâb, tome 1, page 51 : rosée et Mâlik](https://www.islamweb.net/ar/library/index.php?ID=87&bk_no=19&flag=1&page=bookcontents)
+- [Islamweb — al-Hattâb, tome 1, page 51 : fonte, sel et avis retenu](https://www.islamweb.net/ar/library/content/19/88/?idfrom=&idto=&start=)
 
 ## Fiche 04 — L’eau modifiée : critères juridiques
 
@@ -205,7 +207,7 @@ Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six 
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v90) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v92) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus

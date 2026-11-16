@@ -644,117 +644,402 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "number": "03",
     "status": "disponible",
     "title": "Les eaux naturelles — pluie, mer, rosée et neige fondue",
-    "subtitle": "Comprendre pourquoi certaines provenances et certains changements d’état ne retirent pas à l’eau son caractère purifiant dans les exemples étudiés.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث (t. 1, p. 46 et 51, Islamweb)",
+    "subtitle": "Lire al-Hattâb pas à pas : pourquoi les origines de l’eau ne changent pas nécessairement son statut, ce que dit Mâlik sur la rosée et quel avis est retenu dans une question plus délicate.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, tome 1, p. 46 et 51, passages sur l’eau mutlaq, la rosée et l’eau fondue",
+    "goals": [
+      "Expliquer ce qu’est un qualificatif de provenance et pourquoi « eau de mer » n’est pas l’équivalent d’une préparation comme l’eau de rose.",
+      "Retrouver dans le commentaire la règle sur l’eau de mer et distinguer son caractère purifiant d’une préférence personnelle rapportée.",
+      "Lire la réponse précise attribuée à Mâlik sur la rosée recueillie : quand a-t-on réellement assez d’eau pour les ablutions ?",
+      "Comprendre pourquoi de la neige ou de la grêle fondues restent, dans le cas étudié, de l’eau utilisable pour la purification.",
+      "Distinguer un avis présenté comme mashhûr des autres avis rapportés sur le cas plus technique du sel redevenant liquide."
+    ],
     "sections": [
       {
-        "id": "name-and-origin",
-        "eyebrow": "01 · Le nom de l’eau",
-        "title": "« Eau de mer » ou « eau de pluie » : une qualification qui change la règle ?",
+        "id": "origin",
+        "eyebrow": "ÉTAPE 01 · LE NOM DES EAUX",
+        "title": "Pourquoi « eau de pluie » et « eau de rose » ne signifient-ils pas la même chose ?",
+        "passage": {
+          "arabic": "ودخل في حده ما كانت إضافته بيانية كماء المطر وماء الندى",
+          "translation": "« Entrent dans cette définition les eaux dont le complément sert à les préciser, comme l’eau de pluie et l’eau de rosée. »",
+          "explanation": "Al-Hattâb commente ici la définition de l’eau mutlaq donnée par Khalîl. Il explique qu’un complément de nom ne fait pas nécessairement sortir l’eau de cette catégorie : tout dépend de ce que ce complément signifie.",
+          "sourceLabel": "Propos d’al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 46.",
+          "sourceUrl": "https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
         "paragraphs": [
-          "La fiche précédente définissait l’eau « mutlaq » comme celle que l’on peut appeler simplement « eau ». Al-Hattâb précise que nommer son origine — « eau de pluie », « eau de source », « eau de puits » ou « eau de mer » — n’empêche pas nécessairement l’emploi du nom d’eau au sens du fiqh.",
-          "L’expression « eau de mer » renseigne sur le lieu d’où provient l’eau : elle ne signifie pas, à elle seule, qu’une substance étrangère y a été mélangée. Al-Hattâb inclut explicitement l’eau de mer parmi les eaux utilisables pour se purifier. Il convient de distinguer cette qualification de provenance d’une modification par mélange."
+          "Dans la fiche 02, nous avons lu la définition de l’eau mutlaq, c’est-à-dire l’eau à laquelle le nom d’« eau » s’applique sans qu’une autre qualification change ce que désigne réellement le liquide. Une question se présente aussitôt : pourquoi les juristes disent-ils alors « eau de pluie », « eau de puits » ou « eau de mer » ? L’existence des mots « de pluie » ne retire-t-elle pas le caractère mutlaq ? Al-Hattâb répond à cette difficulté en expliquant que tous les compléments n’ont pas la même fonction. Certains indiquent simplement l’origine de l’eau : ils permettent de dire d’où elle vient, sans prétendre qu’elle a cessé d’être de l’eau.",
+          "Le commentateur appelle notamment ce type de construction une « addition explicative » (idâfa bayâniyya). En français, on le voit bien : une bouteille remplie d’eau de pluie contient de l’eau recueillie lorsqu’il pleut ; une bouteille d’eau de rose peut, au contraire, désigner un produit obtenu par un procédé de préparation. Il ne faut pas classer ces liquides de la même manière seulement parce que les deux expressions commencent par « eau de ». Dans cette première étape, nous apprenons à écouter le sens des mots avant de déduire le jugement."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, Livre de la purification, t. 1, p. 46 : « كماء المطر وماء الندى », « كماء البحر » et « ولا خلاف في جواز التطهير به » ; commentaire d’al-Hattâb."
+        "steps": [
+          {
+            "label": "« دخل في حده » : « entre dans sa définition »",
+            "text": "Al-Hattâb revient sur la formule de Khalîl étudiée dans la fiche précédente. Il demande si des eaux nommées d’après leur origine remplissent malgré tout les critères de l’eau mutlaq : sa réponse est oui dans les exemples qu’il mentionne."
+          },
+          {
+            "label": "« إضافة بيانية » : une précision, pas une transformation",
+            "text": "Le complément peut expliquer une provenance ou une circonstance. Lorsque l’on dit « eau de pluie », le mot « pluie » renseigne sur l’eau ; il ne désigne pas nécessairement une substance mélangée à l’eau."
+          },
+          {
+            "label": "Pourquoi l’eau de rose est différente dans ce raisonnement",
+            "text": "Al-Hattâb oppose, dans le même passage, l’eau qu’on nomme par son origine et les liquides dont le nom requiert une qualification qui les distingue de l’eau ordinaire. Le cas de l’eau de rose sert à comprendre la distinction de langage juridique."
+          },
+          {
+            "label": "La leçon pour la suite du livre",
+            "text": "Avant de déclarer une eau purifiante ou non, il faudra demander si le qualificatif indique le lieu d’origine, une propriété naturelle ou une substance ajoutée. Les règles précises sur les mélanges seront expliquées dans une autre fiche."
+          }
+        ],
+        "example": {
+          "title": "Exemple : trois flacons sur une table",
+          "text": "Imagine que tu poses trois flacons : de l’eau de pluie recueillie dans un récipient propre, de l’eau provenant d’un puits et une eau florale appelée « eau de rose ». Le premier et le deuxième sont désignés par leur origine ; pour le troisième, il faut d’abord savoir ce que contient réellement le flacon. Le but n’est pas d’analyser chimiquement chaque produit, mais de comprendre pourquoi al-Hattâb ne s’arrête pas aux deux mots « eau de ». Cet exemple moderne est pédagogique et n’est pas tiré de son texte."
+        },
+        "takeaway": "Le mot ajouté après « eau » ne change pas toujours le jugement juridique. Lorsqu’il précise seulement une provenance, al-Hattâb explique que cela ne retire pas à l’eau, dans les cas cités, son caractère d’eau mutlaq.",
+        "sourceNote": "Source primaire : al-Hattâb, t. 1, p. 46, discussion de « اسم ماء بلا قيد » et distinction des compléments. Exemple pédagogique d’Athar."
+      },
+      {
+        "id": "sea",
+        "eyebrow": "ÉTAPE 02 · UNE EAU SALÉE, MAIS PURIFIANTE",
+        "title": "Peut-on réellement faire les ablutions avec l’eau de mer ?",
+        "passage": {
+          "arabic": "كماء البحر ولا خلاف في جواز التطهير به",
+          "translation": "« Comme l’eau de mer : il n’y a pas de désaccord sur la possibilité de se purifier avec elle. »",
+          "explanation": "Dans cette formule, al-Hattâb cite expressément l’eau de mer parmi les eaux dont le nom précise le lieu d’origine. Il parle de la validité de la purification, et non du caractère agréable de son goût.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 46, discussion de l’eau de mer.",
+          "sourceUrl": "https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
+        "paragraphs": [
+          "Tu sais que l’eau de mer a un goût salé, contrairement à une eau douce de rivière. Un débutant pourrait alors se dire : « Puisqu’elle a un goût différent, ce n’est plus l’eau ordinaire que l’on utilise pour les ablutions. » Mais al-Hattâb nous demande de ne pas confondre un caractère naturel de l’eau et une transformation qui modifie son statut. Il mentionne explicitement l’eau de mer et affirme qu’elle permet la purification. Le sel naturellement présent dans la mer ne fait donc pas, à lui seul, sortir cette eau de la catégorie étudiée.",
+          "Le commentaire signale aussi qu’une réprobation de l’usage de l’eau de mer a été rapportée d’Ibn ‘Umar. Cela n’autorise pas à présenter l’avis rapporté comme un désaccord sur la validité de la purification : al-Hattâb poursuit en indiquant que le consensus s’est établi à l’encontre de cette réprobation. Le point essentiel est d’apprendre à lire l’articulation de son raisonnement. Il ne suffit pas de relever une opinion ancienne dans la marge ; il faut vérifier ce que le commentateur conclut sur le jugement."
+        ],
+        "steps": [
+          {
+            "label": "Ce qui est affirmé : « يجوز التطهير به »",
+            "text": "La formule signifie que l’eau de mer peut servir à la purification. Elle répond directement au doute de celui qui imaginerait que l’eau salée est inutilisable pour les ablutions."
+          },
+          {
+            "label": "Ce qui n’est pas dit : « toute eau salée est identique »",
+            "text": "Le passage parle de l’eau de mer dans son état naturel. Si une autre substance est ajoutée volontairement à une eau, nous changeons de question ; il faut alors lire les chapitres sur les eaux modifiées."
+          },
+          {
+            "label": "Avis rapporté et jugement établi : deux niveaux",
+            "text": "Al-Hattâb évoque une réprobation attribuée à Ibn ‘Umar, mais il explique qu’un consensus contraire à cette réprobation a été établi. Ne transformons pas une transmission historique en avis retenu contre la conclusion du passage."
+          },
+          {
+            "label": "L’erreur à éviter chez le lecteur débutant",
+            "text": "Le goût d’une eau ne peut pas être isolé de son histoire. Une salinité naturellement liée à la mer n’est pas automatiquement comparable à un liquide modifié par un ingrédient extérieur."
+          }
+        ],
+        "example": {
+          "title": "Exemple : en voyage, près de la mer",
+          "text": "Une personne voyage sur la côte et ne dispose, dans notre scénario, que d’eau de mer non altérée par une souillure connue. Elle se demande si le simple goût salé rend ses ablutions impossibles. Le passage étudié répond à cette objection : l’eau de mer entre dans les eaux purifiantes. En revanche, si cette eau a reçu un produit ou une impureté dont l’effet doit être examiné, ce serait une autre situation, non tranchée par la seule phrase sur la mer."
+        },
+        "takeaway": "Al-Hattâb affirme clairement que l’eau de mer est purifiante. Il ne faut pas confondre sa salinité naturelle avec les changements dus à des substances ajoutées, ni placer un avis historique rapporté au même niveau que la conclusion du commentateur.",
+        "sourceNote": "Source primaire : al-Hattâb, t. 1, p. 46, citation « كماء البحر » et mention de la réprobation attribuée à Ibn ‘Umar. Exemple de voyage ajouté pour apprendre."
+      },
+      {
+        "id": "classification",
+        "eyebrow": "ÉTAPE 03 · LIRE UNE EXCEPTION SANS LA DÉFORMER",
+        "title": "Pourquoi Khalîl précise-t-il des cas qui paraissent sortir de la définition ?",
+        "passage": {
+          "arabic": "ومنها ما لا يسلبه الطهورية ولا يقتضي كراهة استعماله",
+          "translation": "« Parmi ces situations, certaines ne retirent pas à l’eau sa qualité purifiante et n’impliquent pas de réprobation de son utilisation. »",
+          "explanation": "Al-Hattâb ouvre ici son explication des cas que Khalîl ajoute après la définition générale : il distingue les eaux qui restent purifiantes sans réprobation de celles dont l’emploi peut être réprouvé.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 51, introduction à « وإن جمع من ندى ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/index.php?ID=87&bk_no=19&flag=1&page=bookcontents"
+        },
+        "paragraphs": [
+          "Nous voici arrivés à une phrase de Khalîl qui pourrait te surprendre. Après avoir expliqué l’eau mutlaq, le juriste ajoute : « même si elle a été recueillie de la rosée », puis évoque une eau redevenue liquide après avoir été gelée. Pourquoi préciser cela ? Parce que ces situations sont moins évidentes pour quelqu’un qui ne pense qu’à l’eau coulant du robinet ou remplissant un puits. Al-Hattâb explique que Khalîl cite certains cas qui paraissent, au premier abord, éloignés de la définition, mais qui peuvent rester semblables à l’eau ordinaire par leur jugement.",
+          "Il donne une seconde distinction pédagogique importante. Une eau peut conserver son pouvoir purifiant tout en voyant son emploi réprouvé dans une situation déterminée ; une autre eau peut rester purifiante sans que cette réprobation s’applique. Les exemples de rosée recueillie et de neige fondue appartiennent à cette seconde discussion, tandis qu’il annonce pour plus tard les cas tels que l’eau déjà utilisée. Le débutant doit retenir que « purifiant » et « usage réprouvé » ne sont pas des synonymes : la seconde qualification ne supprime pas automatiquement la première."
+        ],
+        "steps": [
+          {
+            "label": "« لا يسلبه الطهورية » : le pouvoir purifiant demeure",
+            "text": "Al-Hattâb ne parle pas seulement d’une eau qui serait propre à boire ou agréable. Il s’intéresse à sa capacité juridique à servir à la purification rituelle dans les conditions étudiées."
+          },
+          {
+            "label": "« ولا يقتضي كراهة استعماله » : pas de réprobation pour ce seul motif",
+            "text": "L’auteur ne se contente pas de dire que l’eau peut être utilisée. Il précise également que l’étrangeté du cas — telle qu’une rosée recueillie — n’impose pas en soi une réprobation de son usage."
+          },
+          {
+            "label": "« وإن » : même dans un cas qui pourrait étonner",
+            "text": "La tournure employée par Khalîl introduit un cas qu’un lecteur pourrait être tenté d’exclure. Al-Hattâb explique que ces situations demeurent comparables à l’eau mutlaq pour le jugement considéré."
+          },
+          {
+            "label": "Un renvoi à une autre leçon, pas une contradiction",
+            "text": "Les eaux déjà employées et certaines modifications feront l’objet de passages distincts. Le fait qu’il existe des eaux purifiantes mais réprouvées ne permet pas de dire que les cas de rosée et de neige sont réprouvés."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux seaux d’eau",
+          "text": "Pense à deux seaux contenant chacun de l’eau : l’un est rempli d’une eau ordinaire prélevée dans un puits, l’autre d’une eau collectée après condensation naturelle de la rosée. À première vue, la provenance de la seconde pourrait paraître inhabituelle. Pourtant, le raisonnement d’al-Hattâb est de vérifier si la circonstance particulière enlève réellement une qualification juridique. Ce n’est pas parce que l’eau a une histoire peu habituelle qu’elle perd automatiquement son pouvoir purifiant."
+        },
+        "takeaway": "En introduisant les exemples qui suivent, al-Hattâb distingue deux questions : l’eau reste-t-elle purifiante, et son usage est-il réprouvé ? La rosée recueillie et l’eau fondue ne doivent pas être classées sans examen parmi les eaux problématiques.",
+        "sourceNote": "Source primaire : al-Hattâb, t. 1, p. 51, commentaire introductif de « وإن جمع من ندى » et distinction des eaux réprouvées ou non."
       },
       {
         "id": "dew",
-        "eyebrow": "02 · La rosée",
-        "title": "Peut-on se purifier avec de l’eau recueillie de la rosée ?",
+        "eyebrow": "ÉTAPE 04 · LA ROSÉE ET LA RÉPONSE DE MÂLIK",
+        "title": "Quelques gouttes sur les feuilles : cela suffit-il pour accomplir les ablutions ?",
+        "passage": {
+          "arabic": "يتيمم إلا أن يجمع من الندى ما يتوضأ به",
+          "translation": "« Il fait le tayammum, sauf s’il rassemble de la rosée en quantité permettant de faire les ablutions. »",
+          "explanation": "Ce n’est pas une phrase inventée pour notre cours : al-Hattâb rapporte ici une réponse de l’imam Mâlik, transmise dans la discussion sur la rosée. L’exception porte sur l’eau réellement rassemblée et utilisable.",
+          "sourceLabel": "Propos de Mâlik rapporté par al-Hattâb, tome 1, p. 51 ; transmission citée depuis les Nawâdir et al-Majmû‘a.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/index.php?ID=87&bk_no=19&flag=1&page=bookcontents"
+        },
         "paragraphs": [
-          "Khalîl mentionne expressément « وإن جمع من ندى » : même lorsque l’eau a été recueillie de la rosée. Al-Hattâb explique que le mot nadâ désigne ici l’humidité qui se dépose durant la nuit sur le sol et les feuilles.",
-          "Le commentaire rapporte de Mâlik la possibilité de faire les ablutions avec de la rosée effectivement recueillie en quantité suffisante. Il distingue ce cas de celui où l’on ne dispose pas de l’eau nécessaire : la rosée supposée ou quelques traces d’humidité ne sont pas automatiquement un volume d’eau permettant les ablutions."
+          "Le terme arabe nadâ renvoie ici à l’humidité qui se dépose pendant la nuit sur le sol et les feuilles des arbres. Al-Hattâb explique ce sens avant de citer une réponse de Mâlik. Imagine que tu arrives tôt le matin dans un jardin : la surface des feuilles est humide et de petites gouttes peuvent être recueillies. Est-ce de l’eau pouvant servir à la purification ? Le commentaire répond oui pour l’eau de rosée effectivement collectée. Mais il ne suffit pas de remarquer une feuille mouillée pour affirmer qu’on possède assez d’eau afin d’accomplir toutes les ablutions.",
+          "Le texte attribué à Mâlik est particulièrement intéressant parce qu’il distingue les faits. Quelqu’un demande ce que doit faire une personne qui ne trouve pas d’eau : doit-elle se purifier avec la rosée ou recourir au tayammum ? Mâlik répond en substance qu’elle recourt au tayammum, sauf si elle parvient à réunir de la rosée en quantité suffisante pour faire les ablutions. Il n’oppose donc pas « la rosée » à « l’eau » comme deux matières différentes : il distingue la présence de simples traces d’humidité et la disponibilité effective d’une quantité d’eau utilisable."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 51, commentaire « وإن جمع من ندى » et transmission attribuée à Mâlik ; source recoupée sur Islamweb."
+        "steps": [
+          {
+            "label": "« النَّدَى » : l’humidité de la nuit",
+            "text": "Al-Hattâb précise que le terme ne renvoie pas ici à n’importe quelle sensation d’humidité. Il s’agit du dépôt nocturne que l’on peut observer sur la terre ou sur les végétaux."
+          },
+          {
+            "label": "« يَجْمَع » : il rassemble",
+            "text": "Le fait de recueillir l’eau est au cœur de la réponse. Dire que de la rosée existe dans l’environnement ne signifie pas qu’une quantité permettant d’accomplir la purification est réellement disponible."
+          },
+          {
+            "label": "« ما يتوضأ به » : de quoi faire les ablutions",
+            "text": "Mâlik ne fixe pas dans cette réponse un seuil arbitraire en millilitres. Il parle d’une quantité qui permet effectivement l’acte concerné. Il ne faut donc pas inventer une mesure chiffrée en son nom."
+          },
+          {
+            "label": "Le tayammum dans ce cas",
+            "text": "La réponse est conditionnelle : sans eau effectivement recueillie en quantité permettant les ablutions, le cas évoqué conduit au tayammum. Avec une eau suffisante rassemblée, l’eau de rosée sert aux ablutions selon ce texte. Les autres conditions du tayammum restent à étudier séparément."
+          }
+        ],
+        "example": {
+          "title": "Exemple : une nuit dehors",
+          "text": "Imagine quelqu’un en déplacement, dans un lieu où aucune réserve d’eau n’est accessible. Le matin, il remarque de l’humidité sur les feuilles et en recueille dans un récipient. S’il n’obtient que quelques gouttes ne permettant pas d’effectuer les ablutions, la réponse de Mâlik ne doit pas être transformée en ordre d’accomplir des ablutions impossibles avec cette quantité. En revanche, s’il recueille réellement assez d’eau et que rien d’autre ne la rend impropre à l’usage étudié, la rosée n’est pas exclue en raison de son origine. L’exemple illustre le texte et ne prétend pas résoudre tous les cas de voyage."
+        },
+        "takeaway": "La rosée ne perd pas son caractère d’eau purifiante par sa seule origine. Le passage de Mâlik insiste toutefois sur une condition concrète : disposer réellement d’assez d’eau recueillie pour accomplir les ablutions.",
+        "sourceNote": "Source primaire : al-Hattâb, t. 1, p. 51, « وإن جمع من ندى », définition de nadâ et propos attribué à Mâlik. L’exemple du déplacement est pédagogique."
       },
       {
         "id": "snow",
-        "eyebrow": "03 · La fonte",
-        "title": "Que devient la neige ou la grêle après avoir fondu ?",
+        "eyebrow": "ÉTAPE 05 · NEIGE ET GRÊLE : L’EAU CHANGE D’ÉTAT",
+        "title": "Quand la neige fond, avons-nous une eau différente ?",
+        "passage": {
+          "arabic": "لا فرق بين أن يكون مائعا من أصله أو يكون جامدا ثم ذاب بعد ذلك",
+          "translation": "« Il n’y a pas de différence entre une eau liquide dès l’origine et une eau d’abord solide, puis fondue ensuite. »",
+          "explanation": "Al-Hattâb explique la formule condensée de Khalîl « أو ذاب بعد جموده ». Il l’applique à la neige et à la grêle qui redeviennent liquides, qu’elles fondent spontanément ou qu’on les fasse fondre.",
+          "sourceLabel": "Propos d’al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 51, commentaire de « أو ذاب بعد جموده ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/88/?idfrom=&idto=&start="
+        },
         "paragraphs": [
-          "Le Mukhtasar poursuit par « أو ذاب بعد جموده » : même si l’eau est devenue liquide après avoir été gelée. Al-Hattâb explique que cette formulation concerne notamment la neige et la grêle qui fondent, spontanément ou après avoir été fait fondre.",
-          "Le point étudié est le passage de l’état solide à l’état liquide. La seule fonte ne transforme pas cette eau en un autre liquide ; le commentaire la traite comme eau « mutlaq ». Cette fiche ne traite pas des mélanges éventuels ou de la contamination de la neige, qui appellent un examen séparé."
+          "Après la rosée, Khalîl passe à un phénomène très différent : l’eau qui se solidifie. Quand la température descend suffisamment, l’eau peut devenir glace, neige ou grêle. Peut-on encore parler d’eau mutlaq lorsqu’elle est ensuite fondue ? Dans son commentaire, al-Hattâb répond que le changement d’état ne retire pas, à lui seul, sa nature d’eau. Il précise même que cela vaut si elle redevient liquide par elle-même ou si quelqu’un provoque sa fonte. L’essentiel, dans ce passage, est l’identité de l’eau une fois revenue à l’état liquide.",
+          "Cette explication évite une confusion courante. Nous ne sommes pas en train de dire qu’une personne peut nécessairement frotter un morceau de neige dure sur ses membres et considérer automatiquement qu’elle a effectué toutes les obligations des ablutions. La formule étudiée concerne précisément l’eau « qui a fondu après avoir été solide ». Les conditions permettant le lavage effectif des membres relèvent de l’étude des actes de purification, qui est une autre question. Le but de cette étape est donc de comprendre ce que l’état physique du liquide change — ou ne change pas — dans son classement."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 51, commentaire « أو ذاب بعد جموده », avec exemples du « ثلج » et du « برد »."
+        "steps": [
+          {
+            "label": "« جامدا » : devenu solide",
+            "text": "Al-Hattâb explique le terme jumûd comme le contraire de la fonte. Il ne s’agit pas ici d’un mélange avec une autre substance mais d’une transformation d’état physique."
+          },
+          {
+            "label": "« ثم ذاب » : puis il a fondu",
+            "text": "Le retour à l’état liquide est explicitement mentionné. C’est ce que l’étudiant doit identifier avant de tirer un jugement sur l’usage de l’eau."
+          },
+          {
+            "label": "Fonte spontanée ou provoquée",
+            "text": "Le commentaire transmet l’explication de Zarrûq : qu’elle fonde toute seule ou sous l’effet d’une intervention, l’eau du cas étudié ne devient pas un autre liquide du seul fait de cette fonte."
+          },
+          {
+            "label": "Neige, grêle, lieu de la fonte",
+            "text": "Al-Hattâb mentionne la neige et la grêle, y compris après une fonte à l’endroit où elles se trouvaient ou ailleurs. Il faut distinguer cette question générale de l’éventuelle présence d’une souillure ou d’un mélange particulier."
+          },
+          {
+            "label": "Une absence de divergence rapportée, avec son périmètre",
+            "text": "Il cite Ibn Farhûn et al-Bisâtî au sujet de la qualité purifiante de l’eau fondue dans son lieu. Cette affirmation ne vaut pas automatiquement pour toute transformation associée à un autre produit."
+          }
+        ],
+        "example": {
+          "title": "Exemple : récupérer de la neige propre",
+          "text": "Une personne recueille de la neige qui n’a pas été altérée par une substance extérieure dans notre scénario. Elle la laisse fondre et obtient de l’eau liquide. La question posée par Khalîl et expliquée par al-Hattâb est de savoir si cette eau doit être exclue parce qu’elle a été solide : non, pas pour ce seul motif. En revanche, si cette neige s’est mélangée à des saletés ou si la personne n’a pas assez d’eau liquide pour accomplir le lavage, d’autres conditions devront être examinées. L’exemple sert à isoler la règle de la fonte."
+        },
+        "takeaway": "L’eau qui a été neige ou grêle ne cesse pas d’être purifiante simplement parce qu’elle a été gelée puis fondue. La fiche enseigne le statut de l’eau retrouvée sous forme liquide, sans prétendre résoudre ici toutes les conditions du wudû’ avec de la neige.",
+        "sourceNote": "Source primaire : al-Hattâb, t. 1, p. 51, « أو ذاب بعد جموده » ; explication de Zarrûq et citations d’Ibn Farhûn et d’al-Bisâtî. Exemple pédagogique."
       },
       {
-        "id": "scope",
-        "eyebrow": "04 · Ne pas confondre",
-        "title": "Provenance, changement d’état et ajout de substances",
+        "id": "salt",
+        "eyebrow": "ÉTAPE 06 · IDENTIFIER UN AVIS RETENU",
+        "title": "Le cas du sel : pourquoi al-Hattâb parle-t-il d’un avis mashhûr ?",
+        "passage": {
+          "arabic": "الظاهر حمل كلام المصنف على العموم لأن القول الأول هو المشهور",
+          "translation": "« Ce qui apparaît, c’est qu’il faut comprendre les propos de l’auteur de manière générale, car le premier avis est l’avis connu dans l’école. »",
+          "explanation": "Al-Hattâb formule ici sa propre conclusion après avoir rapporté trois positions sur un cas plus technique : une eau devenue solide sous forme de sel, puis redevenue liquide après avoir été déplacée. Il précise quel avis il présente comme mashhûr.",
+          "sourceLabel": "Propos personnel d’al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 51, discussion du sel redevenu liquide.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/88/?idfrom=&idto=&start="
+        },
         "paragraphs": [
-          "Les exemples précédents permettent une méthode de lecture : demander d’abord si le mot ajouté à « eau » indique simplement sa provenance, si l’eau a seulement gelé puis fondu, ou si une autre substance en a modifié les propriétés. Ces situations ne doivent pas être automatiquement assimilées.",
-          "Al-Hattâb étudie ensuite d’autres cas : eau mélangée, eau modifiée, doute sur ce qui l’a changée et diverses qualifications juridiques. On les réserve à une prochaine fiche afin de ne pas transformer quelques exemples favorables en règle universelle sur toutes les eaux."
+          "Nous terminons par une difficulté que les fiches anciennes auraient facilement écartée en une phrase. En expliquant « ce qui a fondu après avoir été solide », al-Hattâb évoque aussi un cas discuté chez les juristes : une eau qui a pris la forme de sel, puis qui redevient liquide dans un autre lieu. La question n’est donc plus simplement celle d’un flocon de neige qui fond. Les auteurs se demandent si ce parcours particulier fait perdre à ce liquide sa qualité purifiante. Le commentaire rapporte trois réponses historiques : conserver le statut initial, considérer le produit comme un aliment non purifiant, ou distinguer selon que la solidification résulte ou non d’une intervention humaine.",
+          "Après avoir cité ces positions et la réserve d’al-Bisâtî, al-Hattâb ajoute son propre « je dis » (qultu) : à ses yeux, la formulation de Khalîl doit être comprise largement, parce que le premier avis est le mashhûr. Cette phrase est précieuse pour apprendre le fiqh malikite. Elle nous montre comment passer d’une liste de divergences au repérage de l’avis que le commentateur présente comme connu dans l’école. Ce jugement ne doit pas être étendu à tous les mélanges : le cas du sel redevenu liquide après un changement d’état n’est pas identique à celui d’une personne qui ajoute du sel à une eau déjà liquide."
         ],
-        "sourceNote": "Synthèse méthodologique d’Athar, à partir des exemples du commentaire, t. 1, p. 46 et 51 ; les autres cas sont annoncés, sans jugement nouveau."
+        "steps": [
+          {
+            "label": "Décrire précisément le cas avant de parler du jugement",
+            "text": "Al-Hattâb parle du sel issu d’une transformation, ensuite déplacé puis redevenu liquide. Ce n’est ni une simple eau de mer ni nécessairement une eau ordinaire à laquelle on verse du sel de cuisine."
+          },
+          {
+            "label": "Les trois avis ne sont pas trois instructions équivalentes",
+            "text": "Dans le premier, la solidification n’enlève pas le caractère purifiant ; dans le deuxième, le produit suit le statut d’un aliment ; dans le troisième, l’effet dépend notamment d’une intervention humaine. Il faut comprendre ces désaccords avant de lire la préférence finale."
+          },
+          {
+            "label": "« قلت » : ici al-Hattâb intervient lui-même",
+            "text": "Lorsqu’il écrit « je dis », il ne transmet pas seulement une phrase d’un autre auteur. Il prend position sur l’interprétation de Khalîl après avoir exposé les alternatives."
+          },
+          {
+            "label": "« المشهور » : l’avis connu dans le madhhab",
+            "text": "Al-Hattâb présente le premier avis comme mashhûr. Il le rattache aussi à la discussion de l’eau modifiée par le sel dans la suite du livre ; les circonstances exactes doivent néanmoins être conservées."
+          },
+          {
+            "label": "Pourquoi cela ne remplace pas la fiche sur les mélanges",
+            "text": "Notre objectif est de voir comment se lit un avis retenu. La question de l’eau modifiée par un ajout extérieur reste une autre discussion, et elle ne peut pas être réglée en reprenant seulement cette citation."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux problèmes qui semblent se ressembler",
+          "text": "Compare deux questions. Dans la première, un juriste étudie le cas d’un liquide qui a changé d’état jusqu’à devenir sel puis est redevenu liquide : c’est le scénario historique discuté dans le commentaire. Dans la seconde, une personne remplit un verre d’eau et y dissout une cuillère de sel : cela relève de la question distincte des mélanges et des changements de caractéristiques. Si tu appliques mécaniquement la réponse du premier cas au second, tu risques de supprimer une distinction sur laquelle les savants ont justement travaillé. Cet exemple de comparaison est conçu pour apprendre à ne pas généraliser."
+        },
+        "takeaway": "Dans ce cas particulier du sel redevenu liquide, al-Hattâb expose plusieurs avis puis présente explicitement le premier comme mashhûr. Le but n’est pas de mémoriser « sel = autorisé », mais d’apprendre à lire les conditions et le statut de chaque position.",
+        "sourceNote": "Source primaire : al-Hattâb, t. 1, p. 51, après « أو ذاب بعد جموده », trois avis rapportés et conclusion introduite par « قلت ». Exemple comparatif créé pour Athar."
       }
     ],
     "quote": {
       "arabic": "وَإِنْ جُمِعَ مِنْ نَدًى",
-      "meaning": "Khalîl évoque l’eau recueillie à partir de la rosée. Al-Hattâb explique la portée de cette formule et cite un propos attribué à Mâlik sur l’eau de rosée effectivement rassemblée.",
-      "label": "Court extrait du Mukhtasar de Khalîl repris dans Mawâhib al-Jalîl, t. 1, p. 51 — sens expliqué, pas une traduction littérale."
+      "meaning": "Khalîl inclut même l’eau effectivement recueillie de la rosée dans les cas étudiés. Al-Hattâb en donne le sens, cite une réponse de Mâlik et explique pourquoi cette origine particulière n’exclut pas l’eau du domaine de la purification.",
+      "label": "Mukhtasar de Khalîl cité dans Mawâhib al-Jalîl, t. 1, p. 51 ; explication de sens contextualisée."
     },
     "lexicon": [
       {
-        "arabic": "المَاء المُطْلَق",
+        "arabic": "الْمَاءُ الْمُطْلَق",
         "term": "Mâ’ mutlaq",
-        "definition": "Eau conservant, dans le contexte étudié, le nom d’« eau » sans qualification qui en change la nature juridique."
+        "definition": "Eau à laquelle le nom d’eau s’applique sans qualification qui la transformerait en une préparation distincte, selon la définition étudiée avec Khalîl."
       },
       {
-        "arabic": "مَاء الْمَطَر",
-        "term": "Mâ’ al-matar",
-        "definition": "Eau de pluie : le complément précise la provenance sans en faire nécessairement un autre liquide."
+        "arabic": "إِضَافَةٌ بَيَانِيَّة",
+        "term": "Idâfa bayâniyya",
+        "definition": "Complément qui éclaire ou précise l’eau, comme « eau de pluie » ; il ne signifie pas nécessairement l’ajout d’un autre ingrédient."
       },
       {
-        "arabic": "مَاء الْبَحْر",
+        "arabic": "مَاءُ الْبَحْر",
         "term": "Mâ’ al-bahr",
-        "definition": "Eau de mer : al-Hattâb la cite parmi les eaux dont le lieu d’origine n’empêche pas la purification."
+        "definition": "Eau de mer. Al-Hattâb cite explicitement son caractère purifiant et précise que sa qualification d’origine n’exclut pas l’eau mutlaq."
       },
       {
         "arabic": "النَّدَى",
         "term": "Nadâ",
-        "definition": "Rosée ou humidité nocturne déposée sur les surfaces ; al-Hattâb envisage l’eau réellement recueillie."
+        "definition": "Rosée déposée pendant la nuit sur la terre ou les feuilles ; le texte discute de l’eau réellement recueillie en quantité utile."
       },
       {
-        "arabic": "ذَابَ بَعْدَ جُمُودِهِ",
-        "term": "Dhâba ba‘da jumûdihi",
-        "definition": "« A fondu après solidification » : formule de Khalîl appliquée notamment à la neige et à la grêle."
+        "arabic": "جُمِعَ",
+        "term": "Jumi‘a",
+        "definition": "« A été recueilli / rassemblé ». Dans l’exemple de la rosée, ce verbe attire l’attention sur l’existence d’une quantité d’eau disponible."
       },
       {
-        "arabic": "الطَّهُور",
-        "term": "Tahûr",
-        "definition": "Qualificatif du caractère purifiant d’une eau dans la discussion d’al-Hattâb, à distinguer de sa seule apparence."
+        "arabic": "الطَّهُورِيَّة",
+        "term": "Tahûriyya",
+        "definition": "Qualité purifiante de l’eau : sa capacité à servir aux actes de purification selon les conditions du chapitre."
+      },
+      {
+        "arabic": "الْكَرَاهَة",
+        "term": "Karâha",
+        "definition": "Réprobation d’un usage. Al-Hattâb explique qu’une eau peut rester purifiante tout en ayant un usage réprouvé dans certains cas."
+      },
+      {
+        "arabic": "الْجُمُود",
+        "term": "Jumûd",
+        "definition": "Solidification, opposée à la fonte ; il peut s’agir par exemple de neige ou de grêle dans le passage de Khalîl."
+      },
+      {
+        "arabic": "ذَابَ",
+        "term": "Dhâba",
+        "definition": "« Il a fondu ». Le retour à l’état liquide est au centre de la discussion sur la neige et la grêle."
+      },
+      {
+        "arabic": "الْمَشْهُور",
+        "term": "Mashhûr",
+        "definition": "Avis présenté comme connu dans les transmissions de l’école, sans que le mot signifie automatiquement « consensus » ni supprime les autres avis historiques."
       }
     ],
     "quiz": [
       {
-        "question": "Pourquoi l’expression « eau de mer » n’exclut-elle pas, par elle-même, l’eau « mutlaq » ?",
+        "question": "Pourquoi al-Hattâb admet-il l’eau de pluie parmi les eaux mutlaq ?",
         "choices": [
-          "Parce qu’elle indique d’abord la provenance de l’eau.",
-          "Parce qu’elle signifie que l’eau est devenue du jus.",
-          "Parce qu’aucune eau ne peut être qualifiée."
+          "Son nom précise sa provenance sans en faire automatiquement un autre liquide.",
+          "Toute expression contenant les mots « eau de » désigne un produit impropre.",
+          "L’eau de pluie doit être mélangée à un parfum avant les ablutions."
         ],
         "answer": 0,
-        "explanation": "Al-Hattâb distingue la simple provenance d’un ajout de substance qui modifierait la nature de l’eau."
+        "explanation": "Le commentaire décrit une idâfa explicative : « de pluie » indique d’où vient l’eau. Ce complément n’en change pas nécessairement la nature juridique."
       },
       {
-        "question": "Selon le passage d’al-Hattâb sur le nadâ, quel cas est explicitement envisagé ?",
+        "question": "Quelle affirmation correspond au passage sur l’eau de mer ?",
         "choices": [
-          "Une surface simplement humide sans eau recueillie.",
-          "De l’eau de rosée réellement recueillie en quantité permettant les ablutions.",
-          "Toute humidité mélangée à un parfum."
+          "Une eau salée est systématiquement inutilisable.",
+          "Al-Hattâb affirme qu’elle est purifiante et ne retient pas une réprobation isolée comme obstacle à ce jugement.",
+          "La mer rend toutes les substances étrangères purifiantes."
         ],
         "answer": 1,
-        "explanation": "Le texte rapporte de Mâlik le cas où la rosée a été recueillie en quantité suffisante pour faire les ablutions."
+        "explanation": "Al-Hattâb écrit que l’eau de mer permet la purification. Il distingue cette conclusion d’une réprobation historique attribuée à Ibn ‘Umar."
       },
       {
-        "question": "Que signifie « أو ذاب بعد جموده » dans ce contexte ?",
+        "question": "Que signifie l’expression « ne retire pas la tahûriyya et n’impose pas la karâha » ?",
         "choices": [
-          "Une eau changée en vinaigre.",
-          "De l’eau mêlée à du lait.",
-          "De l’eau qui a fondu après avoir été gelée, par exemple neige ou grêle."
+          "L’eau est forcément devenue impure.",
+          "Il faut toujours préférer le tayammum.",
+          "L’eau reste purifiante sans être réprouvée pour la circonstance étudiée."
         ],
         "answer": 2,
-        "explanation": "Le commentaire applique la formule à la neige et à la grêle après leur fonte."
+        "explanation": "Le commentaire sépare la qualité purifiante et la réprobation. Les cas de rosée recueillie et de fonte appartiennent à la discussion sans réprobation pour ce seul motif."
+      },
+      {
+        "question": "Une personne découvre quelques gouttes de rosée. Quelle question est essentielle dans la réponse de Mâlik ?",
+        "choices": [
+          "A-t-elle réellement rassemblé assez d’eau pour effectuer les ablutions ?",
+          "Le soleil s’est-il déjà levé depuis une heure ?",
+          "La rosée vient-elle uniquement d’une feuille de chêne ?"
+        ],
+        "answer": 0,
+        "explanation": "La réponse attribuée à Mâlik distingue la simple présence de rosée de l’eau effectivement recueillie en quantité permettant les ablutions."
+      },
+      {
+        "question": "Que vise la formule « ou a fondu après solidification » ?",
+        "choices": [
+          "De l’eau à laquelle du vinaigre a été ajouté.",
+          "De l’eau devenue liquide après avoir été gelée, par exemple de la neige ou de la grêle.",
+          "Une eau qui devient nécessairement impure en se refroidissant."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb explique que le passage de l’état solide à l’état liquide n’enlève pas en soi la qualité purifiante de l’eau."
+      },
+      {
+        "question": "Pourquoi la mention « قلت » est-elle importante dans la dernière étape ?",
+        "choices": [
+          "Elle indique l’ouverture d’un nouveau chapitre sur la prière.",
+          "Elle signifie que tous les savants ont défendu un avis unique.",
+          "Elle introduit la propre analyse d’al-Hattâb après la présentation des autres positions."
+        ],
+        "answer": 2,
+        "explanation": "Après avoir cité les divergences sur le cas du sel redevenu liquide, al-Hattâb formule sa conclusion et qualifie le premier avis de mashhûr."
+      },
+      {
+        "question": "Que dit al-Hattâb à propos du premier avis sur le sel redevenu liquide ?",
+        "choices": [
+          "Il le présente comme mashhûr dans le cas discuté.",
+          "Il affirme qu’aucun désaccord n’a jamais existé.",
+          "Il interdit d’utiliser toute eau contenant naturellement du sel."
+        ],
+        "answer": 0,
+        "explanation": "Le commentaire évoque trois avis, puis explique que le premier est le mashhûr. Il ne faut pas étendre cette conclusion à toutes les eaux mélangées."
+      },
+      {
+        "question": "Quelle erreur de méthode faut-il éviter à la fin de cette leçon ?",
+        "choices": [
+          "Distinguer la provenance d’une eau et sa composition.",
+          "Appliquer sans distinction un cas de changement d’état à toute eau dans laquelle on ajoute du sel.",
+          "Identifier l’auteur d’une citation arabe avant de la traduire."
+        ],
+        "answer": 1,
+        "explanation": "La dernière section a précisément pour but de ne pas généraliser un avis hors de son cas : les mélanges ajoutés à une eau déjà liquide sont étudiés séparément."
       }
     ],
     "sources": [
@@ -763,16 +1048,16 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — provenance des eaux, t. 1, p. 46",
-        "url": "https://islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        "label": "Islamweb — t. 1, p. 46 : eau de pluie, mer et portée des compléments",
+        "url": "https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
       },
       {
-        "label": "Islamweb — rosée recueillie, t. 1, p. 51",
-        "url": "https://www.islamweb.net/ar/library/content/19/87/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        "label": "Islamweb — t. 1, p. 51 : commentaire de la rosée et réponse de Mâlik",
+        "url": "https://www.islamweb.net/ar/library/index.php?ID=87&bk_no=19&flag=1&page=bookcontents"
       },
       {
-        "label": "Islamweb — neige et grêle fondues, t. 1, p. 51",
-        "url": "https://www.islamweb.net/ar/library/content/19/88/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        "label": "Islamweb — t. 1, p. 51 : neige/grêle fondues et avis sur le sel",
+        "url": "https://www.islamweb.net/ar/library/content/19/88/?idfrom=&idto=&start="
       }
     ]
   },

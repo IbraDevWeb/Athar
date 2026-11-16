@@ -72,19 +72,38 @@ assert.ok(view.includes('fiqh-m-passage-link')&&view.includes('section.passage.s
 assert.ok(css.includes('text-align:justify')&&css.includes('hyphens:auto'),'Justification des paragraphes absente');
 assert.equal(book.naturalWaters.id,'natural-waters-03');
 assert.equal(book.naturalWaters.number,'03');
-assert.equal(book.naturalWaters.sections.length,4);
-assert.deepEqual(Array.from(book.naturalWaters.sections,x=>x.id),['name-and-origin','dew','snow','scope']);
-for(const section of book.naturalWaters.sections) assert.ok(section.title&&section.paragraphs.length>=2&&section.sourceNote);
-assert.equal(book.naturalWaters.lexicon.length,6);
-assert.ok(book.naturalWaters.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=40));
-assert.equal(book.naturalWaters.quiz.length,3);
-for(const q of book.naturalWaters.quiz) assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation);
+assert.equal(book.naturalWaters.sections.length,6,'Six explications progressives attendues');
+assert.equal(book.naturalWaters.goals.length,5);
+assert.deepEqual(Array.from(book.naturalWaters.sections,x=>x.id),['origin','sea','classification','dew','snow','salt']);
+assert.deepEqual(Array.from(book.naturalWaters.sections,x=>x.passage.arabic),[
+ 'ودخل في حده ما كانت إضافته بيانية كماء المطر وماء الندى',
+ 'كماء البحر ولا خلاف في جواز التطهير به',
+ 'ومنها ما لا يسلبه الطهورية ولا يقتضي كراهة استعماله',
+ 'يتيمم إلا أن يجمع من الندى ما يتوضأ به',
+ 'لا فرق بين أن يكون مائعا من أصله أو يكون جامدا ثم ذاب بعد ذلك',
+ 'الظاهر حمل كلام المصنف على العموم لأن القول الأول هو المشهور'
+],'Ne pas remplacer les citations vérifiées de Mawâhib al-Jalîl');
+for(const section of book.naturalWaters.sections){
+ assert.ok(section.title&&section.paragraphs.length===2&&section.sourceNote,'Section incomplète');
+ assert.ok(section.paragraphs.every(p=>p.length>=450),'Explication trop courte '+section.id);
+ assert.ok(section.passage?.arabic&&section.passage.translation&&section.passage.explanation&&section.passage.sourceUrl?.startsWith('https://'),'Citation, traduction ou lien direct absent : '+section.id);
+ assert.ok(section.steps.length>=4 && section.steps.every(st=>st.label&&st.text.length>=130),'Décomposition insuffisante : '+section.id);
+ assert.ok(section.example?.title&&section.example.text.length>=400,'Exemple concret absent : '+section.id);
+ assert.ok(section.takeaway.length>=160,'Conclusion pédagogique absente : '+section.id);
+ assert.ok(section.sourceNote.includes('t. 1'),'Numéro de volume absent : '+section.id);
+}
+assert.ok(book.naturalWaters.sections[3].passage.sourceLabel.includes('Mâlik'),'Réponse de Mâlik non attribuée');
+assert.ok(book.naturalWaters.sections[5].passage.explanation.includes('mashhûr'),'Avis connu et divergence non expliqués');
+assert.equal(book.naturalWaters.lexicon.length,10,'Dix notions de lexique attendues');
+assert.ok(book.naturalWaters.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=80));
+assert.equal(book.naturalWaters.quiz.length,8,'Huit questions de raisonnement attendues');
+for(const question of book.naturalWaters.quiz)assert.ok(question.choices.length===3&&question.answer>=0&&question.answer<3&&question.explanation.length>=100,'Question incomplète');
 assert.equal(book.naturalWaters.quote.arabic,'وَإِنْ جُمِعَ مِنْ نَدًى');
-assert.ok(book.naturalWaters.quote.label.includes('Mukhtasar de Khalîl'),'L’extrait arabe est attribué à Khalîl');
+assert.ok(book.naturalWaters.quote.label.includes('Khalîl'),'L’extrait du Mukhtasar doit être attribué');
 assert.equal(book.naturalWaters.sources.length,4);
-assert.ok(book.naturalWaters.sources.some(x=>x.url.includes('/19/85/')),'Source page 46 manquante');
-assert.ok(book.naturalWaters.sources.some(x=>x.url.includes('/19/87/')),'Source rosée page 51 manquante');
-assert.ok(book.naturalWaters.sources.some(x=>x.url.includes('/19/88/')),'Source neige fondue page 51 manquante');
+assert.ok(book.naturalWaters.sources.some(x=>x.url.includes('/19/85/')),'Source eau de mer p. 46 manquante');
+assert.ok(book.naturalWaters.sources.some(x=>x.url.includes('ID=87')),'Source rosée p. 51 manquante');
+assert.ok(book.naturalWaters.sources.some(x=>x.url.includes('/19/88/')),'Source neige et avis p. 51 manquante');
 const newLessons = [
   {key:'waterChanges',id:'water-changes-04',number:'04',sections:['transition','properties','cause','method'],quote:'لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا',pages:['/19/101/']},
   {key:'pureMixtures',id:'pure-mixtures-05',number:'05',sections:['pure-vs-purifying','examples','mixing','small-change'],quote:'طَاهِرٌ غَيْرُ مُطَهِّرٍ',pages:['/19/101/']},
@@ -170,4 +189,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures guidées, 10 termes, 7 questions ; fiches 03-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiches 04-12 préservées ; '+shell.length+' ressources PWA.');
