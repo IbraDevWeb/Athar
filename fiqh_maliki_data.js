@@ -963,7 +963,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "title": "La deuxième ou troisième eau est-elle identique à la première ?",
         "paragraphs": [
           "Le commentaire rapporte l’analyse d’al-Qarâfî : deux motifs peuvent intervenir dans le débat, à savoir que l’eau a servi à une adoration et qu’elle a supprimé l’empêchement rituel. Une seconde ou une troisième application de l’eau après la levée de l’état d’impureté ne réunit pas ces motifs exactement de la même manière que la première.",
-          "Al-Hattâb examine aussi l’analyse du T irâz concernant l’eau des deuxième et troisième lavages : il rapporte une tendance à la réprobation malgré la distinction des motifs. Il indique en revanche que la quatrième application, ou le lavage d’un vêtement déjà propre, ne relèvent pas mécaniquement de la même situation. Il ne faut pas transformer ces discussions sur l’eau collectée en une règle ajoutant une quatrième ablution recommandée."
+          "Al-Hattâb examine aussi l’analyse d’al-Tirâz concernant l’eau des deuxième et troisième lavages : il rapporte une tendance à la réprobation malgré la distinction des motifs. Il indique en revanche que la quatrième application, ou le lavage d’un vêtement déjà propre, ne relèvent pas mécaniquement de la même situation. Il ne faut pas transformer ces discussions sur l’eau collectée en une règle ajoutant une quatrième ablution recommandée."
         ],
         "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 70, « تنبيهات الأول » et « الثاني », motifs de la réprobation et lavages supplémentaires."
       },
