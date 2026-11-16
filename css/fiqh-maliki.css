@@ -267,3 +267,29 @@
  .fiqh-m-breakdown,.fiqh-m-case{padding:19px 18px}
  .fiqh-m-prose.is-guided .fiqh-m-section>p:not(.fiqh-m-reference):not(.fiqh-m-takeaway){font-size:13px;line-height:1.95}
 }
+
+/* Fiqh malikite — typographie de lecture : alignement harmonisé du texte français. */
+.fiqh-m-prose .fiqh-m-section>p:not(.fiqh-m-reference),
+.fiqh-m-passage .fiqh-m-passage-translation,
+.fiqh-m-passage .fiqh-m-passage-context,
+.fiqh-m-breakdown li p,
+.fiqh-m-case p,
+.fiqh-m-prose .fiqh-m-section>.fiqh-m-takeaway,
+.fiqh-m-reader-heading>p,
+.fiqh-m-quote>p {
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+  overflow-wrap:break-word;
+}
+.fiqh-m-passage-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:13px;
+  color:var(--fm-accent);font-size:11px;font-weight:700;
+  line-height:1.8;text-decoration:underline;text-underline-offset:3px;
+}
+.fiqh-m-passage-link:hover{opacity:.85}
+.fiqh-m-passage-link svg{width:13px;height:13px}
+@media(max-width:540px){
+  .fiqh-m-prose.is-guided .fiqh-m-section>p:not(.fiqh-m-reference){line-height:1.9}
+  .fiqh-m-passage blockquote{text-align:right}
+}
