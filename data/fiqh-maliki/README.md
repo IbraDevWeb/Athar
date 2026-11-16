@@ -87,16 +87,26 @@ L’extrait arabe final reprend la définition de Khalîl « ما صدق علي�
 - [Islamweb — al-Hattâb, tome 1, page 51 : rosée et Mâlik](https://www.islamweb.net/ar/library/index.php?ID=87&bk_no=19&flag=1&page=bookcontents)
 - [Islamweb — al-Hattâb, tome 1, page 51 : fonte, sel et avis retenu](https://www.islamweb.net/ar/library/content/19/88/?idfrom=&idto=&start=)
 
-## Fiche 04 — L’eau modifiée : critères juridiques
+## Fiche 04 — L’eau modifiée : lecture guidée du jugement et de ses causes
 
-**Texte étudié :** *Mawâhib al-Jalîl*, tome 1, pages **59–61** (début de la section « لا بمتغير »). Quatre développements pédagogiques :
+**Refonte pédagogique du 16 novembre 2026.** Cette fiche remplace quatre résumés par **six étapes détaillées**, chacune comportant un court extrait arabe vérifié, sa traduction de sens, une analyse accessible en deux développements, quatre ou cinq notions expliquées, un exemple explicitement pédagogique, une synthèse à retenir et un lien vers la source originale.
 
-1. Pourquoi l’eau « mutlaq » appelle ensuite la question du changement de ses propriétés.
-2. Les trois caractéristiques nommées par Khalîl : couleur, goût et odeur.
-3. Le sens de « بما يفارقه غالبا » : élément dont l’eau se sépare habituellement, distinct des influences normalement inséparables.
-4. Les précautions de méthode pour lire un jugement, sa cause et les divergences rapportées.
+### Les six étapes
 
-**Court extrait de Khalîl, reproduit par al-Hattâb :** « لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا ». Il ne constitue pas à lui seul un jugement universel sur toute eau colorée ou parfumée.
+1. **Couleur, goût, odeur** — citation de Khalîl, p. 59. Observer le changement sans encore en déduire une règle universelle.
+2. **Ce qui se sépare habituellement de l’eau** — condition de Khalîl, p. 59. Distinguer matière étrangère et ce qui accompagne l’eau dans les circonstances ordinaires.
+3. **La nature de ce qui a modifié l’eau** — formule de Khalîl, p. 59. Différence entre eau devenue pure mais non purifiante par l’effet d’une matière pure et eau réellement modifiée par une souillure.
+4. **Huile et fumée aromatique** — discussion d’al-Hattâb, p. 59. Mélange, voisinage, avis rapportés dans al-Tawdîh et précision d’al-Bisâtî.
+5. **Changement minime et avis connu** — premier *tanbîh*, p. 59–60. Al-Hattâb précise ce qui est connu dans le madhhab, les avis rapportés d’Ibn Farhûn, les objections d’Ibn Hârûn et l’importance de la cause du changement.
+6. **Simple contact sans modification** — troisième et quatrième *tanbîh*, p. 60. Eau inchangée après immersion d’un objet propre, avis rapporté d’Asbagh, et rôle de l’odeur selon le *mashhûr*.
+
+**Attribution :** les mots de Khalîl sont distingués du commentaire d’al-Hattâb et des paroles d’autres juristes reproduites dans cet ouvrage. Le *mashhûr* et la formule « connu dans le madhhab » ne sont pas présentés comme effaçant toutes les divergences.
+
+**Bilan de la fiche :** six objectifs, six lectures complètes, dix notions arabes expliquées et huit QCM corrigés. Le style des paragraphes en français reste **justifié** et les extraits arabes restent alignés à droite. Les autres fiches et leur progression locale sont conservées.
+
+**Texte source :** [al-Hattâb, *Mawâhib al-Jalîl*, t. 1, p. 59–60, Islamweb](https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7). [Notice de l’ouvrage sur Usul](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+
+*Ces explications sont pédagogiques ; elles ne constituent pas une fatwa sur une eau réelle et ne remplacent pas une analyse du cas concret.*
 
 ## Fiche 05 — Quand une substance pure modifie l’eau
 
@@ -207,7 +217,7 @@ Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six 
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v92) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v93) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
