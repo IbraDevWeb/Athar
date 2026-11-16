@@ -252,14 +252,43 @@ const MalikiFiqhView = {
                             <div class="fiqh-m-reader-heading">
                                 <span class="fiqh-m-eyebrow">FICHE {{ lesson.number }} · {{ lesson.sourceSection }}</span>
                                 <h2>{{ lesson.title }}</h2>
-                                <p>Une fiche basée sur un passage identifié du livre. Les explications en français sont des synthèses pédagogiques, et non une traduction intégrale ni un avis juridique personnel.</p>
+                                <p v-if="lesson.goals">Nous allons lire la préface ensemble. Chaque court extrait arabe est traduit, expliqué ligne par ligne puis illustré par un exemple. Les exemples inventés pour apprendre sont distingués des propos de l’auteur.</p>
+                                <p v-else>Une fiche basée sur un passage identifié du livre. Les explications en français sont des synthèses pédagogiques, et non une traduction intégrale ni un avis juridique personnel.</p>
                             </div>
 
-                            <div class="fiqh-m-prose">
+                            <section v-if="lesson.goals" class="fiqh-m-goals" aria-label="Objectifs de la leçon">
+                                <h3>À la fin de cette leçon, tu sauras…</h3>
+                                <ul>
+                                    <li v-for="(goal,i) in lesson.goals" :key="i"><i data-lucide="check-circle-2" aria-hidden="true"></i>{{ goal }}</li>
+                                </ul>
+                            </section>
+
+                            <div class="fiqh-m-prose" :class="{ 'is-guided':lesson.goals }">
                                 <section v-for="section in lesson.sections" :key="section.id" class="fiqh-m-section">
                                     <span class="fiqh-m-section-index">{{ section.eyebrow }}</span>
                                     <h3>{{ section.title }}</h3>
+                                    <figure v-if="section.passage" class="fiqh-m-passage">
+                                        <figcaption>ON LIT D'ABORD LA SOURCE</figcaption>
+                                        <blockquote lang="ar" dir="rtl">{{ section.passage.arabic }}</blockquote>
+                                        <p class="fiqh-m-passage-translation"><strong>Traduction :</strong> {{ section.passage.translation }}</p>
+                                        <p class="fiqh-m-passage-context">{{ section.passage.explanation }}</p>
+                                        <small>{{ section.passage.sourceLabel }}</small>
+                                    </figure>
                                     <p v-for="(paragraph,i) in section.paragraphs" :key="i">{{ paragraph }}</p>
+                                    <div v-if="section.steps?.length" class="fiqh-m-breakdown">
+                                        <h4><i data-lucide="book-open-check" aria-hidden="true"></i> On décortique ensemble</h4>
+                                        <ol>
+                                            <li v-for="(step,i) in section.steps" :key="i">
+                                                <strong>{{ step.label }}</strong>
+                                                <p>{{ step.text }}</p>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div v-if="section.example" class="fiqh-m-case">
+                                        <h4><i data-lucide="lightbulb" aria-hidden="true"></i> {{ section.example.title }}</h4>
+                                        <p>{{ section.example.text }}</p>
+                                    </div>
+                                    <p v-if="section.takeaway" class="fiqh-m-takeaway"><strong>À retenir :</strong> {{ section.takeaway }}</p>
                                     <p class="fiqh-m-reference"><i data-lucide="bookmark" aria-hidden="true"></i> {{ section.sourceNote }}</p>
                                 </section>
                             </div>
