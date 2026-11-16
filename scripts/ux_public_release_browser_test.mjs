@@ -786,12 +786,30 @@ async function desktop() {
     const fiqhLatestLessons=[
         {index:9,number:'10',title:/bassins collectifs/i,quote:/يُفْرَغُ بِسُرْعَةٍ/,source:'/19/114/',search:'Birak',parts:9,terms:15,questions:12,key:'athar_fiqh_maliki_eaux_10_done'},
         {index:10,number:'11',title:/eau limitée/i,quote:/يَحْتَالُ/,source:'/19/115/',search:'Bi’r',parts:11,terms:18,questions:12,key:'athar_fiqh_maliki_eaux_11_done'},
-        {index:11,number:'12',title:/su’r/i,quote:/الِاحْتِرَازُ/,source:'/19/118/',search:'Su’r',key:'athar_fiqh_maliki_eaux_12_done'}
+        {index:11,number:'12',title:/su’r/i,quote:/الِاحْتِرَازُ/,source:'/19/118/',search:'Tawwâfûn',parts:14,terms:20,questions:17,key:'athar_fiqh_maliki_eaux_12_done'}
     ];
     for(const check of fiqhLatestLessons){
         await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
         assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre absent '+check.number);
         assert.equal(await page.locator('.fiqh-m-section').count(),check.parts||4,'Nombre de lectures incorrect pour '+check.number);
+        if(check.number==='12'){
+            assert.equal(await page.locator('.fiqh-m-goals li').count(),14,'Quatorze objectifs attendus dans la fiche 12');
+            assert.equal(await page.locator('.fiqh-m-passage').count(),14,'Quatorze citations arabes attendues en fiche 12');
+            assert.equal(await page.locator('.fiqh-m-passage-translation').count(),14,'Quatorze traductions attendues en fiche 12');
+            assert.equal(await page.locator('.fiqh-m-passage-link').count(),14,'Quatorze liens vers les sources attendus en fiche 12');
+            assert.equal(await page.locator('.fiqh-m-breakdown').count(),14,'Quatorze décompositions attendues en fiche 12');
+            assert.equal(await page.locator('.fiqh-m-case').count(),14,'Quatorze exemples pédagogiques attendus en fiche 12');
+            assert.equal(await page.locator('.fiqh-m-takeaway').count(),14,'Quatorze synthèses attendues en fiche 12');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(0).innerText(),/وسؤر شارب خمر/,'Formule de Khalîl absente');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(2).innerText(),/ابن الحاجب/,'Transmission des avis absente');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(4).innerText(),/صاحب البيان/,'Nuance du Bayân absente');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(6).innerText(),/الهرة ليست بنجس/,'Hadith du chat absent');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(10).innerText(),/ثلاثة أقوال/,'Présentation des trois avis absente');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(11).innerText(),/واختاره ابن رشد/,'Choix d’Ibn Rushd absent');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(13).innerText(),/والسرف فيه/,'Discussion de l’excès absente');
+            assert.ok(await page.locator('a[href*="/19/117/"]').count()>=1,'Lien à la page 77 absent');
+            assert.ok(await page.locator('a[href*="/19/118/"]').count()>=1,'Lien à la page 78 absent');
+        }
         if(check.number==='11'){
             assert.equal(await page.locator('.fiqh-m-goals li').count(),11,'Onze objectifs attendus dans la fiche 11');
             assert.equal(await page.locator('.fiqh-m-passage').count(),11,'Onze citations arabes attendues');
