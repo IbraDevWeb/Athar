@@ -1,4 +1,4 @@
-// Athar — Fiqh malikite : première fiche, édition sobre et autonome.
+// Athar — Fiqh malikite : parcours de fiches indépendantes, édition sobre et autonome.
 // Les contenus viennent de fiqh_maliki_data.js ; ne pas improviser des avis juridiques.
 const MalikiFiqhView = {
     props: ['course', 'goHome'],
@@ -6,8 +6,11 @@ const MalikiFiqhView = {
         const activeTab = Vue.ref('cours');
         const glossarySearch = Vue.ref('');
         const answers = Vue.ref({});
-        const done = Vue.ref(false);
-        const storageKey = 'athar_fiqh_maliki_intro_01_done';
+        const selectedLessonKey = Vue.ref('intro');
+        const lesson = Vue.computed(() => props.course?.[selectedLessonKey.value] || props.course?.intro);
+        const completed = Vue.ref({ intro:false, purification:false });
+        const done = Vue.computed(() => !!completed.value[selectedLessonKey.value]);
+        const storageKeyFor = key => key === 'intro' ? 'athar_fiqh_maliki_intro_01_done' : 'athar_fiqh_maliki_tahara_02_done';
         const tabs = [
             { id:'cours', title:'Lire la fiche', icon:'book-open' },
             { id:'lexique', title:'Lexique', icon:'book-a' },
@@ -15,12 +18,12 @@ const MalikiFiqhView = {
         ];
         const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
         const glossary = Vue.computed(() => {
-            const entries = props.course?.intro?.lexicon || [];
+            const entries = lesson.value?.lexicon || [];
             const search = normalize(glossarySearch.value);
             return !search ? entries : entries.filter(x => normalize([x.term,x.arabic,x.definition].join(' ')).includes(search));
         });
         const answerCount = Vue.computed(() => Object.keys(answers.value).length);
-        const correctCount = Vue.computed(() => (props.course?.intro?.quiz || []).reduce((count,q,i) => count + (answers.value[i] === q.answer ? 1 : 0),0));
+        const correctCount = Vue.computed(() => (lesson.value?.quiz || []).reduce((count,q,i) => count + (answers.value[i] === q.answer ? 1 : 0),0));
         const changeTab = id => {
             activeTab.value = id;
             Vue.nextTick(() => window.lucide?.createIcons());
@@ -29,17 +32,30 @@ const MalikiFiqhView = {
             answers.value = { ...answers.value, [questionIndex]:choiceIndex };
         };
         const toggleDone = () => {
-            done.value = !done.value;
+            const key = selectedLessonKey.value, value = !done.value;
+            completed.value = { ...completed.value, [key]:value };
             try {
-                if (done.value) localStorage.setItem(storageKey,'1');
-                else localStorage.removeItem(storageKey);
+                if (value) localStorage.setItem(storageKeyFor(key),'1');
+                else localStorage.removeItem(storageKeyFor(key));
             } catch (_) { /* Le suivi reste optionnel si le stockage est désactivé. */ }
         };
+        const selectLesson = key => {
+            if (!['intro','purification'].includes(key) || !props.course?.[key]) return;
+            selectedLessonKey.value = key;
+            answers.value = {};
+            glossarySearch.value = '';
+            changeTab('cours');
+        };
         Vue.onMounted(() => {
-            try { done.value = localStorage.getItem(storageKey) === '1'; } catch (_) {}
+            try {
+                completed.value = {
+                    intro: localStorage.getItem(storageKeyFor('intro')) === '1',
+                    purification: localStorage.getItem(storageKeyFor('purification')) === '1'
+                };
+            } catch (_) { /* Le stockage local peut être désactivé. */ }
             Vue.nextTick(() => window.lucide?.createIcons());
         });
-        return { activeTab, glossarySearch, answers, done, tabs, glossary, answerCount, correctCount, changeTab, selectAnswer, toggleDone };
+        return { activeTab, glossarySearch, answers, done, completed, selectedLessonKey, lesson, tabs, glossary, answerCount, correctCount, changeTab, selectAnswer, selectLesson, toggleDone };
     },
     template: `
     <div class="fiqh-m-root" v-if="course && course.intro">
@@ -50,42 +66,47 @@ const MalikiFiqhView = {
                         <i data-lucide="arrow-left" aria-hidden="true"></i> Accueil
                     </button>
                     <span class="fiqh-m-top-title">Athar <span aria-hidden="true">/</span> Fiqh malikite</span>
-                    <span class="fiqh-m-top-state"><span class="fiqh-m-small-dot"></span> Fiche pilote 01</span>
+                    <span class="fiqh-m-top-state"><span class="fiqh-m-small-dot"></span> Fiche {{ lesson.number }}</span>
                 </header>
 
                 <section class="fiqh-m-hero" aria-labelledby="fiqh-m-heading">
                     <p class="fiqh-m-eyebrow">ÉTUDE DES TEXTES · ÉCOLE MALIKITE</p>
-                    <p class="fiqh-m-arabic-heading" lang="ar" dir="rtl">مَوَاهِبُ الْجَلِيلِ</p>
-                    <h1 id="fiqh-m-heading">Comprendre le livre <em>avant les règles.</em></h1>
-                    <p class="fiqh-m-lead">{{ course.intro.subtitle }}</p>
+                    <p class="fiqh-m-arabic-heading" lang="ar" dir="rtl">{{ selectedLessonKey === 'intro' ? 'مَوَاهِبُ الْجَلِيلِ' : 'كِتَابُ الطَّهَارَةِ' }}</p>
+                    <h1 id="fiqh-m-heading" v-if="selectedLessonKey === 'intro'">Comprendre le livre <em>avant les règles.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else>Comprendre <em>la purification.</em></h1>
+                    <p class="fiqh-m-lead">{{ lesson.subtitle }}</p>
                     <div class="fiqh-m-hero-meta">
                         <span><i data-lucide="book-open" aria-hidden="true"></i> {{ course.book.authorArabic }}</span>
                         <span><i data-lucide="bookmark" aria-hidden="true"></i> {{ course.book.death }}</span>
-                        <span><i data-lucide="layers" aria-hidden="true"></i> Une fiche disponible</span>
+                        <span><i data-lucide="layers" aria-hidden="true"></i> Deux fiches disponibles</span>
                     </div>
                 </section>
 
                 <div class="fiqh-m-workspace">
                     <aside class="fiqh-m-sidebar" aria-label="Parcours du livre">
                         <p class="fiqh-m-aside-label">LE PARCOURS</p>
-                        <div class="fiqh-m-current">
-                            <span class="fiqh-m-current-num">01</span>
+                        <button v-for="entry in [{key:'intro',name:'Découvrir l’ouvrage'}, {key:'purification',name:'Kitâb al-Tahâra'}]"
+                            :key="entry.key" type="button" class="fiqh-m-current fiqh-m-lesson-link"
+                            :class="{ 'is-selected':selectedLessonKey === entry.key }"
+                            :aria-current="selectedLessonKey === entry.key ? 'step' : undefined"
+                            @click="selectLesson(entry.key)">
+                            <span class="fiqh-m-current-num">{{ course[entry.key].number }}</span>
                             <div>
-                                <strong>Découvrir l’ouvrage</strong>
-                                <small>Introduction · accessible</small>
+                                <strong>{{ entry.name }}</strong>
+                                <small>{{ completed[entry.key] ? 'Lue · accessible' : 'Accessible' }}</small>
                             </div>
-                            <i data-lucide="check" v-if="done" aria-label="Terminée"></i>
-                        </div>
+                            <i data-lucide="check-circle-2" v-if="completed[entry.key]" aria-label="Terminée"></i>
+                        </button>
                         <p class="fiqh-m-aside-label fiqh-m-aside-gap">ENSUITE, PROGRESSIVEMENT</p>
                         <div class="fiqh-m-coming">
-                            <span class="fiqh-m-coming-num">02</span>
+                            <span class="fiqh-m-coming-num">03</span>
                             <div>
                                 <span>{{ course.nextChapter.title }}</span>
                                 <small>{{ course.nextChapter.status }}</small>
                             </div>
                             <i data-lucide="lock" aria-hidden="true"></i>
                         </div>
-                        <p class="fiqh-m-aside-note">Le chapitre suivant figure dans le sommaire du livre, mais aucune leçon ne lui est attribuée pour l’instant.</p>
+                        <p class="fiqh-m-aside-note">Chaque fiche possède son lexique, son quiz et un suivi de lecture indépendant. Les règles non encore étudiées ne sont pas présentées comme acquises.</p>
                     </aside>
 
                     <div class="fiqh-m-content">
@@ -111,13 +132,13 @@ const MalikiFiqhView = {
 
                         <div class="fiqh-m-tab-pane" v-if="activeTab === 'cours'" role="tabpanel">
                             <div class="fiqh-m-reader-heading">
-                                <span class="fiqh-m-eyebrow">FICHE 01 · {{ course.intro.sourceSection }}</span>
-                                <h2>{{ course.intro.title }}</h2>
-                                <p>Une introduction basée sur la préface de l’auteur. Les explications françaises sont des synthèses pédagogiques, et non une traduction intégrale du livre.</p>
+                                <span class="fiqh-m-eyebrow">FICHE {{ lesson.number }} · {{ lesson.sourceSection }}</span>
+                                <h2>{{ lesson.title }}</h2>
+                                <p>Une fiche basée sur un passage identifié du livre. Les explications en français sont des synthèses pédagogiques, et non une traduction intégrale ni un avis juridique personnel.</p>
                             </div>
 
                             <div class="fiqh-m-prose">
-                                <section v-for="section in course.intro.sections" :key="section.id" class="fiqh-m-section">
+                                <section v-for="section in lesson.sections" :key="section.id" class="fiqh-m-section">
                                     <span class="fiqh-m-section-index">{{ section.eyebrow }}</span>
                                     <h3>{{ section.title }}</h3>
                                     <p v-for="(paragraph,i) in section.paragraphs" :key="i">{{ paragraph }}</p>
@@ -127,9 +148,9 @@ const MalikiFiqhView = {
 
                             <figure class="fiqh-m-quote">
                                 <figcaption>UN COURT PASSAGE DU LIVRE</figcaption>
-                                <blockquote lang="ar" dir="rtl">{{ course.intro.quote.arabic }}</blockquote>
-                                <p>{{ course.intro.quote.meaning }}</p>
-                                <small>{{ course.intro.quote.label }}</small>
+                                <blockquote lang="ar" dir="rtl">{{ lesson.quote.arabic }}</blockquote>
+                                <p>{{ lesson.quote.meaning }}</p>
+                                <small>{{ lesson.quote.label }}</small>
                             </figure>
 
                             <div class="fiqh-m-lesson-bottom">
@@ -146,8 +167,8 @@ const MalikiFiqhView = {
                         <div class="fiqh-m-tab-pane" v-else-if="activeTab === 'lexique'" role="tabpanel">
                             <div class="fiqh-m-reader-heading">
                                 <span class="fiqh-m-eyebrow">VOCABULAIRE ARABE — FRANÇAIS</span>
-                                <h2>Les mots de l’introduction</h2>
-                                <p>Six notions pour lire la préface. Les définitions sont des explications pédagogiques formulées pour Athar, pas des citations littérales d’al-Hattâb.</p>
+                                <h2>Les mots de la fiche {{ lesson.number }}</h2>
+                                <p>{{ lesson.lexicon.length }} notions pour lire ce passage. Définitions pédagogiques d’Athar, non citations littérales du commentaire.</p>
                             </div>
                             <label class="fiqh-m-search"><i data-lucide="search" aria-hidden="true"></i>
                                 <input v-model="glossarySearch" type="search" placeholder="Rechercher une notion…" aria-label="Rechercher dans le lexique malikite">
@@ -164,12 +185,12 @@ const MalikiFiqhView = {
 
                         <div class="fiqh-m-tab-pane" v-else role="tabpanel">
                             <div class="fiqh-m-reader-heading">
-                                <span class="fiqh-m-eyebrow">SE VÉRIFIER · 3 QUESTIONS</span>
+                                <span class="fiqh-m-eyebrow">SE VÉRIFIER · {{ lesson.quiz.length }} QUESTIONS</span>
                                 <h2>Qu’as-tu retenu ?</h2>
-                                <p>Ces questions vérifient uniquement la compréhension de l’introduction, sans constituer un avis juridique.</p>
+                                <p>Ces questions vérifient la compréhension du passage étudié ; elles ne constituent pas une fatwa.</p>
                             </div>
                             <div class="fiqh-m-quiz">
-                                <section v-for="(q, index) in course.intro.quiz" :key="index" class="fiqh-m-question">
+                                <section v-for="(q, index) in lesson.quiz" :key="index" class="fiqh-m-question">
                                     <span class="fiqh-m-question-number">QUESTION {{ String(index + 1).padStart(2,'0') }}</span>
                                     <h3>{{ q.question }}</h3>
                                     <div class="fiqh-m-choices">
@@ -184,8 +205,8 @@ const MalikiFiqhView = {
                                         <strong>{{ answers[index] === q.answer ? 'Bonne réponse.' : 'À revoir.' }}</strong> {{ q.explanation }}
                                     </p>
                                 </section>
-                                <p class="fiqh-m-result" v-if="answerCount === course.intro.quiz.length">
-                                    {{ correctCount }} / {{ course.intro.quiz.length }} réponses justes. Tu peux modifier tes réponses à tout moment.
+                                <p class="fiqh-m-result" v-if="answerCount === lesson.quiz.length">
+                                    {{ correctCount }} / {{ lesson.quiz.length }} réponses justes. Tu peux modifier tes réponses à tout moment.
                                 </p>
                             </div>
                         </div>
@@ -193,7 +214,7 @@ const MalikiFiqhView = {
                         <footer class="fiqh-m-footer">
                             <p><i data-lucide="shield-check" aria-hidden="true"></i> Support d’étude progressif. Ce prototype ne remplace pas l’étude auprès d’un enseignant et ne délivre pas de fatwas.</p>
                             <div>
-                                <a v-for="source in course.intro.sources" :key="source.url" :href="source.url" target="_blank" rel="noopener noreferrer">
+                                <a v-for="source in lesson.sources" :key="source.url" :href="source.url" target="_blank" rel="noopener noreferrer">
                                     {{ source.label }} <i data-lucide="external-link" aria-hidden="true"></i>
                                 </a>
                             </div>
