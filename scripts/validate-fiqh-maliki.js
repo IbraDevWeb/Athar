@@ -189,4 +189,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures guidées, 10 termes, 7 questions ; fiches 03-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiches 04-12 préservées ; '+shell.length+' ressources PWA.');
