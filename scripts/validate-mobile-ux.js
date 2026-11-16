@@ -17,6 +17,20 @@ const css = fs.readFileSync(paths.css, 'utf8');
 const script = fs.readFileSync(paths.script, 'utf8');
 const config = fs.readFileSync(paths.config, 'utf8');
 const worker = fs.readFileSync(paths.worker, 'utf8');
+const immersive = fs.readFileSync('css/immersive-only.css', 'utf8');
+
+const immersiveMain = immersive.match(/html\.athar-immersive-only \.athar-global-mainframe > main\s*\{([^}]*)\}/)?.[1] || '';
+if (!/overflow-x:\s*auto/.test(immersiveMain) || /overflow-x:\s*hidden/.test(immersiveMain)) {
+    throw new Error('Le mode immersif doit autoriser le déplacement horizontal quand la page est zoomée.');
+}
+for (const token of [
+    'const pinchZoomed =',
+    'const appHeight = pinchZoomed ? layoutHeight : visualHeight',
+    'const keyboardOpen = MOBILE_QUERY.matches && editing && !pinchZoomed'
+]) {
+    if (!script.includes(token)) throw new Error('Régression zoom / clavier : ' + token);
+}
+
 
 new vm.Script(script, { filename: paths.script });
 
@@ -79,4 +93,4 @@ if (css.includes('padding-top: 112px') || css.includes('top: 62px')) {
     throw new Error('Le correctif mobile ne doit pas réintroduire une barre immersive sur deux lignes.');
 }
 
-console.log(`Expérience mobile validée : viewport dynamique, zones sûres, dock tactile, clavier, lecteurs, menu et barre immersive compacte en cache v${configVersion}.`);
+console.log(`Expérience mobile validée : zoom/panoramique horizontal, hauteur sans bande vide, clavier, lecteurs, menu et barre immersive en cache v${configVersion}.`);
