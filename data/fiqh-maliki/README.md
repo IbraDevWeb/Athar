@@ -289,15 +289,34 @@ Total : **11 objectifs, 11 lectures, 18 définitions, 12 QCM avec correction exp
 
 Les exemples modernes ne sont pas des fatwas ni des consignes d'accès aux puits. La clé de progression `athar_fiqh_maliki_eaux_11_done` et les autres fiches sont conservées.
 
-### Fiche 12 — Le su’r : reste d’eau et éventuelle souillure
+### Fiche 12 — Su’r, impureté supposée, exceptions et divergences des malikites
 
-**Sources :** [Islamweb, tome 1, page 77 — « وسؤر شارب خمر »](https://www.islamweb.net/amp/ar/library/content/19/117/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89) et [Islamweb, page 78 — « لا إن عسر الاحتراز منه »](https://www.islamweb.net/amp/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89).
+**Refonte complète du 17 novembre 2026.** La fiche est fondée sur le commentaire d'al-Hattâb dans *Mawâhib al-Jalîl*, tome 1, **pages 77–78**, autour des deux formules de Khalîl : « وسؤر شارب خمر وما أدخل يده فيه وما لا يتوقى نجسا من ماء » et « لا إن عسر الاحتراز منه أو كان طعاما ».
 
-Quatre parties : 1. définition du *su’r* ; 2. distinction entre risque de contact et preuve de la propreté ou de la souillure ; 3. exception pour l’animal difficile à éviter et cas du chat ; 4. différence entre eau et aliment ainsi que les positions rapportées dans l’école.
+L'objectif est d'apprendre à lire un **avis rapporté par al-Hattâb**, et pas seulement à mémoriser une réponse. Chaque lecture comporte un **court extrait arabe attribué**, sa traduction de sens, une explication du contexte, **deux développements longs et naturellement rédigés**, quatre commentaires progressifs, un exemple pédagogique explicitement fictif, une conclusion et un lien exact vers le passage source.
 
-**Extrait de Khalîl repris par al-Hattâb :** « لَا إِنْ عَسُرَ الِاحْتِرَازُ مِنْهُ أَوْ كَانَ طَعَامًا ». L’explication ne doit jamais inférer une souillure de l’appartenance religieuse d’une personne ni transformer le texte historique en jugement général sur elle.
+**Les quatorze lectures :**
 
-Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six termes arabes définis, trois questions corrigées, un extrait arabe vérifié avec attribution et des références bibliographiques cliquables. Les fiches 01 à 09 sont conservées.
+1. Formule de Khalîl : qu'est-ce que le *su’r* et quels contacts sont en cause ?
+2. Comment al-Hattâb qualifie le *mashhûr* : petite quantité, autre eau disponible et réprobation.
+3. La rédaction d'Ibn al-Hâjib comparée à celles d'Ibn al-Jallâb, du *Talqîn* et du *Bayân*.
+4. La précision attribuée à Ibn al-Imâm sur la consommation habituelle, et non sur un acte isolé.
+5. L'exception lorsque la bouche et la main sont propres : *Bayân* et *Tawdîh*.
+6. L'exception de Khalîl lorsque l'animal est difficile à éviter.
+7. Le hadith du chat rapporté dans le *Muwatta’* de Mâlik et sa variante chez al-Tirmidhî.
+8. Les commentaires d'al-Nawawî et d'al-Khattâbî sur les expressions du hadith.
+9. La distinction de Khalîl entre eau et nourriture : *mashhûr* et *Mudawwana*.
+10. Les animaux cités dans la *Mudawwana* et le cas d'une souillure visible sur la bouche.
+11. Les **trois avis** rapportés : présomption d'impureté, présomption de pureté, distinction eau/nourriture.
+12. La préférence d'**Ibn Rushd** pour la pureté initiale en l'absence de preuve.
+13. Le *mashhûr* sur l'eau écartée : explications d'Ibn Nâjî, Ibn Yûnus, Ibn al-Hâjib, *Tawdîh* et Ibn Farhûn.
+14. Le débat sur le gaspillage d'eau : Sâhib al-Jam‘, Abû Muhammad, Ibn Nâjî, al-Barzalî et al-Nawawî.
+
+La fiche comprend **14 objectifs, 14 lectures commentées, 20 notions de lexique et 17 QCM avec corrections argumentées**. Les auteurs et les livres cités sont identifiés ; un propos de Khalîl n'est pas attribué à Mâlik, une explication d'al-Hattâb n'est pas prise pour un hadith et les préférences d'Ibn Rushd ne sont pas confondues avec le *mashhûr*.
+
+**Sources :** [Islamweb — *Mawâhib al-Jalîl*, t. 1, p. 77](https://www.islamweb.net/amp/ar/library/content/19/117/) ; [Islamweb — p. 78](https://www.islamweb.net/ar/library/content/19/118/) ; [Usul — texte intégral de l'ouvrage](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+
+Le chapitre distingue systématiquement le risque, la souillure observée et la pureté connue. Il n'attribue aucune impureté à une personne en raison de son identité. Les cas de nourriture sont des discussions de fiqh et ne remplacent pas les règles modernes de sécurité alimentaire. La clé de progression `athar_fiqh_maliki_eaux_12_done` reste inchangée.
 
 ## Intégration technique
 
