@@ -373,7 +373,7 @@ for(const s of book.limitedWell.sections){
  assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&s.passage.sourceLabel&&s.passage.sourceUrl?.includes('/19/'),'Citation, traduction ou attribution absente en fiche 11 : '+s.id);
  assert.ok(s.steps.length===4&&s.steps.every(x=>x.label&&x.text.length>=90),'Explication progressive incomplète en fiche 11 : '+s.id);
  assert.ok(s.example?.title&&s.example.text.length>=380,'Exemple pédagogique manquant en fiche 11 : '+s.id);
- assert.ok(s.takeaway.length>=190&&s.sourceNote.includes('t. 1'),'Conclusion ou référence manquante en fiche 11 : '+s.id);
+ assert.ok(s.takeaway.length>=190&&(/t\. 1|tome 1/.test(s.sourceNote)),'Conclusion ou référence manquante en fiche 11 : '+s.id);
 }
 for(const s of book.limitedWell.sections.slice(0,8))assert.ok(s.passage.sourceUrl.includes('/19/115/'),'Lien vers le puits absent pour '+s.id);
 for(const s of book.limitedWell.sections.slice(8))assert.ok(s.passage.sourceUrl.includes('/19/116/'),'Lien vers le bassin absent pour '+s.id);
