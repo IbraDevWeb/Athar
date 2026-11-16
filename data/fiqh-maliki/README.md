@@ -261,13 +261,33 @@ La fiche comprend désormais **9 objectifs, 9 lectures, 15 entrées de lexique e
 
 La progression existante `athar_fiqh_maliki_eaux_10_done` est conservée et les fiches 01–09, 11 et 12 restent inchangées.
 
-### Fiche 11 — Puits, eau limitée et nécessité
+### Fiche 11 — Se purifier avec une eau limitée : le puits et le ghusl
 
-**Sources :** [Islamweb, tome 1, page 76 — personne en janâba auprès d’un puits peu rempli](https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87) et [Islamweb, page 77 — ghusl dans un bassin avant d’enlever une souillure](https://islamweb.net/ar/library/content/19/116/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89).
+**Refonte pédagogique du 17 novembre 2026.** Deux développements d’al-Hattâb dans *Mawâhib al-Jalîl*, tome 1, pages 76–77 : « فرع أتى الجنب بئرا قليلة الماء وبيده قذر وليس معه ما يغرف به » et « فرع الغسل في الحياض قبل غسل الأذى ».
 
-Quatre parties : 1. situation du puits ; 2. recherche d’un moyen de puiser sans souiller l’eau ; 3. contraintes du besoin et transmissions différentes ; 4. distinction entre hadath et souillure lors d’un ghusl dans un bassin.
+La progression suit les autorités rapportées, sans confondre Mâlik dans la *Mudawwana*, Ibn al-Qâsim, les explications d’Ibn Nâfi‘, d’Ibn Rushd ou de Sanad, et les discussions attribuées à ‘Abd al-Haqq.
 
-**Extrait rapporté de Mâlik dans la Mudawwana, cité par al-Hattâb :** « يَحْتَالُ حَتَّى يَغْسِلَ يَدَيْهِ وَيَغْرِفَ وَيَغْتَسِلَ ». La fiche distingue explicitement l’auteur de cette parole de celui du commentaire.
+**Onze lectures guidées :**
+
+1. **« أتى الجنب بئرا قليلة الماء وبيده قذر وليس معه ما يغرف به »** : comprendre les quatre circonstances du cas rapporté dans la *Mudawwana*.
+2. **« يحتال حتى يغسل يديه ويغرف ويغتسل »** : recommandation de Mâlik de trouver un moyen de nettoyer la main, puiser et accomplir le ghusl.
+3. **« وكره أن يقول يغتسل فيها »** : la réserve de Mâlik envers une immersion directe, distincte de l'invalidité.
+4. **« فإن اغتسل فيها أجزأه ولم ينجسها إذا كان الماء معينا »** : réponse d'Ibn al-Qâsim sur la suffisance du ghusl et la condition de quantité.
+5. **« إنما كره له الاغتسال فيه إذا وجد منه بدلا »** : une alternative disponible et la nécessité selon ‘Alî rapportant Mâlik.
+6. **« يأخذه بطرف ثوبه »** : les moyens de puisage anciens rapportés d'Ibn Nâfi‘, d'Abû ‘Imrân et d'Ibn Rushd, et les précautions sur l'eau passée dans la bouche.
+7. **« ينبغي أن يتلطف في إزالة النجاسة من يده وتقليلها »** : la démarche de Sanad pour réduire une souillure avec des moyens limités.
+8. **« فإنه إذا اغترف وقلل الماء وبالغ في التدلك »** : réponse de Sanad à l'objection sur l'eau qui revient au puits.
+9. **« إن اغتسل به في الحياض أو في القصرية قبل أن يغسل الأذى عن نفسه »** : nouveau cas du ghusl avant d'enlever une souillure, rapporté de ‘Abd al-Haqq.
+10. **« فإن تغير أحد أوصافه لم يجزه غسله وحكم الجنابة باق »** : l'eau modifiée et la janâba non levée dans le cas examiné.
+11. **« وإن لم يتغير فغسله يجزيه »** : l'eau inchangée, la validité du ghusl et les nuances relatives au nettoyage complémentaire du corps.
+
+Chaque lecture contient **un extrait arabe distinct et attribué, une traduction de sens, son contexte, deux développements longs, quatre explications progressives, un exemple fictif clairement identifié, une synthèse et un lien direct vers le passage original**.
+
+Total : **11 objectifs, 11 lectures, 18 définitions, 12 QCM avec correction expliquée**.
+
+**Sources primaires :** [Islamweb — Mawâhib al-Jalîl, p. 76 : le puits](https://www.islamweb.net/ar/library/content/19/115/) ; [Islamweb — p. 77 : le bassin et la souillure](https://islamweb.net/ar/library/content/19/116/) ; [Usul — texte et édition de Mawâhib al-Jalîl](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+
+Les exemples modernes ne sont pas des fatwas ni des consignes d'accès aux puits. La clé de progression `athar_fiqh_maliki_eaux_11_done` et les autres fiches sont conservées.
 
 ### Fiche 12 — Le su’r : reste d’eau et éventuelle souillure
 
