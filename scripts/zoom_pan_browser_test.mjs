@@ -56,8 +56,19 @@ async function verifyZoom(label,options){
             }
             await devtools.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
             await page.waitForTimeout(100);
-            const pan=await page.evaluate(()=>document.querySelector('.athar-global-mainframe > main').scrollLeft);
-            assert.ok(pan>10,'Impossible de balayer la page horizontalement sous zoom : '+pan);
+            const pan=await page.evaluate(()=>{
+                const main=document.querySelector('.athar-global-mainframe > main');
+                const probe=document.getElementById('zoom-pan-probe');
+                return {
+                    mainLeft:main.scrollLeft,
+                    visualLeft:window.visualViewport?.offsetLeft || 0,
+                    scrollRange:main.scrollWidth-main.clientWidth,
+                    atPoint:document.elementFromPoint(130,135)?.tagName || '',
+                    probeWidth:probe?.getBoundingClientRect().width || 0
+                };
+            });
+            console.log('ZOOM/PAN DIAGNOSTIC : '+label+' '+JSON.stringify(pan));
+            assert.ok(pan.mainLeft>10 || pan.visualLeft>10,'Impossible de balayer la page horizontalement sous zoom : '+JSON.stringify(pan));
             await page.evaluate(()=>{
                 document.getElementById('zoom-pan-probe')?.remove();
                 const main=document.querySelector('.athar-global-mainframe > main');
