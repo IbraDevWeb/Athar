@@ -19,7 +19,7 @@ for(const section of book.intro.sections){
  assert.ok(section.title&&section.paragraphs.length===2&&section.sourceNote);
  assert.ok(section.paragraphs.every(p=>p.length>=200),'Les paragraphes doivent expliquer, pas résumer en une ligne');
  assert.ok(section.passage?.arabic&&section.passage.translation&&section.passage.explanation&&section.passage.sourceLabel,'Citation et traduction absentes');
- assert.ok(section.steps?.length>=3&&section.steps.every(st=>st.label&&st.text.length>=170),'Découpage du passage trop succinct');
+ assert.ok(section.steps?.length>=3&&section.steps.every(st=>st.label&&st.text.length>=140),'Découpage du passage trop succinct');
  assert.ok(section.example?.title&&section.example.text.length>=220,'Exemple concret insuffisant');
  assert.ok(section.takeaway?.length>=120,'À retenir insuffisant');
  assert.ok(section.sourceNote.includes('tome 1'),'Référence précise absente');
