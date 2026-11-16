@@ -41,6 +41,14 @@ jobs:
           # Les dépendances système sont fournies par l'image GitHub ubuntu-24.04 ;
           # éviter l'apt intermittent (DNS azure.archive.ubuntu.com).
           npx playwright install chromium
+      - name: Verify zoom and horizontal panning independently
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/athar-zoom-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" || true' EXIT
+          ATHAR_E2E_BASE=http://127.0.0.1:4173 node scripts/zoom_pan_browser_test.mjs
+
       - name: Test the seven public sections locally
         shell: bash
         run: |
