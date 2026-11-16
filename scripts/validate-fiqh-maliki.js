@@ -73,9 +73,30 @@ for(const spec of newLessons){
   for(const path of spec.pages)assert.ok(entry.sources.some(x=>x.url.includes(path)),'Source primaire manquante : '+path);
 }
 assert.equal(new Set(newLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,18,'Lexique dupliqué dans les trois fiches');
-assert.ok(book.nextChapter.status.includes('fiche 07 non publiée'));
-assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact'].filter(key=>book[key]?.status==='disponible').length,6,'Six fiches réellement accessibles');
-for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+const advancedLessons = [
+ {key:'usedWater',number:'07',id:'used-water-07',ids:['third-category','what-used-means','different-opinions','context-and-limits'],quote:'وكره ماء مستعمل في حدث',urls:['/19/107/']},
+ {key:'recommendedWater',number:'08',id:'recommended-used-water-08',ids:['why-distinguish','source-disagreement','washes','classify'],quote:'وفي غيره تردد',urls:['/19/108/']},
+ {key:'flowingWater',number:'09',id:'flowing-stagnant-water-09',ids:['water-flow','where-falls','stagnant','no-mechanical-rule'],quote:'وراكد يغتسل فيه',urls:['/19/111/','/19/113/']}
+];
+for(const spec of advancedLessons){
+ const entry=book[spec.key];assert.ok(entry,'Fiche manquante : '+spec.key);
+ assert.equal(entry.id,spec.id);assert.equal(entry.number,spec.number);
+ assert.equal(entry.sections.length,4);
+ assert.deepEqual(Array.from(entry.sections,s=>s.id),spec.ids);
+ for(const section of entry.sections) assert.ok(section.title&&section.paragraphs.length===2&&section.paragraphs.every(p=>p.length>=240)&&section.sourceNote,'Section incomplète '+spec.key);
+ assert.equal(entry.lexicon.length,6);
+ assert.ok(entry.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>65));
+ assert.equal(entry.quiz.length,3);
+ for(const question of entry.quiz) assert.ok(question.choices.length===3&&question.answer>=0&&question.answer<3&&question.explanation.length>75);
+ assert.equal(entry.quote.arabic,spec.quote);
+ assert.ok(entry.quote.label.includes('Khalîl')&&entry.quote.label.includes('al-Hattâb'),'Attribution incorrecte');
+ assert.ok(entry.sources.some(x=>x.url===book.book.sourceUrl));
+ for(const path of spec.urls) assert.ok(entry.sources.some(x=>x.url.includes(path)),'Source arabe manquante : '+path);
+}
+assert.equal(new Set(advancedLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,18,'Les 18 entrées de lexique doivent être distinctes entre les trois fiches');
+assert.ok(book.nextChapter.status.includes('fiche 10 non publiée'));
+assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater'].filter(key=>book[key]?.status==='disponible').length,9,'Neuf fiches réellement accessibles');
+for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
 assert.ok(view.includes("Vue.ref(null)"),'L’entrée par défaut doit être le sommaire et non la fiche 01');
@@ -92,4 +113,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : catalogue et 6 fiches vérifiés, recherche, progression, 4 parties et 6 notions chacune, 3 questions par fiche, 9 sections publiques ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : catalogue et 9 fiches vérifiés, recherche, progression, 4 parties et 6 notions chacune, 3 questions par fiche, 9 sections publiques ; '+shell.length+' ressources PWA.');
