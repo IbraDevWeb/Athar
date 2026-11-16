@@ -6955,8 +6955,270 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "meaning": "Khalîl mentionne l’eau chauffée par le soleil. Al-Hattâb explique que les commentateurs discutent son rattachement à la catégorie réprouvée ou à celle exceptée de la réprobation, puis examine les preuves et les conditions.",
       "label": "Khalîl, Mukhtasar, commenté par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–80."
     },
-    "lexicon": [],
-    "quiz": [],
+    "lexicon": [
+      {
+        "arabic": "الْمُشَمَّس",
+        "term": "Mushammas",
+        "definition": "Eau exposée au soleil et réchauffée par celui-ci. La discussion porte sur l’éventuelle réprobation de son usage, non sur une impureté intrinsèque causée par la lumière."
+      },
+      {
+        "arabic": "الْمُسَخَّنُ بِالشَّمْس",
+        "term": "Musakhkhan bi-sh-shams",
+        "definition": "Expression descriptive pour une eau chauffée par la chaleur solaire. Elle sert à distinguer cette situation du chauffage par le feu dont parle le sixième tanbîh."
+      },
+      {
+        "arabic": "الْكَرَاهَةُ الشَّرْعِيَّة",
+        "term": "Karâha shar‘iyya",
+        "definition": "Réprobation considérée comme une qualification religieuse. Ibn Farhûn la distingue d’un conseil médical et al-Hattâb discute la portée de cette séparation."
+      },
+      {
+        "arabic": "كَرَاهَةُ الْإِرْشَاد",
+        "term": "Karâhat al-irshâd",
+        "definition": "Réserve exprimée à titre de conseil pour éviter un désagrément ou un dommage allégué. Ibn Farhûn emploie cette notion pour caractériser la réprobation médicale."
+      },
+      {
+        "arabic": "الطِّبّ",
+        "term": "Tibb",
+        "definition": "Médecine : c’est l’origine invoquée de certaines réserves anciennes concernant l’eau chauffée au soleil. Une hypothèse médicale historique n’équivaut pas à une preuve clinique actuelle."
+      },
+      {
+        "arabic": "الْبَرَص",
+        "term": "Baras",
+        "definition": "Nom d’une affection cutanée évoquée dans les arguments historiques des juristes. La fiche explique cette croyance ancienne sans affirmer une relation médicale démontrée avec l’eau solaire."
+      },
+      {
+        "arabic": "الْحَدِيثُ الضَّعِيف",
+        "term": "Hadîth da‘îf",
+        "definition": "Récit dont la transmission ne remplit pas les conditions d’authenticité. Al-Hattâb distingue cette qualification de celle d’un récit fabriqué."
+      },
+      {
+        "arabic": "الْحَدِيثُ الْمَوْضُوع",
+        "term": "Hadîth mawdû‘",
+        "definition": "Récit tenu pour fabriqué. Ibn Farhûn rapporte ce jugement dans le cas étudié, tandis qu’al-Hattâb distingue les avis des critiques."
+      },
+      {
+        "arabic": "الِاسْتِدْلَال",
+        "term": "Istidlâl",
+        "definition": "Démarche consistant à fonder un jugement sur une preuve. La discussion montre pourquoi un récit contesté ne peut être rapporté comme une preuve prophétique authentique."
+      },
+      {
+        "arabic": "أَوَانِي الصُّفْر",
+        "term": "Awânî al-sufr",
+        "definition": "Récipients de cuivre jaune évoqués dans la restriction d’Ibn al-Imâm et d’Ibn al-‘Arabî. Leur présence dans le texte relève du contexte historique de l’avis."
+      },
+      {
+        "arabic": "الْبِلَادُ الْحَارَّة",
+        "term": "Al-bilâd al-hârra",
+        "definition": "Pays ou régions chaudes mentionnés parmi les conditions de la réserve rapportée. Le passage ne donne pas de seuil de température universel."
+      },
+      {
+        "arabic": "التَّجْرِبَة",
+        "term": "Tajriba",
+        "definition": "Expérience ou constat dont le rôle est invoqué dans l’examen d’un préjudice réel. Une condition reposant sur l’expérience n’établit pas en soi que le dommage allégué existe."
+      },
+      {
+        "arabic": "الضَّرَر",
+        "term": "Darar",
+        "definition": "Préjudice ou dommage réel. Le commentaire examine son importance pour juger un usage, en distinguant la possibilité lointaine d’un danger prouvé."
+      },
+      {
+        "arabic": "رَفْعُ الْحَدَث",
+        "term": "Raf‘ al-hadath",
+        "definition": "Levée de l’état d’impureté rituelle par une purification valable. Les avis cités distinguent cette fonction de l’eau des inquiétudes extérieures relatives à son usage."
+      },
+      {
+        "arabic": "الْإِجْزَاء",
+        "term": "Ijzâ’ fi-l-mushammas",
+        "definition": "Suffisance juridique de l’acte accompli, même lorsqu’une manière de procéder fait l’objet d’une réprobation. L’exemple vient du premier tanbîh cité par al-Hattâb."
+      },
+      {
+        "arabic": "التَّبْرِيد",
+        "term": "Tabrîd",
+        "definition": "Refroidissement de l’eau. Ibn Farhûn demande si cette opération fait disparaître la réprobation alléguée et lie la réponse à la cause supposée."
+      },
+      {
+        "arabic": "الْأَوْعِيَةُ الْمَطْرُوقَة",
+        "term": "Al-aw‘iya al-matrûqa",
+        "definition": "Récipients métalliques façonnés au marteau, discutés par certains auteurs shaféites lorsqu’ils précisent les conditions de la réprobation historique."
+      },
+      {
+        "arabic": "الْبِرَكُ وَالْأَنْهَار",
+        "term": "Al-birak wa-l-anhâr",
+        "definition": "Grands bassins et cours d’eau. Al-Hattâb rapporte, d’après al-Nawawî, qu’ils ne reçoivent pas la réprobation discutée pour de petits récipients."
+      },
+      {
+        "arabic": "الْمُسَخَّنُ بِالنَّار",
+        "term": "Musakhkhan bi-n-nâr",
+        "definition": "Eau chauffée au feu. Le sixième tanbîh la traite à part : le chauffage par le feu n’entraîne pas à lui seul la réprobation envisagée pour certains cas solaires."
+      },
+      {
+        "arabic": "الْإِسْبَاغ",
+        "term": "Isbâgh al-wudû’",
+        "definition": "Accomplissement complet et soigné des ablutions. Une eau excessivement chaude ou froide peut compliquer cette réalisation, selon les réserves rapportées."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Dans la phrase « كمشمس », que cherche d’abord à comprendre al-Hattâb ?",
+        "choices": [
+          "Le rattachement grammatical de la comparaison à ce qui précède.",
+          "La quantité de chaleur mesurée en degrés.",
+          "Le type de prière accomplie ensuite."
+        ],
+        "answer": 0,
+        "explanation": "Le commentaire commence par examiner si Khalîl rattache l’eau exposée au soleil aux eaux réprouvées ou aux exceptions. La plupart des commentateurs cités choisissent la seconde lecture."
+      },
+      {
+        "question": "Que dit Ibn al-Hâjib au sujet de l’eau chauffée au soleil ?",
+        "choices": [
+          "Elle devient automatiquement impure.",
+          "Elle est comme les autres eaux et n’est pas réprouvée pour ce motif.",
+          "Elle ne peut servir qu’au nettoyage des vêtements."
+        ],
+        "answer": 1,
+        "explanation": "Ibn al-Hâjib est cité explicitement : « والمشمس كغيره فلا كراهة فيه ». Al-Hattâb rapproche cette lecture d’Ibn ‘Abd al-Salâm et du Tawdîh."
+      },
+      {
+        "question": "Sur quel motif Sanad rapporte-t-il une réprobation ?",
+        "choices": [
+          "Une impureté certaine entrée dans l’eau.",
+          "Une interdiction unanime de tous les malikites.",
+          "Une considération médicale qui était avancée à son époque."
+        ],
+        "answer": 2,
+        "explanation": "Dans al-Tirâz, Sanad parle de réprobation « من جهة الطب ». Il ne dit pas que la chaleur solaire rend l’eau impure par nature ni que le dommage allégué est une donnée clinique confirmée."
+      },
+      {
+        "question": "Comment ‘Abd al-Haqq juge-t-il la transmission prophétique utilisée dans ce débat ?",
+        "choices": [
+          "Il ne reconnaît aucun hadith authentique établi sur ce point.",
+          "Il la déclare unanimement authentique.",
+          "Il affirme que toutes les eaux chauffées au soleil sont impures."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb rapporte, depuis la Dhakhîra d’al-Qarâfî, le propos d’‘Abd al-Haqq « لم يصح فيه حديث ». Cette réserve doit accompagner toute mention du récit."
+      },
+      {
+        "question": "Quelle distinction al-Hattâb maintient-il à propos de ce récit ?",
+        "choices": [
+          "La chaleur de l’eau et sa profondeur.",
+          "La qualification de hadith fabriqué avancée par certains et celle de hadith faible retenue par d’autres.",
+          "La différence entre une rivière et une source souterraine."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb précise qu’Ibn Farhûn rapporte la fabrication alléguée du récit, mais qu’un plus grand nombre le considère faible. Dans aucun cas il n’est présenté comme une preuve prophétique authentifiée."
+      },
+      {
+        "question": "Quelle restriction matérielle est rapportée d’Ibn al-‘Arabî ?",
+        "choices": [
+          "Toute eau exposée à la lumière du jour.",
+          "Seulement les pluies de printemps.",
+          "Des récipients de cuivre jaune situés dans des pays chauds."
+        ],
+        "answer": 2,
+        "explanation": "Ibn al-Imâm cite Ibn al-‘Arabî pour restreindre la réserve aux « أواني الصفر في البلاد الحارة ». Le passage ne décrit donc pas indistinctement toutes les eaux exposées au soleil."
+      },
+      {
+        "question": "Que signifie la condition « إن قضت التجربة بضرر » dans l’argument rapporté ?",
+        "choices": [
+          "La prudence suppose qu’un dommage soit établi, et non seulement imaginé.",
+          "Le texte prouve médicalement que le soleil crée une maladie.",
+          "Le simple chauffage annule obligatoirement le wudû’."
+        ],
+        "answer": 0,
+        "explanation": "Le raisonnement cité est conditionnel : si un dommage est réellement établi, l’usage peut être jugé différemment. Le livre ne constitue pas une preuve médicale contemporaine de ce dommage."
+      },
+      {
+        "question": "Quelle est la conclusion d’al-Nawawî dans le Sharh al-Muhadhdhab cité ici ?",
+        "choices": [
+          "L’eau devient impure au moindre rayon de soleil.",
+          "Il préfère affirmer qu’il n’y a pas de réprobation établie.",
+          "Il interdit de purifier un vêtement avec toute eau chaude."
+        ],
+        "answer": 1,
+        "explanation": "Al-Nawawî y examine la faiblesse des récits et conclut « فالصواب الجزم بأنه لا كراهة فيه ». C’est sa conclusion dans l’ouvrage cité, que le cours attribue explicitement."
+      },
+      {
+        "question": "Quelle nuance al-Hattâb apporte-t-il ensuite concernant al-Nawawî ?",
+        "choices": [
+          "Il n’a jamais écrit sur ce sujet.",
+          "Il a toujours défendu exactement la même formule dans tous ses ouvrages.",
+          "Dans le Minhâj, al-Nawawî a aussi formulé une réprobation."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb rapporte les deux formulations : absence de réprobation dans le passage du Sharh al-Muhadhdhab et affirmation de réprobation dans le Minhâj. Il faut garder les références distinctes."
+      },
+      {
+        "question": "Que signifie « والقول بكراهة المشمس قوي » chez al-Hattâb ?",
+        "choices": [
+          "Il juge l’avis de réprobation fortement transmis, mais en précise les conditions.",
+          "Il annonce un consensus de tous les juristes de l’islam.",
+          "Il démontre que l’eau est médicalement dangereuse."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb présente la réprobation comme un avis fort parmi les transmissions examinées, puis propose de la restreindre aux circonstances indiquées par Ibn al-Imâm et Ibn al-‘Arabî."
+      },
+      {
+        "question": "Quelle proposition grammaticale Ibn al-Furât avance-t-il ?",
+        "choices": [
+          "Que « mushammas » désigne uniquement la neige fondue.",
+          "Que « كمشمس » puisse se rattacher aux eaux réprouvées citées auparavant.",
+          "Que Khalîl n’a jamais employé le mot « كمشمس »."
+        ],
+        "answer": 1,
+        "explanation": "Ibn al-Furât propose une autre lecture de la comparaison. Al-Hattâb répond que le Tawdîh de Khalîl suggère plutôt un rattachement à l’exception de réprobation."
+      },
+      {
+        "question": "Pourquoi Ibn al-‘Arabî considère-t-il qu’un wudû’ avec cette eau peut suffire ?",
+        "choices": [
+          "Parce que tout dommage médical allégué est nécessairement faux.",
+          "Parce que l’eau s’est transformée en une nouvelle substance.",
+          "Parce que la réserve envisagée porte sur un motif extérieur à sa capacité de lever le hadath."
+        ],
+        "answer": 2,
+        "explanation": "Dans le premier tanbîh, Ibn al-Imâm rapporte d’Ibn al-‘Arabî que l’acte suffit : la réserve ne concerne pas directement la fonction purifiante de l’eau. Validité et réprobation sont distinctes."
+      },
+      {
+        "question": "Quel désaccord oppose Ibn Farhûn et al-Hattâb sur la karâha ?",
+        "choices": [
+          "Ibn Farhûn la rattache au conseil médical ; al-Hattâb rappelle qu’éviter un dommage par obéissance peut avoir une dimension religieuse.",
+          "Ils s’opposent sur le nombre des prières quotidiennes.",
+          "Ils affirment tous les deux que tout chauffage rend l’eau impure."
+        ],
+        "answer": 0,
+        "explanation": "Ibn Farhûn distingue karâha médicale et karâha religieuse. Al-Hattâb nuance la séparation en évoquant l’abstention d’un poison par respect pour une interdiction religieuse générale."
+      },
+      {
+        "question": "Que demande Ibn Farhûn au sujet de l’eau refroidie ?",
+        "choices": [
+          "Qu’elle soit impérativement jetée.",
+          "Si la réprobation alléguée disparaît avec le refroidissement, selon la cause retenue.",
+          "Qu’elle soit mélangée à une eau de rivière."
+        ],
+        "answer": 1,
+        "explanation": "Dans le troisième tanbîh, la question reste ouverte et dépend de l’explication du dommage supposé. Al-Hattâb rapporte aussi des divergences chez les shaféites."
+      },
+      {
+        "question": "Que dit la discussion au sujet de l’eau chauffée au soleil dans les grands bassins et les rivières ?",
+        "choices": [
+          "Elle est toujours impure.",
+          "Sa réprobation dépend d’un volume fixe inventé par le cours.",
+          "Al-Nawawî est cité pour l’absence de réprobation dans ces grandes étendues."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb rapporte d’al-Nawawî que l’eau ensoleillée des rivières et grands bassins ne fait pas l’objet de cette réprobation. Il indique ne pas avoir trouvé de contradiction sur ce point."
+      },
+      {
+        "question": "Comment les auteurs abordent-ils l’eau chauffée au feu ?",
+        "choices": [
+          "Elle n’est pas réprouvée pour ce seul motif, sauf circonstances comme une chaleur excessive empêchant une purification soignée.",
+          "Elle est automatiquement souillée par le feu.",
+          "Elle est toujours interdite même si aucune autre eau n’existe."
+        ],
+        "answer": 0,
+        "explanation": "Ibn al-Hâjib et d’autres n’attachent pas de réprobation au chauffage par le feu en lui-même. Ibn al-Karawî évoque cependant les températures extrêmes pouvant empêcher le lavage complet ou gêner l’acte."
+      }
+    ],
     "sources": [
       {
         "label": "Islamweb — Mawâhib al-Jalîl, tome 1, p. 78–80, passage « كمشمس »",
