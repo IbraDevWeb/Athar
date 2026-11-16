@@ -74,8 +74,12 @@ for(const spec of newLessons){
 }
 assert.equal(new Set(newLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,18,'Lexique dupliqué dans les trois fiches');
 assert.ok(book.nextChapter.status.includes('fiche 07 non publiée'));
-for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','availableLessons','completedCount','course[entry.key].number'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact'].filter(key=>book[key]?.status==='disponible').length,6,'Six fiches réellement accessibles');
+for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
+for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
+assert.ok(view.includes("Vue.ref(null)"),'L’entrée par défaut doit être le sommaire et non la fiche 01');
+assert.ok(view.includes("selectedLessonKey.value = null"),'Retour au sommaire manquant');
 assert.ok(html.includes('<maliki-fiqh-view :course="malikiFiqhCourse"'));
 for(const p of ['fiqh_maliki_data.js','js/components/MalikiFiqhView.js','css/fiqh-maliki.css'])assert.ok(fs.existsSync(p),'Ressource Fiqh absente '+p);
 assert.ok(html.indexOf('fiqh_maliki_data.js')<html.indexOf('MalikiFiqhView.js')&&html.indexOf('MalikiFiqhView.js')<html.indexOf('js/app.js'));
@@ -88,4 +92,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 6 fiches vérifiées, 4 parties et 6 notions chacune, 3 questions par fiche, 9 sections publiques ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : catalogue et 6 fiches vérifiés, recherche, progression, 4 parties et 6 notions chacune, 3 questions par fiche, 9 sections publiques ; '+shell.length+' ressources PWA.');
