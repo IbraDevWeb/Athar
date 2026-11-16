@@ -1025,6 +1025,60 @@ async function mobile(width,height) {
     await page.goto(base+'/index.html?ui=mobile-'+width,{waitUntil:'domcontentloaded',timeout:90000});
     await ready(page);
     assert.equal(await page.locator('#athar-mobile-dock').count(),0,'Le deuxième dock mobile doit disparaître.');
+    // Régression zoom tactile : la hauteur de la page ne doit pas suivre le visualViewport
+    // réduit par le pincement, et le lecteur doit rester déplaçable horizontalement.
+    const zoomSession=await page.context().newCDPSession(page);
+    await zoomSession.send('Emulation.setPageScaleFactor',{pageScaleFactor:2});
+    await page.waitForFunction(()=>window.visualViewport?.scale>=1.9,{timeout:5000});
+    await page.waitForFunction(()=>Math.abs(
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--athar-viewport-height'))-window.innerHeight
+    )<=2,{timeout:5000});
+    const zoomLayout=await page.evaluate(()=>{
+        const layout=window.innerHeight;
+        const app=document.getElementById('app');
+        const outer=document.querySelector('.athar-global-mainframe > main');
+        return {
+            layout,visual:window.visualViewport.height,
+            appHeight:app.getBoundingClientRect().height,
+            variable:parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--athar-viewport-height')),
+            scrollX:getComputedStyle(outer).overflowX,
+            falseKeyboard:document.documentElement.classList.contains('athar-keyboard-open')
+        };
+    });
+    assert.ok(zoomLayout.visual<zoomLayout.layout*.7,'La simulation de zoom tactile ne fonctionne pas : '+JSON.stringify(zoomLayout));
+    assert.ok(Math.abs(zoomLayout.appHeight-zoomLayout.layout)<=3,'Une bande vide apparaît sous Athar lors du zoom : '+JSON.stringify(zoomLayout));
+    assert.equal(zoomLayout.scrollX,'auto','Le mode immersif empêche le déplacement horizontal');
+    assert.equal(zoomLayout.falseKeyboard,false,'Le zoom ne doit pas être confondu avec le clavier mobile');
+
+    await page.evaluate(()=>{
+        const outer=document.querySelector('.athar-global-mainframe > main');
+        const probe=document.createElement('div');
+        probe.id='athar-pan-test-probe';
+        probe.style.cssText='width:160vw;height:140px;pointer-events:auto;';
+        outer.prepend(probe);
+        outer.scrollLeft=0;
+        outer.scrollTop=0;
+    });
+    const panStartX=Math.min(170,Math.round(width/2)-20);
+    await zoomSession.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:panStartX,y:135,id:0}]});
+    for(const delta of [12,24,36,48,60,72,84,96]){
+        await zoomSession.send('Input.dispatchTouchEvent',{
+            type:'touchMove',touchPoints:[{x:panStartX-delta,y:135,id:0}]
+        });
+    }
+    await zoomSession.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+    const panX=await page.evaluate(()=>document.querySelector('.athar-global-mainframe > main').scrollLeft);
+    assert.ok(panX>10,'Un balayage tactile ne déplace pas le lecteur horizontalement sous zoom : '+panX);
+    await page.evaluate(()=>{
+        document.getElementById('athar-pan-test-probe')?.remove();
+        const outer=document.querySelector('.athar-global-mainframe > main');
+        outer.scrollLeft=0;
+        outer.scrollTop=0;
+    });
+    await zoomSession.send('Emulation.setPageScaleFactor',{pageScaleFactor:1});
+    await page.waitForFunction(()=>window.visualViewport?.scale<=1.01,{timeout:5000});
+    await zoomSession.detach();
+
     for(const id of ['athar-immersive-menu','athar-immersive-quick','athar-immersive-theme']){
         const rect=await page.locator('#'+id).boundingBox();
         assert.ok(rect && rect.width>=40 && rect.height>=40,'Bouton mobile trop petit : '+id);
