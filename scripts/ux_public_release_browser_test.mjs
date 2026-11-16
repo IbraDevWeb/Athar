@@ -558,6 +558,41 @@ async function desktop() {
     await page.locator('.fiqh-m-lesson-link').nth(1).click();
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture de la fiche 02 perdue');
 
+    // Fiches 04, 05 et 06 : lecture progressive et maintien des trois parcours précédents.
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),6,'Six fiches doivent être accessibles');
+    const fiqhLaterLessons = [
+        { index:3, title:/eau modifiée/i, quote:/لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا/, source:'/19/101/', search:'Taghayyur', key:'athar_fiqh_maliki_eaux_04_done' },
+        { index:4, title:/mélanges purs/i, quote:/طَاهِرٌ غَيْرُ مُطَهِّرٍ/, source:'/19/101/', search:'Za‘farân', key:'athar_fiqh_maliki_eaux_05_done' },
+        { index:5, title:/impureté/i, quote:/وَيَسِيرٌ/, source:'/19/109/', search:'Mashhûr', key:'athar_fiqh_maliki_eaux_06_done' }
+    ];
+    for(const check of fiqhLaterLessons){
+        await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
+        assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre de la fiche erroné');
+        assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre développements requis');
+        assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),check.quote,'Citation arabe absente');
+        assert.ok(await page.locator('a[href*="'+check.source+'"]').count()>0,'Source primaire consultable absente');
+        assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','Marquage de progression non indépendant');
+
+        await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
+        assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique incomplet pour la fiche '+check.index);
+        await page.locator('.fiqh-m-search input').fill(check.search);
+        assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche lexique inactive');
+        await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
+        assert.equal(await page.locator('.fiqh-m-question').count(),3,'Quiz incomplet');
+        assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Quiz pollué par une autre fiche');
+        await page.locator('.fiqh-m-choices button').first().click();
+        assert.equal(await page.locator('.fiqh-m-answer').count(),1,'Réponse non enregistrée');
+        await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
+        await page.locator('.fiqh-m-complete').click();
+        assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true');
+        assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1','Lecture non conservée');
+    }
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/6\s*\/\s*6/,'Progression des six fiches erronée');
+    await page.locator('.fiqh-m-lesson-link').first().click();
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture historique de la fiche 01 perdue');
+    await page.locator('.fiqh-m-lesson-link').nth(2).click();
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture historique de la fiche 03 perdue');
+
     await page.locator('.fiqh-m-back').click();
     await ready(page);
 
