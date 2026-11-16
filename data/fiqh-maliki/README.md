@@ -1,6 +1,6 @@
 # Fiqh malikite · Parcours 01–12
 
-**État de la branche de développement au 16 novembre 2026 : douze fiches disponibles dans la branche de développement.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 16 novembre 2026 : douze fiches, avec une fiche 01 remaniée en cours guidé sur la branche de refonte.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -12,16 +12,30 @@
 - **Recoupement de la préface :** https://islamweb.net/ar/library/content/19/1/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8
 - **Recoupement de la fiche 02 :** https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB (tome 1, page 44).
 
-## Fiche 01 — Découvrir Mawâhib al-Jalîl
+## Fiche 01 — Lire Mawâhib al-Jalîl : cours guidé pour débutant
 
-Intégralité de la fiche pilote maintenue (voir PR #172) :
+**Refonte pédagogique pilote (16 novembre 2026).** Cette fiche n'est plus un simple résumé de la préface. Elle accompagne le lecteur pas à pas, avec **quatre étapes de lecture**, chacune organisée selon le même principe :
 
-1. Place du fiqh dans la préface.
-2. Distinction entre Khalîl (auteur du Mukhtasar) et al-Hattâb (commentateur).
-3. Nécessité d'un commentaire d'un texte juridique condensé.
-4. Méthode de lecture progressive propre à Athar.
+1. Court **passage original en arabe**, attribué précisément à al-Hattâb.
+2. **Traduction française de sens** et explication du contexte.
+3. **Deux paragraphes introductifs** en langage accessible à un débutant.
+4. **Trois ou quatre explications décomposées** des termes ou idées essentiels.
+5. **Exemple concret** explicitement signalé comme pédagogique, distinct du texte d'al-Hattâb.
+6. **À retenir**, et référence de la préface avec tome et page.
 
-Extrait : « إلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ » : extrait vérifié de la préface d'al-Hattâb. Six termes, trois questions.
+**Progression :**
+- Étape 01 : le fiqh répond à des questions de validité des adorations ; distinction entre *ṣihha* et *fasâd*.
+- Étape 02 : Khalîl rédige le *Mukhtasar* ; al-Hattâb en explique les formulations et les nuances.
+- Étape 03 : avis retenus pour la fatwa, avis prépondérants et différences entre opinion rapportée et opinion retenue.
+- Étape 04 : le programme d'explication d'al-Hattâb dans la préface ; comment lire progressivement les règles.
+
+**Extraits très courts recoupés dans la source :** « فساد العبادة وصحتها », « صغر حجمه وكثر علمه », « ما به الفتوى وما هو الأرجح », « وأميل إلى البسط والإيضاح ». Le court rappel final « كاد يعد من جملة الألغاز » souligne le problème de l'extrême concision. Ils ne sont pas présentés comme la préface intégrale.
+
+**Vocabulaire :** huit termes réellement utilisés dans la leçon, dont ṣihha, fasâd, mukhtasar, sharh, fatwa et arjah. **Évaluation :** cinq questions dont plusieurs contextualisées, accompagnées de corrections pédagogiques.
+
+**Source primaire :** [al-Hattâb, Mawâhib al-Jalîl, préface du volume 1, pages 2–4, Islamweb](https://islamweb.net/ar/library/content/19/1/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8). Recoupement avec [Usul](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil). Les exemples inventés pour expliquer une situation de prière, d'ablutions ou de lecture ne sont **pas** des fatwas : aucun jugement de validité propre à ces exemples n'est affirmé.
+
+**Conservation :** aucune modification des règles et supports des fiches 02 à 12 ; l'ancienne clé de progression `athar_fiqh_maliki_intro_01_done` demeure inchangée et utilisable.
 
 ## Fiche 02 — Kitâb al-Tahâra : les fondements de la purification
 
@@ -182,13 +196,13 @@ Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six 
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v88) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v89) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, douze fiches et présence du catalogue.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, douze quiz, suivi indépendant et sources.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, douze fiches, nouvelle fiche 01 guidée et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, douze quiz (5 questions pour la fiche 01), suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées le 16 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.

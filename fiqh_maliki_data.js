@@ -18,127 +18,267 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "introduction-01",
     "number": "01",
     "status": "disponible",
-    "title": "Découvrir Mawâhib al-Jalîl",
-    "subtitle": "Comprendre l’ouvrage, son auteur et sa démarche avant d’aborder les règles de fiqh.",
-    "sourceSection": "مقدمة الكتاب — préface de l’auteur",
+    "title": "Lire Mawâhib al-Jalîl : apprendre à comprendre le fiqh",
+    "subtitle": "Une première vraie leçon, à partir des mots d’al-Hattâb : lire une citation arabe, la traduire, puis comprendre ce qu’elle nous apprend.",
+    "sourceSection": "مقدمة الكتاب — préface d’al-Hattâb, tome 1, pages 2 à 4",
+    "goals": [
+      "Comprendre ce que cherche à résoudre le fiqh dans la vie du croyant.",
+      "Ne plus confondre Khalîl, l’auteur du texte condensé, avec al-Hattâb, son commentateur.",
+      "Savoir pourquoi des avis peuvent différer et ce que signifie « avis retenu pour la fatwa ».",
+      "Apprendre une méthode concrète pour lire les prochaines pages sans tirer de conclusions trop vite."
+    ],
     "sections": [
       {
         "id": "fiqh",
-        "eyebrow": "01 · La matière",
-        "title": "Pourquoi le fiqh occupe-t-il une place importante ?",
+        "eyebrow": "ÉTAPE 01 · À QUOI SERT LE FIQH ?",
+        "title": "Avant les règles : quelle question le fiqh nous aide-t-il à résoudre ?",
+        "passage": {
+          "arabic": "فساد العبادة وصحتها",
+          "translation": "« L’invalidité et la validité de l’adoration. »",
+          "explanation": "Al-Hattâb dit que la science religieuse permet notamment de distinguer les actes d’adoration valides de ceux qui ne le sont pas.",
+          "sourceLabel": "Préface, tome 1, p. 2 · extrait des propos d’al-Hattâb"
+        },
         "paragraphs": [
-          "Dans sa préface, al-Hattâb souligne l’importance de la connaissance des prescriptions religieuses : elle sert notamment à distinguer ce qui est permis de ce qui ne l’est pas, ainsi que la validité ou l’invalidité des actes d’adoration.",
-          "Pour commencer, retiens l’idée de l’auteur : le fiqh n’est pas une accumulation de réponses isolées. Il étudie des jugements et leur application. Cette fiche présente sa démarche ; elle ne donne pas encore de fatwa."
+          "Tu connais déjà la prière, les ablutions et le jeûne. Pourtant, il arrive qu’une personne se demande : « J’ai oublié une étape ; est-ce que mon acte compte quand même ? » C’est exactement le genre de question pratique qu’étudie le fiqh. Il ne suffit pas de savoir qu’il faut prier : il faut aussi apprendre comment la prière s’accomplit et dans quelles circonstances elle est valable.",
+          "Dans sa préface, al-Hattâb explique l’utilité du savoir juridique en parlant de validité et d’invalidité des adorations, ainsi que du licite et de l’illicite. Pour une première lecture, retiens cette idée très simple : le fiqh nous aide à passer d’une intention d’adorer Allah à une compréhension correcte des règles qui encadrent l’acte. Nous n’allons pas encore apprendre le verdict d’un cas précis ; nous apprenons d’abord quelles questions poser."
         ],
-        "sourceNote": "Préface, paragraphe qui commence par « وبعد ». Synthèse pédagogique en français, non traduction littérale."
+        "steps": [
+          {
+            "label": "Premier mot : ṣihha (صِحَّة)",
+            "text": "La « validité » signifie qu’un acte remplit les conditions requises dans l’analyse juridique. Dans le fiqh, dire qu’un acte est valide n’est pas la même chose que dire qu’il est parfait ou qu’Allah l’a accepté : l’acceptation relève aussi de considérations spirituelles que la seule qualification juridique n’épuise pas."
+          },
+          {
+            "label": "Deuxième mot : fasâd (فَسَاد)",
+            "text": "L’« invalidité » indique, dans ce contexte, qu’un acte ne remplit pas les exigences juridiques de sa validité. Ce terme ne veut pas dire que la personne est mauvaise : on parle de l’acte examiné, pas de sa valeur humaine."
+          },
+          {
+            "label": "La bonne question à poser",
+            "text": "Quand une difficulté survient, on commence par nommer précisément l’acte, le geste concerné et les circonstances. Sans ces faits, répondre « c’est valable » ou « ce n’est pas valable » serait trop rapide."
+          }
+        ],
+        "example": {
+          "title": "Exemple : tu as un doute après les ablutions",
+          "text": "Imagine une personne qui vient de terminer ses ablutions et se souvient qu’elle a peut-être oublié quelque chose. Une mauvaise réponse consisterait à dire immédiatement : « Recommence tout » ou « Ce n’est rien ». Une démarche de fiqh consiste d’abord à comprendre quel geste est en cause, si l’oubli est certain ou seulement supposé et quelles règles de l’école malikite s’y rapportent. Cet exemple sert uniquement à montrer la méthode : il ne donne pas ici le jugement sur ce doute."
+        },
+        "takeaway": "Le fiqh ne consiste pas à collectionner des réponses toutes faites. Il consiste à comprendre une règle, les conditions de son application et les faits qui peuvent modifier le jugement.",
+        "sourceNote": "Source : al-Hattâb, préface de Mawâhib al-Jalîl, tome 1, p. 2. Le scénario des ablutions est un exemple pédagogique créé pour Athar, non une citation du livre."
       },
       {
         "id": "authors",
-        "eyebrow": "02 · Les deux auteurs",
-        "title": "Khalîl a rédigé le résumé ; al-Hattâb en propose un commentaire.",
+        "eyebrow": "ÉTAPE 02 · QUI PARLE DANS CE LIVRE ?",
+        "title": "Deux savants, deux fonctions : Khalîl écrit, al-Hattâb explique",
+        "passage": {
+          "arabic": "صغر حجمه وكثر علمه",
+          "translation": "« Son volume est petit, mais son savoir est abondant. »",
+          "explanation": "Al-Hattâb parle du Mukhtasar de Khalîl. Il admire la quantité de connaissances condensées dans un ouvrage de petite taille.",
+          "sourceLabel": "Préface, tome 1, p. 2 · description du Mukhtasar par al-Hattâb"
+        },
         "paragraphs": [
-          "Le Mukhtasar est un texte condensé de Khalîl ibn Ishâq consacré au droit malikite. Al-Hattâb, auteur de Mawâhib al-Jalîl, n’est donc pas l’auteur du Mukhtasar : il en est le commentateur.",
-          "La notice bibliographique d’Usul attribue Mawâhib al-Jalîl à al-Hattâb al-Ru‘aynî, mort en 954 H. Le livre consulté est répertorié dans la catégorie « fiqh malikite »."
+          "Il faut maintenant répondre à une question essentielle : quel livre sommes-nous en train de lire ? Khalîl ibn Ishâq a composé un mukhtasar, c’est-à-dire un ouvrage qui rassemble beaucoup de règles en un texte très resserré. Bien plus tard, al-Hattâb a rédigé Mawâhib al-Jalîl pour commenter ce Mukhtasar. Le titre signifie précisément qu’il s’agit d’un commentaire du texte de Khalîl.",
+          "Imagine que tu trouves, dans un manuel de cours, une phrase qui résume tout un chapitre en une seule ligne. Cette ligne peut être excellente pour quelqu’un qui connaît déjà le sujet ; elle devient difficile pour celui qui découvre les notions. C’est le rapport entre un mukhtasar et son sharh : le premier condense, le second aide à déplier ce qui a été condensé. Dans Athar, nous allons lire le texte bref sans perdre l’explication qui lui donne son sens."
         ],
-        "sourceNote": "Préface de Mawâhib al-Jalîl et notice bibliographique d’Usul."
+        "steps": [
+          {
+            "label": "Khalîl ibn Ishâq : l’auteur du Mukhtasar",
+            "text": "Il met les règles sous une forme courte, destinée à être travaillée avec méthode. Ses formules supposent souvent que le lecteur connaisse déjà le vocabulaire et le cadre de l’école malikite."
+          },
+          {
+            "label": "Al-Hattâb : l’auteur du commentaire",
+            "text": "Il n’a pas écrit le Mukhtasar. Son rôle est de revenir sur les expressions de Khalîl, de détailler les difficultés et de rapporter les explications et opinions des savants. Usul le référence sous son nom d’al-Hattâb al-Ru‘aynî, mort en 954 H."
+          },
+          {
+            "label": "Comment reconnaître leurs propos ?",
+            "text": "Dans notre parcours, chaque passage arabe sera attribué : « parole de Khalîl citée par al-Hattâb », « explication propre au commentateur » ou « avis d’un savant rapporté par le commentateur ». Ne confonds pas celui qui rapporte une opinion avec celui qui en est l’auteur."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux pages qui ne se lisent pas de la même façon",
+          "text": "Supposons que Khalîl écrive une formule de quelques mots à propos de l’eau. Tu peux en mémoriser les termes, mais tu risques de ne pas savoir si elle concerne toute eau, une eau altérée ou un cas particulier. Al-Hattâb va apporter les distinctions et les exemples nécessaires. Quand nous commencerons Kitâb al-Tahâra, nous appliquerons cette méthode aux vraies formules du livre, en les citant dans leur contexte."
+        },
+        "takeaway": "Le texte étudié a deux niveaux : le résumé juridique de Khalîl et son explication par al-Hattâb. Pour apprendre correctement, il faut savoir à chaque instant lequel on est en train de lire.",
+        "sourceNote": "Source : préface, tome 1, p. 2–3 ; notice Usul pour le titre, la catégorie malikite et l’attribution de l’ouvrage."
       },
       {
         "id": "commentary",
-        "eyebrow": "03 · Le besoin d’explication",
-        "title": "Pourquoi un commentaire d’un texte aussi court ?",
+        "eyebrow": "ÉTAPE 03 · POURQUOI CE TEXTE EST-IL DIFFICILE ?",
+        "title": "Un avis retenu, un avis plus fort : comment lire sans tout confondre ?",
+        "passage": {
+          "arabic": "ما به الفتوى وما هو الأرجح",
+          "translation": "« Ce sur quoi repose la fatwa et ce qui est le plus prépondérant. »",
+          "explanation": "Dans la préface, al-Hattâb indique que le Mukhtasar cherche notamment à présenter les avis retenus pour la fatwa et ceux jugés prépondérants.",
+          "sourceLabel": "Préface, tome 1, p. 2 · propos d’al-Hattâb sur l’objectif du Mukhtasar"
+        },
         "paragraphs": [
-          "Al-Hattâb loue la richesse du Mukhtasar de Khalîl, notamment son attention aux avis privilégiés pour la fatwa. Il observe en même temps que sa grande concision peut rendre certaines expressions difficiles à comprendre.",
-          "La préface évoque plusieurs commentaires antérieurs et le travail de savants ayant explicité les formulations difficiles. Al-Hattâb explique avoir réuni ses propres remarques et compléments dans une entreprise de commentaire. On comprend ainsi pourquoi cette œuvre est un sharh : elle accompagne un texte dense au lieu de simplement le répéter."
+          "Dans une école juridique, les savants n’ont pas toujours donné exactement la même réponse à toutes les questions. Un texte peut conserver la trace de ces différences, puis indiquer quel avis est préféré dans un cadre déterminé. Al-Hattâb explique que l’une des qualités du Mukhtasar est précisément de mettre en évidence ce qui est retenu pour la fatwa et les positions les plus fortes. Ce vocabulaire te sera indispensable : sans lui, tu pourrais lire plusieurs opinions successives et croire que l’auteur te demande de choisir au hasard.",
+          "La fatwa n’est pas simplement « un avis personnel sur la religion ». Il s’agit d’une réponse juridique à une question, donnée en tenant compte de sources, d’une méthode et du cas présenté. Dans le commentaire, une position rapportée n’est pas nécessairement celle que le savant privilégie. Avant de dire « le malikisme enseigne que… », il faut donc vérifier ce qui est cité, ce qui est discuté et ce que le texte présente comme retenu."
         ],
-        "sourceNote": "Préface de l’auteur, passages sur l’abrègement du Mukhtasar et les travaux des commentateurs antérieurs."
+        "steps": [
+          {
+            "label": "Fatwa (فَتْوَى)",
+            "text": "C’est la réponse d’un juriste à une question pratique. Une réponse peut dépendre de la situation décrite. Le simple fait que le livre rapporte une réponse ancienne ne permet pas d’en faire automatiquement une fatwa pour un cas d’aujourd’hui."
+          },
+          {
+            "label": "Arjah (أَرْجَح)",
+            "text": "Le terme renvoie à un avis jugé plus prépondérant dans une comparaison entre plusieurs positions. Cela suppose un travail de sélection et des arguments ; ce n’est pas un simple vote entre opinions."
+          },
+          {
+            "label": "Un avis rapporté n’est pas toujours l’avis retenu",
+            "text": "Quand al-Hattâb écrit qu’un savant a soutenu une position, nous devons encore lire la suite : l’auteur explique-t-il la raison de cette position ? La compare-t-il à une autre ? Précise-t-il le jugement le plus connu dans l’école ? Ces questions empêcheront des erreurs de lecture."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux réponses dans le même chapitre",
+          "text": "Imagine qu’un commentaire mentionne : « Le savant A a défendu telle réponse », puis « le savant B a défendu une autre réponse », avant de préciser quel avis est privilégié. Le lecteur débutant pourrait croire que les trois phrases sont trois règles à appliquer librement. En réalité, les deux premières peuvent être des opinions historiques exposées pour expliquer un désaccord ; la dernière présente la conclusion retenue dans le contexte. Ce scénario est fictif et ne prétend pas résumer un désaccord juridique particulier."
+        },
+        "takeaway": "Voir une opinion dans un livre ne suffit pas à dire qu’elle est « la position malikite ». Il faut regarder son attribution, ses raisons et le statut que le commentateur lui donne.",
+        "sourceNote": "Source : al-Hattâb, préface, tome 1, p. 2, propos sur « الفتوى », « الأرجح » et « الأقوى ». L’exemple des savants A et B est fictif."
       },
       {
         "id": "method",
-        "eyebrow": "04 · Méthode de lecture sur Athar",
-        "title": "Comment aborder cet ouvrage progressivement ?",
+        "eyebrow": "ÉTAPE 04 · APPRENDRE AVEC UN COMMENTAIRE",
+        "title": "Pourquoi al-Hattâb choisit-il d’expliquer longuement plutôt que de résumer encore ?",
+        "passage": {
+          "arabic": "وأميل إلى البسط والإيضاح",
+          "translation": "« Et j’ai tendance à développer et à éclaircir. »",
+          "explanation": "Al-Hattâb annonce qu’il préfère une explication développée, afin que le lecteur bénéficie réellement de l’étude.",
+          "sourceLabel": "Préface, tome 1, p. 4 · al-Hattâb explique sa manière de commenter"
+        },
         "paragraphs": [
-          "Nous séparerons systématiquement trois niveaux : le passage arabe vérifié, son explication pédagogique en français et le contexte nécessaire pour ne pas confondre les avis ou les époques.",
-          "Le sommaire consulté commence ensuite par le Livre de la purification (كتاب الطهارة), puis le Livre de la prière (كتاب الصلاة). Ces chapitres ne sont pas encore traités dans Athar : cette première fiche est uniquement une introduction."
+          "Al-Hattâb raconte dans sa préface que plusieurs savants avaient déjà commenté Khalîl, notamment Bahrâm et Ibn Ghâzî. Il avait lui-même rassemblé, au fil de ses lectures, des remarques sur des passages difficiles. Il a finalement choisi de commenter l’ensemble de l’ouvrage, de rapporter les avis et de préciser les points qui prêtent à confusion. Il ne voulait pas qu’un lecteur reste bloqué sur une expression parce que le commentaire serait trop rapide.",
+          "C’est également le principe que nous allons suivre dans Athar. On ne te demandera pas d’apprendre une règle avant de comprendre les mots qui la composent. Nous commencerons par un court passage arabe, puis une traduction compréhensible, une explication morceau par morceau et enfin un exemple concret. Ce n’est qu’après cela que viendront les questions de compréhension. Si la source rapporte plusieurs avis, nous les distinguerons au lieu de les mélanger dans une seule phrase."
         ],
-        "sourceNote": "Organisation pédagogique d’Athar ; titres des chapitres vérifiés dans le sommaire d’Usul."
+        "steps": [
+          {
+            "label": "1. Lire les mots exacts",
+            "text": "On commence par identifier l’auteur de la phrase arabe. Est-ce Khalîl ? Al-Hattâb ? Un autre juriste cité ? Le passage doit avoir une référence vérifiable."
+          },
+          {
+            "label": "2. Traduire sans ajouter de règles",
+            "text": "On reformule le sens en français, en expliquant les mots techniques. La traduction d’un extrait ne doit pas inventer une exception ou une condition qui n’apparaît pas dans ce passage."
+          },
+          {
+            "label": "3. Expliquer, avec un exemple",
+            "text": "On prend une situation facile à imaginer et on montre comment la notion s’y rapporte, en indiquant explicitement si l’exemple vient du livre ou s’il a été créé pour apprendre."
+          },
+          {
+            "label": "4. Vérifier ce qui est acquis",
+            "text": "On termine par quelques questions. L’objectif n’est pas de choisir une réponse au hasard : la correction doit expliquer pourquoi cette réponse est juste et pourquoi la notion étudiée est importante."
+          }
+        ],
+        "example": {
+          "title": "Petit exercice de lecture avant la prochaine fiche",
+          "text": "Quand tu rencontreras l’expression « eau pure » dans un cours, ne conclus pas immédiatement qu’elle suffit pour toutes les purifications. Demande-toi : le texte parle-t-il de propreté visible, de pureté au sens juridique ou du pouvoir de purifier ? Ce sont des distinctions que nous apprendrons dans Kitâb al-Tahâra. Pour l’instant, le but de cet exercice est de t’habituer à questionner les termes avant de prononcer un jugement."
+        },
+        "takeaway": "Une bonne fiche doit te permettre de suivre le raisonnement du texte, pas seulement de mémoriser sa conclusion. C’est cette méthode de lecture que nous utiliserons pour les leçons suivantes.",
+        "sourceNote": "Source : al-Hattâb, préface, tome 1, p. 3–4, où il expose les travaux antérieurs, sa décision de commenter tout l’ouvrage et son goût pour l’explication développée."
       }
     ],
     "quote": {
-      "arabic": "إلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ",
-      "meaning": "Al-Hattâb explique ici que la grande concision du Mukhtasar peut rendre sa lecture particulièrement difficile.",
-      "label": "Court extrait de la préface — sens expliqué, pas une traduction littérale."
+      "arabic": "كاد يعد من جملة الألغاز",
+      "meaning": "Al-Hattâb dit du résumé de Khalîl qu’il aurait presque pu compter parmi les énigmes, tant sa rédaction est concentrée. La réponse du commentateur n’est pas d’empiler d’autres résumés : elle est d’expliciter les phrases, leur portée et les distinctions nécessaires.",
+      "label": "Formulation courte de la préface, tome 1, p. 2 · propos d’al-Hattâb (traduction de sens contextualisée, non littérale)."
     },
     "lexicon": [
       {
-        "arabic": "الفِقْه",
+        "arabic": "الْفِقْه",
         "term": "Fiqh",
-        "definition": "Étude des jugements pratiques de la religion ; dans cette fiche, le contexte est celui du droit malikite."
+        "definition": "Science des règles pratiques de la religion. Exemple d’objet étudié : savoir si un acte d’adoration remplit ses conditions de validité."
       },
       {
-        "arabic": "المُخْتَصَر",
+        "arabic": "صِحَّة",
+        "term": "Ṣihha",
+        "definition": "Validité juridique d’un acte : le fait qu’il remplisse les conditions reconnues. À distinguer de son acceptation spirituelle."
+      },
+      {
+        "arabic": "فَسَاد",
+        "term": "Fasâd",
+        "definition": "Invalidité d’un acte dans le contexte juridique. Le terme porte sur l’acte et non sur la valeur morale de la personne."
+      },
+      {
+        "arabic": "مُخْتَصَر",
         "term": "Mukhtasar",
-        "definition": "Ouvrage qui condense une matière en une rédaction brève, ici le texte de Khalîl."
+        "definition": "Manuel condensé dans lequel de nombreuses règles sont formulées en peu de mots, comme le texte de Khalîl."
       },
       {
-        "arabic": "الشَّرْح",
+        "arabic": "شَرْح",
         "term": "Sharh",
-        "definition": "Commentaire visant à expliquer les termes et les difficultés d’un texte de base."
+        "definition": "Commentaire qui explique un autre ouvrage : il développe les termes, les conditions et les discussions qui seraient difficiles à saisir seuls."
       },
       {
-        "arabic": "المَذْهَب",
+        "arabic": "مَذْهَب",
         "term": "Madhhab",
-        "definition": "École de jurisprudence ; le livre est consacré à la tradition juridique malikite."
+        "definition": "École de jurisprudence construite autour d’une tradition d’enseignement et de raisonnement. Le livre étudié appartient au fiqh malikite."
       },
       {
-        "arabic": "الفَتْوَى",
+        "arabic": "فَتْوَى",
         "term": "Fatwa",
-        "definition": "Avis juridique formulé en réponse à une question ; la préface évoque les opinions retenues pour la fatwa."
+        "definition": "Réponse juridique à une question déterminée, fondée sur des sources et une méthode ; elle ne se confond pas avec n’importe quelle opinion citée."
       },
       {
-        "arabic": "الأَرْجَح",
+        "arabic": "أَرْجَح",
         "term": "Arjah",
-        "definition": "Avis jugé plus prépondérant dans une comparaison juridique ; le mot figure dans la présentation du Mukhtasar."
+        "definition": "Qualificatif d’un avis considéré comme plus prépondérant après examen des positions ; ne signifie pas que les autres avis n’ont jamais existé."
       }
     ],
     "quiz": [
       {
-        "question": "Quel est le rapport entre les deux ouvrages ?",
+        "question": "Une personne demande si sa prière est valable après avoir oublié un geste. Quelle est la première démarche de fiqh ?",
         "choices": [
-          "Mawâhib al-Jalîl est un commentaire du Mukhtasar de Khalîl.",
-          "Le Mukhtasar de Khalîl est un résumé de Mawâhib al-Jalîl.",
-          "Il s’agit de deux noms du même livre."
+          "Décider immédiatement sans connaître le geste.",
+          "Identifier le geste, les circonstances et la règle qui s’y applique.",
+          "Déclarer qu’aucune règle de validité n’existe."
+        ],
+        "answer": 1,
+        "explanation": "Pour examiner une validité, il faut d’abord savoir ce qui s’est réellement passé. La fiche ne donne pas ici le verdict sur un oubli précis."
+      },
+      {
+        "question": "Tu lis une phrase de Khalîl très courte, puis plusieurs pages d’al-Hattâb. Pourquoi ?",
+        "choices": [
+          "Al-Hattâb traduit un livre étranger.",
+          "Khalîl n’a rien écrit sur le sujet.",
+          "Le premier a condensé des règles ; le second en explique les expressions et les distinctions."
+        ],
+        "answer": 2,
+        "explanation": "Le Mukhtasar est le texte de base de Khalîl ; Mawâhib al-Jalîl est le commentaire d’al-Hattâb. Ce sont deux rôles différents."
+      },
+      {
+        "question": "Dans un commentaire, deux avis sont cités avant une formule indiquant l’avis prépondérant. Que faut-il comprendre ?",
+        "choices": [
+          "Les avis cités et l’avis retenu n’ont pas forcément le même statut.",
+          "Les trois avis sont obligatoirement des choix interchangeables.",
+          "La présence d’un désaccord rend l’étude impossible."
         ],
         "answer": 0,
-        "explanation": "La préface identifie le Mukhtasar comme texte de Khalîl et Mawâhib al-Jalîl comme commentaire par al-Hattâb."
+        "explanation": "Al-Hattâb souligne l’importance de savoir quel avis est rapporté et lequel est présenté comme retenu pour la fatwa."
       },
       {
-        "question": "Quel problème de lecture al-Hattâb relève-t-il ?",
+        "question": "Que veut dire un mukhtasar « petit en volume, riche en science » ?",
         "choices": [
-          "Le Mukhtasar a été rédigé dans une langue étrangère.",
-          "Sa concision rend parfois ses formulations difficiles.",
-          "Le livre ne contient aucun jugement juridique."
+          "Le livre est destiné exclusivement aux enfants.",
+          "Il condense beaucoup d’informations, et sa brièveté demande souvent des explications.",
+          "Il ne contient que quelques règles secondaires."
         ],
         "answer": 1,
-        "explanation": "Il souligne que l’abrègement extrême peut rendre l’interprétation des formulations délicate."
+        "explanation": "La concision ne signifie pas l’absence de contenu : elle rend la lecture difficile pour celui qui ne possède pas encore les bases."
       },
       {
-        "question": "Quel chapitre vient après la préface dans le sommaire consulté ?",
+        "question": "Quel enchaînement correspond à la méthode de lecture voulue pour Athar ?",
         "choices": [
-          "Le Livre du jeûne.",
-          "Le Livre de la purification.",
-          "Le Livre du mariage."
+          "Lire une phrase, deviner une règle, puis passer à la suite.",
+          "Lire seulement les réponses du quiz.",
+          "Citer et attribuer, traduire, expliquer progressivement, illustrer puis vérifier la compréhension."
         ],
-        "answer": 1,
-        "explanation": "Le sommaire d’Usul présente كتاب الطهارة (Livre de la purification) avant le Livre de la prière."
+        "answer": 2,
+        "explanation": "Cette méthode suit l’objectif déclaré dans la préface : éclaircir le texte pour rendre sa compréhension réellement utile au lecteur."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage et préface en arabe",
+        "label": "Usul — préface et notice bibliographique de Mawâhib al-Jalîl",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — préface, tome 1, début du livre",
+        "label": "Islamweb — texte arabe de la préface, tome 1, pages 2–4",
         "url": "https://islamweb.net/ar/library/content/19/1/%D9%85%D9%82%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8"
       }
     ]

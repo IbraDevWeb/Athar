@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v88-fiqh-maliki-fiches-10-12-v1';
+    const APP_VERSION = 'athar-pro-v89-fiqh-maliki-cours-guide-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

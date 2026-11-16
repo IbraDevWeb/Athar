@@ -12,15 +12,28 @@ assert.equal(book.book.sourceUrl,'https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh
 assert.match(book.book.arabicTitle,/مَوَاهِبُ الْجَلِيلِ/);
 assert.match(book.book.author,/Hattâb/);assert.match(book.book.death,/954/);assert.match(book.book.edition,/1412/);
 assert.equal(book.intro.number,'01');assert.equal(book.intro.sections.length,4);
+assert.equal(book.intro.goals.length,4,'Quatre objectifs de compréhension attendus');
+assert.ok(book.intro.subtitle.includes('traduire')||book.intro.subtitle.includes('traduire'),'But pédagogique non indiqué');
 assert.deepEqual(Array.from(book.intro.sections,x=>x.id),['fiqh','authors','commentary','method'],'Sections modifiées');
-for(const s of book.intro.sections)assert.ok(s.title&&s.paragraphs.length>=2&&s.sourceNote);
-assert.equal(book.intro.lexicon.length,6);
+for(const section of book.intro.sections){
+ assert.ok(section.title&&section.paragraphs.length===2&&section.sourceNote);
+ assert.ok(section.paragraphs.every(p=>p.length>=200),'Les paragraphes doivent expliquer, pas résumer en une ligne');
+ assert.ok(section.passage?.arabic&&section.passage.translation&&section.passage.explanation&&section.passage.sourceLabel,'Citation et traduction absentes');
+ assert.ok(section.steps?.length>=3&&section.steps.every(st=>st.label&&st.text.length>=140),'Découpage du passage trop succinct');
+ assert.ok(section.example?.title&&section.example.text.length>=220,'Exemple concret insuffisant');
+ assert.ok(section.takeaway?.length>=120,'À retenir insuffisant');
+ assert.ok(section.sourceNote.includes('tome 1'),'Référence précise absente');
+}
+assert.deepEqual(Array.from(book.intro.sections,s=>s.passage.arabic),[
+ 'فساد العبادة وصحتها','صغر حجمه وكثر علمه','ما به الفتوى وما هو الأرجح','وأميل إلى البسط والإيضاح'
+]);
+assert.equal(book.intro.lexicon.length,8);
 assert.ok(book.intro.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>40));
-assert.equal(book.intro.quiz.length,3);
+assert.equal(book.intro.quiz.length,5);
 for(const q of book.intro.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation);
-assert.equal(book.intro.quote.arabic,'إلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ كَادَ يُعَدُّ مِنْ جُمْلَةِ الْأَلْغَازِ');
+assert.equal(book.intro.quote.arabic,'كاد يعد من جملة الألغاز');
 assert.ok(book.intro.quote.arabic.split(/\s+/).length<=15);
-assert.ok(book.intro.quote.label.includes('pas une traduction littérale'));
+assert.ok(book.intro.quote.label.includes('traduction de sens contextualisée'));
 assert.equal(book.intro.sources.length,2);
 assert.ok(book.intro.sources.some(x=>x.url.startsWith('https://islamweb.net/ar/library/content/19/1/')));
 assert.equal(book.purification.number,'02');
@@ -120,6 +133,8 @@ assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixture
 for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
+for(const token of ['fiqh-m-goals','fiqh-m-passage','fiqh-m-passage-translation','fiqh-m-breakdown','fiqh-m-case','fiqh-m-takeaway','section.passage','section.steps','section.example'])assert.ok(view.includes(token),'Pédagogie guidée absente : '+token);
+for(const token of ['.fiqh-m-goals','.fiqh-m-passage','.fiqh-m-breakdown','.fiqh-m-case','.fiqh-m-takeaway'])assert.ok(css.includes(token),'Style pédagogique absent : '+token);
 assert.ok(view.includes("Vue.ref(null)"),'L’entrée par défaut doit être le sommaire et non la fiche 01');
 assert.ok(view.includes("selectedLessonKey.value = null"),'Retour au sommaire manquant');
 assert.ok(html.includes('<maliki-fiqh-view :course="malikiFiqhCourse"'));
@@ -134,4 +149,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : catalogue et 12 fiches vérifiés, recherche, progression, 4 parties et 6 notions chacune, 3 questions par fiche, 9 sections publiques ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : catalogue et 12 fiches vérifiés ; fiche 01 = 4 lectures guidées, 8 termes, 5 questions ; fiches 02-12 préservées ; '+shell.length+' ressources PWA.');
