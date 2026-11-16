@@ -2738,32 +2738,32 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       {
         "arabic": "الْمَاءُ الْمُسْتَعْمَل",
         "term": "Mâ’ musta‘mal",
-        "definition": "Eau déjà employée pour un acte de purification ; la portée technique du mot dépend de la façon dont l’eau a été utilisée. Le sens exact doit toujours être lu dans le contexte de la règle, et non isolé de ses conditions."
+        "definition": "Eau qui a effectivement servi à une purification rituelle. Le passage examine spécialement l’eau recueillie après l’écoulement sur les membres, et non toute eau simplement prélevée dans une cruche."
       },
       {
         "arabic": "الْحَدَث",
         "term": "Hadath",
-        "definition": "État rituel qui empêche certains actes cultuels tant que la purification exigée n’a pas été accomplie. Le sens exact doit toujours être lu dans le contexte de la règle, et non isolé de ses conditions."
+        "definition": "État rituel dont la levée est requise pour certains actes d’adoration. Il ne s’agit pas en soi d’une saleté matérielle : le commentaire distingue le hadath des impuretés présentes sur le corps."
       },
       {
         "arabic": "مَكْرُوه",
         "term": "Makrûh",
-        "definition": "Usage réprouvé dans le contexte considéré ; cela ne signifie pas nécessairement que l’eau soit impure. Le sens exact doit toujours être lu dans le contexte de la règle, et non isolé de ses conditions."
+        "definition": "Qualification d’un usage réprouvé dans des conditions déterminées. Ici, elle ne signifie pas que l’eau est devenue impure ni qu’elle a nécessairement perdu son pouvoir purifiant."
       },
       {
         "arabic": "طَهُور",
         "term": "Tahûr",
-        "definition": "Eau qualifiée de purifiante : elle peut être utilisée pour la purification rituelle selon les conditions reconnues. Le sens exact doit toujours être lu dans le contexte de la règle, et non isolé de ses conditions."
+        "definition": "Terme désignant une eau apte à la purification rituelle. Dans le mashhûr discuté, l’eau déjà employée peut conserver cette qualité tout en faisant l’objet d’une réprobation de réemploi."
       },
       {
         "arabic": "الْمَشْهُور",
         "term": "Mashhûr",
-        "definition": "Avis présenté comme célèbre ou reconnu dans l’école ; cela n’implique pas l’absence d’autres avis historiques. Le sens exact doit toujours être lu dans le contexte de la règle, et non isolé de ses conditions."
+        "definition": "Avis que le commentateur présente comme célèbre dans l’école malikite. Son identification n’efface pas les autres opinions, que l’auteur peut discuter ou attribuer à différents juristes."
       },
       {
         "arabic": "التَّيَمُّم",
         "term": "Tayammum",
-        "definition": "Purification sèche de substitution sous des conditions particulières ; le passage examine si l’eau utilisée permet d’y recourir. Le sens exact doit toujours être lu dans le contexte de la règle, et non isolé de ses conditions."
+        "definition": "Purification de substitution soumise à des conditions particulières. Dans le passage étudié, al-Hattâb précise pourquoi la présence d’une eau toujours purifiante peut exclure d’y recourir."
       },
       {
         "arabic": "طَاهِر",
