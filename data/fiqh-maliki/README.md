@@ -184,16 +184,25 @@ Ces trois fiches suivent le développement de la discussion sur les eaux dans *M
 
 **Précautions :** « pur » et « purifiant » ne sont pas interchangeables ; les opinions rapportées ne sont pas artificiellement mises au même rang ; les situations modernes sont inventées et ne délivrent pas de fatwa. Les fiches 01–06 et 08–12 ainsi que la clé de progression `athar_fiqh_maliki_eaux_07_done` sont conservées.
 
-### Fiche 08 — L'eau employée pour les actes recommandés
+### Fiche 08 — L’eau des actes recommandés : neuf lectures commentées
 
-Passage : « وفي غيره تردد », **Khalîl**, expliqué par al-Hattâb (t. 1, p. 69–70).
+**Refonte pédagogique du 16 novembre 2026.** Cette fiche reprend le passage de Khalîl **« وفي غيره تردد »**, lu avec les explications d’al-Hattâb (*Mawâhib al-Jalîl*, tome 1, p. 69–70). Le fil conducteur reste celui de l’auteur : comprendre d’abord les mots de Khalîl, écouter les transmissions qui ne coïncident pas, puis suivre le raisonnement juridique et les conclusions particulières d’al-Hattâb.
 
-1. Différencier usage levant un *hadath* et purification ou lavage recommandé.
-2. Présentation du désaccord dans les transmissions d'auteurs malikites.
-3. Examen des deuxième et troisième lavages, des motifs avancés et du cas de la quatrième application.
-4. Méthode de lecture des termes *taraddud*, *mustahabb* et du caractère « utilisé ».
+1. **« وفي غيره تردد » (Khalîl)** : l’hésitation sur l’eau employée pour d’autres actes que la levée du hadath.
+2. **« الأوضية والاغتسالات المسنونة » (al-Hattâb)** : les ablutions renouvelées et les lavages recommandés, distingués d’une purification obligatoire.
+3. **« تقييد الكراهة بالمستعمل في الحدث » (al-Hattâb)** : les transmissions restrictives qu’il attribue à l’auteur d’al-Tirâz, à Ibn Shâs et à Ibn al-Hâjib.
+4. **« وأطلق ابن بشير » (al-Hattâb)** : une lecture plus générale ; al-Irshâd, al-Tawdîh, la Mudawwana, et la réserve d’al-Hattâb concernant une attribution à al-Qâdî ‘Iyâd.
+5. **« سببه أمران » (al-Qarâfî cité)** : distinction entre accomplir une adoration et lever un empêchement rituel.
+6. **« احتمل الخلاف » (al-Qarâfî cité)** : pourquoi les deuxième et troisième lavages peuvent être rapprochés des ablutions renouvelées.
+7. **« الظاهر كراهته » (auteur d’al-Tirâz cité)** : les lavages supplémentaires appartiennent au même wudû’ qui a levé le hadath.
+8. **« مكروه وبلا تردد » (al-Hattâb)** : la conclusion contextualisée sur l’eau des deuxième et troisième lavages.
+9. **« لا كراهة فيه » (al-Hattâb)** : eau d’un lavage pour se rafraîchir, vêtement propre, quatrième application étudiée comme hypothèse — sans la recommander.
 
-Source primaire : [Islamweb, t. 1, p. 69–70](https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+Chaque lecture contient **un extrait arabe identifié, sa traduction de sens, une explication du contexte, deux paragraphes rédigés naturellement, quatre commentaires progressifs, un exemple distinct du livre, une conclusion et un lien direct vers la page originale**. Total : **9 objectifs, 9 lectures, 14 notions de lexique, 12 QCM avec correction développée**.
+
+**Sources :** [Islamweb, al-Hattâb, t. 1, p. 69–70](https://www.islamweb.net/ar/library/content/19/108/) ; [Usul, Mawâhib al-Jalîl](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+
+Les formulations de Khalîl, les prises de position personnelles d’al-Hattâb et les paroles de savants cités sont attribuées séparément. Les exemples imaginés ne constituent pas des fatwas. La fiche 07 et les fiches 09–12 sont conservées, ainsi que le suivi existant `athar_fiqh_maliki_eaux_08_done`.
 
 ### Fiche 09 — L'eau courante et l'eau stagnante
 

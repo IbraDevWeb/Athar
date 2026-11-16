@@ -232,8 +232,44 @@ for(const q of book.usedWater.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&
 assert.equal(book.usedWater.quote.arabic,'وكره ماء مستعمل في حدث');
 assert.ok(book.usedWater.sources.some(x=>x.url===book.book.sourceUrl));
 assert.ok(book.usedWater.sources.some(x=>x.url.includes('/19/107/')),'Source arabe de la fiche 07 absente');
+assert.equal(book.recommendedWater.id,'recommended-used-water-08');
+assert.equal(book.recommendedWater.number,'08');
+assert.equal(book.recommendedWater.goals.length,9,'Neuf objectifs de la fiche 08 sont attendus');
+assert.equal(book.recommendedWater.sections.length,9,'Neuf lectures commentées sont attendues dans la fiche 08');
+assert.deepEqual(Array.from(book.recommendedWater.sections,s=>s.id),[
+ 'opening','uses','restrictive','general','two-reasons','one-reason','tiraz','hattab-conclusion','ordinary-uses'
+],'Ordre des lectures de la fiche 08 altéré');
+assert.deepEqual(Array.from(book.recommendedWater.sections,s=>s.passage.arabic),[
+ 'وفي غيره تردد',
+ 'الأوضية والاغتسالات المسنونة',
+ 'تقييد الكراهة بالمستعمل في الحدث',
+ 'وأطلق ابن بشير',
+ 'سببه أمران',
+ 'احتمل الخلاف',
+ 'الظاهر كراهته',
+ 'مكروه وبلا تردد',
+ 'لا كراهة فيه'
+],'Formules arabes attendues en fiche 08');
+for(const s of book.recommendedWater.sections) {
+ assert.ok(s.paragraphs.length===2&&s.paragraphs.every(p=>p.length>=420),'Développement insuffisant 08 : '+s.id);
+ assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&s.passage.sourceLabel&&s.passage.sourceUrl?.includes('/19/108/'),'Citation ou source manquante en fiche 08 : '+s.id);
+ assert.ok(s.steps?.length===4&&s.steps.every(st=>st.label&&st.text.length>=130),'Analyse progressive manquante : '+s.id);
+ assert.ok(s.example?.title&&s.example.text.length>=390,'Exemple pédagogique manquant : '+s.id);
+ assert.ok(s.takeaway.length>=170&&s.sourceNote.includes('t. 1'),'Synthèse ou référence trop courte : '+s.id);
+}
+assert.ok(book.recommendedWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Source de la formule initiale incorrecte');
+assert.ok(book.recommendedWater.sections[4].passage.sourceLabel.includes('Al-Qarâfî'),'Analyse des deux causes mal attribuée');
+assert.ok(book.recommendedWater.sections[6].passage.sourceLabel.includes('al-Tirâz'),'Propos d’al-Tirâz non attribués');
+assert.ok(book.recommendedWater.sections[7].passage.sourceLabel.includes('al-Hattâb'),'Conclusion personnelle d’al-Hattâb non attribuée');
+assert.equal(book.recommendedWater.lexicon.length,14,'Quatorze notions doivent être définies en fiche 08');
+assert.equal(new Set(book.recommendedWater.lexicon.map(x=>x.term)).size,14,'Doublon de lexique en fiche 08');
+assert.ok(book.recommendedWater.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=110),'Définition de la fiche 08 insuffisante');
+assert.equal(book.recommendedWater.quiz.length,12,'Douze questions pédagogiques attendues pour la fiche 08');
+for(const q of book.recommendedWater.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation.length>=140,'Question ou correction de la fiche 08 incomplète');
+assert.equal(book.recommendedWater.quote.arabic,'وفي غيره تردد');
+assert.ok(book.recommendedWater.sources.some(x=>x.url===book.book.sourceUrl));
+assert.ok(book.recommendedWater.sources.some(x=>x.url.includes('/19/108/')));
 const advancedLessons = [
- {key:'recommendedWater',number:'08',id:'recommended-used-water-08',ids:['why-distinguish','source-disagreement','washes','classify'],quote:'وفي غيره تردد',urls:['/19/108/']},
  {key:'flowingWater',number:'09',id:'flowing-stagnant-water-09',ids:['water-flow','where-falls','stagnant','no-mechanical-rule'],quote:'وراكد يغتسل فيه',urls:['/19/111/','/19/113/']}
 ];
 for(const spec of advancedLessons){
@@ -251,7 +287,7 @@ for(const spec of advancedLessons){
  assert.ok(entry.sources.some(x=>x.url===book.book.sourceUrl));
  for(const path of spec.urls) assert.ok(entry.sources.some(x=>x.url.includes(path)),'Source arabe manquante : '+path);
 }
-assert.equal(new Set(['usedWater',...advancedLessons.map(x=>x.key)].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,24,'Les 24 termes de lexique des fiches 07–09 doivent être distincts');
+assert.equal(new Set(['usedWater','recommendedWater','flowingWater'].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,32,'Les 32 notions des fiches 07 à 09 doivent être distinctes');
 const latestLessons = [
  {key:'publicBasins',number:'10',id:'public-basins-10',ids:['context','changed','unchanged','renewal'],quote:'وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ',urls:['/19/114/']},
  {key:'limitedWell',number:'11',id:'well-necessity-11',ids:['well','procedure','necessity','washing-basin'],quote:'يَحْتَالُ حَتَّى يَغْسِلَ يَدَيْهِ وَيَغْرِفَ وَيَغْتَسِلَ',urls:['/19/115/','/19/116/']},
@@ -294,4 +330,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiches 08-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiches 09-12 préservées ; '+shell.length+' ressources PWA.');

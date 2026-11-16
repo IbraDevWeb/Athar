@@ -2916,131 +2916,592 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "recommended-used-water-08",
     "number": "08",
     "status": "disponible",
-    "title": "L’eau employée pour les actes recommandés",
-    "subtitle": "Étudier le cas de l’eau utilisée sans lever un hadath : renouvellement des ablutions, lavages supplémentaires et hésitation des juristes rapportée par al-Hattâb.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, passage « وفي غيره تردد » (Mawâhib al-Jalîl, t. 1, p. 69–70)",
+    "title": "L’eau des actes recommandés : lire les nuances du commentaire",
+    "subtitle": "Quand l’eau a servi à une ablution renouvelée ou à un lavage supplémentaire, faut-il réprouver son réemploi ? Neuf lectures suivies des paroles de Khalîl, des transmissions malikites et des observations d’al-Hattâb.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « وفي غيره تردد » · Mawâhib al-Jalîl, tome 1, p. 69–70 (Islamweb)",
+    "goals": [
+      "Comprendre pourquoi Khalîl distingue l’eau employée pour lever un hadath de celle utilisée lors d’un autre acte de purification.",
+      "Reconnaître le sens précis de taraddud dans ce commentaire : une difficulté dans la transmission des positions de l’école.",
+      "Situer correctement les avis de l’auteur d’al-Tirâz, d’Ibn Shâs, d’Ibn al-Hâjib et d’autres auteurs sans inventer une unanimité.",
+      "Expliquer les deux motifs rapportés d’al-Qarâfî et comprendre ce qui change lors du renouvellement des ablutions.",
+      "Lire les discussions sur la deuxième et la troisième application d’eau sans confondre le statut de l’eau recueillie avec les règles du geste lui-même.",
+      "Comprendre pourquoi al-Hattâb retient la réprobation pour l’eau des deuxième et troisième lavages à partir du raisonnement d’al-Tirâz.",
+      "Distinguer les usages sans levée du hadath, notamment le rafraîchissement et le lavage d’un vêtement déjà propre, de la purification rituelle.",
+      "Identifier les endroits où al-Hattâb exprime une réserve personnelle sur ses sources et leur interprétation.",
+      "Savoir expliquer un passage de fiqh en attribuant les propos, en précisant les conditions et en refusant les conclusions mécaniques."
+    ],
     "sections": [
       {
-        "id": "why-distinguish",
-        "eyebrow": "01 · Deux usages différents",
-        "title": "Toutes les eaux employées au cours d’une adoration ont-elles le même statut ?",
+        "id": "opening",
+        "eyebrow": "ÉTAPE 01 · LA QUESTION QUE POSE KHALÎL",
+        "title": "Que veut dire Khalîl lorsqu’il parle d’une hésitation ?",
+        "passage": {
+          "arabic": "وفي غيره تردد",
+          "translation": "« Et concernant un autre usage, il existe une hésitation dans les avis rapportés. »",
+          "explanation": "Ces trois mots sont de Khalîl. Ils suivent immédiatement le passage sur l’eau employée pour lever un hadath. Al-Hattâb précise ensuite à quoi renvoie « autre » et pourquoi plusieurs formulations coexistent dans l’école.",
+          "sourceLabel": "Paroles de Khalîl citées dans Mawâhib al-Jalîl ; commentaire d’al-Hattâb, t. 1, p. 69.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
         "paragraphs": [
-          "La fiche précédente traitait de l’eau employée pour lever effectivement un hadath. Le texte de Khalîl poursuit par « وفي غيره تردد » : dans les autres usages, une hésitation ou divergence est signalée. Al-Hattâb précise ici qu’il vise notamment l’eau employée pour des ablutions ou des lavages surérogatoires et recommandés, sans que l’usage en question ait nécessairement supprimé un état d’impureté rituelle.",
-          "Cette distinction est méthodologique : qualifier une eau de musta‘mal ne suffit pas à conclure qu’elle relève du même jugement à chaque acte. Il faut déterminer si l’eau a été utilisée pour lever une interdiction rituelle, pour renouveler des ablutions, ou pour effectuer une action supplémentaire. Les effets juridiques discutés peuvent alors différer."
+          "Nous avons terminé la fiche précédente sur une eau qui avait réellement servi à lever l’état d’impureté rituelle. Khalîl poursuit avec une phrase très courte. Quand tu lis « dans un autre usage », tu dois te demander : autre que quoi ? Il ne quitte pas le sujet de la purification. Il parle toujours d’une eau qui a servi, mais pas nécessairement à faire disparaître un hadath. Ce rapprochement avec la phrase précédente est indispensable ; sans lui, les trois mots de Khalîl paraissent mystérieux.",
+          "Al-Hattâb ne lit pas le mot taraddud comme un doute personnel sur sa propre foi ni comme l’autorisation de choisir une réponse au hasard. Il explique que les auteurs tardifs ne transmettent pas tous de la même manière le jugement attribué à l’école. Certains restreignent la réprobation à une eau ayant levé un hadath ; d’autres parlent plus largement de l’eau utilisée pour les ablutions. Nous allons lire leurs formulations une à une, car la différence n’est visible qu’en connaissant ce que chaque auteur inclut dans le mot « utilisée »."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 69–70, commentaire de « وفي غيره تردد » sur les ablutions et lavages sunnah ou mustahabb."
+        "steps": [
+          {
+            "label": "Le pronom de « ghayrihi »",
+            "text": "Le « autre » renvoie ici à l’utilisation de l’eau en dehors de la levée d’un hadath. Ce retour à la phrase précédente de Khalîl donne son sujet à toute la discussion suivante."
+          },
+          {
+            "label": "Taraddud n’est pas une nouvelle catégorie d’impureté",
+            "text": "Le mot signale une difficulté d’analyse et de transmission des positions juridiques. Il ne dit pas que l’eau est devenue souillée, ni que la validité de tous les actes doit être remise en cause."
+          },
+          {
+            "label": "Ce que nous étudions exactement",
+            "text": "Il est question du statut de l’eau après un emploi rituel. Ce n’est pas encore un cours complet sur le nombre de lavages recommandé pendant les ablutions, ni sur toutes les conditions de leur renouvellement."
+          },
+          {
+            "label": "Le rôle du commentaire",
+            "text": "Khalîl n’explique pas ici qui hésite et sur quoi. Al-Hattâb fournit justement ces précisions, puis confronte les conséquences qu’on pourrait tirer des différentes transmissions."
+          }
+        ],
+        "example": {
+          "title": "Une question posée à la fin d’un cours",
+          "text": "Un étudiant demande : « J’ai déjà mes ablutions, puis je les renouvelle ; l’eau qui s’écoule est-elle identique à celle d’un premier wudû’ ? » C’est la question qui nous fait entrer dans la fiche. Le commentaire n’autorise pas à répondre uniquement parce que le geste extérieur se ressemble. Dans un cas, la personne avait un état rituel à lever ; dans l’autre, elle était déjà en état de pureté. Cet exemple sert à installer les termes du problème, pas à prononcer une fatwa sur des ablutions réelles."
+        },
+        "takeaway": "Dans cette phrase concise, Khalîl signale un désaccord au sujet de l’eau employée pour autre chose que la levée du hadath. Il revient au commentaire d’exposer les transmissions qui expliquent ce désaccord et les distinctions nécessaires pour le comprendre.",
+        "sourceNote": "Source : Khalîl, Mukhtasar, « وفي غيره تردد », cité par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 69. L’exemple de l’étudiant est fictif."
       },
       {
-        "id": "source-disagreement",
-        "eyebrow": "02 · La divergence exposée",
-        "title": "Pourquoi les auteurs cités n’expriment-ils pas tous la même réprobation ?",
+        "id": "uses",
+        "eyebrow": "ÉTAPE 02 · CE QUE RECOUVRE « UN AUTRE USAGE »",
+        "title": "Que devient l’eau lorsque la personne était déjà en état de pureté ?",
+        "passage": {
+          "arabic": "الأوضية والاغتسالات المسنونة",
+          "translation": "« Les ablutions et les bains rituels accomplis à titre de sunna. »",
+          "explanation": "Fragment du commentaire d’al-Hattâb. Il donne des exemples d’usages cultuels qui ne correspondent pas nécessairement à la levée d’un hadath, et y joint les actes recommandés.",
+          "sourceLabel": "Commentaire d’al-Hattâb, t. 1, p. 69, explication de « وفي غيره ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
         "paragraphs": [
-          "Al-Hattâb relève une divergence chez les auteurs postérieurs dans la transmission des avis de l’école. Certains, dont les auteurs d’al-Tirâz, Ibn Shâs et Ibn al-Hâjib selon la présentation qu’il en fait, réservent la réprobation à l’eau utilisée pour lever le hadath. D’autres emploient une formule plus générale concernant l’eau utilisée au cours des ablutions.",
-          "Le passage ne permet pas de transformer l’un de ces témoignages en consensus. Il faut distinguer une restriction clairement formulée, un énoncé général et la lecture que le commentateur fait de la Mudawwana. C’est précisément l’objet du « taraddud » mentionné par Khalîl : rendre visible une difficulté de transmission et d’interprétation."
+          "Prenons une situation simple. Une personne a fait correctement ses ablutions, elle n’a rien accompli qui les annule, puis elle les renouvelle dans un cadre dévotionnel. La deuxième purification n’a pas exactement la même fonction que la première : elle n’enlève pas un état d’impureté rituelle encore présent. Pourtant, l’eau a bien été employée dans un acte d’adoration. C’est cette particularité qui intéresse les juristes, bien davantage que la forme extérieure du geste.",
+          "Al-Hattâb mentionne aussi les lavages rituels accomplis à titre de sunna ou de recommandation. Il ne veut pas dire que tout bain recommandé aurait le même statut que le ghusl nécessaire à la levée d’un hadath majeur. Au contraire, son propos oblige à distinguer l’intention religieuse de l’effet juridique. Une même eau peut servir à laver le corps ; mais si le juriste cherche à savoir si elle a levé un empêchement rituel, la réponse dépend de l’état de la personne avant de se laver."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 69–70, al-Tirâz, Ibn Shâs, Ibn al-Hâjib et interprétation de la Mudawwana."
+        "steps": [
+          {
+            "label": "Renouveler les ablutions",
+            "text": "Le renouvellement évoqué suppose que les précédentes ablutions sont encore valides. Si elles avaient été annulées, le lavage serait à nouveau celui qui lève un hadath : on ne parlerait plus du même cas."
+          },
+          {
+            "label": "Les bains et gestes surérogatoires",
+            "text": "Le passage évoque des lavages prescrits comme sunnah ou recommandés. Leur accomplissement peut être un acte d’adoration sans avoir pour effet de supprimer un hadath déjà existant."
+          },
+          {
+            "label": "L’acte et son effet ne se confondent pas",
+            "text": "Observer deux personnes accomplissant les mêmes gestes ne suffit pas à classer juridiquement l’eau. Il faut connaître leur état initial, la nature du lavage et l’effet recherché."
+          },
+          {
+            "label": "Condition de propreté",
+            "text": "Al-Hattâb précise que la question se pose lorsque l’eau n’a pas été atteinte par une impureté ou une saleté qui demanderait un autre jugement. Les fiches précédentes restent applicables."
+          }
+        ],
+        "example": {
+          "title": "Deux personnes se lavent de manière identique",
+          "text": "Imagine deux personnes qui versent de l’eau sur leurs bras. La première doit accomplir ses ablutions parce qu’elle ne les possède plus ; la seconde les renouvelle alors qu’elle est encore en état de pureté. Tu ne peux pas déterminer le statut de l’eau recueillie en regardant seulement le mouvement des mains. La distinction du hadath oblige à demander ce que le lavage réalise juridiquement. La scène est créée pour expliquer l’analyse, non pour attribuer une règle inédite aux deux personnes."
+        },
+        "takeaway": "Les usages que Khalîl laisse entendre sont notamment les ablutions renouvelées et certains lavages recommandés. Pour comprendre le jugement de l’eau recueillie, al-Hattâb nous demande de considérer non seulement le geste, mais aussi la présence ou l’absence d’un hadath à lever.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 69, explication des ablutions et lavages sunnah ou recommandés. Mise en situation pédagogique d’Athar."
       },
       {
-        "id": "washes",
-        "eyebrow": "03 · Les lavages supplémentaires",
-        "title": "La deuxième ou troisième eau est-elle identique à la première ?",
+        "id": "restrictive",
+        "eyebrow": "ÉTAPE 03 · LES AUTEURS QUI RESTREIGNENT LA RÉPROBATION",
+        "title": "Pourquoi certains malikites ne réprouvent-ils pas l’eau de ces gestes ?",
+        "passage": {
+          "arabic": "تقييد الكراهة بالمستعمل في الحدث",
+          "translation": "« Restreindre la réprobation à l’eau employée pour lever le hadath. »",
+          "explanation": "Al-Hattâb présente ainsi les transmissions qu’il attribue à l’auteur d’al-Tirâz, à Ibn Shâs et à Ibn al-Hâjib. Cette restriction joue un rôle central dans la compréhension du taraddud de Khalîl.",
+          "sourceLabel": "Présentation par al-Hattâb des avis transmis dans al-Tirâz, chez Ibn Shâs et Ibn al-Hâjib, t. 1, p. 69.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
         "paragraphs": [
-          "Le commentaire rapporte l’analyse d’al-Qarâfî : deux motifs peuvent intervenir dans le débat, à savoir que l’eau a servi à une adoration et qu’elle a supprimé l’empêchement rituel. Une seconde ou une troisième application de l’eau après la levée de l’état d’impureté ne réunit pas ces motifs exactement de la même manière que la première.",
-          "Al-Hattâb examine aussi l’analyse d’al-Tirâz concernant l’eau des deuxième et troisième lavages : il rapporte une tendance à la réprobation malgré la distinction des motifs. Il indique en revanche que la quatrième application, ou le lavage d’un vêtement déjà propre, ne relèvent pas mécaniquement de la même situation. Il ne faut pas transformer ces discussions sur l’eau collectée en une règle ajoutant une quatrième ablution recommandée."
+          "Écoutons d’abord le premier groupe d’auteurs. Al-Hattâb dit que l’auteur d’al-Tirâz, Ibn Shâs et Ibn al-Hâjib ont transmis la réprobation en la limitant à l’eau qui a servi à faire disparaître le hadath. Leur formulation a une conséquence nette : l’eau d’un wudû’ renouvelé, accompli alors qu’aucune purification obligatoire n’était à refaire, ne reçoit pas nécessairement la même appréciation. Il s’agit d’une restriction du champ de la règle, non d’une négation de toute discussion sur l’eau utilisée.",
+          "Pourquoi cette précision mérite-t-elle une étape entière ? Parce qu’un juriste peut écrire « l’eau utilisée est réprouvée » et un autre « l’eau utilisée pour lever un hadath est réprouvée ». Les deux phrases se ressemblent beaucoup, mais la seconde est plus étroite. Dès que tu rencontres une transmission, lis les mots qui limitent son application. Al-Hattâb ne rapporte pas ces noms simplement pour faire étalage de références : il montre comment des formulations différentes ont produit une difficulté de lecture dans l’école."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 70, « تنبيهات الأول » et « الثاني », motifs de la réprobation et lavages supplémentaires."
+        "steps": [
+          {
+            "label": "L’auteur d’al-Tirâz",
+            "text": "Le commentaire lui attribue une restriction au cas de la levée du hadath. Il n’est pas question ici de lui faire dire que toute eau réutilisée est automatiquement pure ou que toutes les situations se valent."
+          },
+          {
+            "label": "Ibn Shâs et Ibn al-Hâjib",
+            "text": "Leurs transmissions sont placées par al-Hattâb dans le même groupe de formulations restrictives. Ce rapprochement concerne le point précis de la réprobation, pas l’ensemble de leur jurisprudence."
+          },
+          {
+            "label": "La condition « dans le hadath »",
+            "text": "Ce complément détermine le champ du jugement. Si le hadath n’était pas présent, l’argument de la levée d’un empêchement rituel ne fonctionne plus exactement de la même manière."
+          },
+          {
+            "label": "Ce que « non réprouvé » ne signifie pas",
+            "text": "Dire que l’on ne retient pas cette réprobation ne dispense pas d’examiner la présence d’une impureté, d’une saleté ou d’une autre cause de changement de l’eau."
+          }
+        ],
+        "example": {
+          "title": "Apprendre à lire un complément de quelques mots",
+          "text": "Un élève résume la discussion ainsi : « L’eau déjà utilisée est réprouvée, point. » Son enseignant lui demande de relire les mots qui suivent dans les ouvrages cités : est-ce toute eau ayant servi, ou seulement celle qui a levé le hadath ? Cette petite vérification change le sens de la règle. L’exercice ne prétend pas décider du réemploi d’une eau particulière ; il montre pourquoi les limites posées par les juristes doivent être conservées lors de la traduction."
+        },
+        "takeaway": "Selon les auteurs cités par al-Hattâb dans ce premier groupe, la réprobation vise spécialement l’eau ayant servi à lever un hadath. Cette restriction permet de comprendre pourquoi l’eau des actes recommandés a fait l’objet d’une discussion distincte.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 69, transmissions d’al-Tirâz, Ibn Shâs et Ibn al-Hâjib. Exemple rédigé pour Athar."
       },
       {
-        "id": "classify",
-        "eyebrow": "04 · L’art de distinguer",
-        "title": "Quelle leçon tirer de l’hésitation plutôt que de l’effacer ?",
+        "id": "general",
+        "eyebrow": "ÉTAPE 04 · UNE FORMULATION PLUS LARGE",
+        "title": "Que répondent ceux qui parlent simplement de l’eau déjà utilisée ?",
+        "passage": {
+          "arabic": "وأطلق ابن بشير",
+          "translation": "« Ibn Bashîr, quant à lui, a formulé le jugement sans cette restriction. »",
+          "explanation": "Al-Hattâb rapproche Ibn Bashîr, l’auteur d’al-Irshâd et d’autres juristes qui parlent plus largement de la réprobation des ablutions avec une eau utilisée. Il mentionne aussi la manière dont al-Tawdîh lit la Mudawwana.",
+          "sourceLabel": "Présentation d’al-Hattâb des formulations d’Ibn Bashîr et de l’auteur d’al-Irshâd, t. 1, p. 69.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
         "paragraphs": [
-          "Pour lire ce passage, on peut construire une série de questions : le hadath existait-il avant l’usage ? L’acte a-t-il levé le hadath, constitué un renouvellement dévotionnel, ou été une simple toilette ? L’eau a-t-elle été récupérée, est-elle demeurée dans le récipient ou a-t-elle été modifiée par une saleté ? Enfin, de quel avis transmis parle-t-on ?",
-          "Le mot taraddud ne veut pas dire que toutes les opinions ont le même poids et ne fournit pas, à lui seul, une réponse pour une situation personnelle. Cette fiche met en valeur le travail du commentateur, qui explique les raisons du désaccord et leur place dans la doctrine, sans faire de quelques extraits un nouvel avis juridique."
+          "Le second groupe d’auteurs s’exprime de façon plus générale. Al-Hattâb cite Ibn Bashîr, l’auteur d’al-Irshâd et d’autres juristes qui ne limitent pas explicitement la réprobation à l’eau ayant levé un hadath. Le Tawdîh considère que cette lecture générale correspond au sens apparent de la Mudawwana. Tu comprends maintenant pourquoi le mot taraddud apparaît : les auteurs ne donnent pas tous la même portée à des expressions qui, à première lecture, paraissent très proches.",
+          "Al-Hattâb ajoute toutefois une remarque personnelle à propos d’al-Qâdî ‘Iyâd. Le grand commentaire attribue à ce savant une formulation générale ; al-Hattâb dit qu’il semble s’agir de son ouvrage al-Qawâ‘id, car il n’a pas trouvé cette lecture dans ses Tanbîhât. Cette réserve est instructive. Lorsqu’un auteur n’a pas vérifié une attribution dans un livre donné, il le précise, même si le propos apparaît plausible. Il ne présente pas une recherche incomplète comme une preuve définitive."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 69–70, synthèse pédagogique des avis rapportés sur l’eau des actes recommandés."
+        "steps": [
+          {
+            "label": "La portée d’une formule générale",
+            "text": "Un énoncé qui réprouve l’usage d’une eau déjà employée sans ajouter « pour lever le hadath » semble pouvoir viser davantage de cas. C’est la lecture qu’examinent les auteurs cités."
+          },
+          {
+            "label": "Al-Tawdîh et la Mudawwana",
+            "text": "Le commentaire rapporte qu’al-Tawdîh juge cette généralisation conforme au sens apparent de la Mudawwana. Il s’agit d’une interprétation de source, pas d’une phrase de Khalîl."
+          },
+          {
+            "label": "La réserve d’al-Hattâb sur al-Qâdî ‘Iyâd",
+            "text": "Il ne prétend pas avoir retrouvé partout l’attribution transmise. Ce scrupule nous apprend à vérifier la source précise d’une citation plutôt que de répéter des noms sans examen."
+          },
+          {
+            "label": "Une divergence n’est pas une liberté arbitraire",
+            "text": "Des formulations différentes demandent un travail d’explication et de hiérarchisation. Elles ne signifient pas qu’un débutant choisit immédiatement celle qui lui paraît la plus facile."
+          }
+        ],
+        "example": {
+          "title": "Comment enseigner honnêtement deux formulations",
+          "text": "Dans un cours, un étudiant trouve « la réprobation concerne l’eau ayant levé le hadath » chez certains auteurs, et une formulation générale chez d’autres. L’enseignant ne doit pas effacer une des deux phrases pour simplifier le chapitre. Il doit dire qui parle, quel livre est invoqué et sur quel mot porte la différence. C’est ce que nous faisons ici. La situation est pédagogique ; les positions historiques, elles, sont celles que rapporte al-Hattâb dans le texte étudié."
+        },
+        "takeaway": "À côté des transmissions restrictives, al-Hattâb rapporte une lecture plus générale, associée notamment à Ibn Bashîr et à l’interprétation de la Mudawwana. Il fait également preuve de prudence lorsqu’il ne retrouve pas une attribution dans un ouvrage déterminé.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 69, début du commentaire de « وفي غيره تردد », mention du Tawdîh, de la Mudawwana et réserve sur al-Qâdî ‘Iyâd."
+      },
+      {
+        "id": "two-reasons",
+        "eyebrow": "ÉTAPE 05 · POURQUOI L’EAU SERAIT-ELLE RÉPROUVÉE ?",
+        "title": "Les deux raisons distinguées par al-Qarâfî",
+        "passage": {
+          "arabic": "سببه أمران",
+          "translation": "« Deux raisons peuvent expliquer ce jugement. »",
+          "explanation": "Al-Hattâb cite ici une analyse d’al-Qarâfî dans la Dhakhîra. Il ne faut pas confondre la recherche d’une raison juridique avec la décision finale sur chaque type d’eau.",
+          "sourceLabel": "Al-Qarâfî, al-Dhakhîra, passage rapporté dans le premier tanbîh d’al-Hattâb, t. 1, p. 69.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Pour comprendre pourquoi les savants ont séparé certaines eaux de leurs semblables, al-Hattâb reprend une analyse d’al-Qarâfî. Celui-ci envisage deux éléments : l’eau a-t-elle servi à accomplir une adoration ? Et a-t-elle fait disparaître un empêchement rituel ? La distinction peut paraître subtile, mais elle éclaire immédiatement les cas de notre fiche. Dans une première purification qui lève réellement le hadath, les deux éléments sont réunis. Dans un renouvellement alors qu’on est déjà pur, l’acte peut être dévotionnel sans supprimer un empêchement.",
+          "Al-Qarâfî discute aussi l’hypothèse où aucun de ces éléments n’est présent, par exemple une quatrième application d’eau : il ne la présente pas comme un geste à recommander, mais comme un cas utilisé pour raisonner sur l’eau elle-même. Ce passage appartient d’abord à une explication des opinions juridiques. Lorsque les deux raisons ne se rencontrent pas, il envisage un désaccord. Al-Hattâb va ensuite confronter cette manière de comprendre les choses à d’autres transmissions, car une belle explication ne suffit pas toujours à régler chaque détail."
+        ],
+        "steps": [
+          {
+            "label": "Première raison : un acte d’adoration",
+            "text": "L’eau a servi à un geste accompli comme ‘ibâda. Ce caractère ne signifie pas automatiquement qu’elle a fait disparaître un empêchement rituel : les deux aspects sont examinés séparément."
+          },
+          {
+            "label": "Deuxième raison : lever un empêchement",
+            "text": "L’eau peut avoir effectivement permis de passer d’un état rituel nécessitant purification à un état de pureté. Cette opération ne se reproduit pas à chaque lavage supplémentaire."
+          },
+          {
+            "label": "Quand les deux raisons sont présentes",
+            "text": "L’analyse d’al-Qarâfî permet de comprendre pourquoi une première purification qui lève le hadath fait l’objet du débat étudié dans la fiche 07."
+          },
+          {
+            "label": "Quand il n’en reste qu’une ou aucune",
+            "text": "Un renouvellement, une application supplémentaire ou un lavage ordinaire ne réunissent pas forcément les mêmes éléments. Il faut pourtant lire la suite avant de déduire leur jugement."
+          }
+        ],
+        "example": {
+          "title": "Un même mouvement, deux fonctions juridiques",
+          "text": "Imagine une personne qui se lave les bras pour accomplir le wudû’ alors qu’elle n’est pas en état de pureté. Une autre les lave à nouveau lors du renouvellement de ses ablutions. Extérieurement, les gestes sont proches ; l’analyse d’al-Qarâfî demande si l’eau a servi à un acte d’adoration et si elle a levé un empêchement. En posant ces deux questions séparément, l’étudiant commence à comprendre la discussion. Les personnages sont fictifs et le cours n’établit pas une règle nouvelle pour leur eau."
+        },
+        "takeaway": "Al-Qarâfî propose de distinguer l’emploi de l’eau dans une adoration et son emploi pour lever un empêchement rituel. Cette distinction aide à comprendre pourquoi un renouvellement des ablutions et une purification devenue nécessaire ne sont pas traités automatiquement de la même façon.",
+        "sourceNote": "Source : al-Qarâfî, Dhakhîra, cité par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 69, premier tanbîh. Scénario créé pour Athar."
+      },
+      {
+        "id": "one-reason",
+        "eyebrow": "ÉTAPE 06 · RENOUVELLEMENT ET LAVAGES RÉPÉTÉS",
+        "title": "Que se passe-t-il lorsqu’un seul des deux motifs demeure ?",
+        "passage": {
+          "arabic": "احتمل الخلاف",
+          "translation": "« La question peut alors donner lieu à divergence. »",
+          "explanation": "Fragment d’al-Qarâfî transmis par al-Hattâb. Al-Qarâfî rapproche le renouvellement des ablutions des deuxième et troisième lavages : ces gestes sont liés à une pratique d’adoration, sans lever de nouveau l’empêchement déjà supprimé.",
+          "sourceLabel": "Al-Qarâfî dans la Dhakhîra, cité par al-Hattâb, t. 1, p. 69, premier tanbîh.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Revenons au membre que l’on lave une première fois lors des ablutions. Dans l’analyse présentée, ce premier lavage peut être celui par lequel l’empêchement rituel est levé ; le deuxième et le troisième ne font donc pas disparaître une seconde fois ce même empêchement. Pourtant, ils appartiennent à la même purification, qui est un acte d’adoration. Al-Qarâfî y voit une raison de rapprocher l’eau recueillie de celle provenant d’ablutions renouvelées. Il parle alors d’une possibilité de désaccord.",
+          "Il faut prendre garde à ne pas lui faire dire davantage. Cette analyse indique comment une difficulté peut se présenter, mais al-Hattâb ne s’arrête pas là. Il remarque que le raisonnement d’al-Qarâfî laisse entendre une assimilation entre l’eau du deuxième ou du troisième lavage et celle du renouvellement. Or la discussion d’al-Tirâz va introduire une autre distinction. C’est précisément l’intérêt du commentaire : il ne suffit pas de citer un savant ; on doit encore comprendre comment son analyse rencontre celle des autres."
+        ],
+        "steps": [
+          {
+            "label": "Le premier lavage n’est pas toujours comparable aux suivants",
+            "text": "Dans le cadre précis examiné par les auteurs, le premier lavage peut lever le hadath. Les lavages suivants appartiennent à la même purification sans renouveler cet effet juridique."
+          },
+          {
+            "label": "Les deuxième et troisième lavages",
+            "text": "Ils sont étudiés ici pour qualifier l’eau qui s’en détache. Cette discussion n’autorise ni à recommander une quatrième application ni à inventer une obligation de multiplier les lavages."
+          },
+          {
+            "label": "Renouveler le wudû’",
+            "text": "Quand une personne déjà pure refait ses ablutions, l’élément « accomplir une adoration » peut être présent sans l’élément « lever un empêchement »."
+          },
+          {
+            "label": "L’idée d’al-Qarâfî doit être confrontée aux autres auteurs",
+            "text": "Al-Hattâb relève la proximité de ces cas dans son raisonnement, mais il indique aussitôt qu’une autre transmission conduit à une lecture différente. Le chapitre n’est pas achevé."
+          }
+        ],
+        "example": {
+          "title": "Suivre les gouttes sans perdre le raisonnement",
+          "text": "Imaginons un étudiant qui place un récipient pour récupérer l’eau du deuxième lavage de son bras. Il affirme que, puisque le premier lavage a déjà accompli la fonction rituelle principale, l’eau du deuxième n’a forcément aucune réprobation. Son camarade rappelle qu’elle provient quand même du même acte de purification. Les deux soulèvent des éléments étudiés par al-Qarâfî. Pour savoir quelle conclusion al-Hattâb retient, il faut poursuivre vers le texte d’al-Tirâz. La scène est pédagogique."
+        },
+        "takeaway": "Al-Qarâfî laisse entrevoir une discussion commune pour les ablutions renouvelées et les deuxième et troisième lavages. Al-Hattâb montre cependant qu’il faut encore consulter les transmissions d’al-Tirâz avant de donner le même jugement à ces eaux.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 69, premier tanbîh, citation et analyse du raisonnement d’al-Qarâfî. Exemple fictif."
+      },
+      {
+        "id": "tiraz",
+        "eyebrow": "ÉTAPE 07 · LA PRÉCISION DE L’AUTEUR D’AL-TIRÂZ",
+        "title": "Pourquoi l’eau des lavages supplémentaires n’est-elle pas simplement celle du renouvellement ?",
+        "passage": {
+          "arabic": "الظاهر كراهته",
+          "translation": "« Il paraît plus juste d’en réprouver l’emploi. »",
+          "explanation": "L’auteur d’al-Tirâz, cité par al-Hattâb, se prononce sur l’eau des deuxième et troisième lavages réunie. Al-Hattâb oppose cette réponse à ce qu’on pourrait déduire de l’analyse d’al-Qarâfî.",
+          "sourceLabel": "Propos de l’auteur d’al-Tirâz rapportés par al-Hattâb, t. 1, p. 69–70.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Voici la nuance décisive. L’auteur d’al-Tirâz, qui transmet par ailleurs que l’eau des ablutions renouvelées n’est pas réprouvée selon le mashhûr qu’il rapporte, examine l’eau recueillie lors du deuxième et du troisième lavage. La tentation serait de la traiter comme l’eau d’une purification indépendante qui n’a plus rien à lever. Il ne choisit pas cette lecture. Selon lui, les différents lavages forment un seul ensemble de purification ; l’eau des deuxième et troisième passages reste donc liée à cet ensemble.",
+          "La raison mérite d’être comprise plutôt que simplement mémorisée. Le deuxième et le troisième lavage ne sont pas une nouvelle séance d’ablutions commencée après une première séance terminée. Ils font partie du même wudû’ qui a servi à lever le hadath. Même lorsque l’effet juridique est déjà acquis au premier passage, il subsiste un rapport entre les lavages et l’acte complet. C’est sur ce lien que l’auteur d’al-Tirâz s’appuie pour retenir la réprobation dans le cas étudié."
+        ],
+        "steps": [
+          {
+            "label": "Les ablutions renouvelées forment un nouvel acte",
+            "text": "L’auteur d’al-Tirâz distingue le renouvellement accompli alors que l’on est déjà pur des lavages supplémentaires effectués au sein d’une même purification."
+          },
+          {
+            "label": "Les deuxième et troisième lavages appartiennent au même wudû’",
+            "text": "Le raisonnement considère l’ensemble de la purification. On ne détache pas automatiquement ces lavages de ce qui a été accompli avec l’eau au début."
+          },
+          {
+            "label": "Une préférence, pas une citation de Khalîl",
+            "text": "La formule présentée ici appartient au propos d’al-Tirâz rapporté par al-Hattâb. Elle ne doit pas être annoncée comme si Khalîl l’avait lui-même développée."
+          },
+          {
+            "label": "Le passage de la source à la conclusion",
+            "text": "Al-Hattâb met en relation cette réponse avec l’analyse antérieure d’al-Qarâfî, puis en tire un jugement plus précis à l’étape suivante."
+          }
+        ],
+        "example": {
+          "title": "Un wudû’, plusieurs lavages",
+          "text": "Supposons qu’une personne lave son bras une deuxième puis une troisième fois dans le cours d’un seul wudû’. Une autre personne, dont les ablutions sont toujours valides, commence un renouvellement séparé. Les gestes peuvent sembler semblables vus de l’extérieur ; pourtant, l’auteur d’al-Tirâz ne range pas nécessairement l’eau recueillie dans la même catégorie. La différence porte sur le rapport de chaque lavage à l’acte complet de purification. Cet exemple ne fixe pas le nombre de lavages à accomplir ; il aide seulement à lire la distinction."
+        },
+        "takeaway": "Pour l’auteur d’al-Tirâz, les deuxième et troisième lavages sont rattachés à l’ensemble du wudû’ qui lève le hadath, alors qu’un renouvellement d’ablutions est une autre opération. Cette distinction motive sa préférence pour la réprobation de l’eau recueillie dans le premier cas.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 69–70, transmission d’al-Tirâz sur l’eau des deuxième et troisième lavages. Exemple pédagogique d’Athar."
+      },
+      {
+        "id": "hattab-conclusion",
+        "eyebrow": "ÉTAPE 08 · CE QU’AL-HATTÂB RETIENT",
+        "title": "Quelle conclusion le commentateur tire-t-il de cette comparaison ?",
+        "passage": {
+          "arabic": "مكروه وبلا تردد",
+          "translation": "« Son emploi est réprouvé, sans hésitation sur ce point. »",
+          "explanation": "Ce sont les mots conclusifs d’al-Hattâb à propos de l’eau des deuxième et troisième lavages. Il tient compte du fait que l’auteur d’al-Tirâz, pourtant restrictif dans d’autres cas, a retenu ici la réprobation.",
+          "sourceLabel": "Conclusion personnelle d’al-Hattâb, t. 1, p. 70, fin du premier tanbîh.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Nous pouvons maintenant lire la conclusion d’al-Hattâb sans la prendre pour une réponse sortie de nulle part. Il a d’abord expliqué les deux façons de transmettre le jugement de l’eau utilisée. Puis il a rapporté la distinction proposée par al-Qarâfî entre un acte d’adoration et la levée d’un empêchement. Enfin, il a confronté cette analyse à la position plus précise de l’auteur d’al-Tirâz concernant les deuxième et troisième lavages. Son raisonnement aboutit à retenir la réprobation de cette eau.",
+          "Sa manière de justifier le choix est intéressante : l’auteur d’al-Tirâz est justement l’un de ceux qui défendent une interprétation moins large de la réprobation pour l’eau des actes n’ayant pas levé le hadath. S’il réprouve néanmoins l’eau des deuxième et troisième lavages, cela pèse dans la conclusion d’al-Hattâb. Attention toutefois à ne pas étendre sa formule à toute eau d’un geste surérogatoire : il traite ici les lavages supplémentaires d’un même wudû’, et la suite du texte montrera d’autres cas."
+        ],
+        "steps": [
+          {
+            "label": "La conclusion ne concerne pas toutes les eaux",
+            "text": "Le propos vise spécialement l’eau des deuxième et troisième lavages, dans le cadre étudié. Il n’efface pas le taraddud exposé au début à propos d’autres actes recommandés."
+          },
+          {
+            "label": "Pourquoi le témoignage d’al-Tirâz compte",
+            "text": "Cet auteur ne généralise pas la réprobation à toutes les eaux utilisées. Sa conclusion particulière sur les lavages supplémentaires a donc un poids argumentatif dans l’analyse d’al-Hattâb."
+          },
+          {
+            "label": "Distinguer opinion rapportée et préférence du commentateur",
+            "text": "Le jugement d’al-Tirâz est d’abord cité ; la formule conclusive appartient ensuite à al-Hattâb, qui explique ce qu’il en comprend."
+          },
+          {
+            "label": "Ne pas transformer une description en prescription",
+            "text": "Dire que l’eau du troisième lavage fait l’objet d’une réprobation de réemploi ne signifie pas que le lavage lui-même serait déconseillé ou obligatoire. Ce sont deux questions juridiques différentes."
+          }
+        ],
+        "example": {
+          "title": "Comment résumer sans trahir l’auteur",
+          "text": "Un élève écrit dans ses notes : « Les eaux des actes recommandés sont toutes réprouvées. » Ce résumé va trop loin. Une formulation plus fidèle serait : al-Hattâb reconnaît une divergence sur l’eau utilisée en dehors de la levée du hadath, puis conclut spécifiquement à la réprobation pour l’eau recueillie lors des deuxième et troisième lavages du même wudû’. La correction porte sur le champ de la conclusion, pas sur l’intention de l’élève. Cet exercice est inventé pour la leçon."
+        },
+        "takeaway": "Al-Hattâb retient ici la réprobation de l’eau provenant des deuxième et troisième lavages, en raison du lien qu’ils gardent avec une même purification ayant levé le hadath. Ce choix ponctuel ne supprime pas les autres distinctions développées dans le chapitre.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 70, fin du premier tanbîh. Exemple de prise de notes créé pour Athar."
+      },
+      {
+        "id": "ordinary-uses",
+        "eyebrow": "ÉTAPE 09 · LES GESTES QUI N’ONT PAS LA MÊME PORTÉE",
+        "title": "Et si l’eau a simplement servi à se rafraîchir ou à laver un vêtement propre ?",
+        "passage": {
+          "arabic": "لا كراهة فيه",
+          "translation": "« Il n’y a pas de réprobation à ce titre. »",
+          "explanation": "Dans son deuxième tanbîh, al-Hattâb distingue notamment l’eau du quatrième lavage, celle d’un lavage pour se rafraîchir et celle employée pour un vêtement exempt d’impureté et de saleté. Il confronte également une position plus stricte d’Asbagh au cadre du mashhûr.",
+          "sourceLabel": "Paroles d’al-Hattâb, t. 1, p. 70, deuxième tanbîh.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
+        },
+        "paragraphs": [
+          "Après tant de précisions sur les gestes de purification, al-Hattâb évoque des usages plus ordinaires. L’eau qui a servi à rafraîchir un corps et celle employée pour laver un vêtement déjà exempt d’impureté et de saleté n’ont pas la même fonction qu’une eau qui lève un hadath. Le passage évoque aussi une quatrième application d’eau au cours d’ablutions : celle-ci sert de cas de comparaison juridique et ne doit surtout pas être comprise comme la recommandation d’ajouter un quatrième lavage.",
+          "Al-Hattâb indique que ces usages ne relèvent pas de la même réprobation dans l’analyse qu’il présente, puis rappelle qu’une position beaucoup plus stricte a été transmise d’Asbagh, qui refuse même certains réemplois d’eau. Il mentionne que l’auteur d’al-Tirâz a critiqué et affaibli cette opinion. Cela explique pourquoi, dans une leçon, nous ne devons pas mélanger la discussion de l’eau des ablutions avec celle de l’eau employée pour un simple lavage propre. La présence éventuelle d’une saleté ou d’une impureté pose, bien entendu, une autre question."
+        ],
+        "steps": [
+          {
+            "label": "Le lavage pour se rafraîchir",
+            "text": "Ce geste est différent d’une purification accomplie pour lever un hadath. Le passage le cite afin de montrer les limites de la discussion sur l’eau musta‘mala."
+          },
+          {
+            "label": "Le vêtement déjà exempt de souillure",
+            "text": "L’exemple suppose précisément que le tissu ne porte ni najâsa ni saleté qui modifierait l’eau. Le cas ne permet pas d’ignorer la question des impuretés réelles."
+          },
+          {
+            "label": "Le quatrième lavage : un exemple juridique",
+            "text": "Al-Hattâb en parle pour expliquer la qualification de l’eau après ce geste. Il ne le présente pas comme une étape recommandée des ablutions à ajouter aux pratiques établies."
+          },
+          {
+            "label": "Une opinion très stricte a aussi été transmise",
+            "text": "L’auteur rapporte le jugement d’Asbagh, puis la critique d’al-Tirâz. Le lecteur doit conserver ces attributions pour ne pas présenter une opinion discutée comme l’avis célèbre de l’école."
+          }
+        ],
+        "example": {
+          "title": "Un vêtement déjà propre et de l’eau récupérée",
+          "text": "Supposons que tu rinces un vêtement qui ne contient aucune souillure, puis que tu recueilles l’eau dans un récipient. Le seul fait qu’elle ait servi à ce rinçage n’en fait pas automatiquement l’eau qui a levé un hadath. C’est la distinction que l’on apprend à reconnaître. Si, en revanche, des impuretés ou des matières en ont changé les propriétés, il faudrait revenir aux chapitres précédents. Le scénario est fictif, et cette fiche ne tranche pas des questions de sécurité sanitaire ou de réutilisation domestique."
+        },
+        "takeaway": "Le commentaire termine cette discussion en écartant la réprobation liée au seul usage pour plusieurs lavages ordinaires, tout en signalant l’existence d’une position historique plus stricte. Il nous apprend ainsi à identifier la fonction du lavage avant de classer l’eau.",
+        "sourceNote": "Source : al-Hattâb, t. 1, p. 70, deuxième tanbîh, mention de l’eau du quatrième lavage, du rafraîchissement, du vêtement propre et de la position d’Asbagh. Exemple créé pour Athar."
       }
     ],
     "quote": {
       "arabic": "وفي غيره تردد",
-      "meaning": "Khalîl signale une hésitation dans les avis rapportés concernant les autres utilisations de l’eau. Al-Hattâb explique que la question vise notamment les purifications surérogatoires ou recommandées, distinctes de la levée d’un hadath.",
-      "label": "Extrait du Mukhtasar de Khalîl cité par al-Hattâb, t. 1, p. 69–70 — explication de sens, non traduction mot à mot."
+      "meaning": "Khalîl signale une divergence au sujet de l’eau utilisée pour d’autres usages que la levée du hadath. Al-Hattâb explique les transmissions concurrentes puis distingue les ablutions renouvelées, les deuxième et troisième lavages et les usages ordinaires de l’eau.",
+      "label": "Paroles de Khalîl citées par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 69 ; traduction de sens expliquée dans la fiche."
     },
     "lexicon": [
       {
         "arabic": "التَّرَدُّد",
         "term": "Taraddud",
-        "definition": "Hésitation ou divergence dans la formulation et la transmission d’un jugement, à situer dans le texte du commentateur."
+        "definition": "Hésitation ou divergence dans la transmission d’un jugement au sein de l’école. Chez al-Hattâb, le mot appelle une comparaison des formulations attribuées aux auteurs malikites."
       },
       {
         "arabic": "الْوُضُوءُ الْمُجَدَّد",
         "term": "Wudû’ mujaddad",
-        "definition": "Ablutions renouvelées alors qu’un précédent état de purification est conservé ; cas discuté séparément."
+        "definition": "Ablutions renouvelées alors que les ablutions précédentes sont encore valables. Leur eau est examinée à part de celle qui a réellement servi à lever un hadath."
       },
       {
         "arabic": "الْمُسْتَحَبّ",
         "term": "Mustahabb",
-        "definition": "Acte recommandé en droit religieux, distinct d’une obligation dont l’omission invaliderait un acte nécessaire."
+        "definition": "Un acte recommandé, dont l’accomplissement est valorisé mais qui n’est pas une obligation en tant que telle. Ici, le texte examine l’eau issue d’actes de ce type."
       },
       {
         "arabic": "الْغَسْلَةُ الثَّانِيَة",
         "term": "Al-ghasla al-thâniya",
-        "definition": "Deuxième lavage d’un membre dans le cadre des ablutions, examiné parmi les gestes supplémentaires."
+        "definition": "Deuxième lavage d’un membre durant les mêmes ablutions. Al-Hattâb discute son eau en liaison avec l’ensemble du wudû’, et non comme une purification indépendante."
       },
       {
         "arabic": "إِزَالَةُ الْمَانِع",
         "term": "Izâlat al-mâni‘",
-        "definition": "Suppression de l’empêchement rituel ; l’une des explications avancées pour distinguer l’eau utilisée."
+        "definition": "Le fait de faire disparaître un empêchement rituel. Al-Qarâfî distingue cette fonction de la simple participation d’une eau à un acte d’adoration."
       },
       {
         "arabic": "الْمُدَوَّنَة",
         "term": "Al-Mudawwana",
-        "definition": "Ouvrage de référence du fiqh malikite dont la portée des formulations est débattue dans ce passage."
+        "definition": "Ouvrage majeur de transmission du droit malikite. Al-Hattâb rapporte que certains commentateurs lisent ses formulations dans un sens général concernant l’eau employée."
+      },
+      {
+        "arabic": "الْغَسْلَةُ الثَّالِثَة",
+        "term": "Al-ghasla al-thâlitha",
+        "definition": "Troisième lavage d’un membre. La discussion porte sur le statut de l’eau qui en provient lorsque ce lavage appartient à une même purification rituelle."
+      },
+      {
+        "arabic": "الْغَسْلَةُ الرَّابِعَة",
+        "term": "Al-ghasla al-râbi‘a",
+        "definition": "Quatrième application d’eau, évoquée comme cas de raisonnement. Sa présence dans le commentaire ne signifie pas qu’il serait recommandé de laver chaque membre quatre fois."
+      },
+      {
+        "arabic": "التَّعْلِيل",
+        "term": "Ta‘lîl",
+        "definition": "Recherche ou présentation de la raison permettant de comprendre un jugement juridique. Le texte compare ici plusieurs explications au lieu de s’arrêter à une seule formule."
+      },
+      {
+        "arabic": "الطِّرَاز",
+        "term": "Al-Tirâz",
+        "definition": "Ouvrage malikite mobilisé par al-Hattâb pour comparer des transmissions sur le statut de l’eau déjà utilisée et distinguer renouvellement et lavages successifs."
+      },
+      {
+        "arabic": "التَّوْضِيح",
+        "term": "Al-Tawdîh",
+        "definition": "Ouvrage cité à propos de la lecture de la Mudawwana. Al-Hattâb s’en sert pour montrer comment une même formulation ancienne peut recevoir une portée différente."
+      },
+      {
+        "arabic": "الْعِبَادَة",
+        "term": "‘Ibâda",
+        "definition": "Acte d’adoration. Al-Qarâfî le distingue de l’effet juridique consistant à lever un empêchement, car un geste dévotionnel peut être accompli sans hadath préalable."
+      },
+      {
+        "arabic": "التَّقْيِيد",
+        "term": "Taqyîd",
+        "definition": "Restriction d’une règle par une condition ou un complément. Dans cette leçon, certains auteurs limitent la réprobation à l’eau employée pour lever le hadath."
+      },
+      {
+        "arabic": "الْإِطْلَاق",
+        "term": "Itlâq",
+        "definition": "Formulation non assortie d’une restriction explicite. Al-Hattâb l’oppose à une transmission plus étroite lorsqu’il examine les auteurs qui réprouvent généralement l’eau utilisée."
       }
     ],
     "quiz": [
       {
-        "question": "Que vise la formule « وفي غيره تردد » dans son contexte ?",
+        "question": "À quoi renvoie le « autre usage » dans « وفي غيره تردد » ?",
         "choices": [
-          "L’incertitude sur l’existence de l’eau.",
-          "Une divergence rapportée concernant l’eau utilisée en dehors de la levée d’un hadath.",
-          "L’obligation de répéter toutes les prières."
+          "À toute eau de pluie, qu’elle ait servi ou non.",
+          "À une utilisation autre que celle qui a effectivement levé un hadath.",
+          "À une eau contenant nécessairement une impureté."
         ],
         "answer": 1,
-        "explanation": "Al-Hattâb situe l’hésitation dans la qualification de l’eau utilisée pour des actes sunnah ou recommandés."
+        "explanation": "Al-Hattâb explique que Khalîl poursuit la discussion de l’eau utilisée : le cas nouveau concerne notamment des ablutions ou lavages recommandés qui n’ont pas nécessairement supprimé un état rituel."
       },
       {
-        "question": "Quels motifs sont étudiés pour comprendre le statut de l’eau utilisée ?",
+        "question": "Pourquoi le mot taraddud apparaît-il dans le commentaire ?",
         "choices": [
-          "La couleur du récipient et le temps de séchage.",
-          "La température et la valeur marchande de l’eau.",
-          "Le fait d’avoir servi à une adoration et d’avoir levé un empêchement rituel."
-        ],
-        "answer": 2,
-        "explanation": "La discussion reprend les deux motifs cités par al-Qarâfî et leur présence variable selon l’usage."
-      },
-      {
-        "question": "Quelle affirmation respecte le mieux les avis exposés ?",
-        "choices": [
-          "Les auteurs ne restreignent pas tous la réprobation de la même façon.",
-          "Tous les auteurs rapportés disent exactement la même chose.",
-          "La quatrième application d’eau est nécessairement une sunnah."
+          "Parce que plusieurs auteurs postérieurs ont transmis différemment la portée de la réprobation.",
+          "Parce que les juristes ignorent si l’eau existe.",
+          "Parce que l’on doit toujours refaire ses ablutions."
         ],
         "answer": 0,
-        "explanation": "Le commentaire compare des transmissions distinctes, et la quatrième application n’est pas proposée comme pratique recommandée."
+        "explanation": "Le commentaire compare des formulations restrictives et des formulations plus générales chez les malikites. L’hésitation porte sur la transmission et l’interprétation de leur jugement."
+      },
+      {
+        "question": "Quelle portée al-Hattâb attribue-t-il aux transmissions d’al-Tirâz, d’Ibn Shâs et d’Ibn al-Hâjib ?",
+        "choices": [
+          "Une réprobation de toute eau ayant été touchée.",
+          "Une interdiction de renouveler les ablutions.",
+          "Une réprobation restreinte à l’eau utilisée pour lever le hadath."
+        ],
+        "answer": 2,
+        "explanation": "Ces auteurs sont cités dans le groupe qui limite la réprobation à l’eau ayant servi à lever un hadath. C’est précisément le complément qui distingue leur formulation de celle des auteurs plus généraux."
+      },
+      {
+        "question": "Pourquoi la formulation d’Ibn Bashîr fait-elle partie de la discussion ?",
+        "choices": [
+          "Elle ne distingue pas explicitement les usages qui lèvent le hadath des autres.",
+          "Elle affirme que l’eau de mer devient impropre aux ablutions.",
+          "Elle nie que les actes recommandés soient des adorations."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb explique qu’Ibn Bashîr et l’auteur d’al-Irshâd réprouvent plus généralement les ablutions faites avec une eau déjà utilisée. Le Tawdîh rapproche cette portée du sens apparent de la Mudawwana."
+      },
+      {
+        "question": "Quelle précaution al-Hattâb prend-il au sujet d’une attribution à al-Qâdî ‘Iyâd ?",
+        "choices": [
+          "Il affirme l’avoir vérifiée dans tous ses ouvrages.",
+          "Il précise qu’il ne l’a pas retrouvée dans les Tanbîhât et suggère un autre ouvrage.",
+          "Il refuse toute recherche dans les textes antérieurs."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb signale la limite de sa propre vérification et évoque les Qawâ‘id plutôt que les Tanbîhât. Cette réserve montre comment une attribution doit être formulée avec précision."
+      },
+      {
+        "question": "Quels deux éléments al-Qarâfî étudie-t-il dans l’explication du jugement ?",
+        "choices": [
+          "La température et la couleur de l’eau.",
+          "La taille du récipient et le nombre d’utilisateurs.",
+          "L’accomplissement d’une adoration et la levée d’un empêchement rituel."
+        ],
+        "answer": 2,
+        "explanation": "L’analyse citée d’al-Qarâfî distingue le fait que l’eau ait servi à une ‘ibâda et le fait qu’elle ait levé un empêchement. Ces éléments ne coïncident pas dans tous les actes."
+      },
+      {
+        "question": "Pourquoi al-Qarâfî rapproche-t-il les deuxième et troisième lavages du renouvellement des ablutions ?",
+        "choices": [
+          "Parce qu’ils peuvent participer à une adoration sans lever de nouveau l’empêchement déjà supprimé.",
+          "Parce qu’ils ne sont jamais faits avec de l’eau.",
+          "Parce qu’il considère qu’un quatrième lavage est obligatoire."
+        ],
+        "answer": 0,
+        "explanation": "Dans son raisonnement, le hadath peut déjà être levé par le premier lavage. Les lavages suivants et le renouvellement participent au culte sans reproduire exactement le même effet juridique."
+      },
+      {
+        "question": "Quelle est la nuance apportée par l’auteur d’al-Tirâz au sujet des deuxième et troisième lavages ?",
+        "choices": [
+          "Leur eau est nécessairement impure.",
+          "Ils restent rattachés à la même purification qui a levé le hadath.",
+          "Ils forment toujours deux ablutions nouvelles."
+        ],
+        "answer": 1,
+        "explanation": "L’auteur d’al-Tirâz regarde la purification comme un tout. Même si le premier lavage a produit l’effet rituel, l’eau des lavages supplémentaires reste liée au même wudû’."
+      },
+      {
+        "question": "Quelle conclusion al-Hattâb exprime-t-il pour l’eau des deuxième et troisième lavages ?",
+        "choices": [
+          "Le réemploi de cette eau est réprouvé dans le cadre étudié.",
+          "Elle devient forcément impropre à toute utilisation domestique.",
+          "Il faut nécessairement accomplir quatre lavages."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb conclut à la réprobation en tenant compte de l’analyse d’al-Tirâz. Cette conclusion vise l’eau des lavages successifs et n’impose ni quatrième lavage ni jugement sur toutes les eaux utilisées."
+      },
+      {
+        "question": "Comment faut-il comprendre le cas du quatrième lavage mentionné dans le commentaire ?",
+        "choices": [
+          "Comme une recommandation de laver quatre fois chaque membre.",
+          "Comme une condition de validité des ablutions.",
+          "Comme un exemple utilisé pour analyser le statut de l’eau, sans recommander le geste."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb discute l’eau qui proviendrait d’une quatrième application pour comparer les motifs juridiques. Le passage n’en fait pas une sunna ou une étape à ajouter au wudû’."
+      },
+      {
+        "question": "Pourquoi l’eau utilisée pour rincer un vêtement déjà propre est-elle étudiée séparément ?",
+        "choices": [
+          "Parce que le geste n’a pas nécessairement servi à lever un hadath, sous réserve de l’absence de souillure.",
+          "Parce que le rinçage d’un tissu est identique à la première ablution rituelle.",
+          "Parce que toutes les eaux de lavage sont déclarées najis."
+        ],
+        "answer": 0,
+        "explanation": "Le deuxième tanbîh évoque le lavage d’un vêtement exempt d’impureté et de saleté, ainsi que le rafraîchissement. Leur fonction est différente de celle d’une purification qui lève un hadath."
+      },
+      {
+        "question": "Quelle attitude respecte le mieux les différentes positions du chapitre ?",
+        "choices": [
+          "Résumer toutes les opinions comme un seul avis unanime.",
+          "Attribuer chaque propos, distinguer les circonstances et lire la préférence d’al-Hattâb avant de conclure.",
+          "Choisir arbitrairement la phrase la plus facile à appliquer."
+        ],
+        "answer": 1,
+        "explanation": "Le passage mêle formule de Khalîl, transmissions d’auteurs, hypothèses d’al-Qarâfî, avis d’al-Tirâz et choix d’al-Hattâb. La compréhension dépend de cette attribution et du contexte précis de chaque règle."
       }
     ],
     "sources": [
       {
-        "label": "Usul — texte arabe de Mawâhib al-Jalîl",
+        "label": "Usul — texte de Mawâhib al-Jalîl et notice bibliographique de l’édition Dâr al-Fikr, 1412 H",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 69–70 : « وفي غيره تردد » et lavages supplémentaires",
+        "label": "Islamweb — al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 69–70 : « وفي غيره تردد » et trois tanbîhât",
         "url": "https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
       },
       {
-        "label": "Islamweb — t. 1, p. 67–68 : usage pour lever le hadath (mise en contexte)",
+        "label": "Islamweb — tome 1, p. 67–68 : l’eau déjà employée pour lever un hadath, abordée dans la fiche 07",
         "url": "https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87"
       }
     ]
