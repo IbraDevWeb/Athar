@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Fiqh malikite : contrôle du prototype piloté par la préface d'al-Hattâb.
+// Fiqh malikite : contrôle des deux fiches, fondées sur les passages vérifiés d'al-Hattâb.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const read=p=>fs.readFileSync(p,'utf8');
 const data=read('fiqh_maliki_data.js'),view=read('js/components/MalikiFiqhView.js'),css=read('css/fiqh-maliki.css');
@@ -23,8 +23,21 @@ assert.ok(book.intro.quote.arabic.split(/\s+/).length<=15);
 assert.ok(book.intro.quote.label.includes('pas une traduction littérale'));
 assert.equal(book.intro.sources.length,2);
 assert.ok(book.intro.sources.some(x=>x.url.startsWith('https://islamweb.net/ar/library/content/19/1/')));
-assert.ok(book.nextChapter.status.includes('aucune fiche publiée'));
-for(const t of ['role="tablist"','role="tabpanel"','course.intro.sections','props.course?.intro?.lexicon','course.intro.quiz','course.intro.quote.arabic','course.intro.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+assert.equal(book.purification.number,'02');
+assert.equal(book.purification.id,'tahara-02');
+assert.equal(book.purification.sections.length,4);
+assert.deepEqual(Array.from(book.purification.sections,x=>x.id),['opening','meaning','distinction','water']);
+for(const section of book.purification.sections) assert.ok(section.title&&section.paragraphs.length>=2&&section.sourceNote);
+assert.equal(book.purification.lexicon.length,6);
+assert.ok(book.purification.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=40));
+assert.equal(book.purification.quiz.length,3);
+for(const q of book.purification.quiz) assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation);
+assert.equal(book.purification.quote.arabic,'بالمطلق وهو ما صدق عليه اسم ماء بلا قيد');
+assert.ok(book.purification.quote.label.includes('Mukhtasar de Khalîl'),'Attribution du texte de Khalîl perdue');
+assert.equal(book.purification.sources.length,2);
+assert.ok(book.purification.sources.some(x=>x.url.startsWith('https://www.islamweb.net/ar/library/content/19/84/')));
+assert.ok(book.nextChapter.status.includes('fiche 03 non publiée'));
+for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','course[entry.key].number'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 assert.ok(html.includes('<maliki-fiqh-view :course="malikiFiqhCourse"'));
 for(const p of ['fiqh_maliki_data.js','js/components/MalikiFiqhView.js','css/fiqh-maliki.css'])assert.ok(fs.existsSync(p),'Ressource Fiqh absente '+p);
@@ -38,4 +51,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 1 introduction vérifiée, 4 parties, 6 notions, 3 questions, 9 sections publiques ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 2 fiches vérifiées, 4 parties et 6 notions chacune, 3 questions par fiche, 9 sections publiques ; '+shell.length+' ressources PWA.');

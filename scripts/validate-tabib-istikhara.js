@@ -38,6 +38,8 @@ assert.ok(html.includes('tabib_data.js?v=athar-istikhara-v1'),'Données non actu
 assert.ok(html.includes('TabibDetailView.js?v=athar-tabib-no-essence-v1'),'Lecteur non actualisé');
 assert.ok(sw.includes('tabib_data.js?v=athar-istikhara-v1'),'Données absentes du cache versionné');
 assert.ok(sw.includes('TabibDetailView.js?v=athar-tabib-no-essence-v1'),'Composant absent du cache versionné');
-assert.ok(config.includes("const APP_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1'"));
-assert.ok(sw.includes("const CACHE_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1'"));
+const appVersion=(config.match(/const APP_VERSION = '([^']+)'/)||[])[1];
+assert.ok(appVersion&&appVersion.startsWith('athar-pro-v'),'Version applicative absente');
+const cacheVersion=((sw).match(/const CACHE_VERSION = '([^']+)'/)||[])[1];
+assert.equal(cacheVersion,appVersion,'La version PWA doit rester cohérente avec la configuration');
 console.log('Tabib Istikhâra : invocation entière, 5 étapes, 5 FAQ, 5 notions, 4 sources ; 49 autres fiches inchangées.');

@@ -487,26 +487,52 @@ async function desktop() {
     await page.locator('.ussul-pro-back').click();
     await ready(page);
 
-    // Fiqh malikite : une seule fiche pilote tirée de la préface d'al-Hattâb.
+    // Fiqh malikite : deux fiches disponibles, indépendantes et sourcées.
     await navigate(page,'fiqh-maliki');
     await page.locator('.fiqh-m-root').waitFor({state:'visible'});
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),2,'Les deux fiches doivent être accessibles');
     assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties dans la fiche introductive attendues');
     assert.ok(await page.locator('a[href="https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"]').count()>=1,'Livre original non référencé');
-    assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/الْإِيجَازِ/,'Extrait arabe de l’auteur non visible');
-    assert.equal(await page.locator('.fiqh-m-current').count(),1,'Plusieurs cours publiés par erreur');
+    assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/الْإِيجَازِ/,'Extrait arabe de la préface non visible');
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
     assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique initial de six notions absent');
     await page.locator('.fiqh-m-search input').fill('Mukhtasar');
     assert.ok(await page.locator('.fiqh-m-term').count()>=1 && await page.locator('.fiqh-m-term').count()<6,'Recherche du lexique inactive');
     assert.match(await page.locator('.fiqh-m-term h3').first().innerText(),/Mukhtasar/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
-    assert.equal(await page.locator('.fiqh-m-question').count(),3,'Les trois questions de compréhension manquent');
+    assert.equal(await page.locator('.fiqh-m-question').count(),3,'Les questions de compréhension de la fiche 01 manquent');
+    await page.locator('.fiqh-m-choices button').first().click();
+    assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
+    if (await page.locator('.fiqh-m-complete').getAttribute('aria-pressed') !== 'true') await page.locator('.fiqh-m-complete').click();
+    assert.match(await page.locator('.fiqh-m-complete').innerText(),/marquée comme lue/);
+
+    await page.locator('.fiqh-m-lesson-link').nth(1).click();
+    assert.match(await page.locator('#fiqh-m-heading').innerText(),/purification/i);
+    assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties sur la purification attendues');
+    assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/ما صدق عليه اسم ماء بلا قيد/);
+    assert.ok(await page.locator('a[href*="/ar/library/content/19/84/"]').count()>=1,'Référence précise du livre de la purification manquante');
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','La lecture de la fiche 01 ne doit pas valider la fiche 02');
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
+    assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique de purification incomplet');
+    await page.locator('.fiqh-m-search input').fill('mutlaq');
+    assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche du lexique de la fiche 02 inactive');
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
+    assert.equal(await page.locator('.fiqh-m-question').count(),3,'Quiz de purification incomplet');
+    assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Le quiz de la fiche 01 a contaminé la fiche 02');
     await page.locator('.fiqh-m-choices button').first().click();
     assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
     await page.locator('.fiqh-m-complete').click();
     assert.match(await page.locator('.fiqh-m-complete').innerText(),/marquée comme lue/);
+    assert.deepEqual(await page.evaluate(() => [
+        localStorage.getItem('athar_fiqh_maliki_intro_01_done'),
+        localStorage.getItem('athar_fiqh_maliki_tahara_02_done')
+    ]),['1','1'],'Les lectures des fiches doivent rester enregistrées séparément');
+    await page.locator('.fiqh-m-lesson-link').first().click();
+    assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Le suivi de la fiche 01 a été perdu');
     await page.locator('.fiqh-m-back').click();
     await ready(page);
 

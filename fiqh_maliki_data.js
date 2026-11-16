@@ -1,4 +1,4 @@
-// Fiqh malikite — prototype éditorial 01, fondé sur la préface d'al-Hattâb vérifiée sur Usul / Islamweb.
+// Fiqh malikite — fiches 01–02 : préface et ouverture de Kitâb al-Tahâra, vérifiées sur Usul / Islamweb.
 // Ne contient ni avis de fatwa inédit ni texte du livre reproduit en entier.
 const ATHAR_MALIKI_FIQH_COURSE = {
   "id": "mawahib-al-jalil",
@@ -143,9 +143,138 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       }
     ]
   },
+  "purification": {
+    "id": "tahara-02",
+    "number": "02",
+    "status": "disponible",
+    "title": "Kitâb al-Tahâra — Comprendre la purification",
+    "subtitle": "Ouvrir le Livre de la purification : vocabulaire juridique, état rituel, souillure et eau non qualifiée.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث (tome 1, p. 44 de l’édition consultée sur Islamweb)",
+    "sections": [
+      {
+        "id": "opening",
+        "eyebrow": "01 · Ouvrir le chapitre",
+        "title": "Que présente le premier passage du Livre de la purification ?",
+        "paragraphs": [
+          "Après sa préface, l’ouvrage entre dans « Kitâb al-Tahâra » (كتاب الطهارة), le Livre de la purification. Le texte abrégé de Khalîl, cité par al-Hattâb, commence par les termes « يرفع الحدث وحكم الخبث بالمطلق ». Le commentaire développe le vocabulaire et les distinctions nécessaires à leur compréhension.",
+          "Il faut distinguer les deux voix : Khalîl formule la règle de manière très concise ; al-Hattâb la commente et explicite notamment le mot « purification ». Cette leçon porte sur ce passage d’ouverture, sans prétendre couvrir toutes les situations relatives à l’eau."
+        ],
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, Kitâb al-Tahâra, début du « Bâb yurfa‘ al-hadath wa hukm al-khabath », tome 1, p. 44 (Islamweb)."
+      },
+      {
+        "id": "meaning",
+        "eyebrow": "02 · Le vocabulaire",
+        "title": "La tahâra est-elle simplement la propreté ?",
+        "paragraphs": [
+          "Al-Hattâb explique que, dans la langue courante, « tahâra » évoque la propreté et l’éloignement des salissures. En droit religieux, le terme possède une portée plus précise : il peut désigner une qualité juridique de pureté permettant certains actes, notamment la prière.",
+          "Il expose aussi un autre emploi juridique du terme : le fait de lever un état d’impureté rituelle (hadath) et d’enlever une souillure (najâsa). Il discute ces deux emplois au lieu de réduire la purification à un simple nettoyage matériel."
+        ],
+        "sourceNote": "Même passage, développement sur « الطهارة » : sens linguistique et deux sens juridiques (Islamweb, t. 1, p. 44)."
+      },
+      {
+        "id": "distinction",
+        "eyebrow": "03 · Deux notions",
+        "title": "Distinguer hadath et khabath",
+        "paragraphs": [
+          "Le « hadath » renvoie ici à un état juridique d’impureté rituelle qui fait obstacle à certains actes cultuels. Le « khabath » concerne la souillure ou l’impureté au sens juridique. Les deux termes sont rapprochés dès la première formule du Mukhtasar.",
+          "Cette distinction explique pourquoi il ne suffit pas de demander si une chose paraît propre : la question peut concerner l’état rituel de la personne ou la présence d’une souillure. Les règles détaillées et les exceptions seront étudiées dans leurs passages respectifs."
+        ],
+        "sourceNote": "Formule initiale de Khalîl et commentaire d’al-Hattâb sur les deux sens de la tahâra et la najâsa (Islamweb, t. 1, p. 44)."
+      },
+      {
+        "id": "water",
+        "eyebrow": "04 · La première définition",
+        "title": "Qu’est-ce que l’eau « mutlaq » ?",
+        "paragraphs": [
+          "La formule « بالمطلق وهو ما صدق عليه اسم ماء بلا قيد » apparaît dans le Mukhtasar cité par al-Hattâb. Elle désigne l’eau à laquelle le nom d’« eau » s’applique sans qu’il faille y ajouter une qualification particulière. Le texte établit ainsi le point de départ du chapitre sur la purification.",
+          "Cette définition ne permet pas, à elle seule, de trancher toutes les questions concernant une eau modifiée, mélangée ou souillée. Il faut lire les développements suivants du commentaire avant de traiter ces cas. Cette fiche s’arrête volontairement au socle conceptuel."
+        ],
+        "sourceNote": "Début du Kitâb al-Tahâra, énoncé du Mukhtasar reproduit et commenté par al-Hattâb (Islamweb, t. 1, p. 44)."
+      }
+    ],
+    "quote": {
+      "arabic": "بالمطلق وهو ما صدق عليه اسم ماء بلا قيد",
+      "meaning": "Le texte de Khalîl désigne l’eau dite « mutlaq » : celle que l’on peut appeler simplement « eau », sans précision supplémentaire. Al-Hattâb prend cette formule comme point de départ de son commentaire.",
+      "label": "Extrait du Mukhtasar de Khalîl cité par al-Hattâb, Kitâb al-Tahâra — explication française du sens, non traduction mot à mot."
+    },
+    "lexicon": [
+      {
+        "arabic": "الطَّهَارَة",
+        "term": "Tahâra",
+        "definition": "Purification ou pureté : le commentaire distingue son sens linguistique de ses emplois juridiques."
+      },
+      {
+        "arabic": "الحَدَث",
+        "term": "Hadath",
+        "definition": "État d’impureté rituelle envisagé par le fiqh ; ce n’est pas simplement une salissure visible."
+      },
+      {
+        "arabic": "الخَبَث",
+        "term": "Khabath",
+        "definition": "Terme renvoyant ici à la souillure ou impureté juridiquement prise en compte, distincte du hadath."
+      },
+      {
+        "arabic": "المَاء المُطْلَق",
+        "term": "Mâ’ mutlaq",
+        "definition": "Eau désignée simplement comme « eau » sans qualification supplémentaire dans la formule de Khalîl."
+      },
+      {
+        "arabic": "النَّجَاسَة",
+        "term": "Najâsa",
+        "definition": "Impureté ou souillure au sens juridique ; sa suppression relève de l’un des sens de la purification."
+      },
+      {
+        "arabic": "الطَّهُورِيَّة",
+        "term": "Tahûriyya",
+        "definition": "Caractère juridiquement purifiant, discuté par al-Hattâb en relation avec l’élimination d’une souillure."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Dans le début du chapitre, qui rédige la formule condensée commentée par al-Hattâb ?",
+        "choices": [
+          "Khalîl ibn Ishâq",
+          "Al-Hattâb lui-même, sans texte antérieur",
+          "Un auteur anonyme"
+        ],
+        "answer": 0,
+        "explanation": "Le passage provient du Mukhtasar de Khalîl ; al-Hattâb en propose le commentaire."
+      },
+      {
+        "question": "Quelle distinction faut-il retenir entre hadath et khabath ?",
+        "choices": [
+          "Ce sont deux noms de la même forme de propreté matérielle.",
+          "Hadath vise l’état rituel ; khabath vise la souillure juridiquement considérée.",
+          "Ces deux mots signifient uniquement « eau »."
+        ],
+        "answer": 1,
+        "explanation": "Le chapitre rapproche les deux termes sans les confondre : état rituel d’un côté, souillure de l’autre."
+      },
+      {
+        "question": "Comment le début du Mukhtasar caractérise-t-il l’eau « mutlaq » ?",
+        "choices": [
+          "Une eau toujours mélangée à une autre substance.",
+          "Une eau définie par sa température.",
+          "Une eau appelée simplement « eau », sans qualification nécessaire."
+        ],
+        "answer": 2,
+        "explanation": "La formule « ما صدق عليه اسم ماء بلا قيد » décrit l’eau portant ce nom sans restriction ajoutée."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Usul — Mawâhib al-Jalîl, ouvrage original",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — Livre de la purification, début (t. 1, p. 44)",
+        "url": "https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+      }
+    ]
+  },
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Le Livre de la purification",
-    "status": "À préparer — aucune fiche publiée"
+    "title": "Poursuivre l’étude des eaux",
+    "status": "À préparer — fiche 03 non publiée"
   }
 };

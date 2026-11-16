@@ -151,3 +151,9 @@
 @media(prefers-reduced-motion:reduce){
  .fiqh-m-root *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+/* Parcours progressif : une fiche active, les deux restent accessibles. */
+.fiqh-m-lesson-link{width:100%;text-align:left;border:1px solid transparent;background:transparent;color:var(--fm-ink);cursor:pointer;font:inherit}
+.fiqh-m-lesson-link.is-selected{background:var(--fm-soft);border-color:var(--fm-line)}
+.fiqh-m-lesson-link:hover{border-color:var(--fm-accent)}
+.fiqh-m-lesson-link:focus-visible{outline:2px solid var(--fm-accent);outline-offset:2px}
+.fiqh-m-lesson-link>i{color:var(--fm-accent);flex:none}
