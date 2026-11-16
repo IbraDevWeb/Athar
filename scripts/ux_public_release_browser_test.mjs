@@ -533,6 +533,31 @@ async function desktop() {
     await page.locator('.fiqh-m-lesson-link').first().click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Le suivi de la fiche 01 a été perdu');
+
+    // Fiche 03 : ses lectures, questions et lexique ne doivent pas se mélanger aux fiches précédentes.
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),3,'Trois fiches disponibles attendues');
+    await page.locator('.fiqh-m-lesson-link').nth(2).click();
+    assert.match(await page.locator('#fiqh-m-heading').innerText(),/eaux naturelles/i);
+    assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties sur les eaux naturelles attendues');
+    assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/مِنْ نَدًى/);
+    assert.ok(await page.locator('a[href*="/ar/library/content/19/87/"]').count()>=1,'Référence page 51 manquante');
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','La fiche 03 a été marquée lue à tort');
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
+    assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique de la fiche 03 incomplet');
+    await page.locator('.fiqh-m-search input').fill('Nadâ');
+    assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche de nadâ inactive');
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
+    assert.equal(await page.locator('.fiqh-m-question').count(),3,'Quiz de la fiche 03 incomplet');
+    assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Réponses des autres fiches conservées par erreur');
+    await page.locator('.fiqh-m-choices button').first().click();
+    assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
+    await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
+    await page.locator('.fiqh-m-complete').click();
+    assert.match(await page.locator('.fiqh-m-complete').innerText(),/marquée comme lue/);
+    assert.equal(await page.evaluate(()=>localStorage.getItem('athar_fiqh_maliki_eaux_03_done')),'1','Progression autonome de la fiche 03 non persistée');
+    await page.locator('.fiqh-m-lesson-link').nth(1).click();
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture de la fiche 02 perdue');
+
     await page.locator('.fiqh-m-back').click();
     await ready(page);
 
