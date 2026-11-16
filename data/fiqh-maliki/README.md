@@ -239,11 +239,27 @@ Ces trois fiches prolongent les premières questions sur les eaux stagnantes, av
 
 ### Fiche 10 — Bassins collectifs et renouvellement de l’eau
 
-**Source :** [Islamweb, tome 1, page 76 — « فرع تغير الماء في البرك المعدة للوضوء »](https://www.islamweb.net/ar/library/content/19/114/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D8%B1%D9%83-%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D8%A9-%D9%84%D9%84%D9%88%D8%B6%D9%88%D8%A1). Passage du commentaire d’al-Hattâb, pas une formule du Mukhtasar de Khalîl.
+La fiche 10 a été réécrite à partir du **paragraphe d’al-Hattâb**, *Mawâhib al-Jalîl*, tome 1, **page 76**, intitulé « فرع تغير الماء في البرك المعدة للوضوء ». Ce n’est **pas** une phrase du *Mukhtasar* de Khalîl : le commentaire applique les discussions précédentes aux réserves destinées aux ablutions collectives.
 
-Quatre parties : 1. contexte des bassins collectifs ; 2. eau dont une propriété a été modifiée ; 3. eau inchangée et réprobation liée au contact répété ; 4. distinction entre eau longtemps conservée et eau rapidement renouvelée.
+Les **neuf lectures pédagogiques** suivent la progression du texte :
 
-**Extrait attribué à al-Hattâb :** « وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ ».
+1. **« البرك المعدة للوضوء »** : quel bassin est concerné et pourquoi le cadre compte.
+2. **« إن تغير أحد أوصاف الماء »** : comment examiner une propriété réellement modifiée et sa cause.
+3. **« فلا يصح الوضوء بها »** : les ablutions non valables dans le cas d’altération étudié.
+4. **« وإن لم يتغير فيكره الوضوء منها »** : la réprobation distincte de l’invalidité pour une eau restée inchangée.
+5. **« لاختلاف الأيدي والأرجل »** : le motif des mains et des pieds passant successivement dans la même eau.
+6. **« والغالب أن فيها النجاسة »** : une présomption liée à l’usage, distincte d’un fait établi.
+7. **« وإن تحقق غسلهم النجاسة فيها وكثرته »** : la situation plus sévère où des impuretés ont effectivement été lavées fréquemment.
+8. **« وهذا فيما تطول إقامة الماء فيه »** : la condition d’un bassin où l’eau demeure longtemps.
+9. **« وأما ما يفرغ بسرعة ويجدد له ماء آخر فأمره خفيف »** : la nuance du renouvellement rapide par une autre eau.
+
+Chacune des neuf lectures contient **un extrait arabe exact et attribué à al-Hattâb, sa traduction de sens, son contexte, deux longues explications rédigées naturellement, quatre points de lecture, une situation pédagogique explicitement fictive, une synthèse et un lien vers le passage original**.
+
+La fiche comprend désormais **9 objectifs, 9 lectures, 15 entrées de lexique et 12 questions corrigées**. Les distinctions entre souillure supposée et établie, réprobation et invalidité, conservation et renouvellement sont conservées. Aucun délai de vidange, seuil de volume ou jugement sur des installations modernes n’est inventé.
+
+**Source primaire :** [Islamweb — Mawâhib al-Jalîl, t. 1, p. 76](https://www.islamweb.net/ar/library/content/19/114/) ; [Usul — texte arabe et notice de l’ouvrage](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+
+La progression existante `athar_fiqh_maliki_eaux_10_done` est conservée et les fiches 01–09, 11 et 12 restent inchangées.
 
 ### Fiche 11 — Puits, eau limitée et nécessité
 
