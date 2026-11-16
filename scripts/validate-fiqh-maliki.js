@@ -392,25 +392,60 @@ assert.equal(book.limitedWell.quote.arabic,'يَحْتَالُ حَتَّى يَ
 assert.ok(book.limitedWell.quote.label.includes('Mâlik'),'Attribution de la citation générale manquante');
 assert.ok(book.limitedWell.sources.some(x=>x.url===book.book.sourceUrl),'Source Usul de la fiche 11 absente');
 for(const u of ['/19/115/','/19/116/'])assert.ok(book.limitedWell.sources.some(x=>x.url.includes(u)),'Source Islamweb manquante : '+u);
-const latestLessons = [
- {key:'leftoverWater',number:'12',id:'leftover-water-12',ids:['term','evidence','cat','food'],quote:'لَا إِنْ عَسُرَ الِاحْتِرَازُ مِنْهُ أَوْ كَانَ طَعَامًا',urls:['/19/117/','/19/118/']}
-];
-for(const spec of latestLessons){
- const entry=book[spec.key];assert.ok(entry,'Nouvelle fiche absente : '+spec.key);
- assert.equal(entry.id,spec.id);assert.equal(entry.number,spec.number);
- assert.equal(entry.sections.length,4);
- assert.deepEqual(Array.from(entry.sections,s=>s.id),spec.ids);
- for(const section of entry.sections) assert.ok(section.title&&section.paragraphs.length===2&&section.paragraphs.every(p=>p.length>=240)&&section.sourceNote,'Développement incomplet : '+spec.key);
- assert.equal(entry.lexicon.length,6);
- assert.ok(entry.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=65),'Lexique incomplet : '+spec.key);
- assert.equal(entry.quiz.length,3);
- for(const question of entry.quiz)assert.ok(question.choices.length===3&&question.answer>=0&&question.answer<3&&question.explanation.length>75,'Quiz incomplet : '+spec.key);
- assert.equal(entry.quote.arabic,spec.quote);
- assert.ok(entry.quote.label.includes('al-Hattâb'),'Attribution arabe non explicitée : '+spec.key);
- assert.ok(entry.sources.some(x=>x.url===book.book.sourceUrl),'Source Usul manquante');
- for(const id of spec.urls)assert.ok(entry.sources.some(x=>x.url.includes(id)),'Source Islamweb manquante : '+id);
+assert.equal(book.leftoverWater.id,'leftover-water-12');
+assert.equal(book.leftoverWater.number,'12');
+assert.equal(book.leftoverWater.goals.length,14,'Quatorze objectifs attendus en fiche 12');
+assert.equal(book.leftoverWater.sections.length,14,'Quatorze lectures attendues en fiche 12');
+assert.deepEqual(Array.from(book.leftoverWater.sections,s=>s.id),[
+ 'definition','famous-qualification','jurists-wording','habitual-drinker','mouth-hand',
+ 'hard-to-avoid','cat-hadith','commentators-cat','food-mashhur','mudawwana-animals',
+ 'three-views','ibn-rushd','water-food-priority','water-waste'
+],'Les quatorze étapes de la fiche 12 ont changé');
+assert.deepEqual(Array.from(book.leftoverWater.sections,s=>s.passage.arabic),[
+ 'وسؤر شارب خمر وما أدخل يده فيه وما لا يتوقى نجسا من ماء',
+ 'إذا كان يسيرا كآنية الوضوء والغسل كما تقدم مكروه مع وجود غيره فإن لم يجد غيره استعمله وهذا هو المشهور',
+ 'ولم يصرح ابن الحاجب بالكراهة فيه وصرح بها ابن الجلاب وصاحب التلقين وصاحب البيان',
+ 'ولا بد من اعتبار كثرة شربه كما أشار إليه ابن الإمام',
+ 'فإن تحققت جاز استعماله من غير كراهة قاله صاحب البيان وغيره',
+ 'لا إن عسر الاحتراز منه أو كان طعاما',
+ 'الهرة ليست بنجس إنما هي من الطوافين عليكم أو الطوافات',
+ 'والأظهر أنها للنوعين كما في روايات الواو',
+ 'وما ذكره المصنف من التفرقة بين الماء والطعام هو المشهور وهو مذهب المدونة',
+ 'إن شربت من طعام لبن أو غيره أكل إلا أن يكون في أفواهها وقت شربها أذى فلا يؤكل',
+ 'وفي المسألة ثلاثة أقوال',
+ 'والثاني الحمل على الطهارة فيها نظر إلى الأصل واختاره ابن رشد',
+ 'والثالث المشهور يطرح الماء دون الطعام',
+ 'والسرف فيه غلو وبدعة'
+],'Les citations arabes de la fiche 12 ont changé');
+for(const s of book.leftoverWater.sections){
+ assert.ok(s.paragraphs.length===2&&s.paragraphs.every(p=>p.length>=440),'Développement trop court en fiche 12 : '+s.id);
+ assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&s.passage.sourceLabel?.length>=50&&s.passage.sourceUrl?.includes('/19/'),'Citation, sens ou attribution absents en fiche 12 : '+s.id);
+ assert.ok(s.steps.length===4&&s.steps.every(x=>x.label&&x.text.length>=90),'Explication progressive incomplète en fiche 12 : '+s.id);
+ assert.ok(s.example?.title&&s.example.text.length>=390,'Situation pédagogique incomplète en fiche 12 : '+s.id);
+ assert.ok(s.takeaway.length>=195&&(/tome 1|t\. 1/.test(s.sourceNote)),'Synthèse ou source incomplète en fiche 12 : '+s.id);
 }
-assert.equal(new Set(['publicBasins','limitedWell',...latestLessons.map(spec=>spec.key)].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,39,'Les trente-neuf notions des fiches 10 à 12 doivent être distinctes');
+for(const s of book.leftoverWater.sections.slice(0,5))assert.ok(s.passage.sourceUrl.includes('/19/117/'),'Source page 77 absente : '+s.id);
+for(const s of book.leftoverWater.sections.slice(5))assert.ok(s.passage.sourceUrl.includes('/19/118/'),'Source page 78 absente : '+s.id);
+assert.ok(book.leftoverWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Mots de Khalîl non attribués');
+assert.ok(book.leftoverWater.sections[2].passage.sourceLabel.includes('Ibn al-Hâjib'),'Comparaison des avis non attribuée');
+assert.ok(book.leftoverWater.sections[3].passage.sourceLabel.includes('Ibn al-Imâm'),'Précision d’Ibn al-Imâm absente');
+assert.ok(book.leftoverWater.sections[4].passage.sourceLabel.includes('Bayân'),'Propos du Bayân non attribués');
+assert.ok(book.leftoverWater.sections[6].passage.sourceLabel.includes('Hadith')||book.leftoverWater.sections[6].passage.sourceLabel.includes('Hadith'.toLowerCase())||book.leftoverWater.sections[6].passage.sourceLabel.includes('Hadith'.toUpperCase())||book.leftoverWater.sections[6].passage.sourceLabel.includes('Hadith'.toLowerCase()),'Preuve prophétique mal attribuée');
+assert.ok(book.leftoverWater.sections[7].passage.sourceLabel.includes('Nawawî'),'Analyse du hadith non attribuée');
+assert.ok(book.leftoverWater.sections[9].passage.sourceLabel.includes('Mudawwana'),'Citation de la Mudawwana non attribuée');
+assert.ok(book.leftoverWater.sections[11].passage.sourceLabel.includes('Ibn Rushd'),'Choix d’Ibn Rushd non attribué');
+assert.ok(book.leftoverWater.sections[12].passage.sourceLabel.includes('Ibn Nâjî'),'Justifications du mashhûr non attribuées');
+assert.ok(book.leftoverWater.sections[13].passage.sourceLabel.includes('Abû Muhammad'),'Discussion du gaspillage non attribuée');
+assert.equal(book.leftoverWater.lexicon.length,20,'Vingt termes attendus dans la fiche 12');
+assert.equal(new Set(book.leftoverWater.lexicon.map(x=>x.term)).size,20,'Lexique de la fiche 12 en doublon');
+assert.ok(book.leftoverWater.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=125),'Définition du lexique trop courte en fiche 12');
+assert.equal(book.leftoverWater.quiz.length,17,'Dix-sept questions attendues en fiche 12');
+for(const q of book.leftoverWater.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation.length>=140,'Quiz incomplet en fiche 12');
+assert.equal(book.leftoverWater.quote.arabic,'لَا إِنْ عَسُرَ الِاحْتِرَازُ مِنْهُ أَوْ كَانَ طَعَامًا');
+assert.ok(book.leftoverWater.quote.label.includes('Khalîl'),'Citation principale mal attribuée');
+assert.ok(book.leftoverWater.sources.some(x=>x.url===book.book.sourceUrl),'Référence Usul fiche 12 absente');
+for(const id of ['/19/117/','/19/118/'])assert.ok(book.leftoverWater.sources.some(s=>s.url.includes(id)),'Référence primaire absente : '+id);
+assert.equal(new Set(['publicBasins','limitedWell','leftoverWater'].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,53,'Les 53 termes des fiches 10 à 12 doivent être distincts');
 assert.ok(book.nextChapter.status.includes('fiche 13 non publiée'));
 assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater'].filter(key=>book[key]?.status==='disponible').length,12,'Douze fiches réellement accessibles');
 for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
@@ -432,4 +467,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 préservée ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; '+shell.length+' ressources PWA.');
