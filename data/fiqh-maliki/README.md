@@ -108,16 +108,29 @@ L’extrait arabe final reprend la définition de Khalîl « ما صدق علي�
 
 *Ces explications sont pédagogiques ; elles ne constituent pas une fatwa sur une eau réelle et ne remplacent pas une analyse du cas concret.*
 
-## Fiche 05 — Quand une substance pure modifie l’eau
+## Fiche 05 — Les mélanges de substances pures : sept lectures guidées
 
-**Texte étudié :** même passage d’al-Hattâb, tome 1, pages **59–61**. Quatre développements :
+**Refonte pédagogique du 16 novembre 2026**, à partir du commentaire d’al-Hattâb (*Mawâhib al-Jalîl*, tome 1, pages 59–60). L’enseignement ne se réduit plus à quelques résumés : la fiche analyse **sept courts passages arabes**, chacun avec une traduction de sens, deux explications rédigées, quatre ou cinq points décortiqués, un exemple concret, un « à retenir » et un lien vers le livre original.
 
-1. Différence entre *tâhir* (pur) et *mutahhir* (purifiant), avec le cas d’une eau pure mais non purifiante.
-2. Exemples vérifiés dans le commentaire : lait, safran, vinaigre et huile effectivement mélangée.
-3. Différence entre huile mélangée (*mukhâlit*) et simple contact (*mulâsiq*) ; mention du débat sur l’eau soumise à une fumigation.
-4. Nuances historiques sur le faible changement et distinction entre le propos du commentaire et les avis rapportés.
+### Parcours d’apprentissage
 
-**Court extrait d’al-Hattâb :** « طَاهِرٌ غَيْرُ مُطَهِّرٍ ». Le passage concerne le cas qualifié par le texte, non toute eau portant une trace de substance pure.
+1. **Pure mais non purifiante** — « فالماء طاهر غير مطهر » : distinction entre la pureté juridique et la capacité à purifier.
+2. **Usages ordinaires** — « فيستعمل في العادات كالشرب والطبخ والعجن » : les usages quotidiens mentionnés par al-Hattâb ne sont pas identiques au wudû’ ni au ghusl.
+3. **Lait, safran et vinaigre** — « وكاللبن والزعفران والخل وغير ذلك » : exemples historiques de matières pures, avec la condition d’un changement réel de l’eau.
+4. **Huile mêlée ou simplement attenante** — « الدهن الذي يخالط الماء أي يمازجه » : vocabulaire de mélange et de simple contact ; discussion distincte sur la fumigation aromatique.
+5. **Proportions et avis connu** — « والمعروف من المذهب أنه غير طهور » : al-Lakhmî cité par al-Hattâb, transmission différente attribuée à Mâlik, argument du Târâz et confirmation par Ibn Rushd.
+6. **Changement faible et position d’al-Hattâb** — « وما قاله ابن هارون هو الذي يقتضيه كلام أهل المذهب » : cas d’un changement léger, avis rapportés d’Ibn Farhûn et réserve d’Ibn Hârûn sur le mashhûr.
+7. **Contact sans changement** — « لا مجرد مخالطة الماء لغيره » : exemples tirés de la Mudawwana et du Târâz, distinction entre simple présence et transformation réelle.
+
+**Attribution :** l’auteur de chaque courte citation est nommé : al-Hattâb, al-Lakhmî cité par lui, ou un autre savant dont il rapporte la position. Les scénarios modernes sont explicitement des exemples pédagogiques, non des fatwas ni des citations du livre.
+
+**Matériel pédagogique :** sept objectifs, sept lectures approfondies, douze termes de lexique et neuf questions corrigées. Justification des paragraphes français maintenue, affichage arabe de droite à gauche conservé, liens vers le texte d’origine présents sous chaque passage.
+
+**Sources originales :**
+- [Usul — Mawâhib al-Jalîl, texte et notice](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil)
+- [Islamweb — Mawâhib al-Jalîl, tome 1, pages 59–60, commentaire de la règle sur les eaux modifiées](https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7)
+
+**Compatibilité :** fiches 01–04 et 06–12 inchangées ; clé locale `athar_fiqh_maliki_eaux_05_done` conservée ; nouvelle version du cache PWA **v94**.
 
 ## Fiche 06 — L’eau touchée par une impureté
 
@@ -217,7 +230,7 @@ Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six 
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v93) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v94) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
