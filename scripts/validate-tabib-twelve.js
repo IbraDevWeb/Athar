@@ -55,8 +55,10 @@ assert.ok(css.includes('.tabib-detail-root.tabib-detail-enriched .tabib-source-l
 assert.ok(html.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'Fichier non chargé en ligne');
 assert.ok(html.indexOf('tabib_data.js')<html.indexOf('tabib_new_fiches_data.js')&&html.indexOf('tabib_new_fiches_data.js')<html.indexOf('js/app.js'),'Ordre de scripts incorrect');
 assert.ok(worker.includes('tabib_new_fiches_data.js?v=athar-tabib-12-v1'),'PWA ne charge pas les nouveaux textes');
-assert.ok(config.includes("const APP_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1'"));
-assert.ok(worker.includes("const CACHE_VERSION = 'athar-pro-v82-fiqh-maliki-intro-v1'"));
+const appVersion=(config.match(/const APP_VERSION = '([^']+)'/)||[])[1];
+assert.ok(appVersion&&appVersion.startsWith('athar-pro-v'),'Version applicative absente');
+const cacheVersion=((worker).match(/const CACHE_VERSION = '([^']+)'/)||[])[1];
+assert.equal(cacheVersion,appVersion,'La version PWA doit rester cohérente avec la configuration');
 const shell=vm.runInNewContext(worker.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/)[1]);
 assert.ok(shell.length<70&&new Set(shell).size===shell.length,'PWA : ressources trop nombreuses ou doublons');
 console.log('Tabib : 50 fiches originales identiques + 12 nouvelles fiches 51-62 ; 12 passages coraniques, 12 hadiths distincts et vérifiables, 36 questions et 36 définitions.');
