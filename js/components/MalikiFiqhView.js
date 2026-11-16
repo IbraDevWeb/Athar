@@ -8,9 +8,27 @@ const MalikiFiqhView = {
         const answers = Vue.ref({});
         const selectedLessonKey = Vue.ref('intro');
         const lesson = Vue.computed(() => props.course?.[selectedLessonKey.value] || props.course?.intro);
-        const completed = Vue.ref({ intro:false, purification:false, naturalWaters:false });
+        const lessonCatalog = [
+            { key:'intro', name:'Découvrir l’ouvrage' },
+            { key:'purification', name:'Kitâb al-Tahâra' },
+            { key:'naturalWaters', name:'Les eaux naturelles' },
+            { key:'waterChanges', name:'L’eau modifiée' },
+            { key:'pureMixtures', name:'Les mélanges purs' },
+            { key:'impureContact', name:'L’eau et l’impureté' }
+        ];
+        const storageKeys = {
+            intro:'athar_fiqh_maliki_intro_01_done',
+            purification:'athar_fiqh_maliki_tahara_02_done',
+            naturalWaters:'athar_fiqh_maliki_eaux_03_done',
+            waterChanges:'athar_fiqh_maliki_eaux_04_done',
+            pureMixtures:'athar_fiqh_maliki_eaux_05_done',
+            impureContact:'athar_fiqh_maliki_eaux_06_done'
+        };
+        const availableLessons = Vue.computed(() => lessonCatalog.filter(entry => props.course?.[entry.key]));
+        const completed = Vue.ref(Object.fromEntries(lessonCatalog.map(entry => [entry.key,false])));
+        const completedCount = Vue.computed(() => availableLessons.value.filter(entry => completed.value[entry.key]).length);
         const done = Vue.computed(() => !!completed.value[selectedLessonKey.value]);
-        const storageKeyFor = key => ({ intro:'athar_fiqh_maliki_intro_01_done', purification:'athar_fiqh_maliki_tahara_02_done', naturalWaters:'athar_fiqh_maliki_eaux_03_done' })[key];
+        const storageKeyFor = key => storageKeys[key];
         const tabs = [
             { id:'cours', title:'Lire la fiche', icon:'book-open' },
             { id:'lexique', title:'Lexique', icon:'book-a' },
@@ -40,7 +58,7 @@ const MalikiFiqhView = {
             } catch (_) { /* Le suivi reste optionnel si le stockage est désactivé. */ }
         };
         const selectLesson = key => {
-            if (!['intro','purification','naturalWaters'].includes(key) || !props.course?.[key]) return;
+            if (!lessonCatalog.some(entry => entry.key === key) || !props.course?.[key]) return;
             selectedLessonKey.value = key;
             answers.value = {};
             glossarySearch.value = '';
@@ -48,15 +66,11 @@ const MalikiFiqhView = {
         };
         Vue.onMounted(() => {
             try {
-                completed.value = {
-                    intro: localStorage.getItem(storageKeyFor('intro')) === '1',
-                    purification: localStorage.getItem(storageKeyFor('purification')) === '1',
-                    naturalWaters: localStorage.getItem(storageKeyFor('naturalWaters')) === '1'
-                };
+                completed.value = Object.fromEntries(lessonCatalog.map(entry => [entry.key,localStorage.getItem(storageKeyFor(entry.key)) === '1']));
             } catch (_) { /* Le stockage local peut être désactivé. */ }
             Vue.nextTick(() => window.lucide?.createIcons());
         });
-        return { activeTab, glossarySearch, answers, done, completed, selectedLessonKey, lesson, tabs, glossary, answerCount, correctCount, changeTab, selectAnswer, selectLesson, toggleDone };
+        return { activeTab, glossarySearch, answers, done, completed, completedCount, availableLessons, selectedLessonKey, lesson, tabs, glossary, answerCount, correctCount, changeTab, selectAnswer, selectLesson, toggleDone };
     },
     template: `
     <div class="fiqh-m-root" v-if="course && course.intro">
@@ -75,19 +89,23 @@ const MalikiFiqhView = {
                     <p class="fiqh-m-arabic-heading" lang="ar" dir="rtl">{{ selectedLessonKey === 'intro' ? 'مَوَاهِبُ الْجَلِيلِ' : 'كِتَابُ الطَّهَارَةِ' }}</p>
                     <h1 id="fiqh-m-heading" v-if="selectedLessonKey === 'intro'">Comprendre le livre <em>avant les règles.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'purification'">Comprendre <em>la purification.</em></h1>
-                    <h1 id="fiqh-m-heading" v-else>Découvrir <em>les eaux naturelles.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'naturalWaters'">Découvrir <em>les eaux naturelles.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'waterChanges'">Comprendre <em>l’eau modifiée.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'pureMixtures'">Étudier <em>les mélanges purs.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else>Étudier <em>l’eau et l’impureté.</em></h1>
                     <p class="fiqh-m-lead">{{ lesson.subtitle }}</p>
                     <div class="fiqh-m-hero-meta">
                         <span><i data-lucide="book-open" aria-hidden="true"></i> {{ course.book.authorArabic }}</span>
                         <span><i data-lucide="bookmark" aria-hidden="true"></i> {{ course.book.death }}</span>
-                        <span><i data-lucide="layers" aria-hidden="true"></i> Trois fiches disponibles</span>
+                        <span><i data-lucide="layers" aria-hidden="true"></i> {{ availableLessons.length }} fiches disponibles</span>
                     </div>
                 </section>
 
                 <div class="fiqh-m-workspace">
                     <aside class="fiqh-m-sidebar" aria-label="Parcours du livre">
                         <p class="fiqh-m-aside-label">LE PARCOURS</p>
-                        <button v-for="entry in [{key:'intro',name:'Découvrir l’ouvrage'}, {key:'purification',name:'Kitâb al-Tahâra'}, {key:'naturalWaters',name:'Les eaux naturelles'}]"
+                        <p class="fiqh-m-aside-progress">{{ completedCount }} / {{ availableLessons.length }} fiches lues</p>
+                        <button v-for="entry in availableLessons"
                             :key="entry.key" type="button" class="fiqh-m-current fiqh-m-lesson-link"
                             :class="{ 'is-selected':selectedLessonKey === entry.key }"
                             :aria-current="selectedLessonKey === entry.key ? 'step' : undefined"
@@ -101,7 +119,7 @@ const MalikiFiqhView = {
                         </button>
                         <p class="fiqh-m-aside-label fiqh-m-aside-gap">ENSUITE, PROGRESSIVEMENT</p>
                         <div class="fiqh-m-coming">
-                            <span class="fiqh-m-coming-num">04</span>
+                            <span class="fiqh-m-coming-num">07</span>
                             <div>
                                 <span>{{ course.nextChapter.title }}</span>
                                 <small>{{ course.nextChapter.status }}</small>
