@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–03
+# Fiqh malikite · Parcours 01–06
 
-**État au 16 novembre 2026 : trois fiches disponibles dans la branche de développement.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État de la branche de développement au 16 novembre 2026 : six fiches disponibles (les PR sont encore à fusionner successivement).** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -38,7 +38,7 @@ Extrait : « إلَّا أَنَّهُ لِفَرْطِ الْإِيجَازِ �
 
 Le sens est expliqué en français, sans attribuer la formulation de Khalîl à al-Hattâb et sans prétendre fournir une traduction exhaustive. Le vocabulaire et le quiz de la fiche sont écrits pour Athar : six notions, trois questions à choix multiples avec explications. La fiche ne tranche pas les cas d'eaux mélangées, transformées ou contaminées, qui requièrent la lecture des développements suivants.
 
-**Limite importante :** ce début de chapitre contient aussi des discussions juridiques techniques ; elles ne sont pas reproduites ici hors contexte. La fiche 03 étudie uniquement quelques cas naturels et la fiche 04 pourra aborder les modifications et les mélanges après vérification.
+**Limite importante :** ce début de chapitre contient aussi des discussions juridiques techniques ; elles ne sont pas reproduites ici hors contexte. La fiche 03 étudie uniquement quelques cas naturels ; les fiches 04 et 05 abordent les critères de modification et les mélanges, et la fiche 06 distingue les cas d’impureté.
 
 ## Fiche 03 — Eaux naturelles, pluie, mer, rosée et neige fondue
 
@@ -59,22 +59,66 @@ Quatre étapes :
 
 L'extrait court en arabe est **de Khalîl**, repris et commenté par **al-Hattâb**. Les quatre explications françaises, le lexique (six termes) et le quiz (trois questions) sont une **synthèse pédagogique Athar**, non une traduction exhaustive et non une fatwa.
 
-Aucune règle n'est généralisée aux eaux mélangées, altérées ou contaminées. Ce thème nécessite l'étude de la suite du texte et de ses nuances.
+Les développements sur les eaux mélangées, altérées ou touchées par une impureté figurent dans les fiches suivantes. Cette fiche ne les anticipe pas.
+
+
+## Fiche 04 — L’eau modifiée : critères juridiques
+
+**Texte étudié :** *Mawâhib al-Jalîl*, tome 1, pages **59–61** (début de la section « لا بمتغير »). Quatre développements pédagogiques :
+
+1. Pourquoi l’eau « mutlaq » appelle ensuite la question du changement de ses propriétés.
+2. Les trois caractéristiques nommées par Khalîl : couleur, goût et odeur.
+3. Le sens de « بما يفارقه غالبا » : élément dont l’eau se sépare habituellement, distinct des influences normalement inséparables.
+4. Les précautions de méthode pour lire un jugement, sa cause et les divergences rapportées.
+
+**Court extrait de Khalîl, reproduit par al-Hattâb :** « لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا ». Il ne constitue pas à lui seul un jugement universel sur toute eau colorée ou parfumée.
+
+## Fiche 05 — Quand une substance pure modifie l’eau
+
+**Texte étudié :** même passage d’al-Hattâb, tome 1, pages **59–61**. Quatre développements :
+
+1. Différence entre *tâhir* (pur) et *mutahhir* (purifiant), avec le cas d’une eau pure mais non purifiante.
+2. Exemples vérifiés dans le commentaire : lait, safran, vinaigre et huile effectivement mélangée.
+3. Différence entre huile mélangée (*mukhâlit*) et simple contact (*mulâsiq*) ; mention du débat sur l’eau soumise à une fumigation.
+4. Nuances historiques sur le faible changement et distinction entre le propos du commentaire et les avis rapportés.
+
+**Court extrait d’al-Hattâb :** « طَاهِرٌ غَيْرُ مُطَهِّرٍ ». Le passage concerne le cas qualifié par le texte, non toute eau portant une trace de substance pure.
+
+## Fiche 06 — L’eau touchée par une impureté
+
+**Passages étudiés :** tome 1, pages **59–61** et **70–71**. Quatre développements :
+
+1. Eau dont une propriété a effectivement changé sous l’effet d’une impureté.
+2. Petite quantité d’eau touchée par une impureté **sans changement perceptible**.
+3. Avis connu du madhhab rapporté par al-Hattâb, distinction avec l’avis d’Ibn al-Qâsim et les autres transmissions.
+4. Méthode de lecture distinguant constat, doute, changement et quantité : pas d’expertise d’un cas concret à partir de quelques lignes.
+
+**Extrait de Khalîl cité et commenté par al-Hattâb :** « وَيَسِيرٌ كَآنِيَةِ وُضُوءٍ وَغُسْلٍ بِنَجَسٍ لَمْ يَتَغَيَّرْ ».
+
+Al-Hattâb discute les avis et leurs attributions ; la fiche fait ressortir le *mashhûr* sans prétendre à l’unanimité. Elle ne résout pas une situation factuelle où la présence d’une souillure ou l’état de l’eau demeurent incertains.
+
+### Références primaires des fiches 04 à 06
+
+- [Usul — ouvrage de référence](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+- [Islamweb — Mawâhib al-Jalîl, tome 1, page 59 (et développements suivants)](https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7).
+- [Islamweb — Mawâhib al-Jalîl, tome 1, page 71 : petite quantité et avis rapportés](https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+
+Chaque fiche comporte **quatre sections de lecture, six termes de lexique, trois questions corrigées**, un extrait arabe court et des notes de provenance. Les explications françaises sont des synthèses d’Athar, **pas des citations de l’auteur ni des fatwas**.
 
 ## Intégration technique
 
-- Données : `fiqh_maliki_data.js` (objets `intro`, `purification` et `naturalWaters`).
-- Affichage : `js/components/MalikiFiqhView.js`, navigation accessible entre trois fiches.
+- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures` et `impureContact`).
+- Affichage : `js/components/MalikiFiqhView.js`, navigation accessible entre six fiches, nombre de fiches lues visible dans la barre latérale.
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
-- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done` et `athar_fiqh_maliki_eaux_03_done` (nouvelle).
-- Versions de ressources PWA mises à jour (v84) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`.
+- Versions de ressources PWA mises à jour (v85) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution de la citation, trois fiches, attribution des citations et intégration.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation, citations, recherche du lexique, trois quiz, suivi indépendant, retour fiche 01.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution de la citation, six fiches, attribution des citations et intégration.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation, citations, recherche du lexique, six quiz, suivi indépendant, retour fiche 01.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées le 16 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
