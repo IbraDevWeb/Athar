@@ -648,7 +648,7 @@ async function desktop() {
         assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true');
         assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1','Lecture non conservée');
     }
-    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/6\s*\/\s*9/,'Progression des anciennes fiches erronée');
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/6\s*\/\s*12/,'Progression des anciennes fiches erronée');
 
     // Fiches 07 à 09 : eau déjà utilisée, usages recommandés, eau courante et stagnante.
     const fiqhAdvancedLessons = [
