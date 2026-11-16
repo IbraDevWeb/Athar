@@ -1195,9 +1195,408 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       }
     ]
   },
+  "publicBasins": {
+    "id": "public-basins-10",
+    "number": "10",
+    "status": "disponible",
+    "title": "Les bassins collectifs et le renouvellement de l’eau",
+    "subtitle": "Étudier les bassins réservés aux ablutions, le contact répété des mains et des pieds et l’importance du renouvellement de l’eau dans le commentaire.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « فرع تغير الماء في البرك المعدة للوضوء » (Mawâhib al-Jalîl, t. 1, p. 75–76)",
+    "sections": [
+      {
+        "id": "context",
+        "eyebrow": "01 · La continuité du chapitre",
+        "title": "Pourquoi al-Hattâb introduit-il les bassins utilisés par plusieurs personnes ?",
+        "paragraphs": [
+          "La fiche 09 a distingué eau courante, grande quantité et eau stagnante. Al-Hattâb poursuit par le cas particulier de bassins aménagés pour les ablutions, dont l’eau peut rester en place tandis que de nombreuses personnes y plongent mains ou pieds. Ce cas n’est donc pas une nouvelle définition de l’eau : il applique les critères étudiés à un usage collectif et répété.",
+          "Le commentaire vise notamment les bassins des lieux d’ablutions et examine le risque lié à la circulation des membres et à la présence possible de souillures. Il ne faut pas considérer qu’une eau devient impure au seul motif qu’elle est partagée ; la question tient à l’état observé de l’eau, à son usage et aux circonstances décrites dans ce passage ancien."
+        ],
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 75–76, prolongement de l’explication de « وراكد يغتسل فيه » et « فرع تغير الماء في البرك المعدة للوضوء »."
+      },
+      {
+        "id": "changed",
+        "eyebrow": "02 · Changement réel",
+        "title": "Que signifie « si l’une des qualités de l’eau a changé » ?",
+        "paragraphs": [
+          "Le passage distingue expressément le bassin dont une caractéristique de l’eau a changé de celui où aucun changement n’est perceptible. Dans le premier cas, al-Hattâb indique que les ablutions ne sont pas valides avec cette eau dans la configuration examinée. Cette formulation doit être lue avec les explications antérieures du livre concernant la cause du changement : elle ne transforme pas n’importe quelle variation naturelle en souillure.",
+          "C’est un rappel de méthode : la couleur, le goût et l’odeur ont déjà été étudiés, mais leur examen doit être relié à ce qui les a modifiés. Le simple fait de voir plusieurs personnes passer dans un bassin ne permet pas de conclure que toutes ses caractéristiques ont été altérées. Le texte sépare précisément les deux hypothèses."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, « إن تغير أحد أوصاف الماء فلا يصح الوضوء بها » ; lire avec les distinctions antérieures entre substances pures et impures."
+      },
+      {
+        "id": "unchanged",
+        "eyebrow": "03 · Eau sans changement constaté",
+        "title": "Pourquoi peut-il exister une réprobation même si l’eau n’a pas changé ?",
+        "paragraphs": [
+          "Al-Hattâb rapporte que, dans les bassins évoqués, l’usage pour les ablutions est réprouvé quand aucun changement n’est constaté, en raison des passages répétés de mains et de pieds et de la probabilité de souillures dans le contexte décrit. Cette réprobation ne signifie pas automatiquement que l’eau est déclarée impure : le commentateur différencie le doute lié aux usages de la constatation d’un changement effectif.",
+          "Le même passage ajoute que, si une souillure y a été effectivement lavée dans une quantité importante, le jugement doit être examiné selon le scénario mentionné dans le texte ; il ne faut pas transformer l’exemple d’une installation ancienne en règle universelle sur les installations contemporaines. L’étudiant retient surtout la différence entre risque, souillure établie et propriété modifiée."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, « وإن لم يتغير فيكره الوضوء منها لاختلاف الأيدي والأرجل » ; précisions suivantes sur les souillures."
+      },
+      {
+        "id": "renewal",
+        "eyebrow": "04 · Rôle de la durée",
+        "title": "Pourquoi renouveler l’eau du bassin change-t-il l’analyse ?",
+        "paragraphs": [
+          "Al-Hattâb précise explicitement que son développement concerne les bassins dont l’eau reste longtemps en place. En revanche, lorsque l’eau est rapidement évacuée et remplacée par une nouvelle eau, « l’affaire est plus légère » selon sa formulation. Cette nuance est importante : le texte ne réduit pas la question au matériau du bassin ni au nombre de personnes qui l’approchent.",
+          "La fiche invite donc à comparer trois cas différents : une eau réellement modifiée ; une eau inchangée mais exposée de manière répétée dans un bassin où elle séjourne longtemps ; une eau régulièrement renouvelée. Ces cas ne se confondent pas. Il s’agit de lire une analyse de fiqh historique, non de proposer un protocole sanitaire contemporain ni de juger automatiquement les ablutions dans une piscine."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, « وهذا فيما تطول إقامة الماء فيه وأما ما يفرغ بسرعة ويجدد له ماء آخر فأمره خفيف »."
+      }
+    ],
+    "quote": {
+      "arabic": "وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ",
+      "meaning": "Al-Hattâb distingue le bassin où l’eau demeure longtemps de celui dont l’eau est rapidement vidée et remplacée. Le renouvellement est une circonstance qui atténue la difficulté dans le cas étudié.",
+      "label": "Extrait du commentaire d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76 — explication française du sens."
+    },
+    "lexicon": [
+      {
+        "arabic": "البِرَك",
+        "term": "Birak",
+        "definition": "Bassins ou réserves d’eau, ici aménagés pour les ablutions collectives et examinés selon leur usage."
+      },
+      {
+        "arabic": "المِيَاضِي",
+        "term": "Miyâdî",
+        "definition": "Lieux ou installations consacrés aux ablutions, terme du passage sur les bassins collectifs."
+      },
+      {
+        "arabic": "أَوْصَافُ الْمَاءِ",
+        "term": "Awsâf al-mâ’",
+        "definition": "Caractéristiques sensibles de l’eau dont une modification peut compter dans l’analyse juridique."
+      },
+      {
+        "arabic": "الْكَرَاهَة",
+        "term": "Karâha",
+        "definition": "Réprobation juridique d’un usage dans certaines conditions, à distinguer de l’impureté constatée."
+      },
+      {
+        "arabic": "تَجْدِيدُ الْمَاءِ",
+        "term": "Tajdîd al-mâ’",
+        "definition": "Renouvellement de l’eau d’un bassin, opposé ici à son maintien prolongé dans le même récipient."
+      },
+      {
+        "arabic": "إِقَامَةُ الْمَاءِ",
+        "term": "Iqâmat al-mâ’",
+        "definition": "Durée de présence de l’eau dans un bassin, circonstance mise en avant dans la réserve d’al-Hattâb."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Quelle circonstance al-Hattâb examine-t-il dans la fiche 10 ?",
+        "choices": [
+          "Un bassin collectif où mains et pieds passent fréquemment.",
+          "La fonte de la grêle.",
+          "La pluie tombant directement sur les vêtements."
+        ],
+        "answer": 0,
+        "explanation": "Le passage concerne expressément les bassins préparés pour les ablutions, avec circulation répétée des membres."
+      },
+      {
+        "question": "Quelle nuance est explicitement donnée pour une eau inchangée dans ces bassins ?",
+        "choices": [
+          "Elle est toujours déclarée impure sans autre question.",
+          "La réprobation peut être liée au contexte d’usage, sans être identique au cas d’une eau altérée.",
+          "Le nombre de personnes n’a jamais aucune importance."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb distingue l’eau dont une propriété a changé de celle dont l’utilisation est simplement réprouvée dans le contexte évoqué."
+      },
+      {
+        "question": "Quelle distinction apporte la fin du passage sur l’eau du bassin ?",
+        "choices": [
+          "L’eau doit être glacée.",
+          "Un bassin profond est toujours interdit.",
+          "Une eau rapidement remplacée n’est pas analysée exactement comme une eau conservée longtemps."
+        ],
+        "answer": 2,
+        "explanation": "La durée de séjour et le renouvellement sont des critères explicitement relevés par al-Hattâb."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Usul — ouvrage arabe Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 76, bassins collectifs",
+        "url": "https://www.islamweb.net/ar/library/content/19/114/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D8%A8%D8%B1%D9%83-%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D8%A9-%D9%84%D9%84%D9%88%D8%B6%D9%88%D8%A1"
+      },
+      {
+        "label": "Islamweb — t. 1, p. 75, eau stagnante : contexte",
+        "url": "https://www.islamweb.net/amp/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
+      }
+    ]
+  },
+  "limitedWell": {
+    "id": "well-necessity-11",
+    "number": "11",
+    "status": "disponible",
+    "title": "Se purifier avec une eau limitée : puits, souillure et nécessité",
+    "subtitle": "Étudier le cas d’une personne en janâba disposant d’un puits peu rempli, la manière d’éviter de souiller l’eau et les précisions sur le ghusl dans un bassin.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « فرع أتى الجنب بئرا قليلة الماء » et « فرع الغسل في الحياض قبل غسل الأذى » (t. 1, p. 76–77)",
+    "sections": [
+      {
+        "id": "well",
+        "eyebrow": "01 · Une difficulté concrète",
+        "title": "Pourquoi l’auteur rapporte-t-il le cas d’un puits avec très peu d’eau ?",
+        "paragraphs": [
+          "Al-Hattâb cite une question de la Mudawwana : une personne en état de janâba arrive près d’un puits dont l’eau est peu abondante, avec une souillure sur la main, sans objet pour puiser. La difficulté ne porte pas seulement sur le ghusl : comment accéder à l’eau sans y introduire inutilement une souillure ? Les faits précis du cas structurent la réponse transmise.",
+          "Dans cette situation, Mâlik recommande de chercher une manière d’enlever la souillure des mains, de recueillir l’eau, puis d’accomplir le lavage. La réponse privilégie donc une solution permettant de préserver l’eau et d’éviter l’immersion directe. Il faut cependant distinguer cette recommandation de la question ultérieure : que se passe-t-il si la personne s’est tout de même lavée dans l’eau ?"
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, citation de la Mudawwana : « أتى الجنب بئرا قليلة الماء وبيده قذر وليس معه ما يغرف به »."
+      },
+      {
+        "id": "procedure",
+        "eyebrow": "02 · La solution recherchée",
+        "title": "Pourquoi les auteurs parlent-ils de stratégies pour prélever l’eau ?",
+        "paragraphs": [
+          "Le commentaire rapporte diverses solutions citées par Ibn Nâfi‘, Ibn Rushd et d’autres : se servir d’un tissu propre ou d’un autre moyen disponible pour prélever l’eau, afin de laver la main souillée avant de puiser et de se laver. Les propositions correspondent aux matériels et aux circonstances du cas étudié. Elles montrent qu’on cherche d’abord à résoudre le problème plutôt qu’à se jeter dans le puits.",
+          "Ce passage ne permet pas de transformer chacune des techniques anciennes mentionnées en instruction sanitaire actuelle : ce sont des illustrations juridiques et matérielles historiquement situées. Pour comprendre al-Hattâb, il suffit de retenir la logique : réduire l’impureté présente sur la main, préserver l’eau et distinguer l’effort possible de l’incapacité réelle."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, transmissions d’Ibn Nâfi‘, Ibn Rushd et commentaire de Sannad sur les moyens de puiser."
+      },
+      {
+        "id": "necessity",
+        "eyebrow": "03 · Si l’on ne peut faire autrement",
+        "title": "L’immersion est-elle toujours assimilée à l’invalidation de la purification ?",
+        "paragraphs": [
+          "Al-Hattâb rapporte d’Ibn al-Qâsim que, si la personne a malgré tout accompli le ghusl dans l’eau du puits, son lavage peut être valable lorsque l’eau est de la quantité décrite par la transmission et n’a pas été rendue impure selon le cas étudié. D’autres formulations font intervenir l’existence ou non d’une autre eau, et une explication attribuée à Mâlik réserve la réprobation à la situation où l’on dispose d’un substitut.",
+          "Il faut lire ensemble la quantité, la souillure effectivement présente et la nécessité. La formule « mieux vaut éviter » ne signifie pas automatiquement « cela ne compte pas ». Inversement, un cas de besoin ne permet pas d’affirmer que toute eau manifestement altérée par une impureté redeviendrait purifiante. Le commentaire distingue les circonstances au lieu de produire un principe sans exception."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, propos rapportés d’Ibn al-Qâsim, de ‘Alî et d’Ibn Wahb et note sur l’usage lorsqu’on n’a pas d’autre eau."
+      },
+      {
+        "id": "washing-basin",
+        "eyebrow": "04 · Cas voisin : bassin de ghusl",
+        "title": "Que se passe-t-il lorsqu’on entre dans le bassin avant de se débarrasser d’une souillure ?",
+        "paragraphs": [
+          "Dans un développement suivant, al-Hattâb cite ‘Abd al-Haqq : si une personne s’est lavée dans un bassin ou une petite cuve avant d’enlever la saleté de son corps, il faut examiner si une caractéristique de l’eau a changé. Le passage distingue clairement le cas où l’eau est effectivement modifiée de celui où elle ne l’est pas ; les qualifications et les conséquences sur le lavage ne sont pas identiques.",
+          "Il rapporte aussi des nuances sur le lavage ultérieur du corps pour la souillure, sans nécessairement renouveler l’intention de lever la janâba lorsque celle-ci a déjà été levée selon l’analyse considérée. Cette précision renvoie à la distinction entre état rituel et souillure matérielle, étudiée dès la fiche 02. Elle ne remplace pas une étude détaillée des conditions de validité du ghusl."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 77, « فرع الغسل في الحياض قبل غسل الأذى », avis de ‘Abd al-Haqq et transmissions d’al-Bâjî et d’Ibn al-Qâsim."
+      }
+    ],
+    "quote": {
+      "arabic": "يَحْتَالُ حَتَّى يَغْسِلَ يَدَيْهِ وَيَغْرِفَ وَيَغْتَسِلَ",
+      "meaning": "Dans le cas du puits peu rempli, la Mudawwana rapporte que Mâlik préconise de trouver un moyen de laver d’abord les mains, puis de puiser de l’eau et d’accomplir le ghusl.",
+      "label": "Propos attribué à Mâlik dans la Mudawwana, cité par al-Hattâb, t. 1, p. 76 — explication du sens."
+    },
+    "lexicon": [
+      {
+        "arabic": "الْجُنُب",
+        "term": "Junub",
+        "definition": "Personne se trouvant en état de janâba et à laquelle s’applique la purification majeure selon ses conditions."
+      },
+      {
+        "arabic": "بِئْر",
+        "term": "Bi’r",
+        "definition": "Puits : le passage traite spécifiquement d’un puits peu rempli et difficile d’accès pour prélever l’eau."
+      },
+      {
+        "arabic": "قَذَر",
+        "term": "Qadhar",
+        "definition": "Souillure ou saleté présente sur les mains dans le cas rapporté, distincte de la janâba elle-même."
+      },
+      {
+        "arabic": "يَغْرِف",
+        "term": "Yaghrif",
+        "definition": "Puiser ou recueillir de l’eau, action que les auteurs cherchent à rendre possible sans la souiller."
+      },
+      {
+        "arabic": "الْحَاجَة وَالضَّرُورَة",
+        "term": "Hâja wa darûra",
+        "definition": "Besoin et nécessité : circonstances dont la présence peut modifier la manière de considérer une pratique."
+      },
+      {
+        "arabic": "غُسْل الْجَنَابَة",
+        "term": "Ghusl al-janâba",
+        "definition": "Grand lavage rituel associé à la janâba, distingué dans le commentaire de la suppression d’une souillure."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Quel élément rend le cas du puits difficile ?",
+        "choices": [
+          "La personne possède une grande réserve d’eau et un seau propre.",
+          "La personne a une main souillée et ne dispose pas de moyen ordinaire pour puiser l’eau.",
+          "Il s’agit d’un problème sur le jeûne."
+        ],
+        "answer": 1,
+        "explanation": "Le passage de la Mudawwana précise le peu d’eau, la présence d’une souillure et l’absence d’outil pour recueillir l’eau."
+      },
+      {
+        "question": "Quelle orientation la réponse attribuée à Mâlik met-elle d’abord en avant ?",
+        "choices": [
+          "Chercher un moyen de nettoyer la main et de puiser l’eau avant le ghusl.",
+          "Considérer automatiquement le puits comme impur.",
+          "Abandonner toute purification sans rechercher de solution."
+        ],
+        "answer": 0,
+        "explanation": "Mâlik invite à trouver un moyen de réduire la souillure et de recueillir l’eau pour préserver son usage."
+      },
+      {
+        "question": "Que faut-il distinguer dans le cas voisin du bassin de ghusl ?",
+        "choices": [
+          "La température du bassin et le lieu de résidence.",
+          "La couleur des vêtements uniquement.",
+          "L’eau effectivement modifiée par une souillure et l’eau qui demeure sans changement."
+        ],
+        "answer": 2,
+        "explanation": "‘Abd al-Haqq et les avis cités distinguent les conséquences selon que l’eau a été modifiée ou non."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Usul — ouvrage arabe Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 76, puits peu rempli et état de nécessité",
+        "url": "https://www.islamweb.net/ar/library/content/19/115/%D9%81%D8%B1%D8%B9-%D8%A3%D8%AA%D9%89-%D8%A7%D9%84%D8%AC%D9%86%D8%A8-%D8%A8%D8%A6%D8%B1%D8%A7-%D9%82%D9%84%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D9%88%D8%A8%D9%8A%D8%AF%D9%87-%D9%82%D8%B0%D8%B1-%D9%88%D9%84%D9%8A%D8%B3-%D9%85%D8%B9%D9%87-%D9%85%D8%A7-%D9%8A%D8%BA%D8%B1%D9%81-%D8%A8%D9%87"
+      },
+      {
+        "label": "Islamweb — t. 1, p. 77, ghusl dans un bassin avant le nettoyage de la souillure",
+        "url": "https://islamweb.net/ar/library/content/19/116/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+      }
+    ]
+  },
+  "leftoverWater": {
+    "id": "leftover-water-12",
+    "number": "12",
+    "status": "disponible",
+    "title": "Le su’r : eau restante après qu’une personne ou un animal a bu",
+    "subtitle": "Comprendre la notion de su’r, la différence entre risque et souillure prouvée, et l’exception rapportée pour les animaux domestiques difficiles à éviter.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « وسؤر شارب خمر » et « لا إن عسر الاحتراز منه » (t. 1, p. 77–78)",
+    "sections": [
+      {
+        "id": "term",
+        "eyebrow": "01 · Une nouvelle notion",
+        "title": "Qu’appelle-t-on su’r et pourquoi cette eau fait-elle débat ?",
+        "paragraphs": [
+          "Khalîl aborde ensuite le su’r : l’eau qui reste dans un récipient après qu’une personne ou un animal y a bu. Le terme ne désigne pas l’animal lui-même ni une substance automatiquement impure ; il renvoie à l’eau qui a pu entrer en contact avec sa bouche, voire, dans les cas discutés, avec une main. Le statut dépend donc de l’état de l’eau et de la présence possible ou prouvée d’une souillure.",
+          "Al-Hattâb expose, pour de petites quantités comparables à celles utilisées pour le wudû’ ou le ghusl, une réprobation de l’usage selon l’avis célèbre lorsqu’un contact à risque est évoqué et qu’une autre eau est disponible. Il précise aussi que, faute d’autre eau, cette eau est utilisée dans la situation discutée. Il ne dit pas que toute eau partagée devient impure."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 77, commentaire de « وسؤر شارب خمر وما أدخل يده فيه وما لا يتوقى نجسا من ماء » ; contexte de la petite quantité."
+      },
+      {
+        "id": "evidence",
+        "eyebrow": "02 · Ne pas confondre les situations",
+        "title": "Que change la preuve de la propreté ou d’une impureté ?",
+        "paragraphs": [
+          "Le commentaire mentionne historiquement un consommateur habituel de vin et un animal qui ne se préserve pas des souillures, mais le critère pratique qu’il développe est le risque de contact par la bouche ou la main. Il ajoute expressément que si la pureté de la bouche et de la main est établie, l’eau peut être utilisée sans la réprobation indiquée. Si leur impureté est établie, il faut aborder le cas selon les règles propres à la souillure.",
+          "Il serait donc erroné de transformer une catégorie formulée dans un ouvrage ancien en jugement sur la dignité ou la nature d’une personne, ou d’inférer une contamination de sa seule appartenance religieuse. On distingue la formulation historique de l’ouvrage des critères vérifiables : présence de souillure, changement de l’eau, quantité et certitude ou doute."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 77, précision « وهذا إذا لم تتحقق طهارة اليد والفم فإن تحققت جاز استعماله من غير كراهة » et renvoi au cas d’impureté certaine."
+      },
+      {
+        "id": "cat",
+        "eyebrow": "03 · Les animaux difficiles à éviter",
+        "title": "Pourquoi la présence habituelle du chat fait-elle l’objet d’une exception ?",
+        "paragraphs": [
+          "Le Mukhtasar poursuit par une exception, « لا إن عسر الاحتراز منه », pour les animaux qu’il est difficile d’éviter, comme le chat dans un espace domestique. Al-Hattâb rattache cette disposition à la difficulté pratique d’empêcher des animaux de s’approcher de l’eau ; il cite à l’appui la transmission prophétique selon laquelle le chat n’est pas considéré comme impur et circule continuellement auprès des habitants.",
+          "Ce passage porte sur le reste d’eau et le contact ordinaire, non sur une permission de conserver ou d’ignorer une souillure effectivement constatée. Le raisonnement repose sur la fréquence du contact et sur l’absence d’une preuve d’impureté. L’étudiant doit donc distinguer « un chat a bu » de « une impureté identifiable a été introduite dans l’eau »."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 78, commentaire de « لا إن عسر الاحتراز منه », exemple de la chatte et référence au hadith des animaux qui circulent dans les maisons."
+      },
+      {
+        "id": "food",
+        "eyebrow": "04 · Eau et aliments",
+        "title": "Pourquoi le texte distingue-t-il l’eau du reste d’un aliment ?",
+        "paragraphs": [
+          "Dans la même explication, al-Hattâb rapporte une différence entre le reste d’eau et le reste d’un aliment dans certains cas, ainsi que plusieurs avis au sein de l’école : présumer une souillure, conserver la présomption de pureté, ou différencier eau et nourriture. Il souligne que la troisième formulation est présentée comme célèbre dans le passage, tout en citant un autre choix attribué à Ibn Rushd.",
+          "Le commentaire explique aussi la question du gaspillage et du fait de jeter une eau sur laquelle existe un doute. Cela ne doit pas être compris comme une recommandation générale de jeter sans raison une eau saine, ni comme une règle d’hygiène alimentaire moderne. La fiche clôt le sujet en rappelant la distinction essentielle entre doute et souillure établie."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 78, passage « أو كان طعاما », comparaison des trois positions et développements sur le gaspillage."
+      }
+    ],
+    "quote": {
+      "arabic": "لَا إِنْ عَسُرَ الِاحْتِرَازُ مِنْهُ أَوْ كَانَ طَعَامًا",
+      "meaning": "Khalîl marque une exception pour les animaux qu’il est difficile d’éviter ou pour certains cas concernant les aliments. Al-Hattâb en explique la portée et rapporte plusieurs avis.",
+      "label": "Extrait du Mukhtasar de Khalîl reproduit par al-Hattâb, t. 1, p. 78 — explication contextualisée."
+    },
+    "lexicon": [
+      {
+        "arabic": "السُّؤْر",
+        "term": "Su’r",
+        "definition": "Reste d’eau ou de liquide après qu’une personne ou un animal a bu dans un récipient."
+      },
+      {
+        "arabic": "الِاحْتِرَاز",
+        "term": "Ihtirâz",
+        "definition": "Action de se prémunir ou d’éviter un contact ; la difficulté de l’évitement compte ici."
+      },
+      {
+        "arabic": "الْهِرَّة",
+        "term": "Hirra",
+        "definition": "Chatte ou chat, cité comme exemple d’animal vivant à proximité fréquente des habitants."
+      },
+      {
+        "arabic": "الشَّكّ",
+        "term": "Shakk",
+        "definition": "Doute : situation où la présence d’une souillure n’est pas établie, distincte de sa constatation."
+      },
+      {
+        "arabic": "الطَّهَارَة",
+        "term": "Tahâra",
+        "definition": "Pureté au sens juridique ; le commentaire examine notamment si elle reste présumée dans un cas incertain."
+      },
+      {
+        "arabic": "الإِسْرَاف",
+        "term": "Isrâf",
+        "definition": "Gaspillage ou excès, notion évoquée à propos de l’eau et des aliments écartés sans justification suffisante."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Quel est le sens technique du mot su’r dans cette fiche ?",
+        "choices": [
+          "Une substance ajoutée à l’eau pour la parfumer.",
+          "Le reste d’eau après qu’une personne ou un animal a bu.",
+          "Une eau uniquement issue de la fonte de la neige."
+        ],
+        "answer": 1,
+        "explanation": "Le su’r désigne ici l’eau restante dans le récipient à la suite d’un contact de boisson."
+      },
+      {
+        "question": "Que précise al-Hattâb si la pureté de la main et de la bouche a été établie ?",
+        "choices": [
+          "L’eau doit malgré tout être obligatoirement jetée.",
+          "Il faut toujours effectuer le tayammum.",
+          "L’usage de l’eau évoquée n’est pas réprouvé pour ce seul motif."
+        ],
+        "answer": 2,
+        "explanation": "Le commentaire distingue le risque supposé du cas où la pureté des parties en contact est connue."
+      },
+      {
+        "question": "Pourquoi le chat est-il évoqué dans l’exception de Khalîl ?",
+        "choices": [
+          "Parce que sa proximité habituelle rend son évitement difficile.",
+          "Parce que tout animal souille nécessairement l’eau.",
+          "Parce que l’usage de l’eau n’est jamais conditionné."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb cite la difficulté de l’évitement et le hadith relatif à la présence habituelle des chats."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Usul — ouvrage arabe Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 77, définition et cas du su’r",
+        "url": "https://www.islamweb.net/amp/ar/library/content/19/117/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+      },
+      {
+        "label": "Islamweb — t. 1, p. 78, exception du chat et distinction avec les aliments",
+        "url": "https://www.islamweb.net/amp/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+      }
+    ]
+  },
   "nextChapter": {
     "arabic": "كتاب الطهارة",
     "title": "Poursuivre l’étude de Kitâb al-Tahâra",
-    "status": "À préparer — fiche 10 non publiée"
+    "status": "À préparer — fiche 13 non publiée"
   }
 };
