@@ -63,6 +63,7 @@ const MalikiFiqhView = {
             answers.value = {};
             glossarySearch.value = '';
             changeTab('cours');
+            Vue.nextTick(() => document.querySelector('.fiqh-m-scroll')?.scrollTo({top:0,behavior:'auto'}));
         };
         Vue.onMounted(() => {
             try {
