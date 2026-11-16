@@ -4153,7 +4153,128 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "title": "Les bassins collectifs et le renouvellement de l’eau",
     "subtitle": "Neuf lectures commentées d’al-Hattâb sur les bassins des ablutions : changement de l’eau, validité, réprobation, souillures établies et vidange rapide.",
     "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · فرع تغير الماء في البرك المعدة للوضوء · Mawâhib al-Jalîl, t. 1, p. 76",
-    "sections": [],
+    "sections": [
+      {
+        "id": "context",
+        "eyebrow": "01 · Comprendre le cadre du passage",
+        "title": "Quel bassin al-Hattâb a-t-il précisément à l’esprit ?",
+        "passage": {
+          "arabic": "البرك المعدة للوضوء",
+          "translation": "« Les bassins aménagés pour les ablutions. »",
+          "explanation": "Al-Hattâb introduit son propre développement sur les bassins collectifs à la suite de son commentaire de l’eau stagnante. Il ne s’agit pas d’une formule du Mukhtasar de Khalîl.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, commentaire du cas des bassins collectifs (paroles du commentateur).",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Les fiches précédentes nous ont appris à distinguer l’eau courante de l’eau qui demeure dans une réserve. Al-Hattâb nous conduit maintenant vers des installations où plusieurs personnes viennent successivement faire leurs ablutions. Il faut imaginer un bassin commun dans lequel on peut introduire les mains ou les pieds. Cette manière d’employer une même eau rend compréhensibles les précautions qu’il examine ensuite.",
+          "Avant d’apprendre une conclusion juridique, nous devons savoir de quelle situation elle parle. Le passage ne traite pas indistinctement tous les points d’eau publics. Il envisage une réserve accessible aux utilisateurs et précisera qu’une même eau peut y rester longtemps. Si tu oublies ces circonstances, tu risques d’appliquer le jugement à des installations qui ne fonctionnent pas du tout de la même manière."
+        ],
+        "steps": [
+          {
+            "label": "Le sens de « birak »",
+            "text": "Il s’agit de bassins ou de réserves, et non d’une nouvelle sorte d’eau. Le fonctionnement du bassin fait partie du cas examiné."
+          },
+          {
+            "label": "Pourquoi le lieu d’ablutions importe",
+            "text": "Le but de l’installation explique que différentes personnes y passent fréquemment les mains et les pieds."
+          },
+          {
+            "label": "Le lien avec la fiche 09",
+            "text": "Nous prolongeons la question de l’eau stagnante. Les règles sur l’altération de l’eau et les impuretés restent pertinentes."
+          },
+          {
+            "label": "À qui appartiennent ces mots",
+            "text": "L’expression est celle du développement d’al-Hattâb. Elle ne doit pas être annoncée comme une citation directe de Khalîl."
+          }
+        ],
+        "example": {
+          "title": "Une réserve commune dans une cour",
+          "text": "Imagine un lieu où plusieurs personnes viennent accomplir leurs ablutions autour d’un bassin ouvert. L’eau reste en place au passage de chacun. On ne peut pas examiner cette situation comme un robinet qui délivre de l’eau sans que les utilisateurs touchent le réservoir. Cet exemple fictif ne décrit pas une mosquée historique déterminée ; il sert simplement à retrouver les circonstances que le commentaire suppose."
+        },
+        "takeaway": "La première question ne porte pas uniquement sur la nature de l’eau, mais sur une installation commune et sa manière d’être utilisée. Connaître ce cadre est nécessaire pour comprendre les distinctions qui suivent.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. Exemple fictif ajouté uniquement pour enseigner le passage."
+      },
+      {
+        "id": "changed",
+        "eyebrow": "02 · Quand une propriété de l’eau change",
+        "title": "Que signifie le changement d’une caractéristique de l’eau ?",
+        "passage": {
+          "arabic": "إن تغير أحد أوصاف الماء",
+          "translation": "« Si l’une des caractéristiques de l’eau a changé… »",
+          "explanation": "Al-Hattâb commence par le cas où une eau de bassin a subi une modification dans le contexte de souillures susceptibles de l’atteindre. Les causes du changement restent déterminantes.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, commentaire du cas des bassins collectifs (paroles du commentateur).",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Le premier examen concerne l’état réel de l’eau. Al-Hattâb envisage une modification de l’une de ses propriétés. Nous connaissons déjà les éléments habituellement étudiés en fiqh : la couleur, le goût et l’odeur. Mais il ne suffit pas de remarquer un changement pour déterminer son jugement. Il faut encore se demander ce qui a provoqué cette modification, puisque les auteurs distinguent les effets des matières naturelles de ceux des souillures.",
+          "Dans ce passage, le commentateur s’intéresse aux impuretés que les utilisateurs peuvent introduire dans le bassin. Il ne dit pas que toute eau naturellement colorée ou toute variation sans cause déterminée devient impropre aux ablutions. Il faut donc lire cette ligne avec les développements précédents du livre, notamment ceux qui expliquent ce que signifie une eau modifiée par une matière impure."
+        ],
+        "steps": [
+          {
+            "label": "Une observation concrète",
+            "text": "La couleur, l’odeur et le goût permettent d’identifier certaines modifications ; ce sont des faits à examiner."
+          },
+          {
+            "label": "Il faut chercher la cause",
+            "text": "La même apparence ne suffit pas toujours à expliquer la qualification juridique, car les causes de modification ne sont pas équivalentes."
+          },
+          {
+            "label": "La présence de souillures",
+            "text": "Le passage étudie un bassin exposé à des contacts répétés, dans lequel des impuretés peuvent être introduites."
+          },
+          {
+            "label": "Une seconde hypothèse arrive ensuite",
+            "text": "Al-Hattâb parlera séparément de l’eau qui n’a pas changé. Il ne faut pas mélanger les deux cas."
+          }
+        ],
+        "example": {
+          "title": "Une eau dont l’odeur est différente",
+          "text": "Dans une réserve commune, quelqu’un constate une nouvelle odeur. Avant de dire que l’eau est devenue impure, l’étudiant doit se demander d’où vient ce changement. S’il provient d’une matière impure établie, les règles du chapitre s’appliquent. S’il n’en connaît pas la cause, il n’a pas le droit de transformer un doute en certitude. Cette scène sert à apprendre la méthode, sans juger une eau réelle."
+        },
+        "takeaway": "La modification de l’eau ne s’étudie pas isolément : sa cause doit être prise en considération. Al-Hattâb évoque ici une eau exposée aux souillures d’un bassin commun, et non n’importe quelle variation naturelle.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. Exemple fictif ajouté uniquement pour enseigner le passage."
+      },
+      {
+        "id": "invalid",
+        "eyebrow": "03 · Comprendre la conséquence juridique",
+        "title": "Pourquoi al-Hattâb parle-t-il de la validité des ablutions ?",
+        "passage": {
+          "arabic": "فلا يصح الوضوء بها",
+          "translation": "« Les ablutions avec cette eau ne sont alors pas valables. »",
+          "explanation": "Cette conclusion appartient au premier cas du texte : celui où l’eau a été altérée dans les conditions examinées. Elle doit être citée avec la condition immédiatement précédente.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, commentaire du cas des bassins collectifs (paroles du commentateur).",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "À ce stade, al-Hattâb emploie une formule qui porte sur la validité des ablutions. Il ne donne pas seulement un conseil de prudence. L’eau de son premier cas a subi une modification qui, dans la situation étudiée, empêche de la tenir pour une eau valable pour cette purification. Il nous faut donc distinguer le statut de l’eau de notre simple préférence pour tel ou tel moyen de faire le wudû’.",
+          "On comprend aussi pourquoi il ne faut jamais apprendre cette phrase en oubliant ce qui vient juste avant. Si un élève écrit « les ablutions dans les bassins collectifs ne sont pas valables », il donne au texte une portée excessive. Al-Hattâb a d’abord précisé le cas de l’eau modifiée ; à la phrase suivante, il considérera expressément une eau inchangée. Le jugement n’est donc pas formulé de la même manière dans les deux hypothèses."
+        ],
+        "steps": [
+          {
+            "label": "La notion de validité",
+            "text": "Il s’agit de savoir si un acte rituel remplit ses conditions juridiques, et non simplement si son accomplissement est préférable."
+          },
+          {
+            "label": "Une condition précède le jugement",
+            "text": "La formule suit les mots « si l’une des caractéristiques de l’eau change ». Les deux parties doivent être lues ensemble."
+          },
+          {
+            "label": "Ne pas confondre avec la réprobation",
+            "text": "Le texte emploie ensuite la karâha pour une autre situation. Ce vocabulaire ne signifie pas automatiquement invalidité."
+          },
+          {
+            "label": "Rester dans le cas étudié",
+            "text": "La cause de l’altération et le contexte de l’eau doivent être connus avant de transporter la conclusion à une installation particulière."
+          }
+        ],
+        "example": {
+          "title": "Une mauvaise prise de notes",
+          "text": "Un étudiant résume la page en affirmant : « Tous les bassins publics rendent les ablutions invalides. » Son professeur lui demande alors de retrouver le début de la phrase arabe. L’étudiant y lit la condition du changement de l’eau et corrige ses notes. Il découvre ensuite qu’al-Hattâb parle autrement d’une eau demeurée inchangée. Cette petite scène est inventée, mais elle montre une habitude indispensable pour apprendre le fiqh."
+        },
+        "takeaway": "La phrase sur la non-validité est conditionnée par l’état de l’eau examiné dans le texte. Elle ne doit pas devenir une règle générale condamnant tout bassin collectif.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. Exemple fictif ajouté uniquement pour enseigner le passage."
+      }
+    ],
     "quote": {
       "arabic": "وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ",
       "meaning": "Al-Hattâb distingue le bassin où l’eau demeure longtemps de celui dont l’eau est rapidement vidée et remplacée. Le renouvellement est une circonstance qui atténue la difficulté dans le cas étudié.",
