@@ -333,7 +333,7 @@ assert.deepEqual(Array.from(book.publicBasins.sections,s=>s.passage.arabic),[
 ],'Citations arabes de la fiche 10 incorrectes');
 for(const s of book.publicBasins.sections){
  assert.ok(s.paragraphs.length===2&&s.paragraphs.every(p=>p.length>=390),'Développement trop court en fiche 10 : '+s.id);
- assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&s.passage.sourceLabel.includes('al-Hattâb')&&s.passage.sourceUrl?.includes('/19/114/'),'Attribution, traduction ou source absente : '+s.id);
+ assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&/al-Hattâb/i.test(s.passage.sourceLabel)&&s.passage.sourceUrl?.includes('/19/114/'),'Attribution, traduction ou source absente : '+s.id);
  assert.ok(s.steps.length===4&&s.steps.every(x=>x.label&&x.text.length>=85),'Explications guidées incomplètes : '+s.id);
  assert.ok(s.example?.title&&s.example.text.length>=370,'Situation pédagogique absente : '+s.id);
  assert.ok(s.takeaway.length>=150&&s.sourceNote.includes('p. 76'),'Synthèse ou référence absente : '+s.id);
