@@ -6,8 +6,11 @@ const MalikiFiqhView = {
         const activeTab = Vue.ref('cours');
         const glossarySearch = Vue.ref('');
         const answers = Vue.ref({});
-        const selectedLessonKey = Vue.ref('intro');
-        const lesson = Vue.computed(() => props.course?.[selectedLessonKey.value] || props.course?.intro);
+        const selectedLessonKey = Vue.ref(null);
+        const lesson = Vue.computed(() => selectedLessonKey.value ? (props.course?.[selectedLessonKey.value] || null) : null);
+        const catalogSearch = Vue.ref('');
+        const lastLessonKey = Vue.ref(null);
+        const scrollArea = Vue.ref(null);
         const lessonCatalog = [
             { key:'intro', name:'Découvrir l’ouvrage' },
             { key:'purification', name:'Kitâb al-Tahâra' },
@@ -27,6 +30,27 @@ const MalikiFiqhView = {
         const availableLessons = Vue.computed(() => lessonCatalog.filter(entry => props.course?.[entry.key]));
         const completed = Vue.ref(Object.fromEntries(lessonCatalog.map(entry => [entry.key,false])));
         const completedCount = Vue.computed(() => availableLessons.value.filter(entry => completed.value[entry.key]).length);
+        const completionPercent = Vue.computed(() => availableLessons.value.length ? Math.round(completedCount.value * 100 / availableLessons.value.length) : 0);
+        const totalSections = Vue.computed(() => availableLessons.value.reduce((total,entry) => total + (props.course?.[entry.key]?.sections?.length || 0),0));
+        const totalTerms = Vue.computed(() => availableLessons.value.reduce((total,entry) => total + (props.course?.[entry.key]?.lexicon?.length || 0),0));
+        const filteredLessons = Vue.computed(() => {
+            const search = normalize(catalogSearch.value);
+            if(!search) return availableLessons.value;
+            return availableLessons.value.filter(entry => {
+                const fiche = props.course?.[entry.key];
+                if(!fiche) return false;
+                return normalize([
+                    entry.name,fiche.title,fiche.subtitle,fiche.sourceSection,
+                    ...(fiche.sections || []).flatMap(section => [section.title,...(section.paragraphs || [])]),
+                    ...(fiche.lexicon || []).flatMap(term => [term.term,term.arabic,term.definition])
+                ].join(' ')).includes(search);
+            });
+        });
+        const lastLesson = Vue.computed(() => availableLessons.value.find(entry => entry.key === lastLessonKey.value) || null);
+        const nextLesson = Vue.computed(() => {
+            const index = availableLessons.value.findIndex(entry => entry.key === selectedLessonKey.value);
+            return index >= 0 ? availableLessons.value[index + 1] || null : null;
+        });
         const done = Vue.computed(() => !!completed.value[selectedLessonKey.value]);
         const storageKeyFor = key => storageKeys[key];
         const tabs = [
@@ -60,26 +84,81 @@ const MalikiFiqhView = {
         const selectLesson = key => {
             if (!lessonCatalog.some(entry => entry.key === key) || !props.course?.[key]) return;
             selectedLessonKey.value = key;
+            lastLessonKey.value = key;
             answers.value = {};
             glossarySearch.value = '';
             changeTab('cours');
-            Vue.nextTick(() => document.querySelector('.fiqh-m-scroll')?.scrollTo({top:0,behavior:'auto'}));
+            try { localStorage.setItem('athar_fiqh_maliki_last_lesson',key); } catch (_) {}
+            Vue.nextTick(() => { if(scrollArea.value) scrollArea.value.scrollTop = 0; window.lucide?.createIcons(); });
+        };
+        const handleBack = () => {
+            if(selectedLessonKey.value) {
+                selectedLessonKey.value = null;
+                answers.value = {};
+                Vue.nextTick(() => { if(scrollArea.value) scrollArea.value.scrollTop = 0; window.lucide?.createIcons(); });
+            } else if(typeof props.goHome === 'function') props.goHome();
         };
         Vue.onMounted(() => {
             try {
                 completed.value = Object.fromEntries(lessonCatalog.map(entry => [entry.key,localStorage.getItem(storageKeyFor(entry.key)) === '1']));
+                lastLessonKey.value = localStorage.getItem('athar_fiqh_maliki_last_lesson');
             } catch (_) { /* Le stockage local peut être désactivé. */ }
             Vue.nextTick(() => window.lucide?.createIcons());
         });
-        return { activeTab, glossarySearch, answers, done, completed, completedCount, availableLessons, selectedLessonKey, lesson, tabs, glossary, answerCount, correctCount, changeTab, selectAnswer, selectLesson, toggleDone };
+        return { activeTab, glossarySearch, catalogSearch, answers, done, completed, completedCount, completionPercent, totalSections, totalTerms, availableLessons, filteredLessons, lastLesson, nextLesson, selectedLessonKey, scrollArea, lesson, tabs, glossary, answerCount, correctCount, changeTab, selectAnswer, selectLesson, handleBack, toggleDone };
     },
     template: `
     <div class="fiqh-m-root" v-if="course && course.intro">
-        <div class="fiqh-m-scroll">
-            <div class="fiqh-m-wrap">
+        <div class="fiqh-m-scroll" ref="scrollArea">
+            <div v-if="!selectedLessonKey" class="fiqh-m-index">
+                <header class="fiqh-m-index-top">
+                    <button type="button" class="fiqh-m-index-back" @click="handleBack"><i data-lucide="arrow-left" aria-hidden="true"></i> Accueil</button>
+                    <div class="fiqh-m-index-brand"><span lang="ar" dir="rtl">الفقه المالكي</span><strong>Fiqh malikite</strong></div>
+                    <span class="fiqh-m-index-top-note">PARCOURS D'ÉTUDE</span>
+                </header>
+                <div class="fiqh-m-index-main">
+                    <section class="fiqh-m-index-hero" aria-labelledby="fiqh-m-index-heading">
+                        <div class="fiqh-m-index-hero-copy">
+                            <span class="fiqh-m-eyebrow">ÉTUDE DES TEXTES · ÉCOLE MALIKITE</span>
+                            <p class="fiqh-m-index-arabic" lang="ar" dir="rtl">مَوَاهِبُ الْجَلِيلِ</p>
+                            <h1 id="fiqh-m-index-heading">Fiqh malikite</h1>
+                            <p>Étudier progressivement le <em>Mawâhib al-Jalîl</em> d'al-Hattâb : comprendre les formulations de Khalîl, les explications du commentaire et les avis rapportés.</p>
+                            <div class="fiqh-m-index-stats">
+                                <span>{{ availableLessons.length }} fiches</span>
+                                <span>{{ totalSections }} parties</span>
+                                <span>{{ totalTerms }} notions de lexique</span>
+                            </div>
+                        </div>
+                        <div class="fiqh-m-index-progress">
+                            <div class="fiqh-m-index-ring" :style="{ '--fm-progress': completionPercent + '%' }" :aria-label="completionPercent + '% de fiches lues'"><strong>{{ completionPercent }}%</strong></div>
+                            <div><span>Progression locale</span><b>{{ completedCount }} fiche{{ completedCount > 1 ? 's' : '' }} lue{{ completedCount > 1 ? 's' : '' }} sur {{ availableLessons.length }}</b><p>Les données restent sur cet appareil.</p></div>
+                        </div>
+                    </section>
+
+                    <div class="fiqh-m-index-tools">
+                        <label class="fiqh-m-index-search"><i data-lucide="search" aria-hidden="true"></i><input v-model="catalogSearch" type="search" aria-label="Rechercher une fiche malikite" placeholder="Rechercher une fiche, une notion ou un sujet…"></label>
+                        <button v-if="lastLesson" type="button" class="fiqh-m-index-resume" @click="selectLesson(lastLesson.key)"><i data-lucide="history" aria-hidden="true"></i><span>Reprendre : {{ course[lastLesson.key].title }}</span></button>
+                    </div>
+
+                    <section v-if="filteredLessons.length" class="fiqh-m-index-grid" aria-label="Fiches de fiqh malikite">
+                        <article v-for="entry in filteredLessons" :key="entry.key" class="fiqh-m-catalog-card" :class="{ 'is-completed':completed[entry.key] }">
+                            <button type="button" class="fiqh-m-catalog-main" @click="selectLesson(entry.key)" :aria-label="'Lire la fiche ' + course[entry.key].number + ' : ' + course[entry.key].title">
+                                <div class="fiqh-m-catalog-number"><span>{{ course[entry.key].number }}</span><i v-if="completed[entry.key]" data-lucide="check-circle-2" aria-label="Fiche lue"></i></div>
+                                <small>{{ entry.key === 'intro' ? 'DÉCOUVRIR L’OUVRAGE' : 'KITÂB AL-TAHÂRA · PURIFICATION' }}</small>
+                                <h2>{{ course[entry.key].title }}</h2>
+                                <p>{{ course[entry.key].subtitle }}</p>
+                                <footer><span><i data-lucide="book-open" aria-hidden="true"></i> {{ course[entry.key].sections.length }} parties</span><strong>{{ completed[entry.key] ? 'Relire la fiche' : 'Lire la fiche' }} <i data-lucide="arrow-right" aria-hidden="true"></i></strong></footer>
+                            </button>
+                        </article>
+                    </section>
+                    <p v-else class="fiqh-m-index-empty" role="status">Aucune fiche ne correspond à votre recherche.</p>
+                    <p class="fiqh-m-index-disclaimer">Supports pédagogiques fondés sur des passages identifiés du commentaire. Les synthèses ne constituent pas des fatwas. <a :href="course.book.sourceUrl" rel="noopener noreferrer" target="_blank">Consulter le livre original</a>.</p>
+                </div>
+            </div>
+            <div v-else class="fiqh-m-wrap">
                 <header class="fiqh-m-top">
-                    <button class="fiqh-m-back" type="button" @click="goHome && goHome()" aria-label="Retour à l'accueil">
-                        <i data-lucide="arrow-left" aria-hidden="true"></i> Accueil
+                    <button class="fiqh-m-back" type="button" @click="handleBack" aria-label="Retour à toutes les fiches">
+                        <i data-lucide="arrow-left" aria-hidden="true"></i> Toutes les fiches
                     </button>
                     <span class="fiqh-m-top-title">Athar <span aria-hidden="true">/</span> Fiqh malikite</span>
                     <span class="fiqh-m-top-state"><span class="fiqh-m-small-dot"></span> Fiche {{ lesson.number }}</span>
@@ -181,6 +260,9 @@ const MalikiFiqhView = {
                                 </button>
                                 <button type="button" class="fiqh-m-text-action" @click="changeTab('lexique')">
                                     Revoir les termes <i data-lucide="arrow-right" aria-hidden="true"></i>
+                                </button>
+                                <button v-if="nextLesson" type="button" class="fiqh-m-text-action" @click="selectLesson(nextLesson.key)">
+                                    Fiche {{ course[nextLesson.key].number }} <i data-lucide="arrow-right" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
