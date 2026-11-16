@@ -258,7 +258,7 @@ for(const s of book.recommendedWater.sections) {
  assert.ok(s.takeaway.length>=170&&s.sourceNote.includes('t. 1'),'Synthèse ou référence trop courte : '+s.id);
 }
 assert.ok(book.recommendedWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Source de la formule initiale incorrecte');
-assert.ok(book.recommendedWater.sections[4].passage.sourceLabel.includes('al-Qarâfî'),'Analyse des deux causes mal attribuée');
+assert.ok(book.recommendedWater.sections[4].passage.sourceLabel.includes('Al-Qarâfî'),'Analyse des deux causes mal attribuée');
 assert.ok(book.recommendedWater.sections[6].passage.sourceLabel.includes('al-Tirâz'),'Propos d’al-Tirâz non attribués');
 assert.ok(book.recommendedWater.sections[7].passage.sourceLabel.includes('al-Hattâb'),'Conclusion personnelle d’al-Hattâb non attribuée');
 assert.equal(book.recommendedWater.lexicon.length,14,'Quatorze notions doivent être définies en fiche 08');
