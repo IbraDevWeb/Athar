@@ -4393,6 +4393,126 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "Al-Hattâb motive la réprobation par le risque habituel de souillures. Il ne dit pas que chaque bassin est prouvé impur : la distinction entre crainte, constat et altération doit être conservée.",
         "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. La mise en situation est un exemple pédagogique fictif."
+      },
+      {
+        "id": "certainty",
+        "eyebrow": "07 · Lorsque les impuretés ont effectivement été lavées",
+        "title": "Pourquoi al-Hattâb devient-il plus strict dans ce troisième cas ?",
+        "passage": {
+          "arabic": "وإن تحقق غسلهم النجاسة فيها وكثرته",
+          "translation": "« Et s’il est établi que des impuretés y ont été lavées à de nombreuses reprises… »",
+          "explanation": "Cette condition précède une conclusion plus sévère du commentateur : il indique alors qu’il n’est pas permis de faire les ablutions avec cette eau. Elle est différente d’une simple crainte de souillure.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, « فرع تغير الماء في البرك المعدة للوضوء ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Nous avons d’abord examiné l’eau modifiée, puis l’eau inchangée mais exposée aux contacts répétés. Al-Hattâb présente maintenant une situation où la présence de souillures n’est plus seulement redoutée : on sait qu’elles ont été lavées dans le bassin et que cela s’est produit à plusieurs reprises. Il faut garder les deux précisions, le caractère établi du fait et sa fréquence. Elles expliquent pourquoi le commentateur emploie ici des mots plus sévères que dans le cas précédent.",
+          "Une lecture sérieuse ne doit ni affaiblir ce jugement ni l’étendre à des situations qui ne correspondent pas aux conditions du texte. Savoir qu’une personne a lavé fréquemment une impureté dans une réserve commune n’est pas la même chose que supposer qu’un fidèle avait peut-être les mains sales. Les détails du passage sont des éléments juridiques, pas des ornements. C’est aussi pour cela que nous devons éviter de transformer ces exemples historiques en accusations envers les utilisateurs des bassins modernes."
+        ],
+        "steps": [
+          {
+            "label": "Le mot tahaqquq",
+            "text": "La formulation indique que le fait est établi. Elle se distingue de l’appréciation habituelle exprimée dans la phrase précédente."
+          },
+          {
+            "label": "Une répétition expressément mentionnée",
+            "text": "Le commentaire ajoute la fréquence des lavages d’impuretés. Il faut garder cette précision dans l’exposé du cas."
+          },
+          {
+            "label": "Un jugement plus sévère",
+            "text": "La suite du passage emploie la formule « لم يجز الوضوء منها », qui diffère du vocabulaire de la simple réprobation."
+          },
+          {
+            "label": "Ne pas supposer une certitude",
+            "text": "Un étudiant ne peut pas invoquer cette condition en la remplaçant par un soupçon portant sur un bassin qu’il ne connaît pas."
+          }
+        ],
+        "example": {
+          "title": "Un bassin où l’on enlève fréquemment des souillures",
+          "text": "Supposons que des personnes se servent régulièrement d’une réserve pour laver des matières effectivement impures. Cette situation est différente de celle où l’on redoute seulement qu’une main ait porté quelque chose de sale. Le commentaire formule un jugement adapté au fait connu et répété. Cette scène est fictive et ne dispense pas d’examiner la nature de l’eau et des matières dans une situation réelle."
+        },
+        "takeaway": "Le jugement plus sévère d’al-Hattâb est attaché au lavage d’impuretés effectivement établi et fréquent. Le présenter comme une règle sur un simple soupçon déformerait les conditions du texte.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 76. L’exemple est fictif et ne constitue pas un avis juridique personnalisé."
+      },
+      {
+        "id": "duration",
+        "eyebrow": "08 · Une précision sur la durée",
+        "title": "Pourquoi la conservation prolongée de l’eau compte-t-elle autant ?",
+        "passage": {
+          "arabic": "وهذا فيما تطول إقامة الماء فيه",
+          "translation": "« Cela concerne le cas où l’eau demeure longtemps dans le bassin. »",
+          "explanation": "Al-Hattâb situe son développement dans le cas d’une réserve dont la même eau n’est pas remplacée rapidement. Cette précision limite les situations directement comparables.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, « فرع تغير الماء في البرك المعدة للوضوء ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Après avoir décrit les circonstances de plusieurs jugements, al-Hattâb ajoute une précision qui éclaire l’ensemble de la question : la même eau demeure longtemps dans le bassin. Si les utilisateurs s’y succèdent sans que l’eau soit évacuée, les contacts et les matières éventuellement déposées peuvent s’accumuler. Nous comprenons ainsi pourquoi la durée de conservation fait partie de la réalité juridique étudiée et ne doit pas être reléguée à une simple remarque pratique.",
+          "Le commentaire n’indique aucun nombre d’heures qui ferait basculer automatiquement le statut de l’eau. Nous n’avons donc pas à inventer un délai puis à l’attribuer au savant. Ce qu’il nous demande de comprendre, c’est la différence entre une réserve qui garde longtemps la même eau et une installation où celle-ci est vidée et remplacée sans tarder. La phrase suivante sera précisément consacrée à cette seconde situation."
+        ],
+        "steps": [
+          {
+            "label": "La même eau reste en place",
+            "text": "L’auteur envisage les réserves où de nombreux usages se succèdent alors que l’eau demeure longtemps disponible."
+          },
+          {
+            "label": "Une condition qui éclaire les risques",
+            "text": "La durée rend plus compréhensible l’attention portée aux contacts répétés et aux souillures susceptibles de rester dans le bassin."
+          },
+          {
+            "label": "Aucun délai chiffré",
+            "text": "Ni un nombre d’heures ni une fréquence obligatoire de nettoyage ne sont donnés dans ce passage : il faut l’expliquer sans invention."
+          },
+          {
+            "label": "La phrase suivante complète celle-ci",
+            "text": "Al-Hattâb va opposer l’eau conservée longtemps à une réserve vidée puis remplie d’une autre eau. Les deux passages se lisent ensemble."
+          }
+        ],
+        "example": {
+          "title": "Deux réserves comparables en apparence",
+          "text": "Deux bassins ont la même taille et sont utilisés par un nombre comparable de personnes. Dans le premier, l’eau reste longtemps après les passages successifs. Dans le second, elle est régulièrement évacuée et remplacée. Le volume ne suffit donc pas à rendre leur fonctionnement identique. Cette comparaison ne propose aucune règle d’entretien chiffrée : elle aide à comprendre le critère donné par al-Hattâb."
+        },
+        "takeaway": "La durée de conservation de la même eau est une condition explicitement citée. Sans elle, nous risquons d’appliquer à un bassin rapidement renouvelé une analyse formulée pour une réserve où l’eau demeure longtemps.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 76. L’exemple est fictif et ne constitue pas un avis juridique personnalisé."
+      },
+      {
+        "id": "renewal",
+        "eyebrow": "09 · La nuance qui conclut le passage",
+        "title": "Pourquoi al-Hattâb atténue-t-il le jugement quand l’eau est rapidement remplacée ?",
+        "passage": {
+          "arabic": "وأما ما يفرغ بسرعة ويجدد له ماء آخر فأمره خفيف",
+          "translation": "« Quant au bassin que l’on vide rapidement et dans lequel on met une autre eau, sa situation est moins problématique. »",
+          "explanation": "Le commentateur oppose une réserve où l’eau demeure longtemps à une installation rapidement vidée et remplie d’eau nouvelle. Il conclut ensuite par « والله أعلم ».",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, « فرع تغير الماء في البرك المعدة للوضوء ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Al-Hattâb conclut son analyse avec une nuance importante. Les passages des mains et des pieds, la crainte de souillures et la durée de conservation ne se présentent pas de la même façon si l’eau est rapidement évacuée puis remplacée. Il explique donc que la situation est plus légère. Ce n’est pas un détail à ajouter à la fin du cours : c’est une condition qui permet de comprendre les réserves énoncées auparavant et de ne pas les généraliser sans discernement.",
+          "Attention cependant au sens de son expression. Dire que la situation est moins problématique ne revient pas à déclarer que toute eau remplacée est utilisable malgré une souillure réellement constatée. Al-Hattâb ne donne pas non plus de délai universel de vidange. Il décrit une différence de fonctionnement. Le dernier mot du passage, « Allah sait mieux », convient à cette manière de traiter une question de fiqh : exposer précisément ce que l’on sait, sans prétendre régler toutes les installations possibles."
+        ],
+        "steps": [
+          {
+            "label": "Une évacuation réelle",
+            "text": "La formule décrit une eau vidée rapidement du bassin. Il ne suffit pas de déplacer ou de remuer cette même eau."
+          },
+          {
+            "label": "Une eau nouvelle arrive",
+            "text": "Le remplacement par une autre eau est expressément mentionné. C’est la différence avec une réserve conservée longtemps."
+          },
+          {
+            "label": "Une difficulté atténuée",
+            "text": "L’expression « son affaire est légère » ne supprime pas les autres règles concernant une impureté établie ou un changement réel."
+          },
+          {
+            "label": "Une conclusion mesurée",
+            "text": "Al-Hattâb termine son propos en rappelant qu’Allah sait mieux. Nous devons garder la même retenue dans nos applications."
+          }
+        ],
+        "example": {
+          "title": "Une installation moderne : la question à poser avant de conclure",
+          "text": "Une personne voit une rangée de robinets dans une mosquée. Elle se souvient que certains bassins collectifs sont réprouvés et en déduit immédiatement que ces robinets le sont aussi. Il faut d’abord savoir si l’eau est partagée, si les utilisateurs touchent une même réserve et si elle est renouvelée. Le cas fictif montre que la méthode d’al-Hattâb demande d’examiner les faits avant de transposer un jugement."
+        },
+        "takeaway": "Le renouvellement rapide de l’eau atténue, dans le cas décrit, les raisons de réserve. Il faut préserver cette nuance finale, sans inventer de délais chiffrés ni prononcer une règle universelle sur les équipements modernes.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 76. L’exemple est fictif et ne constitue pas un avis juridique personnalisé."
       }
     ],
     "quote": {
