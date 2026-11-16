@@ -1456,7 +1456,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
           "Il faut toujours traiter le tissu comme une souillure."
         ],
         "answer": 0,
-        "explanation": "Le commentaire distingue la présence d’un objet et une modification réelle des caractères de l’eau."
+        "explanation": "Le commentaire distingue la présence d’un objet et une modification réelle des caractères de l’eau : un simple contact ne suffit pas à établir la perte de son pouvoir purifiant."
       },
       {
         "question": "Quel est l’avis présenté comme connu sur l’odeur ?",
