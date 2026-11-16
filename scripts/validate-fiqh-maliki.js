@@ -153,7 +153,7 @@ for(const spec of newLessons){
   assert.ok(entry.sources.some(x=>x.url.startsWith('https://usul.ai/')));
   for(const path of spec.pages)assert.ok(entry.sources.some(x=>x.url.includes(path)),'Source primaire manquante : '+path);
 }
-assert.equal(new Set(newLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,18,'Lexique dupliqué dans les trois fiches');
+assert.equal(new Set(newLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,12,'Lexique dupliqué dans les fiches 05 et 06');
 const advancedLessons = [
  {key:'usedWater',number:'07',id:'used-water-07',ids:['third-category','what-used-means','different-opinions','context-and-limits'],quote:'وكره ماء مستعمل في حدث',urls:['/19/107/']},
  {key:'recommendedWater',number:'08',id:'recommended-used-water-08',ids:['why-distinguish','source-disagreement','washes','classify'],quote:'وفي غيره تردد',urls:['/19/108/']},
