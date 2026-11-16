@@ -294,7 +294,7 @@ for(const s of book.flowingWater.sections){
  assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&s.passage.sourceLabel&&s.passage.sourceUrl?.startsWith('https://'),'Citation ou source manquante : '+s.id);
  assert.ok(s.steps.length===4&&s.steps.every(st=>st.label&&st.text.length>=110),'Étape pédagogique incomplète : '+s.id);
  assert.ok(s.example?.title&&s.example.text.length>=350,'Exemple absent : '+s.id);
- assert.ok(s.takeaway.length>=150&&s.sourceNote.includes('t. 1'),'Conclusion ou référence absente : '+s.id);
+ assert.ok(s.takeaway.length>=150&&(/t\. 1|tome 1/.test(s.sourceNote)),'Conclusion ou référence absente : '+s.id);
 }
 for(const s of book.flowingWater.sections.slice(0,6)) assert.ok(s.passage.sourceUrl.includes('/19/111/'),'Lien texte eau courante perdu');
 for(const s of book.flowingWater.sections.slice(6)) assert.ok(s.passage.sourceUrl.includes('/19/113/'),'Lien texte eau stagnante perdu');
