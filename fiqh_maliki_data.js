@@ -1065,127 +1065,417 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "water-changes-04",
     "number": "04",
     "status": "disponible",
-    "title": "L’eau modifiée : comment le fiqh analyse ses propriétés",
-    "subtitle": "Du nom d’eau à ses trois caractéristiques : comprendre comment Khalîl et al-Hattâb raisonnent sur le changement, avant d’en étudier les causes.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, discussion sur l’eau modifiée (Mawâhib al-Jalîl, t. 1, p. 59–60)",
+    "title": "L’eau modifiée — comprendre le changement et ses conséquences",
+    "subtitle": "Six lectures progressives du commentaire d’al-Hattâb : les trois propriétés de l’eau, la cause du changement, les mélanges, les avis connus dans l’école et la différence entre contact et altération.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « لا بمتغير » et remarques d’al-Hattâb, tome 1, p. 59–60",
+    "goals": [
+      "Expliquer pourquoi une couleur, un goût ou une odeur modifiés ne donnent pas automatiquement le même jugement dans toutes les situations.",
+      "Comprendre la formule de Khalîl sur une substance qui se sépare habituellement de l’eau et la distinguer de ce qui l’accompagne normalement.",
+      "Distinguer une eau encore pure mais non purifiante d’une eau modifiée par une impureté.",
+      "Lire les cas de l’huile et de la fumée aromatique sans confondre contact, voisinage et mélange.",
+      "Repérer un avis présenté comme connu dans le madhhab et ne pas transformer une opinion minoritaire sur les petits changements en règle générale.",
+      "Comprendre pourquoi un simple contact avec un objet propre, sans changement de l’eau, n’est pas traité comme un mélange qui en altère les qualités."
+    ],
     "sections": [
       {
-        "id": "transition",
-        "eyebrow": "01 · La question de droit",
-        "title": "Pourquoi la définition de l’eau mutlaq ne suffit-elle plus ?",
-        "paragraphs": [
-          "La fiche 03 présentait l’eau naturelle par sa provenance ou son passage de l’état solide à l’état liquide. Le texte de Khalîl aborde ensuite une autre question : que se passe-t-il lorsqu’une substance a modifié les caractéristiques sensibles de l’eau ? Le caractère purifiant ne se déduit donc pas de sa seule origine.",
-          "Dans son commentaire, al-Hattâb rattache la nouvelle formule au terme « بالمطلق » étudié précédemment. Il précise que le chapitre cherche à savoir si une eau reste utilisable pour lever l’état rituel ou supprimer une souillure. Cette fiche construit la grille d’analyse avant les cas concrets des fiches 05 et 06."
-        ],
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, explication de « لا بمتغير » en lien avec « بالمطلق »."
-      },
-      {
         "id": "properties",
-        "eyebrow": "02 · Les trois caractéristiques",
-        "title": "Couleur, goût et odeur : que faut-il examiner ?",
+        "eyebrow": "ÉTAPE 01 · OBSERVER AVANT DE JUGER",
+        "title": "Couleur, goût, odeur : pourquoi Khalîl mentionne-t-il exactement ces trois propriétés ?",
+        "passage": {
+          "arabic": "لونا أو طعما أو ريحا",
+          "translation": "« Une couleur, un goût ou une odeur. »",
+          "explanation": "Extrait de la formule condensée de Khalîl que commente al-Hattâb. Ce sont trois caractéristiques perceptibles dont le changement déclenche l’examen juridique ; la source de ce changement doit encore être identifiée.",
+          "sourceLabel": "Mukhtasar de Khalîl cité par al-Hattâb, t. 1, p. 59.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "La formule condensée de Khalîl mentionne explicitement la couleur (lawn), le goût (ta‘m) et l’odeur (rîh). Al-Hattâb explique qu’un changement de l’une de ces caractéristiques peut être juridiquement significatif. Il ne dit pas pour autant que toute coloration naturelle ou toute odeur, quelle qu’en soit la cause, retire automatiquement à une eau son pouvoir purifiant.",
-          "La démarche correcte comporte deux observations : relever si un changement est intervenu, puis identifier ce qui l’a produit. On évite ainsi de mettre sur le même plan la salinité naturelle de la mer, étudiée précédemment, et une substance étrangère ajoutée à l’eau."
+          "Dans la fiche précédente, tu as appris que l’eau de pluie, de mer et la neige fondue peuvent appartenir à la catégorie des eaux purifiantes. La nouvelle difficulté est différente. Nous avons maintenant un récipient qui contenait de l’eau et dont quelque chose semble avoir changé. Peut-on encore s’en servir pour le wudû’ ou le ghusl ? Khalîl commence par nommer trois propriétés : la couleur, le goût et l’odeur. Il ne dit pas simplement « une eau différente » : il invite à rechercher ce qui est réellement devenu différent. C’est la première observation que le lecteur doit apprendre à faire.",
+          "Pourquoi ces trois mots sont-ils importants ? Parce qu’une eau peut sembler limpide et sentir quelque chose, ou paraître légèrement teintée sans avoir reçu la même matière. Le commentaire ne donne pas à toutes ces situations une réponse identique. Al-Hattâb rattache la formule à la définition de l’eau mutlaq et explique que la règle porte sur une modification causée par une matière d’un certain type. Dans cette étape, retiens donc seulement la première question : quelle propriété a changé ? La deuxième question — qu’est-ce qui l’a changée ? — vient immédiatement après."
         ],
-        "sourceNote": "Mukhtasar de Khalîl reproduit dans Mawâhib al-Jalîl, t. 1, p. 59 : « لونا أو طعما أو ريحا » ; commentaire qui distingue la cause du changement."
+        "steps": [
+          {
+            "label": "« Lawn » : la couleur",
+            "text": "La couleur désigne l’aspect visible de l’eau. Si elle a pris une teinte après contact avec une matière, il faut rechercher la cause. Une eau naturellement différente par sa provenance et une eau teinte par une préparation ne forment pas automatiquement un seul cas."
+          },
+          {
+            "label": "« Ta‘m » : le goût",
+            "text": "Le goût entre dans les propriétés juridiques énumérées. Ce point ne constitue pas une consigne de goûter une eau suspecte ou potentiellement dangereuse : un raisonnement juridique sur une propriété ne remplace pas les règles de sécurité."
+          },
+          {
+            "label": "« Rîh » : l’odeur",
+            "text": "Une eau peut avoir absorbé un parfum, ou sentir naturellement son environnement. La mention de l’odeur invite à identifier une éventuelle transformation, et non à décréter que toute odeur particulière rend l’eau non purifiante."
+          },
+          {
+            "label": "La première question n’est pas le verdict final",
+            "text": "Avant d’affirmer « je peux faire mes ablutions » ou « je dois chercher une autre eau », il faut noter les faits : la propriété concernée, l’origine probable du changement et les conditions particulières décrites par l’auteur."
+          }
+        ],
+        "example": {
+          "title": "Exemple : trois verres d’eau",
+          "text": "Imagine trois verres : le premier a été teinté par un produit alimentaire, le second a absorbé l’odeur d’une préparation aromatique et le troisième contient une eau naturellement salée. Les trois peuvent présenter une caractéristique différente, mais le juriste ne les classera pas sans vérifier pourquoi. On ne te demande pas d’étudier un échantillon réel ici : cet exemple te montre pourquoi il serait faux d’appliquer une réponse unique à trois situations simplement parce qu’elles « ne ressemblent pas à l’eau du robinet »."
+        },
+        "takeaway": "Khalîl commence par les trois propriétés sensibles de l’eau. Al-Hattâb montre qu’une modification ne se comprend correctement qu’en recherchant aussi ce qui en est à l’origine : les mots « couleur », « goût » et « odeur » sont le début du raisonnement, pas toute sa conclusion.",
+        "sourceNote": "Source : Mawâhib al-Jalîl, t. 1, p. 59, début du commentaire de la formule de Khalîl sur l’eau modifiée. Exemples créés pour l’apprentissage."
       },
       {
-        "id": "cause",
-        "eyebrow": "03 · La cause du changement",
-        "title": "Que signifie « ce dont l’eau se sépare habituellement » ?",
+        "id": "separability",
+        "eyebrow": "ÉTAPE 02 · CE QUI ACCOMPAGNE L’EAU",
+        "title": "Quelle différence entre une substance ajoutée et ce qui accompagne habituellement l’eau ?",
+        "passage": {
+          "arabic": "بما يفارقه غالبا",
+          "translation": "« Par ce qui s’en sépare habituellement. »",
+          "explanation": "Cette précision est de Khalîl. Al-Hattâb la lit comme une condition : il faut examiner si la matière ayant changé l’eau est de celles dont l’eau se trouve généralement séparée.",
+          "sourceLabel": "Mukhtasar de Khalîl, expliqué par al-Hattâb, t. 1, p. 59.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Khalîl précise « بما يفارقه غالبا » : il vise ici une substance dont l’eau peut ordinairement être séparée. Al-Hattâb oppose cette situation à des éléments dont la présence accompagne habituellement l’eau ou dont il est difficile de l’isoler. Cette distinction empêche d’appliquer mécaniquement la règle de l’eau mélangée à toutes les transformations naturelles.",
-          "Ce critère n’autorise pas non plus à déclarer pure et purifiante n’importe quelle eau trouble. Il invite à examiner, pour chaque cas, la nature de l’élément responsable et la manière dont il a agi sur l’eau. Les détails de ces cas relèvent de la suite du chapitre."
+          "Supposons que tu rencontres une eau légèrement différente de l’eau filtrée que tu bois chez toi. Dois-tu la traiter comme si quelqu’un avait versé du jus dedans ? Pas nécessairement. Khalîl ajoute à sa règle les mots « par ce qui s’en sépare habituellement ». Al-Hattâb explique que l’on ne vise pas, sans nuance, tout ce qui existe naturellement autour de l’eau, mais une matière dont l’eau peut normalement être distincte. La question ne porte donc pas seulement sur la force de la couleur : elle porte sur le rapport habituel entre l’eau et la substance responsable.",
+          "Cette nuance est essentielle pour comprendre pourquoi les juristes peuvent distinguer l’influence du sol, du contenant ou de certains éléments difficilement évitables d’un ingrédient qui vient réellement modifier une eau autrement ordinaire. Le commentaire évoque aussi, à propos des récipients et de leur usage, des circonstances dont il est difficile de se préserver. Il ne faut pas comprendre « habituellement » comme un seuil chimique fixé en grammes ou en pourcentage : il s’agit d’une distinction de fiqh, ancrée dans la nature de la substance et les situations d’usage."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59–60, commentaire sur « بما يفارقه غالبا » et distinction avec « ما لا ينفك عنه غالبا »."
+        "steps": [
+          {
+            "label": "Le mot « yufâriquhu »",
+            "text": "Il vient de l’idée de séparation. Khalîl vise ici une matière dont la présence ne fait pas normalement partie de l’eau dans les circonstances examinées : elle peut être considérée distinctement d’elle."
+          },
+          {
+            "label": "Le mot « ghâliban »",
+            "text": "Il signifie « le plus souvent » ou « habituellement ». Le raisonnement n’exige pas une séparation absolue dans chaque lieu et chaque instant ; il demande quelle est la situation ordinaire."
+          },
+          {
+            "label": "Le cas d’une influence difficile à éviter",
+            "text": "Une eau au contact de son environnement n’est pas à assimiler sans examen à une eau volontairement additionnée d’un produit. Le texte réserve des discussions aux substances habituellement inséparables de certaines eaux."
+          },
+          {
+            "label": "Attention à la confusion avec la faible quantité",
+            "text": "Une substance peut être séparable mais présente en petite quantité. Ce n’est pas automatiquement la même question que celle d’un élément habituellement lié à l’eau. Le commentaire reviendra sur les changements légers : il faut garder ces débats distincts."
+          }
+        ],
+        "example": {
+          "title": "Exemple : eau de source et boisson parfumée",
+          "text": "Une personne rapporte une eau de source dont le goût reflète naturellement son milieu. Une autre ajoute volontairement une préparation aromatique dans un récipient d’eau jusqu’à modifier son odeur. Ces situations n’ont pas la même histoire. La première question consiste à comprendre ce qui accompagne normalement l’eau ; la seconde montre un ajout étranger qui la transforme. Cet exemple n’autorise pas à déclarer toute eau de source purifiante, quelle que soit sa composition : il sert uniquement à distinguer les causes."
+        },
+        "takeaway": "Le qualificatif « habituellement séparable » ne désigne pas toutes les matières présentes autour de l’eau. Il sert à différencier un changement provoqué par une substance étrangère des influences naturellement liées à certaines situations. Il faudra toujours tenir compte de la description précise de chaque eau.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59–60, commentaire de la condition posée par Khalîl et discussion des influences habituelles."
       },
       {
-        "id": "method",
-        "eyebrow": "04 · Démarche d’analyse",
-        "title": "Comment lire une règle générale sans en effacer les nuances ?",
+        "id": "two-judgements",
+        "eyebrow": "ÉTAPE 03 · PURE N’EST PAS TOUJOURS PURIFIANTE",
+        "title": "Pourquoi la nature de la substance change-t-elle le statut de l’eau ?",
+        "passage": {
+          "arabic": "وحكمه كمغيره",
+          "translation": "« Et son jugement est celui de ce qui l’a modifiée. »",
+          "explanation": "Formule de Khalîl expliquée par al-Hattâb : lorsque les conditions du changement visé sont réunies, le caractère pur ou impur de la matière responsable intervient dans le statut juridique de l’eau.",
+          "sourceLabel": "Mukhtasar de Khalîl repris et commenté par al-Hattâb, t. 1, p. 59.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Al-Hattâb expose plusieurs remarques complémentaires : la discussion sur un changement léger et celle sur l’origine de la substance ne se réduisent pas à une seule formule universelle. Il rapporte également des avis qu’il distingue de ce qui est connu dans l’école.",
-          "La méthode d’Athar consiste donc à garder séparés la formulation du Mukhtasar, l’explication d’al-Hattâb et les débats rapportés par celui-ci. Les fiches suivantes appliqueront ces critères à une substance pure, puis à une souillure ; la présente fiche n’est pas un diagnostic de pureté pour un échantillon réel."
+          "Al-Hattâb introduit ici une distinction fondamentale que beaucoup de lecteurs débutants manquent : une eau peut être pure sans être, dans le cas étudié, apte à accomplir la purification rituelle. Lorsqu’une matière pure mais normalement séparable transforme effectivement une caractéristique de l’eau de la manière envisagée par Khalîl, al-Hattâb indique que cette eau est pure, mais n’a plus la qualité purifiante. Le commentaire cite des exemples de matières pures comme le lait, le safran ou le vinaigre. Une eau devenue sensiblement teintée par du safran n’est donc pas assimilée simplement à une eau de pluie naturelle.",
+          "Si le changement résulte au contraire d’une substance impure, le commentateur fait entrer l’eau modifiée dans la catégorie de l’impureté. Il ne faut surtout pas confondre cela avec l’idée que la simple présence d’une substance quelconque suffirait : nous parlons bien du changement pertinent dans la règle exposée. Al-Hattâb distingue les usages ordinaires de l’eau et l’usage rituel, et c’est cette précision qui aide à comprendre les catégories « pure » et « purifiante ». La sécurité alimentaire est une autre question : une eau juridiquement pure n’est pas déclarée potable par le seul fait qu’elle n’est pas najis."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59–61, remarques sur le changement faible, les usages de l’école et les autres avis."
+        "steps": [
+          {
+            "label": "« Tâhir » : pure juridiquement",
+            "text": "Le liquide n’est pas traité comme une impureté en lui-même. C’est la qualification de pureté ; elle ne suffit pas toujours à affirmer que ce liquide permet les ablutions."
+          },
+          {
+            "label": "« Tahûr » : utilisable pour purifier rituellement",
+            "text": "Dans ce chapitre, cette qualité est distincte de la seule propreté. Une eau dont les caractères ont été transformés par une matière pure dans les conditions définies peut perdre la capacité de lever le hadath."
+          },
+          {
+            "label": "Ce que fait une substance impure",
+            "text": "Lorsque l’eau est effectivement changée par une impureté, le commentaire la classe différemment d’une eau transformée par une matière pure. On ne doit pas effacer la distinction entre ces deux causes."
+          },
+          {
+            "label": "Pourquoi l’expression « son jugement » doit être lue en contexte",
+            "text": "Khalîl renvoie à la matière qui a provoqué le changement. Cela ne veut pas dire qu’une eau prend toujours le statut de tout objet qui l’a simplement touchée ; les conditions de la modification font partie de la phrase étudiée."
+          }
+        ],
+        "example": {
+          "title": "Exemple : safran, eau ordinaire et souillure",
+          "text": "Prends deux situations hypothétiques. Dans l’une, une substance alimentaire pure, comme du safran, est mêlée à l’eau au point d’en modifier la couleur ; la règle examinée permet de comprendre comment elle peut rester pure tout en devenant non purifiante. Dans l’autre, une impureté identifiée a réellement modifié une propriété de l’eau : on ne parle plus de la même catégorie. Tu ne dois pas transposer ce contraste à une simple goutte sans effet constaté, car ce serait sortir des conditions dont nous parlons."
+        },
+        "takeaway": "Trois notions doivent rester séparées : être matériellement propre, être juridiquement pur et pouvoir servir à la purification rituelle. Al-Hattâb explique que, dans le changement décrit par Khalîl, la nature pure ou impure de la substance responsable détermine une conséquence différente.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, explication de la formule finale de Khalîl et exemples de lait, safran et vinaigre."
+      },
+      {
+        "id": "contact-mix",
+        "eyebrow": "ÉTAPE 04 · HUILE ET FUMÉE AROMATIQUE",
+        "title": "Comment distinguer un simple contact d’un véritable mélange ?",
+        "passage": {
+          "arabic": "والظاهر أنه مخالط",
+          "translation": "« Ce qui apparaît, c’est qu’il s’agit d’un mélange. »",
+          "explanation": "Ces mots sont rapportés par al-Hattâb depuis l’ouvrage al-Tawdîh au sujet d’une eau affectée par une fumée aromatique. Ils ne sont pas présentés comme une phrase inventée ou prononcée initialement par Khalîl.",
+          "sourceLabel": "Al-Tawdîh, cité par al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
+        "paragraphs": [
+          "Khalîl fournit deux exemples qui obligent à regarder de près le mécanisme du changement : l’huile qui se mélange réellement à l’eau et la fumée d’une résine aromatique appelée mastaki. Dans le premier cas, al-Hattâb indique clairement qu’il faut distinguer une huile réellement mêlée à l’eau de l’huile qui reste seulement à son contact ou à sa surface. Il rappelle que l’eau modifiée par un véritable mélange d’huile perd sa qualité purifiante dans le cadre étudié ; il ne faut pas transformer ce constat en affirmation sur toute goutte flottant sans effet sur l’eau.",
+          "Le deuxième exemple est plus délicat. Une substance aromatique peut diffuser une odeur à proximité de l’eau ; elle peut aussi laisser pénétrer des éléments dans l’eau ou dans le récipient. Al-Hattâb rapporte deux avis de juristes postérieurs qui divergent sur le classement du cas : simple voisinage ou véritable mélange. Le Tawdîh privilégie l’analyse du mélange, et al-Hattâb cite aussi la remarque d’al-Bisâtî sur un effet nettement perceptible. Nous voyons ainsi que les juristes ne disputent pas seulement le résultat : ils cherchent à identifier ce qui s’est réellement produit."
+        ],
+        "steps": [
+          {
+            "label": "Mukhâlata : la matière se mêle à l’eau",
+            "text": "Lorsqu’une substance se mélange réellement et change une propriété, la question de la perte du caractère purifiant devient centrale. Il faut éviter d’appeler « mélange » tout voisinage de deux matières."
+          },
+          {
+            "label": "Mujâwara : la matière reste voisine",
+            "text": "Une odeur peut être perçue près de l’eau sans que la situation soit identique à une substance mélangée. Les juristes rapportés par al-Hattâb discutent précisément de cette frontière."
+          },
+          {
+            "label": "Mastaki : un exemple historique, pas un parfum contemporain",
+            "text": "Le texte mentionne une résine employée comme encens. Il ne donne pas à lui seul le jugement de toutes les huiles essentielles, sprays, bougies ou parfums modernes : chaque préparation possède des caractéristiques propres."
+          },
+          {
+            "label": "Pourquoi l’avis rapporté doit être correctement attribué",
+            "text": "La phrase arabe de cette étape est citée par al-Hattâb depuis un autre commentaire, al-Tawdîh. On ne doit pas attribuer toutes les paroles du livre au commentateur lui-même ni présenter le désaccord comme une unanimité."
+          },
+          {
+            "label": "La nuance d’al-Bisâtî",
+            "text": "L’auteur rapporte qu’al-Bisâtî attache de l’importance à la visibilité ou la perception nette de l’effet dans son cas. Cette précision concerne la discussion sur la fumée aromatique et ne remplace pas la règle générale portant sur d’autres types de changements."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux récipients près d’un parfum",
+          "text": "Imagine un récipient ouvert posé dans une pièce parfumée, puis un autre dans lequel une substance huileuse est versée et réellement mélangée jusqu’à modifier l’eau. Dans le premier cas, il faut encore savoir si l’odeur vient seulement de l’air environnant ou si quelque chose a pénétré dans l’eau. Dans le second, la présence d’un mélange est beaucoup plus nette. Cette comparaison explique pourquoi la formule « l’eau sent le parfum » est insuffisante pour établir à elle seule le jugement juridique de n’importe quelle situation."
+        },
+        "takeaway": "L’huile réellement mélangée et la fumée aromatique montrent que l’on doit rechercher le mécanisme du changement. Al-Hattâb distingue le contact, le voisinage et le mélange, tout en rapportant clairement les avis divergents et les réserves des auteurs qu’il cite.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, exemples de l’huile et du mastaki, avis rapportés du Tawdîh et d’al-Bisâtî."
+      },
+      {
+        "id": "small-change",
+        "eyebrow": "ÉTAPE 05 · L’AVIS CONNU DANS LE MADHHAB",
+        "title": "Un changement très léger peut-il être ignoré ?",
+        "passage": {
+          "arabic": "وهذا هو المعروف في المذهب",
+          "translation": "« Et c’est ce qui est connu dans l’école. »",
+          "explanation": "Al-Hattâb emploie cette formule pour expliquer la portée de la règle lorsque l’une des propriétés de l’eau a été modifiée par une matière normalement séparable. Il évoque des avis permettant un changement minime mais ne les présente pas comme le jugement connu du madhhab.",
+          "sourceLabel": "Propos d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59–60.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
+        "paragraphs": [
+          "C’est probablement la partie la plus importante si tu veux apprendre le fiqh malikite à partir de ses références. Tu pourrais penser : « Si la couleur a à peine changé, cela ne compte sûrement pas. » Mais al-Hattâb explique que, dans le cas de la modification par une substance normalement séparable, la règle exposée par Khalîl s’applique au changement constaté, même faible, sous réserve de cas où le texte exige explicitement un changement net. Il qualifie cette position de « connue dans l’école ». Tu dois donc retenir la place doctrinale qu’il donne à cette règle, au lieu de créer toi-même un seuil de tolérance selon ton impression.",
+          "Le commentateur ne cache pas l’existence d’autres avis. Il rapporte qu’Ibn Farhûn et d’autres ont mentionné une tolérance pour certains changements légers. Il cite aussi Ibn Hârûn, qui conteste que cette indulgence soit la position connue du madhhab. Al-Hattâb intervient ensuite personnellement et considère que l’analyse d’Ibn Hârûn correspond à la manière de raisonner des juristes de son école. Il précise encore que certaines petites traces liées à des récipients ou à une présence difficilement évitable doivent plutôt être rapprochées de la catégorie « ce qui accompagne habituellement l’eau ». Cette dernière précision empêche de mélanger deux questions différentes."
+        ],
+        "steps": [
+          {
+            "label": "Une modification faible n’est pas automatiquement excusée",
+            "text": "Il faut distinguer une transformation réellement constatée, même modeste, et le simple doute sur l’existence d’une transformation. La fiche étudie un changement identifié, pas une inquiétude sans observation."
+          },
+          {
+            "label": "« Ma‘rûf fî al-madhhab » n’est pas une décoration",
+            "text": "En employant cette expression, al-Hattâb indique au lecteur le statut reconnu de l’avis dans les transmissions de l’école. Ce n’est pas une invitation à privilégier au hasard un avis lu ailleurs."
+          },
+          {
+            "label": "Les opinions rapportées ont un auteur",
+            "text": "Ibn Farhûn rapporte une indulgence dans certains cas ; Ibn Hârûn la conteste comme position courante de l’école. Al-Hattâb explique vers quelle analyse penche sa propre lecture. Ces attributions comptent autant que la règle finale."
+          },
+          {
+            "label": "Le type de substance reste décisif",
+            "text": "Si une trace provient de ce dont l’eau se trouve difficilement séparée dans un contexte donné, elle n’entre pas forcément dans la même discussion qu’une matière étrangère qui modifie effectivement l’eau."
+          },
+          {
+            "label": "Ne pas inventer un pourcentage de changement",
+            "text": "Aucune proportion moderne de « 1 % » ou « 5 % » n’est fixée par cette phrase. Les auteurs discutent de la nature et de la cause de la modification ainsi que des exceptions contextuelles, et non d’une règle numérique universelle."
+          }
+        ],
+        "example": {
+          "title": "Exemple : eau légèrement parfumée",
+          "text": "Une personne ajoute une préparation pure dans une eau au point que l’odeur soit réellement modifiée, mais très légèrement. Elle déclare : « C’est si discret que l’eau doit forcément rester purifiante. » Le passage d’al-Hattâb montre que ce raisonnement est trop rapide : dans le cadre de l’avis connu qu’il explique, le simple caractère faible du changement n’est pas nécessairement une excuse. Le problème serait différent si l’on ne sait même pas si un changement existe ou si la cause appartient aux éléments habituellement inséparables de l’eau."
+        },
+        "takeaway": "La lecture du madhhab ne se réduit pas à une impression de changement « important » ou « négligeable ». Al-Hattâb identifie l’avis connu, présente les autres transmissions et explique pourquoi la cause du changement reste une question indispensable.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59–60, premier tanbîh, transmission des positions d’Ibn Farhûn et d’Ibn Hârûn et commentaire personnel d’al-Hattâb."
+      },
+      {
+        "id": "unchanged",
+        "eyebrow": "ÉTAPE 06 · UN CONTACT N’EST PAS UNE TRANSFORMATION",
+        "title": "Que se passe-t-il lorsqu’un objet touche l’eau sans rien modifier ?",
+        "passage": {
+          "arabic": "تغير أحد أوصاف الماء",
+          "translation": "« Le changement de l’une des propriétés de l’eau. »",
+          "explanation": "Ces mots figurent dans la justification rapportée par al-Hattâb du critère de modification. L’auteur cite la Mudawwana et d’autres juristes pour distinguer le simple contact avec l’eau de la transformation qui affecte l’une de ses propriétés.",
+          "sourceLabel": "Formule citée dans le commentaire d’al-Hattâb, t. 1, p. 60.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
+        "paragraphs": [
+          "Terminons par un exemple beaucoup plus facile à visualiser. Al-Hattâb explique qu’une matière peut entrer en contact avec de l’eau sans qu’elle en modifie une caractéristique. Il évoque notamment un morceau de cuir ou un vêtement plongé dans l’eau puis retiré. Si l’eau demeure inchangée, ce seul contact n’entraîne pas automatiquement la perte de sa qualité purifiante dans la règle qu’il rapporte. Cette précision s’oppose à une manière trop mécanique de raisonner : « quelque chose est entré dans l’eau, donc elle n’est plus utilisable ». Le texte demande un changement pertinent et pas seulement une rencontre entre deux objets.",
+          "Le commentateur situe ce point dans l’avis connu de l’école et mentionne aussi une position plus stricte attribuée à Asbagh. Il aborde, dans une autre remarque, le rôle de l’odeur : prendre en compte un changement d’odeur est lui aussi présenté comme l’avis connu, bien que d’autres transmissions discutent sa portée. Voilà pourquoi la fiche ne doit pas conclure, à partir d’un simple contact, qu’il existe forcément un changement. Inversement, lorsque la propriété change effectivement, il faut appliquer les distinctions vues dans les cinq étapes précédentes."
+        ],
+        "steps": [
+          {
+            "label": "L’objet entre dans l’eau : ce n’est qu’un fait matériel",
+            "text": "On peut plonger quelque chose dans de l’eau, puis le retirer. Pour cette discussion, il faut se demander si une couleur, un goût ou une odeur a été modifié, en plus de vérifier la nature de l’objet."
+          },
+          {
+            "label": "Une eau inchangée reste une situation distincte",
+            "text": "Le commentaire cite des cas où l’on retire rapidement un objet sans modifier l’eau. La présence momentanée d’un objet propre ne suffit donc pas à classer l’eau comme non purifiante."
+          },
+          {
+            "label": "L’avis connu et la transmission d’Asbagh",
+            "text": "Al-Hattâb rapporte un avis plus strict concernant certains contacts, mais précise le caractère connu de la distinction fondée sur le changement. Le débutant ne doit pas rendre les deux positions indifférenciées."
+          },
+          {
+            "label": "L’odeur compte aussi selon l’avis connu",
+            "text": "Dans sa quatrième remarque, al-Hattâb explique que la prise en compte de l’odeur est le mashhûr. Il mentionne des désaccords attribués notamment à Ibn al-Mâjishûn, sans les présenter comme la conclusion commune de tous."
+          },
+          {
+            "label": "Construire une réponse en trois questions",
+            "text": "Demande-toi : qu’est-ce qui a touché l’eau ? Une propriété a-t-elle réellement changé ? La substance est-elle habituellement séparable et pure ou impure ? Avec ces trois questions, tu lis le texte sans sauter les étapes du raisonnement."
+          }
+        ],
+        "example": {
+          "title": "Exemple : un linge propre dans un récipient",
+          "text": "Supposons qu’un tissu propre soit brièvement plongé dans un récipient d’eau, puis retiré, et que l’eau reste sans changement constaté de couleur, de goût ou d’odeur. On ne peut pas déclarer l’eau inutilisable pour le seul motif qu’un tissu y est passé : c’est exactement l’erreur que cette distinction permet d’éviter. En revanche, si un colorant du tissu s’est dissous et a modifié l’eau, la situation n’est plus la même. Cet exemple sert à comprendre un critère de lecture et non à juger tous les produits textiles modernes."
+        },
+        "takeaway": "Le simple contact n’est pas la même chose qu’une altération de l’eau. Al-Hattâb rattache la perte de la qualité purifiante à des conditions précises, présente les avis connus et signale les divergences : l’étudiant doit restituer ces conditions avant de formuler une règle.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 60, troisième et quatrième tanbîh, exemples de cuir et de tissu, avis d’Asbagh et discussion du changement d’odeur."
       }
     ],
     "quote": {
       "arabic": "لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا",
-      "meaning": "Khalîl cite la couleur, le goût et l’odeur parmi les caractéristiques dont la modification doit être examinée. Le commentaire ajoute la question décisive de ce qui les a fait changer.",
-      "label": "Extrait du Mukhtasar de Khalîl, cité par al-Hattâb (t. 1, p. 59). Explication du sens, non traduction intégrale."
+      "meaning": "Khalîl nomme les trois caractéristiques sensibles qui ouvrent la discussion sur l’eau modifiée. Al-Hattâb explique ensuite que la cause du changement, la nature de ce qui a agi sur l’eau et le statut des opinions rapportées sont indispensables pour comprendre le jugement.",
+      "label": "Extrait du Mukhtasar de Khalîl cité dans Mawâhib al-Jalîl, t. 1, p. 59. Traduction de sens et commentaire pédagogique."
     },
     "lexicon": [
       {
         "arabic": "التَّغَيُّر",
         "term": "Taghayyur",
-        "definition": "Changement d’un état ou d’une caractéristique ; ici, modification des propriétés perceptibles de l’eau."
+        "definition": "Changement d’une caractéristique de l’eau. Dans cette leçon, il faut identifier ce qui a changé et ce qui a provoqué la modification."
       },
       {
         "arabic": "اللَّوْن",
         "term": "Lawn",
-        "definition": "La couleur : l’une des trois caractéristiques mentionnées dans le passage de Khalîl sur l’eau modifiée."
+        "definition": "Couleur : l’une des trois propriétés mentionnées par Khalîl, dont l’altération doit être analysée avec sa cause."
       },
       {
         "arabic": "الطَّعْم",
         "term": "Ta‘m",
-        "definition": "Le goût : une autre caractéristique prise en compte par le raisonnement juridique présenté dans le chapitre."
+        "definition": "Goût : propriété examinée par les juristes, sans que l’enseignement invite à goûter une eau potentiellement dangereuse."
       },
       {
         "arabic": "الرِّيح",
         "term": "Rîh",
-        "definition": "L’odeur : troisième caractéristique citée, dont l’effet juridique dépend de la nature et de la cause du changement."
+        "definition": "Odeur : propriété prise en compte dans l’avis connu du madhhab présenté par al-Hattâb, malgré des opinions historiques différentes."
       },
       {
         "arabic": "بِمَا يُفَارِقُهُ غَالِبًا",
         "term": "Bimâ yufâriquhu ghâliban",
-        "definition": "Formule de Khalîl visant une substance dont l’eau se sépare habituellement ; elle introduit une distinction technique."
+        "definition": "Formule signifiant « par ce qui s’en sépare habituellement », opposée aux influences normalement liées à l’eau."
       },
       {
         "arabic": "الطَّهُورِيَّة",
         "term": "Tahûriyya",
-        "definition": "Qualité juridiquement purifiante : ce n’est pas exactement la même chose que l’absence de saleté apparente."
+        "definition": "Capacité juridique purifiante de l’eau : elle ne se confond pas avec son caractère simplement pur ou son apparence propre."
+      },
+      {
+        "arabic": "طَاهِرٌ غَيْرُ مُطَهِّر",
+        "term": "Tâhir ghayr mutahhir",
+        "definition": "Pur mais non purifiant : distinction employée quand une matière pure a modifié l’eau dans les conditions précisées."
+      },
+      {
+        "arabic": "مُخَالَطَة",
+        "term": "Mukhâlata",
+        "definition": "Mélange ou incorporation réelle d’une substance à l’eau, à différencier d’un simple contact ou voisinage."
+      },
+      {
+        "arabic": "مُجَاوَرَة",
+        "term": "Mujâwara",
+        "definition": "Voisinage d’une substance avec l’eau, discuté notamment dans les exemples d’odeurs ou de fumées aromatiques."
+      },
+      {
+        "arabic": "الْمَشْهُور",
+        "term": "Mashhûr",
+        "definition": "Avis présenté comme connu dans la transmission du madhhab. Sa mention ne signifie ni unanimité automatique ni absence d’autres avis."
       }
     ],
     "quiz": [
       {
-        "question": "Quels caractères de l’eau sont explicitement nommés par Khalîl ?",
+        "question": "Quelles propriétés Khalîl cite-t-il dans le passage étudié ?",
         "choices": [
-          "La température, le volume et le récipient.",
+          "La hauteur, le poids et la température.",
           "La couleur, le goût et l’odeur.",
-          "La provenance, la profondeur et la vitesse."
+          "La vitesse, la profondeur et la provenance."
         ],
         "answer": 1,
-        "explanation": "Le passage énumère lawn, ta‘m et rîh, puis précise la nature de ce qui provoque le changement."
+        "explanation": "La formule arabe désigne la couleur, le goût et l’odeur. Le changement doit ensuite être relié à sa cause."
       },
       {
-        "question": "Pourquoi ne suffit-il pas de remarquer une odeur différente ?",
+        "question": "Pourquoi la formule « ce qui s’en sépare habituellement » est-elle décisive ?",
         "choices": [
-          "Parce qu’une odeur ne peut jamais compter.",
-          "Parce qu’il faut aussi examiner la cause et le type de modification.",
-          "Parce que toutes les eaux ont nécessairement la même odeur."
-        ],
-        "answer": 1,
-        "explanation": "Al-Hattâb distingue notamment les changements liés à ce qui accompagne l’eau de ceux provoqués par une substance séparable."
-      },
-      {
-        "question": "Quelle formule renvoie à la substance dont l’eau se sépare habituellement ?",
-        "choices": [
-          "بما يفارقه غالبا",
-          "وإن جمع من ندى",
-          "أو ذاب بعد جموده"
+          "Elle distingue les matières étrangères des influences normalement liées à l’eau.",
+          "Elle fixe un seuil légal de dix millilitres.",
+          "Elle signifie que toute eau de rivière est interdite."
         ],
         "answer": 0,
-        "explanation": "La précision « bimâ yufâriquhu ghâliban » est essentielle à l’analyse du passage sur l’eau modifiée."
+        "explanation": "La condition ne concerne pas seulement le degré de changement, mais la nature de la substance qui l’a provoqué."
+      },
+      {
+        "question": "Que devient, dans le cas discuté, une eau modifiée par une substance pure normalement séparable ?",
+        "choices": [
+          "Toujours impure, même sans autre élément.",
+          "Toujours purifiante parce que le mélange est pur.",
+          "Pure mais non purifiante lorsque les conditions de modification sont réunies."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb distingue la pureté de la qualité purifiante lorsqu’une matière pure transforme l’eau de la manière visée."
+      },
+      {
+        "question": "Que signifie « son jugement est celui de ce qui l’a modifiée » ?",
+        "choices": [
+          "Tout objet qui touche l’eau impose son statut même sans changement.",
+          "La nature pure ou impure de la matière responsable intervient dans le statut de l’eau effectivement modifiée.",
+          "L’eau devient toujours potable."
+        ],
+        "answer": 1,
+        "explanation": "Khalîl parle d’un changement qualifié ; il ne donne pas une règle universelle sur chaque simple contact."
+      },
+      {
+        "question": "Quelle différence le texte souligne-t-il entre mélange d’huile et simple voisinage ?",
+        "choices": [
+          "Le mélange implique une incorporation réelle ; un contact ou un voisinage ne sont pas automatiquement identiques.",
+          "Une huile ne peut jamais toucher de l’eau.",
+          "La différence dépend uniquement de la forme du récipient."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb discute précisément des mécanismes de contact et de mélange, notamment avec l’huile et les fumées aromatiques."
+      },
+      {
+        "question": "Quel est le statut de l’indulgence générale pour un changement léger selon la lecture d’al-Hattâb ?",
+        "choices": [
+          "Elle est un consensus incontesté de l’école.",
+          "Il est impossible de repérer la position du commentateur.",
+          "Il rapporte cette indulgence, mais ne la présente pas comme la position connue du madhhab pour le cas général."
+        ],
+        "answer": 2,
+        "explanation": "Le premier tanbîh distingue les opinions rapportées et l’analyse qu’al-Hattâb attribue aux juristes de son école."
+      },
+      {
+        "question": "Si un linge propre touche l’eau sans changer ses caractéristiques, quelle leçon tirer ?",
+        "choices": [
+          "Le simple contact ne suffit pas à démontrer la perte de la qualité purifiante.",
+          "Toutes les eaux touchées par un tissu sont impures.",
+          "Il faut toujours traiter le tissu comme une souillure."
+        ],
+        "answer": 0,
+        "explanation": "Le commentaire distingue la présence d’un objet et une modification réelle des caractères de l’eau."
+      },
+      {
+        "question": "Quel est l’avis présenté comme connu sur l’odeur ?",
+        "choices": [
+          "Le changement d’odeur n’a jamais aucune portée.",
+          "L’odeur fait partie des propriétés prises en compte, même si d’autres opinions historiques sont rapportées.",
+          "La seule odeur de la mer est toujours interdite."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb précise que la prise en compte du changement d’odeur est le mashhûr tout en mentionnant des divergences."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage arabe et table des matières",
+        "label": "Usul — ouvrage original de Mawâhib al-Jalîl",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 59–61, formule et commentaires",
+        "label": "Islamweb — al-Hattâb, tome 1, p. 59–60, règle et six remarques expliquées",
         "url": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
       }
     ]
