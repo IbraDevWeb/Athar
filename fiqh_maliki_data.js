@@ -6012,85 +6012,299 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     ],
     "quote": {
       "arabic": "لَا إِنْ عَسُرَ الِاحْتِرَازُ مِنْهُ أَوْ كَانَ طَعَامًا",
-      "meaning": "Khalîl marque une exception pour les animaux qu’il est difficile d’éviter ou pour certains cas concernant les aliments. Al-Hattâb en explique la portée et rapporte plusieurs avis.",
-      "label": "Extrait du Mukhtasar de Khalîl reproduit par al-Hattâb, t. 1, p. 78 — explication contextualisée."
+      "meaning": "Khalîl marque deux exceptions au jugement précédemment examiné : lorsque l’animal est difficile à éviter, comme le chat dans une habitation, et dans la discussion du reste d’un aliment. Al-Hattâb rapporte le hadith du chat, l’avis célèbre de la Mudawwana et plusieurs avis divergents. La simple suspicion doit rester distincte de la présence certaine d’une souillure.",
+      "label": "Paroles de Khalîl dans le Mukhtasar, citées et expliquées par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78."
     },
     "lexicon": [
       {
         "arabic": "السُّؤْر",
         "term": "Su’r",
-        "definition": "Reste d’eau ou de liquide après qu’une personne ou un animal a bu dans un récipient."
+        "definition": "Reste d’eau ou d’aliment après que quelqu’un y a bu. Ce mot désigne ce qui demeure dans le récipient, et non une qualité d’impureté attachée à une personne ou à un animal."
       },
       {
         "arabic": "الِاحْتِرَاز",
         "term": "Ihtirâz",
-        "definition": "Action de se prémunir ou d’éviter un contact ; la difficulté de l’évitement compte ici."
+        "definition": "Précaution qui consiste à éviter un contact ou à s’en prémunir. Khalîl tient compte de la difficulté réelle d’éviter certains animaux qui circulent dans les maisons."
       },
       {
         "arabic": "الْهِرَّة",
         "term": "Hirra",
-        "definition": "Chatte ou chat, cité comme exemple d’animal vivant à proximité fréquente des habitants."
+        "definition": "Chat, cité par al-Hattâb à propos du hadith transmis dans le Muwatta’. Sa proximité habituelle avec les habitants n’est pas, à elle seule, une souillure établie."
       },
       {
         "arabic": "الشَّكّ",
         "term": "Shakk",
-        "definition": "Doute : situation où la présence d’une souillure n’est pas établie, distincte de sa constatation."
+        "definition": "Doute portant ici sur l’éventuelle présence d’une souillure. Le commentaire le distingue de la pureté attestée et d’une contamination réellement constatée."
       },
       {
         "arabic": "الطَّهَارَة",
         "term": "Tahâra",
-        "definition": "Pureté au sens juridique ; le commentaire examine notamment si elle reste présumée dans un cas incertain."
+        "definition": "État de pureté juridique. Ibn Rushd est cité pour le maintien de la qualification initiale de pureté lorsque la contamination n’est pas établie."
       },
       {
-        "arabic": "الإِسْرَاف",
+        "arabic": "الْإِسْرَاف",
         "term": "Isrâf",
-        "definition": "Gaspillage ou excès, notion évoquée à propos de l’eau et des aliments écartés sans justification suffisante."
+        "definition": "Excès ou gaspillage. Les auteurs discutent son rapport avec l’usage de l’eau et avec le fait d’écarter une eau suspecte, sans confondre tous les contextes."
+      },
+      {
+        "arabic": "الْمَاءُ الْيَسِير",
+        "term": "Mâ’ yasîr",
+        "definition": "Petite quantité d’eau, comparable dans le commentaire à un récipient pour le wudû’ ou le ghusl. La qualification examinée dépend aussi de l’existence d’une alternative."
+      },
+      {
+        "arabic": "الْفَم",
+        "term": "Famm",
+        "definition": "Bouche, dont le contact avec l’eau est en cause dans le su’r. Al-Hattâb distingue la propreté connue de la bouche du soupçon qu’une souillure s’y trouve."
+      },
+      {
+        "arabic": "الْيَد",
+        "term": "Yad",
+        "definition": "Main, mentionnée par Khalîl lorsque quelqu’un l’introduit dans l’eau. Le commentaire précise que la propreté réelle du membre est essentielle au jugement."
+      },
+      {
+        "arabic": "تَوَقِّي النَّجَاسَة",
+        "term": "Tawaqqî al-najâsa",
+        "definition": "Fait de se préserver des impuretés. Les juristes parlent d’animaux qui ne le font pas habituellement, sans en conclure que toute eau touchée est forcément altérée."
+      },
+      {
+        "arabic": "عُسْرُ الِاحْتِرَاز",
+        "term": "‘Usr al-ihtirâz",
+        "definition": "Difficulté concrète d’éviter le passage d’un animal. Elle explique une exception au jugement de réprobation, notamment dans le cas des chats vivant auprès des habitants."
+      },
+      {
+        "arabic": "الطَّوَّافُون",
+        "term": "Tawwâfûn",
+        "definition": "Ceux qui circulent continuellement. Le hadith du chat emploie cette expression ; al-Nawawî et al-Khattâbî en discutent la formulation et le sens."
+      },
+      {
+        "arabic": "الْمُوَطَّأ",
+        "term": "Muwatta’",
+        "definition": "Ouvrage de l’imam Mâlik dans lequel al-Hattâb situe la transmission du hadith du chat, au chapitre consacré à l’eau de la purification."
+      },
+      {
+        "arabic": "الطَّعَام",
+        "term": "Ta‘âm",
+        "definition": "Nourriture, distinguée dans le passage de la petite quantité d’eau en cas de simple soupçon. La distinction ne supprime pas le jugement d’une souillure avérée."
+      },
+      {
+        "arabic": "الْأَصْل",
+        "term": "Al-asl",
+        "definition": "État initial ou principe de départ. Dans la divergence rapportée, Ibn Rushd privilégie la pureté initiale jusqu’à ce qu’une contamination soit démontrée."
+      },
+      {
+        "arabic": "الْمَشْهُور",
+        "term": "Mashhûr",
+        "definition": "Avis présenté comme célèbre dans l’école malikite. Al-Hattâb l’emploie pour une qualification de réprobation et pour la distinction entre eau et nourriture."
+      },
+      {
+        "arabic": "طَرْحُ الْمَاء",
+        "term": "Tarh al-mâ’",
+        "definition": "Fait d’écarter ou de verser l’eau. Les auteurs discutent quand une eau suspecte peut être laissée de côté et comment distinguer cela du gaspillage sans motif."
+      },
+      {
+        "arabic": "حُرْمَةُ الطَّعَام",
+        "term": "Hurmat al-ta‘âm",
+        "definition": "Valeur particulière accordée à la nourriture lorsqu’on envisage de la jeter. Ibn Farhûn invoque cette différence pour expliquer le traitement distinct de l’eau."
+      },
+      {
+        "arabic": "كَرَاهَةُ التَّنْزِيه",
+        "term": "Karâhat al-tanzîh",
+        "definition": "Réprobation n’équivalant pas à une interdiction absolue. Al-Nawawî est cité au sujet du degré d’interdiction ou de réprobation de l’excès d’eau."
+      },
+      {
+        "arabic": "اخْتِلَافُ الْأَقْوَال",
+        "term": "Ikhtilâf al-aqwâl",
+        "definition": "Divergence entre plusieurs avis. Al-Hattâb présente expressément trois analyses du doute concernant l’eau et l’aliment, et les relie à leurs arguments."
       }
     ],
     "quiz": [
       {
-        "question": "Quel est le sens technique du mot su’r dans cette fiche ?",
+        "question": "Dans cette fiche, que désigne le mot su’r ?",
         "choices": [
-          "Une substance ajoutée à l’eau pour la parfumer.",
-          "Le reste d’eau après qu’une personne ou un animal a bu.",
-          "Une eau uniquement issue de la fonte de la neige."
-        ],
-        "answer": 1,
-        "explanation": "Le su’r désigne ici l’eau restante dans le récipient à la suite d’un contact de boisson."
-      },
-      {
-        "question": "Que précise al-Hattâb si la pureté de la main et de la bouche a été établie ?",
-        "choices": [
-          "L’eau doit malgré tout être obligatoirement jetée.",
-          "Il faut toujours effectuer le tayammum.",
-          "L’usage de l’eau évoquée n’est pas réprouvé pour ce seul motif."
-        ],
-        "answer": 2,
-        "explanation": "Le commentaire distingue le risque supposé du cas où la pureté des parties en contact est connue."
-      },
-      {
-        "question": "Pourquoi le chat est-il évoqué dans l’exception de Khalîl ?",
-        "choices": [
-          "Parce que sa proximité habituelle rend son évitement difficile.",
-          "Parce que tout animal souille nécessairement l’eau.",
-          "Parce que l’usage de l’eau n’est jamais conditionné."
+          "Le reste dans un récipient après un contact de boisson.",
+          "Une substance impure par nature.",
+          "Un puits utilisé exclusivement pour le ghusl."
         ],
         "answer": 0,
-        "explanation": "Al-Hattâb cite la difficulté de l’évitement et le hadith relatif à la présence habituelle des chats."
+        "explanation": "Le su’r concerne ce qui reste après avoir bu. Les juristes examinent le contact avec la bouche et la possibilité d’une souillure ; le terme ne signifie pas automatiquement que le reste est impur."
+      },
+      {
+        "question": "Dans quelles conditions al-Hattâb évoque-t-il une réprobation selon le mashhûr ?",
+        "choices": [
+          "Pour toute eau partagée, sans exception.",
+          "Pour une petite quantité d’eau présentant le doute décrit, lorsqu’une autre eau existe.",
+          "Pour une grande rivière dont aucune propriété n’a changé."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb parle d’une petite eau comparable à un récipient de purification et précise que la réprobation suppose une alternative. Il indique qu’à défaut d’une autre eau, celle-ci est utilisée dans le cas discuté."
+      },
+      {
+        "question": "Quelle distinction al-Hattâb rapporte-t-il entre Ibn al-Hâjib et d’autres juristes ?",
+        "choices": [
+          "Ibn al-Hâjib interdit tous les aliments.",
+          "Ibn al-Jallâb refuse l’existence du su’r.",
+          "Ibn al-Hâjib ne formule pas expressément la karâha ici, tandis que d’autres la formulent."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb nomme Ibn al-Jallâb, l’auteur du Talqîn et celui du Bayân comme exprimant la réprobation. Il ne dit pas qu’Ibn al-Hâjib aurait nécessairement affirmé l’avis opposé."
+      },
+      {
+        "question": "Pourquoi Ibn al-Imâm est-il cité à propos du buveur de vin ?",
+        "choices": [
+          "Pour distinguer une habitude de consommation d’un acte isolé.",
+          "Pour déclarer toute personne matériellement impure.",
+          "Pour remplacer la question du su’r par celle de l’héritage."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb rapporte sa précision sur la répétition de la consommation. La discussion concerne le risque de contact avec une souillure, jamais la valeur ou l’identité de la personne."
+      },
+      {
+        "question": "Quel jugement est rapporté du Bayân lorsque la bouche et la main sont connues pour être propres ?",
+        "choices": [
+          "L’eau doit être jetée par principe.",
+          "Elle peut être utilisée sans réprobation pour ce motif.",
+          "Le fait de boire rend la bouche impure pour toujours."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb attribue au Bayân et à d’autres la disparition de la réprobation lorsque la propreté des membres est établie. Il mentionne également cette précision dans le Tawdîh."
+      },
+      {
+        "question": "Pourquoi Khalîl prévoit-il une exception pour certains animaux ?",
+        "choices": [
+          "Parce que leur proximité est souvent difficile à éviter.",
+          "Parce que leur contact rend toute nourriture automatiquement impure.",
+          "Parce qu’ils ne peuvent jamais transporter de souillures."
+        ],
+        "answer": 0,
+        "explanation": "Le texte évoque la difficulté d’éviter les animaux qui circulent habituellement dans les espaces de vie, comme le chat. Une souillure réellement constatée reste une situation différente."
+      },
+      {
+        "question": "Quelle transmission al-Hattâb cite-t-il à propos du chat ?",
+        "choices": [
+          "Un propos d’Ibn Rushd uniquement.",
+          "Le hadith disant que le chat n’est pas impur et circule parmi les habitants, transmis par Mâlik.",
+          "Une règle énoncée par Ibn Nâjî sur l’eau de mer."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb cite le hadith prophétique « الهرة ليست بنجس » et situe sa transmission dans le Muwatta’ de Mâlik, tout en signalant une variante formulée par al-Tirmidhî."
+      },
+      {
+        "question": "Que relève al-Nawawî dans les versions du hadith du chat ?",
+        "choices": [
+          "Une différence entre « ou » et « et », dont il explique le sens.",
+          "L’absence totale de transmission du hadith.",
+          "Une obligation de laver systématiquement tous les récipients touchés par le chat."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb rapporte qu’al-Nawawî discute la conjonction entre les deux formes du terme et considère que les deux catégories sont visées, conformément aux versions qui emploient « et »."
+      },
+      {
+        "question": "Quelle précaution faut-il prendre en rapportant les lectures d’al-Khattâbî ?",
+        "choices": [
+          "Ne rapporter que la deuxième sans ses réserves.",
+          "Attribuer les deux interprétations à Khalîl.",
+          "Mentionner les deux, ainsi que la difficulté de la deuxième à expliquer directement la non-impureté."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb transmet deux interprétations attribuées à al-Khattâbî. La deuxième, centrée sur le fait de demander de l’aide, paraît moins adaptée à la première partie du hadith sur la pureté du chat."
+      },
+      {
+        "question": "À quelle source al-Hattâb rattache-t-il la différence entre eau et nourriture ?",
+        "choices": [
+          "Aux seuls usages contemporains.",
+          "Au mashhûr et à la Mudawwana.",
+          "À une affirmation que toute nourriture demeure saine."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb relie cette distinction à l’avis célèbre et à la Mudawwana. Elle concerne les situations de doute étudiées, et non une permission d’utiliser un aliment réellement souillé."
+      },
+      {
+        "question": "Dans l’exemple des animaux cité de la Mudawwana, quelle circonstance change le jugement ?",
+        "choices": [
+          "Une souillure visible sur la bouche au moment où l’animal boit.",
+          "Le simple fait qu’il existe des poules dans le quartier.",
+          "Le changement de propriétaire du récipient."
+        ],
+        "answer": 0,
+        "explanation": "La Mudawwana mentionne que la nourriture n’est pas écartée pour le seul passage des animaux décrits, sauf si une souillure est effectivement sur leur bouche au moment du contact."
+      },
+      {
+        "question": "Combien d’avis al-Hattâb présente-t-il explicitement dans cette question ?",
+        "choices": [
+          "Un seul, sans divergence.",
+          "Deux, sans distinction entre les aliments.",
+          "Trois, avec des façons différentes de traiter la suspicion."
+        ],
+        "answer": 2,
+        "explanation": "Le commentateur annonce « وفي المسألة ثلاثة أقوال » : présomption d’impureté pour les deux contenus, présomption de pureté pour les deux, ou distinction entre eau et nourriture."
+      },
+      {
+        "question": "Quelle position al-Hattâb attribue-t-il au choix d’Ibn Rushd ?",
+        "choices": [
+          "Conserver la pureté initiale tant que la souillure n’est pas établie.",
+          "Écarter systématiquement tous les aliments.",
+          "Tenir pour certain que tout chat transporte une impureté."
+        ],
+        "answer": 0,
+        "explanation": "Dans le deuxième des trois avis, on maintient la pureté par référence à l’état initial. Al-Hattâb précise qu’Ibn Rushd a choisi ce raisonnement."
+      },
+      {
+        "question": "Que retient le troisième avis, qualifié de mashhûr dans le passage ?",
+        "choices": [
+          "Jeter systématiquement eau et nourriture.",
+          "Écarter l’eau suspecte mais non la nourriture dans le cas envisagé.",
+          "N’utiliser que l’eau ayant été touchée par une main."
+        ],
+        "answer": 1,
+        "explanation": "Le troisième avis distingue les deux contenus dans la situation de doute discutée. Il ne dispense pas d’examiner une matière impure réellement établie au contact de la nourriture."
+      },
+      {
+        "question": "Comment Ibn Farhûn explique-t-il le traitement différent de l’eau ?",
+        "choices": [
+          "Il donne une mesure universelle en litres.",
+          "Il refuse la moindre distinction entre eau et nourriture.",
+          "Il rappelle que la nourriture possède une considération particulière lorsqu’on envisage de la jeter."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb rapporte cette explication d’Ibn Farhûn au sein de la discussion du mashhûr. Elle concerne le motif permettant d’écarter une eau suspecte plutôt que de jeter un aliment sur le seul doute."
+      },
+      {
+        "question": "Que discute le Sâhib al-Jam‘ après ces justifications ?",
+        "choices": [
+          "La différence entre écarter une eau pour une raison et la jeter sans motif.",
+          "Le nombre exact d’animaux dans une maison.",
+          "Le calendrier des ablutions quotidiennes."
+        ],
+        "answer": 0,
+        "explanation": "Le Sâhib al-Jam‘ soulève une difficulté avec les propos d’Abû Muhammad sur l’excès. Le contexte permet d’examiner si une autorisation de verser l’eau doit être liée à une cause réelle."
+      },
+      {
+        "question": "Quelle conciliation al-Hattâb rapporte-t-il d’Ibn Nâjî ?",
+        "choices": [
+          "Toutes les formes de gaspillage sont obligatoires.",
+          "L’excès pendant une purification cultuelle et le fait de verser de l’eau hors de ce cadre ne sont pas traités de façon identique dans son analyse.",
+          "Tout doute rend l’eau forcément impure."
+        ],
+        "answer": 1,
+        "explanation": "Ibn Nâjî explique que les propos ne portent pas sur le même contexte et al-Hattâb mentionne l’accord d’al-Barzalî. Il cite également al-Nawawî sur l’excès en eau, même au bord de la mer."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage arabe Mawâhib al-Jalîl",
-        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
-      },
-      {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 77, définition et cas du su’r",
+        "label": "Islamweb — al-Hattâb, Mawâhib al-Jalîl, tome 1, page 77, définition du su’r, réprobation et avis du Bayân",
         "url": "https://www.islamweb.net/amp/ar/library/content/19/117/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
       },
       {
-        "label": "Islamweb — t. 1, p. 78, exception du chat et distinction avec les aliments",
-        "url": "https://www.islamweb.net/amp/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+        "label": "Islamweb — al-Hattâb, tome 1, page 78, hadith du chat, trois avis et discussion du gaspillage",
+        "url": "https://www.islamweb.net/ar/library/content/19/118/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D8%BA%D8%B3%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%B6-%D9%82%D8%A8%D9%84-%D8%BA%D8%B3%D9%84-%D8%A7%D9%84%D8%A3%D8%B0%D9%89"
+      },
+      {
+        "label": "Usul — texte arabe et notice de Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — ad-Dardîr avec Hâshiyat ad-Dasûqî, explications complémentaires sur le su’r",
+        "url": "https://islamweb.net/ar/library/content/13/24/%D8%A8%D8%A7%D8%A8-%D8%A3%D8%AD%D9%83%D9%8E%D8%A7%D9%85-%D8%A7%D9%84%D8%B7%D9%91%D9%8E%D9%87%D9%8E%D8%A7%D8%B1%D9%8E%D8%A9"
       }
     ],
     "goals": [
