@@ -116,7 +116,7 @@ const MalikiFiqhView = {
                     <div class="fiqh-m-index-brand"><span lang="ar" dir="rtl">الفقه المالكي</span><strong>Fiqh malikite</strong></div>
                     <span class="fiqh-m-index-top-note">PARCOURS D'ÉTUDE</span>
                 </header>
-                <main class="fiqh-m-index-main">
+                <div class="fiqh-m-index-main">
                     <section class="fiqh-m-index-hero" aria-labelledby="fiqh-m-index-heading">
                         <div class="fiqh-m-index-hero-copy">
                             <span class="fiqh-m-eyebrow">ÉTUDE DES TEXTES · ÉCOLE MALIKITE</span>
@@ -153,7 +153,7 @@ const MalikiFiqhView = {
                     </section>
                     <p v-else class="fiqh-m-index-empty" role="status">Aucune fiche ne correspond à votre recherche.</p>
                     <p class="fiqh-m-index-disclaimer">Supports pédagogiques fondés sur des passages identifiés du commentaire. Les synthèses ne constituent pas des fatwas. <a :href="course.book.sourceUrl" rel="noopener noreferrer" target="_blank">Consulter le livre original</a>.</p>
-                </main>
+                </div>
             </div>
             <div v-else class="fiqh-m-wrap">
                 <header class="fiqh-m-top">
