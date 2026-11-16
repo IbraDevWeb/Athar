@@ -17,7 +17,10 @@ const MalikiFiqhView = {
             { key:'naturalWaters', name:'Les eaux naturelles' },
             { key:'waterChanges', name:'L’eau modifiée' },
             { key:'pureMixtures', name:'Les mélanges purs' },
-            { key:'impureContact', name:'L’eau et l’impureté' }
+            { key:'impureContact', name:'L’eau et l’impureté' },
+            { key:'usedWater', name:'L’eau déjà utilisée' },
+            { key:'recommendedWater', name:'L’eau des actes recommandés' },
+            { key:'flowingWater', name:'Eau courante et stagnante' }
         ];
         const storageKeys = {
             intro:'athar_fiqh_maliki_intro_01_done',
@@ -25,7 +28,10 @@ const MalikiFiqhView = {
             naturalWaters:'athar_fiqh_maliki_eaux_03_done',
             waterChanges:'athar_fiqh_maliki_eaux_04_done',
             pureMixtures:'athar_fiqh_maliki_eaux_05_done',
-            impureContact:'athar_fiqh_maliki_eaux_06_done'
+            impureContact:'athar_fiqh_maliki_eaux_06_done',
+            usedWater:'athar_fiqh_maliki_eaux_07_done',
+            recommendedWater:'athar_fiqh_maliki_eaux_08_done',
+            flowingWater:'athar_fiqh_maliki_eaux_09_done'
         };
         const availableLessons = Vue.computed(() => lessonCatalog.filter(entry => props.course?.[entry.key]));
         const completed = Vue.ref(Object.fromEntries(lessonCatalog.map(entry => [entry.key,false])));
@@ -172,7 +178,10 @@ const MalikiFiqhView = {
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'naturalWaters'">Découvrir <em>les eaux naturelles.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'waterChanges'">Comprendre <em>l’eau modifiée.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'pureMixtures'">Étudier <em>les mélanges purs.</em></h1>
-                    <h1 id="fiqh-m-heading" v-else>Étudier <em>l’eau et l’impureté.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'impureContact'">Étudier <em>l’eau et l’impureté.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'usedWater'">Comprendre <em>l’eau déjà utilisée.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'recommendedWater'">Étudier <em>les usages recommandés.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else>Comprendre <em>l’eau courante et stagnante.</em></h1>
                     <p class="fiqh-m-lead">{{ lesson.subtitle }}</p>
                     <div class="fiqh-m-hero-meta">
                         <span><i data-lucide="book-open" aria-hidden="true"></i> {{ course.book.authorArabic }}</span>
@@ -199,7 +208,7 @@ const MalikiFiqhView = {
                         </button>
                         <p class="fiqh-m-aside-label fiqh-m-aside-gap">ENSUITE, PROGRESSIVEMENT</p>
                         <div class="fiqh-m-coming">
-                            <span class="fiqh-m-coming-num">07</span>
+                            <span class="fiqh-m-coming-num">10</span>
                             <div>
                                 <span>{{ course.nextChapter.title }}</span>
                                 <small>{{ course.nextChapter.status }}</small>
