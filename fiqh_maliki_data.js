@@ -6548,6 +6548,206 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "Al-Hattâb maintient la différence technique entre fabrication alléguée et faiblesse de la transmission. Il ne présente jamais le récit comme un hadith authentique : aucune conclusion médicale ne doit non plus être déduite de son seul contenu.",
         "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+      },
+      {
+        "id": "copper-regions",
+        "eyebrow": "ÉTAPE 06 · LECTURE DU COMMENTAIRE",
+        "title": "Que précise Ibn al-‘Arabî sur les récipients et les pays chauds ?",
+        "passage": {
+          "arabic": "لو شمس في أواني الصفر في البلاد الحارة",
+          "translation": "« Si l’eau a été exposée au soleil dans des récipients de cuivre jaune, dans les pays chauds. »",
+          "explanation": "Al-Hattâb cite Ibn al-Imâm rapportant une restriction d’Ibn al-‘Arabî : la réprobation envisagée n’est pas nécessairement attachée à toute eau chauffée au soleil, mais à un contexte historique précis.",
+          "sourceLabel": "Ibn al-‘Arabî, al-Masâlik, transmis par Ibn al-Imâm et cité par al-Hattâb, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Le commentaire devient plus précis lorsqu’Ibn al-Imâm transmet des propos d’Ibn al-‘Arabî. L’inquiétude évoquée ne concerne plus toute eau qui a reçu la chaleur du soleil. Elle se rattache à certains récipients de cuivre jaune, utilisés dans des pays chauds. Les auteurs anciens pensaient que le chauffage d’un tel contenant pouvait entraîner un effet sur le corps. Ce sont les circonstances dans lesquelles ils plaçaient leur réserve, et il faut conserver cette restriction lorsqu’on rapporte leur avis.",
+          "Rien dans la seule existence de cette transmission ne prouve aujourd’hui la maladie à laquelle ils faisaient référence. Nous étudions la logique du fiqh et l’histoire de sa discussion, non une démonstration clinique. Il serait erroné de transformer le mot « mushammas » en une interdiction générale des bouteilles laissées au soleil, de l’eau des rivières et de toutes les installations réchauffées naturellement. Le matériau et le climat étaient des éléments de l’hypothèse rapportée, pas des seuils modernes de danger."
+        ],
+        "steps": [
+          {
+            "label": "« Awanî al-sufr » indique un matériau particulier",
+            "text": "Il s’agit ici des récipients de cuivre jaune auxquels la transmission rattache une inquiétude ancienne."
+          },
+          {
+            "label": "Les « pays chauds » font partie de la condition",
+            "text": "L’auteur ne formule pas une réserve sans contexte climatique ; il restreint ce qu’il rapporte."
+          },
+          {
+            "label": "Une hypothèse médicale demeure une hypothèse",
+            "text": "Même lorsqu’une inquiétude apparaît dans plusieurs ouvrages anciens, il faut la distinguer d’une relation causale médicalement établie."
+          },
+          {
+            "label": "Ne pas élargir le cas sans preuve",
+            "text": "L’eau d’un récipient particulier et une grande étendue d’eau naturellement chauffée ne peuvent pas être confondues."
+          }
+        ],
+        "example": {
+          "title": "Une situation pour comprendre l’avis",
+          "text": "Un étudiant compare une eau restée au soleil dans un récipient de cuivre jaune, celle d’une jarre en terre et celle d’un lac. Il applique la même réserve aux trois sans lire les conditions d’Ibn al-‘Arabî. Son professeur lui montre que le texte évoque expressément un matériau et un pays chaud. Cette comparaison est pédagogique ; elle n’établit aucun risque sanitaire propre à l’un des trois contenants."
+        },
+        "takeaway": "Ibn al-Imâm cite Ibn al-‘Arabî pour restreindre la discussion à certaines conditions matérielles. Al-Hattâb retient l’importance de cette restriction, sans fournir de preuve médicale contemporaine d’un effet pathologique.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
+      },
+      {
+        "id": "conditional-harm",
+        "eyebrow": "ÉTAPE 07 · LECTURE DU COMMENTAIRE",
+        "title": "Pourquoi la preuve d’un dommage change-t-elle le raisonnement juridique ?",
+        "passage": {
+          "arabic": "والحق أن التجربة إن قضت بضرر استعماله فالقول بالكراهة ظاهر",
+          "translation": "« Si l’expérience établit un préjudice lié à son usage, alors la réprobation devient compréhensible. »",
+          "explanation": "Le passage pose une condition : la réalité du dommage doit être établie. Il ne dit pas que les hypothèses médicales exposées précédemment ont été prouvées.",
+          "sourceLabel": "Argument cité dans la discussion d’Ibn al-Imâm et d’Ibn al-‘Arabî, rapportée par al-Hattâb, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Le raisonnement juridique devient alors conditionnel. Un auteur cité dans le passage explique que si l’expérience établissait un dommage lié à cet usage, il serait naturel de recommander de s’en abstenir. Il ne faut pas retirer le « si » de la phrase. Ce n’est pas une preuve que l’eau chauffée par le soleil provoque la maladie alléguée, mais une manière de raisonner sur les actes lorsqu’un préjudice est effectivement connu. L’étudiant doit distinguer le principe juridique et la réalité des faits auxquels il pourrait être appliqué.",
+          "Le commentaire poursuit en distinguant les dommages rares des conséquences qui seraient habituellement à craindre. Cette nuance explique pourquoi les juristes ne donnent pas toujours le même poids à une possibilité lointaine et à un risque réellement établi. Mais dans le sujet précis de notre fiche, nous n’avons pas le droit d’annoncer que les exemples médicaux anciens sont confirmés. Nous pouvons seulement expliquer qu’une vraie preuve de danger serait pertinente pour apprécier l’usage, même si l’eau demeurait rituellement purifiante."
+        ],
+        "steps": [
+          {
+            "label": "Le raisonnement est introduit par une condition",
+            "text": "L’auteur dit « si l’expérience établit ». Cette précision ne peut pas être remplacée par une certitude imaginée."
+          },
+          {
+            "label": "Le dommage concerne l’usage, pas une impureté",
+            "text": "Une eau peut rester pure au sens rituel tout en soulevant, dans certaines circonstances vérifiées, une question de sécurité."
+          },
+          {
+            "label": "La fréquence du dommage importe",
+            "text": "Le passage distingue les risques occasionnels de ceux qui auraient une probabilité importante, sans donner de chiffres."
+          },
+          {
+            "label": "Il faut vérifier le fait avant d’appliquer le principe",
+            "text": "La présence d’un argument dans un commentaire de fiqh ne remplace pas une recherche médicale destinée à établir le danger."
+          }
+        ],
+        "example": {
+          "title": "Une situation pour comprendre l’avis",
+          "text": "Une personne lit « si l’expérience prouve un dommage » et répète ensuite : « Les juristes ont démontré que l’eau chauffée au soleil est dangereuse. » En reprenant l’arabe, elle découvre que la proposition est conditionnelle. C’est une règle de prudence appliquée à un dommage éventuel, pas la preuve de ce dommage. L’exemple est fictif et ne constitue pas un avis médical sur un récipient particulier."
+        },
+        "takeaway": "Le commentaire reconnaît la pertinence d’un dommage effectivement établi pour le jugement de l’usage. Il ne prouve pas, par la seule formulation de ce principe, que les affirmations médicales historiques mentionnées dans la discussion soient exactes.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
+      },
+      {
+        "id": "nawawi-hadith",
+        "eyebrow": "ÉTAPE 08 · LECTURE DU COMMENTAIRE",
+        "title": "Comment al-Nawawî examine-t-il les arguments transmis ?",
+        "passage": {
+          "arabic": "فالصواب الجزم بأنه لا كراهة فيه",
+          "translation": "« Ce qui est correct est d’affirmer qu’il n’y a pas de réprobation. »",
+          "explanation": "Al-Hattâb cite al-Nawawî après sa critique des transmissions sur l’eau chauffée au soleil. Al-Nawawî y rejette les chaînes faibles et l’idée que l’argument médical aurait été établi dans ce qu’il expose.",
+          "sourceLabel": "Al-Nawawî, Sharh al-Muhadhdhab, propos rapportés par al-Hattâb, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Al-Hattâb nous fait ensuite lire un passage d’al-Nawawî dans le Sharh al-Muhadhdhab. Ce dernier discute les récits invoqués pour réprouver l’eau chauffée par le soleil et souligne leur faiblesse. Il mentionne que les voies transmises ont été examinées, notamment par al-Bayhaqî, sans qu’une preuve prophétique solide en ressorte. Il exprime alors la préférence de ne pas retenir de réprobation particulière. Sa conclusion appartient à son raisonnement dans cet ouvrage et ne doit pas être attribuée à Ibn al-Hâjib ou à al-Hattâb.",
+          "Al-Nawawî indique aussi que, dans les éléments qu’il examine, la justification médicale ne lui paraît pas établie. Ce jugement historique doit être présenté comme son appréciation, non comme une expertise moderne tranchant définitivement la question du contenu de tous les récipients. Pour notre étude, son argument central est la critique de la preuve avancée. Cette manière de juger nous oblige à ne pas construire une règle religieuse ferme sur un récit dont la faiblesse a été explicitement signalée."
+        ],
+        "steps": [
+          {
+            "label": "Al-Nawawî est cité depuis un ouvrage déterminé",
+            "text": "La formulation vient du Sharh al-Muhadhdhab ; elle ne décrit pas nécessairement toute sa production sans comparaison."
+          },
+          {
+            "label": "Les chaînes du récit sont discutées",
+            "text": "Le commentaire rapporte la faiblesse des voies de transmission et le travail d’al-Bayhaqî sur ces récits."
+          },
+          {
+            "label": "La conclusion est celle d’al-Nawawî dans ce passage",
+            "text": "Il affirme que la réprobation n’a pas de fondement établi dans les arguments qu’il présente."
+          },
+          {
+            "label": "Ce n’est pas une validation médicale contemporaine",
+            "text": "La discussion historique des preuves ne doit pas être transformée en un diagnostic de santé applicable à tout récipient."
+          }
+        ],
+        "example": {
+          "title": "Une situation pour comprendre l’avis",
+          "text": "Un élève lit une opinion ancienne attribuant une maladie à une eau chauffée par le soleil. Il cherche un dalîl prophétique sûr, puis découvre chez al-Nawawî une critique des voies du récit. Il comprend pourquoi un savant peut préférer ne pas retenir de réprobation particulière. La scène est inventée pour expliquer l’enchaînement de l’argument, sans établir le statut d’une eau rencontrée dans la vie quotidienne."
+        },
+        "takeaway": "Dans le passage cité du Sharh al-Muhadhdhab, al-Nawawî rejette les preuves avancées et préfère affirmer l’absence de réprobation. Son argument repose notamment sur l’examen des récits, pas sur la prétention qu’une hypothèse ancienne aurait été scientifiquement vérifiée.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
+      },
+      {
+        "id": "nawawi-disagreement",
+        "eyebrow": "ÉTAPE 09 · LECTURE DU COMMENTAIRE",
+        "title": "Pourquoi al-Hattâb relève-t-il deux formulations différentes chez al-Nawawî ?",
+        "passage": {
+          "arabic": "وقد جزم النووي في منهاجه بكراهة المشمس",
+          "translation": "« Pourtant, al-Nawawî a affirmé la réprobation de l’eau chauffée au soleil dans son Minhâj. »",
+          "explanation": "Après la citation d’al-Nawawî dans le Sharh al-Muhadhdhab, al-Hattâb remarque que ce même auteur a retenu une formulation différente dans le Minhâj. Il rapporte également les objections d’autres auteurs shaféites à son raisonnement médical.",
+          "sourceLabel": "Al-Hattâb, remarque personnelle, t. 1, p. 79 ; renvoi au Minhâj d’al-Nawawî et aux explications de certains shaféites, dont Ibn al-Nafîs.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Cette remarque fait apparaître le soin qu’al-Hattâb apporte à ses citations. Il vient de reproduire un passage dans lequel al-Nawawî conclut à l’absence de réprobation. Puis il ajoute que, dans le Minhâj, al-Nawawî a formulé la question dans le sens de la réprobation. Il ne faut donc pas choisir silencieusement l’une de ces deux phrases et affirmer qu’elle résume tout ce qu’al-Nawawî a écrit. Le commentaire nous apprend à comparer les ouvrages d’un même savant lorsqu’ils ne sont pas formulés de la même manière.",
+          "Al-Hattâb rapporte ensuite que des auteurs shaféites, notamment Ibn al-Nafîs dans un commentaire médicalement argumenté, ont soutenu la thèse du dommage supposé. Il s’agit de conceptions médicales historiquement situées. La mention d’Ibn al-Nafîs montre quelle autorité ces arguments possédaient alors, mais elle ne constitue pas une preuve contemporaine que l’eau solaire provoque le baras. Nous devons restituer la divergence sans la résoudre en inventant un consensus doctrinal ou médical."
+        ],
+        "steps": [
+          {
+            "label": "Une même autorité peut être citée dans plusieurs livres",
+            "text": "Al-Hattâb oppose ici le Sharh al-Muhadhdhab et le Minhâj, sans supposer qu’une citation suffit à effacer l’autre."
+          },
+          {
+            "label": "Le débat dépasse l’école malikite",
+            "text": "Les auteurs shaféites sont mentionnés pour leurs raisons et leurs divergences, non pour décider à la place des malikites."
+          },
+          {
+            "label": "Ibn al-Nafîs intervient comme autorité ancienne",
+            "text": "Son argument est rapporté comme un raisonnement médical de son époque, et non comme une donnée clinique confirmée ici."
+          },
+          {
+            "label": "L’attribution précise est essentielle",
+            "text": "L’étudiant doit identifier qui parle, dans quel livre et au sujet de quelle condition avant de retenir une conclusion."
+          }
+        ],
+        "example": {
+          "title": "Une situation pour comprendre l’avis",
+          "text": "Deux personnes citent al-Nawawî. La première lui attribue l’absence de réprobation en s’appuyant sur le Sharh al-Muhadhdhab ; la seconde mentionne le Minhâj. Elles croient nécessairement que l’une ment. En lisant al-Hattâb, elles constatent que les deux formulations ont été rapportées et demandent une explication. Ce dialogue fictif illustre le rôle d’un commentaire attentif aux références."
+        },
+        "takeaway": "Al-Hattâb souligne des formulations différentes chez al-Nawawî et cite les discussions d’autres auteurs shaféites. Le cours doit conserver cette complexité, sans présenter un avis isolé comme la seule position connue du savant.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
+      },
+      {
+        "id": "hattab-conclusion",
+        "eyebrow": "ÉTAPE 10 · LECTURE DU COMMENTAIRE",
+        "title": "Quelle position al-Hattâb estime-t-il forte, et à quelles conditions ?",
+        "passage": {
+          "arabic": "والحاصل أن القول بكراهة المشمس قوي",
+          "translation": "« En définitive, l’avis qui réprouve l’eau chauffée au soleil est fort. »",
+          "explanation": "Après avoir cité les arguments favorables et défavorables à la réprobation, al-Hattâb indique qu’elle est fortement représentée dans les transmissions. Il la restreint néanmoins, en rappelant les conditions de récipient et de climat évoquées par Ibn al-Imâm et Ibn al-‘Arabî.",
+          "sourceLabel": "Al-Hattâb, conclusion personnelle de l’examen des avis, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Nous arrivons à la préférence explicite d’al-Hattâb. Il explique qu’après comparaison des auteurs qu’il a consultés, l’avis selon lequel l’eau chauffée par le soleil fait l’objet d’une réprobation lui paraît fort. Il mentionne la transmission d’Ibn al-Faras d’après Mâlik et l’existence de plusieurs maîtres ayant retenu une réserve. Ce passage est important pour comprendre son rôle : il ne se contente pas de recopier la phrase de Khalîl et l’explication d’Ibn al-Hâjib. Il met les avis en regard et dit ce qui lui paraît le plus solide dans la documentation de l’école.",
+          "Mais il ajoute aussitôt que cette réprobation devrait être limitée aux conditions évoquées par Ibn al-Imâm et Ibn al-‘Arabî : des récipients particuliers et des régions chaudes. Il ne formule pas ici une affirmation générale selon laquelle toute eau réchauffée par la lumière serait mauvaise pour la santé. Sa conclusion doit également être lue avec la faiblesse du récit prophétique invoqué et avec l’absence de preuve médicale contemporaine dans cette étude. La portée de l’avis est donc bien plus précise qu’une formule isolée."
+        ],
+        "steps": [
+          {
+            "label": "« Wal-hâsil » annonce une synthèse",
+            "text": "C’est al-Hattâb lui-même qui résume l’examen des transmissions, après avoir exposé plusieurs positions."
+          },
+          {
+            "label": "« Qawî » n’est pas « ijmâ‘ »",
+            "text": "Dire qu’un avis est fort ne signifie pas qu’il existe une unanimité. L’auteur vient justement de rapporter un désaccord."
+          },
+          {
+            "label": "Une restriction matérielle suit",
+            "text": "Le commentateur revient au matériau du récipient et au climat. Omettre cette condition changerait le sens pratique de sa synthèse."
+          },
+          {
+            "label": "L’authenticité du hadith reste une question distincte",
+            "text": "La force d’une transmission doctrinale n’autorise pas à qualifier soudain un récit faible d’authentique."
+          }
+        ],
+        "example": {
+          "title": "Une situation pour comprendre l’avis",
+          "text": "Un lecteur découvre seulement la phrase « l’avis de réprobation est fort » et la transmet comme si elle visait toute eau en contact avec le soleil. Son enseignant lui fait lire la suite : al-Hattâb précise le cas des récipients de cuivre jaune dans les pays chauds. L’élève corrige alors son résumé. Cette scène fictive rappelle pourquoi la dernière phrase d’un commentaire doit être lue avec toutes ses conditions."
+        },
+        "takeaway": "Al-Hattâb estime que la réprobation est fortement transmise dans la littérature examinée, mais en propose une restriction précise. Il ne faut ni effacer cette préférence ni la transformer en une interdiction universelle de l’eau chauffée au soleil.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
       }
     ],
     "quote": {
