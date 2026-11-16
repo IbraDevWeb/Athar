@@ -6748,6 +6748,206 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "Al-Hattâb estime que la réprobation est fortement transmise dans la littérature examinée, mais en propose une restriction précise. Il ne faut ni effacer cette préférence ni la transformer en une interdiction universelle de l’eau chauffée au soleil.",
         "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
+      },
+      {
+        "id": "ibn-al-furat",
+        "eyebrow": "ÉTAPE 11 · LECTURE DU COMMENTAIRE",
+        "title": "Pourquoi Ibn al-Furât propose-t-il une lecture différente de Khalîl ?",
+        "passage": {
+          "arabic": "وجوز ابن الفرات أن يكون التشبيه في قول المصنف كمشمس راجعا إلى ما قبله من المكروهات",
+          "translation": "« Ibn al-Furât a envisagé que la comparaison “comme l’eau chauffée au soleil” se rattache aux choses réprouvées mentionnées auparavant. »",
+          "explanation": "Al-Hattâb conserve la proposition grammaticale d’Ibn al-Furât, mais répond que ce que Khalîl écrit dans le Tawdîh va plutôt dans l’autre sens.",
+          "sourceLabel": "Ibn al-Furât, interprétation rapportée puis discutée par al-Hattâb, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Après la comparaison des avis, al-Hattâb revient à une difficulté que nous avions rencontrée en ouvrant la leçon : comment faut-il rattacher le mot « كمشمس » dans la phrase de Khalîl ? Ibn al-Furât propose qu’il renvoie aux eaux réprouvées mentionnées précédemment. La phrase pourrait alors donner l’impression que Khalîl range lui-même l’eau chauffée au soleil parmi les usages déconseillés. Al-Hattâb rapporte cette lecture sans la cacher à l’étudiant.",
+          "Il ajoute pourtant que les propos de Khalîl dans le Tawdîh lui semblent indiquer le contraire. Nous retrouvons ici une méthode de lecture des textes abrégés : lorsqu’une formule du Mukhtasar peut recevoir deux rattachements, les écrits explicatifs de son auteur peuvent aider à préciser sa pensée. Le fait qu’al-Hattâb considère la transmission de la réprobation comme forte ne signifie donc pas qu’il est d’accord avec toute analyse grammaticale faisant dire à Khalîl que cette réprobation ressort directement de ses deux mots."
+        ],
+        "steps": [
+          {
+            "label": "La proposition d’Ibn al-Furât",
+            "text": "Elle porte sur la construction de la phrase du Mukhtasar, et non sur une nouvelle expérience médicale."
+          },
+          {
+            "label": "Le rattachement aux eaux réprouvées",
+            "text": "Selon cette lecture, le « comme » de Khalîl rapprocherait l’eau ensoleillée des catégories précédemment réprouvées."
+          },
+          {
+            "label": "La réponse d’al-Hattâb",
+            "text": "Il invoque le Tawdîh de Khalîl pour expliquer pourquoi l’autre rattachement lui paraît plus fidèle à l’intention de l’auteur."
+          },
+          {
+            "label": "Une préférence doctrinale et une lecture grammaticale peuvent différer",
+            "text": "Il faut distinguer ce que le commentateur retient après comparaison des avis de ce qu’il pense être le sens exact de la phrase de Khalîl."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le raisonnement",
+          "text": "Deux élèves s’interrogent sur « كمشمس ». Le premier pense qu’il dépend des eaux réprouvées ; le second des exceptions à la réprobation. Al-Hattâb leur apprend qu’un autre ouvrage de Khalîl, le Tawdîh, peut éclairer la structure de cette phrase. La scène est inventée pour illustrer le travail des commentateurs, et non pour présenter une nouvelle autorité."
+        },
+        "takeaway": "L’hypothèse d’Ibn al-Furât est une possibilité grammaticale citée par al-Hattâb. Celui-ci répond que le Tawdîh permet plutôt de lire le passage comme une exception à la réprobation, sans nier le débat juridique qui suit.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
+      },
+      {
+        "id": "validity",
+        "eyebrow": "ÉTAPE 12 · LECTURE DU COMMENTAIRE",
+        "title": "Si quelqu’un utilise cette eau, son wudû’ est-il valable ?",
+        "passage": {
+          "arabic": "إن توضأ به أجزأه",
+          "translation": "« S’il accomplit les ablutions avec cette eau, elles lui suffisent. »",
+          "explanation": "Le commentaire distingue une éventuelle réserve médicale de la capacité de l’eau à lever le hadath. Il rapporte également la priorité de l’acte obligatoire lorsqu’aucune autre eau n’existe.",
+          "sourceLabel": "Ibn al-Imâm transmettant une explication d’Ibn al-‘Arabî ; premier tanbîh rapporté par al-Hattâb, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Le premier des tanbîhât aborde une question que l’étudiant attend depuis le début : si la personne se purifie réellement avec une eau exposée au soleil dans les conditions discutées, sa purification compte-t-elle ? Ibn al-Imâm rapporte d’Ibn al-‘Arabî qu’un wudû’ ainsi accompli peut suffire. La raison est très claire : la réserve alléguée ne porte pas sur la capacité de cette eau à lever le hadath, mais sur une considération extérieure à cet acte. Nous ne devons pas confondre l’avis sur la convenance de l’usage et celui sur sa validité.",
+          "Le passage ajoute que lorsqu’aucune autre eau n’est disponible, la nécessité de remplir un devoir rituel prend le dessus sur la volonté d’éviter une simple réprobation. Cette formulation doit rester attachée au cas envisagé : il n’est pas question d’ignorer un danger matériel réellement établi. Mais elle montre bien que, dans l’analyse du commentateur, la réprobation éventuelle de l’eau chauffée au soleil ne retire pas son pouvoir purifiant pour cette seule raison."
+        ],
+        "steps": [
+          {
+            "label": "« Ajza’ahu » signifie que l’acte suffit",
+            "text": "Le mot examine la validité du wudû’ accompli ; il ne fait pas seulement l’éloge d’une manière de se purifier."
+          },
+          {
+            "label": "Le motif est extérieur à la levée du hadath",
+            "text": "Le passage distingue la qualité purifiante de l’eau d’une réserve d’emploi fondée sur un risque supposé."
+          },
+          {
+            "label": "La disponibilité d’une autre eau est pertinente",
+            "text": "Lorsque l’alternative n’existe pas, le texte discute la priorité de l’obligation de purification sur l’évitement d’une simple réprobation."
+          },
+          {
+            "label": "La réserve n’est pas une impureté",
+            "text": "Aucune de ces discussions ne permet de dire que l’eau chauffée au soleil est devenue rituellement souillée."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le raisonnement",
+          "text": "Un étudiant a déjà fait ses ablutions avec une eau tiède laissée au soleil. Il se demande si une simple réprobation rapportée par certains juristes obligerait à tout recommencer. Les paroles d’Ibn al-‘Arabî citées dans le commentaire distinguent la validité de l’acte et le motif extérieur de la réserve. L’exemple est fictif et n’examine pas un dommage sanitaire particulier."
+        },
+        "takeaway": "Ibn al-‘Arabî, cité par Ibn al-Imâm, distingue la validité des ablutions d’une réprobation éventuelle de leur moyen. La seconde n’annule pas automatiquement la première : le ghusl et le wudû’ doivent être jugés selon leurs conditions.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
+      },
+      {
+        "id": "medical-karaha",
+        "eyebrow": "ÉTAPE 13 · LECTURE DU COMMENTAIRE",
+        "title": "Que signifie « réprobation médicale » selon Ibn Farhûn ?",
+        "passage": {
+          "arabic": "إذا قلنا بالكراهة فالظاهر أنها كراهة إرشاد من جهة الطب وليست كراهة شرعية",
+          "translation": "« Si nous retenons une réprobation, elle relève apparemment d’un conseil médical, et non d’une réprobation strictement religieuse. »",
+          "explanation": "Ibn Farhûn distingue deux significations possibles de la karâha. Al-Hattâb répond que le fait d’éviter un dommage par obéissance à une règle religieuse peut aussi relever d’un acte récompensé.",
+          "sourceLabel": "Ibn Farhûn, deuxième tanbîh ; objection personnelle d’al-Hattâb introduite par « قلت », t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Ibn Farhûn apporte une distinction subtile : selon lui, si l’usage de cette eau est réprouvé, il s’agirait plutôt d’une indication médicale que d’une réprobation religieuse proprement dite. Son argument est que la karâha légale se distingue du conseil donné pour éviter une gêne ou un préjudice. Il ne dit pas ici que l’eau est impure, et sa formulation montre qu’il cherche surtout à déterminer la nature de la réserve. Cette distinction est importante lorsqu’on étudie le vocabulaire du fiqh.",
+          "Al-Hattâb ne laisse pourtant pas cette analyse sans remarque. Il introduit sa propre objection par « je dis » et prend l’exemple d’une personne qui s’abstient d’un poison par respect pour l’interdiction de se causer du tort. Dans ce cas, l’intention religieuse peut donner un sens cultuel au renoncement. Nous n’avons donc pas une simple opposition entre la médecine et la religion : le commentateur explique pourquoi éviter un préjudice réellement reconnu peut aussi relever de l’obéissance à une règle générale."
+        ],
+        "steps": [
+          {
+            "label": "Ibn Farhûn distingue deux formes de karâha",
+            "text": "La première relève d’un conseil concernant la santé ; la seconde, d’une qualification religieuse dont l’abstention peut être récompensée."
+          },
+          {
+            "label": "L’avis est formulé sous condition",
+            "text": "Il commence par « si nous disons qu’il y a réprobation », ce qui situe son analyse dans le débat déjà exposé."
+          },
+          {
+            "label": "Al-Hattâb apporte une objection",
+            "text": "Le commentateur prend l’exemple d’une abstention motivée par l’interdiction de se nuire, montrant que le motif peut aussi être religieux."
+          },
+          {
+            "label": "Le fait médical n’est pas prouvé par cette discussion",
+            "text": "L’argument porte sur la manière de qualifier un dommage reconnu, et ne démontre pas l’existence du dommage historique allégué."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le raisonnement",
+          "text": "Un étudiant lit un conseil d’éviter un produit pour une raison de santé. Il demande si toute prudence médicale est un acte cultuel. Son enseignant lui montre les mots d’Ibn Farhûn puis la réponse d’al-Hattâb : la qualification peut dépendre de la preuve du danger, du commandement général de ne pas se nuire et de l’intention. Le dialogue fictif n’implique aucun fait médical concernant l’eau solaire."
+        },
+        "takeaway": "Ibn Farhûn distingue la réprobation médicale et la karâha religieuse ; al-Hattâb nuance cette séparation en rappelant qu’éviter un dommage reconnu par obéissance peut avoir un sens religieux. Le cours conserve leur désaccord.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
+      },
+      {
+        "id": "cooling",
+        "eyebrow": "ÉTAPE 14 · LECTURE DU COMMENTAIRE",
+        "title": "Une eau refroidie perd-elle nécessairement la réprobation évoquée ?",
+        "passage": {
+          "arabic": "وانظر هل تزول الكراهة بتبريده أو لا أو يرجع في ذلك للأطباء",
+          "translation": "« Il faut examiner si la réprobation disparaît lorsque l’eau refroidit, ou s’il faut s’en remettre aux médecins. »",
+          "explanation": "Ibn Farhûn soulève une question sur la cause alléguée de la réprobation : si elle venait d’une modification matérielle du récipient, le seul refroidissement ne suffirait pas nécessairement. Al-Hattâb mentionne également des divergences chez les shaféites.",
+          "sourceLabel": "Ibn Farhûn, troisième tanbîh ; remarques d’al-Hattâb, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Le troisième tanbîh nous apprend à raisonner à partir de la cause avancée. Ibn Farhûn demande si l’on pourrait écarter la réprobation simplement en laissant l’eau refroidir. La question paraît facile au premier abord : si le problème venait seulement de la chaleur, une eau redevenue froide semblerait ne plus présenter la même difficulté. Mais si les juristes supposaient que le métal du récipient avait libéré une matière, refroidir l’eau ne répondrait pas à cette hypothèse. Ibn Farhûn laisse donc la question ouverte.",
+          "Il ne faut pas transformer ce doute en une réponse certaine que l’ouvrage n’a pas donnée. Al-Hattâb mentionne encore un désaccord dans les discussions shaféites. Pour bien comprendre le raisonnement, nous devons connaître la cause à laquelle les auteurs rattachaient le jugement, puis vérifier si cette cause existe réellement. Le texte ne fournit pas de preuve médicale que l’eau considérée serait dangereuse, ni une règle universelle sur le temps de refroidissement. Notre cours garde donc l’interrogation telle qu’elle figure dans la source."
+        ],
+        "steps": [
+          {
+            "label": "Refroidir l’eau change sa température",
+            "text": "Cela n’entraîne pas automatiquement que toute autre modification matérielle, si elle existait, aurait disparu."
+          },
+          {
+            "label": "La question dépend de la cause alléguée",
+            "text": "Ibn Farhûn examine les conséquences de différentes hypothèses, au lieu de fixer une règle universelle."
+          },
+          {
+            "label": "Le commentaire ne donne aucun délai",
+            "text": "Il serait inexact d’ajouter un nombre de minutes de refroidissement ou un seuil de température absent du passage."
+          },
+          {
+            "label": "Le désaccord reste rapporté",
+            "text": "Al-Hattâb mentionne aussi les discussions chez les shaféites : il ne présente pas une réponse comme unanimement acquise."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le raisonnement",
+          "text": "Une eau restée dans un récipient au soleil a refroidi pendant la nuit. Une personne soutient que toute réprobation éventuelle a forcément disparu, une autre affirme le contraire. Ibn Farhûn montre que la réponse dépendrait de la cause retenue. Sans établir cette cause, on ne peut pas déduire une conclusion certaine de la seule température. L’exemple fictif sert à expliquer la logique et n’est pas un diagnostic sur l’eau."
+        },
+        "takeaway": "Le refroidissement n’est pas présenté par Ibn Farhûn comme une solution certaine : il pose la question en fonction de la cause alléguée et renvoie aux connaissances médicales de son époque. Il faut conserver l’incertitude du texte.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
+      },
+      {
+        "id": "body-ponds-fire",
+        "eyebrow": "ÉTAPE 15 · LECTURE DU COMMENTAIRE",
+        "title": "Quelles différences al-Hattâb fait-il entre le corps, les étendues d’eau et l’eau chauffée au feu ?",
+        "passage": {
+          "arabic": "المسخن بالنار لا كراهة فيه كما صرح بذلك ابن الحاجب وغيره",
+          "translation": "« L’eau chauffée au feu n’est pas réprouvée, comme Ibn al-Hâjib et d’autres l’ont déclaré. »",
+          "explanation": "Al-Hattâb précise le cas des usages sur le corps, distingue le nettoyage des vêtements, cite al-Nawawî sur les grandes étendues et mentionne enfin l’eau chauffée au feu, avec une réserve attribuée à Ibn al-Karawî pour une chaleur ou un froid extrêmes.",
+          "sourceLabel": "Al-Hattâb, sixième tanbîh, t. 1, p. 80 ; cinq remarques précédentes sur le corps, les eaux naturelles et la chaleur.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Pour terminer, al-Hattâb passe de la discussion générale à des situations concrètes. Il distingue les usages qui touchent le corps — ablutions, ghusl ou nettoyage d’une souillure corporelle — de ceux qui concernent un objet ou un vêtement. Il rapporte également d’al-Nawawî que l’eau réchauffée dans les grands bassins et les rivières n’est pas concernée par la réprobation discutée. Le commentateur précise qu’il n’a pas trouvé de transmission contraire sur ce point. Nous ne devons donc pas traiter une rivière exposée au soleil comme un récipient métallique placé dans un pays chaud.",
+          "Dans le dernier tanbîh, il revient à l’eau chauffée au feu. Ibn al-Hâjib et d’autres la considèrent comme utilisable sans réprobation particulière. Ibn al-Karawî nuance cependant le cas où l’eau serait si chaude ou si froide qu’elle empêcherait de se purifier correctement ou nuirait au recueillement. Une fois encore, le texte ne nous apprend pas qu’il faudrait rechercher la difficulté pour obtenir une meilleure purification. Il nous demande de distinguer la manière dont l’eau a été chauffée de la possibilité réelle d’accomplir les gestes du wudû’ ou du ghusl convenablement."
+        ],
+        "steps": [
+          {
+            "label": "La réserve ancienne vise surtout l’usage sur le corps",
+            "text": "Al-Hattâb distingue cet emploi du nettoyage d’un vêtement ou d’un objet qui n’expose pas directement le corps."
+          },
+          {
+            "label": "Les rivières et grands bassins sont traités à part",
+            "text": "Al-Nawawî est cité pour l’absence de réprobation de l’eau ensoleillée dans ces grandes étendues, et al-Hattâb ne signale pas d’opposition."
+          },
+          {
+            "label": "Le chauffage au feu reste une autre catégorie",
+            "text": "Ibn al-Hâjib n’attache pas de réprobation à ce chauffage en lui-même, ce qui ne supprime pas les difficultés d’une eau excessivement chaude."
+          },
+          {
+            "label": "Les températures extrêmes peuvent empêcher une purification soignée",
+            "text": "Ibn al-Karawî mentionne la chaleur ou le froid gênants, et d’autres auteurs relient cela à l’impossibilité d’accomplir convenablement le lavage."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le raisonnement",
+          "text": "Une personne a une eau tiède chauffée au feu, une eau très chaude qu’elle supporte mal et une eau de rivière réchauffée par le soleil. Ce ne sont pas trois situations juridiquement identiques dans le commentaire. Pour les comprendre, il faut considérer la source de chaleur, l’usage direct sur le corps, la possibilité d’effectuer le lavage complet et l’éventuelle réalité d’un dommage. La comparaison est fictive et ne remplace pas une évaluation de sécurité."
+        },
+        "takeaway": "Les dernières précisions d’al-Hattâb distinguent la grande étendue d’eau, l’usage sur le corps et le chauffage au feu. La difficulté d’une température excessive concerne notamment la capacité à se laver correctement, et non une impureté causée par la chaleur seule.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
       }
     ],
     "quote": {
