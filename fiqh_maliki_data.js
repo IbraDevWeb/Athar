@@ -287,128 +287,355 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "tahara-02",
     "number": "02",
     "status": "disponible",
-    "title": "Kitâb al-Tahâra — Comprendre la purification",
-    "subtitle": "Ouvrir le Livre de la purification : vocabulaire juridique, état rituel, souillure et eau non qualifiée.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث (tome 1, p. 44 de l’édition consultée sur Islamweb)",
+    "title": "Kitâb al-Tahâra — Comprendre la purification à partir du texte",
+    "subtitle": "Une lecture pas à pas des premières pages : propreté et pureté rituelle, hadath, khabath, eau mutlaq et avis retenus dans le madhhab.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث (Mawâhib al-Jalîl, tome 1, p. 43–46)",
+    "goals": [
+      "Expliquer pourquoi al-Hattâb commence par la purification avant d’étudier la prière.",
+      "Distinguer la propreté visible, la qualité de pureté reconnue par le fiqh et l’action de se purifier.",
+      "Comprendre la différence entre le hadath (empêchement rituel) et le khabath (souillure matérielle juridiquement prise en compte).",
+      "Identifier ce que le commentaire appelle l’avis connu (mashhûr) sans le confondre avec chaque opinion mentionnée.",
+      "Lire la définition de l’eau mutlaq et expliquer pourquoi « eau de mer » et « eau de rose » ne sont pas deux qualifications identiques."
+    ],
     "sections": [
       {
         "id": "opening",
-        "eyebrow": "01 · Ouvrir le chapitre",
-        "title": "Que présente le premier passage du Livre de la purification ?",
+        "eyebrow": "ÉTAPE 01 · POURQUOI OUVRIR PAR LA PURIFICATION ?",
+        "title": "Avant la prière : pourquoi faut-il apprendre à se purifier ?",
+        "passage": {
+          "arabic": "النزاهة والنظافة من الأدناس والأوساخ",
+          "translation": "« Le fait d’être exempt de salissures et la propreté à l’égard des souillures et des saletés. »",
+          "explanation": "Al-Hattâb commence par le sens du mot tahâra dans la langue arabe. À ce stade de l’explication, il parle de la propreté au sens courant, avant de passer à la définition juridique.",
+          "sourceLabel": "Al-Hattâb, commentaire du début de Kitâb al-Tahâra, t. 1, p. 43–44.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
         "paragraphs": [
-          "Après sa préface, l’ouvrage entre dans « Kitâb al-Tahâra » (كتاب الطهارة), le Livre de la purification. Le texte abrégé de Khalîl, cité par al-Hattâb, commence par les termes « يرفع الحدث وحكم الخبث بالمطلق ». Le commentaire développe le vocabulaire et les distinctions nécessaires à leur compréhension.",
-          "Il faut distinguer les deux voix : Khalîl formule la règle de manière très concise ; al-Hattâb la commente et explicite notamment le mot « purification ». Cette leçon porte sur ce passage d’ouverture, sans prétendre couvrir toutes les situations relatives à l’eau."
+          "Tu ouvres le Livre de la purification et tu te demandes peut-être pourquoi les savants commencent par parler d’eau et de propreté alors qu’ils veulent enseigner la prière. La réponse est dans la manière d’organiser le fiqh : avant d’apprendre à accomplir un acte, on étudie ce qui permet de l’accomplir dans les conditions requises. Al-Hattâb explique que les ouvrages juridiques sont divisés en livres, chapitres et parties pour faciliter l’apprentissage et permettre au lecteur de retrouver les questions étudiées. Le Livre de la purification prépare donc l’étude de la prière.",
+          "Mais attention : le mot « purification » ne désigne pas uniquement le fait de laver quelque chose de sale. Al-Hattâb commence précisément par la signification de la langue pour que tu comprennes ensuite ce que le droit religieux ajoute à cette idée. Pense à tes mains après un repas : tu les laves pour les rendre propres. Maintenant, pense aux ablutions accomplies pour prier : une personne peut avoir les mains visiblement propres et devoir néanmoins accomplir une purification rituelle. Voilà pourquoi nous devons aller au-delà du dictionnaire."
         ],
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, Kitâb al-Tahâra, début du « Bâb yurfa‘ al-hadath wa hukm al-khabath », tome 1, p. 44 (Islamweb)."
+        "steps": [
+          {
+            "label": "Première idée : la langue courante",
+            "text": "Dans la vie quotidienne, dire qu’une chose est propre signifie notamment qu’elle est débarrassée des saletés visibles. Al-Hattâb part de ce sens accessible à tous ; il ne le présente pas comme la définition complète du fiqh."
+          },
+          {
+            "label": "Deuxième idée : l’ordre des chapitres a un sens",
+            "text": "Le commentateur justifie la place de la purification avant la prière parce qu’elle en constitue une condition importante. Cette organisation n’est pas décorative : elle permet d’étudier les préalables avant les actes qu’ils rendent possibles."
+          },
+          {
+            "label": "Troisième idée : lire une catégorie sans l’étendre trop vite",
+            "text": "Quand tu rencontres le mot tahâra, demande-toi si l’auteur parle de propreté matérielle, d’un statut juridique ou d’un acte de purification. Le même mot peut revenir dans des phrases qui ne désignent pas exactement la même chose."
+          }
+        ],
+        "example": {
+          "title": "Exemple : des mains propres, mais une question de wudû’",
+          "text": "Tu te laves les mains avec du savon en rentrant chez toi. Elles sont propres au sens courant. Plus tard, tu veux accomplir la prière et tu te demandes si tes ablutions sont encore valides. Ce sont deux questions distinctes : « Mes mains sont-elles sales ? » et « Suis-je en état de purification rituelle ? ». Cet exemple sert à comprendre les catégories, pas à répondre ici aux cas particuliers d’annulation du wudû’."
+        },
+        "takeaway": "Le mot tahâra commence par une idée familière, la propreté ; le fiqh en fait ensuite une notion plus précise. Avant de retenir une règle, identifie le sens dans lequel le savant emploie ce mot.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 43–44, sur la division des chapitres et le sens linguistique de « الطهارة ». Exemple pédagogique créé pour Athar."
       },
       {
         "id": "meaning",
-        "eyebrow": "02 · Le vocabulaire",
-        "title": "La tahâra est-elle simplement la propreté ?",
+        "eyebrow": "ÉTAPE 02 · DEUX SENS JURIDIQUES",
+        "title": "Une chose « pure » et une personne qui « se purifie » : est-ce la même chose ?",
+        "passage": {
+          "arabic": "رفع الحدث وإزالة النجاسة",
+          "translation": "« Lever le hadath et enlever l’impureté. »",
+          "explanation": "Ce groupe de mots exprime l’un des sens juridiques de tahâra présentés par al-Hattâb. Il faut le distinguer d’un autre sens : la qualité de pureté qu’on reconnaît à une personne, à un vêtement ou à un lieu.",
+          "sourceLabel": "Al-Hattâb, commentaire de la notion de tahâra, t. 1, p. 43–44.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
         "paragraphs": [
-          "Al-Hattâb explique que, dans la langue courante, « tahâra » évoque la propreté et l’éloignement des salissures. En droit religieux, le terme possède une portée plus précise : il peut désigner une qualité juridique de pureté permettant certains actes, notamment la prière.",
-          "Il expose aussi un autre emploi juridique du terme : le fait de lever un état d’impureté rituelle (hadath) et d’enlever une souillure (najâsa). Il discute ces deux emplois au lieu de réduire la purification à un simple nettoyage matériel."
+          "Al-Hattâb ne s’arrête pas à la propreté ordinaire. Il explique qu’en droit religieux, tahâra peut avoir deux emplois. Le premier désigne une qualité juridique : on dit, par exemple, qu’un vêtement est pur, qu’un endroit est pur ou qu’une personne est en état de pureté. Cette qualité ne se voit pas nécessairement à l’œil nu. Le second emploi désigne une action : accomplir ce qui permet de lever un empêchement rituel ou d’enlever une souillure. Les deux sens sont liés, mais ils ne sont pas interchangeables.",
+          "Le commentaire rapporte à ce propos des formulations d’al-Qarâfî, d’Ibn ‘Arafa et d’al-Mâzarî. Certains mettent l’accent sur la qualité juridique ; d’autres définissent la purification par l’action qui la réalise. Al-Hattâb examine ces définitions, puis explique qu’il est préférable d’exposer les deux. Lorsque l’on veut préciser ce qu’une personne doit faire, il estime particulièrement utile la définition qui parle de lever le hadath et d’enlever la souillure. Il s’agit ici d’un choix d’explication dans son commentaire, et non de l’affirmation que les savants auraient ignoré l’autre sens."
         ],
-        "sourceNote": "Même passage, développement sur « الطهارة » : sens linguistique et deux sens juridiques (Islamweb, t. 1, p. 44)."
+        "steps": [
+          {
+            "label": "« Qualité juridique » : une qualification reconnue par le fiqh",
+            "text": "Quand un savant dit qu’un vêtement est pur, il ne prétend pas voir une substance mystérieuse dans le tissu. Il exprime un jugement juridique qui permet, sous les conditions applicables, de porter ce vêtement pendant la prière."
+          },
+          {
+            "label": "« Action de purifier » : ce que la personne accomplit",
+            "text": "Lorsque le terme désigne une action, il s’agit de faire ce qui est requis : par exemple les ablutions ou le ghusl pour l’état rituel concerné, ou le retrait de la souillure selon les règles qui lui sont propres."
+          },
+          {
+            "label": "Pourquoi les deux définitions ne se contredisent pas",
+            "text": "Une pièce de tissu propre peut déjà avoir la qualité juridique de pureté sans qu’on vienne juste de la laver. Inversement, une personne peut accomplir une purification pour obtenir un état lui permettant un acte d’adoration. L’un est un statut, l’autre est une démarche."
+          },
+          {
+            "label": "Comment lire la discussion entre savants",
+            "text": "Quand al-Hattâb cite Ibn ‘Arafa ou al-Qarâfî, il rapporte d’abord leur manière de définir. Tu dois ensuite repérer sa propre analyse, et ne pas présenter une définition citée comme si tout le livre se limitait à elle."
+          }
+        ],
+        "example": {
+          "title": "Exemple : un qamis propre et les ablutions",
+          "text": "Tu sors un qamis propre de ton armoire. Si aucune souillure ne l’affecte, il peut être considéré comme pur sans que tu aies besoin de le laver à chaque fois. Pourtant, le fait d’enfiler ce vêtement ne te met pas automatiquement en état d’ablution. Tu comprends alors les deux aspects : le vêtement possède une qualification, tandis que la personne peut avoir à accomplir un acte de purification. Il ne faut pas confondre les règles du vêtement avec celles de la personne."
+        },
+        "takeaway": "Une chose peut être juridiquement pure sans avoir été lavée à l’instant ; une personne peut devoir accomplir un acte de purification alors qu’elle paraît propre. C’est pour cela qu’al-Hattâb distingue le statut et l’action.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 43–44, discussion des définitions et citations d’al-Qarâfî, d’Ibn ‘Arafa et d’al-Mâzarî. Exemple pédagogique."
+      },
+      {
+        "id": "hadath",
+        "eyebrow": "ÉTAPE 03 · LE HADATH ET LE TAYAMMUM",
+        "title": "Comment peut-on être en hadath sans être physiquement sale ?",
+        "passage": {
+          "arabic": "المشهور أنه لا يرفع الحدث",
+          "translation": "« Selon l’avis connu dans l’école, il ne lève pas le hadath. »",
+          "explanation": "Dans ce passage, « il » renvoie au tayammum. Al-Hattâb en parle pour expliquer pourquoi la permission de prier accordée par cette purification de remplacement ne se confond pas, dans le mashhûr qu’il rapporte, avec la levée du hadath par l’eau.",
+          "sourceLabel": "Al-Hattâb, discussion du tayammum et du hadath, t. 1, p. 44–45.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
+        "paragraphs": [
+          "Le hadath n’est pas une tache que l’on pourrait photographier. Al-Hattâb explique que le mot possède plusieurs emplois dans le langage des juristes : il peut renvoyer à une cause habituelle de rupture des ablutions, à sa survenue, à un état juridique ou encore à l’empêchement qui en découle. Au début du chapitre, l’expression « lever le hadath » vise surtout la disparition de l’empêchement rituel lié aux membres concernés par les ablutions ou par le ghusl. Voilà pourquoi une personne peut paraître très propre, avoir pris une douche ordinaire et néanmoins avoir à examiner sa situation rituelle.",
+          "Le commentaire pousse le raisonnement avec un cas plus difficile : le tayammum. Il explique que cette purification de remplacement permet certains actes de culte dans des conditions particulières, sans être identique à la levée du hadath par l’eau dans l’avis qu’il présente comme connu dans l’école. C’est une distinction importante pour lire les textes malikites : rendre momentanément possible un acte et supprimer l’empêchement de manière ordinaire ne signifient pas forcément la même chose. Nous ne déduisons pas ici toutes les règles pratiques du tayammum : elles nécessitent un chapitre distinct."
+        ],
+        "steps": [
+          {
+            "label": "Le hadath est une notion juridique, pas de la poussière",
+            "text": "Une personne peut avoir des mains nettes et un corps propre mais être concernée par un hadath. Il ne suffit donc pas de vérifier sa propreté visible pour répondre à la question de la validité de son état rituel."
+          },
+          {
+            "label": "Distinguer la cause, l’état et l’effet",
+            "text": "Al-Hattâb explique plusieurs sens du même mot. Par exemple, une cause de rupture des ablutions, l’état qui en résulte et la conséquence pour la prière peuvent être liés sans être des termes parfaitement interchangeables."
+          },
+          {
+            "label": "Ce que signifie « mashhûr » dans cette discussion",
+            "text": "Al-Hattâb indique explicitement que l’avis connu est que le tayammum ne lève pas le hadath. Il décrit alors le tayammum comme une permission d’accomplir certains actes sous des conditions précises. Nous citons cette position comme celle qu’il attribue au madhhab dans ce passage, sans gommer les discussions d’autres auteurs."
+          },
+          {
+            "label": "Ne pas transformer une explication doctrinale en fatwa immédiate",
+            "text": "Pour savoir quand le tayammum s’applique, combien de prières il permet dans telle situation et ce qui arrive si l’eau devient disponible, il faut étudier les conditions détaillées de la doctrine. Ce passage sert d’abord à comprendre la différence conceptuelle entre lever un hadath et bénéficier d’une dispense conditionnelle."
+          }
+        ],
+        "example": {
+          "title": "Exemple : propreté physique et empêchement rituel",
+          "text": "Imagine un fidèle très propre, qui porte des vêtements impeccables, mais qui sait que ses ablutions ont été annulées. Le problème n’est pas une saleté sur ses habits : il concerne son état rituel. Imagine maintenant une personne incapable d’utiliser de l’eau dans les conditions admises par le fiqh. Le commentaire explique pourquoi les juristes parlent alors du tayammum comme d’une permission particulière. Cet exemple ne remplace pas les conditions juridiques précises du tayammum."
+        },
+        "takeaway": "Le hadath désigne un empêchement rituel et ne se voit pas nécessairement. Al-Hattâb distingue sa levée par la purification avec de l’eau de la permission conditionnelle liée au tayammum dans le mashhûr qu’il rapporte.",
+        "sourceNote": "Source : Mawâhib al-Jalîl, t. 1, p. 44–45, développement sur les sens de « الحدث » et sur le tayammum ; formulation explicite de l’avis connu de l’école."
       },
       {
         "id": "distinction",
-        "eyebrow": "03 · Deux notions",
-        "title": "Distinguer hadath et khabath",
+        "eyebrow": "ÉTAPE 04 · LE KHABATH ET L’AVIS RETENU",
+        "title": "Enlever une tache et lever son statut d’impureté : pourquoi cette distinction ?",
+        "passage": {
+          "arabic": "فما ذكره هو المشهور في المذهب",
+          "translation": "« Ce qu’il a mentionné est l’avis connu dans l’école. »",
+          "explanation": "Al-Hattâb vise ici la règle formulée par Khalîl concernant la levée du statut juridique de souillure. Il présente explicitement cette formulation comme le mashhûr du madhhab.",
+          "sourceLabel": "Al-Hattâb, commentaire du « حكم الخبث », t. 1, p. 45.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
         "paragraphs": [
-          "Le « hadath » renvoie ici à un état juridique d’impureté rituelle qui fait obstacle à certains actes cultuels. Le « khabath » concerne la souillure ou l’impureté au sens juridique. Les deux termes sont rapprochés dès la première formule du Mukhtasar.",
-          "Cette distinction explique pourquoi il ne suffit pas de demander si une chose paraît propre : la question peut concerner l’état rituel de la personne ou la présence d’une souillure. Les règles détaillées et les exceptions seront étudiées dans leurs passages respectifs."
+          "Le mot khabath renvoie ici à la souillure juridiquement considérée. Pour comprendre la formulation de Khalîl, al-Hattâb distingue la matière impure elle-même et son statut : une saleté peut être physiquement retirée, mais la question juridique de la purification du lieu demeure. En d’autres termes, faire disparaître la trace visible d’une chose ne suffit pas à conclure, sans autres informations, que les conditions de purification rituelle de cette surface ont été remplies.",
+          "C’est à cet endroit qu’al-Hattâb précise que la règle exposée par Khalîl concernant l’usage de l’eau mutlaq pour lever le statut d’impureté est présentée comme l’avis connu dans l’école malikite. Le commentaire mentionne aussi des situations particulières de tolérance et de dispense : un cas juridiquement pardonné n’est pas nécessairement qualifié de pur pour autant. Cette nuance évite deux erreurs : penser que toute trace nettoyée à sec est automatiquement purifiée au sens du fiqh, ou imaginer que toute dispense signifie disparition de l’impureté."
         ],
-        "sourceNote": "Formule initiale de Khalîl et commentaire d’al-Hattâb sur les deux sens de la tahâra et la najâsa (Islamweb, t. 1, p. 44)."
+        "steps": [
+          {
+            "label": "La souillure : ce qui est matériellement présent",
+            "text": "Si une substance impure se trouve sur un objet, on peut parler de l’existence physique de cette matière. Cette question est différente de l’empêchement rituel du hadath, qui concerne l’état juridique de la personne."
+          },
+          {
+            "label": "Le statut : ce que le fiqh reconnaît après le nettoyage",
+            "text": "Quand al-Hattâb parle du jugement attaché au khabath, il distingue l’enlèvement de la substance et l’obtention de l’état de pureté requis. L’enjeu est donc le résultat reconnu juridiquement, et pas seulement la disparition de ce que l’œil distingue."
+          },
+          {
+            "label": "L’avis présenté comme connu dans l’école",
+            "text": "Le commentaire attribue au mashhûr la levée du statut d’impureté par l’eau mutlaq dans la discussion qu’il mène. Il faut apprendre à repérer cette indication du statut doctrinal, plutôt qu’à la remplacer par un simple « tous les savants disent » que le passage ne dit pas."
+          },
+          {
+            "label": "Une tolérance n’est pas toujours une purification",
+            "text": "Al-Hattâb mentionne des exceptions où une souillure peut être excusée sous des conditions particulières. « Excusé » ne veut pas forcément dire « devenu pur ». Les règles détaillées de ces situations seront étudiées à leur emplacement dans l’ouvrage."
+          }
+        ],
+        "example": {
+          "title": "Exemple : une souillure sur un tissu",
+          "text": "Imaginons qu’une substance impure identifiée tombe sur un tissu. Quelqu’un l’essuie avec un chiffon et la trace visible disparaît. Est-ce suffisant pour déclarer le tissu rituellement pur ? La réponse dépend de la nature de la souillure et de la règle applicable ; on ne peut pas la déduire de la seule apparence. Le commentaire t’apprend surtout à séparer l’enlèvement matériel de ce qui est reconnu comme purification juridique. Cet exemple est pédagogique et ne statue pas sur une matière précise."
+        },
+        "takeaway": "Le khabath renvoie à la souillure ; son statut juridique ne se résume pas à l’aspect visuel du support. Dans ce passage, al-Hattâb désigne clairement comme mashhûr la règle exposée sur le rôle de l’eau mutlaq.",
+        "sourceNote": "Source : Mawâhib al-Jalîl, t. 1, p. 45, commentaire de « حكم الخبث » et indication « المشهور في المذهب » ; mention des cas d’excuse. Exemple pédagogique."
       },
       {
         "id": "water",
-        "eyebrow": "04 · La première définition",
-        "title": "Qu’est-ce que l’eau « mutlaq » ?",
+        "eyebrow": "ÉTAPE 05 · L’EAU MUTLAQ, SANS CONFUSION",
+        "title": "Pourquoi « eau de mer » ne veut-elle pas dire la même chose qu’« eau de rose » ?",
+        "passage": {
+          "arabic": "ما صدق عليه اسم ماء بلا قيد",
+          "translation": "« Ce à quoi le nom d’eau peut s’appliquer sans restriction. »",
+          "explanation": "Khalîl donne une définition très courte de l’eau mutlaq. Al-Hattâb explique que l’enjeu est de savoir si, dans l’usage ordinaire, le liquide est réellement appelé « eau » sans qu’on doive nécessairement le désigner comme une autre préparation.",
+          "sourceLabel": "Mukhtasar de Khalîl, expliqué par al-Hattâb, t. 1, p. 45–46.",
+          "sourceUrl": "https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+        },
         "paragraphs": [
-          "La formule « بالمطلق وهو ما صدق عليه اسم ماء بلا قيد » apparaît dans le Mukhtasar cité par al-Hattâb. Elle désigne l’eau à laquelle le nom d’« eau » s’applique sans qu’il faille y ajouter une qualification particulière. Le texte établit ainsi le point de départ du chapitre sur la purification.",
-          "Cette définition ne permet pas, à elle seule, de trancher toutes les questions concernant une eau modifiée, mélangée ou souillée. Il faut lire les développements suivants du commentaire avant de traiter ces cas. Cette fiche s’arrête volontairement au socle conceptuel."
+          "Nous arrivons à la dernière partie de la phrase qui ouvre le chapitre. Khalîl affirme que la purification avec de l’eau repose sur ce qu’il appelle l’eau mutlaq. Al-Hattâb explique que mutlaq signifie ici « sans restriction nécessaire » : si tu montres un récipient contenant ce liquide, peux-tu dire simplement « c’est de l’eau » ? Cela paraît facile, mais le commentaire montre immédiatement qu’il faut comprendre cette définition correctement pour ne pas confondre une origine géographique, une caractéristique naturelle et une substance ajoutée.",
+          "Il rapporte en outre deux façons de définir l’eau mutlaq parmi les auteurs malikites. Ibn Shâs et Ibn al-Hâjib emploient une définition plus étroite de l’eau restée dans son état originel, tandis que le qâdî ‘Abd al-Wahhâb et d’autres rapprochent la notion de celle d’eau purifiante, en incluant notamment certains changements liés au lieu ou à la proximité. Al-Hattâb explique que Khalîl suit cette seconde manière de définir. Cette précision est capitale : même au sein d’une école, deux définitions techniques peuvent ne pas englober exactement les mêmes cas, alors que les auteurs s’accordent sur la capacité purifiante d’exemples qu’ils distinguent terminologiquement."
         ],
-        "sourceNote": "Début du Kitâb al-Tahâra, énoncé du Mukhtasar reproduit et commenté par al-Hattâb (Islamweb, t. 1, p. 44)."
+        "steps": [
+          {
+            "label": "Le mot mutlaq ne signifie pas « sans aucune propriété »",
+            "text": "Une eau peut avoir une provenance ou une caractéristique naturelle et rester de l’eau. Le chapitre n’exige pas qu’elle soit chimiquement dépourvue de toute substance ; la notion juridique n’est pas une analyse de laboratoire."
+          },
+          {
+            "label": "Eau de mer : un nom qui indique d’où vient l’eau",
+            "text": "Le commentaire cite expressément l’eau de mer parmi les eaux dont la provenance ne retire pas le caractère purifiant. Sa salinité naturelle ne suffit donc pas à la ranger dans la catégorie des liquides qui ne sont plus de l’eau au sens de cette discussion."
+          },
+          {
+            "label": "Eau de rose : le nom d’une préparation distincte",
+            "text": "Al-Hattâb cite le cas du liquide qu’on ne désigne pas comme de l’eau sans lui ajouter une qualification essentielle, comme l’eau de rose. Cela ne permet pas de juger ici tous les mélanges ou toutes les eaux parfumées : la question est de savoir ce qu’est réellement devenu le liquide."
+          },
+          {
+            "label": "Deux définitions malikites, et celle suivie par Khalîl",
+            "text": "Certains auteurs réservent le mot mutlaq à l’eau demeurée dans sa création originelle et classent d’autres eaux parmi les eaux quand même purifiantes. D’autres incluent ces dernières dans la définition même de mutlaq. Al-Hattâb précise que Khalîl suit cette seconde voie ; ce choix terminologique doit être lu avant d’aborder les exemples techniques des fiches suivantes."
+          }
+        ],
+        "example": {
+          "title": "Exemple : deux récipients très différents",
+          "text": "Tu poses sur une table un récipient d’eau de mer et un flacon d’eau de rose. Le premier contient une eau dont le nom précise simplement la provenance. Le second peut désigner une préparation distincte, et non de l’eau ordinaire venue d’un endroit particulier. Les juristes ne regardent donc pas uniquement les mots « eau de » : ils examinent à quoi cette expression renvoie. Ce raisonnement t’aidera à aborder ensuite les eaux mélangées ou modifiées."
+        },
+        "takeaway": "L’eau mutlaq est identifiée par le nom d’« eau » sans restriction nécessaire. Al-Hattâb montre que toutes les qualifications ne jouent pas le même rôle et précise quelle définition technique Khalîl suit dans la discussion malikite.",
+        "sourceNote": "Source : Mawâhib al-Jalîl, t. 1, p. 45–46, définition de l’eau mutlaq, exemples de l’eau de mer et de l’eau de rose, comparaisons entre les définitions d’Ibn Shâs, d’Ibn al-Hâjib et du qâdî ‘Abd al-Wahhâb."
       }
     ],
     "quote": {
-      "arabic": "بالمطلق وهو ما صدق عليه اسم ماء بلا قيد",
-      "meaning": "Le texte de Khalîl désigne l’eau dite « mutlaq » : celle que l’on peut appeler simplement « eau », sans précision supplémentaire. Al-Hattâb prend cette formule comme point de départ de son commentaire.",
-      "label": "Extrait du Mukhtasar de Khalîl cité par al-Hattâb, Kitâb al-Tahâra — explication française du sens, non traduction mot à mot."
+      "arabic": "ما صدق عليه اسم ماء بلا قيد",
+      "meaning": "Cette formule de Khalîl sert de point de départ : pour parler de purification, nous devons savoir reconnaître l’eau mutlaq. Al-Hattâb l’explique, donne des exemples et distingue les définitions des savants malikites.",
+      "label": "Extrait du Mukhtasar de Khalîl, expliqué dans Mawâhib al-Jalîl, t. 1, p. 45–46 ; traduction de sens et contextualisation."
     },
     "lexicon": [
       {
         "arabic": "الطَّهَارَة",
         "term": "Tahâra",
-        "definition": "Purification ou pureté : le commentaire distingue son sens linguistique de ses emplois juridiques."
+        "definition": "Pureté ou purification. Al-Hattâb distingue la qualité juridique de pureté et l’action de lever un empêchement ou d’enlever une souillure."
+      },
+      {
+        "arabic": "صِفَةٌ حُكْمِيَّة",
+        "term": "Sifa hukmiyya",
+        "definition": "Qualité juridique reconnue par le fiqh ; elle ne correspond pas forcément à une propriété visible comme une couleur ou une tache."
       },
       {
         "arabic": "الحَدَث",
         "term": "Hadath",
-        "definition": "État d’impureté rituelle envisagé par le fiqh ; ce n’est pas simplement une salissure visible."
+        "definition": "État ou empêchement rituel dans la discussion étudiée ; à distinguer d’une salissure matérielle visible."
       },
       {
         "arabic": "الخَبَث",
         "term": "Khabath",
-        "definition": "Terme renvoyant ici à la souillure ou impureté juridiquement prise en compte, distincte du hadath."
+        "definition": "Souillure ou impureté prise en compte par les règles juridiques, distincte de l’état rituel appelé hadath."
       },
       {
-        "arabic": "المَاء المُطْلَق",
-        "term": "Mâ’ mutlaq",
-        "definition": "Eau désignée simplement comme « eau » sans qualification supplémentaire dans la formule de Khalîl."
+        "arabic": "حُكْمُ الْخَبَث",
+        "term": "Hukm al-khabath",
+        "definition": "Statut juridique attaché à une souillure : la disparition de la matière visible et la levée de son statut ne doivent pas être confondues."
       },
       {
         "arabic": "النَّجَاسَة",
         "term": "Najâsa",
-        "definition": "Impureté ou souillure au sens juridique ; sa suppression relève de l’un des sens de la purification."
+        "definition": "Impureté juridiquement considérée ; elle n’est pas simplement synonyme de saleté ou de poussière ordinaire."
       },
       {
-        "arabic": "الطَّهُورِيَّة",
-        "term": "Tahûriyya",
-        "definition": "Caractère juridiquement purifiant, discuté par al-Hattâb en relation avec l’élimination d’une souillure."
+        "arabic": "مَاءٌ مُطْلَق",
+        "term": "Mâ’ mutlaq",
+        "definition": "Eau dont le nom d’« eau » s’applique sans qualification essentielle, selon la définition de Khalîl expliquée par al-Hattâb."
+      },
+      {
+        "arabic": "طَهُور",
+        "term": "Tahûr",
+        "definition": "Ce qui possède la qualité purifiante dans la discussion du fiqh ; certaines définitions distinguent cette notion de mutlaq."
+      },
+      {
+        "arabic": "التَّيَمُّم",
+        "term": "Tayammum",
+        "definition": "Purification de remplacement dans des conditions déterminées. Al-Hattâb précise que, selon l’avis connu cité, elle ne lève pas le hadath comme l’eau."
+      },
+      {
+        "arabic": "الْمَشْهُور",
+        "term": "Mashhûr",
+        "definition": "Avis reconnu comme connu dans l’école juridique. Ce qualificatif indique sa place doctrinale, sans supprimer les autres avis rapportés."
       }
     ],
     "quiz": [
       {
-        "question": "Dans le début du chapitre, qui rédige la formule condensée commentée par al-Hattâb ?",
+        "question": "Une personne porte un vêtement propre, mais sait que ses ablutions sont annulées. Que t’apprend la distinction de la fiche ?",
         "choices": [
-          "Khalîl ibn Ishâq",
-          "Al-Hattâb lui-même, sans texte antérieur",
-          "Un auteur anonyme"
-        ],
-        "answer": 0,
-        "explanation": "Le passage provient du Mukhtasar de Khalîl ; al-Hattâb en propose le commentaire."
-      },
-      {
-        "question": "Quelle distinction faut-il retenir entre hadath et khabath ?",
-        "choices": [
-          "Ce sont deux noms de la même forme de propreté matérielle.",
-          "Hadath vise l’état rituel ; khabath vise la souillure juridiquement considérée.",
-          "Ces deux mots signifient uniquement « eau »."
+          "Un vêtement propre suffit toujours pour être rituellement pur.",
+          "La propreté du vêtement et l’état rituel de la personne sont deux questions différentes.",
+          "La notion de hadath désigne seulement les taches sur les habits."
         ],
         "answer": 1,
-        "explanation": "Le chapitre rapproche les deux termes sans les confondre : état rituel d’un côté, souillure de l’autre."
+        "explanation": "La tahâra comme qualification d’un objet et la purification rituelle d’une personne ne sont pas des notions identiques. On doit étudier chacune selon ses règles."
       },
       {
-        "question": "Comment le début du Mukhtasar caractérise-t-il l’eau « mutlaq » ?",
+        "question": "Al-Hattâb cite la définition d’un autre juriste, puis la discute. Comment lire correctement ce passage ?",
         "choices": [
-          "Une eau toujours mélangée à une autre substance.",
-          "Une eau définie par sa température.",
-          "Une eau appelée simplement « eau », sans qualification nécessaire."
+          "Attribuer toutes les phrases au même auteur.",
+          "Ignorer les noms des savants cités.",
+          "Distinguer l’avis rapporté de l’analyse qu’al-Hattâb en fait."
         ],
         "answer": 2,
-        "explanation": "La formule « ما صدق عليه اسم ماء بلا قيد » décrit l’eau portant ce nom sans restriction ajoutée."
+        "explanation": "Le commentaire expose les formulations d’al-Qarâfî, d’Ibn ‘Arafa et d’autres avant d’expliquer ce que lui-même préfère exposer."
+      },
+      {
+        "question": "Pourquoi le hadath n’est-il pas une simple saleté ?",
+        "choices": [
+          "Parce qu’il s’agit d’un état ou d’un empêchement rituel pouvant exister sans trace visible.",
+          "Parce que le mot désigne uniquement l’eau de mer.",
+          "Parce qu’il suffit de voir la couleur du vêtement."
+        ],
+        "answer": 0,
+        "explanation": "Le hadath ne se constate pas comme une tache ; l’auteur explique ses emplois juridiques liés à l’état rituel et à ses conséquences."
+      },
+      {
+        "question": "Que présente al-Hattâb comme l’avis connu sur le tayammum dans le passage étudié ?",
+        "choices": [
+          "Le tayammum transforme toute eau en eau pure.",
+          "Le tayammum ne lève pas le hadath comme une purification avec de l’eau, bien qu’il permette certains actes sous conditions.",
+          "La question n’est jamais abordée dans le commentaire."
+        ],
+        "answer": 1,
+        "explanation": "Le commentaire dit explicitement que, selon le mashhûr, le tayammum ne lève pas le hadath. Il le décrit comme une permission liée à des conditions particulières."
+      },
+      {
+        "question": "Lorsqu’al-Hattâb parle du hukm al-khabath, quelle erreur de lecture faut-il éviter ?",
+        "choices": [
+          "Il faut toujours ignorer la présence matérielle d’une souillure.",
+          "Il suffit qu’une surface paraisse propre pour conclure à la purification juridique.",
+          "La disparition visible d’une souillure et la levée de son statut juridique sont deux questions distinctes."
+        ],
+        "answer": 2,
+        "explanation": "Le commentaire distingue la matière de la souillure et le statut juridique. Il indique aussi quelle règle est présentée comme mashhûr dans l’école."
+      },
+      {
+        "question": "Pourquoi l’eau de mer ne doit-elle pas être confondue avec l’eau de rose dans la définition de mutlaq ?",
+        "choices": [
+          "Parce que la première expression peut indiquer une provenance, tandis que la seconde désigne une préparation distincte.",
+          "Parce que toutes les eaux portant un autre nom sont juridiquement identiques.",
+          "Parce que seule l’eau de mer peut servir à purifier."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb différencie les qualificatifs qui précisent la provenance de l’eau et ceux qui renvoient à un liquide ne portant pas simplement le nom d’eau."
+      },
+      {
+        "question": "Quelle nuance ressort de la discussion des définitions d’Ibn Shâs et du qâdî ‘Abd al-Wahhâb ?",
+        "choices": [
+          "Ils ne parlent pas de la même religion.",
+          "La définition technique de mutlaq peut être plus ou moins large ; al-Hattâb indique laquelle Khalîl suit.",
+          "Ils s’accordent pour interdire toute eau naturelle."
+        ],
+        "answer": 1,
+        "explanation": "Le commentaire distingue des définitions techniques différentes et explique que Khalîl suit celle qui englobe certaines eaux restant purifiantes."
       }
     ],
     "sources": [
       {
-        "label": "Usul — Mawâhib al-Jalîl, ouvrage original",
+        "label": "Usul — Mawâhib al-Jalîl, ouvrage et sommaire",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — Livre de la purification, début (t. 1, p. 44)",
+        "label": "Islamweb — ouverture de Kitâb al-Tahâra, t. 1, p. 43–45",
         "url": "https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+      },
+      {
+        "label": "Islamweb — définition de l’eau mutlaq, t. 1, p. 45–46",
+        "url": "https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
       }
     ]
   },
