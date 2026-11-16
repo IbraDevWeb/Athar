@@ -715,23 +715,36 @@ async function desktop() {
 
     // Fiches 07 à 09 : eau déjà utilisée, usages recommandés, eau courante et stagnante.
     const fiqhAdvancedLessons = [
-        {index:6,number:'07',title:/eau déjà utilisée/i,quote:/وكره ماء مستعمل في حدث/,source:'/19/107/',search:'musta',key:'athar_fiqh_maliki_eaux_07_done'},
-        {index:7,number:'08',title:/usages recommandés/i,quote:/وفي غيره تردد/,source:'/19/108/',search:'Taraddud',key:'athar_fiqh_maliki_eaux_08_done'},
-        {index:8,number:'09',title:/eau courante et stagnante/i,quote:/وراكد يغتسل فيه/,source:'/19/113/',search:'Jirya',key:'athar_fiqh_maliki_eaux_09_done'}
+        {index:6,number:'07',title:/eau déjà utilisée/i,quote:/وكره ماء مستعمل في حدث/,source:'/19/107/',search:'musta',parts:7,terms:12,questions:9,key:'athar_fiqh_maliki_eaux_07_done'},
+        {index:7,number:'08',title:/usages recommandés/i,quote:/وفي غيره تردد/,source:'/19/108/',search:'Taraddud',parts:4,terms:6,questions:3,key:'athar_fiqh_maliki_eaux_08_done'},
+        {index:8,number:'09',title:/eau courante et stagnante/i,quote:/وراكد يغتسل فيه/,source:'/19/113/',search:'Jirya',parts:4,terms:6,questions:3,key:'athar_fiqh_maliki_eaux_09_done'}
     ];
     for(const check of fiqhAdvancedLessons){
         await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
         assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre erroné : '+check.number);
-        assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties attendues pour '+check.number);
+        assert.equal(await page.locator('.fiqh-m-section').count(),check.parts,'Nombre de lectures incorrect pour '+check.number);
+        if(check.number === '07'){
+            assert.equal(await page.locator('.fiqh-m-goals li').count(),7,'Sept objectifs attendus en fiche 07');
+            assert.equal(await page.locator('.fiqh-m-passage').count(),7,'Sept passages arabes attendus en fiche 07');
+            assert.equal(await page.locator('.fiqh-m-passage-translation').count(),7,'Sept traductions absentes en fiche 07');
+            assert.equal(await page.locator('.fiqh-m-passage-link').count(),7,'Sept sources primaires doivent être accessibles en fiche 07');
+            assert.equal(await page.locator('.fiqh-m-breakdown').count(),7,'Sept analyses décomposées attendues');
+            assert.equal(await page.locator('.fiqh-m-case').count(),7,'Sept exemples pédagogiques attendus');
+            assert.equal(await page.locator('.fiqh-m-takeaway').count(),7,'Sept conclusions à retenir attendues');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(0).innerText(),/وكره ماء مستعمل في حدث/,'Citation de Khalîl absente');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(2).innerText(),/فإن لم يجد غيره/,'Cas de besoin absent');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(3).innerText(),/مقابل المشهور/,'Opinions divergentes absentes');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(6).innerText(),/ولا يجوز له التيمم/,'Conclusion en p. 68 absente');
+        }
         assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),check.quote,'Citation arabe manquante : '+check.number);
         assert.ok(await page.locator('a[href*="'+check.source+'"]').count()>=1,'Source primaire absente : '+check.number);
         assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','Fiche '+check.number+' marquée comme lue à tort');
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
-        assert.equal(await page.locator('.fiqh-m-term').count(),6,'Lexique incomplet : '+check.number);
+        assert.equal(await page.locator('.fiqh-m-term').count(),check.terms,'Lexique incomplet : '+check.number);
         await page.locator('.fiqh-m-search input').fill(check.search);
         assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche de lexique inactive : '+check.number);
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
-        assert.equal(await page.locator('.fiqh-m-question').count(),3,'Quiz incomplet : '+check.number);
+        assert.equal(await page.locator('.fiqh-m-question').count(),check.questions,'Quiz incomplet : '+check.number);
         assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Quiz contaminé : '+check.number);
         await page.locator('.fiqh-m-choices button').first().click();
         assert.equal(await page.locator('.fiqh-m-answer').count(),1,'Correction du quiz absente : '+check.number);
