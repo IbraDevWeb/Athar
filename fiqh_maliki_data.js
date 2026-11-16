@@ -1,4 +1,4 @@
-// Fiqh malikite — fiches 01–02 : préface et ouverture de Kitâb al-Tahâra, vérifiées sur Usul / Islamweb.
+// Fiqh malikite — fiches 01–03 : préface, ouverture de Kitâb al-Tahâra et eaux naturelles, vérifiées sur Usul / Islamweb.
 // Ne contient ni avis de fatwa inédit ni texte du livre reproduit en entier.
 const ATHAR_MALIKI_FIQH_COURSE = {
   "id": "mawahib-al-jalil",
@@ -272,9 +272,146 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       }
     ]
   },
+  "naturalWaters": {
+    "id": "natural-waters-03",
+    "number": "03",
+    "status": "disponible",
+    "title": "Les eaux naturelles — pluie, mer, rosée et neige fondue",
+    "subtitle": "Comprendre pourquoi certaines provenances et certains changements d’état ne retirent pas à l’eau son caractère purifiant dans les exemples étudiés.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث (t. 1, p. 46 et 51, Islamweb)",
+    "sections": [
+      {
+        "id": "name-and-origin",
+        "eyebrow": "01 · Le nom de l’eau",
+        "title": "« Eau de mer » ou « eau de pluie » : une qualification qui change la règle ?",
+        "paragraphs": [
+          "La fiche précédente définissait l’eau « mutlaq » comme celle que l’on peut appeler simplement « eau ». Al-Hattâb précise que nommer son origine — « eau de pluie », « eau de source », « eau de puits » ou « eau de mer » — n’empêche pas nécessairement l’emploi du nom d’eau au sens du fiqh.",
+          "L’expression « eau de mer » renseigne sur le lieu d’où provient l’eau : elle ne signifie pas, à elle seule, qu’une substance étrangère y a été mélangée. Al-Hattâb inclut explicitement l’eau de mer parmi les eaux utilisables pour se purifier. Il convient de distinguer cette qualification de provenance d’une modification par mélange."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, Livre de la purification, t. 1, p. 46 : « كماء المطر وماء الندى », « كماء البحر » et « ولا خلاف في جواز التطهير به » ; commentaire d’al-Hattâb."
+      },
+      {
+        "id": "dew",
+        "eyebrow": "02 · La rosée",
+        "title": "Peut-on se purifier avec de l’eau recueillie de la rosée ?",
+        "paragraphs": [
+          "Khalîl mentionne expressément « وإن جمع من ندى » : même lorsque l’eau a été recueillie de la rosée. Al-Hattâb explique que le mot nadâ désigne ici l’humidité qui se dépose durant la nuit sur le sol et les feuilles.",
+          "Le commentaire rapporte de Mâlik la possibilité de faire les ablutions avec de la rosée effectivement recueillie en quantité suffisante. Il distingue ce cas de celui où l’on ne dispose pas de l’eau nécessaire : la rosée supposée ou quelques traces d’humidité ne sont pas automatiquement un volume d’eau permettant les ablutions."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 51, commentaire « وإن جمع من ندى » et transmission attribuée à Mâlik ; source recoupée sur Islamweb."
+      },
+      {
+        "id": "snow",
+        "eyebrow": "03 · La fonte",
+        "title": "Que devient la neige ou la grêle après avoir fondu ?",
+        "paragraphs": [
+          "Le Mukhtasar poursuit par « أو ذاب بعد جموده » : même si l’eau est devenue liquide après avoir été gelée. Al-Hattâb explique que cette formulation concerne notamment la neige et la grêle qui fondent, spontanément ou après avoir été fait fondre.",
+          "Le point étudié est le passage de l’état solide à l’état liquide. La seule fonte ne transforme pas cette eau en un autre liquide ; le commentaire la traite comme eau « mutlaq ». Cette fiche ne traite pas des mélanges éventuels ou de la contamination de la neige, qui appellent un examen séparé."
+        ],
+        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 51, commentaire « أو ذاب بعد جموده », avec exemples du « ثلج » et du « برد »."
+      },
+      {
+        "id": "scope",
+        "eyebrow": "04 · Ne pas confondre",
+        "title": "Provenance, changement d’état et ajout de substances",
+        "paragraphs": [
+          "Les exemples précédents permettent une méthode de lecture : demander d’abord si le mot ajouté à « eau » indique simplement sa provenance, si l’eau a seulement gelé puis fondu, ou si une autre substance en a modifié les propriétés. Ces situations ne doivent pas être automatiquement assimilées.",
+          "Al-Hattâb étudie ensuite d’autres cas : eau mélangée, eau modifiée, doute sur ce qui l’a changée et diverses qualifications juridiques. On les réserve à une prochaine fiche afin de ne pas transformer quelques exemples favorables en règle universelle sur toutes les eaux."
+        ],
+        "sourceNote": "Synthèse méthodologique d’Athar, à partir des exemples du commentaire, t. 1, p. 46 et 51 ; les autres cas sont annoncés, sans jugement nouveau."
+      }
+    ],
+    "quote": {
+      "arabic": "وَإِنْ جُمِعَ مِنْ نَدًى",
+      "meaning": "Khalîl évoque l’eau recueillie à partir de la rosée. Al-Hattâb explique la portée de cette formule et cite un propos attribué à Mâlik sur l’eau de rosée effectivement rassemblée.",
+      "label": "Court extrait du Mukhtasar de Khalîl repris dans Mawâhib al-Jalîl, t. 1, p. 51 — sens expliqué, pas une traduction littérale."
+    },
+    "lexicon": [
+      {
+        "arabic": "المَاء المُطْلَق",
+        "term": "Mâ’ mutlaq",
+        "definition": "Eau conservant, dans le contexte étudié, le nom d’« eau » sans qualification qui en change la nature juridique."
+      },
+      {
+        "arabic": "مَاء الْمَطَر",
+        "term": "Mâ’ al-matar",
+        "definition": "Eau de pluie : le complément précise la provenance sans en faire nécessairement un autre liquide."
+      },
+      {
+        "arabic": "مَاء الْبَحْر",
+        "term": "Mâ’ al-bahr",
+        "definition": "Eau de mer : al-Hattâb la cite parmi les eaux dont le lieu d’origine n’empêche pas la purification."
+      },
+      {
+        "arabic": "النَّدَى",
+        "term": "Nadâ",
+        "definition": "Rosée ou humidité nocturne déposée sur les surfaces ; al-Hattâb envisage l’eau réellement recueillie."
+      },
+      {
+        "arabic": "ذَابَ بَعْدَ جُمُودِهِ",
+        "term": "Dhâba ba‘da jumûdihi",
+        "definition": "« A fondu après solidification » : formule de Khalîl appliquée notamment à la neige et à la grêle."
+      },
+      {
+        "arabic": "الطَّهُور",
+        "term": "Tahûr",
+        "definition": "Qualificatif du caractère purifiant d’une eau dans la discussion d’al-Hattâb, à distinguer de sa seule apparence."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Pourquoi l’expression « eau de mer » n’exclut-elle pas, par elle-même, l’eau « mutlaq » ?",
+        "choices": [
+          "Parce qu’elle indique d’abord la provenance de l’eau.",
+          "Parce qu’elle signifie que l’eau est devenue du jus.",
+          "Parce qu’aucune eau ne peut être qualifiée."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb distingue la simple provenance d’un ajout de substance qui modifierait la nature de l’eau."
+      },
+      {
+        "question": "Selon le passage d’al-Hattâb sur le nadâ, quel cas est explicitement envisagé ?",
+        "choices": [
+          "Une surface simplement humide sans eau recueillie.",
+          "De l’eau de rosée réellement recueillie en quantité permettant les ablutions.",
+          "Toute humidité mélangée à un parfum."
+        ],
+        "answer": 1,
+        "explanation": "Le texte rapporte de Mâlik le cas où la rosée a été recueillie en quantité suffisante pour faire les ablutions."
+      },
+      {
+        "question": "Que signifie « أو ذاب بعد جموده » dans ce contexte ?",
+        "choices": [
+          "Une eau changée en vinaigre.",
+          "De l’eau mêlée à du lait.",
+          "De l’eau qui a fondu après avoir été gelée, par exemple neige ou grêle."
+        ],
+        "answer": 2,
+        "explanation": "Le commentaire applique la formule à la neige et à la grêle après leur fonte."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Usul — Mawâhib al-Jalîl, livre original",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      },
+      {
+        "label": "Islamweb — provenance des eaux, t. 1, p. 46",
+        "url": "https://islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+      },
+      {
+        "label": "Islamweb — rosée recueillie, t. 1, p. 51",
+        "url": "https://www.islamweb.net/ar/library/content/19/87/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+      },
+      {
+        "label": "Islamweb — neige et grêle fondues, t. 1, p. 51",
+        "url": "https://www.islamweb.net/ar/library/content/19/88/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB"
+      }
+    ]
+  },
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Poursuivre l’étude des eaux",
-    "status": "À préparer — fiche 03 non publiée"
+    "title": "L’eau et ses modifications",
+    "status": "À préparer — fiche 04 non publiée"
   }
 };
