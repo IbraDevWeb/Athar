@@ -491,18 +491,18 @@ async function desktop() {
     await navigate(page,'fiqh-maliki');
     await page.locator('.fiqh-m-index').waitFor({state:'visible'});
     assert.match(await page.locator('#fiqh-m-index-heading').innerText(),/Fiqh malikite/);
-    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),9,'Le catalogue doit afficher les neuf fiches');
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),12,'Le catalogue doit afficher douze fiches');
     assert.match(await page.locator('.fiqh-m-index-progress').innerText(),/fiche/);
     await page.locator('.fiqh-m-index-search input').fill('rosée');
-    assert.ok(await page.locator('.fiqh-m-catalog-card').count()>=1 && await page.locator('.fiqh-m-catalog-card').count()<9,'La recherche dans les cours et le lexique est inactive');
+    assert.ok(await page.locator('.fiqh-m-catalog-card').count()>=1 && await page.locator('.fiqh-m-catalog-card').count()<12,'La recherche dans les cours et le lexique est inactive');
     assert.match(await page.locator('.fiqh-m-catalog-card h2').first().innerText(),/eaux naturelles/i);
     await page.locator('.fiqh-m-index-search input').fill('expression introuvable xyz 987');
     assert.equal(await page.locator('.fiqh-m-catalog-card').count(),0,'Aucun résultat ne devrait correspondre à cette recherche');
     await page.locator('.fiqh-m-index-search input').fill('');
-    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),9,'Toutes les cartes doivent réapparaître');
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),12,'Toutes les cartes doivent réapparaître');
     await page.locator('.fiqh-m-catalog-main').first().click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/Comprendre le livre/);
-    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),9,'Les neuf fiches doivent rester accessibles dans le lecteur');
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),12,'Les douze fiches doivent être accessibles dans le lecteur');
     assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties dans la fiche introductive attendues');
     assert.ok(await page.locator('a[href="https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"]').count()>=1,'Livre original non référencé');
     assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),/الْإِيجَازِ/,'Extrait arabe de la préface non visible');
@@ -546,7 +546,7 @@ async function desktop() {
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Le suivi de la fiche 01 a été perdu');
 
     // Fiche 03 : ses lectures, questions et lexique ne doivent pas se mélanger aux fiches précédentes.
-    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),9,'Les neuf fiches doivent être accessibles');
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),12,'Les douze fiches doivent être accessibles');
     await page.locator('.fiqh-m-lesson-link').nth(2).click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/eaux naturelles/i);
     assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre parties sur les eaux naturelles attendues');
@@ -570,7 +570,7 @@ async function desktop() {
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture de la fiche 02 perdue');
 
     // Fiches 04, 05 et 06 : lecture progressive et maintien des trois parcours précédents.
-    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),9,'Neuf fiches doivent être accessibles');
+    assert.equal(await page.locator('.fiqh-m-lesson-link').count(),12,'Douze fiches doivent être accessibles');
     const fiqhLaterLessons = [
         { index:3, title:/eau modifiée/i, quote:/لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا/, source:'/19/101/', search:'Taghayyur', key:'athar_fiqh_maliki_eaux_04_done' },
         { index:4, title:/mélanges purs/i, quote:/طَاهِرٌ غَيْرُ مُطَهِّرٍ/, source:'/19/101/', search:'Za‘farân', key:'athar_fiqh_maliki_eaux_05_done' },
@@ -627,7 +627,35 @@ async function desktop() {
         assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true');
         assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1','Progression de '+check.number+' non persistée');
     }
-    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/9\s*\/\s*9/,'Progression des neuf fiches erronée');
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/9\s*\/\s*12/,'Progression des fiches précédentes erronée');
+    // Fiches 10-12 : bassin public, eau du puits peu abondante, et reste d'eau (su’r).
+    const fiqhLatestLessons=[
+        {index:9,number:'10',title:/bassins collectifs/i,quote:/يُفْرَغُ بِسُرْعَةٍ/,source:'/19/114/',search:'Birak',key:'athar_fiqh_maliki_eaux_10_done'},
+        {index:10,number:'11',title:/eau limitée/i,quote:/يَحْتَالُ/,source:'/19/115/',search:'Bi’r',key:'athar_fiqh_maliki_eaux_11_done'},
+        {index:11,number:'12',title:/su’r/i,quote:/الِاحْتِرَازُ/,source:'/19/118/',search:'Su’r',key:'athar_fiqh_maliki_eaux_12_done'}
+    ];
+    for(const check of fiqhLatestLessons){
+        await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
+        assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre absent '+check.number);
+        assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre développements attendus '+check.number);
+        assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),check.quote,'Citation arabe absente '+check.number);
+        assert.ok(await page.locator('a[href*="'+check.source+'"]').count()>=1,'Source de référence absente '+check.number);
+        assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','Fiche marquée comme lue à tort '+check.number);
+        await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
+        assert.equal(await page.locator('.fiqh-m-term').count(),6,'Six termes attendus '+check.number);
+        await page.locator('.fiqh-m-search input').fill(check.search);
+        assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche de lexique inactive '+check.number);
+        await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
+        assert.equal(await page.locator('.fiqh-m-question').count(),3,'Trois QCM attendus '+check.number);
+        assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Quiz non réinitialisé '+check.number);
+        await page.locator('.fiqh-m-choices button').first().click();
+        assert.equal(await page.locator('.fiqh-m-answer').count(),1,'Correction du QCM manquante '+check.number);
+        await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
+        await page.locator('.fiqh-m-complete').click();
+        assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true');
+        assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1','Suivi non enregistré '+check.number);
+    }
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/12\s*\/\s*12/,'Progression des douze fiches incorrecte');
     await page.locator('.fiqh-m-lesson-link').first().click();
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture historique de la fiche 01 perdue');
     await page.locator('.fiqh-m-lesson-link').nth(2).click();
@@ -635,8 +663,8 @@ async function desktop() {
 
     await page.locator('.fiqh-m-back').click();
     await page.locator('.fiqh-m-index').waitFor({state:'visible'});
-    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),9,'Retour au sommaire impossible');
-    assert.match(await page.locator('.fiqh-m-index-progress').innerText(),/9 fiches lues sur 9/,'Progression du sommaire incorrecte');
+    assert.equal(await page.locator('.fiqh-m-catalog-card').count(),12,'Retour au sommaire impossible');
+    assert.match(await page.locator('.fiqh-m-index-progress').innerText(),/12 fiches lues sur 12/,'Progression du sommaire incorrecte');
     await page.locator('.fiqh-m-index-resume').click();
     assert.match(await page.locator('#fiqh-m-heading').innerText(),/eaux naturelles/i,'Reprendre la dernière fiche ne fonctionne pas');
     await page.locator('.fiqh-m-back').click();
