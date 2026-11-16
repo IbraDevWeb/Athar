@@ -177,14 +177,22 @@
     };
 
     const updateViewport = () => {
-        const visualHeight = window.visualViewport?.height || window.innerHeight;
-        const visualTop = window.visualViewport?.offsetTop || 0;
+        const visual = window.visualViewport;
+        const layoutHeight = window.innerHeight;
+        const visualHeight = visual?.height || layoutHeight;
+        const visualTop = visual?.offsetTop || 0;
+        const pinchZoomed = (visual?.scale || 1) > 1.01;
+        const active = document.activeElement;
+        const editing = !!active && (active.matches?.('input, textarea, select, [contenteditable="true"]') || active.isContentEditable);
         if (!document.documentElement.classList.contains('athar-keyboard-open')) {
-            baseViewportHeight = Math.max(baseViewportHeight, window.innerHeight, visualHeight);
+            baseViewportHeight = Math.max(baseViewportHeight, layoutHeight, visualHeight);
         }
-        document.documentElement.style.setProperty('--athar-viewport-height', `${Math.round(visualHeight)}px`);
+        // A pinch zoom réduit le visualViewport mais pas le viewport de mise en page.
+        // Réduire #app à visualHeight laisse une bande vide et coupe le contenu zoomé.
+        const appHeight = pinchZoomed ? layoutHeight : visualHeight;
+        const keyboardOpen = MOBILE_QUERY.matches && editing && !pinchZoomed && (baseViewportHeight - visualHeight > 150);
+        document.documentElement.style.setProperty('--athar-viewport-height', `${Math.round(appHeight)}px`);
         document.documentElement.style.setProperty('--athar-visual-offset-top', `${Math.round(visualTop)}px`);
-        const keyboardOpen = MOBILE_QUERY.matches && (baseViewportHeight - visualHeight > 150);
         document.documentElement.classList.toggle('athar-keyboard-open', keyboardOpen);
     };
 
