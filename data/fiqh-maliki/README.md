@@ -108,17 +108,17 @@ Chaque fiche comporte **quatre sections de lecture, six termes de lexique, trois
 ## Intégration technique
 
 - Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures` et `impureContact`).
-- Affichage : `js/components/MalikiFiqhView.js`, navigation accessible entre six fiches, nombre de fiches lues visible dans la barre latérale.
+- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de six fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
-- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`.
-- Versions de ressources PWA mises à jour (v85) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
+- Versions de ressources PWA mises à jour (v86) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution de la citation, six fiches, attribution des citations et intégration.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation, citations, recherche du lexique, six quiz, suivi indépendant, retour fiche 01.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, six fiches et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, six quiz, suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées le 16 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
