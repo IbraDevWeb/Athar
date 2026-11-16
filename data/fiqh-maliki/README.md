@@ -132,26 +132,29 @@ L’extrait arabe final reprend la définition de Khalîl « ما صدق علي�
 
 **Compatibilité :** fiches 01–04 et 06–12 inchangées ; clé locale `athar_fiqh_maliki_eaux_05_done` conservée ; nouvelle version du cache PWA **v94**.
 
-## Fiche 06 — L’eau touchée par une impureté
+## Fiche 06 — L’eau au contact d’une impureté : sept lectures guidées
 
-**Passages étudiés :** tome 1, pages **59–61** et **70–71**. Quatre développements :
+**Refonte pédagogique du 16 novembre 2026** : sept lectures complètes à partir des passages d’al-Hattâb dans *Mawâhib al-Jalîl*, tome 1, p. 59 et p. 70–72. Le cours distingue **l’eau dont les propriétés ont réellement changé sous l’effet d’une impureté** de **la petite quantité d’eau touchée sans modification**.
 
-1. Eau dont une propriété a effectivement changé sous l’effet d’une impureté.
-2. Petite quantité d’eau touchée par une impureté **sans changement perceptible**.
-3. Avis connu du madhhab rapporté par al-Hattâb, distinction avec l’avis d’Ibn al-Qâsim et les autres transmissions.
-4. Méthode de lecture distinguant constat, doute, changement et quantité : pas d’expertise d’un cas concret à partir de quelques lignes.
+### Sept étapes de lecture des sources
 
-**Extrait de Khalîl cité et commenté par al-Hattâb :** « وَيَسِيرٌ كَآنِيَةِ وُضُوءٍ وَغُسْلٍ بِنَجَسٍ لَمْ يَتَغَيَّرْ ».
+1. **L’eau effectivement changée par une impureté** — « وإن كان ذلك الشيء الذي غير الماء نجسا فالماء نجس » (al-Hattâb, p. 59). La modification et sa cause ne doivent pas être confondues avec un simple doute.
+2. **Les conséquences de cette altération** — « لا يستعمل لا في العادات ولا في العبادات » (al-Hattâb, p. 59). À distinguer des mélanges par une substance pure de la fiche 05.
+3. **La petite eau demeurée inchangée** — « بنجس لم يتغير » (Khalîl cité par al-Hattâb, p. 70–71). Importance de l’expression « sans changement » et du contexte du récipient de wudû’ ou ghusl.
+4. **Le mashhûr malikite** — « فإنه طهور ولكنه يكره استعماله » (al-Hattâb, p. 70–71). La qualité purifiante ne s’oppose pas à une réprobation de l’emploi **lorsqu’une autre eau existe**.
+5. **Absence d’autre eau** — « فإن لم يجد غيره وجب عليه استعماله » (al-Hattâb, p. 70–71). Cette phrase concerne la petite eau inchangée du cas précédent, non une eau réellement altérée.
+6. **Les divergences attribuées** — « وقال ابن القاسم » (al-Hattâb, p. 70–71). L’avis plus strict d’Ibn al-Qâsim, une opinion de doute, la position sans réprobation mentionnée par al-Lakhmî et la discussion d’Abû Mus‘ab.
+7. **Pourquoi une réprobation ?** — « مراعاة الخلاف » (al-Hattâb, p. 71). La prise en compte d’un désaccord et les preuves mentionnées, en distinguant le récit de Budâ‘a et la réserve d’al-Nawawî sur une autre formulation.
 
-Al-Hattâb discute les avis et leurs attributions ; la fiche fait ressortir le *mashhûr* sans prétendre à l’unanimité. Elle ne résout pas une situation factuelle où la présence d’une souillure ou l’état de l’eau demeurent incertains.
+Pour **chacune des sept étapes** : attribution claire du court extrait arabe, traduction française, contexte, deux développements complets, 4–5 explications successives, un exemple concret explicitement pédagogique, synthèse et lien direct vers la page arabe. **Sept objectifs, douze entrées de lexique et neuf questions corrigées**. Les exemples ne constituent pas des fatwas, ne proposent pas de goûter l’eau suspecte et n’étendent pas un avis à des cas qu’il ne traite pas.
 
-### Références primaires des fiches 04 à 06
+### Sources primaires
 
-- [Usul — ouvrage de référence](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
-- [Islamweb — Mawâhib al-Jalîl, tome 1, page 59 (et développements suivants)](https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7).
-- [Islamweb — Mawâhib al-Jalîl, tome 1, page 71 : petite quantité et avis rapportés](https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+- [Usul — Mawâhib al-Jalîl](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil)
+- [Islamweb — tome 1, p. 59, modification réelle par une impureté](https://www.islamweb.com/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7)
+- [Islamweb — tome 1, p. 70–72, petite eau et discussions des avis](https://www.islamweb.net/ar/library/content/19/109/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87)
 
-Chaque fiche comporte **quatre sections de lecture, six termes de lexique, trois questions corrigées**, un extrait arabe court et des notes de provenance. Les explications françaises sont des synthèses d’Athar, **pas des citations de l’auteur ni des fatwas**.
+La fiche est intégrée à la navigation existante ; **12 fiches disponibles**, justification des paragraphes français conservée, citations arabes alignées à droite et clé de lecture `athar_fiqh_maliki_eaux_06_done` inchangée. Les fiches 01–05 et 07–12 restent telles quelles ; cache PWA **v95**.
 
 ## Fiches 07–09 — Les usages de l'eau dans Kitâb al-Tahâra
 
@@ -230,7 +233,7 @@ Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six 
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v94) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v95) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
