@@ -520,7 +520,7 @@ async function desktop() {
     assert.match(await page.locator('.fiqh-m-term h3').first().innerText(),/Mukhtasar/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
     assert.equal(await page.locator('.fiqh-m-question').count(),5,'Cinq questions de raisonnement attendues pour la fiche 01');
-    await page.locator('.fiqh-m-choices button').first().click();
+    await page.locator('.fiqh-m-question').first().locator('.fiqh-m-choices button').nth(1).click();
     assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
     if (await page.locator('.fiqh-m-complete').getAttribute('aria-pressed') !== 'true') await page.locator('.fiqh-m-complete').click();
