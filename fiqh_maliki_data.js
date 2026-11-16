@@ -1484,127 +1484,478 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "id": "pure-mixtures-05",
     "number": "05",
     "status": "disponible",
-    "title": "Quand une substance pure modifie l’eau",
-    "subtitle": "Comprendre la différence entre une eau pure et une eau encore purifiante, à partir des exemples de lait, safran et huile dans le commentaire.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, cas des substances pures et mélanges (t. 1, p. 59–61)",
+    "title": "Une substance pure transforme l’eau : comprendre les règles malikites",
+    "subtitle": "Sept lectures accompagnées des mots d’al-Hattâb : pureté et pouvoir purifiant, usages ordinaires, lait, safran, huile, proportion du mélange, changement faible et avis connu du madhhab.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث — « لا بمتغير » et les tanbîhât d’al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 59–60",
+    "goals": [
+      "Expliquer simplement comment une eau peut être pure sans pouvoir servir aux ablutions ou au ghusl.",
+      "Identifier les usages qu’al-Hattâb distingue expressément des actes de purification rituelle.",
+      "Savoir pourquoi les exemples du lait, du safran et du vinaigre supposent qu’une caractéristique de l’eau a réellement changé.",
+      "Distinguer l’huile qui se mélange à l’eau de l’huile simplement en contact avec elle, et comprendre pourquoi la fumigation soulève un désaccord.",
+      "Comprendre pourquoi une petite proportion de matière pure peut changer le jugement selon le mashhûr rapporté, malgré une transmission différente.",
+      "Lire correctement la discussion sur un changement faible : ce qui est connu dans le madhhab et ce qui est seulement rapporté.",
+      "Appliquer la distinction finale entre un simple contact avec un objet propre et une modification des caractéristiques de l’eau."
+    ],
     "sections": [
       {
-        "id": "pure-vs-purifying",
-        "eyebrow": "01 · Distinction fondamentale",
-        "title": "Une eau peut-elle rester pure sans être purifiante ?",
+        "id": "two-qualities",
+        "eyebrow": "ÉTAPE 01 · DEUX QUALITÉS DIFFÉRENTES",
+        "title": "Comment une eau peut-elle être pure, mais ne plus être purifiante ?",
+        "passage": {
+          "arabic": "فالماء طاهر غير مطهر",
+          "translation": "« L’eau est alors pure, mais non purifiante. »",
+          "explanation": "Cette phrase est la conclusion formulée par al-Hattâb pour une eau dont une caractéristique a été modifiée par une matière pure habituellement distincte de l’eau. Elle ne porte pas sur chaque contact, ni sur une eau restée intacte.",
+          "sourceLabel": "Propos d’al-Hattâb, tome 1, p. 59, explication de « وحكمه كمغيره ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Al-Hattâb explique que lorsque de l’eau est modifiée par une substance elle-même pure, et que les conditions de la règle exposée par Khalîl sont réunies, cette eau peut rester « tâhir » (pure) sans être « mutahhir » (purifiante). C’est une distinction de qualification juridique, non un jugement de salubrité ni de potabilité.",
-          "Le texte indique notamment que cette eau peut servir à des usages ordinaires, mais non à lever l’état d’impureté rituelle ni à effacer la souillure au sens étudié. La question n’est donc pas seulement « cette eau est-elle propre ? » : on demande pour quelle fonction juridique elle est utilisée."
+          "Pour comprendre le début de cette fiche, imagine un récipient rempli d’eau qui peut normalement servir aux ablutions. Une personne y verse suffisamment d’une substance pure pour en modifier réellement le goût, la couleur ou l’odeur. Comme la matière ajoutée n’est pas impure, ce liquide ne devient pas automatiquement une najâsa : c’est précisément le sens de l’expression « pure ». Mais al-Hattâb explique une deuxième chose, plus subtile : dans la situation que décrit Khalîl, cette eau n’a plus la qualité requise pour lever le hadath ou supprimer le statut rituel d’une souillure. C’est ce qu’il entend par « non purifiante ».",
+          "Cette distinction est essentielle parce que, dans le langage quotidien, nous utilisons souvent « propre » et « pur » comme si ces mots répondaient à toutes les questions. Or le fiqh en examine plusieurs : le liquide est-il lui-même impur ? Est-il encore qualifié d’eau mutlaq ? Est-il apte à l’acte de purification que l’on veut accomplir ? Le commentaire ne déclare pas que toute eau ayant rencontré un produit pur perd aussitôt son pouvoir purifiant ; il relie cette conclusion à un changement réel de l’une des caractéristiques citées par Khalîl et à la nature de la matière responsable."
         ],
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59 : « طاهر غير مطهر » et exemples d’usages ordinaires."
+        "steps": [
+          {
+            "label": "« Tâhir » : une qualification juridique",
+            "text": "Dire qu’un liquide est tâhir signifie qu’il n’est pas déclaré impur dans la situation examinée. Il ne faut pas traduire mécaniquement cela par « potable », « stérile » ou « utilisable pour tous les actes religieux » : ce sont d’autres questions."
+          },
+          {
+            "label": "« Mutahhir » : l’aptitude à purifier",
+            "text": "Ce qualificatif concerne l’emploi de l’eau pour les actes de purification rituelle dont le chapitre fixe les conditions. L’eau peut donc perdre cette aptitude sans être devenue impure en elle-même."
+          },
+          {
+            "label": "Pourquoi le commentaire précise la cause du changement",
+            "text": "Al-Hattâb rattache la formule à une substance pure dont l’eau est habituellement distincte. Une simple différence naturelle entre deux eaux, ou un objet qui touche le liquide sans le modifier, ne relève pas automatiquement du même raisonnement."
+          },
+          {
+            "label": "Éviter le raccourci « produit pur = ablutions possibles »",
+            "text": "Un ajout peut être parfaitement pur sans que l’eau qu’il a transformée reste utilisable pour le wudû’. Il faut distinguer la pureté de l’ingrédient de la qualification du mélange obtenu."
+          }
+        ],
+        "example": {
+          "title": "Exemple : eau ordinaire et eau volontairement aromatisée",
+          "text": "Sur une table se trouvent un verre d’eau ordinaire et un autre dans lequel une préparation pure a été ajoutée au point d’en modifier nettement le goût. Personne n’affirme ici que la préparation est impure ; pourtant le deuxième verre ne s’analyse pas nécessairement comme le premier pour les ablutions. Le but de l’exemple n’est pas de donner un jugement sur une boisson commerciale précise, mais de montrer qu’un même liquide peut rester juridiquement pur tout en ayant perdu son usage rituel dans les conditions étudiées."
+        },
+        "takeaway": "Retiens la séparation des deux jugements : une eau peut être juridiquement pure, mais non purifiante. Pour appliquer cette distinction, il faut d’abord établir qu’une matière pure, habituellement séparée de l’eau, en a effectivement modifié une caractéristique.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, commentaire direct de « لا بمتغير » et « وحكمه كمغيره ». L’exemple des deux verres est inventé pour apprendre."
       },
       {
-        "id": "examples",
-        "eyebrow": "02 · Les exemples du commentaire",
-        "title": "Pourquoi al-Hattâb parle-t-il de lait, de safran et d’huile ?",
+        "id": "ordinary-uses",
+        "eyebrow": "ÉTAPE 02 · LES USAGES PERMIS NE SONT PAS IDENTIQUES",
+        "title": "Si l’eau est pure mais non purifiante, peut-elle encore servir à quelque chose ?",
+        "passage": {
+          "arabic": "فيستعمل في العادات كالشرب والطبخ والعجن",
+          "translation": "« Elle est donc utilisée pour les usages ordinaires, comme boire, cuisiner et pétrir. »",
+          "explanation": "Al-Hattâb illustre concrètement la distinction précédente. Sa liste d’usages ordinaires n’équivaut pas à un certificat de sécurité alimentaire pour un mélange moderne : elle précise son classement juridique dans le cas étudié.",
+          "sourceLabel": "Propos d’al-Hattâb, tome 1, p. 59, immédiatement après « طاهر غير مطهر ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Pour expliciter « بما يفارقه غالبا من طاهر », al-Hattâb cite notamment le lait (laban), le safran (za‘farân), le vinaigre (khall) et l’huile lorsqu’elle est effectivement mélangée à l’eau. Ces exemples ne prouvent pas que leur simple présence infinitésimale, dans n’importe quelles circonstances, produit nécessairement le même jugement.",
-          "Il faut retenir la formulation complète : dans le cas étudié, une substance pure et habituellement distincte de l’eau en a modifié une caractéristique. La distinction opérée par al-Hattâb reste liée à ce changement effectif et à la manière dont la substance touche l’eau."
+          "Cette seconde citation répond à une question que peut se poser un débutant : « Si ce liquide ne permet plus les ablutions, faut-il le jeter ? » Al-Hattâb répond par des exemples de la vie quotidienne. Il cite la boisson, la cuisine, le pétrissage et le lavage de vêtements pour retirer une saleté ordinaire. Pourquoi les mentionner ? Pour te faire comprendre qu’un liquide peut être acceptable dans les usages habituels tout en n’étant pas apte à un acte de purification rituelle. La distinction n’est pas une simple subtilité de vocabulaire : elle modifie le type d’usage auquel on peut l’employer.",
+          "Regarde l’opposition qu’il construit : utiliser un liquide pour préparer de la nourriture ou nettoyer une tache de saleté ordinaire n’est pas nécessairement la même opération que lever le hadath ou retirer le hukm al-khabath. Le premier groupe relève des usages quotidiens, tandis que le second répond à des conditions juridiques précises. Al-Hattâb décrit cette différence dans le cadre du fiqh, sans examiner la toxicité de toutes les substances possibles ; si un liquide contient un produit dangereux, les critères de sécurité restent déterminants indépendamment de sa qualification rituelle."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59, exemples « كالدهن الذي يخالط الماء » « وكاللبن » « والزعفران » « والخل »."
+        "steps": [
+          {
+            "label": "« Al-‘âdât » : les actes de la vie courante",
+            "text": "Le commentateur donne des usages ordinaires afin de montrer que « non purifiant » ne signifie pas automatiquement « inutilisable en toute circonstance ». Ce sont deux qualifications distinctes."
+          },
+          {
+            "label": "Boisson, cuisine, pétrissage : pourquoi ces trois exemples ?",
+            "text": "Il choisit des activités faciles à reconnaître. Elles montrent que le liquide peut conserver une utilité pratique tout en ne répondant plus aux exigences de l’eau de purification rituelle."
+          },
+          {
+            "label": "Retirer une saleté n’est pas toujours lever le hukm al-khabath",
+            "text": "Une tache de poussière sur un vêtement peut disparaître avec un nettoyage courant. Cette observation ne suffit pas à résoudre la question juridique de la suppression d’une souillure rituelle."
+          },
+          {
+            "label": "Ne pas confondre pureté juridique et sécurité sanitaire",
+            "text": "Le texte juridique ne garantit pas qu’une préparation donnée puisse être bue sans risque. Les produits ménagers, solvants et substances inconnues exigent d’autres précautions que cette définition du fiqh."
+          }
+        ],
+        "example": {
+          "title": "Exemple : la cuisine et la prière ne posent pas la même question",
+          "text": "Une personne utilise de l’eau mélangée à un ingrédient alimentaire pur pour préparer une pâte. Un peu plus tard, elle se demande si ce mélange pourrait aussi remplacer l’eau ordinaire pour accomplir ses ablutions. Al-Hattâb nous apprend à dissocier les questions : une matière peut être utilisable dans la cuisine, mais cela ne signifie pas qu’elle est automatiquement de l’eau mutlaq purifiante. La présence d’un usage permis ne démontre donc pas l’aptitude rituelle du mélange."
+        },
+        "takeaway": "Les usages quotidiens et les usages rituels ne se confondent pas. Al-Hattâb cite des exemples ordinaires pour faire saisir concrètement ce que signifie « pure mais non purifiante » ; cela ne constitue ni une autorisation sanitaire générale ni une règle sur tous les liquides.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, liste « الشرب والطبخ والعجن وغسل الثياب من الوسخ » et distinction avec « لا يرفع الحدث ولا حكم الخبث »."
       },
       {
-        "id": "mixing",
-        "eyebrow": "03 · Mélange ou voisinage",
-        "title": "L’huile mélangée et l’huile simplement au contact de l’eau : même problème ?",
+        "id": "ingredients",
+        "eyebrow": "ÉTAPE 03 · LES EXEMPLES DU LIVRE",
+        "title": "Pourquoi al-Hattâb choisit-il le lait, le safran et le vinaigre ?",
+        "passage": {
+          "arabic": "وكاللبن والزعفران والخل وغير ذلك",
+          "translation": "« Comme le lait, le safran, le vinaigre, et d’autres choses semblables. »",
+          "explanation": "Ce sont les propres exemples d’al-Hattâb pour expliquer une matière pure dont le mélange peut modifier l’eau. Les noms des ingrédients sont connus ; mais c’est leur effet sur l’eau qui compte dans le passage.",
+          "sourceLabel": "Propos d’al-Hattâb, tome 1, p. 59, exemples de matières pures.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Le commentaire oppose l’huile qui se mélange à l’eau (mukhâlit) et celle qui n’y est que voisine ou en contact (mulâsiq). Il explique que Khalîl a retenu l’exemple de l’huile réellement mélangée pour écarter une confusion avec la formulation précédente sur l’huile seulement attenante.",
-          "Ce n’est pas une invitation à analyser des huiles commerciales par simple observation domestique. Il s’agit de comprendre que le vocabulaire juridique précise le mode de contact et le changement qu’il entraîne. Al-Hattâb rapporte aussi un débat ancien à propos d’une eau parfumée par une fumigation, dont la qualification de mélange ou de voisinage était discutée."
+          "Après avoir posé la règle, al-Hattâb choisit des exemples très concrets. Le lait peut changer l’aspect et le goût d’un liquide, le safran peut lui donner une couleur reconnaissable, et le vinaigre peut lui donner une saveur particulière. Aucun de ces ingrédients n’est présenté ici comme une impureté. Le but n’est pas d’apprendre une liste d’aliments « interdits pour l’eau » : il s’agit de découvrir ce qui se produit lorsque l’on introduit une matière pure et normalement distincte dans de l’eau, puis que cette matière en modifie une propriété sensible.",
+          "Le détail souvent oublié est le suivant : al-Hattâb n’explique pas ce passage en disant simplement qu’une goutte de lait a touché l’eau, ni que des filaments de safran ont été placés près du récipient. Il commente l’expression de Khalîl sur « l’eau qui a changé » et le critère de la matière qui en est habituellement séparable. Nous devons donc observer la situation avant d’appliquer le jugement : y a-t-il réellement un changement de couleur, de goût ou d’odeur ? Quelle matière en est responsable ? Lorsque nous connaissons les faits, nous pouvons comprendre la règle sans l’étendre à des cas que l’auteur n’a pas tranchés dans cette phrase."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59, développement sur « دهن خالطه » et « بخار مصطكى », avec les avis transmis par al-Mâzarî."
+        "steps": [
+          {
+            "label": "Le lait : un changement facile à imaginer",
+            "text": "Si une quantité de lait se mélange à de l’eau jusqu’à en modifier les caractéristiques, on comprend pourquoi le résultat ne se confond plus, dans le cadre du passage, avec l’eau naturelle utilisée pour la purification."
+          },
+          {
+            "label": "Le safran : une couleur due à un ingrédient distinct",
+            "text": "Le safran sert à illustrer une substance pure susceptible de colorer l’eau. Le changement pertinent n’est pas « voir du safran quelque part », mais constater son effet dans l’eau."
+          },
+          {
+            "label": "Le vinaigre : l’importance du goût",
+            "text": "Le vinaigre permet d’imaginer une modification qui ne passe pas seulement par la couleur. Un changement gustatif dû à l’ajout d’une substance pure appartient aux propriétés mentionnées par Khalîl."
+          },
+          {
+            "label": "Les exemples ne sont pas une table de dosages",
+            "text": "Ni al-Hattâb ni ce passage ne donnent une proportion universelle de lait, de safran ou de vinaigre à partir de laquelle tous les cas seraient identiques. La qualification exige de lire les conditions et les nuances discutées ensuite."
+          }
+        ],
+        "example": {
+          "title": "Exemple : trois récipients dans une cuisine",
+          "text": "Tu prépares trois récipients avec une eau identique au départ. Dans le premier, tu ajoutes assez de lait pour que le mélange change d’apparence ; dans le deuxième, tu laisses le safran colorer l’eau ; dans le troisième, tu ajoutes du vinaigre au point d’en modifier le goût. Les ingrédients peuvent être purs, mais la question de la purification est différente de celle de leur consommation. Si tu regardes un quatrième récipient dans lequel aucune caractéristique n’a été modifiée, tu comprends immédiatement pourquoi on ne peut pas donner automatiquement le même verdict aux quatre situations."
+        },
+        "takeaway": "Les exemples du lait, du safran et du vinaigre illustrent une règle conditionnelle : il s’agit d’une modification effectivement causée par une matière pure habituellement distincte de l’eau. Le nom de l’ingrédient, isolé du changement, ne suffit pas à établir tout le jugement.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, exemples placés juste après l’explication du mélange par une matière séparée de l’eau."
       },
       {
-        "id": "small-change",
-        "eyebrow": "04 · Nuances internes",
-        "title": "Les changements faibles sont-ils traités de manière unanime ?",
+        "id": "oil-contact",
+        "eyebrow": "ÉTAPE 04 · L’HUILE : MÉLANGE OU SIMPLE CONTACT ?",
+        "title": "Pourquoi l’huile qui se mêle à l’eau ne se juge-t-elle pas comme l’huile seulement attenante ?",
+        "passage": {
+          "arabic": "الدهن الذي يخالط الماء أي يمازجه",
+          "translation": "« L’huile qui se mélange à l’eau, autrement dit qui s’y mêle. »",
+          "explanation": "Al-Hattâb explicite le verbe employé par Khalîl. Son choix du terme « mélange » évite de confondre un changement de l’eau avec la simple proximité d’une matière huileuse.",
+          "sourceLabel": "Al-Hattâb, tome 1, p. 59, explication de « كدهن خالطه ».",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
         "paragraphs": [
-          "Al-Hattâb précise que la règle connue dans l’école tient compte du changement, même lorsqu’il est discret, si la cause correspond à celle du passage. Il mentionne toutefois des opinions rapportées au sujet des changements très faibles et discute leur place dans le madhhab. Il ne faut ni gommer ces avis ni les présenter automatiquement comme l’avis retenu.",
-          "La fiche n’étend donc pas la règle à toutes les quantités ou à toutes les situations de mélange. Elle permet d’identifier les notions et le jugement décrit dans le commentaire. La prochaine fiche distinguera le changement causé par une substance impure, puis le cas où aucune caractéristique n’a changé."
+          "Il est possible que tu aies déjà versé de l’huile dans un verre d’eau et constaté qu’elle pouvait rester à la surface. Mais le livre ne demande pas seulement de savoir si de l’huile est présente. Al-Hattâb précise que Khalîl parle de l’huile qui se mélange réellement à l’eau : il explique « khâlatahu » par « yûmâzijuhu », c’est-à-dire qui s’y mêle. Cette précision a une fonction : éviter d’attribuer à la simple juxtaposition le jugement du mélange qui a changé l’eau. Le commentaire renvoie d’ailleurs à une formulation précédente concernant l’huile restée attenante à l’eau.",
+          "Al-Hattâb va plus loin : dans le cas de l’eau réellement modifiée par incorporation d’huile, il dit que le fait qu’elle ne soit plus purifiante n’est pas sujet à un désaccord pertinent dans ce passage. Il précise que certaines expressions anciennes peuvent sembler ouvrir une controverse, mais qu’elles répondaient à une confusion entre l’huile réellement mélangée et l’huile seulement en contact. Il faut donc lire la restriction exacte avant d’annoncer « il y a divergence ». Le débat plus subtil concernant la fumigation aromatique est un autre scénario, lié à la question de savoir si l’odeur provient d’un voisinage ou de particules mêlées à l’eau."
         ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59–61, « تنبيهات الأول » et discussion du « التغير اليسير »."
+        "steps": [
+          {
+            "label": "« Khâlata » et « mâzaja » : deux mots de mélange",
+            "text": "Al-Hattâb reformule volontairement le mot de Khalîl pour lever l’ambiguïté. Ce n’est pas le seul fait de voir une couche huileuse qui prouve que l’eau a été modifiée de la manière visée."
+          },
+          {
+            "label": "« Lâsiq » : simplement en contact",
+            "text": "L’auteur rappelle la différence avec une huile qui reste attenante à l’eau. L’objet de la distinction est le mode de contact et l’effet produit ; le mot « huile » ne suffit pas à trancher seul."
+          },
+          {
+            "label": "Pourquoi la phrase « pas de désaccord » doit être limitée",
+            "text": "Cette absence de divergence signalée concerne l’eau effectivement changée par mélange d’huile, pas toutes les hypothèses imaginables où une goutte d’huile touche un récipient."
+          },
+          {
+            "label": "La fumigation à la mastaki : autre difficulté",
+            "text": "Al-Hattâb cite le Tawdîh au sujet d’une eau affectée par une fumée aromatique : selon l’analyse, celle-ci est voisine ou réellement mêlée à l’eau. C’est là qu’un désaccord entre des juristes postérieurs est rapporté."
+          }
+        ],
+        "example": {
+          "title": "Exemple : une couche d’huile et un mélange effectif",
+          "text": "Imagine une goutte d’huile déposée à la surface d’un récipient d’eau sans changement perceptible du liquide, puis compare-la à un autre cas où une préparation huileuse s’incorpore et en modifie réellement une propriété. Si tu effaces cette différence, tu risques de lire à tort la phrase d’al-Hattâb comme une interdiction automatique dès qu’un corps gras apparaît. L’exemple n’exige pas que tu testes des produits de nettoyage ou des émulsions : il sert à identifier le mode de contact dont parle le texte."
+        },
+        "takeaway": "Al-Hattâb commente le cas de l’huile qui se mêle réellement à l’eau et en modifie les caractéristiques, non celui de toute huile simplement visible au contact de sa surface. La précision des termes protège contre un jugement trop général.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59, « كدهن خالطه », distinction de l’huile attenante et mention du cas de la mastaki."
+      },
+      {
+        "id": "relative-quantity",
+        "eyebrow": "ÉTAPE 05 · UN PETIT AJOUT PEUT-IL CHANGER LE JUGEMENT ?",
+        "title": "Quand l’eau reste majoritaire, quel est le mashhûr du madhhab ?",
+        "passage": {
+          "arabic": "والمعروف من المذهب أنه غير طهور",
+          "translation": "« Et la position connue dans l’école est qu’elle n’est pas purifiante. »",
+          "explanation": "Al-Hattâb rapporte ici les mots d’al-Lakhmî dans la discussion sur une matière pure moins abondante que l’eau mais qui en a modifié une caractéristique. L’auteur rapporte aussi une autre transmission, sans la confondre avec le mashhûr.",
+          "sourceLabel": "Propos d’al-Lakhmî rapportés par al-Hattâb, t. 1, p. 60, deuxième tanbîh.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
+        "paragraphs": [
+          "Voici une question particulièrement concrète. Suppose qu’il y ait beaucoup plus d’eau que de substance ajoutée : l’eau peut-elle quand même perdre son aptitude à purifier ? Al-Hattâb répond en détaillant la discussion des juristes. Il explique que, dans l’avis connu de l’école, le rapport des quantités ne suffit pas à préserver le pouvoir purifiant lorsque la matière pure a effectivement modifié l’eau dans les conditions du passage. Une grande majorité d’eau dans le récipient ne règle donc pas, à elle seule, la question. C’est l’altération pertinente qui est déterminante dans la lecture du madhhab présentée ici.",
+          "Le commentateur rapporte ensuite une analyse d’al-Lakhmî, qui mentionne deux opinions lorsque la substance pure ayant modifié l’eau est en quantité inférieure à celle-ci. Il transmet également une parole rapportée de l’imam Mâlik dont la formulation est plus nuancée, sans lui donner automatiquement le même statut que l’avis connu. Le Târâz critique une certaine exploitation de cette transmission et explique que l’hésitation pouvait tenir à la difficulté d’éviter la cause de la modification. Al-Hattâb cite aussi Ibn Rushd pour confirmer la place de l’avis qui retire la qualité purifiante. Le débutant apprend ainsi à distinguer la quantité, l’effet constaté, l’attribution d’une parole et sa place dans le madhhab."
+        ],
+        "steps": [
+          {
+            "label": "La proportion n’efface pas le fait d’un changement",
+            "text": "La première étape consiste à constater une propriété modifiée. Le simple fait qu’une matière ne représente qu’une minorité du liquide n’est pas, selon le mashhûr exposé, une condition suffisante pour la négliger."
+          },
+          {
+            "label": "Al-Lakhmî rapporte plusieurs positions",
+            "text": "Le commentaire ne fait pas comme si une seule formulation historique avait jamais existé. Il cite la discussion d’al-Lakhmî, puis indique comment l’avis connu dans le madhhab se distingue d’une autre transmission."
+          },
+          {
+            "label": "Une parole rapportée de Mâlik demande un contexte",
+            "text": "La formule transmise sur le fait de ne pas apprécier certaines ablutions sans les déclarer absolument interdites est mentionnée dans le livre. Elle ne permet pas, à elle seule, de conclure que le mashhûr autorise toute eau faiblement mélangée."
+          },
+          {
+            "label": "La difficulté d’éviter la cause n’est pas une question de pourcentage",
+            "text": "Le Târâz et d’autres auteurs rapprochent certaines hésitations de conditions environnementales difficiles à éviter. Cette cause particulière ne se confond pas avec un calcul abstrait « 90 % d’eau, 10 % de produit »."
+          },
+          {
+            "label": "Ce qu’ajoute Ibn Rushd dans les Nawâzil",
+            "text": "Al-Hattâb cite Ibn Rushd affirmant le caractère mashhûr de la perte de la qualité purifiante lorsque la matière pure, même minoritaire, a changé les propriétés de l’eau. Cette attribution renforce le statut doctrinal de l’avis."
+          }
+        ],
+        "example": {
+          "title": "Exemple : une petite quantité de safran dans beaucoup d’eau",
+          "text": "Imagine un grand récipient d’eau dans lequel une petite quantité de safran pur est incorporée. Dans notre exemple, cette faible quantité suffit pourtant à modifier effectivement la couleur de l’eau. Tu pourrais être tenté de répondre : « Puisqu’il y a surtout de l’eau, elle sert forcément aux ablutions. » La lecture qu’al-Hattâb présente comme connue dans le madhhab empêche ce raccourci. L’exemple serait différent si aucun changement n’était constaté ou si une circonstance d’excuse spécifique devait être examinée."
+        },
+        "takeaway": "Dans le mashhûr expliqué par al-Hattâb, il ne suffit pas que l’eau soit plus abondante que la substance pure : si celle-ci en modifie effectivement les caractéristiques dans les conditions prévues, l’eau perd sa qualité purifiante. Les autres transmissions doivent rester attribuées et contextualisées.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 60, deuxième tanbîh, analyse d’al-Lakhmî, transmission attribuée à Mâlik, critique du Târâz et avis cité d’Ibn Rushd."
+      },
+      {
+        "id": "subtle-change",
+        "eyebrow": "ÉTAPE 06 · LE CHANGEMENT TRÈS FAIBLE",
+        "title": "Pourquoi al-Hattâb refuse-t-il de généraliser une tolérance aux changements discrets ?",
+        "passage": {
+          "arabic": "وما قاله ابن هارون هو الذي يقتضيه كلام أهل المذهب",
+          "translation": "« Ce qu’a dit Ibn Hârûn correspond à ce qu’impliquent les propos des juristes de l’école. »",
+          "explanation": "Cette fois, al-Hattâb parle en son nom après avoir mentionné une opinion qui excuserait certains changements très légers. Il rejoint la réserve d’Ibn Hârûn : cette tolérance générale ne doit pas être présentée comme l’avis connu du madhhab.",
+          "sourceLabel": "Conclusion personnelle d’al-Hattâb, t. 1, p. 59–60, premier tanbîh.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
+        "paragraphs": [
+          "La question ne porte plus seulement sur le volume d’eau : elle concerne l’intensité du changement. Un débutant peut penser qu’une légère coloration ou une odeur à peine perceptible est forcément négligeable. Al-Hattâb explique que la règle générale de Khalîl vise le changement de l’une des caractéristiques de l’eau lorsqu’il provient d’une substance normalement séparée de l’eau, même si cette modification n’est pas très forte. Il qualifie cette lecture de connue dans l’école, tout en précisant que d’autres situations sont explicitement traitées selon un critère de changement manifeste. C’est une distinction du texte et non un pourcentage universel inventé.",
+          "Dans ses remarques, il cite Ibn Farhûn et d’autres auteurs qui ont rapporté une opinion indulgente pour certains changements très faibles. Ibn Hârûn estime que l’on ne peut pas présenter cette indulgence comme une règle connue de l’école. Al-Hattâb prend alors position : ce que dit Ibn Hârûn correspond, selon lui, au langage des juristes malikites. Il explique également pourquoi l’argument des récipients anciens ne prouve pas une indulgence générale : les traces qu’ils laissaient pouvaient relever de ce qui accompagne ordinairement l’eau et qu’il est difficile d’éviter. Autrement dit, l’exception peut dépendre de la cause du changement, pas de sa seule petitesse."
+        ],
+        "steps": [
+          {
+            "label": "Le changement faible n’est pas identique à l’absence de changement",
+            "text": "La règle discutée suppose qu’une modification soit réellement reconnue, même discrète. Il ne faut pas fabriquer un jugement à partir d’une inquiétude sans caractéristique constatée."
+          },
+          {
+            "label": "Ibn Farhûn : une tolérance rapportée",
+            "text": "Al-Hattâb mentionne les formulations qui excusent une légère modification dans certains cas. Il les conserve dans son commentaire, mais il en discute la place au lieu de les ériger en verdict général."
+          },
+          {
+            "label": "Ibn Hârûn : la réserve sur le statut doctrinal",
+            "text": "Ibn Hârûn conteste que la tolérance générale pour un petit changement soit connue dans le madhhab. Al-Hattâb estime que cette réserve est conforme aux formulations de l’école."
+          },
+          {
+            "label": "Les récipients anciens : un exemple de cause difficile à éviter",
+            "text": "Une légère influence habituelle du contenant ne revient pas nécessairement à verser volontairement une substance pure dans l’eau. Le commentateur explique pourquoi ces exemples ne renversent pas automatiquement la règle."
+          },
+          {
+            "label": "Ce que signifie « ma‘rûf » dans cette discussion",
+            "text": "L’expression concerne le statut d’une opinion dans les transmissions de l’école. Elle ne doit pas être traduite par « aucun savant n’a jamais pensé autrement », car al-Hattâb cite précisément d’autres avis."
+          }
+        ],
+        "example": {
+          "title": "Exemple : un récipient qui garde une odeur légère",
+          "text": "Suppose qu’une eau ait pris une très légère odeur. Première hypothèse : elle provient d’un ingrédient pur ajouté volontairement et réellement mêlé à l’eau. Deuxième hypothèse : elle est liée à un contenant dont il est difficile d’éviter l’influence, comme dans le type de situation historique examiné par les juristes. L’intensité est peut-être comparable, mais la cause ne l’est pas. Al-Hattâb t’apprend à ne pas conclure uniquement sur le caractère « léger » du changement et à examiner d’abord la catégorie exacte."
+        },
+        "takeaway": "Le mashhûr présenté dans ce passage ne repose pas sur une indulgence générale envers tout changement minime. Al-Hattâb distingue les opinions rapportées, l’analyse d’Ibn Hârûn qu’il approuve et les circonstances où la cause du changement peut être difficile à éviter.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59–60, premier tanbîh, propos d’Ibn Farhûn et d’Ibn Hârûn, puis « قلت » d’al-Hattâb."
+      },
+      {
+        "id": "unchanged-contact",
+        "eyebrow": "ÉTAPE 07 · UN MÉLANGE N’EST PAS TOUJOURS UNE ALTÉRATION",
+        "title": "Si une matière pure touche l’eau sans en changer les propriétés, que faut-il retenir ?",
+        "passage": {
+          "arabic": "لا مجرد مخالطة الماء لغيره",
+          "translation": "« Non pas la simple rencontre de l’eau avec autre chose. »",
+          "explanation": "Al-Hattâb explique que le critère est le changement d’une caractéristique de l’eau. Il rapporte un cas où un objet propre est plongé puis retiré sans modification : la simple présence de cet objet ne suffit pas à enlever la qualité purifiante selon l’avis connu qu’il expose.",
+          "sourceLabel": "Propos d’al-Hattâb, t. 1, p. 60, troisième tanbîh.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
+        },
+        "paragraphs": [
+          "Toutes les distinctions étudiées dans cette fiche aboutissent à une question de méthode. Une matière pure a été mise en contact avec l’eau : doit-on immédiatement dire que l’eau n’est plus purifiante ? Al-Hattâb répond par des exemples qui rendent la règle plus facile à comprendre. Il cite le cas d’un morceau de cuir ou d’un tissu tombé dans l’eau puis retiré sans que l’eau ait changé ; il cite aussi, en s’appuyant sur le Târâz, du pain brièvement plongé dans l’eau et retiré sans la modifier. Dans cette discussion, ce n’est pas le seul contact qui retire la qualité purifiante : c’est la transformation pertinente de l’une des caractéristiques de l’eau.",
+          "Cette conclusion est présentée par al-Hattâb comme ce qui est connu dans le madhhab. Il mentionne néanmoins une position plus stricte attribuée à Asbagh, ce qui montre que la fidélité au livre demande de signaler les divergences sans les confondre avec l’avis connu. Il ne faut donc pas remplacer la lecture des conditions par une formule aussi générale que « tout objet pur dans l’eau est sans effet » : une matière peut justement libérer une substance et changer le liquide. La bonne démarche consiste à distinguer le fait du contact et le fait de la modification."
+        ],
+        "steps": [
+          {
+            "label": "Premier fait : un objet est entré dans l’eau",
+            "text": "Cette observation ne répond pas encore au statut juridique de l’eau. Il faut décrire l’objet, la durée du contact et surtout l’effet produit sur les caractéristiques du liquide."
+          },
+          {
+            "label": "Deuxième fait : l’eau a changé, ou non",
+            "text": "Al-Hattâb rapporte une règle fondée sur l’altération d’une propriété perceptible. Si aucune propriété ne change dans les exemples cités, la seule rencontre avec l’objet ne suffit pas au jugement de perte du pouvoir purifiant."
+          },
+          {
+            "label": "La Mudawwana et le Târâz dans le commentaire",
+            "text": "Al-Hattâb ne présente pas ces cas comme de simples expériences inventées : il les rattache à des ouvrages juridiques malikites et utilise leurs formulations pour préciser la règle."
+          },
+          {
+            "label": "L’avis rapporté d’Asbagh",
+            "text": "Le commentaire mentionne une position plus stricte sur certains contacts ou usages. Il faut savoir qu’elle existe, mais aussi voir que le texte distingue ce propos de la position qualifiée de connue dans l’école."
+          },
+          {
+            "label": "La méthode à emporter dans la fiche suivante",
+            "text": "Commence toujours par identifier : la matière en cause, sa pureté ou impureté, la présence d’un changement effectif, puis le statut de l’avis que tu cites. La fiche 06 étudiera la rencontre avec une impureté."
+          }
+        ],
+        "example": {
+          "title": "Exemple : un morceau de pain retiré rapidement",
+          "text": "Tu fais tomber par accident un petit morceau de pain dans un récipient d’eau et tu le retires aussitôt. Dans le scénario, aucune couleur, odeur ou autre propriété pertinente de l’eau n’a changé. La règle exposée par al-Hattâb ne permet pas de déclarer automatiquement cette eau non purifiante par le seul fait de l’immersion. Mais si le pain se désagrège dans le liquide et en modifie effectivement une caractéristique, la question devient celle d’un changement par une matière pure. Le même objet peut donc relever de deux situations différentes selon son effet."
+        },
+        "takeaway": "L’eau ne perd pas automatiquement sa qualité purifiante lorsqu’elle touche une matière pure : le passage exige d’examiner l’altération effective de ses propriétés. Al-Hattâb présente cette distinction comme connue dans l’école, tout en mentionnant un avis plus strict d’Asbagh.",
+        "sourceNote": "Source : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 60, troisième tanbîh, citations de la Mudawwana et du Târâz et avis attribué à Asbagh."
       }
     ],
     "quote": {
-      "arabic": "طَاهِرٌ غَيْرُ مُطَهِّرٍ",
-      "meaning": "Al-Hattâb explique que, dans le cas décrit, une eau modifiée par une substance pure reste elle-même pure, mais ne conserve pas l’aptitude à la purification rituelle.",
-      "label": "Court extrait du commentaire d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59 ; explication pédagogique."
+      "arabic": "فَالْمَاءُ طَاهِرٌ غَيْرُ مُطَهِّرٍ",
+      "meaning": "Al-Hattâb explique qu’une eau modifiée par une matière pure dans les conditions du passage reste pure sans être apte à lever le hadath ni à supprimer le statut de souillure. Cette distinction doit être comprise avec l’effet réel du mélange, son origine et les avis du madhhab.",
+      "label": "Paroles d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 59. Extrait court contextualisé, et non traduction intégrale."
     },
     "lexicon": [
       {
-        "arabic": "طَاهِر",
+        "arabic": "طَاهِرٌ",
         "term": "Tâhir",
-        "definition": "Pur au sens juridique, sans que ce seul qualificatif garantisse nécessairement l’aptitude à purifier."
+        "definition": "Pur au sens juridique : une matière qui n’est pas qualifiée d’impure dans la discussion, sans que cela implique nécessairement qu’elle permette les ablutions."
       },
       {
-        "arabic": "مُطَهِّر",
+        "arabic": "مُطَهِّرٌ",
         "term": "Mutahhir",
-        "definition": "Purifiant : qualifie ici ce qui peut servir à lever le hadath ou à enlever une souillure selon les règles applicables."
+        "definition": "Purifiant : aptitude à servir à la purification rituelle lorsque les conditions de l’eau utilisées en fiqh sont réunies."
       },
       {
-        "arabic": "الْمُخَالَطَة",
+        "arabic": "المَاءُ المُطْلَقُ",
+        "term": "Mâ’ mutlaq",
+        "definition": "Eau restant juridiquement dans la catégorie de l’eau employée pour purifier ; la fiche distingue cette catégorie des préparations modifiées par un ajout."
+      },
+      {
+        "arabic": "المُخَالَطَةُ",
         "term": "Mukhâlata",
-        "definition": "Mélange effectif : dans la discussion, la substance modifie l’eau par une relation autre qu’une simple proximité."
+        "definition": "Mélange effectif d’une matière avec l’eau, à différencier de la simple présence ou du voisinage d’une substance."
       },
       {
-        "arabic": "الْمُلَاصَقَة",
+        "arabic": "المُلَاصَقَةُ",
         "term": "Mulâsaqa",
-        "definition": "Contact ou adhérence à proximité de l’eau ; al-Hattâb la distingue de la véritable incorporation d’huile."
+        "definition": "Contact ou adhérence sans incorporation nécessaire : al-Hattâb la distingue de l’huile réellement mêlée à l’eau."
       },
       {
-        "arabic": "الزَّعْفَرَان",
+        "arabic": "اللَّبَنُ",
+        "term": "Laban",
+        "definition": "Lait : matière pure citée par al-Hattâb parmi les exemples susceptibles de modifier une caractéristique de l’eau lorsqu’elle s’y mêle."
+      },
+      {
+        "arabic": "الزَّعْفَرَانُ",
         "term": "Za‘farân",
-        "definition": "Safran, substance pure mentionnée par al-Hattâb parmi les exemples capables de modifier la couleur de l’eau."
+        "definition": "Safran : exemple de matière pure mentionnée dans le livre, permettant de comprendre le changement de couleur par ajout."
       },
       {
-        "arabic": "التَّغَيُّر الْيَسِير",
+        "arabic": "الخَلُّ",
+        "term": "Khall",
+        "definition": "Vinaigre : autre exemple historique de matière pure susceptible de changer le goût de l’eau dans les conditions examinées."
+      },
+      {
+        "arabic": "التَّغَيُّرُ الْيَسِيرُ",
         "term": "Taghayyur yasîr",
-        "definition": "Changement léger : question sur laquelle le commentaire expose des distinctions et des avis rapportés."
+        "definition": "Changement léger : intensité faible d’une modification, discutée séparément de la cause et des exceptions difficilement évitables."
+      },
+      {
+        "arabic": "مَعْرُوفٌ فِي الْمَذْهَبِ",
+        "term": "Ma‘rûf fî al-madhhab",
+        "definition": "Expression « connu dans l’école » servant à identifier une position doctrinale, sans signifier que toutes les transmissions historiques sont identiques."
+      },
+      {
+        "arabic": "غَالِبًا",
+        "term": "Ghâliban",
+        "definition": "« Habituellement » : terme de la règle de Khalîl concernant une matière dont l’eau peut ordinairement être séparée."
+      },
+      {
+        "arabic": "مُجَاوَرَةٌ",
+        "term": "Mujâwara",
+        "definition": "Voisinage : présence d’une substance proche de l’eau sans incorporation nécessaire, en particulier dans le débat sur les odeurs de fumigation."
       }
     ],
     "quiz": [
       {
-        "question": "Quel statut al-Hattâb décrit-il pour l’eau modifiée par une substance pure dans le cas étudié ?",
+        "question": "Pourquoi al-Hattâb peut-il dire qu’une eau est « tâhir » mais non « mutahhir » ?",
         "choices": [
-          "Impure par définition.",
-          "Pure, mais non purifiante.",
-          "Toujours purifiante indépendamment de tout changement."
-        ],
-        "answer": 1,
-        "explanation": "Le commentaire dit « طاهر غير مطهر » : pure, mais non utilisable pour l’action purificatrice décrite."
-      },
-      {
-        "question": "Quel couple d’exemples est explicitement cité dans le commentaire ?",
-        "choices": [
-          "Safran et lait.",
-          "Fer et sable.",
-          "Or et argent."
+          "Parce que la pureté du liquide et son aptitude à purifier sont deux jugements différents.",
+          "Parce que toute eau propre est automatiquement impure.",
+          "Parce que les ablutions exigent du lait."
         ],
         "answer": 0,
-        "explanation": "Le texte cite notamment اللبن (lait) et الزعفران (safran) parmi les substances étudiées."
+        "explanation": "La pureté juridique ne garantit pas à elle seule le pouvoir purifiant. Dans le cas étudié, la matière pure ajoutée a modifié l’eau et a fait perdre cette seconde qualification."
       },
       {
-        "question": "Quelle distinction explique la précision sur l’huile ?",
+        "question": "Pourquoi al-Hattâb cite-t-il la boisson, la cuisine et le pétrissage ?",
         "choices": [
-          "La taille du récipient seulement.",
-          "L’âge de l’eau uniquement.",
-          "L’huile réellement mélangée plutôt que simplement attenante."
+          "Pour dire que chaque eau contenant un produit chimique est potable.",
+          "Pour distinguer des usages ordinaires de la purification rituelle.",
+          "Pour interdire la préparation des aliments."
+        ],
+        "answer": 1,
+        "explanation": "La liste montre que l’eau pure mais non purifiante peut conserver des usages courants dans le cadre du fiqh. Elle n’est pas une certification sanitaire."
+      },
+      {
+        "question": "Quel ensemble contient uniquement des matières pures citées par al-Hattâb ?",
+        "choices": [
+          "Argent, fer et cuivre.",
+          "Poussière, sable et fumée de moteur.",
+          "Lait, safran et vinaigre."
         ],
         "answer": 2,
-        "explanation": "Al-Hattâb oppose « دهن خالطه » au cas discuté de l’huile qui reste seulement en contact."
+        "explanation": "Le commentaire donne précisément le lait, le safran et le vinaigre comme exemples d’une matière pure pouvant modifier une caractéristique de l’eau."
+      },
+      {
+        "question": "Quelle condition essentielle complète la présence de lait ou de safran ?",
+        "choices": [
+          "La matière pure doit avoir réellement modifié une propriété de l’eau dans les conditions du passage.",
+          "Le récipient doit absolument être en verre.",
+          "La matière pure doit toujours être majoritaire."
+        ],
+        "answer": 0,
+        "explanation": "Le texte étudie une eau effectivement modifiée ; le simple nom d’un ingrédient ne suffit pas pour appliquer la conclusion."
+      },
+      {
+        "question": "Pourquoi al-Hattâb précise-t-il que l’huile se mêle à l’eau ?",
+        "choices": [
+          "Pour affirmer qu’une goutte visible rend toujours l’eau impure.",
+          "Pour distinguer un véritable mélange d’une huile simplement attenante.",
+          "Pour fixer une durée minimale de mélange."
+        ],
+        "answer": 1,
+        "explanation": "Le mot « yûmâzijuhu » explique l’incorporation. Le cas de l’huile simplement en contact n’est pas automatiquement celui de l’eau transformée par mélange."
+      },
+      {
+        "question": "Dans l’avis connu expliqué par al-Hattâb, la majorité d’eau suffit-elle à conserver son pouvoir purifiant si une matière pure minoritaire a réellement modifié ses caractéristiques ?",
+        "choices": [
+          "Oui, sans autre condition.",
+          "On ne peut rien dire sur l’avis connu.",
+          "Non, la proportion majoritaire d’eau ne suffit pas à effacer le changement pertinent."
+        ],
+        "answer": 2,
+        "explanation": "Le deuxième tanbîh rapporte comme position connue la perte du pouvoir purifiant même lorsque la matière pure ayant modifié l’eau est moins abondante."
+      },
+      {
+        "question": "Quel rôle al-Hattâb donne-t-il à la réserve d’Ibn Hârûn sur les changements très faibles ?",
+        "choices": [
+          "Il l’approuve comme conforme aux formulations de l’école, sans généraliser une tolérance à tout changement discret.",
+          "Il la présente comme un avis sur le jeûne.",
+          "Il en déduit qu’aucune cause du changement n’a d’importance."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb distingue l’avis connu des transmissions indulgentes et explique que les influences difficiles à éviter ne sont pas équivalentes à tous les petits mélanges."
+      },
+      {
+        "question": "Quel est l’enseignement de l’exemple d’un morceau de pain brièvement retiré de l’eau sans changement ?",
+        "choices": [
+          "Tout aliment rend nécessairement l’eau impure.",
+          "Un simple contact sans altération pertinente ne suffit pas à faire perdre le pouvoir purifiant selon l’avis connu rapporté.",
+          "L’eau devient toujours une boisson alimentaire."
+        ],
+        "answer": 1,
+        "explanation": "Le troisième tanbîh distingue le simple contact et la modification réelle de l’une des propriétés de l’eau."
+      },
+      {
+        "question": "Comment présenter correctement une parole rapportée de l’imam Mâlik parmi plusieurs opinions ?",
+        "choices": [
+          "Comme une conclusion unanime, sans vérifier la suite.",
+          "En ignorant l’attribution de la transmission.",
+          "En distinguant la transmission citée, ses circonstances et le statut de l’avis que le commentateur présente comme connu."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb transmet des avis différents puis explique leur portée dans le madhhab. La seule présence d’une parole rapportée ne suffit pas à effacer cette hiérarchie."
       }
     ],
     "sources": [
       {
-        "label": "Usul — ouvrage arabe et table des matières",
+        "label": "Usul — texte complet de Mawâhib al-Jalîl et notice bibliographique",
         "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
       },
       {
-        "label": "Islamweb — Mawâhib al-Jalîl, t. 1, p. 59–61, substance pure, huile et variantes",
+        "label": "Islamweb — al-Hattâb, t. 1, p. 59–60, eau modifiée par matières pures et tanbîhât",
         "url": "https://www.islamweb.net/ar/library/content/19/101/%D9%81%D8%B1%D8%B9-%D8%AA%D9%88%D8%B6%D8%A3-%D8%B9%D9%84%D9%89-%D8%A8%D9%84%D8%A7%D8%B7-%D9%86%D8%AC%D8%B3-%D9%88%D8%B7%D8%A7%D8%B1-%D8%B9%D9%84%D9%8A%D9%87-%D9%85%D8%A7%D8%A1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B7"
       }
     ]

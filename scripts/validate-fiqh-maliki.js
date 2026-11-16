@@ -133,8 +133,37 @@ for(const question of book.waterChanges.quiz)assert.ok(question.choices.length==
 assert.equal(book.waterChanges.quote.arabic,'لَوْنًا أَوْ طَعْمًا أَوْ رِيحًا');
 assert.ok(book.waterChanges.sources.some(x=>x.url.includes('/19/101/')));
 assert.ok(css.includes('text-align:justify')&&css.includes('hyphens:auto'),'Paragraphes justifiés non conservés');
+assert.equal(book.pureMixtures.id,'pure-mixtures-05');
+assert.equal(book.pureMixtures.number,'05');
+assert.equal(book.pureMixtures.goals.length,7,'Sept objectifs de la fiche 05 attendus');
+assert.equal(book.pureMixtures.sections.length,7,'Sept lectures guidées attendues');
+assert.deepEqual(Array.from(book.pureMixtures.sections,x=>x.id),['two-qualities','ordinary-uses','ingredients','oil-contact','relative-quantity','subtle-change','unchanged-contact']);
+assert.deepEqual(Array.from(book.pureMixtures.sections,x=>x.passage.arabic),[
+ 'فالماء طاهر غير مطهر',
+ 'فيستعمل في العادات كالشرب والطبخ والعجن',
+ 'وكاللبن والزعفران والخل وغير ذلك',
+ 'الدهن الذي يخالط الماء أي يمازجه',
+ 'والمعروف من المذهب أنه غير طهور',
+ 'وما قاله ابن هارون هو الذي يقتضيه كلام أهل المذهب',
+ 'لا مجرد مخالطة الماء لغيره'
+]);
+for(const section of book.pureMixtures.sections){
+ assert.ok(section.title&&section.paragraphs.length===2&&section.paragraphs.every(p=>p.length>=400),'Développement trop court : '+section.id);
+ assert.ok(section.passage?.arabic&&section.passage.translation&&section.passage.explanation&&section.passage.sourceUrl?.includes('/19/101/'),'Texte arabe ou lien manquant : '+section.id);
+ assert.ok(section.steps.length>=4&&section.steps.every(st=>st.label&&st.text.length>=130),'Explication pas à pas insuffisante : '+section.id);
+ assert.ok(section.example?.title&&section.example.text.length>=400,'Exemple concret incomplet : '+section.id);
+ assert.ok(section.takeaway.length>=170&&section.sourceNote.includes('t. 1'),'Conclusion ou page absente : '+section.id);
+}
+assert.ok(book.pureMixtures.sections[4].passage.sourceLabel.includes('al-Lakhmî'),'Avis connu non attribué à son auteur');
+assert.ok(book.pureMixtures.sections[5].passage.sourceLabel.includes('al-Hattâb'),'Propos personnels du commentateur non attribués');
+assert.equal(book.pureMixtures.lexicon.length,12,'Douze termes arabes attendus');
+assert.ok(book.pureMixtures.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=85),'Lexique de la fiche 05 incomplet');
+assert.equal(book.pureMixtures.quiz.length,9,'Neuf questions corrigées attendues');
+for(const question of book.pureMixtures.quiz)assert.ok(question.choices.length===3&&question.answer>=0&&question.answer<3&&question.explanation.length>=105,'Question de la fiche 05 incomplète');
+assert.equal(book.pureMixtures.quote.arabic,'فَالْمَاءُ طَاهِرٌ غَيْرُ مُطَهِّرٍ');
+assert.ok(book.pureMixtures.sources.some(x=>x.url.includes('/19/101/')));
+assert.ok(css.includes('text-align:justify')&&css.includes('hyphens:auto'),'Justification de texte non conservée');
 const newLessons = [
-  {key:'pureMixtures',id:'pure-mixtures-05',number:'05',sections:['pure-vs-purifying','examples','mixing','small-change'],quote:'طَاهِرٌ غَيْرُ مُطَهِّرٍ',pages:['/19/101/']},
   {key:'impureContact',id:'impure-contact-06',number:'06',sections:['changed','notchanged','disagreement','synthesis'],quote:'وَيَسِيرٌ كَآنِيَةِ وُضُوءٍ وَغُسْلٍ بِنَجَسٍ لَمْ يَتَغَيَّرْ',pages:['/19/101/','/19/109/']}
 ];
 for(const spec of newLessons){
@@ -153,7 +182,7 @@ for(const spec of newLessons){
   assert.ok(entry.sources.some(x=>x.url.startsWith('https://usul.ai/')));
   for(const path of spec.pages)assert.ok(entry.sources.some(x=>x.url.includes(path)),'Source primaire manquante : '+path);
 }
-assert.equal(new Set(newLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,12,'Lexique dupliqué dans les fiches 05 et 06');
+assert.equal(new Set(newLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,6,'Lexique interne de la fiche 06 dupliqué');
 const advancedLessons = [
  {key:'usedWater',number:'07',id:'used-water-07',ids:['third-category','what-used-means','different-opinions','context-and-limits'],quote:'وكره ماء مستعمل في حدث',urls:['/19/107/']},
  {key:'recommendedWater',number:'08',id:'recommended-used-water-08',ids:['why-distinguish','source-disagreement','washes','classify'],quote:'وفي غيره تردد',urls:['/19/108/']},
@@ -217,4 +246,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiches 05-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiches 06-12 préservées ; '+shell.length+' ressources PWA.');
