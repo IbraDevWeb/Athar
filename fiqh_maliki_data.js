@@ -681,7 +681,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "title": "Si une impureté modifie une propriété de l’eau, quelle distinction est faite ?",
         "paragraphs": [
           "Al-Hattâb distingue explicitement l’eau modifiée par une substance pure et celle modifiée par une substance impure. Lorsque l’impureté est la cause d’un changement de l’une des caractéristiques examinées, le commentaire décrit cette eau comme najis : elle ne convient ni aux usages ordinaires énumérés ni aux actes de purification rituelle.",
-          "Le passage indique que, pour ce cas d’altération causée par une impureté, la discussion ne dépend pas simplement du fait que le changement soit léger ou important, ni du fait que l’eau soit stagnante ou courante. Il faut néanmoins attribuer correctement le changement à l’impureté, sans confondre la simple suspicion et le constat décrit dans le texte."
+          "Le passage indique que, pour ce cas d’altération causée par une impureté, la discussion ne dépend pas simplement du fait que le changement soit léger ou important, ni du fait que l’eau soit stagnante ou courante. Al-Hattâb signale toutefois un avis attribué à Ibn al-Mâjishûn sur le changement de la seule odeur : il faut distinguer le jugement qu’il présente comme connu de cette divergence. Enfin, on ne doit pas confondre la simple suspicion d’impureté avec une altération constatée et attribuée à cette impureté."
         ],
         "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 59–60, « وحكمه كمغيره » et remarque sur « ما تغير بنجس »."
       },
