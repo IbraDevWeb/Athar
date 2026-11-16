@@ -37,22 +37,31 @@
 
 **Conservation :** aucune modification des règles et supports des fiches 02 à 12 ; l'ancienne clé de progression `athar_fiqh_maliki_intro_01_done` demeure inchangée et utilisable.
 
-## Fiche 02 — Kitâb al-Tahâra : les fondements de la purification
+## Fiche 02 — Kitâb al-Tahâra : lire et comprendre les fondements de la purification
 
-**Périmètre exact :** début du « باب يرفع الحدث وحكم الخبث » du Livre de la purification. Le commentaire consulté explique les sens de *tahâra* et la formulation initiale du Mukhtasar sur l'eau dite *mutlaq*.
+**Refonte en cours guidé à destination des débutants (16 novembre 2026).** La leçon n’est plus une simple définition de quatre concepts : elle suit les formulations d’al-Hattâb dans le premier chapitre de la purification (**Mawâhib al-Jalîl**, tome 1, **p. 43–46**).
 
-1. **Début du chapitre :** formulation du Mukhtasar et rôle du commentaire.
-2. **Tahâra :** sens linguistique (propreté) et deux emplois juridiques présentés par al-Hattâb.
-3. **Hadath et khabath :** différencier l'état rituel de la souillure.
-4. **Mâ’ mutlaq :** comprendre l'eau portant le simple nom « eau », sans qualification nécessaire.
+### Progression des cinq lectures guidées
 
-**Citation courte en arabe (texte de Khalîl, reproduit dans le commentaire) :**
+1. **Pourquoi étudier la purification avant la prière ?** Sens courant de *tahâra* et intérêt de l’organisation des chapitres.
+2. **Deux sens juridiques de tahâra :** la qualité juridique d’une chose et l’action de lever le hadath ou d’enlever une souillure. Dialogue des formulations rapportées d’al-Qarâfî, d’Ibn ‘Arafa et d’al-Mâzarî.
+3. **Hadath et tayammum :** état juridique, causes et empêchement ; explication du *mashhûr* rapporté selon lequel le tayammum ne lève pas le hadath comme l’eau, mais autorise certains actes dans des circonstances précises.
+4. **Khabath et jugement attaché à la souillure :** différence entre retrait matériel et état juridique ; mention explicite par al-Hattâb du *mashhûr* de l’école sur la levée du statut de souillure, avec mise en garde sur les cas excusés.
+5. **L’eau mutlaq :** définition de Khalîl et commentaire, distinction « eau de mer » / « eau de rose », et différences entre définitions techniques des auteurs malikites, avec l’explication de la voie suivie par Khalîl.
 
-> بالمطلق وهو ما صدق عليه اسم ماء بلا قيد
+### Format utilisé dans l’interface
 
-Le sens est expliqué en français, sans attribuer la formulation de Khalîl à al-Hattâb et sans prétendre fournir une traduction exhaustive. Le vocabulaire et le quiz de la fiche sont écrits pour Athar : six notions, trois questions à choix multiples avec explications. La fiche ne tranche pas les cas d'eaux mélangées, transformées ou contaminées, qui requièrent la lecture des développements suivants.
+Chaque étape possède un passage arabe bref **vérifié et attribué**, une traduction de sens, une explication du contexte, deux développements en français accessible, trois ou quatre points décomposés, un exemple pédagogique clairement distingué de la source, une conclusion « à retenir » et un **lien direct vers la page du texte original**.
 
-**Limite importante :** ce début de chapitre contient aussi des discussions juridiques techniques ; elles ne sont pas reproduites ici hors contexte. La fiche 03 étudie uniquement quelques cas naturels ; les fiches 04 et 05 abordent les critères de modification et les mélanges, et la fiche 06 distingue les cas d’impureté.
+L’extrait arabe final reprend la définition de Khalîl « ما صدق عليه اسم ماء بلا قيد », expliquée par al-Hattâb. Les trois autres citations de son commentaire portent notamment sur les deux sens de purification et les positions présentées comme connues dans l’école. La fiche comporte **cinq objectifs, dix notions de lexique et sept questions corrigées**.
+
+### Références primaires
+
+- [Usul — Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil)
+- [Islamweb — tome 1, p. 43–45 : ouverture, tahâra, hadath, khabath, avis connu](https://www.islamweb.net/ar/library/content/19/84/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB)
+- [Islamweb — tome 1, p. 45–46 : définition de l’eau mutlaq et différences terminologiques](https://gcp.islamweb.net/ar/library/content/19/85/%D8%A8%D8%A7%D8%A8-%D9%8A%D8%B1%D9%81%D8%B9-%D8%A7%D9%84%D8%AD%D8%AF%D8%AB-%D9%88%D8%AD%D9%83%D9%85-%D8%A7%D9%84%D8%AE%D8%A8%D8%AB)
+
+**Précaution :** les scénarios contemporains sont explicitement des exemples d’apprentissage, et non des citations historiques ni des fatwas. Les règles détaillées du tayammum, des excuses concernant des souillures et des eaux modifiées relèvent de développements juridiques supplémentaires. Les autres fiches ne sont pas altérées ; l’ancienne clé de progression `athar_fiqh_maliki_tahara_02_done` reste conservée.
 
 ## Fiche 03 — Eaux naturelles, pluie, mer, rosée et neige fondue
 
@@ -196,13 +205,13 @@ Pour **chacune des fiches 10, 11 et 12** : quatre développements complets, six 
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v89) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v90) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, douze fiches, nouvelle fiche 01 guidée et présence du catalogue.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, douze quiz (5 questions pour la fiche 01), suivi indépendant et sources.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, douze fiches, fiches 01 et 02 guidées et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, douze quiz (5 questions pour la fiche 01, 7 pour la fiche 02), suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées le 16 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
