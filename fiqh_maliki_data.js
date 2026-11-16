@@ -6324,9 +6324,64 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "Étudier la discussion d’Ibn Nâjî, du Sâhib al-Jam‘ et d’al-Nawawî sur le gaspillage sans transformer un cas de doute en permission générale de jeter l’eau."
     ]
   },
+  "sunHeatedWater": {
+    "id": "sun-heated-water-13",
+    "number": "13",
+    "status": "disponible",
+    "title": "L’eau chauffée par le soleil : les avis et leurs preuves",
+    "subtitle": "Lire le passage « كمشمس » d’al-Hattâb : le sens de Khalîl, les divergences malikites, les récits discutés et les conditions d’usage de l’eau.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « كمشمس » · Mawâhib al-Jalîl, t. 1, p. 78–80",
+    "goals": [
+      "Comprendre la comparaison « كمشمس » et la difficulté grammaticale de son rattachement.",
+      "Restituer l’avis d’Ibn al-Hâjib sur l’eau chauffée au soleil.",
+      "Lire les transmissions de ‘Iyâd et de Sanad qui évoquent une réprobation.",
+      "Comprendre pourquoi ‘Abd al-Haqq ne reconnaît aucun hadith authentique sur le dommage supposé.",
+      "Expliquer la distinction critique d’al-Hattâb entre récit faible et récit fabriqué.",
+      "Lire la restriction d’Ibn al-Imâm et d’Ibn al-‘Arabî aux récipients et climats particuliers.",
+      "Comprendre la condition d’un dommage réellement établi, distinct d’une hypothèse médicale historique.",
+      "Comparer la critique d’al-Nawawî avec les propos qu’al-Hattâb rapporte dans ses autres ouvrages.",
+      "Identifier la préférence d’al-Hattâb pour une réprobation fortement transmise, mais contextualisée.",
+      "Comprendre l’hypothèse d’Ibn al-Furât et la réponse tirée du Tawdîh.",
+      "Distinguer la validité du wudû’ de la réprobation liée à une cause extérieure.",
+      "Étudier les mots d’Ibn Farhûn sur la réprobation médicale et la réponse d’al-Hattâb.",
+      "Lire la question du refroidissement de l’eau sans inventer une réponse certaine.",
+      "Comprendre les distinctions concernant l’eau employée sur le corps et les grandes étendues.",
+      "Différencier une eau chauffée au soleil de celle chauffée au feu, avec les réserves sur les températures extrêmes."
+    ],
+    "sections": [],
+    "quote": {
+      "arabic": "كَمُشَمَّسٍ",
+      "meaning": "Khalîl mentionne l’eau chauffée par le soleil. Al-Hattâb explique que les commentateurs discutent son rattachement à la catégorie réprouvée ou à celle exceptée de la réprobation, puis examine les preuves et les conditions.",
+      "label": "Khalîl, Mukhtasar, commenté par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–80."
+    },
+    "lexicon": [],
+    "quiz": [],
+    "sources": [
+      {
+        "label": "Islamweb — Mawâhib al-Jalîl, tome 1, p. 78–80, passage « كمشمس »",
+        "url": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+      },
+      {
+        "label": "Ahlulbayt Library — autre édition, tome 1, p. 109",
+        "url": "https://ablibrary.net/book_content/b/4471/109?lang=ar"
+      },
+      {
+        "label": "Ahlulbayt Library — autre édition, tome 1, p. 110",
+        "url": "https://ablibrary.net/book_content/b/4471/110?lang=ar"
+      },
+      {
+        "label": "Ahlulbayt Library — autre édition, tome 1, p. 111",
+        "url": "https://ablibrary.net/book_content/b/4471/111?lang=ar"
+      },
+      {
+        "label": "Usul — texte arabe de Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      }
+    ]
+  },
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Poursuivre l’étude de Kitâb al-Tahâra",
-    "status": "À préparer — fiche 13 non publiée"
+    "title": "Poursuivre les eaux chauffées et les usages du hammam",
+    "status": "À préparer — fiche 14 non publiée"
   }
 };
