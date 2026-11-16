@@ -678,26 +678,39 @@ async function desktop() {
     await page.locator('.fiqh-m-complete').click();
     assert.equal(await page.evaluate(()=>localStorage.getItem('athar_fiqh_maliki_eaux_05_done')),'1');
 
-    // Fiche 06 ancienne : conservation sans réécriture.
-    const check={index:5,title:/impureté/i,quote:/وَيَسِيرٌ/,source:'/19/109/',search:'Mashhûr',key:'athar_fiqh_maliki_eaux_06_done'};
-    await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
-    assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title);
-    assert.equal(await page.locator('.fiqh-m-section').count(),4);
-    assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),check.quote);
-    assert.ok(await page.locator('a[href*="'+check.source+'"]').count()>0);
-    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false');
+    // Fiche 06 : eau souillée, eau inchangée, avis connu et divergences attribuées.
+    await page.locator('.fiqh-m-lesson-link').nth(5).click();
+    assert.match(await page.locator('#fiqh-m-heading').innerText(),/impureté/i);
+    assert.equal(await page.locator('.fiqh-m-section').count(),7,'Sept lectures guidées attendues dans la fiche 06');
+    assert.equal(await page.locator('.fiqh-m-goals li').count(),7,'Sept objectifs attendus');
+    assert.equal(await page.locator('.fiqh-m-passage').count(),7,'Sept extraits arabes attendus');
+    assert.equal(await page.locator('.fiqh-m-passage-translation').count(),7,'Toutes les citations doivent être traduites');
+    assert.equal(await page.locator('.fiqh-m-passage-link').count(),7,'Les passages originaux doivent être consultables');
+    assert.equal(await page.locator('.fiqh-m-breakdown').count(),7,'Décomposition pédagogique absente');
+    assert.equal(await page.locator('.fiqh-m-case').count(),7,'Exemples concrets absents');
+    assert.equal(await page.locator('.fiqh-m-takeaway').count(),7,'À retenir manquants');
+    assert.match(await page.locator('.fiqh-m-passage blockquote').nth(0).innerText(),/نجسا فالماء نجس/);
+    assert.match(await page.locator('.fiqh-m-passage blockquote').nth(3).innerText(),/فإنه طهور/);
+    assert.match(await page.locator('.fiqh-m-passage blockquote').nth(5).innerText(),/ابن القاسم/);
+    assert.match(await page.locator('.fiqh-m-passage blockquote').nth(6).innerText(),/مراعاة الخلاف/);
+    assert.ok(await page.locator('a[href*="/ar/library/content/19/101/"]').count()>=1,'Source p. 59 non liée');
+    assert.ok(await page.locator('a[href*="/ar/library/content/19/109/"]').count()>=1,'Source p. 70–72 non liée');
+    assert.equal(await page.locator('.fiqh-m-section').first().locator('p:not(.fiqh-m-reference)').first().evaluate(el=>getComputedStyle(el).textAlign),'justify','Les paragraphes français doivent être justifiés');
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','La fiche 06 ne doit pas hériter de la lecture 05');
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
-    assert.equal(await page.locator('.fiqh-m-term').count(),6);
-    await page.locator('.fiqh-m-search input').fill(check.search);
-    assert.ok(await page.locator('.fiqh-m-term').count()>=1);
+    assert.equal(await page.locator('.fiqh-m-term').count(),12,'Douze mots du lexique attendus');
+    await page.locator('.fiqh-m-search input').fill('Murâ');
+    assert.ok(await page.locator('.fiqh-m-term').count()>=1,'Recherche de murâ‘ât al-khilâf inactive');
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
-    assert.equal(await page.locator('.fiqh-m-question').count(),3);
-    assert.equal(await page.locator('.fiqh-m-answer').count(),0);
-    await page.locator('.fiqh-m-choices button').first().click();
-    assert.equal(await page.locator('.fiqh-m-answer').count(),1);
+    assert.equal(await page.locator('.fiqh-m-question').count(),9,'Neuf questions corrigées attendues');
+    assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Le quiz doit être réinitialisé');
+    await page.locator('.fiqh-m-question').first().locator('.fiqh-m-choices button').first().click();
+    assert.match(await page.locator('.fiqh-m-question').first().innerText(),/Bonne réponse/);
     await page.locator('.fiqh-m-tabs button').filter({hasText:'Lire la fiche'}).click();
     await page.locator('.fiqh-m-complete').click();
-    assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1');
+    assert.equal(await page.evaluate(()=>localStorage.getItem('athar_fiqh_maliki_eaux_06_done')),'1','Progression propre à la fiche 06 non sauvegardée');
+    await page.locator('.fiqh-m-lesson-link').nth(4).click();
+    assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','La progression de la fiche 05 a été perdue');
     assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/6\s*\/\s*12/,'Progression des six premières fiches erronée');
 
     // Fiches 07 à 09 : eau déjà utilisée, usages recommandés, eau courante et stagnante.
