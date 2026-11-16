@@ -784,23 +784,36 @@ async function desktop() {
     assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/9\s*\/\s*12/,'Progression des fiches précédentes erronée');
     // Fiches 10-12 : bassin public, eau du puits peu abondante, et reste d'eau (su’r).
     const fiqhLatestLessons=[
-        {index:9,number:'10',title:/bassins collectifs/i,quote:/يُفْرَغُ بِسُرْعَةٍ/,source:'/19/114/',search:'Birak',key:'athar_fiqh_maliki_eaux_10_done'},
+        {index:9,number:'10',title:/bassins collectifs/i,quote:/يُفْرَغُ بِسُرْعَةٍ/,source:'/19/114/',search:'Birak',parts:9,terms:15,questions:12,key:'athar_fiqh_maliki_eaux_10_done'},
         {index:10,number:'11',title:/eau limitée/i,quote:/يَحْتَالُ/,source:'/19/115/',search:'Bi’r',key:'athar_fiqh_maliki_eaux_11_done'},
         {index:11,number:'12',title:/su’r/i,quote:/الِاحْتِرَازُ/,source:'/19/118/',search:'Su’r',key:'athar_fiqh_maliki_eaux_12_done'}
     ];
     for(const check of fiqhLatestLessons){
         await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
         assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre absent '+check.number);
-        assert.equal(await page.locator('.fiqh-m-section').count(),4,'Quatre développements attendus '+check.number);
+        assert.equal(await page.locator('.fiqh-m-section').count(),check.parts||4,'Nombre de lectures incorrect pour '+check.number);
+        if(check.number==='10'){
+            assert.equal(await page.locator('.fiqh-m-goals li').count(),9,'Neuf objectifs attendus en fiche 10');
+            assert.equal(await page.locator('.fiqh-m-passage').count(),9,'Neuf extraits arabes attendus');
+            assert.equal(await page.locator('.fiqh-m-passage-translation').count(),9,'Neuf traductions attendues');
+            assert.equal(await page.locator('.fiqh-m-passage-link').count(),9,'Neuf liens vers les sources attendus');
+            assert.equal(await page.locator('.fiqh-m-breakdown').count(),9,'Neuf analyses progressives attendues');
+            assert.equal(await page.locator('.fiqh-m-case').count(),9,'Neuf exemples pédagogiques attendus');
+            assert.equal(await page.locator('.fiqh-m-takeaway').count(),9,'Neuf synthèses attendues');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(0).innerText(),/البرك المعدة للوضوء/,'Contexte arabe absent');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(3).innerText(),/وإن لم يتغير/,'Distinction de réprobation absente');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(6).innerText(),/وإن تحقق/,'Cas des souillures établies absent');
+            assert.match(await page.locator('.fiqh-m-passage blockquote').nth(8).innerText(),/يجدّد|يجدد/,'Renouvellement de l’eau absent');
+        }
         assert.match(await page.locator('.fiqh-m-quote blockquote').innerText(),check.quote,'Citation arabe absente '+check.number);
         assert.ok(await page.locator('a[href*="'+check.source+'"]').count()>=1,'Source de référence absente '+check.number);
         assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'false','Fiche marquée comme lue à tort '+check.number);
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
-        assert.equal(await page.locator('.fiqh-m-term').count(),6,'Six termes attendus '+check.number);
+        assert.equal(await page.locator('.fiqh-m-term').count(),check.terms||6,'Lexique incomplet pour '+check.number);
         await page.locator('.fiqh-m-search input').fill(check.search);
         assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche de lexique inactive '+check.number);
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
-        assert.equal(await page.locator('.fiqh-m-question').count(),3,'Trois QCM attendus '+check.number);
+        assert.equal(await page.locator('.fiqh-m-question').count(),check.questions||3,'Quiz incomplet pour '+check.number);
         assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Quiz non réinitialisé '+check.number);
         await page.locator('.fiqh-m-choices button').first().click();
         assert.equal(await page.locator('.fiqh-m-answer').count(),1,'Correction du QCM manquante '+check.number);
