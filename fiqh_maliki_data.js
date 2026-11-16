@@ -6348,7 +6348,208 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "Comprendre les distinctions concernant l’eau employée sur le corps et les grandes étendues.",
       "Différencier une eau chauffée au soleil de celle chauffée au feu, avec les réserves sur les températures extrêmes."
     ],
-    "sections": [],
+    "sections": [
+      {
+        "id": "reading-khalil",
+        "eyebrow": "ÉTAPE 01 · LECTURE DU COMMENTAIRE",
+        "title": "Comment lire les deux mots de Khalîl : « كمشمس » ?",
+        "passage": {
+          "arabic": "كمشمس",
+          "translation": "« Comme l’eau qui a été chauffée par le soleil. »",
+          "explanation": "Al-Hattâb indique que la plupart des commentateurs rattachent cette comparaison à la catégorie qui vient d’être exceptée de la réprobation. Il expose ensuite une lecture différente attribuée à Ibn al-Furât.",
+          "sourceLabel": "Khalîl, Mukhtasar ; lecture grammaticale d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Le texte de Khalîl est extrêmement condensé. Il vient de parler des eaux que l’on préfère éviter dans certaines circonstances, puis de celles qui ne sont pas concernées par cette réserve. Lorsqu’il écrit seulement « comme l’eau chauffée par le soleil », le lecteur peut hésiter : cette eau ressemble-t-elle à celles qui sont réprouvées, ou bien à celles dont l’utilisation reste permise sans réprobation ? C’est sur cette difficulté de lecture qu’al-Hattâb ouvre son commentaire.",
+          "Il explique que la plupart des commentateurs rattachent l’expression au passage qui écarte la réprobation : selon cette lecture, le seul fait que le soleil ait chauffé l’eau ne rend pas son usage réprouvé. Mais l’auteur ne gomme pas les autres transmissions. Certaines écoles et certains malikites ont discuté d’une réserve fondée sur des considérations médicales de leur époque. Il faut comprendre ces deux questions avant de conclure : d’abord le sens de la phrase, puis la valeur des arguments juridiques qui ont été rapportés."
+        ],
+        "steps": [
+          {
+            "label": "Le mot « ka » indique une comparaison",
+            "text": "Dans une phrase aussi brève, il faut déterminer ce à quoi cette comparaison se rattache pour connaître le jugement visé."
+          },
+          {
+            "label": "« Mushammas » décrit la manière dont l’eau a été chauffée",
+            "text": "Il ne signifie pas que l’eau est devenue impure ; la question porte d’abord sur la réprobation de son usage."
+          },
+          {
+            "label": "La première lecture d’al-Hattâb",
+            "text": "Il rapporte que la plupart des commentateurs comprennent l’eau chauffée au soleil comme exceptée de la réprobation."
+          },
+          {
+            "label": "Ne pas effacer la lecture concurrente",
+            "text": "Ibn al-Furât proposera un autre rattachement grammatical. Al-Hattâb l’examinera à la lumière du Tawdîh."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le passage",
+          "text": "Un étudiant lit la phrase de Khalîl sans ponctuation et place mentalement « comme l’eau chauffée au soleil » après les eaux réprouvées. Un autre la rattache aux exceptions qui viennent d’être évoquées. Les deux tirent alors des jugements différents des mêmes mots. Le rôle du commentaire est de leur montrer quelle lecture correspond aux explications des juristes. Cet échange est inventé uniquement pour rendre visible la difficulté grammaticale."
+        },
+        "takeaway": "La difficulté initiale est une question de lecture du Mukhtasar. Al-Hattâb indique qu’une majorité de commentateurs rattache « كمشمس » à ce qui n’est pas réprouvé, puis il examine les preuves d’une réserve plus étroite.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+      },
+      {
+        "id": "ibn-hajib",
+        "eyebrow": "ÉTAPE 02 · LECTURE DU COMMENTAIRE",
+        "title": "Pourquoi Ibn al-Hâjib affirme-t-il qu’il n’y a pas de réprobation ?",
+        "passage": {
+          "arabic": "والمشمس كغيره فلا كراهة فيه",
+          "translation": "« L’eau chauffée au soleil est comme les autres ; elle n’est pas réprouvée. »",
+          "explanation": "Al-Hattâb transmet expressément la formulation d’Ibn al-Hâjib et rapproche cette lecture de celle d’Ibn ‘Abd al-Salâm ainsi que des propos de Khalîl dans al-Tawdîh.",
+          "sourceLabel": "Ibn al-Hâjib, cité par al-Hattâb, t. 1, p. 78 ; rapprochement avec Ibn ‘Abd al-Salâm et le Tawdîh.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Al-Hattâb commence par citer un maître reconnu de l’école, Ibn al-Hâjib. Sa formule est claire : l’eau que le soleil a réchauffée se traite comme l’eau ordinaire. Il n’y a pas de raison d’en faire une catégorie à part du seul fait de sa température. Le commentaire fait également intervenir Ibn ‘Abd al-Salâm et le Tawdîh, l’ouvrage où Khalîl lui-même explique les questions juridiques plus amplement que dans son Mukhtasar.",
+          "Nous devons respecter la portée exacte de cet avis. Ibn al-Hâjib ne propose pas de nier tous les dommages matériels qu’une eau pourrait avoir selon son contenant ou son état. Il affirme simplement que le chauffage solaire, à lui seul, ne suffit pas à justifier une réprobation dans la règle qu’il expose. D’autres juristes ont cependant envisagé une réserve médicale. Le désaccord ne sera compréhensible que si l’on sépare cette question du statut de pureté de l’eau et de sa capacité à lever le hadath."
+        ],
+        "steps": [
+          {
+            "label": "Une formulation juridique explicite",
+            "text": "Ibn al-Hâjib ne se contente pas de décrire l’eau : il dit qu’aucune karâha ne lui est attachée pour le motif discuté."
+          },
+          {
+            "label": "Le Tawdîh aide à lire Khalîl",
+            "text": "Un même auteur peut développer sa position dans un commentaire alors que son Mukhtasar la formule en quelques mots."
+          },
+          {
+            "label": "La pureté n’est pas la même chose que la réprobation",
+            "text": "Même lorsque les juristes discutent de karâha, il faut continuer à examiner séparément la qualité purifiante de l’eau."
+          },
+          {
+            "label": "L’avis n’est pas une unanimité",
+            "text": "Al-Hattâb mentionne immédiatement des autorités ayant choisi une approche différente et explique leurs raisons."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le passage",
+          "text": "Imagine de l’eau propre laissée dans un récipient au soleil jusqu’à devenir tiède. Une personne se demande si le seul chauffage solaire lui retire la capacité de servir aux ablutions. Dans la formulation d’Ibn al-Hâjib rapportée ici, ce simple fait ne crée pas de réprobation. Le scénario est fictif : il ne constitue pas une évaluation de la sécurité sanitaire d’un réservoir particulier."
+        },
+        "takeaway": "Ibn al-Hâjib traite l’eau réchauffée par le soleil comme les autres eaux, sans réprobation liée à cette seule circonstance. Al-Hattâb conserve cet avis, même s’il rapportera ensuite des réserves attribuées à d’autres auteurs.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+      },
+      {
+        "id": "iyad-sanad",
+        "eyebrow": "ÉTAPE 03 · LECTURE DU COMMENTAIRE",
+        "title": "Pourquoi ‘Iyâd et Sanad évoquent-ils une réprobation ?",
+        "passage": {
+          "arabic": "وكره الوضوء بالماء المسخن بالشمس من جهة الطب",
+          "translation": "« Les ablutions avec l’eau chauffée par le soleil ont été réprouvées pour une raison médicale. »",
+          "explanation": "Al-Hattâb cite al-Tirâz de Sanad et relève que ‘Iyâd, dans certains de ses écrits, s’est lui aussi exprimé dans le sens d’une réprobation. Le motif donné est médical et historiquement situé.",
+          "sourceLabel": "Sanad, al-Tirâz, passage cité par al-Hattâb, t. 1, p. 78 ; mention parallèle du qâdî ‘Iyâd.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Après Ibn al-Hâjib, al-Hattâb rapporte une autre voie. Sanad écrit dans al-Tirâz que l’emploi de l’eau chauffée au soleil a été réprouvé « du point de vue de la médecine ». Il mentionne également que le qâdî ‘Iyâd a retenu une réserve de ce genre. Ces mots ont leur importance : les auteurs ne disent pas que les rayons du soleil auraient rendu l’eau rituellement impure. Ils examinent plutôt une inquiétude ancienne relative aux effets supposés du contact de cette eau avec le corps.",
+          "Nous ne devons pas reprendre sans vérification le contenu médical de cette inquiétude. Le fait que plusieurs juristes médiévaux aient mentionné le baras ne démontre pas aujourd’hui qu’une eau chauffée au soleil provoquerait une maladie cutanée. Pour bien enseigner le texte, il faut plutôt expliquer pourquoi la possibilité d’un dommage extérieur aux ablutions a pu les conduire à parler de réprobation. La question de la validité du wudû’, elle, sera traitée plus loin par d’autres savants."
+        ],
+        "steps": [
+          {
+            "label": "Sanad est cité pour son raisonnement",
+            "text": "La formule est rapportée d’al-Tirâz, et non attribuée directement à Khalîl ou à un hadith authentique."
+          },
+          {
+            "label": "‘Iyâd est une autre autorité mentionnée",
+            "text": "Al-Hattâb indique que certains de ses écrits retiennent également une réserve, ce qui montre la pluralité des transmissions."
+          },
+          {
+            "label": "« Min jihat al-tibb » définit le motif allégué",
+            "text": "La raison invoquée est une considération médicale historique, non une impureté qui aurait pénétré dans l’eau."
+          },
+          {
+            "label": "La valeur scientifique du motif doit être distinguée",
+            "text": "Rapporter exactement une croyance ancienne ne revient pas à prouver qu’elle est médicalement exacte aujourd’hui."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le passage",
+          "text": "Une personne lit que Sanad réprouve cette eau et croit qu’elle est devenue impure. Un autre lui montre les mots « du point de vue de la médecine » : le juriste discutait d’un effet supposé sur le corps, non d’une souillure matérielle qui se serait mêlée à la réserve. L’exemple est créé pour clarifier le vocabulaire ; il ne constitue pas une conclusion clinique sur l’eau chauffée au soleil."
+        },
+        "takeaway": "La divergence rapportée par al-Hattâb fait intervenir une inquiétude de santé propre aux explications de certains savants. La réprobation qu’ils mentionnent ne doit être confondue ni avec l’impureté de l’eau ni avec un fait médical démontré.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+      },
+      {
+        "id": "hadith",
+        "eyebrow": "ÉTAPE 04 · LECTURE DU COMMENTAIRE",
+        "title": "Que disent les spécialistes de l’authenticité du hadith invoqué ?",
+        "passage": {
+          "arabic": "قال عبد الحق لم يصح فيه حديث",
+          "translation": "« ‘Abd al-Haqq a dit : aucun hadith authentique n’est établi à ce sujet. »",
+          "explanation": "Al-Hattâb rapporte la critique d’un récit attribué au Prophète ﷺ concernant une eau chauffée au soleil et une maladie de peau. Il transmet le jugement d’‘Abd al-Haqq sur son absence d’authenticité.",
+          "sourceLabel": "‘Abd al-Haqq cité par al-Qarâfî dans al-Dhakhîra, repris par al-Hattâb, t. 1, p. 78–79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Un récit a circulé dans certains livres selon lequel le Prophète ﷺ aurait mis en garde contre l’eau chauffée par le soleil en lui attribuant un dommage. Al-Hattâb ne le cite pas comme une parole certaine qu’il suffirait d’apprendre. Il rapporte au contraire l’appréciation d’‘Abd al-Haqq, reprise dans la Dhakhîra d’al-Qarâfî : aucun hadith authentique n’a été établi sur cette question. Cette critique doit accompagner toute mention du récit.",
+          "C’est un point important lorsqu’on apprend le fiqh à partir d’un commentaire. Les auteurs rapportent parfois des traditions pour exposer les arguments qui ont circulé, puis signalent qu’elles sont faibles. L’existence d’une citation dans un ouvrage prestigieux ne suffit donc pas à confirmer son attribution au Prophète ﷺ. Pour notre cours, la distinction est claire : nous pouvons expliquer la place de ce récit dans la discussion historique, mais nous n’avons pas à le présenter comme un dalîl prophétique authentifié."
+        ],
+        "steps": [
+          {
+            "label": "Une attribution prophétique exige une vérification",
+            "text": "Le texte conserve le récit et la critique de sa transmission. On ne peut pas citer la première sans la seconde."
+          },
+          {
+            "label": "« Lam yasihh » marque l’absence d’authenticité",
+            "text": "La formule d’‘Abd al-Haqq est une appréciation du hadith, pas une déclaration de certitude médicale."
+          },
+          {
+            "label": "La Dhakhîra d’al-Qarâfî est citée",
+            "text": "Al-Hattâb s’appuie sur un auteur malikite qui a conservé cette évaluation des preuves."
+          },
+          {
+            "label": "La règle et la preuve doivent être examinées séparément",
+            "text": "Même si un juriste retient une réprobation pour une autre raison, cela ne rend pas automatiquement authentique le récit cité."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le passage",
+          "text": "Un étudiant prépare un cours et trouve une phrase attribuée au Prophète ﷺ sur l’eau exposée au soleil. Avant de la reproduire, il lit la discussion d’al-Hattâb et découvre l’objection d’‘Abd al-Haqq. Il décide de présenter l’histoire de cette attribution, puis d’expliquer pourquoi elle ne doit pas être rapportée comme un hadith authentique. Cet exemple fictif montre une exigence élémentaire de vérification."
+        },
+        "takeaway": "‘Abd al-Haqq ne reconnaît pas de hadith authentique sur cette mise en garde. Al-Hattâb le rapporte explicitement : il serait donc inexact de présenter le récit comme une preuve prophétique solide de l’avis discuté.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+      },
+      {
+        "id": "classification-hadith",
+        "eyebrow": "ÉTAPE 05 · LECTURE DU COMMENTAIRE",
+        "title": "Pourquoi al-Hattâb distingue-t-il le hadith faible du hadith fabriqué ?",
+        "passage": {
+          "arabic": "وما ذكره ابن فرحون من كون الحديث موضوعا قاله بعضهم والأكثر على أنه حديث ضعيف",
+          "translation": "« Certains ont qualifié le récit de fabriqué, comme le rapporte Ibn Farhûn ; la plupart l’ont jugé faible. »",
+          "explanation": "Ibn Farhûn transmet une qualification sévère du récit. Al-Hattâb reconnaît l’existence de cette critique mais signale que d’autres auteurs le décrivent plutôt comme faible, sans pour autant le tenir pour authentique.",
+          "sourceLabel": "Al-Hattâb, propos personnels introduits par « قلت », à propos d’Ibn Farhûn et des critiques du récit, t. 1, p. 79.",
+          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+        },
+        "paragraphs": [
+          "Le commentaire expose maintenant une nuance de science du hadith. Ibn Farhûn rapporte que le récit serait fabriqué, en renvoyant notamment à des critiques de transmission. Al-Hattâb intervient personnellement par « قلت », « je dis », puis précise que certains auteurs ont adopté cette qualification, tandis que la plupart, selon lui, ont retenu celle de hadith faible. Cette distinction mérite qu’on s’y arrête : un récit faible et un récit fabriqué ne sont pas deux expressions équivalentes.",
+          "Il faut également garder le point commun de ces jugements. Ni l’un ni l’autre ne transforme ce récit en parole prophétique authentifiée. Le commentaire rapporte encore la critique d’al-Nawawî dans son Sharh al-Muhadhdhab. Nous ne devons donc pas chercher une certitude que la source refuse elle-même. La question juridique pourra continuer à être discutée à partir d’autres arguments, mais ce texte particulier ne doit pas être utilisé comme s’il avait été validé par les spécialistes du hadith."
+        ],
+        "steps": [
+          {
+            "label": "Ibn Farhûn transmet une appréciation",
+            "text": "Le commentaire conserve cette qualification, puis apporte une précision sur l’existence d’autres appréciations."
+          },
+          {
+            "label": "« Mawdu‘ » et « da‘îf » diffèrent",
+            "text": "Le premier terme désigne une fabrication ; le second une transmission qui n’atteint pas les conditions de l’authenticité."
+          },
+          {
+            "label": "Le « قلت » appartient à al-Hattâb",
+            "text": "Il ne se contente pas de recopier les auteurs : il intervient pour distinguer les degrés de critique."
+          },
+          {
+            "label": "La faiblesse du récit demeure",
+            "text": "La nuance technique n’autorise pas à rapporter le texte comme un hadith authentique ni comme une preuve scientifique du dommage allégué."
+          }
+        ],
+        "example": {
+          "title": "Mise en situation pour comprendre le passage",
+          "text": "Deux lecteurs discutent d’un même récit. Le premier a lu qu’Ibn Farhûn le jugeait fabriqué ; le second connaît la remarque d’al-Hattâb, selon laquelle une majorité de critiques le tient pour faible. Leur enseignant leur demande de conserver les deux termes et les auteurs au lieu de choisir l’un au hasard. La scène est fictive, mais elle illustre pourquoi la précision d’attribution est indispensable."
+        },
+        "takeaway": "Al-Hattâb maintient la différence technique entre fabrication alléguée et faiblesse de la transmission. Il ne présente jamais le récit comme un hadith authentique : aucune conclusion médicale ne doit non plus être déduite de son seul contenu.",
+        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+      }
+    ],
     "quote": {
       "arabic": "كَمُشَمَّسٍ",
       "meaning": "Khalîl mentionne l’eau chauffée par le soleil. Al-Hattâb explique que les commentateurs discutent son rattachement à la catégorie réprouvée ou à celle exceptée de la réprobation, puis examine les preuves et les conditions.",
