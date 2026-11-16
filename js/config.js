@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v83-fiqh-maliki-tahara-v1';
+    const APP_VERSION = 'athar-pro-v84-fiqh-maliki-eaux-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
