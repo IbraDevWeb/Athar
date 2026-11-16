@@ -4273,6 +4273,126 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "La phrase sur la non-validité est conditionnée par l’état de l’eau examiné dans le texte. Elle ne doit pas devenir une règle générale condamnant tout bassin collectif.",
         "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. Exemple fictif ajouté uniquement pour enseigner le passage."
+      },
+      {
+        "id": "unchanged",
+        "eyebrow": "04 · Une eau apparemment inchangée",
+        "title": "Pourquoi réprouver des ablutions si l’eau ne présente aucun changement ?",
+        "passage": {
+          "arabic": "وإن لم يتغير فيكره الوضوء منها",
+          "translation": "« Si elle n’a pas changé, il est réprouvé d’en faire les ablutions. »",
+          "explanation": "Après avoir traité l’eau altérée, al-Hattâb envisage explicitement une eau inchangée dans le même contexte. Son jugement relève cette fois de la karâha et sera expliqué par la circulation des membres.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, commentaire des bassins collectifs.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Le commentaire ne s’arrête pas à l’eau dont une caractéristique a changé. Al-Hattâb envisage maintenant le bassin dont l’eau semble demeurer dans son état initial. Pourtant, il émet une réserve sur son utilisation pour les ablutions. Il faut comprendre cette réprobation dans les conditions qu’il va décrire : l’eau est partagée, les membres y passent fréquemment et l’on craint que des matières impures aient été introduites.",
+          "C’est le moment de bien distinguer le vocabulaire des juristes. Une utilisation réprouvée n’est pas nécessairement identique à une purification invalide. Dans sa première hypothèse, al-Hattâb parlait de la validité du wudû’ ; dans cette seconde hypothèse, il parle de karâha. Si nous présentons les deux comme une même interdiction, nous faisons disparaître une différence que l’auteur a expressément introduite."
+        ],
+        "steps": [
+          {
+            "label": "L’absence d’altération",
+            "text": "Elle est explicitement mentionnée par al-Hattâb. Le second cas ne concerne donc pas une eau dont une propriété a changé."
+          },
+          {
+            "label": "Le sens de la réprobation",
+            "text": "La karâha ne signifie pas automatiquement que les ablutions sont nulles ou qu’une souillure a été constatée."
+          },
+          {
+            "label": "Une réserve motivée",
+            "text": "L’auteur ne déconseille pas cette eau arbitrairement : les deux phrases suivantes donnent les circonstances qui l’intéressent."
+          },
+          {
+            "label": "Une précision essentielle",
+            "text": "La durée de conservation du bassin sera encore précisée à la fin du passage. Cette information fait partie du raisonnement."
+          }
+        ],
+        "example": {
+          "title": "Deux bassins, deux jugements étudiés",
+          "text": "Imagine un premier bassin dont l’eau a subi une modification par une souillure et un second où aucun changement n’est établi, mais où les utilisateurs mettent souvent mains et pieds. Al-Hattâb ne formule pas la même appréciation. L’exemple est volontairement schématique : il sert à reconnaître la distinction des cas dans le texte, non à délivrer un jugement sur une réserve réelle."
+        },
+        "takeaway": "Dans le bassin décrit, une eau apparemment inchangée peut faire l’objet d’une réprobation d’usage. Cette notion doit rester distincte du jugement de non-validité attaché au cas précédent.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. La mise en situation est un exemple pédagogique fictif."
+      },
+      {
+        "id": "contacts",
+        "eyebrow": "05 · La cause mentionnée par le commentateur",
+        "title": "Pourquoi al-Hattâb insiste-t-il sur les mains et les pieds ?",
+        "passage": {
+          "arabic": "لاختلاف الأيدي والأرجل",
+          "translation": "« À cause des passages successifs des mains et des pieds. »",
+          "explanation": "L’expression donne la raison concrète de la réserve sur l’eau inchangée : une même réserve reçoit les membres de plusieurs utilisateurs.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, commentaire des bassins collectifs.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "Al-Hattâb nous invite à regarder comment le bassin fonctionne. Des personnes différentes viennent accomplir leurs ablutions et introduisent directement les mains ou les pieds dans la même eau. Celle-ci n’est donc pas seulement un réservoir collectif : elle est exposée à des contacts répétés. Voilà pourquoi l’auteur relie la réprobation à cette circulation des membres, plutôt qu’au seul nombre de personnes présentes dans le lieu.",
+          "Cette observation nous aide à lire les ouvrages anciens sans leur faire dire ce qu’ils ne disent pas. Un ensemble de robinets modernes alimentés par une eau qui n’a pas été touchée par les utilisateurs précédents n’est pas automatiquement la même installation. Pour comparer deux cas, il faut d’abord comparer leurs circonstances. Le caractère public d’un lieu ne suffit pas à lui seul à reproduire le motif cité par al-Hattâb."
+        ],
+        "steps": [
+          {
+            "label": "La répétition des contacts",
+            "text": "Le texte décrit une succession de mains et de pieds dans le bassin, pas une réserve qui n’est utilisée qu’une seule fois."
+          },
+          {
+            "label": "Les personnes ne sont pas déclarées impures",
+            "text": "La présence de plusieurs fidèles n’est pas en elle-même une najâsa. Le problème tient aux matières qui peuvent se trouver sur les membres."
+          },
+          {
+            "label": "La comparaison avec les installations modernes",
+            "text": "Il faut connaître le fonctionnement réel d’une réserve avant de lui appliquer une discussion sur l’eau directement touchée."
+          },
+          {
+            "label": "Le rapport avec la phrase suivante",
+            "text": "Le commentateur mentionne ensuite le risque habituel de souillures ; les deux observations expliquent ensemble sa réserve."
+          }
+        ],
+        "example": {
+          "title": "Bassin ouvert ou robinet individuel",
+          "text": "Une mosquée dispose d’un ancien bassin ouvert et d’une rangée de robinets indépendants. Beaucoup de personnes utilisent les deux lieux. Mais dans le bassin, plusieurs mains plongent dans une seule eau ; avec les robinets, l’eau arrive autrement. Cette différence ne suffit pas à rendre une fatwa sur l’installation actuelle. Elle permet simplement de voir pourquoi al-Hattâb décrit précisément le passage des membres."
+        },
+        "takeaway": "Les contacts répétés des mains et des pieds sont une circonstance déterminante dans le cas étudié. On ne peut pas assimiler toute installation collective à une réserve où les utilisateurs touchent directement la même eau.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. La mise en situation est un exemple pédagogique fictif."
+      },
+      {
+        "id": "probability",
+        "eyebrow": "06 · Probabilité et certitude",
+        "title": "Une souillure possible doit-elle être traitée comme une souillure constatée ?",
+        "passage": {
+          "arabic": "والغالب أن فيها النجاسة",
+          "translation": "« Dans ce contexte, il est fréquent qu’une impureté s’y trouve. »",
+          "explanation": "Le commentateur exprime une appréciation des conditions habituelles du bassin. Il ne prétend pas avoir établi que toutes les réserves collectives contiennent nécessairement une impureté.",
+          "sourceLabel": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76, commentaire des bassins collectifs.",
+          "sourceUrl": "https://www.islamweb.net/ar/library/content/19/114/"
+        },
+        "paragraphs": [
+          "La formulation d’al-Hattâb mérite qu’on s’y attarde. Il parle de ce qui se produit habituellement dans les bassins qu’il décrit. Des mains et des pieds y passent, et il existe alors une raison de craindre que des souillures s’y trouvent. Mais cette appréciation n’est pas identique à l’observation d’une matière impure précise. Le texte distingue soigneusement une eau demeurée inchangée et les circonstances qui rendent son usage réprouvé.",
+          "Dans le fiqh, il est important de ne pas transformer une présomption en preuve certaine. Lorsque nous affirmons qu’une souillure a effectivement été lavée dans un bassin, nous ne sommes plus dans la même situation. Al-Hattâb introduira justement ce troisième cas à la phrase suivante. Apprendre à différencier ce qui est redouté, ce qui est établi et ce qui a réellement modifié l’eau empêche de prononcer des jugements exagérés."
+        ],
+        "steps": [
+          {
+            "label": "Le sens d’al-ghâlib",
+            "text": "L’auteur renvoie à une situation habituelle dans le bassin considéré, non à une analyse de chaque installation possible."
+          },
+          {
+            "label": "Une crainte n’est pas une modification",
+            "text": "La présence probable de souillures ne prouve pas que l’eau ait effectivement changé de couleur, de goût ou d’odeur."
+          },
+          {
+            "label": "Une probabilité ne vaut pas un constat",
+            "text": "Nous ne devons pas présenter comme établi un lavage d’impureté que personne n’a constaté."
+          },
+          {
+            "label": "La distinction suivante",
+            "text": "Al-Hattâb emploie ensuite une expression indiquant une souillure dont le lavage est vérifié : ce sera un cas différent."
+          }
+        ],
+        "example": {
+          "title": "Une affirmation trop catégorique",
+          "text": "Un élève dit qu’un bassin doit forcément contenir une impureté parce que beaucoup de fidèles l’ont utilisé. Un autre répond que l’eau paraît claire et qu’aucune précaution ne peut donc avoir de sens. Le texte aide à éviter ces deux raccourcis : il évoque une présomption liée au contexte sans la confondre avec une souillure effectivement établie. Cette discussion est inventée pour le cours."
+        },
+        "takeaway": "Al-Hattâb motive la réprobation par le risque habituel de souillures. Il ne dit pas que chaque bassin est prouvé impur : la distinction entre crainte, constat et altération doit être conservée.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 76. La mise en situation est un exemple pédagogique fictif."
       }
     ],
     "quote": {
