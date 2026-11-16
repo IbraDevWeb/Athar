@@ -313,8 +313,41 @@ assert.equal(book.flowingWater.quote.arabic,'وراكد يغتسل فيه');
 assert.ok(book.flowingWater.sources.some(x=>x.url===book.book.sourceUrl));
 for(const id of ['/19/111/','/19/113/'])assert.ok(book.flowingWater.sources.some(x=>x.url.includes(id)),'Source originale de la fiche 09 absente : '+id);
 assert.equal(new Set(['usedWater','recommendedWater','flowingWater'].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,41,'Les notions des fiches 07-09 doivent être distinctes');
+assert.equal(book.publicBasins.id,'public-basins-10');
+assert.equal(book.publicBasins.number,'10');
+assert.equal(book.publicBasins.goals.length,9,'Neuf objectifs sont attendus pour la fiche 10');
+assert.equal(book.publicBasins.sections.length,9,'Neuf lectures commentées attendues dans la fiche 10');
+assert.deepEqual(Array.from(book.publicBasins.sections,s=>s.id),[
+ 'context','changed','invalid','unchanged','contacts','probability','certainty','duration','renewal'
+],'Ordre des lectures de la fiche 10 incorrect');
+assert.deepEqual(Array.from(book.publicBasins.sections,s=>s.passage.arabic),[
+ 'البرك المعدة للوضوء',
+ 'إن تغير أحد أوصاف الماء',
+ 'فلا يصح الوضوء بها',
+ 'وإن لم يتغير فيكره الوضوء منها',
+ 'لاختلاف الأيدي والأرجل',
+ 'والغالب أن فيها النجاسة',
+ 'وإن تحقق غسلهم النجاسة فيها وكثرته',
+ 'وهذا فيما تطول إقامة الماء فيه',
+ 'وأما ما يفرغ بسرعة ويجدد له ماء آخر فأمره خفيف'
+],'Citations arabes de la fiche 10 incorrectes');
+for(const s of book.publicBasins.sections){
+ assert.ok(s.paragraphs.length===2&&s.paragraphs.every(p=>p.length>=390),'Développement trop court en fiche 10 : '+s.id);
+ assert.ok(s.passage?.arabic&&s.passage.translation&&s.passage.explanation&&s.passage.sourceLabel.includes('al-Hattâb')&&s.passage.sourceUrl?.includes('/19/114/'),'Attribution, traduction ou source absente : '+s.id);
+ assert.ok(s.steps.length===4&&s.steps.every(x=>x.label&&x.text.length>=85),'Explications guidées incomplètes : '+s.id);
+ assert.ok(s.example?.title&&s.example.text.length>=370,'Situation pédagogique absente : '+s.id);
+ assert.ok(s.takeaway.length>=150&&s.sourceNote.includes('p. 76'),'Synthèse ou référence absente : '+s.id);
+}
+assert.equal(book.publicBasins.lexicon.length,15,'Quinze notions attendues dans la fiche 10');
+assert.equal(new Set(book.publicBasins.lexicon.map(x=>x.term)).size,15,'Doublons de lexique en fiche 10');
+assert.ok(book.publicBasins.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=120),'Définition incomplète en fiche 10');
+assert.equal(book.publicBasins.quiz.length,12,'Douze questions attendues dans la fiche 10');
+for(const q of book.publicBasins.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation.length>=160,'Correction ou choix incomplet en fiche 10');
+assert.equal(book.publicBasins.quote.arabic,'وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ');
+assert.ok(book.publicBasins.quote.label.includes('al-Hattâb'),'Citation finale mal attribuée');
+assert.ok(book.publicBasins.sources.some(s=>s.url===book.book.sourceUrl),'Référence Usul absente fiche 10');
+assert.ok(book.publicBasins.sources.some(s=>s.url.includes('/19/114/')),'Référence Islamweb absente fiche 10');
 const latestLessons = [
- {key:'publicBasins',number:'10',id:'public-basins-10',ids:['context','changed','unchanged','renewal'],quote:'وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ',urls:['/19/114/']},
  {key:'limitedWell',number:'11',id:'well-necessity-11',ids:['well','procedure','necessity','washing-basin'],quote:'يَحْتَالُ حَتَّى يَغْسِلَ يَدَيْهِ وَيَغْرِفَ وَيَغْتَسِلَ',urls:['/19/115/','/19/116/']},
  {key:'leftoverWater',number:'12',id:'leftover-water-12',ids:['term','evidence','cat','food'],quote:'لَا إِنْ عَسُرَ الِاحْتِرَازُ مِنْهُ أَوْ كَانَ طَعَامًا',urls:['/19/117/','/19/118/']}
 ];
@@ -333,7 +366,7 @@ for(const spec of latestLessons){
  assert.ok(entry.sources.some(x=>x.url===book.book.sourceUrl),'Source Usul manquante');
  for(const id of spec.urls)assert.ok(entry.sources.some(x=>x.url.includes(id)),'Source Islamweb manquante : '+id);
 }
-assert.equal(new Set(latestLessons.flatMap(spec=>book[spec.key].lexicon.map(x=>x.term))).size,18,'Les dix-huit termes des nouvelles fiches doivent être distincts');
+assert.equal(new Set(['publicBasins',...latestLessons.map(spec=>spec.key)].flatMap(key=>book[key].lexicon.map(x=>x.term))).size,27,'Les vingt-sept notions des fiches 10 à 12 doivent être distinctes');
 assert.ok(book.nextChapter.status.includes('fiche 13 non publiée'));
 assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater'].filter(key=>book[key]?.status==='disponible').length,12,'Douze fiches réellement accessibles');
 for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
@@ -355,4 +388,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiches 10-12 préservées ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 12 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiches 11-12 préservées ; '+shell.length+' ressources PWA.');
