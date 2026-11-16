@@ -4151,50 +4151,9 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "number": "10",
     "status": "disponible",
     "title": "Les bassins collectifs et le renouvellement de l’eau",
-    "subtitle": "Étudier les bassins réservés aux ablutions, le contact répété des mains et des pieds et l’importance du renouvellement de l’eau dans le commentaire.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث, « فرع تغير الماء في البرك المعدة للوضوء » (Mawâhib al-Jalîl, t. 1, p. 75–76)",
-    "sections": [
-      {
-        "id": "context",
-        "eyebrow": "01 · La continuité du chapitre",
-        "title": "Pourquoi al-Hattâb introduit-il les bassins utilisés par plusieurs personnes ?",
-        "paragraphs": [
-          "La fiche 09 a distingué eau courante, grande quantité et eau stagnante. Al-Hattâb poursuit par le cas particulier de bassins aménagés pour les ablutions, dont l’eau peut rester en place tandis que de nombreuses personnes y plongent mains ou pieds. Ce cas n’est donc pas une nouvelle définition de l’eau : il applique les critères étudiés à un usage collectif et répété.",
-          "Le commentaire vise notamment les bassins des lieux d’ablutions et examine le risque lié à la circulation des membres et à la présence possible de souillures. Il ne faut pas considérer qu’une eau devient impure au seul motif qu’elle est partagée ; la question tient à l’état observé de l’eau, à son usage et aux circonstances décrites dans ce passage ancien."
-        ],
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 75–76, prolongement de l’explication de « وراكد يغتسل فيه » et « فرع تغير الماء في البرك المعدة للوضوء »."
-      },
-      {
-        "id": "changed",
-        "eyebrow": "02 · Changement réel",
-        "title": "Que signifie « si l’une des qualités de l’eau a changé » ?",
-        "paragraphs": [
-          "Le passage distingue expressément le bassin dont une caractéristique de l’eau a changé de celui où aucun changement n’est perceptible. Dans le premier cas, al-Hattâb indique que les ablutions ne sont pas valides avec cette eau dans la configuration examinée. Cette formulation doit être lue avec les explications antérieures du livre concernant la cause du changement : elle ne transforme pas n’importe quelle variation naturelle en souillure.",
-          "C’est un rappel de méthode : la couleur, le goût et l’odeur ont déjà été étudiés, mais leur examen doit être relié à ce qui les a modifiés. Le simple fait de voir plusieurs personnes passer dans un bassin ne permet pas de conclure que toutes ses caractéristiques ont été altérées. Le texte sépare précisément les deux hypothèses."
-        ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, « إن تغير أحد أوصاف الماء فلا يصح الوضوء بها » ; lire avec les distinctions antérieures entre substances pures et impures."
-      },
-      {
-        "id": "unchanged",
-        "eyebrow": "03 · Eau sans changement constaté",
-        "title": "Pourquoi peut-il exister une réprobation même si l’eau n’a pas changé ?",
-        "paragraphs": [
-          "Al-Hattâb rapporte que, dans les bassins évoqués, l’usage pour les ablutions est réprouvé quand aucun changement n’est constaté, en raison des passages répétés de mains et de pieds et de la probabilité de souillures dans le contexte décrit. Cette réprobation ne signifie pas automatiquement que l’eau est déclarée impure : le commentateur différencie le doute lié aux usages de la constatation d’un changement effectif.",
-          "Le même passage ajoute que, si une souillure y a été effectivement lavée dans une quantité importante, le jugement doit être examiné selon le scénario mentionné dans le texte ; il ne faut pas transformer l’exemple d’une installation ancienne en règle universelle sur les installations contemporaines. L’étudiant retient surtout la différence entre risque, souillure établie et propriété modifiée."
-        ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, « وإن لم يتغير فيكره الوضوء منها لاختلاف الأيدي والأرجل » ; précisions suivantes sur les souillures."
-      },
-      {
-        "id": "renewal",
-        "eyebrow": "04 · Rôle de la durée",
-        "title": "Pourquoi renouveler l’eau du bassin change-t-il l’analyse ?",
-        "paragraphs": [
-          "Al-Hattâb précise explicitement que son développement concerne les bassins dont l’eau reste longtemps en place. En revanche, lorsque l’eau est rapidement évacuée et remplacée par une nouvelle eau, « l’affaire est plus légère » selon sa formulation. Cette nuance est importante : le texte ne réduit pas la question au matériau du bassin ni au nombre de personnes qui l’approchent.",
-          "La fiche invite donc à comparer trois cas différents : une eau réellement modifiée ; une eau inchangée mais exposée de manière répétée dans un bassin où elle séjourne longtemps ; une eau régulièrement renouvelée. Ces cas ne se confondent pas. Il s’agit de lire une analyse de fiqh historique, non de proposer un protocole sanitaire contemporain ni de juger automatiquement les ablutions dans une piscine."
-        ],
-        "sourceNote": "Mawâhib al-Jalîl, t. 1, p. 76, « وهذا فيما تطول إقامة الماء فيه وأما ما يفرغ بسرعة ويجدد له ماء آخر فأمره خفيف »."
-      }
-    ],
+    "subtitle": "Neuf lectures commentées d’al-Hattâb sur les bassins des ablutions : changement de l’eau, validité, réprobation, souillures établies et vidange rapide.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · فرع تغير الماء في البرك المعدة للوضوء · Mawâhib al-Jalîl, t. 1, p. 76",
+    "sections": [],
     "quote": {
       "arabic": "وَأَمَّا مَا يُفْرَغُ بِسُرْعَةٍ وَيُجَدَّدُ لَهُ مَاءٌ آخَرُ فَأَمْرُهُ خَفِيفٌ",
       "meaning": "Al-Hattâb distingue le bassin où l’eau demeure longtemps de celui dont l’eau est rapidement vidée et remplacée. Le renouvellement est une circonstance qui atténue la difficulté dans le cas étudié.",
@@ -4277,6 +4236,17 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "label": "Islamweb — t. 1, p. 75, eau stagnante : contexte",
         "url": "https://www.islamweb.net/amp/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1"
       }
+    ],
+    "goals": [
+      "Situer le passage des bassins collectifs dans le commentaire de l’eau stagnante, sans l’attribuer à Khalîl.",
+      "Distinguer un changement établi de l’eau d’une crainte liée à un usage collectif.",
+      "Comprendre pourquoi la non-validité des ablutions dépend ici d’une condition précise.",
+      "Expliquer le jugement de réprobation pour une eau demeurée inchangée.",
+      "Identifier les contacts répétés des mains et des pieds comme motif cité par al-Hattâb.",
+      "Distinguer la présence probable de souillures de leur présence effectivement établie.",
+      "Lire le cas où des impuretés ont été fréquemment lavées sans l’élargir à un soupçon.",
+      "Comprendre le rôle de la durée de conservation de la même eau.",
+      "Expliquer pourquoi le renouvellement rapide modifie le contexte de la réprobation."
     ]
   },
   "limitedWell": {
