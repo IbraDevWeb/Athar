@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–06
+# Fiqh malikite · Parcours 01–09
 
-**État de la branche de développement au 16 novembre 2026 : six fiches disponibles (les PR sont encore à fusionner successivement).** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État de la branche de développement au 16 novembre 2026 : neuf fiches disponibles dans la branche de développement.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -105,20 +105,59 @@ Al-Hattâb discute les avis et leurs attributions ; la fiche fait ressortir le *
 
 Chaque fiche comporte **quatre sections de lecture, six termes de lexique, trois questions corrigées**, un extrait arabe court et des notes de provenance. Les explications françaises sont des synthèses d’Athar, **pas des citations de l’auteur ni des fatwas**.
 
+## Fiches 07–09 — Les usages de l'eau dans Kitâb al-Tahâra
+
+Ces trois fiches suivent le développement de la discussion sur les eaux dans *Mawâhib al-Jalîl*, tome 1, **pages 67–75**. Elles sont une synthèse pédagogique en français du commentaire d'al-Hattâb, sans traduction exhaustive ni jugement juridique nouveau.
+
+### Fiche 07 — L'eau déjà utilisée pour la purification rituelle
+
+Passage : « وكره ماء مستعمل في حدث », **Khalîl**, reproduit et commenté par al-Hattâb (t. 1, p. 67–68).
+
+1. L'eau « utilisée » n'est pas synonyme d'eau impure : distinction entre purifiant et réprouvé selon le *mashhûr*.
+2. L'eau qui a effectivement coulé des membres ou recueillie après usage n'est pas identique au reliquat d'eau resté dans un récipient.
+3. L'avis célèbre et les autres avis historiques sont distingués ; le commentaire ne prétend pas à une unanimité.
+4. Raisonnement contextualisé selon usage, quantité, présence de saleté et disponibilité d'une autre eau.
+
+Source primaire : [Islamweb, t. 1, p. 67–68](https://islamweb.net/ar/library/content/19/107/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+
+### Fiche 08 — L'eau employée pour les actes recommandés
+
+Passage : « وفي غيره تردد », **Khalîl**, expliqué par al-Hattâb (t. 1, p. 69–70).
+
+1. Différencier usage levant un *hadath* et purification ou lavage recommandé.
+2. Présentation du désaccord dans les transmissions d'auteurs malikites.
+3. Examen des deuxième et troisième lavages, des motifs avancés et du cas de la quatrième application.
+4. Méthode de lecture des termes *taraddud*, *mustahabb* et du caractère « utilisé ».
+
+Source primaire : [Islamweb, t. 1, p. 69–70](https://www.islamweb.net/ar/library/content/19/108/%D9%81%D8%B1%D8%B9-%D8%AA%D8%BA%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A8%D9%85%D8%A7-%D9%87%D9%88-%D9%85%D8%AA%D8%A3%D8%B5%D9%84-%D9%81%D9%8A%D9%87).
+
+### Fiche 09 — L'eau courante et l'eau stagnante
+
+Passage : « وراكد يغتسل فيه », **Khalîl**, commenté par al-Hattâb (t. 1, p. 73–75).
+
+1. Rapprochement de l'eau courante et de l'eau abondante, sous des conditions précises.
+2. Distinguer l'amont, le lieu de chute d'une souillure et l'aval, sans règle absolue sur toute eau courante.
+3. Distinguer petite cuve, bassin et grande étendue d'eau stagnante où l'on se lave.
+4. Examen du volume, de la contamination, de la modification réelle et de la nature du lavage.
+
+Sources primaires : [Islamweb, t. 1, p. 73–74](https://islamweb.net/ar/library/content/19/111/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1) et [Islamweb, t. 1, p. 74–75](https://www.islamweb.net/ar/library/content/19/113/%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D8%A7%D8%B1%D9%8A-%D8%AD%D9%83%D9%85%D9%87-%D9%83%D8%A7%D9%84%D9%83%D8%AB%D9%8A%D8%B1).
+
+**Format conservé :** quatre développements longs, un extrait arabe court attribué, six termes arabes définis et trois questions à choix multiples corrigées **pour chacune des trois fiches**. Les déclarations de l'auteur du *Mukhtasar*, celles du commentateur et les avis de ses sources sont distingués.
+
 ## Intégration technique
 
-- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures` et `impureContact`).
-- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de six fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
+- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater` et `flowingWater`).
+- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de neuf fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 09, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
-- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v86) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
+- Versions de ressources PWA mises à jour (v87) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, six fiches et présence du catalogue.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, six quiz, suivi indépendant et sources.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, neuf fiches et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, neuf quiz, suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées le 16 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
