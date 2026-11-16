@@ -221,7 +221,7 @@ for(const section of book.usedWater.sections){
  assert.ok(section.takeaway.length>=170&&section.sourceNote.includes('t. 1'),'Fiche 07 : synthèse et référence manquantes : '+section.id);
 }
 assert.ok(book.usedWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Formule originale de Khalîl non attribuée');
-assert.ok(book.usedWater.sections[1].passage.sourceLabel.includes('al-Qarâfî'),'Citation de la Dhakhîra mal attribuée');
+assert.ok(book.usedWater.sections[1].passage.sourceLabel.includes('Al-Qarâfî'),'Citation de la Dhakhîra mal attribuée');
 assert.ok(book.usedWater.sections[3].paragraphs.some(x=>x.includes('Asbagh')),'Divergences insuffisamment documentées');
 assert.ok(book.usedWater.sections[4].passage.sourceLabel.includes('al-Hattâb'),'Argument personnel du commentateur non identifié');
 assert.equal(book.usedWater.lexicon.length,12,'Douze entrées de lexique requises dans la fiche 07');
