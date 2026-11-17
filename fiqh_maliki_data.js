@@ -9560,7 +9560,19 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "Ne pas confondre le retrait partiel d’une réserve fermée avec le renouvellement d’un puits.",
     "Restituer les deux positions sans dissimuler le problème de la source attribuée à Ibn Yûnus.",
     "Apprendre à vérifier si une parole ancienne porte réellement sur le cas qui lui est attribué.",
-    "Distinguer ce qu’un savant a dit et ce qu’un commentateur pourrait déduire par analogie."
+    "Distinguer ce qu’un savant a dit et ce qu’un commentateur pourrait déduire par analogie.",
+    "Comprendre la différence entre une opposition à un avis et l’impossibilité d’en retrouver l’attestation.",
+    "Apprendre la prudence dans les conclusions tirées d’une recherche de sources incomplète.",
+    "Comprendre la réponse d’Ibn Wahb à partir du cas concret d’une réserve d’eau de pluie.",
+    "Restituer l’avis strict d’Ibn al-Qâsim sans lui attribuer les paroles des autres transmetteurs.",
+    "Comprendre la manière dont Ibn Rushd rattache son choix au principe de l’altération effective.",
+    "Distinguer une transmission positive de Mâlik du souvenir négatif formulé par Ibn al-Qâsim.",
+    "Lire un exemple historique sans le transformer en preuve médicale ni en consensus juridique.",
+    "Comprendre que l’avis dit mashhûr peut différer du choix argumenté d’Ibn Rushd.",
+    "Distinguer le jugement rapporté d’al-Tirâz, son hésitation et la réserve d’Ibn al-Imâm.",
+    "Ne pas confondre eau altérée par une impureté et eau modifiée par une substance pure.",
+    "Distinguer le faible ajout d’eau du grand apport donné comme cas d’accord au début.",
+    "Comprendre les limites des analogies entre eau altérée, petit volume et substance impure elle-même."
   ],
   "sections": [
     {
@@ -10042,9 +10054,630 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       },
       "takeaway": "Ibn Marzûq refuse de confondre propos direct et analogie supposée. Al-Hattâb transmet cette critique et montre qu’une autorité ancienne doit être citée dans son domaine exact.",
       "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Ibn Marzûq, critique transmise et examinée par al-Hattâb. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "ibn-arafa",
+      "title": "Pourquoi Ibn ‘Arafa dit-il ne pas connaître les deux avis mentionnés ?",
+      "eyebrow": "13 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وقول ابن بشير في طهورية النجس يزول بغيره بلا نزح قولان لا أعرفه",
+        "translation": "« Quant aux deux avis évoqués par Ibn Bashîr sur l’eau altérée dont le changement disparaît autrement, sans puisage, je ne les connais pas. »",
+        "sourceLabel": "Ibn ‘Arafa, remarque transmise par al-Hattâb à partir de la discussion d’Ibn Ghâzî, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Al-Hattâb poursuit en signalant qu’Ibn ‘Arafa n’avait pas cité certains propos d’Ibn Rushd qui pourraient éclairer la question. Il ne suffit donc pas de choisir un nom célèbre et de fermer le dossier. Une opinion peut être affirmée, mise en dout",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn ‘Arafa réagit à la manière dont Ibn Bashîr avait présenté deux avis sur le devenir d’une eau initialement souillée. Il indique ne pas les connaître dans les sources qu’il a étudiées. C’est une remarque savante qu’il faut entendre exactement. Il ne dit pas : « Il est métaphysiquement impossible que cette opinion ait jamais été prononcée. » Il signale une difficulté documentaire, et cette difficulté mérite d’être discutée parce qu’elle touche la manière de transmettre les positions de l’école.",
+        "Al-Hattâb poursuit en signalant qu’Ibn ‘Arafa n’avait pas cité certains propos d’Ibn Rushd qui pourraient éclairer la question. Il ne suffit donc pas de choisir un nom célèbre et de fermer le dossier. Une opinion peut être affirmée, mise en doute ou retrouvée dans une autre transmission ; il faut lire les voies de transmission et les cas auxquels elles s’appliquent. C’est précisément ce travail que le commentateur entreprend lorsqu’il reproduit davantage du texte d’Ibn Rushd."
+      ],
+      "steps": [
+        {
+          "label": "« Je ne connais pas » exprime une limite de connaissance",
+          "text": "Le propos d’Ibn ‘Arafa décrit ce qu’il a retrouvé, et non une preuve absolue d’inexistence."
+        },
+        {
+          "label": "La cible est l’attribution de deux avis",
+          "text": "Il réagit à une présentation d’Ibn Bashîr, dans un cas très déterminé de disparition d’altération."
+        },
+        {
+          "label": "Al-Hattâb poursuit l’enquête",
+          "text": "Il signale ensuite un passage d’Ibn Rushd que le recensement d’Ibn ‘Arafa n’avait pas pris en compte."
+        },
+        {
+          "label": "La discussion doit rester sourcée",
+          "text": "L’autorité d’un savant ne dispense pas de montrer les formulations et les transmissions pertinentes."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi ibn ‘arafa dit-il ne pas connaître les deux avis mentionnés ",
+        "text": "Un étudiant lit sous la plume d’un maître : « Je ne trouve pas cette opinion dans les textes qui me sont parvenus. » Il transforme cette phrase en : « Cette opinion n’a jamais existé. » Son enseignant lui montre qu’il a franchi une étape que la phrase ne permet pas. La scène est fictive et sert à apprendre une précaution documentaire nécessaire à l’étude du fiqh."
+      },
+      "takeaway": "L’observation d’Ibn ‘Arafa signale une difficulté de transmission, pas une preuve absolue d’inexistence. Al-Hattâb reprend l’enquête en examinant un passage d’Ibn Rushd.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "absence-evidence",
+      "title": "Pourquoi ne pas trouver un avis ne signifie-t-il pas qu’il n’existe pas ?",
+      "eyebrow": "14 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وإن كان لا يلزم من عدم الوجدان عدم الوجود",
+        "translation": "« Car ne pas avoir trouvé une chose n’implique pas nécessairement qu’elle n’existe pas. »",
+        "sourceLabel": "Al-Hattâb, précision méthodologique dans la discussion d’Ibn ‘Arafa, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Mais cette précaution ne doit pas servir à faire accepter n’importe quelle attribution non prouvée. Dire que l’absence de preuve n’est pas automatiquement preuve d’absence ne signifie pas qu’il est permis d’affirmer le contraire sans source. Al-",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Cette phrase d’al-Hattâb mérite qu’on la lise lentement. Dans la discussion précédente, on reprochait à certains auteurs de ne pas avoir retrouvé la preuve d’une attribution ancienne. Al-Hattâb rappelle alors qu’une absence de découverte ne permet pas de décréter une absence d’existence. Les bibliothèques, les manuscrits et les recueils transmis ne contiennent pas toujours tous les propos d’un savant. C’est une limite de l’enquête, et non une raison d’abandonner la rigueur.",
+        "Mais cette précaution ne doit pas servir à faire accepter n’importe quelle attribution non prouvée. Dire que l’absence de preuve n’est pas automatiquement preuve d’absence ne signifie pas qu’il est permis d’affirmer le contraire sans source. Al-Hattâb continue justement à rechercher les textes et finit par reproduire les propos d’Ibn Rushd. La bonne attitude est donc double : ne pas transformer un silence documentaire en certitude et ne pas fabriquer des opinions qu’on ne peut pas établir."
+      ],
+      "steps": [
+        {
+          "label": "La phrase distingue deux notions",
+          "text": "Ne pas avoir trouvé un passage est un fait sur la recherche ; affirmer qu’il n’existe pas est une proposition beaucoup plus forte."
+        },
+        {
+          "label": "La transmission peut être incomplète",
+          "text": "Un ouvrage n’épuise pas forcément tous les textes et toutes les variantes rapportées dans la tradition."
+        },
+        {
+          "label": "La prudence n’autorise pas l’invention",
+          "text": "Il faut continuer à chercher des sources pour soutenir une attribution plutôt que la proclamer sans preuve."
+        },
+        {
+          "label": "Al-Hattâb donne lui-même l’exemple",
+          "text": "Il prolonge l’enquête en citant des transmissions d’Ibn Wahb, d’Ibn al-Qâsim et d’Ibn Rushd."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi ne pas trouver un avis ne signifie-t-il pas qu’il n’existe pas ",
+        "text": "Une personne cherche un avis dans un seul ouvrage et ne le trouve pas. Elle annonce aussitôt que personne ne l’a jamais exprimé. Une seconde personne invente alors un autre avis au prétexte que des manuscrits inconnus pourraient contenir n’importe quoi. Le professeur refuse ces deux erreurs : absence de découverte et preuve positive ne sont pas synonymes. Cet exemple est fictif et illustre la prudence exprimée par al-Hattâb."
+      },
+      "takeaway": "Al-Hattâb enseigne une règle de recherche : l’absence de découverte n’est pas une démonstration d’inexistence, mais elle ne dispense jamais de produire une preuve pour affirmer un avis.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "ibn-wahb-scenario",
+      "title": "Quel cas concret Ibn Wahb examine-t-il à propos d’une réserve altérée ?",
+      "eyebrow": "15 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "إذا خرجت الميتة فلينزح منه حتى يذهب دسمها والرائحة واللون إن كان به لون",
+        "translation": "« Une fois la carcasse retirée, qu’on puise jusqu’à ce que sa trace grasse, son odeur et sa couleur éventuelle disparaissent. »",
+        "sourceLabel": "Ibn Wahb, réponse citée par Ibn Rushd puis reproduite par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. La réponse est plus précise qu’un simple « oui » ou « non ». Ibn Wahb prend en compte la réserve, la localisation de l’altération, la carcasse retirée et les traces qui demeurent. Il ne délivre pas une règle indifférente aux faits. C’est ce qui ",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn Wahb est interrogé sur une réserve d’eau de pluie où une bête est morte et s’est ouverte. Le liquide est abondant et seule la partie proche de l’animal avait été changée. Après avoir retiré la carcasse et remué l’eau, l’odeur disparaît. Peut-on alors s’en servir pour boire et se purifier ? Ibn Wahb répond en demandant que l’on retire de l’eau jusqu’à ce que les traces de graisse, l’odeur et la couleur éventuelle aient disparu, compte tenu de la quantité importante décrite.",
+        "La réponse est plus précise qu’un simple « oui » ou « non ». Ibn Wahb prend en compte la réserve, la localisation de l’altération, la carcasse retirée et les traces qui demeurent. Il ne délivre pas une règle indifférente aux faits. C’est ce qui la rend intéressante pour notre étude des avis : le cas sera ensuite contesté par Ibn al-Qâsim et défendu par Ibn Rushd. Comme toujours, une appréciation de pureté rituelle ancienne ne constitue pas un contrôle sanitaire de l’eau de boisson."
+      ],
+      "steps": [
+        {
+          "label": "L’altération avait touché une partie de l’eau",
+          "text": "La réserve était importante et le changement décrit était situé près de l’animal mort."
+        },
+        {
+          "label": "Ibn Wahb exige un examen des traces",
+          "text": "Sa réponse évoque la disparition de la graisse, de l’odeur et de la couleur éventuellement modifiée."
+        },
+        {
+          "label": "La carcasse a été retirée",
+          "text": "La question ne porte pas sur une eau où le corps de l’animal serait volontairement laissé en place."
+        },
+        {
+          "label": "La réponse ne clôt pas la divergence",
+          "text": "Ibn al-Qâsim donnera une appréciation plus stricte, que le commentaire conserve."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — quel cas concret ibn wahb examine-t-il à propos d’une réserve altérée ",
+        "text": "Dans une leçon, un étudiant cite Ibn Wahb en disant simplement : « Il autorisait l’eau où un animal était mort. » L’enseignant lui fait relire la question : on parle d’une grande réserve, d’une modification localisée, du retrait du corps et de la disparition de traces précises. Sans ces informations, le résumé prête au juriste un avis plus vaste que celui transmis. L’histoire est inventée pour exercer la lecture."
+      },
+      "takeaway": "La réponse d’Ibn Wahb est conditionnée par les faits du réservoir et la disparition des traces décrites. Elle constitue une position à comparer avec celle d’Ibn al-Qâsim et l’analyse d’Ibn Rushd.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "ibn-qasim",
+      "title": "Pourquoi Ibn al-Qâsim rejette-t-il la réponse précédente ?",
+      "eyebrow": "16 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "لا خير فيه ولم أسمع مالكا رخص فيه قط",
+        "translation": "« Il n’y a rien de bon en cela ; je n’ai jamais entendu Mâlik l’autoriser. »",
+        "sourceLabel": "Ibn al-Qâsim, propos cité à la suite de l’avis d’Ibn Wahb, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Il faut pourtant respecter la nuance de ses mots. Dire « Je ne l’ai jamais entendu de Mâlik » n’est pas identique à dire « Je prouve que Mâlik ne l’a dit à personne ». Al-Hattâb montrera justement, à la page suivante, que d’autres élèves rapport",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "La réponse d’Ibn al-Qâsim est brève, mais elle a du poids. Confronté au cas décrit, il exprime une réserve nette et dit ne pas avoir entendu Mâlik autoriser cet usage. Ce n’est pas la même réponse qu’Ibn Wahb, et il ne serait pas juste de faire croire qu’ils étaient d’accord sur ce point. La force de la formule nous aide à comprendre pourquoi certains juristes ont maintenu une approche prudente lorsque l’eau avait réellement été altérée par une impureté.",
+        "Il faut pourtant respecter la nuance de ses mots. Dire « Je ne l’ai jamais entendu de Mâlik » n’est pas identique à dire « Je prouve que Mâlik ne l’a dit à personne ». Al-Hattâb montrera justement, à la page suivante, que d’autres élèves rapportent de Mâlik une permission dans un cas de citernes qui retrouvent leurs propriétés. Le cours doit conserver à la fois le désaccord de jugement et la différence entre les transmissions de l’imam."
+      ],
+      "steps": [
+        {
+          "label": "La réponse d’Ibn al-Qâsim est négative",
+          "text": "Il ne suit pas l’appréciation favorable donnée par Ibn Wahb au cas de la réserve examinée."
+        },
+        {
+          "label": "Sa formule porte sur ce qu’il a entendu",
+          "text": "Il dit ne pas connaître une permission de Mâlik, sans démontrer l’inexistence de toutes les transmissions possibles."
+        },
+        {
+          "label": "D’autres élèves rapportent un propos différent",
+          "text": "Les transmissions d’Ibn Wahb et d’Ibn Abî Uways seront ensuite citées par al-Hattâb."
+        },
+        {
+          "label": "Le désaccord est authentiquement discuté",
+          "text": "Il ne faut attribuer ni à Mâlik ni au madhhab une unanimité que les textes rapportés démentent."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi ibn al-qâsim rejette-t-il la réponse précédente ",
+        "text": "Deux étudiants lisent la même page. Le premier cite Ibn Wahb, le second Ibn al-Qâsim. Ils seraient tentés de choisir l’un et d’effacer l’autre. Leur professeur leur demande plutôt de noter les paroles exactes de chacun, puis de lire pourquoi Ibn Rushd prend position et pourquoi d’autres récits de Mâlik sont mentionnés. Cette scène fictive montre la méthode d’un cours respectueux des divergences."
+      },
+      "takeaway": "Ibn al-Qâsim adopte une réponse stricte et dit ne pas avoir entendu Mâlik autoriser l’usage. Cela ne supprime pas les transmissions différentes reproduites ensuite par al-Hattâb.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "ibn-rushd",
+      "title": "Pourquoi Ibn Rushd considère-t-il l’avis d’Ibn Wahb comme correct ?",
+      "eyebrow": "17 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "قول ابن وهب هو الصحيح على أصل مذهب مالك الذي رواه المدنيون عنه",
+        "translation": "« La parole d’Ibn Wahb est correcte selon le principe du madhhab de Mâlik rapporté par les Médinois. »",
+        "sourceLabel": "Ibn Rushd, appréciation du cas d’Ibn Wahb citée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Le passage est remarquable par sa façon de discuter une divergence interne. Ibn Rushd sait qu’Ibn al-Qâsim a répondu plus strictement ; il ne le fait pas disparaître du texte. Il préfère cependant lire la question à partir du critère de changeme",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn Rushd ne se contente pas d’annoncer sa préférence pour Ibn Wahb. Il l’explique à partir d’un principe attribué à Mâlik dans des transmissions médinoises : l’eau n’est rendue impropre à cet égard que lorsque l’une de ses propriétés est modifiée par l’impureté. Si la modification qui fondait le jugement n’est plus présente, Ibn Rushd considère que le raisonnement d’Ibn Wahb est conforme à ce principe. Voilà pourquoi il parle ici d’un avis correct.",
+        "Le passage est remarquable par sa façon de discuter une divergence interne. Ibn Rushd sait qu’Ibn al-Qâsim a répondu plus strictement ; il ne le fait pas disparaître du texte. Il préfère cependant lire la question à partir du critère de changement effectif et de son retrait. On comprend qu’un avis peut être construit à partir d’un principe juridique plutôt que d’une simple analogie d’apparence. L’enjeu reste le retour de la qualité purifiante, non une démonstration de potabilité moderne."
+      ],
+      "steps": [
+        {
+          "label": "Ibn Rushd prend position pour Ibn Wahb",
+          "text": "Il donne un jugement explicite au sujet de la réponse précédemment citée."
+        },
+        {
+          "label": "Il invoque un principe de Mâlik transmis par les Médinois",
+          "text": "La question porte sur l’altération de l’une des propriétés de l’eau par une matière impure."
+        },
+        {
+          "label": "La disparition de la modification compte dans son raisonnement",
+          "text": "La cause sensible qui avait déterminé le jugement initial est examinée à nouveau."
+        },
+        {
+          "label": "Le désaccord avec Ibn al-Qâsim demeure",
+          "text": "Choisir un avis pour ses arguments ne transforme pas les autres transmissions en erreurs inexistantes."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi ibn rushd considère-t-il l’avis d’ibn wahb comme correct ",
+        "text": "Un professeur demande à sa classe non seulement quel avis Ibn Rushd retient, mais pourquoi. Les élèves répondent d’abord : « Parce qu’il préfère Ibn Wahb. » Le maître leur fait relire la suite, où Ibn Rushd invoque un principe relatif aux propriétés de l’eau. Ils découvrent qu’une préférence juridique doit être reliée à un argument. Cette situation est fictive, et les propos du savant sont cités dans la source."
+      },
+      "takeaway": "Ibn Rushd soutient Ibn Wahb en s’appuyant sur le principe de l’altération effective rapporté de Mâlik. Sa préférence n’efface pas la réserve d’Ibn al-Qâsim.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "malik-narrations",
+      "title": "Que rapportent Ibn Wahb et Ibn Abî Uways de Mâlik lui-même ?",
+      "eyebrow": "18 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وقد روى ابن وهب وابن أبي أويس عن مالك في جباب تحفر بالمغرب فتسقط فيها الميتة فيتغير لون الماء وريحه ثم يطيب بعد ذلك أنه لا بأس به",
+        "translation": "« Ibn Wahb et Ibn Abî Uways ont rapporté de Mâlik qu’il n’y a pas de mal, dans ce cas, à utiliser l’eau de citernes qui avait changé après la chute d’une bête puis était redevenue normale. »",
+        "sourceLabel": "Mâlik, propos transmis par Ibn Wahb et Ibn Abî Uways et reproduit par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Il serait injuste de faire dire à Ibn al-Qâsim ce qu’il n’a pas dit : son propos signalait ce qu’il avait entendu. Ces autres élèves rapportent une permission, et al-Hattâb les cite pour établir que deux voies de transmission existent réellement",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+      },
+      "paragraphs": [
+        "Nous arrivons à une transmission qui oblige à revenir sur la parole d’Ibn al-Qâsim. Celui-ci disait ne pas avoir entendu Mâlik autoriser l’usage envisagé. Or Ibn Wahb et Ibn Abî Uways rapportent de Mâlik une réponse favorable à propos de citernes creusées au Maghreb : une bête y tombe, l’eau change de couleur et d’odeur, puis elle retrouve ses propriétés. Le récit indique alors qu’il n’y a pas de mal à en faire usage dans la situation décrite.",
+        "Il serait injuste de faire dire à Ibn al-Qâsim ce qu’il n’a pas dit : son propos signalait ce qu’il avait entendu. Ces autres élèves rapportent une permission, et al-Hattâb les cite pour établir que deux voies de transmission existent réellement. Nous voyons donc le cœur du travail du commentateur : il réunit les paroles en attribuant correctement chacune et en distinguant ce qui est un souvenir d’enseignement de ce qui constitue un récit positif transmis d’un maître."
+      ],
+      "steps": [
+        {
+          "label": "Les deux noms sont des transmetteurs",
+          "text": "Ibn Wahb et Ibn Abî Uways rapportent ici une réponse de Mâlik, sans parler en leur seul nom."
+        },
+        {
+          "label": "Le cas est celui de citernes du Maghreb",
+          "text": "Le récit décrit des réserves où la mort d’un animal avait modifié la couleur et l’odeur."
+        },
+        {
+          "label": "Le changement avait ensuite disparu",
+          "text": "La permission rapportée concerne un retour de propriétés dans les circonstances précisées."
+        },
+        {
+          "label": "La transmission nuance la phrase d’Ibn al-Qâsim",
+          "text": "Ne pas avoir entendu une permission n’établissait pas que nul autre élève ne l’avait reçue."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — que rapportent ibn wahb et ibn abî uways de mâlik lui-même ",
+        "text": "Un élève lit seulement la déclaration d’Ibn al-Qâsim : « Je n’ai jamais entendu Mâlik le permettre. » Il l’écrit comme si aucun autre témoignage de Mâlik n’existait. La page suivante lui révèle pourtant les récits d’Ibn Wahb et d’Ibn Abî Uways. Son professeur lui demande de reformuler la première phrase sans l’exagérer. L’histoire est fictive, tandis que la coexistence des transmissions vient du texte."
+      },
+      "takeaway": "Ibn Wahb et Ibn Abî Uways transmettent de Mâlik une permission dans un cas de citernes redevenues normales. Cette transmission coexiste avec la réserve exprimée par Ibn al-Qâsim.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "tartushi-cistern",
+      "title": "Que nous apprend le récit de la citerne du shaykh al-Tartûshî ?",
+      "eyebrow": "19 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "ولقد عاينت في صهريج دار الشيخ أبي بكر هرا قد انتفخ وتزلع",
+        "translation": "« J’ai moi-même vu, dans la citerne de la maison du shaykh Abû Bakr, un chat dont le corps avait gonflé et commencé à se défaire. »",
+        "sourceLabel": "Auteur d’al-Tirâz, racontant une scène dans la maison d’Abû Bakr al-Tartûshî, citée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Ce récit ne doit pas être transformé en preuve indépendante que l’eau était microbiologiquement sûre ; il appartient à une discussion de fiqh et reflète des usages historiques. Il ne démontre pas davantage que tous les savants malikites étaient ",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+      },
+      "paragraphs": [
+        "L’auteur d’al-Tirâz rapporte une scène qu’il dit avoir observée dans la maison de son maître Abû Bakr al-Tartûshî. Un chat mort avait profondément changé l’odeur, la couleur et le goût de l’eau d’une citerne. Après le retrait du corps et un certain temps, les propriétés sensibles de l’eau étaient redevenues normales. Le récit indique qu’on en a bu dans la maison, où vivaient de nombreux étudiants et hommes de science. Il illustre concrètement l’avis favorable au retour de la qualité de l’eau.",
+        "Ce récit ne doit pas être transformé en preuve indépendante que l’eau était microbiologiquement sûre ; il appartient à une discussion de fiqh et reflète des usages historiques. Il ne démontre pas davantage que tous les savants malikites étaient d’accord : nous venons de lire l’avis opposé d’Ibn al-Qâsim. L’intérêt pédagogique est de voir comment un auteur illustre son raisonnement par une observation, sans que celle-ci remplace les qualifications des juristes ou l’examen des faits particuliers."
+      ],
+      "steps": [
+        {
+          "label": "Le récit est attribué à l’auteur d’al-Tirâz",
+          "text": "Il rapporte une scène observée dans la maison de son maître, Abû Bakr al-Tartûshî."
+        },
+        {
+          "label": "L’eau avait réellement changé",
+          "text": "La description mentionne l’odeur, le goût et la couleur altérés par la carcasse."
+        },
+        {
+          "label": "Les propriétés sensibles étaient ensuite revenues",
+          "text": "Le récit est invoqué en faveur de l’opinion qui reconnaît le retour à la qualité purifiante."
+        },
+        {
+          "label": "La pratique historique n’est pas un contrôle sanitaire",
+          "text": "Le fait que des personnes aient bu cette eau ne prouve pas aujourd’hui son innocuité microbiologique."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — que nous apprend le récit de la citerne du shaykh al-tartûshî ",
+        "text": "Dans un cours, une personne affirme : « Puisque des savants anciens ont bu cette eau, n’importe quelle citerne contenant une carcasse est bonne à boire dès qu’elle ne sent plus mauvais. » Le professeur lui rappelle le contexte du récit et la différence entre pureté rituelle et sécurité sanitaire. Le dialogue est inventé pour montrer comment une anecdote ancienne doit être étudiée sans en tirer des garanties qu’elle ne fournit pas."
+      },
+      "takeaway": "Le récit de la citerne d’al-Tartûshî illustre une position favorable au retour de l’eau à ses propriétés. Il ne prouve ni l’unanimité des malikites ni la potabilité moderne de l’eau.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "fakihani",
+      "title": "Pourquoi Ibn al-Fâkihânî juge-t-il plus connu l’avis strict ?",
+      "eyebrow": "20 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فإن زال تغيره بعد فقولان",
+        "translation": "« Si son changement disparaît ensuite, il existe deux avis. »",
+        "sourceLabel": "Ibn al-Fâkihânî, Sharh al-Risâla, cité par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Cette précision nous évite une confusion fréquente. Ibn Rushd pouvait estimer meilleur l’avis d’Ibn Wahb, tandis qu’Ibn al-Fâkihânî décrit comme plus connu l’avis strict. Ce sont deux opérations différentes : apprécier la force d’un argument et ",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn al-Fâkihânî, dans son commentaire de la Risâla, expose lui aussi deux avis. Lorsque l’impureté a réellement changé une propriété de l’eau, le jugement d’impureté est établi tant que ce changement existe. Mais si le changement disparaît ensuite, il distingue une opinion selon laquelle le jugement antérieur se maintient, et une autre selon laquelle l’eau revient à sa nature de liquide pur et purifiant. Il indique que la première est le mashhûr dans l’exposé qu’il donne.",
+        "Cette précision nous évite une confusion fréquente. Ibn Rushd pouvait estimer meilleur l’avis d’Ibn Wahb, tandis qu’Ibn al-Fâkihânî décrit comme plus connu l’avis strict. Ce sont deux opérations différentes : apprécier la force d’un argument et situer une opinion dans la transmission de l’école. L’élève doit apprendre à dire qui privilégie quoi, et selon quelle méthode, plutôt que de transformer une seule préférence en consensus. Al-Hattâb cite les deux textes sans les faire disparaître."
+      ],
+      "steps": [
+        {
+          "label": "Une eau réellement altérée avait perdu sa qualité",
+          "text": "Ibn al-Fâkihânî commence par rappeler le jugement pendant que la modification existe."
+        },
+        {
+          "label": "Deux avis sont distingués après la disparition",
+          "text": "L’un maintient l’effet de la souillure passée ; l’autre tient compte du retour des propriétés."
+        },
+        {
+          "label": "Le mashhûr n’est pas synonyme de l’avis préféré d’Ibn Rushd",
+          "text": "Le classement doctrinal et la préférence d’un auteur répondent à des questions distinctes."
+        },
+        {
+          "label": "La divergence est conservée avec ses auteurs",
+          "text": "Al-Hattâb cite Ibn al-Fâkihânî après les récits d’Ibn Wahb et l’appréciation d’Ibn Rushd."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi ibn al-fâkihânî juge-t-il plus connu l’avis strict ",
+        "text": "Un étudiant écrit : « Ibn Rushd juge la seconde opinion correcte, donc c’est nécessairement le mashhûr chez tous les malikites. » Le professeur lui fait lire Ibn al-Fâkihânî, qui qualifie l’autre avis de plus connu. L’élève apprend ainsi à distinguer la force d’un argument et sa place dans une tradition doctrinale. L’exemple est fictif et renvoie à une divergence réellement conservée par al-Hattâb."
+      },
+      "takeaway": "Ibn al-Fâkihânî rapporte deux avis et présente le maintien du jugement initial comme le mashhûr. Ce classement ne doit pas être confondu avec la préférence exprimée par Ibn Rushd.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "clay",
+      "title": "Et si l’on ajoute de la terre ou de l’argile à l’eau altérée ?",
+      "eyebrow": "21 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "إن لم يظهر فيه لون الطين ولا ريحه ولا طعمه وجب أن يطهر",
+        "translation": "« Si ni la couleur, ni l’odeur, ni le goût de l’argile n’y apparaît, elle doit être considérée comme purifiée selon cet avis. »",
+        "sourceLabel": "Al-Tirâz, appréciation rapportée par al-Hattâb, puis réserve d’Ibn al-Imâm, Mawâhib al-Jalîl, tome 1, p. 119.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Al-Hattâb cite ensuite Ibn al-Imâm, qui considère plus apparent de maintenir le jugement d’impureté en s’appuyant sur l’istishâb, c’est-à-dire la continuité du statut précédemment établi. Nous avons donc trois niveaux à expliquer : une condition",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+      },
+      "paragraphs": [
+        "La discussion prend ici un autre chemin. On ajoute à l’eau altérée une matière comme de la terre ou de l’argile. L’auteur d’al-Tirâz estime que si cette matière ne laisse apparaître aucune de ses propres propriétés, la disparition de l’altération conduit à reconnaître le retour de la pureté. Mais si la couleur, l’odeur ou le goût de ce qui a été ajouté devient lui-même perceptible, il laisse la question ouverte et ne tranche pas catégoriquement. Ce détail est essentiel.",
+        "Al-Hattâb cite ensuite Ibn al-Imâm, qui considère plus apparent de maintenir le jugement d’impureté en s’appuyant sur l’istishâb, c’est-à-dire la continuité du statut précédemment établi. Nous avons donc trois niveaux à expliquer : une condition particulière dans al-Tirâz, une hésitation lorsque la matière ajoutée laisse sa trace, et un avis plus strict d’Ibn al-Imâm. Ce n’est pas le lieu d’inventer un procédé universel de filtration ou de purification de l’eau."
+      ],
+      "steps": [
+        {
+          "label": "La terre ou l’argile ne sont pas de l’eau",
+          "text": "Cette branche ne relève pas de l’apport abondant d’eau pure discuté au début."
+        },
+        {
+          "label": "Al-Tirâz distingue la présence des propriétés du produit ajouté",
+          "text": "Une matière qui laisse sa couleur ou son odeur introduit une nouvelle difficulté."
+        },
+        {
+          "label": "L’auteur ne tranche pas tous les cas",
+          "text": "Lorsque les propriétés de l’ajout deviennent visibles, il signale une hésitation."
+        },
+        {
+          "label": "Ibn al-Imâm invoque l’istishâb",
+          "text": "Il privilégie la conservation du jugement antérieur d’impureté, ce qui montre une divergence réelle."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — et si l’on ajoute de la terre ou de l’argile à l’eau altérée ",
+        "text": "Un élève dit qu’il suffit toujours d’ajouter de la terre à une eau souillée pour qu’elle redevienne purifiante. Son professeur lui montre la condition mentionnée dans al-Tirâz, puis l’hésitation de cet auteur et la réserve d’Ibn al-Imâm. Le cas inventé ne recommande aucun traitement sanitaire par ajout d’argile : il sert uniquement à comprendre pourquoi les juristes ont séparé les situations."
+      },
+      "takeaway": "Le cas de l’argile n’est pas uniforme : al-Tirâz distingue les propriétés visibles du produit ajouté, tandis qu’Ibn al-Imâm exprime une préférence stricte fondée sur la continuité du jugement.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "pure-change",
+      "title": "Une eau modifiée par une substance pure peut-elle retrouver sa qualité purifiante ?",
+      "eyebrow": "22 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فإن تغير بطاهر ثم زال تغيره فجزم ابن الكروي بطهوريته",
+        "translation": "« Si l’eau avait été modifiée par une substance pure puis que le changement avait disparu, Ibn al-Karawî a affirmé sans réserve qu’elle était purifiante. »",
+        "sourceLabel": "Ibn al-Karawî, avis rapporté par al-Hattâb avec divergence d’Ibn al-Fâkihânî, Mawâhib al-Jalîl, tome 1, p. 119.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Al-Hattâb donne ensuite sa propre appréciation, marquée par « je dis » : il trouve plus apparent que l’eau retrouve sa capacité de purifier dans ce cas de substance pure, en s’appuyant sur ce qu’Ibn Rushd, al-Tartûshî et l’auteur d’al-Tirâz priv",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb prend soin de préciser que le débat précédent concernait une eau altérée par quelque chose d’impur. Si l’eau a été modifiée par une substance qui était elle-même pure, les catégories changent. Il rapporte qu’Ibn al-Karawî affirme le retour de la qualité purifiante lorsque le changement cesse, sans citer de désaccord sur ce cas. Mais Ibn al-Fâkihânî rapporte quant à lui deux avis, selon que l’on attache le jugement à l’état des propriétés ou au fait qu’une substance modifiante avait été mélangée.",
+        "Al-Hattâb donne ensuite sa propre appréciation, marquée par « je dis » : il trouve plus apparent que l’eau retrouve sa capacité de purifier dans ce cas de substance pure, en s’appuyant sur ce qu’Ibn Rushd, al-Tartûshî et l’auteur d’al-Tirâz privilégient même dans certaines discussions d’altération par l’impureté. Il faut attribuer clairement cette préférence au commentateur et ne pas la présenter comme la parole de Khalîl ou de tous les malikites."
+      ],
+      "steps": [
+        {
+          "label": "L’origine du changement n’est pas la même",
+          "text": "Une substance pure qui modifie l’eau ne se confond pas avec une matière impure."
+        },
+        {
+          "label": "Ibn al-Karawî affirme le retour à la qualité purifiante",
+          "text": "Al-Hattâb rapporte sa position sans divergence évoquée par cet auteur."
+        },
+        {
+          "label": "Ibn al-Fâkihânî rapporte malgré cela deux avis",
+          "text": "Le désaccord concerne la place des propriétés actuelles et celle du mélange passé."
+        },
+        {
+          "label": "Al-Hattâb formule sa préférence personnelle",
+          "text": "Il choisit ici le retour à la qualité purifiante et donne ses références, sans effacer les autres formulations."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — une eau modifiée par une substance pure peut-elle retrouver sa qualité purifiante ",
+        "text": "On présente à une classe deux eaux dont l’aspect a changé puis est redevenu normal. La première avait été altérée par une souillure ; la seconde par une substance qui était pure. Un élève veut recopier le même argument sans modification. Le professeur rappelle que le passage distingue précisément ces origines et rapporte des appréciations différentes. L’exemple est fictif et ne décide pas du statut d’une boisson réelle."
+      },
+      "takeaway": "Le cas d’une modification par une substance pure est distinct de l’altération par une impureté. Al-Hattâb privilégie ici le retour de la qualité purifiante tout en citant des avis différents.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "small-added-water",
+      "title": "Pourquoi l’ajout d’une petite quantité d’eau pure reste-t-il discuté ?",
+      "eyebrow": "23 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "إن زال تغيره بمخالطة ماء مطلق قليل فظاهر كلام المصنف أن فيه قولين",
+        "translation": "« Si le changement disparaît par le mélange d’une faible quantité d’eau pure, les mots de l’auteur semblent indiquer deux avis. »",
+        "sourceLabel": "Al-Hattâb, introduisant la discussion d’al-Bisâtî et d’Ibn al-Imâm, Mawâhib al-Jalîl, tome 1, p. 119.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. Al-Hattâb rapporte pourtant ensuite une analyse d’Ibn al-Imâm qui permet d’expliquer pourquoi la quantité réellement atteinte par le mélange compte : le jugement peut être plus clair si, après l’ajout, l’eau est si abondante que l’altération con",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+      },
+      "paragraphs": [
+        "Nous revenons enfin à la question de la quantité. L’accord rapporté au commencement concernait un apport abondant d’eau pure. Qu’arrive-t-il si l’on n’ajoute qu’une petite quantité, mais que le changement devient indétectable ? Al-Hattâb observe que les mots de Khalîl semblent laisser place à deux avis. Al-Bisâtî estime qu’il aurait été plus rigoureux de limiter expressément la divergence au cas où l’eau retrouve d’elle-même ses propriétés ; cette remarque est liée à la difficulté de trouver une transmission adéquate pour le faible ajout.",
+        "Al-Hattâb rapporte pourtant ensuite une analyse d’Ibn al-Imâm qui permet d’expliquer pourquoi la quantité réellement atteinte par le mélange compte : le jugement peut être plus clair si, après l’ajout, l’eau est si abondante que l’altération considérée ne l’aurait pas affectée, alors qu’un faible volume appelle une autre réflexion. Le commentaire n’autorise donc pas à transformer l’ajout de quelques gouttes en cas automatiquement assimilé à une forte dilution. Les conditions quantitatives et les sources des avis doivent rester visibles."
+      ],
+      "steps": [
+        {
+          "label": "Le faible apport n’est pas l’apport abondant",
+          "text": "Al-Hattâb l’examine séparément même si le changement a disparu dans les deux situations."
+        },
+        {
+          "label": "Al-Bisâtî critique l’étendue de la formulation de Khalîl",
+          "text": "Il estime que la divergence aurait été plus clairement limitée à la disparition spontanée."
+        },
+        {
+          "label": "Ibn al-Imâm rattache le jugement à la quantité finale",
+          "text": "Le caractère abondant ou faible de l’ensemble obtenu compte dans son raisonnement."
+        },
+        {
+          "label": "La méthode reste la même",
+          "text": "On identifie le mécanisme, le volume obtenu et la source de l’avis avant d’annoncer une conclusion."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi l’ajout d’une petite quantité d’eau pure reste-t-il discuté ",
+        "text": "Un élève comprend que l’ajout abondant d’eau pure fait disparaître l’altération dans le cas d’accord rapporté. Il en déduit qu’une seule petite quantité ajoutée produit toujours la même qualification, quelle que soit la réserve. Son professeur lui présente l’objection d’al-Bisâtî et l’analyse d’Ibn al-Imâm. Ce cas imaginaire est un exercice de fiqh et ne propose pas de seuil de traitement sanitaire."
+      },
+      "takeaway": "Le faible apport d’eau pure reste discuté dans les transmissions citées. Al-Bisâtî conteste la présentation de la divergence, et Ibn al-Imâm met l’accent sur la quantité finale.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
+    },
+    {
+      "id": "final-volumes-urine",
+      "title": "Pourquoi la fin du passage distingue-t-elle petits volumes et urine elle-même ?",
+      "eyebrow": "24 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "والقول بطهارة البول بعيد جدا",
+        "translation": "« L’avis selon lequel l’urine deviendrait pure est très éloigné. »",
+        "sourceLabel": "Al-Hattâb, après les remarques d’Ibn Râshid et d’Ibn Nâjî sur la persistance des jugements, Mawâhib al-Jalîl, tome 1, p. 120.",
+        "explanation": "La citation est replacée dans une discussion de transmissions et de conditions qui ne sont pas interchangeables. La phrase personnelle d’al-Hattâb est ferme : l’opinion selon laquelle l’urine deviendrait pure par cette seule disparition lui semble très éloignée. Son propos nous enseigne surtout qu’une règle sur le retour des propriétés d’une eau ne s’étend",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb termine cette discussion en transmettant une remarque d’Ibn Râshid : certains juristes auraient restreint le désaccord à l’eau abondante, tandis qu’un petit volume conserverait le jugement d’impureté. Il rapporte ensuite d’Ibn Nâjî que, dans le cas de l’urine elle-même, la disparition de l’odeur ne suffit pas à la qualifier de pure selon la position qu’il présente comme apparente dans le madhhab et retenue pour la fatwa. Ce n’est pas une simple répétition de la discussion sur une eau diluée.",
+        "La phrase personnelle d’al-Hattâb est ferme : l’opinion selon laquelle l’urine deviendrait pure par cette seule disparition lui semble très éloignée. Son propos nous enseigne surtout qu’une règle sur le retour des propriétés d’une eau ne s’étend pas indistinctement à la substance impure elle-même. Les catégories doivent demeurer claires. La section suivante du livre commence d’ailleurs un autre sujet, la façon dont on établit l’existence d’une souillure par l’information d’autrui."
+      ],
+      "steps": [
+        {
+          "label": "Ibn Râshid rapporte une distinction de quantité",
+          "text": "La discussion sur une eau abondante peut être considérée autrement que celle d’une petite réserve."
+        },
+        {
+          "label": "Ibn Nâjî parle aussi de l’urine elle-même",
+          "text": "Sa remarque concerne une matière impure, pas seulement une eau dont l’altération a cessé."
+        },
+        {
+          "label": "Al-Hattâb donne un jugement personnel explicite",
+          "text": "Il considère très éloignée l’idée que l’urine devienne pure par la seule disparition de son odeur."
+        },
+        {
+          "label": "La fiche suivante abordera une autre branche",
+          "text": "Le commentaire passe ensuite à la preuve d’une souillure par l’information transmise par une personne."
+        }
+      ],
+      "example": {
+        "title": "Exemple de lecture — pourquoi la fin du passage distingue-t-elle petits volumes et urine elle-même ",
+        "text": "Un étudiant lit que certains juristes admettent le retour à la qualité purifiante d’une eau dont l’altération a disparu. Il conclut que toute substance impure devient pure dès que son odeur n’est plus perceptible. L’enseignant lui fait lire la réserve d’Ibn Nâjî et la conclusion d’al-Hattâb sur l’urine. Cet exemple fictif montre pourquoi les analogies entre catégories différentes exigent une justification, et non une ressemblance superficielle."
+      },
+      "takeaway": "La quantité d’eau peut modifier le champ des divergences, et une eau anciennement altérée ne se confond pas avec la matière impure elle-même. Al-Hattâb rejette expressément une généralisation à l’urine.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Texte arabe cité et attribué ; scène pédagogique fictive sans portée de fatwa ni de garantie sanitaire."
     }
   ],
-  "lexicon": [],
+  "lexicon": [
+    {
+      "arabic": "طَهُورِيَّةٌ",
+      "term": "Tahûriyya",
+      "definition": "Qualité d’une eau qui peut servir à la purification rituelle. Le chapitre s’interroge sur son retour après une altération antérieure causée par l’impureté."
+    },
+    {
+      "arabic": "تَغَيُّرٌ",
+      "term": "Taghayyur",
+      "definition": "Modification de l’une des propriétés sensibles de l’eau, comme la couleur, l’odeur ou le goût, dont la cause joue un rôle décisif dans le fiqh."
+    },
+    {
+      "arabic": "زَوَالُ التَّغَيُّرِ",
+      "term": "Zawâl al-taghayyur",
+      "definition": "Disparition de l’altération. Le commentaire examine si et comment elle modifie le jugement d’une eau précédemment affectée par une souillure."
+    },
+    {
+      "arabic": "مَاءٌ مُطْلَقٌ",
+      "term": "Mâ’ mutlaq",
+      "definition": "Eau non qualifiée par un mélange qui lui retire son nom d’eau pure. Son ajout abondant est distingué des autres causes de disparition du changement."
+    },
+    {
+      "arabic": "مُكَاثَرَةٌ",
+      "term": "Mukâthara",
+      "definition": "Apport abondant d’eau pure à une réserve altérée. Dans le cas défini par al-Tawdîh, l’eau retrouve sa qualité purifiante après disparition du changement."
+    },
+    {
+      "arabic": "مَادَّةٌ",
+      "term": "Mâdda",
+      "definition": "Alimentation ou source nouvelle d’eau, par exemple celle d’un puits. La présence d’un apport distingue le renouvellement de l’eau d’un simple retrait partiel."
+    },
+    {
+      "arabic": "نَزْحٌ",
+      "term": "Nazḥ",
+      "definition": "Puisage ou retrait de l’eau. Le texte sépare le puisage d’un puits alimenté, qui renouvelle la réserve, de celui d’une citerne fermée."
+    },
+    {
+      "arabic": "صِهْرِيجٌ",
+      "term": "Sihrîj",
+      "definition": "Citerne ou réservoir. Al-Hattâb l’emploie pour illustrer aussi bien l’arrivée abondante d’eau de pluie qu’une réserve sans renouvellement."
+    },
+    {
+      "arabic": "مَاجِلٌ",
+      "term": "Mâjil",
+      "definition": "Ancien réservoir d’eau. Le récit d’Abû Muhammad met en garde contre le retard pris à retirer une carcasse présente dans une petite réserve."
+    },
+    {
+      "arabic": "مَاءٌ مُتَنَجِّسٌ",
+      "term": "Mâ’ mutanajjis",
+      "definition": "Eau atteinte par une souillure dans les conditions qui lui donnent le jugement d’impureté. Le chapitre étudie l’effet de la disparition ultérieure du changement."
+    },
+    {
+      "arabic": "اِسْتِحْسَانٌ",
+      "term": "Istihsân",
+      "definition": "Appréciation favorable portée sur un avis. Khalîl mentionne des maîtres qui privilégient le retour à la qualité purifiante, sans parler d’une unanimité."
+    },
+    {
+      "arabic": "تَرْجِيحٌ",
+      "term": "Tarjîh",
+      "definition": "Préférence accordée à un avis sur la base d’arguments ou de transmissions. Elle ne doit pas être confondue avec une citation directe d’un maître ancien."
+    },
+    {
+      "arabic": "نَقْلٌ",
+      "term": "Naql",
+      "definition": "Transmission d’un propos ou d’un avis. Ibn Ghâzî et Ibn Marzûq questionnent le caractère exact de certaines attributions à Ibn Yûnus."
+    },
+    {
+      "arabic": "قِيَاسٌ",
+      "term": "Qiyâs",
+      "definition": "Rapprochement raisonné d’un cas avec un autre. Ibn Marzûq distingue l’analogie supposée de la citation d’un avis exprimé directement."
+    },
+    {
+      "arabic": "عَدَمُ الْوُجْدَانِ",
+      "term": "‘Adam al-wijdân",
+      "definition": "Absence de découverte lors d’une recherche documentaire. Al-Hattâb rappelle qu’elle ne démontre pas automatiquement l’absence d’existence d’une opinion."
+    },
+    {
+      "arabic": "إِبْنُ يُونُسَ",
+      "term": "Ibn Yûnus",
+      "definition": "Juriste malikite dont un avis sur le maintien du jugement d’impureté est attribué dans le Mukhtasar ; al-Hattâb rapporte une critique de cette attribution."
+    },
+    {
+      "arabic": "إِبْنُ عَرَفَةَ",
+      "term": "Ibn ‘Arafa",
+      "definition": "Maître malikite qui dit ne pas connaître certains avis attribués dans une discussion ancienne ; sa remarque déclenche une réflexion sur la recherche des sources."
+    },
+    {
+      "arabic": "إِبْنُ وَهْبٍ",
+      "term": "Ibn Wahb",
+      "definition": "Élève de Mâlik ayant répondu à une question sur une grande réserve altérée ; son avis est soutenu par Ibn Rushd et une transmission de Mâlik est également citée."
+    },
+    {
+      "arabic": "إِبْنُ الْقَاسِمِ",
+      "term": "Ibn al-Qâsim",
+      "definition": "Élève de Mâlik dont al-Hattâb rapporte une réponse plus restrictive que celle d’Ibn Wahb concernant une eau auparavant altérée."
+    },
+    {
+      "arabic": "مَشْهُورٌ",
+      "term": "Mashhûr",
+      "definition": "Avis connu au sein du madhhab. Ibn al-Fâkihânî applique cette qualification à l’avis strict dans son exposé des deux positions."
+    },
+    {
+      "arabic": "اِسْتِصْحَابٌ",
+      "term": "Istishâb",
+      "definition": "Principe de continuité d’un jugement antérieurement établi. Ibn al-Imâm y recourt dans une discussion sur la disparition du changement après ajout de terre."
+    },
+    {
+      "arabic": "طِينٌ",
+      "term": "Tîn",
+      "definition": "Argile ou terre humide. Al-Tirâz discute le cas où son ajout fait disparaître les signes de l’altération sans en produire de nouveaux."
+    },
+    {
+      "arabic": "تُرَابٌ",
+      "term": "Turâb",
+      "definition": "Terre. Son ajout à une eau altérée est distinct de l’apport d’eau pure et donne lieu à une discussion propre sur la présence de nouvelles propriétés."
+    },
+    {
+      "arabic": "طَاهِرٌ",
+      "term": "Tâhir",
+      "definition": "Qualificatif de ce qui est pur, distingué de la capacité proprement purifiante. Une eau modifiée par une matière pure n’est pas traitée comme une eau altérée par une souillure."
+    },
+    {
+      "arabic": "قَلِيلٌ",
+      "term": "Qalîl",
+      "definition": "Petite quantité. Le débat sur l’ajout de peu d’eau pure n’est pas assimilé sans précaution à celui de l’ajout abondant."
+    },
+    {
+      "arabic": "كَثِيرٌ",
+      "term": "Kathîr",
+      "definition": "Quantité importante. Ibn al-Imâm et certains autres juristes y prêtent attention pour délimiter les cas de retour de la qualité purifiante."
+    },
+    {
+      "arabic": "عَيْنُ النَّجَاسَةِ",
+      "term": "‘Ayn al-najâsa",
+      "definition": "Substance impure elle-même, distinguée de l’eau qui a été modifiée par son contact. Cette différence aide à comprendre les réserves concernant l’urine."
+    },
+    {
+      "arabic": "خَبَرُ الْوَاحِدِ",
+      "term": "Khabar al-wâhid",
+      "definition": "Information transmise par une seule personne. Le passage suivant de Khalîl examinera dans quelles conditions elle suffit à établir une souillure."
+    }
+  ],
   "quiz": [
     {
       "question": "Une eau redevenue claire est-elle automatiquement purifiante ?",
@@ -10165,6 +10798,126 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       ],
       "answer": 1,
       "explanation": "Ibn Marzûq refuse de confondre propos direct et analogie supposée. Al-Hattâb transmet cette critique et montre qu’une autorité ancienne doit être citée dans son domaine exact. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Pourquoi Ibn ‘Arafa dit-il ne pas connaître les deux avis mentionnés ?",
+      "choices": [
+        "Il dit ne pas connaître la transmission rapportée",
+        "Il prouve que tous les manuscrits la contredisent",
+        "Il déclare que tout changement d’eau est sans importance"
+      ],
+      "answer": 0,
+      "explanation": "L’observation d’Ibn ‘Arafa signale une difficulté de transmission, pas une preuve absolue d’inexistence. Al-Hattâb reprend l’enquête en examinant un passage d’Ibn Rushd. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Pourquoi ne pas trouver un avis ne signifie-t-il pas qu’il n’existe pas ?",
+      "choices": [
+        "Ne pas trouver un avis ne prouve pas son inexistence, sans pour autant autoriser l’invention",
+        "Toute opinion sans source doit être acceptée",
+        "La recherche est inutile puisque tout peut exister"
+      ],
+      "answer": 0,
+      "explanation": "Al-Hattâb enseigne une règle de recherche : l’absence de découverte n’est pas une démonstration d’inexistence, mais elle ne dispense jamais de produire une preuve pour affirmer un avis. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Quel cas concret Ibn Wahb examine-t-il à propos d’une réserve altérée ?",
+      "choices": [
+        "Il examine une réserve particulière et la disparition de traces précises",
+        "Il permet toute eau souillée sans aucune condition",
+        "Il interdit le retrait des carcasses"
+      ],
+      "answer": 0,
+      "explanation": "La réponse d’Ibn Wahb est conditionnée par les faits du réservoir et la disparition des traces décrites. Elle constitue une position à comparer avec celle d’Ibn al-Qâsim et l’analyse d’Ibn Rushd. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Pourquoi Ibn al-Qâsim rejette-t-il la réponse précédente ?",
+      "choices": [
+        "Il exprime sa réserve et la limite de ce qu’il a entendu de Mâlik",
+        "Il approuve explicitement Ibn Wahb",
+        "Il affirme citer un consensus de tous les juristes"
+      ],
+      "answer": 0,
+      "explanation": "Ibn al-Qâsim adopte une réponse stricte et dit ne pas avoir entendu Mâlik autoriser l’usage. Cela ne supprime pas les transmissions différentes reproduites ensuite par al-Hattâb. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Pourquoi Ibn Rushd considère-t-il l’avis d’Ibn Wahb comme correct ?",
+      "choices": [
+        "Il invoque le principe lié au changement réel des propriétés",
+        "Il refuse toute distinction entre altération et absence d’altération",
+        "Il se borne à citer un chiffre de seaux"
+      ],
+      "answer": 0,
+      "explanation": "Ibn Rushd soutient Ibn Wahb en s’appuyant sur le principe de l’altération effective rapporté de Mâlik. Sa préférence n’efface pas la réserve d’Ibn al-Qâsim. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Que rapportent Ibn Wahb et Ibn Abî Uways de Mâlik lui-même ?",
+      "choices": [
+        "Ils rapportent une permission de Mâlik dans un cas décrit",
+        "Ils confirment que Mâlik n’a jamais été interrogé",
+        "Ils parlent d’un puits qui n’a jamais changé"
+      ],
+      "answer": 0,
+      "explanation": "Ibn Wahb et Ibn Abî Uways transmettent de Mâlik une permission dans un cas de citernes redevenues normales. Cette transmission coexiste avec la réserve exprimée par Ibn al-Qâsim. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Que nous apprend le récit de la citerne du shaykh al-Tartûshî ?",
+      "choices": [
+        "C’est une observation historique citée pour illustrer un avis",
+        "C’est une certification microbiologique universelle",
+        "Tous les savants en ont tiré une obligation identique"
+      ],
+      "answer": 0,
+      "explanation": "Le récit de la citerne d’al-Tartûshî illustre une position favorable au retour de l’eau à ses propriétés. Il ne prouve ni l’unanimité des malikites ni la potabilité moderne de l’eau. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Pourquoi Ibn al-Fâkihânî juge-t-il plus connu l’avis strict ?",
+      "choices": [
+        "Il distingue deux avis et qualifie l’avis strict de mashhûr",
+        "Il nie l’existence de la moindre divergence",
+        "Il cite uniquement une recommandation de seaux"
+      ],
+      "answer": 0,
+      "explanation": "Ibn al-Fâkihânî rapporte deux avis et présente le maintien du jugement initial comme le mashhûr. Ce classement ne doit pas être confondu avec la préférence exprimée par Ibn Rushd. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Et si l’on ajoute de la terre ou de l’argile à l’eau altérée ?",
+      "choices": [
+        "Les propriétés de l’argile et l’avis d’Ibn al-Imâm doivent être distingués",
+        "Ajouter de l’argile règle toujours et unanimement le problème",
+        "Aucun auteur ne discute la terre dans ce passage"
+      ],
+      "answer": 0,
+      "explanation": "Le cas de l’argile n’est pas uniforme : al-Tirâz distingue les propriétés visibles du produit ajouté, tandis qu’Ibn al-Imâm exprime une préférence stricte fondée sur la continuité du jugement. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Une eau modifiée par une substance pure peut-elle retrouver sa qualité purifiante ?",
+      "choices": [
+        "La nature pure ou impure du mélange change l’analyse",
+        "Le passage ne parle que de carcasses animales",
+        "Ibn al-Fâkihânî ne connaît aucun autre avis"
+      ],
+      "answer": 0,
+      "explanation": "Le cas d’une modification par une substance pure est distinct de l’altération par une impureté. Al-Hattâb privilégie ici le retour de la qualité purifiante tout en citant des avis différents. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Pourquoi l’ajout d’une petite quantité d’eau pure reste-t-il discuté ?",
+      "choices": [
+        "Le faible ajout est discuté distinctement de l’apport abondant",
+        "Une goutte d’eau donne nécessairement un résultat identique à une grande dilution",
+        "Le volume n’est jamais mentionné par les juristes"
+      ],
+      "answer": 0,
+      "explanation": "Le faible apport d’eau pure reste discuté dans les transmissions citées. Al-Bisâtî conteste la présentation de la divergence, et Ibn al-Imâm met l’accent sur la quantité finale. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
+    },
+    {
+      "question": "Pourquoi la fin du passage distingue-t-elle petits volumes et urine elle-même ?",
+      "choices": [
+        "Il refuse de traiter l’urine comme une eau redevenue normale",
+        "Toute substance impure devient pure sans condition dès qu’elle perd son odeur",
+        "La quantité d’eau est sans intérêt"
+      ],
+      "answer": 0,
+      "explanation": "La quantité d’eau peut modifier le champ des divergences, et une eau anciennement altérée ne se confond pas avec la matière impure elle-même. Al-Hattâb rejette expressément une généralisation à l’urine. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     }
   ],
   "quote": {
