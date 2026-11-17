@@ -7242,9 +7242,71 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       }
     ]
   },
+  "heatedWaterHammam": {
+    "id": "heated-water-hammam-14",
+    "number": "14",
+    "status": "disponible",
+    "title": "Eau chauffée, difficulté volontaire et entrée au hammam",
+    "subtitle": "Dix-huit lectures d’al-Hattâb et des anciens malikites : chaleur de l’eau, mérite de l’effort, protection de la pudeur et situations des bains collectifs.",
+    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « فرع يكره الماء المسخن بالنجاسة » et « فرع دخول الحمام » · Mawâhib al-Jalîl, t. 1, p. 80–82 (édition Islamweb) / p. 112–114 (édition Dâr al-Kutub al-‘Ilmiyya)",
+    "goals": [
+      "Expliquer la réserve rapportée d’Ibn al-Karawî sur l’eau chauffée au moyen d’une matière impure, sans la confondre avec une eau contaminée.",
+      "Comprendre la différence entre eau chauffée au feu, eau chauffée au moyen de souillures et eau réellement altérée.",
+      "Lire la remarque d’Ibn ‘Abd al-Salâm sur la préférence ancienne pour l’eau froide dans le climat du Hedjaz.",
+      "Restituer la parole de Mâlik sur l’usage fréquent de l’eau chauffée dans la transmission d’Ashhab.",
+      "Identifier la réserve attribuée à Mujâhid et son raisonnement possible sur le confort et la récompense.",
+      "Expliquer pourquoi Ibn al-Imâm rejette l’idée que la difficulté volontaire serait une adoration en soi.",
+      "Distinguer une difficulté inévitable dans l’obéissance d’une difficulté inutilement recherchée.",
+      "Comprendre le propos d’al-Ubbî sur le chauffage de l’eau pour pouvoir mieux adorer.",
+      "Identifier les trois situations retenues par Ibn Rushd pour juger l’entrée au hammam.",
+      "Expliquer le jugement de l’entrée dans un hammam privé ou vide sans’exposition à une nudité interdite.",
+      "Comprendre les objections des juristes lorsque des personnes découvrent leurs parties intimes dans un bain collectif.",
+      "Situer l’avis d’Ibn al-Qâsim sur un hammam où les usagers préservent leur pudeur.",
+      "Distinguer la validité d’un ghusl de la réserve concernant la fréquentation d’un bain public ou la qualité de son eau.",
+      "Lire les recommandations concrètes d’Ibn Shâs sur la préservation de la pudeur, le regard et les autres usagers.",
+      "Étudier ses précisions sur la manière d’utiliser l’eau et la différence entre règles obligatoires et usages recommandés.",
+      "Comprendre le rôle des conditions sociales du lieu et les remarques de l’auteur du Madkhal.",
+      "Examiner le raisonnement d’al-Barzalî concernant les saisons et la possibilité de se purifier sans se nuire.",
+      "Restituer les divergences historiques sur l’accès des femmes au hammam, les exceptions et la faiblesse du récit sur l’entrée du Prophète ﷺ dans un bain."
+    ],
+    "sections": [],
+    "lexicon": [],
+    "quiz": [],
+    "quote": {
+      "arabic": "لِأَنَّ اللَّهَ تَعَالَى لَمْ يَطْلُبْ مِنْ عِبَادِهِ الْمَشَاقَّ",
+      "meaning": "Ibn al-Imâm rappelle, dans la discussion sur l’eau froide et l’eau chauffée, qu’Allah ne demande pas à Ses serviteurs de rechercher la difficulté pour elle-même. L’effort lié à l’accomplissement nécessaire d’un acte et l’effort ajouté sans raison ne se confondent pas.",
+      "label": "Ibn al-Imâm cité par al-Hattâb, Mawâhib al-Jalîl, tome 1, passage « تنبيه وفائدة », édition Dâr al-Kutub al-‘Ilmiyya, p. 112."
+    },
+    "sources": [
+      {
+        "label": "Mawâhib al-Jalîl — édition Dâr al-Kutub al-‘Ilmiyya, tome 1, page 112 : eau chauffée, Mâlik, effort et début du hammam",
+        "url": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      {
+        "label": "Mawâhib al-Jalîl — même édition, page 113 : trois situations, avis et dix conditions d’Ibn Shâs",
+        "url": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      {
+        "label": "Mawâhib al-Jalîl — même édition, page 114 : époque, saison, femmes et traditions discutées",
+        "url": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      },
+      {
+        "label": "Islamweb — Mawâhib al-Jalîl, rubrique « l’eau chauffée par une souillure »",
+        "url": "https://islamweb.net/ar/library/content/19/121/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%B3%D8%AE%D9%86-%D8%A8%D8%A7%D9%84%D9%86%D8%AC%D8%A7%D8%B3%D8%A9"
+      },
+      {
+        "label": "Islamweb — Mawâhib al-Jalîl, rubrique « entrer au hammam »",
+        "url": "https://islamweb.net/ar/library/content/19/122/%D9%81%D8%B1%D8%B9-%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85"
+      },
+      {
+        "label": "Usul — texte arabe et notice de Mawâhib al-Jalîl",
+        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+      }
+    ]
+  },
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Poursuivre les eaux chauffées et les usages du hammam",
-    "status": "À préparer — fiche 14 non publiée"
+    "title": "Observer les souillures réelles dans l’eau et les aliments",
+    "status": "À préparer — fiche 15 non publiée"
   }
 };
