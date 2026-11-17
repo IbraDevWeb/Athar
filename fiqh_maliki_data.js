@@ -8368,9 +8368,561 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       }
     ]
   },
+  "visibleImpurityAndWells": {
+  "id": "visible-impurity-wells-15",
+  "number": "15",
+  "status": "disponible",
+  "title": "Souillures constatées et animal mort dans l’eau",
+  "subtitle": "De la certitude d’une souillure à la mort d’un animal dans un puits : textes d’al-Hattâb, divergences, conditions et puisage proportionné.",
+  "sourceSection": "كتاب الطهارة — « وإن ريئت على فيه وقت استعماله » et « وإذا مات بري ذو نفس سائلة براكد » · Mawâhib al-Jalîl, tome 1, p. 114–117 (Dâr al-Kutub al-‘Ilmiyya)",
+  "goals": [
+    "Comprendre pourquoi une souillure établie ne se confond pas avec une simple appréhension.",
+    "Voir comment une précision de grammaire détermine la portée d’une condition juridique.",
+    "Distinguer une exposition possible d’une matière impure réellement constatée lors d’un contact.",
+    "Distinguer l’altération réelle d’un faible volume d’eau demeuré inchangé.",
+    "Comprendre pourquoi l’auteur refuse de traiter nourriture liquide, nourriture solide et eau comme un seul cas.",
+    "Comprendre pourquoi une souillure certaine n’a pas toujours besoin d’être vue personnellement.",
+    "Comprendre l’importance du délai entre un fait observé et le contact examiné.",
+    "Lire les nuances sur la persistance d’une certitude sans entretenir une suspicion perpétuelle.",
+    "Identifier toutes les conditions nécessaires avant de parler du puisage recommandé.",
+    "Distinguer un animal sorti vivant d’un animal mort dans l’eau et attribuer les divergences."
+  ],
+  "sections": [
+    {
+      "id": "mouth",
+      "title": "Quand une souillure sur la bouche doit-elle être prise en compte ?",
+      "eyebrow": "01 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وإن ريئت على فيه وقت استعماله عمل عليها",
+        "translation": "« Si elle est constatée sur sa bouche au moment de son usage, on en tient compte. »",
+        "sourceLabel": "Khalîl, formule expliquée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114.",
+        "explanation": "Al-Hattâb ne va pas se satisfaire de cette première phrase. Il examinera la nuance entre voir de ses propres yeux et savoir avec certitude, puis distinguera ce qui se passe pour une petite quantité d’eau de ce qui concerne la nourriture. Ce cours doi",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      },
+      "paragraphs": [
+        "Après la discussion sur le hammam, Khalîl revient à ce qui peut atteindre une eau réellement utilisée. Son expression concerne une souillure sur la bouche au moment où un être boit. Remarque qu’il ne se contente pas de désigner une personne ou un animal : la présence de la matière impure et le temps du contact sont des informations indispensables. Une possibilité de souillure n’a pas encore le même statut qu’un contact connu.",
+        "Al-Hattâb ne va pas se satisfaire de cette première phrase. Il examinera la nuance entre voir de ses propres yeux et savoir avec certitude, puis distinguera ce qui se passe pour une petite quantité d’eau de ce qui concerne la nourriture. Ce cours doit donc commencer par une question simple : quelle matière est présente, où se trouve-t-elle et que sait-on exactement de son contact ? Sans cela, les verdicts deviennent des suppositions."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "La phrase vient du Mukhtasar de Khalîl, dont al-Hattâb précise ensuite le sens juridique."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "La souillure doit être connue dans le cas considéré et ne se déduit pas de la seule identité de celui qui boit."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "La bouche est le lieu du contact : le jugement se rapporte à une matière, non à la dignité de celui qui l’utilise."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "Le moment de l’usage est expressément mentionné afin de ne pas prendre une observation ancienne pour un état perpétuel."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : quand une souillure sur la bouche doit-elle être prise en compte ",
+        "text": "Imagine un animal buvant dans un récipient. Son propriétaire sait qu’il fouille parfois dans des détritus, mais ne constate rien sur sa bouche. Dans une seconde scène, une matière impure y est clairement observée pendant qu’il boit. Ces deux récits ne fournissent pas les mêmes faits. L’exemple est inventé uniquement pour apprendre à formuler la question ; il ne garantit pas la qualité sanitaire du contenu."
+      },
+      "takeaway": "Le point de départ est la souillure effectivement établie, son emplacement et son lien avec l’eau. La simple inquiétude n’autorise pas à fabriquer un contact dont on n’a pas la preuve.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "language",
+      "title": "Pourquoi Ibn Marzûq examine-t-il le mot « ri’it » ?",
+      "eyebrow": "02 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "قوله ريئت مبني من رأي",
+        "translation": "« Son expression ri’it est construite à partir du verbe ra’a. »",
+        "sourceLabel": "Ibn Marzûq, remarque de langue rapportée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114.",
+        "explanation": "Le lecteur se demandera bientôt si l’impureté doit avoir été vue personnellement ou si une certitude obtenue autrement suffit. C’est la raison pour laquelle cette observation linguistique mérite d’être conservée. Le fiqh malikite ne se réduit pas à m",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb rapporte d’Ibn Marzûq une remarque sur la forme particulière du verbe employé par Khalîl. Il explique qu’il s’agit d’une construction connue dans la langue, avec un échange de places entre certaines lettres. Un élève pourrait trouver cela très technique et voudrait passer à la règle suivante. Pourtant, dès qu’un mot sert à exprimer une condition, il faut comprendre exactement ce que l’auteur entend par ce mot.",
+        "Le lecteur se demandera bientôt si l’impureté doit avoir été vue personnellement ou si une certitude obtenue autrement suffit. C’est la raison pour laquelle cette observation linguistique mérite d’être conservée. Le fiqh malikite ne se réduit pas à mémoriser des verdicts : il enseigne à lire les termes qui donnent leur sens aux cas examinés. Ici, l’attention à la langue prépare une discussion de preuve, et non un simple exercice de grammaire."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "Ibn Marzûq parle du mot choisi par Khalîl ; sa remarque ne constitue pas un nouvel avis sur toutes les eaux."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "La variation de forme est expliquée comme une possibilité de la langue arabe et non corrigée arbitrairement."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "Le sens de « voir » compte, car il peut modifier la manière d’établir la présence d’une impureté."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "La suite du commentaire rapprochera expressément l’observation directe et la certitude du fait."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : pourquoi ibn marzûq examine-t-il le mot « ri’it » ",
+        "text": "Un élève recopie « ريئت » en pensant que le manuscrit contient une faute. Le professeur l’invite à lire l’explication d’Ibn Marzûq avant de corriger quoi que ce soit. Puis il lui demande ce que signifie « voir » quand un juriste parle d’une impureté. L’étudiant découvre que la question de forme introduit celle du mode de connaissance. Cette scène est fictive et illustre une méthode de lecture."
+      },
+      "takeaway": "Le verbe expliqué par Ibn Marzûq doit être lu avec soin. Son étude ouvre la question décisive de savoir comment une souillure peut être établie, et non seulement aperçue.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "habit",
+      "title": "L’exposition habituelle d’un animal suffit-elle à prouver une souillure ?",
+      "eyebrow": "03 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "والحيوان الذي لا يتوقى استعمال النجاسات",
+        "translation": "« Et l’animal qui ne prend pas de précautions face aux impuretés… »",
+        "sourceLabel": "Al-Hattâb, commentaire des cas évoqués après Khalîl, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "La distinction protège contre deux erreurs opposées. La première serait d’imaginer une contamination sur la base d’une réputation ou d’une habitude, sans preuve pour ce contact précis. La seconde consisterait à ignorer la matière impure lorsqu’elle e",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb évoque le buveur de vin et les animaux qui ne se préservent pas des souillures. Mais lis bien la phrase dans laquelle il les mentionne : la question est de savoir si une matière impure se trouve sur la bouche au moment où l’eau ou l’aliment est utilisé. Il ne dit pas que toute personne ayant bu du vin serait elle-même impure, ni que chaque animal porterait nécessairement une souillure à chaque instant.",
+        "La distinction protège contre deux erreurs opposées. La première serait d’imaginer une contamination sur la base d’une réputation ou d’une habitude, sans preuve pour ce contact précis. La seconde consisterait à ignorer la matière impure lorsqu’elle est effectivement connue. Les juristes examinent le cas concret ; ils ne transforment pas une catégorie générale en certitude permanente. C’est une discipline de raisonnement, pas seulement une précaution de langage."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "L’habitude d’un animal rend la question compréhensible sans prouver chaque contact particulier."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "Le texte examine une matière impure présente sur la bouche et non une supposée impureté de toute une personne."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "La certitude de la matière et la connaissance du contact doivent être distinguées des impressions vagues."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "L’auteur examinera séparément l’effet sur l’eau et celui sur un aliment liquide ou solide."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : l’exposition habituelle d’un animal suffit-elle à prouver une souillure ",
+        "text": "Un animal a été vu près d’un lieu sale, puis se présente près d’une réserve d’eau. Personne n’a observé de souillure sur sa bouche. Dans une autre situation, une matière a été identifiée et son contact avec le récipient est connu. Un élève voudrait considérer les deux récits identiques. Ce scénario fictif lui apprend au contraire à distinguer le soupçon du fait établi."
+      },
+      "takeaway": "L’exposition habituelle à la saleté n’équivaut pas automatiquement à la présence certaine d’une souillure lors d’un contact. La règle s’applique à un fait déterminé.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "alteration",
+      "title": "Pourquoi l’eau altérée et l’eau inchangée ne reçoivent-elles pas le même jugement ?",
+      "eyebrow": "04 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فإن غيرت الماء ضرت باتفاق",
+        "translation": "« Si elle altère l’eau, elle lui nuit selon l’accord rapporté. »",
+        "sourceLabel": "Al-Hattâb, qualification du changement par une souillure, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "L’expression « selon l’accord » ne doit pas davantage être étendue à ce qu’elle ne vise pas. Elle porte sur le cas de l’eau devenue altérée par l’impureté. Elle ne supprime pas les débats qui concernent l’eau restée inchangée. Si tu veux comprendre l",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Quand une matière impure a réellement modifié l’eau, al-Hattâb rapporte l’accord sur l’effet de cette altération. Il décrit ensuite une situation différente : l’eau est peu abondante et la matière ne l’a pas changée. Dans ce cas, il parle de réprobation de l’usage lorsqu’une autre eau est disponible. Le passage ne permet donc pas d’appliquer le même mot à tous les contacts. La modification des propriétés de l’eau est un critère déterminant.",
+        "L’expression « selon l’accord » ne doit pas davantage être étendue à ce qu’elle ne vise pas. Elle porte sur le cas de l’eau devenue altérée par l’impureté. Elle ne supprime pas les débats qui concernent l’eau restée inchangée. Si tu veux comprendre les auteurs malikites, apprends à distinguer l’eau impure, l’eau toujours purifiante mais dont l’usage peut être réprouvé, et les différences introduites par le volume disponible."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "L’effet de la souillure qui modifie l’eau reçoit une qualification distincte dans le commentaire."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "Le cas du simple contact sans altération est ensuite examiné pour une eau de faible quantité."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "La possibilité d’utiliser une autre eau intervient dans la discussion de la réprobation."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "Le mot « accord » ne doit pas être étendu abusivement aux divergences sur d’autres situations."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : pourquoi l’eau altérée et l’eau inchangée ne reçoivent-elles pas le même jugement ",
+        "text": "On étudie deux réserves : l’une a été effectivement changée par la souillure, alors que l’autre est restée sans modification observée. Un étudiant demande pourquoi le professeur refuse de répéter mot pour mot le même jugement. La réponse se trouve dans la phrase d’al-Hattâb et dans la restriction qui suit. Cet exemple inventé sert à apprendre à différencier des situations, non à certifier la potabilité de l’eau."
+      },
+      "takeaway": "Une eau réellement altérée par une impureté ne doit pas être confondue avec un petit volume d’eau demeuré inchangé. Al-Hattâb sépare soigneusement leurs qualifications.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "food",
+      "title": "Pourquoi al-Hattâb distingue-t-il aliment liquide et aliment solide ?",
+      "eyebrow": "05 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وأما الطعام فإنه يطرح كله إن كان مائعا",
+        "translation": "« Quant à l’aliment, on le rejette entièrement lorsqu’il est liquide. »",
+        "sourceLabel": "Al-Hattâb, distinction des aliments et de l’eau, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "Il faut enseigner cette page sans y ajouter ce qu’elle n’établit pas. Les juristes discutent ici d’une catégorisation rituelle ancienne, non d’une méthode moderne pour rendre salubre un produit potentiellement contaminé. Les bactéries et les risques ",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb relève qu’un commentaire antérieur pouvait donner l’impression que les aliments recevaient exactement le même jugement que l’eau. Il proteste contre cette assimilation. Dans la discussion qu’il rapporte, un aliment liquide atteint par une souillure est rejeté ; pour un aliment solide, on s’intéresse à la partie que la matière impure a pu atteindre. La consistance du contenu compte dans ce raisonnement et ne peut pas être omise.",
+        "Il faut enseigner cette page sans y ajouter ce qu’elle n’établit pas. Les juristes discutent ici d’une catégorisation rituelle ancienne, non d’une méthode moderne pour rendre salubre un produit potentiellement contaminé. Les bactéries et les risques invisibles ne se laissent pas déduire de cette seule distinction. Nous pouvons expliquer le fiqh tout en rappelant que la sécurité alimentaire contemporaine doit être appréciée selon ses propres exigences."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "Al-Hattâb conteste expressément une assimilation trop simple entre la nourriture et l’eau."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "L’aliment liquide est distingué de l’aliment solide à cause de la manière dont la souillure peut se répandre."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "Les jugements du passage supposent que la souillure et le contact soient correctement connus."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "Le texte n’est pas une expertise microbiologique et ne doit pas être utilisé comme garantie sanitaire."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : pourquoi al-hattâb distingue-t-il aliment liquide et aliment solide ",
+        "text": "Un élève applique à une soupe et à une miche de pain la même règle que celle qu’il vient de lire au sujet d’un peu d’eau. Son enseignant lui fait relire la critique d’al-Hattâb : la catégorie du contenu change le raisonnement. Ce dialogue fictif enseigne à ne pas plaquer une règle sur un autre objet et ne constitue pas une recommandation de consommer des aliments touchés par des souillures."
+      },
+      "takeaway": "Al-Hattâb sépare nourriture liquide, nourriture solide et eau. Cette différence doctrinale ne remplace pas les précautions modernes de sécurité alimentaire.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "certainty",
+      "title": "Ibn Shâs et al-Hattâb : pourquoi préférer le mot « certitude » ?",
+      "eyebrow": "06 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "ولو قال المصنف وإن تيقنت على فيه لكان أحسن",
+        "translation": "« Si l’auteur avait dit : “si elle est connue avec certitude sur sa bouche”, cela aurait été meilleur. »",
+        "sourceLabel": "Al-Hattâb, avec un rapprochement des formulations d’Ibn Shâs, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "Mais al-Hattâb ne transforme jamais la certitude en intuition. Une crainte n’est pas un fait prouvé. Il reconnaît également que, si le verbe « voir » de Khalîl est entendu au sens de « savoir », l’objection perd de sa force. Les maîtres de l’école di",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb prend ici la liberté d’évaluer la formulation de Khalîl. Il estime que parler de certitude serait plus clair que de parler seulement de vision, car on peut connaître certainement une impureté sans l’avoir vue soi-même. Il cite Ibn Shâs, qui décrit justement la connaissance assurée d’une souillure sur les bouches. C’est un exemple remarquable du commentaire : on ne répète pas seulement une phrase, on en examine la précision.",
+        "Mais al-Hattâb ne transforme jamais la certitude en intuition. Une crainte n’est pas un fait prouvé. Il reconnaît également que, si le verbe « voir » de Khalîl est entendu au sens de « savoir », l’objection perd de sa force. Les maîtres de l’école discutent donc de la meilleure façon d’exprimer une condition, tout en cherchant à rester fidèles au sens du texte. Comprendre leur méthode évite de citer une conclusion en oubliant les nuances qui l’accompagnent."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "Al-Hattâb indique qu’une formulation par la certitude serait plus explicite."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "La remarque d’Ibn Shâs fournit un appui à cette discussion sur une impureté réellement établie."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "Voir personnellement n’est pas le seul mode imaginable d’acquérir une connaissance certaine."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "La crainte et le soupçon ne doivent pas être substitués à la certitude dont parlent les auteurs."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : ibn shâs et al-hattâb : pourquoi préférer le mot « certitude » ",
+        "text": "Un élève dit : « Je n’ai pas vu la matière moi-même ; elle ne peut donc jamais être prise en compte. » Son enseignant lui demande si l’existence de cette matière est néanmoins établie avec certitude. Puis il lui montre la remarque d’al-Hattâb sur le verbe de Khalîl. L’exemple, entièrement inventé, illustre la différence entre connaissance et perception ; il ne délivre pas de règle générale sur les témoignages."
+      },
+      "takeaway": "Al-Hattâb préfère la certitude à une lecture exclusivement visuelle du texte, tout en rappelant qu’un soupçon n’est pas une preuve. Il examine aussi la possibilité que « voir » signifie déjà « savoir ».",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "timing",
+      "title": "Pourquoi Ibn ‘Abd al-Salâm précise-t-il le moment où l’on boit ?",
+      "eyebrow": "07 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "إن ريئت في أفواهها وقت شربها نجاسة",
+        "translation": "« Si l’on voit une souillure dans leur bouche au moment où elles boivent. »",
+        "sourceLabel": "Ibn ‘Abd al-Salâm, parlant de la formulation habituelle des juristes, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "La difficulté apparaît quand la souillure a été vue tout juste avant le contact, sans que l’animal ait pu s’éloigner ou se nettoyer. C’est la question qu’Ibn al-Imâm va soulever. Le temps ne s’applique donc pas comme un interrupteur magique : il faut",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn ‘Abd al-Salâm observe qu’Ibn al-Hâjib n’avait pas précisé le moment de la vision de la souillure. Il rappelle alors que les juristes ajoutent habituellement qu’elle est constatée au moment où l’animal boit. La précision est essentielle : ce qui était présent auparavant peut avoir disparu. Il n’est donc pas juste de traiter chaque contact futur comme si une vieille observation établissait à elle seule un état permanent.",
+        "La difficulté apparaît quand la souillure a été vue tout juste avant le contact, sans que l’animal ait pu s’éloigner ou se nettoyer. C’est la question qu’Ibn al-Imâm va soulever. Le temps ne s’applique donc pas comme un interrupteur magique : il faut connaître ce qui a été observé, la durée, les mouvements possibles et ce que l’on peut encore tenir pour certain. La rigueur du fiqh se voit dans cette attention aux faits."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "Le texte distingue une observation ancienne du moment où l’animal utilise effectivement l’eau."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "Ibn ‘Abd al-Salâm rapporte que les juristes ajoutent souvent cette précision de temps."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "La souillure peut avoir disparu, et il serait fautif de maintenir automatiquement une supposition ancienne."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "La discussion suivante envisage le cas où le contact suit immédiatement une certitude de souillure."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : pourquoi ibn ‘abd al-salâm précise-t-il le moment où l’on boit ",
+        "text": "Une personne voit une trace sur un animal le matin, puis observe son retour au point d’eau plusieurs heures plus tard sans savoir ce qu’il a fait entre-temps. Compare cette histoire avec celle où l’animal boit quelques secondes après la constatation, sans disparaître du regard. La durée et les faits intermédiaires ne sont pas identiques. Ces scènes sont imaginées pour faire comprendre la précision d’Ibn ‘Abd al-Salâm."
+      },
+      "takeaway": "La constatation d’une souillure doit être rapprochée du moment de l’usage. L’ancienneté du fait et la possibilité de disparition ne peuvent être ignorées.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "absence",
+      "title": "Ibn al-Imâm et Ibn al-‘Arabî : une souillure invisible a-t-elle disparu ?",
+      "eyebrow": "08 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "ولا بد من غيبة لا يبقى معها ظن بقاء أثر النجاسة بفيها",
+        "translation": "« Il faut une absence après laquelle on ne présume plus que sa trace demeure sur sa bouche. »",
+        "sourceLabel": "Ibn al-‘Arabî, cité après l’objection d’Ibn al-Imâm, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "Al-Hattâb rapporte aussi une formule d’Ibn al-‘Arabî : il faut un éloignement suffisamment significatif pour que la trace ne soit plus présumée présente. Aucun nombre de minutes n’est fixé. Et le commentateur remarque que ces analyses peuvent se conc",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn al-Imâm explique qu’on peut avoir vu une souillure juste avant que l’animal ne boive, puis ne plus la distinguer au moment précis du contact. Si rien n’a permis à la matière de disparaître, l’absence de vision nouvelle n’invalide pas la première observation. La question n’est donc pas d’avoir les yeux constamment fixés sur la bouche : elle est de savoir si une preuve récente demeure pertinente.",
+        "Al-Hattâb rapporte aussi une formule d’Ibn al-‘Arabî : il faut un éloignement suffisamment significatif pour que la trace ne soit plus présumée présente. Aucun nombre de minutes n’est fixé. Et le commentateur remarque que ces analyses peuvent se concilier avec celles d’Ibn ‘Abd al-Salâm si « voir » signifie connaître. On ne doit donc ni effacer une certitude réelle, ni prolonger indéfiniment une suspicion sans fondement."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "L’objection d’Ibn al-Imâm suppose d’abord une souillure effectivement vue."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "L’absence d’une seconde vision ne détruit pas nécessairement une certitude restée pertinente."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "Ibn al-‘Arabî parle d’une absence qui enlève la présomption de persistance, sans seuil chronométrique."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "Al-Hattâb examine une possible conciliation entre les différents auteurs plutôt que d’inventer leur unanimité."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : ibn al-imâm et ibn al-‘arabî : une souillure invisible a-t-elle disparu ",
+        "text": "Une personne observe clairement une souillure sur un objet juste avant son contact avec l’eau ; un changement d’angle empêche ensuite de la voir. Elle ne peut pas affirmer que la souillure s’est dissipée simplement parce qu’elle est devenue invisible. Mais une crainte née d’une observation lointaine ne possède pas nécessairement la même force. Cet exemple fictif montre le raisonnement sur la continuité des faits."
+      },
+      "takeaway": "La preuve d’une souillure peut persister malgré son invisibilité momentanée, mais elle ne se prolonge pas sans limite. Ibn al-‘Arabî et Ibn al-Imâm précisent ce point sous des angles différents.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "animal-death",
+      "title": "Que signifie exactement le puisage recommandé après la mort d’un animal ?",
+      "eyebrow": "09 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وإذا مات بري ذو نفس سائلة براكد ولم يتغير ندب نزح بقدرهما",
+        "translation": "« Si un animal terrestre à sang coulant meurt dans une eau stagnante sans l’altérer, un puisage proportionné est recommandé. »",
+        "sourceLabel": "Khalîl, seconde formule du Mukhtasar expliquée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115.",
+        "explanation": "Al-Hattâb va détailler chaque restriction. Que se passe-t-il si l’animal ressort vivant ? S’il tombe dans l’eau après sa mort ? Si c’est un animal aquatique ? Si l’eau a effectivement changé ? Voilà pourquoi le commentaire s’étend sur une phrase pour",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+      },
+      "paragraphs": [
+        "Voici un nouveau cas, et chaque mot en délimite la portée. Khalîl parle d’un animal terrestre, dont le sang coule, qui meurt dans une eau stagnante, sans en modifier les propriétés. Dans cette situation précise, il recommande de retirer une certaine quantité d’eau selon la taille de l’animal et le volume de la réserve. Il ne dit pas qu’il faut vider n’importe quel puits dans lequel on aperçoit un animal.",
+        "Al-Hattâb va détailler chaque restriction. Que se passe-t-il si l’animal ressort vivant ? S’il tombe dans l’eau après sa mort ? Si c’est un animal aquatique ? Si l’eau a effectivement changé ? Voilà pourquoi le commentaire s’étend sur une phrase pourtant très courte. Le lecteur qui retiendrait seulement « animal » et « puisage » manquerait les conditions qui déterminent le jugement et les divergences qui le suivent."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "Le mot « meurt » est essentiel : il ne désigne pas la simple chute suivie d’une sortie vivante."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "La catégorie terrestre à sang coulant restreint les animaux dont parle Khalîl."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "Le point d’eau est stagnant et il doit être resté sans altération causée par la souillure."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "La recommandation est proportionnée à l’animal et au volume d’eau ; ce n’est pas un chiffre unique."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : que signifie exactement le puisage recommandé après la mort d’un animal ",
+        "text": "Une personne découvre une bête dans un puits. Avant de demander combien de seaux retirer, un enseignant vérifie si elle est morte dans l’eau et si cette eau a changé. Il s’interroge aussi sur la nature de l’animal et le type de réserve. Ces questions proviennent de la phrase de Khalîl et ne sont pas des complications inutiles. Ce scénario imaginaire ne constitue pas une instruction sur l’utilisation sanitaire de l’eau."
+      },
+      "takeaway": "Le puisage recommandé dépend de conditions cumulatives : animal terrestre à sang coulant mort dans une eau stagnante non altérée. On ne doit ni les ignorer ni transformer la recommandation en obligation générale.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 115, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    },
+    {
+      "id": "alive",
+      "title": "Ibn Rushd : faut-il rejeter ce qu’un animal a touché en restant vivant ?",
+      "eyebrow": "10 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "هو بعيد وشذوذ لا وجه له",
+        "translation": "« C’est une position éloignée et isolée, sans justification. »",
+        "sourceLabel": "Ibn Rushd, critique de la position de Sa‘îd ibn Numayr, Mawâhib al-Jalîl, tome 1, p. 116.",
+        "explanation": "Il ne faudrait pas pour autant comprendre cette réserve doctrinale comme une garantie de potabilité. La question de pureté rituelle n’épuise pas celle des risques sanitaires actuels. Al-Hattâb précise également qu’une souillure réellement présente su",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/116?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb explique que l’animal retiré vivant ne remplit pas la condition de mort de Khalîl. Il rapporte ensuite une opinion selon laquelle on devrait rejeter une boisson où une souris était tombée puis avait été retirée vivante. Ibn Rushd critique fermement cette position de Sa‘îd ibn Numayr et la présente comme isolée et sans bonne justification. La présence de l’animal ne prouve pas en elle-même une matière impure dans le contenu.",
+        "Il ne faudrait pas pour autant comprendre cette réserve doctrinale comme une garantie de potabilité. La question de pureté rituelle n’épuise pas celle des risques sanitaires actuels. Al-Hattâb précise également qu’une souillure réellement présente sur le corps de l’animal poserait une autre question. Nous apprenons ici à ne pas confondre le fait d’être tombé vivant, le fait de mourir dans l’eau et le fait de porter une matière impure."
+      ],
+      "steps": [
+        {
+          "label": "Lecture précise",
+          "text": "La bête ressort vivante : la condition « meurt » de Khalîl n’est pas remplie."
+        },
+        {
+          "label": "Condition du jugement",
+          "text": "La position que rejette Ibn Rushd est attribuée à Sa‘îd ibn Numayr, et non à l’ensemble du madhhab."
+        },
+        {
+          "label": "Avis et qualification",
+          "text": "La présomption de pureté n’est pas remplacée automatiquement par le seul soupçon tiré d’une chute."
+        },
+        {
+          "label": "Limite à ne pas dépasser",
+          "text": "Une matière impure constatée sur le corps serait un élément supplémentaire à examiner séparément."
+        }
+      ],
+      "example": {
+        "title": "Exemple pédagogique : ibn rushd : faut-il rejeter ce qu’un animal a touché en restant vivant ",
+        "text": "Une souris tombe dans une boisson et ressort vivante. Un étudiant cite sans nuance la règle relative à la bête morte dans un bassin. Son maître lui montre que la condition de mort manque, puis lui lit la critique d’Ibn Rushd. L’exemple est inventé pour faire comprendre une distinction de fiqh ; il ne conseille pas de boire une boisson exposée à un animal."
+      },
+      "takeaway": "Ibn Rushd refuse d’assimiler automatiquement la chute d’une bête ressortie vivante à une impureté certaine. Le jugement rituel reste distinct de la sécurité de consommation.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 116, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée ; exemple fictif sans portée de fatwa ni de recommandation sanitaire."
+    }
+  ],
+  "lexicon": [],
+  "quiz": [
+    {
+      "question": "Quand une souillure sur la bouche doit-elle être prise en compte ?",
+      "choices": [
+        "Le contact d’une souillure établie",
+        "Le soupçon sans aucun fait précis",
+        "L’identité seule de l’être qui boit"
+      ],
+      "answer": 0,
+      "explanation": "Le point de départ est la souillure effectivement établie, son emplacement et son lien avec l’eau. La simple inquiétude n’autorise pas à fabriquer un contact dont on n’a pas la preuve. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Pourquoi Ibn Marzûq examine-t-il le mot « ri’it » ?",
+      "choices": [
+        "Elle prépare la lecture de « voir » et « savoir »",
+        "Elle interdit de lire le texte arabe",
+        "Elle fixe un nombre de seaux"
+      ],
+      "answer": 0,
+      "explanation": "Le verbe expliqué par Ibn Marzûq doit être lu avec soin. Son étude ouvre la question décisive de savoir comment une souillure peut être établie, et non seulement aperçue. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "L’exposition habituelle d’un animal suffit-elle à prouver une souillure ?",
+      "choices": [
+        "Il faut examiner la présence réellement connue de la matière",
+        "Chaque animal est toujours impur",
+        "Aucune souillure observée ne compte"
+      ],
+      "answer": 0,
+      "explanation": "L’exposition habituelle à la saleté n’équivaut pas automatiquement à la présence certaine d’une souillure lors d’un contact. La règle s’applique à un fait déterminé. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Pourquoi l’eau altérée et l’eau inchangée ne reçoivent-elles pas le même jugement ?",
+      "choices": [
+        "L’altération réelle est un critère déterminant",
+        "Tous les contacts donnent nécessairement un cas identique",
+        "L’eau ne peut jamais être modifiée"
+      ],
+      "answer": 0,
+      "explanation": "Une eau réellement altérée par une impureté ne doit pas être confondue avec un petit volume d’eau demeuré inchangé. Al-Hattâb sépare soigneusement leurs qualifications. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Pourquoi al-Hattâb distingue-t-il aliment liquide et aliment solide ?",
+      "choices": [
+        "Les caractéristiques de l’aliment changent l’analyse",
+        "Toute nourriture est identique à l’eau",
+        "L’auteur ne parle jamais des aliments"
+      ],
+      "answer": 0,
+      "explanation": "Al-Hattâb sépare nourriture liquide, nourriture solide et eau. Cette différence doctrinale ne remplace pas les précautions modernes de sécurité alimentaire. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Ibn Shâs et al-Hattâb : pourquoi préférer le mot « certitude » ?",
+      "choices": [
+        "La connaissance certaine peut exister sans vision directe",
+        "Le soupçon suffit toujours",
+        "Khalîl refuse toute certitude"
+      ],
+      "answer": 0,
+      "explanation": "Al-Hattâb préfère la certitude à une lecture exclusivement visuelle du texte, tout en rappelant qu’un soupçon n’est pas une preuve. Il examine aussi la possibilité que « voir » signifie déjà « savoir ». Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Pourquoi Ibn ‘Abd al-Salâm précise-t-il le moment où l’on boit ?",
+      "choices": [
+        "La relation temporelle entre souillure et usage compte",
+        "Une observation ancienne ne peut jamais cesser de compter",
+        "Le texte impose six heures d’attente"
+      ],
+      "answer": 0,
+      "explanation": "La constatation d’une souillure doit être rapprochée du moment de l’usage. L’ancienneté du fait et la possibilité de disparition ne peuvent être ignorées. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Ibn al-Imâm et Ibn al-‘Arabî : une souillure invisible a-t-elle disparu ?",
+      "choices": [
+        "Une certitude récente ne disparaît pas du seul fait qu’on ne la voit plus",
+        "Tout soupçon ancien doit durer éternellement",
+        "Un délai de trente minutes est fixé"
+      ],
+      "answer": 0,
+      "explanation": "La preuve d’une souillure peut persister malgré son invisibilité momentanée, mais elle ne se prolonge pas sans limite. Ibn al-‘Arabî et Ibn al-Imâm précisent ce point sous des angles différents. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Que signifie exactement le puisage recommandé après la mort d’un animal ?",
+      "choices": [
+        "Il s’agit d’un cas défini par plusieurs conditions",
+        "Toute présence animale rend le puisage obligatoire",
+        "L’eau doit nécessairement être altérée"
+      ],
+      "answer": 0,
+      "explanation": "Le puisage recommandé dépend de conditions cumulatives : animal terrestre à sang coulant mort dans une eau stagnante non altérée. On ne doit ni les ignorer ni transformer la recommandation en obligation générale. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    },
+    {
+      "question": "Ibn Rushd : faut-il rejeter ce qu’un animal a touché en restant vivant ?",
+      "choices": [
+        "Ibn Rushd critique le rejet automatique de la boisson",
+        "Ibn Rushd affirme que l’animal est mort dans le verre",
+        "Tous les malikites imposent unanimement le rejet"
+      ],
+      "answer": 0,
+      "explanation": "Ibn Rushd refuse d’assimiler automatiquement la chute d’une bête ressortie vivante à une impureté certaine. Le jugement rituel reste distinct de la sécurité de consommation. Cette correction repose sur les conditions du texte et ne doit pas être étendue aux situations qui n’ont pas été étudiées."
+    }
+  ],
+  "quote": {
+    "arabic": "لو قلت لهم خمسين لأبطلت تسعة وأربعين وهي مثلها",
+    "meaning": "Ibn al-Mâjishûn explique pourquoi un conseil de cinquante seaux ne doit pas être traité comme un seuil absolu : il n’y a pas de différence automatique entre quarante-neuf et cinquante lorsque le retrait est apprécié selon le volume d’eau et l’animal.",
+    "label": "Ibn al-Mâjishûn, cité par Ibn Bashîr puis al-Hattâb, tome 1, p. 117."
+  },
+  "sources": [
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, page 114, édition Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, page 115, édition Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, page 116, édition Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/116?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, page 117, édition Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/117?lang=ar"
+    },
+    {
+      "label": "Usul — Mawâhib al-Jalîl",
+      "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+    }
+  ]
+},
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Observer les souillures réelles dans l’eau et les aliments",
-    "status": "À préparer — fiche 15 non publiée"
+    "title": "Quand une eau altérée redevient-elle purifiante ?",
+    "status": "À préparer — fiche 16 non publiée"
   }
 };
