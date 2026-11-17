@@ -7629,6 +7629,206 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "Le bain privé ou vide relève, dans la synthèse d’Ibn Rushd, de l’usage permis sans réprobation lorsque rien d’autre ne pose problème. Le jugement ne se réduit pas au fait de se laver avec de l’eau chauffée : il suppose les conditions concrètes du lieu.",
         "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "uncovered-users",
+        "eyebrow": "10 · LECTURE COMMENTÉE",
+        "title": "Pourquoi la présence de personnes non couvertes change-t-elle le jugement ?",
+        "passage": {
+          "arabic": "الثاني إذا كان غير مستتر أو معه من لا يستتر",
+          "translation": "« Deuxième situation : lorsqu’il ne se couvre pas, ou qu’il se trouve avec quelqu’un qui ne se couvre pas. »",
+          "explanation": "La deuxième catégorie d’Ibn Rushd vise un bain où l’usager expose les parties à couvrir ou se trouve en présence de personnes qui les découvrent. Al-Hattâb rapporte aussi le jugement des Jawâhir.",
+          "sourceLabel": "Ibn Rushd, deuxième cas dans les Muqaddimât, cité par al-Hattâb, t. 1, p. 112–113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "Le deuxième cas n’a plus rien à voir avec l’entrée dans un bain vide. Ibn Rushd envisage une personne qui ne couvre pas les parties du corps qu’elle doit préserver devant autrui, ou qui fréquente un hammam où d’autres baigneurs exposent leur nudité. Dans les Muqaddimât, il transmet une interdiction explicite. Al-Hattâb ajoute une formulation des Jawâhir allant dans le même sens. Nous ne sommes plus dans une simple préférence de confort : il s’agit de la protection de la pudeur et du regard.",
+          "Pour comprendre ce jugement, il faut regarder les faits décrits, pas seulement le nom du lieu. Le bain collectif qui ne permet pas de préserver la nudité n’a pas les mêmes conditions qu’un établissement où les usagers se couvrent convenablement. Si l’on raconte seulement qu’Ibn Rushd interdit les hammams, on supprime la première et la troisième catégories de son raisonnement. Al-Hattâb conserve précisément ces différences pour que l’étudiant ne confonde pas un acte généralement licite avec des circonstances particulières qui le rendent problématique."
+        ],
+        "steps": [
+          {
+            "label": "Une personne ne se couvre pas",
+            "text": "Le problème n’est pas la température de l’eau : c’est l’exposition de parties du corps qu’il faut protéger devant autrui."
+          },
+          {
+            "label": "D’autres baigneurs peuvent être découverts",
+            "text": "La présence de personnes non couvertes soulève aussi la question du regard interdit, même si le visiteur couvre son propre corps."
+          },
+          {
+            "label": "L’attribution est donnée",
+            "text": "Al-Hattâb cite les Muqaddimât d’Ibn Rushd et les Jawâhir, au lieu d’annoncer une interdiction sans identifier ses auteurs."
+          },
+          {
+            "label": "Le hammam privé reste un cas distinct",
+            "text": "La première situation, sans d’autres usagers, avait été considérée permise : il ne faut pas faire disparaître ce contraste."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le cas par un exemple",
+          "text": "Un établissement collectif expose les personnes présentes à la nudité d’autres usagers. Un visiteur pense pouvoir s’y laver rapidement sans considérer ce qui l’entoure. La deuxième catégorie d’Ibn Rushd lui demande précisément d’examiner cette exposition. L’exemple est fictif et ne prononce aucune décision sur un établissement actuel dont on ne connaît pas la configuration."
+        },
+        "takeaway": "Ibn Rushd distingue la fréquentation d’un bain exposant à une nudité interdite de celle d’un bain privé. La règle porte sur les comportements et les conditions du lieu, non sur le seul fait d’employer de l’eau chaude.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
+      },
+      {
+        "id": "necessary-withdrawal",
+        "eyebrow": "11 · LECTURE COMMENTÉE",
+        "title": "Peut-on entrer uniquement pour retirer une eau indispensable ?",
+        "passage": {
+          "arabic": "إلا أن يدخله غاضا بصره لإخراجه لا لمقامه فيه",
+          "translation": "« Sauf s’il y entre en baissant son regard pour en faire sortir l’eau, et non pour y séjourner. »",
+          "explanation": "Le texte examine une personne qui n’a pas d’autre eau et dont l’accès exige de passer par un bain présentant le problème décrit. La permission éventuelle ne concerne que le prélèvement nécessaire.",
+          "sourceLabel": "Ibn al-Qâsim, exception citée dans les Jawâhir et reproduite par al-Hattâb, t. 1, p. 113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "Une remarque d’Ibn al-Qâsim précise la portée de la difficulté. Supposons qu’une personne n’ait pas d’autre eau à disposition, tandis que l’eau dont elle a besoin se trouve dans un hammam dont la fréquentation ordinaire est problématique. Le commentaire ne répond pas simplement qu’une nécessité autorise tout séjour. Il rapporte une distinction entre entrer pour retirer l’eau, avec le regard préservé, et entrer pour demeurer dans le lieu malgré ce qu’il comporte. Le premier geste ne possède pas nécessairement le statut du second.",
+          "La nuance se comprend lorsque nous revenons au but de la personne : elle doit se purifier, non passer du temps dans le hammam. Les juristes examinent les moyens qui permettent d’obtenir l’eau sans ajouter une exposition inutile à ce qu’il faut éviter. Le passage envisage également le cas où retirer l’eau serait réellement impossible. Nous devons conserver ces circonstances plutôt que fabriquer une permission générale valable pour n’importe quel établissement. Dans une situation réelle, les alternatives et les conditions concrètes doivent être examinées."
+        ],
+        "steps": [
+          {
+            "label": "Le manque d’eau constitue le cadre du cas",
+            "text": "L’exception ne vise pas une simple commodité ; elle part d’un besoin réel de disposer d’une eau nécessaire."
+          },
+          {
+            "label": "Le prélèvement et le séjour sont séparés",
+            "text": "Ibn al-Qâsim distingue l’entrée limitée à la sortie de l’eau de la présence prolongée dans le lieu."
+          },
+          {
+            "label": "La protection du regard reste requise",
+            "text": "Le texte mentionne explicitement le fait de détourner les yeux des parties qu’il n’est pas permis de regarder."
+          },
+          {
+            "label": "Une circonstance exceptionnelle ne devient pas une règle générale",
+            "text": "On ne peut pas déduire du cas que tous les séjours dans des bains présentant le même problème seraient autorisés."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le cas par un exemple",
+          "text": "Une personne, dans un cas ancien imaginaire, ne peut accéder à de l’eau qu’en passant par l’entrée d’un bain collectif. Elle pourrait y prélever de quoi se purifier sans s’y attarder et sans regarder ce qu’elle doit éviter. C’est la distinction dont parle Ibn al-Qâsim. Cet exemple ne constitue pas un mode d’emploi pour les lieux actuels et ne remplace pas l’examen d’une situation particulière."
+        },
+        "takeaway": "Ibn al-Qâsim distingue le prélèvement nécessaire de l’eau et le séjour dans un lieu dont les conditions posent problème. La protection du regard et la limitation de l’entrée font partie de sa réponse.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
+      },
+      {
+        "id": "covered-with-covered",
+        "eyebrow": "12 · LECTURE COMMENTÉE",
+        "title": "Pourquoi Ibn al-Qâsim dit-il : « C’est permis, mais s’en abstenir est meilleur » ?",
+        "passage": {
+          "arabic": "لا بأس به وتركه أحسن",
+          "translation": "« Il n’y a pas de mal à cela, mais il est préférable de s’en abstenir. »",
+          "explanation": "Le troisième cas d’Ibn Rushd est le bain collectif où la personne et les autres usagers se couvrent. Le commentaire rapporte une permission accompagnée d’une préférence prudente.",
+          "sourceLabel": "Ibn al-Qâsim, transmission d’Asbagh dans la ‘Utbiyya, citée par Ibn Rushd puis al-Hattâb, t. 1, p. 113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "Le troisième cas diffère nettement du précédent. Le visiteur se couvre convenablement, les autres baigneurs aussi, et la raison majeure de l’interdiction liée à la nudité n’est pas établie. Ibn al-Qâsim rapporte alors qu’il n’y a pas de mal à fréquenter ce bain, tout en disant que s’en abstenir est meilleur. Il faut conserver les deux parties de sa phrase. Si nous ne rapportons que la préférence pour l’abstention, nous risquons de faire croire à une interdiction qu’il n’a pas formulée.",
+          "Al-Hattâb explique pourquoi une telle prudence pouvait subsister dans les établissements de son temps : il était difficile d’être certain de ne jamais voir involontairement ce qu’il fallait éviter. Les réserves concernant la circulation des mains et l’eau des bassins pouvaient s’y ajouter. Ce sont plusieurs motifs distincts. Il faut donc apprendre à différencier la permission de l’entrée, la préférence de ne pas prendre ce risque et la validité d’un lavage effectué dans une eau dont la pureté est connue. Nous retrouverons cette dernière question dans la lecture suivante."
+        ],
+        "steps": [
+          {
+            "label": "La pudeur est préservée dans le cas décrit",
+            "text": "Le visiteur et les autres usagers se couvrent ; cette condition distingue le troisième cas de celui des baigneurs découverts."
+          },
+          {
+            "label": "« Lâ ba’s » signifie qu’il n’y a pas de mal",
+            "text": "Cette formule constitue une permission. L’étudiant ne doit pas la remplacer par une interdiction imaginée."
+          },
+          {
+            "label": "« Tarkuhu ahsan » exprime une préférence",
+            "text": "L’auteur indique qu’il est meilleur de ne pas y entrer dans le contexte examiné, sans annuler pour autant l’acte."
+          },
+          {
+            "label": "L’état de l’eau est une question distincte",
+            "text": "Un bassin impur ou réellement altéré ne reçoit pas son statut du seul fait que les usagers se couvrent, ou non."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le cas par un exemple",
+          "text": "Dans un bain collectif, chaque personne porte une tenue qui protège les parties du corps à couvrir. Un étudiant conclut que l’entrée est forcément interdite parce qu’Ibn al-Qâsim préfère l’éviter. Le professeur lui fait relire la formule entière : « Il n’y a pas de mal, mais s’en abstenir est meilleur. » La scène est fictive et ne vérifie pas les conditions d’un établissement particulier."
+        },
+        "takeaway": "La troisième catégorie d’Ibn Rushd montre que la permission peut coexister avec une recommandation de prudence. Il est essentiel de ne pas transformer une préférence d’abstention en interdiction absolue.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
+      },
+      {
+        "id": "malik-basin-purity",
+        "eyebrow": "13 · LECTURE COMMENTÉE",
+        "title": "Le ghusl effectué avec l’eau du bassin compte-t-il pour la purification ?",
+        "passage": {
+          "arabic": "نعم إذا كان طاهرا",
+          "translation": "« Oui, à condition qu’il soit pur. »",
+          "explanation": "Interrogé sur un homme qui utilise un bassin rempli au hammam, Mâlik répond en conditionnant la suffisance du lavage à la pureté ; Ibn Rushd précise que la condition concerne l’homme et l’eau.",
+          "sourceLabel": "Mâlik, Samâ‘ d’Ibn al-Qâsim, réponse citée par al-Hattâb avec l’explication d’Ibn Rushd, t. 1, p. 113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "Une question de la transmission d’Ibn al-Qâsim concerne un homme qui plonge ses mains dans un bassin de hammam pour se purifier. Mâlik répond positivement, mais avec une condition de pureté. Le commentaire précise que le sens vise la personne et l’eau. Il faut lire cette réponse avec les réserves précédentes. Un homme peut s’être lavé dans un lieu dont la fréquentation était peu souhaitable sans que son ghusl soit automatiquement invalide. La question de l’acte accompli demande un autre examen.",
+          "Ibn Rushd explique justement qu’une purification peut être suffisante dans les conditions étudiées sans que cette manière de se laver soit recommandée dès le départ. Il évoque deux raisons de prudence : les lavages dans une eau stagnante et l’usage d’eau chauffée dans certains établissements anciens. C’est l’une des distinctions les plus importantes de notre parcours : le jugement sur le lieu, le jugement sur les moyens employés et la validité des ablutions ou du ghusl ne sont pas nécessairement identiques."
+        ],
+        "steps": [
+          {
+            "label": "Le « oui » de Mâlik est conditionné",
+            "text": "Il faut conserver les mots sur la pureté, sans faire de la réponse une permission inconditionnelle."
+          },
+          {
+            "label": "Le commentaire explicite qui doit être pur",
+            "text": "L’explication rapportée vise à la fois le corps de la personne dans le cas étudié et l’eau employée pour se purifier."
+          },
+          {
+            "label": "Ibn Rushd sépare validité et préférence",
+            "text": "Un acte déjà accompli peut remplir ses conditions alors que sa manière d’exécution n’était pas celle qu’il valait mieux choisir."
+          },
+          {
+            "label": "Le bassin collectif reste un cas matériel",
+            "text": "La présence d’un grand nombre de mains peut susciter une réserve, mais ne constitue pas automatiquement la preuve d’une contamination particulière."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le cas par un exemple",
+          "text": "Un homme a accompli son ghusl en utilisant l’eau d’un bassin de hammam. En découvrant qu’un savant préférait éviter ce lieu, il se demande si sa purification serait nécessairement nulle. Mâlik et Ibn Rushd nous apprennent à distinguer l’examen de l’eau et des conditions du lavage de la prudence concernant le lieu. L’exemple est inventé et ne donne pas de réponse définitive pour une situation réelle."
+        },
+        "takeaway": "Mâlik reconnaît la suffisance du lavage dans le cas qu’il conditionne à la pureté. Ibn Rushd rappelle que la validité d’un acte ne signifie pas qu’il faille recommander en toutes circonstances la manière dont il a été accompli.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
+      },
+      {
+        "id": "bayyan-basin-risk",
+        "eyebrow": "14 · LECTURE COMMENTÉE",
+        "title": "Pourquoi le Bayân émet-il une réserve sur l’eau des bains collectifs ?",
+        "passage": {
+          "arabic": "لأنه يسخن بالأقذار والنجاسات ولاختلاف الأيدي",
+          "translation": "« Parce qu’elle est chauffée au moyen de saletés et d’impuretés, et parce que des mains différentes y passent. »",
+          "explanation": "La réserve est liée à des pratiques matérielles de certains hammams anciens : leur combustible et les contacts répétés avec l’eau. Ces conditions n’impliquent pas qu’une souillure ait été prouvée dans tout réservoir.",
+          "sourceLabel": "Al-Bayân, explication citée par al-Hattâb, t. 1, p. 113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "Al-Hattâb rapporte du Bayân une explication particulièrement concrète. L’eau d’un hammam pouvait être chauffée à l’aide de matières jugées impures et être touchée successivement par des personnes qui n’avaient pas toutes les mêmes précautions. Nous avons étudié ces deux sujets ailleurs : la question de la source de chaleur, puis celle d’une réserve partagée. Leur réunion dans un même lieu explique pourquoi des juristes conseillaient parfois de ne pas faire ses ablutions dans ces bassins.",
+          "Mais ces considérations ne démontrent pas que chaque eau d’un hammam est effectivement impure. Un établissement alimenté par une conduite d’eau distincte, dans lequel les utilisateurs ne touchent pas une même réserve, ne reproduit pas nécessairement les conditions anciennes. Pour comparer les cas, il faut connaître le fonctionnement du lieu. De plus, la présence d’un risque est distincte de la preuve d’une souillure réellement entrée dans l’eau et l’ayant altérée. C’est pourquoi le commentaire peut conserver la réserve du Bayân sans effacer la réponse de Mâlik sur la validité d’un lavage."
+        ],
+        "steps": [
+          {
+            "label": "Le combustible constitue une circonstance",
+            "text": "L’emploi d’une matière impure pour chauffer ne prouve pas, par lui-même, que celle-ci ait été mélangée à l’eau."
+          },
+          {
+            "label": "Les contacts répétés constituent un second facteur",
+            "text": "Le passage des mains rend compréhensible la prudence, sans certifier que toutes étaient effectivement souillées."
+          },
+          {
+            "label": "La qualité de l’eau ne dépend pas du nom du lieu",
+            "text": "Il faut examiner le mode de chauffage, l’accès à la réserve et l’état réel de l’eau avant de transporter cette discussion."
+          },
+          {
+            "label": "Un jugement de prudence n’efface pas la validité conditionnelle",
+            "text": "Le commentaire rapporte aussi la réponse de Mâlik : une purification peut compter lorsque l’eau remplissait ses conditions."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le cas par un exemple",
+          "text": "Deux bains portent le même nom. Le premier comporte un ancien bassin accessible aux mains de tous, et le second distribue une eau séparée à chaque point de lavage. Un lecteur applique aux deux la même réserve sans examiner les installations. L’exemple du Bayân nous apprend précisément à comparer les circonstances qui motivent le jugement, et non les simples appellations. Cette scène fictive ne certifie pas la qualité sanitaire d’un établissement."
+        },
+        "takeaway": "Le Bayân relie la réprobation de certains bassins à leur mode de chauffage et aux nombreux contacts. Cette explication doit rester distincte d’une contamination réellement constatée et ne peut être étendue à toutes les installations contemporaines sans examen.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
       }
     ],
     "lexicon": [],
