@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// Fiqh malikite : contrôle des dix-huit fiches, fondées sur les passages vérifiés d'al-Hattâb.
+// Fiqh malikite : contrôle des dix-neuf fiches, fondées sur les passages vérifiés d'al-Hattâb.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const read=p=>fs.readFileSync(p,'utf8');
-const data=read('fiqh_maliki_data.js'),fiche18=read('fiqh_maliki_fiche18_data.js'),view=read('js/components/MalikiFiqhView.js'),css=read('css/fiqh-maliki.css');
+const data=read('fiqh_maliki_data.js'),fiche18=read('fiqh_maliki_fiche18_data.js'),fiche19=read('fiqh_maliki_fiche19_data.js'),view=read('js/components/MalikiFiqhView.js'),css=read('css/fiqh-maliki.css');
 const html=read('index.html'),app=read('js/app.js'),home=read('js/components/HomeView.js'),sw=read('service-worker.js');
 const global=read('js/components/GlobalFullscreen.js'),mobile=read('js/components/MobileExperience.js'),config=read('js/config.js');
-new vm.Script(data);new vm.Script(fiche18);new vm.Script(view);
-const book=vm.runInNewContext(data+'\n'+fiche18+'\nATHAR_MALIKI_FIQH_COURSE');
+new vm.Script(data);new vm.Script(fiche18);new vm.Script(fiche19);new vm.Script(view);
+const book=vm.runInNewContext(data+'\n'+fiche18+'\n'+fiche19+'\nATHAR_MALIKI_FIQH_COURSE');
 assert.equal(book.sectionTitle,'Fiqh malikite');
 assert.equal(book.book.sourceUrl,'https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil');
 assert.match(book.book.arabicTitle,/مَوَاهِبُ الْجَلِيلِ/);
@@ -691,8 +691,52 @@ assert.ok(view.includes("smallAnimals:'athar_fiqh_maliki_animaux_18_done'"),'Pro
 assert.ok(html.includes('fiqh_maliki_fiche18_data.js')&&sw.includes('fiqh_maliki_fiche18_data.js'),'Nouveau script non servi en ligne ou hors ligne');
 assert.ok(html.indexOf('fiqh_maliki_data.js')<html.indexOf('fiqh_maliki_fiche18_data.js')&&html.indexOf('fiqh_maliki_fiche18_data.js')<html.indexOf('MalikiFiqhView.js'),'Ordre des scripts invalide');
 
-assert.ok(book.nextChapter.status.includes('fiche 19 non publiée'));
-assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells','restoredWater','witnessAndContact','smallAnimals'].filter(key=>book[key]?.status==='disponible').length,18,'Dix-huit fiches réellement accessibles');
+// Fiche 19 : statut des dépouilles marines et des animaux vivant aussi sur terre.
+assert.equal(book.marineAnimals.id,'marine-animals-19');
+assert.equal(book.marineAnimals.number,'19');
+assert.equal(book.marineAnimals.status,'disponible');
+assert.equal(book.marineAnimals.goals.length,18,'Fiche 19 : 18 objectifs attendus');
+assert.equal(book.marineAnimals.sections.length,18,'Fiche 19 : 18 lectures commentées attendues');
+assert.deepEqual(Array.from(book.marineAnimals.sections,x=>x.id),[
+ 'transition-marine','marine-carrion','natural-death','found-floating','fished-alive','fire-clay',
+ 'inside-fish','inside-bird-wash','different-fishers','khalil-on-land','only-in-sea',
+ 'malik-mashhur','ibn-nafi-dinar','ibn-arafa-third','issa-ibn-alqasim',
+ 'frog-turtle-crab','land-frogs','hattab-caution'
+],'Ordre des lectures de la fiche 19 modifié');
+assert.equal(new Set(book.marineAnimals.sections.map(x=>x.id)).size,18,'Doublon dans les lectures 19');
+for(const section of book.marineAnimals.sections) {
+ assert.ok(section.context?.length>=140&&section.context.includes('?'),'Situation concrète introductive incomplète '+section.id);
+ assert.ok(section.passage.arabic&&section.passage.translation&&section.passage.explanation.length>=130,'Citation ou traduction absente '+section.id);
+ assert.ok(/\/4471\/12[34]/.test(section.passage.sourceUrl),'Page 123 ou 124 manquante '+section.id);
+ assert.ok(section.passage.sourceLabel.includes('Mawâhib al-Jalîl'),'Attribution manquante '+section.id);
+ assert.ok(section.paragraphs.length===2&&section.paragraphs.every(x=>x.length>=450),'Développement trop court '+section.id);
+ assert.ok(section.steps.length===4&&section.steps.every(st=>st.label&&st.text.length>=130),'Décomposition insuffisante '+section.id);
+ assert.ok(section.example?.text.length>=400&&section.takeaway.length>=220,'Exemple ou synthèse incomplète '+section.id);
+ assert.ok(section.sourceNote.includes('tome 1'),'Référence de source incomplète '+section.id);
+}
+assert.ok(book.marineAnimals.sections[0].passage.sourceLabel.includes('Khalîl'),'Formule de Khalîl mal attribuée');
+assert.ok(book.marineAnimals.sections[9].passage.sourceLabel.includes('Khalîl'),'Précision de Khalîl sur le séjour à terre absente');
+assert.ok(book.marineAnimals.sections[11].passage.sourceLabel.includes('Al-Hattâb'),'Mashhûr mal attribué');
+assert.ok(book.marineAnimals.sections[12].passage.sourceLabel.includes('Ibn Dînâr'),'Avis opposés incomplets');
+assert.ok(book.marineAnimals.sections[13].passage.sourceLabel.includes('Ibn ‘Arafa'),'Troisième avis mal attribué');
+assert.ok(book.marineAnimals.sections[14].passage.sourceLabel.includes('Ibn al-Qâsim'),'Chaîne de transmission incorrecte');
+assert.ok(book.marineAnimals.sections[16].passage.sourceLabel.includes('Abd al-Haqq'),'Grenouilles terrestres mal attribuées');
+assert.ok(book.marineAnimals.sections[17].passage.sourceLabel.includes('Al-Hattâb'),'Prudence finale absente');
+assert.equal(book.marineAnimals.lexicon.length,26,'26 définitions attendues en fiche 19');
+assert.equal(new Set(book.marineAnimals.lexicon.map(t=>t.term)).size,26,'Doublons dans le lexique de la fiche 19');
+assert.ok(book.marineAnimals.lexicon.every(t=>t.arabic&&t.term&&t.definition.length>=130),'Définitions trop courtes en fiche 19');
+assert.equal(book.marineAnimals.quiz.length,18,'18 questions attendues en fiche 19');
+for(const q of book.marineAnimals.quiz)assert.ok(q.choices.length===3&&[0,1,2].includes(q.answer)&&q.explanation.length>=130,'QCM incomplet en fiche 19');
+assert.equal(new Set(book.marineAnimals.quiz.map(q=>q.answer)).size,3,'Réponses non réparties');
+assert.ok(book.marineAnimals.quote.arabic.includes('فالمشهور أن ميتته طاهرة'),'Citation du mashhûr absente');
+for(const pg of [123,124])assert.ok(book.marineAnimals.sources.some(s=>s.url.includes('/4471/'+pg)),'Référence primaire absente : '+pg);
+assert.ok(book.marineAnimals.sources.some(s=>s.url.includes('/19/133/')),'Recoupement Islamweb incomplet');
+assert.ok(view.includes("marineAnimals:'athar_fiqh_maliki_animaux_19_done'"),'Clé de lecture fiche 19 absente');
+assert.ok(html.includes('fiqh_maliki_fiche19_data.js')&&sw.includes('fiqh_maliki_fiche19_data.js'),'Script 19 non publié');
+assert.ok(html.indexOf('fiqh_maliki_fiche18_data.js')<html.indexOf('fiqh_maliki_fiche19_data.js')&&html.indexOf('fiqh_maliki_fiche19_data.js')<html.indexOf('MalikiFiqhView.js'),'Ordre de chargement de la fiche 19 incorrect');
+
+assert.ok(book.nextChapter.status.includes('fiche 20 non publiée'));
+assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells','restoredWater','witnessAndContact','smallAnimals','marineAnimals'].filter(key=>book[key]?.status==='disponible').length,19,'Dix-neuf fiches réellement accessibles');
 // Relecture pédagogique globale : 129 lectures des fiches 01 à 14 commencent par un cas compréhensible.
 const firstFourteen=['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam'];
 const allPreviousSections=firstFourteen.flatMap(key=>book[key].sections);
@@ -708,7 +752,7 @@ assert.ok(!book.visibleImpurityAndWells.sections[0].paragraphs[0].startsWith('Ap
 assert.ok(book.visibleImpurityAndWells.sections[0].paragraphs[0].includes('vient de boire du vin'),'Exemple initial de la bouche souillée absent');
 assert.ok(view.includes('fiqh-m-situation'),'Contexte d’abord requis');
 assert.ok(view.includes('v-else>{{ lesson.title }}</h1>'),'Les titres des fiches 15 et 16 doivent être affichés au lieu du titre du hammam');
-for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','athar_fiqh_maliki_eaux_15_done','athar_fiqh_maliki_eaux_16_done','athar_fiqh_maliki_eaux_17_done','athar_fiqh_maliki_animaux_18_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','athar_fiqh_maliki_eaux_15_done','athar_fiqh_maliki_eaux_16_done','athar_fiqh_maliki_eaux_17_done','athar_fiqh_maliki_animaux_18_done','athar_fiqh_maliki_animaux_19_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
 for(const token of ['fiqh-m-goals','fiqh-m-passage','fiqh-m-passage-translation','fiqh-m-breakdown','fiqh-m-case','fiqh-m-takeaway','section.passage','section.steps','section.example'])assert.ok(view.includes(token),'Pédagogie guidée absente : '+token);
@@ -716,7 +760,7 @@ for(const token of ['.fiqh-m-goals','.fiqh-m-passage','.fiqh-m-breakdown','.fiqh
 assert.ok(view.includes("Vue.ref(null)"),'L’entrée par défaut doit être le sommaire et non la fiche 01');
 assert.ok(view.includes("selectedLessonKey.value = null"),'Retour au sommaire manquant');
 assert.ok(html.includes('<maliki-fiqh-view :course="malikiFiqhCourse"'));
-for(const p of ['fiqh_maliki_data.js','js/components/MalikiFiqhView.js','css/fiqh-maliki.css'])assert.ok(fs.existsSync(p),'Ressource Fiqh absente '+p);
+for(const p of ['fiqh_maliki_data.js','fiqh_maliki_fiche18_data.js','fiqh_maliki_fiche19_data.js','js/components/MalikiFiqhView.js','css/fiqh-maliki.css'])assert.ok(fs.existsSync(p),'Ressource Fiqh absente '+p);
 assert.ok(html.indexOf('fiqh_maliki_data.js')<html.indexOf('MalikiFiqhView.js')&&html.indexOf('MalikiFiqhView.js')<html.indexOf('js/app.js'));
 assert.ok(app.includes("'maliki-fiqh-view': MalikiFiqhView")&&app.includes("'fiqh-maliki',"));
 assert.ok(home.includes("view: 'fiqh-maliki'")&&home.includes("number: '09'"));
@@ -725,6 +769,6 @@ assert.ok(mobile.includes("['fiqh-maliki', '.fiqh-m-root']"));
 assert.ok(config.includes('css/fiqh-maliki.css?v='));
 for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])assert.ok(sw.includes(p));
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
-const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=66&&shell.length<72&&new Set(shell).size===shell.length);
+const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=67&&shell.length<73&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 18 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; fiche 13 = 15 lectures commentées, 20 termes, 16 questions ; fiche 14 = 19 lectures commentées, 22 termes, 19 questions ; fiche 15 = 20 lectures commentées, 22 termes, 20 questions ; fiche 16 = 24 lectures commentées, 28 termes, 24 questions ; fiche 17 = 19 lectures commentées, 27 termes, 19 questions ; fiche 18 = 19 lectures commentées, 26 termes, 19 questions ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 19 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; fiche 13 = 15 lectures commentées, 20 termes, 16 questions ; fiche 14 = 19 lectures commentées, 22 termes, 19 questions ; fiche 15 = 20 lectures commentées, 22 termes, 20 questions ; fiche 16 = 24 lectures commentées, 28 termes, 24 questions ; fiche 17 = 19 lectures commentées, 27 termes, 19 questions ; fiche 18 = 19 lectures commentées, 26 termes, 19 questions ; fiche 19 = 18 lectures commentées, 26 termes, 18 questions ; '+shell.length+' ressources PWA.');
