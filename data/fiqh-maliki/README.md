@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–15
+# Fiqh malikite · Parcours 01–16
 
-**État au 17 novembre 2026 : quinze fiches publiées, les fiches 01 à 15 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 17 novembre 2026 : seize fiches publiées, les fiches 01 à 16 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -374,20 +374,36 @@ La seconde partie suit la formule de **Khalîl** sur la mort d’un animal terre
 
 La nouvelle clé de lecture `athar_fiqh_maliki_eaux_15_done` s’ajoute sans modifier celles des quatorze premières fiches. La question suivante, sur la disparition de l’altération d’une eau, est réservée à la fiche 16.
 
+### Fiche 16 — Quand une eau altérée redevient-elle purifiante ?
+
+**Cours préparé le 17 novembre 2026.** Cette fiche reprend la nouvelle formule de Khalîl « وإن زال تغير النجس لا بكثرة مطلق فاستحسن الطهورية وعدمها أرجح » et le commentaire d’al-Hattâb, *Mawâhib al-Jalîl*, tome 1, **pages 118 à 120** de l’édition Dâr al-Kutub al-‘Ilmiyya.
+
+Le cours comporte **24 lectures commentées, 24 objectifs de compréhension, 28 entrées de lexique et 24 QCM expliqués**. Chaque étape donne un extrait arabe précisément attribué, sa traduction de sens, deux longs développements, quatre explications progressives, un exemple fictif distinct de la source, une synthèse et le lien vers la page arabe.
+
+La première partie distingue l’**apport abondant d’eau pure** (accord rapporté par al-Tawdîh), le **renouvellement d’un puits**, la **pluie augmentant une citerne**, l’ajout d’un autre matériau et la **disparition spontanée** de l’altération. S’y ajoute le retrait partiel d’une réserve sans alimentation, qu’il serait erroné de confondre avec le renouvellement d’un puits. Le désaccord sur le retour de la *tahûriyya* est conservé.
+
+La seconde partie étudie en détail la critique de l’attribution à **Ibn Yûnus** par **Ibn Ghâzî** et **Ibn Marzûq**, puis la réserve documentaire d’**Ibn ‘Arafa** et le principe d’al-Hattâb « وإن كان لا يلزم من عدم الوجدان عدم الوجود ». Elle confronte **Ibn Wahb**, **Ibn al-Qâsim**, la préférence argumentée **d’Ibn Rushd** et les transmissions attribuées à Mâlik par **Ibn Wahb** et **Ibn Abî Uways**. Le cas historique de la citerne **d’Abû Bakr al-Tartûshî** est présenté comme un récit, non comme une preuve sanitaire.
+
+La fin explique les deux avis chez **Ibn al-Fâkihânî**, la terre et l’argile dans *al-Tirâz*, la réserve **d’Ibn al-Imâm** liée à l’*istishâb*, les changements provoqués par une substance pure, la préférence personnelle d’al-Hattâb, la difficulté du faible apport d’eau chez **al-Bisâtî** et les distinctions finales concernant le volume d’eau et l’urine elle-même.
+
+**Sources primaires :** [t. 1, p. 118](https://ablibrary.net/book_content/b/4471/118?lang=ar), [p. 119](https://ablibrary.net/book_content/b/4471/119?lang=ar), [p. 120](https://ablibrary.net/book_content/b/4471/120?lang=ar). Recoupement : [Islamweb, Mawâhib al-Jalîl](https://islamweb.net/ar/library/content/19/127/).
+
+La clé de lecture indépendante est `athar_fiqh_maliki_eaux_16_done`. Les marques des quinze premières fiches demeurent inchangées ; la fiche 17 est réservée au témoignage établissant une impureté.
+
 ## Intégration technique
 
-- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater`, `flowingWater`, `publicBasins`, `limitedWell`, `leftoverWater`, `sunHeatedWater` `heatedWaterHammam` et `visibleImpurityAndWells`).
-- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de quinze fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 15, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
+- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater`, `flowingWater`, `publicBasins`, `limitedWell`, `leftoverWater`, `sunHeatedWater`, `heatedWaterHammam`, `visibleImpurityAndWells` et `restoredWater`).
+- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de seize fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 16, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
-- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`, puis `athar_fiqh_maliki_eaux_13_done`, puis `athar_fiqh_maliki_eaux_14_done` et `athar_fiqh_maliki_eaux_15_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v104) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`, puis `athar_fiqh_maliki_eaux_13_done`, puis `athar_fiqh_maliki_eaux_14_done`, `athar_fiqh_maliki_eaux_15_done` et `athar_fiqh_maliki_eaux_16_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
+- Versions de ressources PWA mises à jour (v105) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, quinze fiches, fiches 01 à 15 guidées et présence du catalogue.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, quinze quiz (5 questions pour la fiche 01, 7 pour la fiche 02, 19 pour la fiche 14 et 20 pour la fiche 15), suivi indépendant et sources.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, seize fiches, fiches 01 à 16 guidées et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, seize quiz (5 questions en fiche 01, 19 en fiche 14, 20 en fiche 15 et 24 en fiche 16), suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées les 16 et 17 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.

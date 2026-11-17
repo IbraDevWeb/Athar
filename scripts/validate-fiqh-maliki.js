@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Fiqh malikite : contrôle des quinze fiches, fondées sur les passages vérifiés d'al-Hattâb.
+// Fiqh malikite : contrôle des seize fiches, fondées sur les passages vérifiés d'al-Hattâb.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const read=p=>fs.readFileSync(p,'utf8');
 const data=read('fiqh_maliki_data.js'),view=read('js/components/MalikiFiqhView.js'),css=read('css/fiqh-maliki.css');
@@ -565,9 +565,51 @@ for(const q of book.visibleImpurityAndWells.quiz)assert.ok(q.choices.length===3&
 assert.ok(book.visibleImpurityAndWells.quote.arabic.includes('تسعة وأربعين'),'Parole d’Ibn al-Mâjishûn absente');
 for(const x of ['/4471/114','/4471/115','/4471/116','/4471/117'])
  assert.ok(book.visibleImpurityAndWells.sources.some(s=>s.url.includes(x)),'Lien source primaire absent : '+x);
-assert.ok(book.nextChapter.status.includes('fiche 16 non publiée'));
-assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells'].filter(key=>book[key]?.status==='disponible').length,15,'Quinze fiches réellement accessibles');
-for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','athar_fiqh_maliki_eaux_15_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+// Fiche 16 : l’eau dont l’altération causée par l’impureté disparaît.
+assert.equal(book.restoredWater.id,'water-purity-return-16');
+assert.equal(book.restoredWater.number,'16');
+assert.equal(book.restoredWater.status,'disponible');
+assert.equal(book.restoredWater.sections.length,24,'Vingt-quatre lectures attendues pour la fiche 16');
+assert.equal(book.restoredWater.goals.length,24,'Vingt-quatre objectifs de lecture attendus');
+assert.deepEqual(Array.from(book.restoredWater.sections,s=>s.id),[
+ 'khalil-condition','paths','abundant-consensus','well','rain','abu-muhammad','other-substance','spontaneous','partial-withdrawal','two-positions','ibn-ghazi','ibn-marzouq',
+ 'ibn-arafa','absence-evidence','ibn-wahb-scenario','ibn-qasim','ibn-rushd','malik-narrations','tartushi-cistern','fakihani','clay','pure-change','small-added-water','final-volumes-urine'
+],'Ordre des 24 lectures de la fiche 16 modifié');
+assert.equal(new Set(book.restoredWater.sections.map(s=>s.id)).size,24,'Identifiants des lectures en doublon');
+for(const part of book.restoredWater.sections){
+ assert.ok(part.paragraphs.length===2&&part.paragraphs.every(x=>x.length>=410),'Deux développements longs manquants : '+part.id);
+ assert.ok(part.passage.arabic&&part.passage.translation&&part.passage.explanation.length>=200&&part.passage.sourceLabel.length>=50,'Citation, explication ou attribution absente : '+part.id);
+ assert.ok(/\/4471\/1(?:18|19|20)/.test(part.passage.sourceUrl),'Référence primaire page 118-120 absente : '+part.id);
+ assert.ok(part.steps.length===4&&part.steps.every(x=>x.label&&x.text.length>=60),'Analyse en quatre étapes incomplète : '+part.id);
+ assert.ok(part.example?.title&&part.example.text.length>=350,'Situation concrète insuffisante : '+part.id);
+ assert.ok(part.takeaway.length>=140&&part.sourceNote.includes('tome 1'),'Conclusion ou référence manquante : '+part.id);
+}
+assert.ok(book.restoredWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Phrase du Mukhtasar non attribuée');
+assert.ok(book.restoredWater.sections[2].passage.sourceLabel.includes('Tawdîh'),'Accord lié à al-Tawdîh mal attribué');
+assert.ok(book.restoredWater.sections[9].passage.sourceLabel.includes('Ibn Yûnus'),'Question de l’avis d’Ibn Yûnus effacée');
+assert.ok(book.restoredWater.sections[10].passage.sourceLabel.includes('Ibn Ghâzî'),'Critique d’Ibn Ghâzî non attribuée');
+assert.ok(book.restoredWater.sections[11].passage.sourceLabel.includes('Ibn Marzûq'),'Critique d’Ibn Marzûq non attribuée');
+assert.ok(book.restoredWater.sections[12].passage.sourceLabel.includes('Ibn ‘Arafa'),'Propos d’Ibn ‘Arafa absent');
+assert.ok(book.restoredWater.sections[15].passage.sourceLabel.includes('Ibn al-Qâsim'),'Avis d’Ibn al-Qâsim absent');
+assert.ok(book.restoredWater.sections[16].passage.sourceLabel.includes('Ibn Rushd'),'Préférence d’Ibn Rushd absente');
+assert.ok(book.restoredWater.sections[17].passage.sourceLabel.includes('Mâlik'),'Transmission de Mâlik absente');
+assert.ok(book.restoredWater.sections[18].passage.sourceLabel.includes('Tirâz'),'Récit d’al-Tirâz mal attribué');
+assert.ok(book.restoredWater.sections[19].passage.sourceLabel.includes('Fâkihânî'),'Mashhûr d’Ibn al-Fâkihânî absent');
+assert.ok(book.restoredWater.sections[21].passage.sourceLabel.includes('Karawî'),'Cas de la substance pure mal attribué');
+assert.ok(book.restoredWater.sections[22].passage.sourceLabel.includes('Bisâtî'),'Petite addition d’eau non traitée');
+assert.ok(book.restoredWater.sections[23].passage.sourceLabel.includes('Al-Hattâb'),'Conclusion de l’auteur absente');
+assert.equal(book.restoredWater.lexicon.length,28,'Vingt-huit termes attendus dans le lexique');
+assert.equal(new Set(book.restoredWater.lexicon.map(x=>x.term)).size,28,'Terme répété dans le lexique 16');
+assert.ok(book.restoredWater.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=110),'Lexique insuffisamment développé');
+assert.equal(book.restoredWater.quiz.length,24,'Vingt-quatre questions corrigées attendues');
+for(const question of book.restoredWater.quiz)assert.ok(question.choices.length===3&&question.answer>=0&&question.answer<3&&question.explanation.length>=150,'Question ou justification incomplète');
+assert.ok(book.restoredWater.quote.arabic.includes('عدم الوجدان عدم الوجود'),'Enseignement principal du chapitre perdu');
+assert.ok(book.restoredWater.sources.some(x=>x.url===book.book.sourceUrl),'Notice Usul manquante');
+for(const pg of [118,119,120])assert.ok(book.restoredWater.sources.some(x=>x.url.includes('/4471/'+pg)),'Page primaire fiche 16 absente : '+pg);
+
+assert.ok(book.nextChapter.status.includes('fiche 17 non publiée'));
+assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells','restoredWater'].filter(key=>book[key]?.status==='disponible').length,16,'Seize fiches réellement accessibles');
+for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','athar_fiqh_maliki_eaux_15_done','athar_fiqh_maliki_eaux_16_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
 for(const token of ['fiqh-m-goals','fiqh-m-passage','fiqh-m-passage-translation','fiqh-m-breakdown','fiqh-m-case','fiqh-m-takeaway','section.passage','section.steps','section.example'])assert.ok(view.includes(token),'Pédagogie guidée absente : '+token);
@@ -586,4 +628,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 15 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; fiche 13 = 15 lectures commentées, 20 termes, 16 questions ; fiche 14 = 19 lectures commentées, 22 termes, 19 questions ; fiche 15 = 20 lectures commentées, 22 termes, 20 questions ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 16 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; fiche 13 = 15 lectures commentées, 20 termes, 16 questions ; fiche 14 = 19 lectures commentées, 22 termes, 19 questions ; fiche 15 = 20 lectures commentées, 22 termes, 20 questions ; fiche 16 = 24 lectures commentées, 28 termes, 24 questions ; '+shell.length+' ressources PWA.');
