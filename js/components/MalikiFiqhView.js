@@ -278,6 +278,10 @@ const MalikiFiqhView = {
                                     <span class="fiqh-m-section-index">{{ section.eyebrow }}</span>
                                     <h3>{{ section.title }}</h3>
                                     <p v-if="section.context" class="fiqh-m-situation">{{ section.context }}</p>
+                                    <div v-else-if="section.example" class="fiqh-m-case fiqh-m-case-intro">
+                                        <h4><i data-lucide="lightbulb" aria-hidden="true"></i> La situation à comprendre</h4>
+                                        <p>{{ section.example.text }}</p>
+                                    </div>
                                     <figure v-if="section.passage" class="fiqh-m-passage">
                                         <figcaption>LE PASSAGE DU LIVRE</figcaption>
                                         <blockquote lang="ar" dir="rtl">{{ section.passage.arabic }}</blockquote>
@@ -298,7 +302,7 @@ const MalikiFiqhView = {
                                             </li>
                                         </ol>
                                     </div>
-                                    <div v-if="section.example" class="fiqh-m-case">
+                                    <div v-if="section.example && section.context" class="fiqh-m-case">
                                         <h4><i data-lucide="lightbulb" aria-hidden="true"></i> {{ section.example.title }}</h4>
                                         <p>{{ section.example.text }}</p>
                                     </div>
