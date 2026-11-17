@@ -257,6 +257,9 @@
 .fiqh-m-breakdown li{padding-left:5px;font-size:12px;line-height:1.7;color:var(--fm-accent)}
 .fiqh-m-breakdown li strong{display:block;font-size:13px;color:var(--fm-ink);margin-bottom:5px}
 .fiqh-m-breakdown li p{margin:0;color:var(--fm-ink);font-size:13px;line-height:1.96}
+.fiqh-m-case-intro{margin:12px 0 23px;border-left:3px solid var(--fm-accent);background:var(--fm-paper)}
+.fiqh-m-case-intro h4{margin-bottom:10px}
+.fiqh-m-case-intro p{font-size:14px;line-height:1.85}
 .fiqh-m-case{margin:25px 0;padding:23px 25px;border-radius:9px;border:1px solid var(--fm-line);background:var(--fm-soft)}
 .fiqh-m-case h4{margin-bottom:12px}
 .fiqh-m-case p{font-size:13px;line-height:2;color:var(--fm-ink)}

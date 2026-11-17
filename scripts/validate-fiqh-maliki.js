@@ -613,9 +613,21 @@ for(const pg of [118,119,120])assert.ok(book.restoredWater.sources.some(x=>x.url
 
 assert.ok(book.nextChapter.status.includes('fiche 17 non publiée'));
 assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells','restoredWater'].filter(key=>book[key]?.status==='disponible').length,16,'Seize fiches réellement accessibles');
+// Relecture pédagogique globale : 129 lectures des fiches 01 à 14 commencent par un cas compréhensible.
+const firstFourteen=['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam'];
+const allPreviousSections=firstFourteen.flatMap(key=>book[key].sections);
+assert.equal(allPreviousSections.length,129,'Le nombre de lectures des quatorze fiches historiques a changé');
+assert.ok(allPreviousSections.every(s=>s.passage?.arabic&&s.passage?.translation&&(s.passage?.sourceUrl||s.passage?.sourceLabel)),'Référence de citation manquante parmi les quatorze fiches');
+assert.ok(allPreviousSections.every(s=>s.context?.length>=175||s.example?.text?.length>=120),'Une lecture ancienne n’offre pas de cas pour commencer');
+assert.ok(book.sunHeatedWater.sections.every(s=>s.context?.length>=175),'Quinze introductions de la fiche 13 manquantes');
+assert.ok(book.heatedWaterHammam.sections.every(s=>s.context?.length>=175),'Dix-neuf introductions de la fiche 14 manquantes');
+assert.ok(view.includes('v-else-if="section.example" class="fiqh-m-case fiqh-m-case-intro"'),'Les exemples des fiches 1 à 12 ne précèdent pas les citations');
+assert.ok(view.includes('v-if="section.example && section.context" class="fiqh-m-case"'),'L’ancien exemple est dupliqué au lieu d’être déplacé');
+assert.ok(view.indexOf('fiqh-m-case-intro')<view.indexOf('v-if="section.passage"'),'La situation doit précéder l’extrait arabe');
 assert.ok(!book.visibleImpurityAndWells.sections[0].paragraphs[0].startsWith('Après la discussion sur le hammam'),'Ancienne introduction opaque encore présente');
 assert.ok(book.visibleImpurityAndWells.sections[0].paragraphs[0].includes('vient de boire du vin'),'Exemple initial de la bouche souillée absent');
 assert.ok(view.includes('fiqh-m-situation'),'Contexte d’abord requis');
+assert.ok(view.includes('v-else>{{ lesson.title }}</h1>'),'Les titres des fiches 15 et 16 doivent être affichés au lieu du titre du hammam');
 for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','athar_fiqh_maliki_eaux_15_done','athar_fiqh_maliki_eaux_16_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
