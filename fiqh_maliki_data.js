@@ -6325,2049 +6325,2083 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     ]
   },
   "sunHeatedWater": {
-    "id": "sun-heated-water-13",
-    "number": "13",
-    "status": "disponible",
-    "title": "L’eau chauffée par le soleil : les avis et leurs preuves",
-    "subtitle": "Lire le passage « كمشمس » d’al-Hattâb : le sens de Khalîl, les divergences malikites, les récits discutés et les conditions d’usage de l’eau.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « كمشمس » · Mawâhib al-Jalîl, t. 1, p. 78–80",
-    "goals": [
-      "Comprendre la comparaison « كمشمس » et la difficulté grammaticale de son rattachement.",
-      "Restituer l’avis d’Ibn al-Hâjib sur l’eau chauffée au soleil.",
-      "Lire les transmissions de ‘Iyâd et de Sanad qui évoquent une réprobation.",
-      "Comprendre pourquoi ‘Abd al-Haqq ne reconnaît aucun hadith authentique sur le dommage supposé.",
-      "Expliquer la distinction critique d’al-Hattâb entre récit faible et récit fabriqué.",
-      "Lire la restriction d’Ibn al-Imâm et d’Ibn al-‘Arabî aux récipients et climats particuliers.",
-      "Comprendre la condition d’un dommage réellement établi, distinct d’une hypothèse médicale historique.",
-      "Comparer la critique d’al-Nawawî avec les propos qu’al-Hattâb rapporte dans ses autres ouvrages.",
-      "Identifier la préférence d’al-Hattâb pour une réprobation fortement transmise, mais contextualisée.",
-      "Comprendre l’hypothèse d’Ibn al-Furât et la réponse tirée du Tawdîh.",
-      "Distinguer la validité du wudû’ de la réprobation liée à une cause extérieure.",
-      "Étudier les mots d’Ibn Farhûn sur la réprobation médicale et la réponse d’al-Hattâb.",
-      "Lire la question du refroidissement de l’eau sans inventer une réponse certaine.",
-      "Comprendre les distinctions concernant l’eau employée sur le corps et les grandes étendues.",
-      "Différencier une eau chauffée au soleil de celle chauffée au feu, avec les réserves sur les températures extrêmes."
-    ],
-    "sections": [
-      {
-        "id": "reading-khalil",
-        "eyebrow": "ÉTAPE 01 · LECTURE DU COMMENTAIRE",
-        "title": "Comment lire les deux mots de Khalîl : « كمشمس » ?",
-        "passage": {
-          "arabic": "كمشمس",
-          "translation": "« Comme l’eau qui a été chauffée par le soleil. »",
-          "explanation": "Al-Hattâb indique que la plupart des commentateurs rattachent cette comparaison à la catégorie qui vient d’être exceptée de la réprobation. Il expose ensuite une lecture différente attribuée à Ibn al-Furât.",
-          "sourceLabel": "Khalîl, Mukhtasar ; lecture grammaticale d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Le texte de Khalîl est extrêmement condensé. Il vient de parler des eaux que l’on préfère éviter dans certaines circonstances, puis de celles qui ne sont pas concernées par cette réserve. Lorsqu’il écrit seulement « comme l’eau chauffée par le soleil », le lecteur peut hésiter : cette eau ressemble-t-elle à celles qui sont réprouvées, ou bien à celles dont l’utilisation reste permise sans réprobation ? C’est sur cette difficulté de lecture qu’al-Hattâb ouvre son commentaire.",
-          "Il explique que la plupart des commentateurs rattachent l’expression au passage qui écarte la réprobation : selon cette lecture, le seul fait que le soleil ait chauffé l’eau ne rend pas son usage réprouvé. Mais l’auteur ne gomme pas les autres transmissions. Certaines écoles et certains malikites ont discuté d’une réserve fondée sur des considérations médicales de leur époque. Il faut comprendre ces deux questions avant de conclure : d’abord le sens de la phrase, puis la valeur des arguments juridiques qui ont été rapportés."
-        ],
-        "steps": [
-          {
-            "label": "Le mot « ka » indique une comparaison",
-            "text": "Dans une phrase aussi brève, il faut déterminer ce à quoi cette comparaison se rattache pour connaître le jugement visé."
-          },
-          {
-            "label": "« Mushammas » décrit la manière dont l’eau a été chauffée",
-            "text": "Il ne signifie pas que l’eau est devenue impure ; la question porte d’abord sur la réprobation de son usage."
-          },
-          {
-            "label": "La première lecture d’al-Hattâb",
-            "text": "Il rapporte que la plupart des commentateurs comprennent l’eau chauffée au soleil comme exceptée de la réprobation."
-          },
-          {
-            "label": "Ne pas effacer la lecture concurrente",
-            "text": "Ibn al-Furât proposera un autre rattachement grammatical. Al-Hattâb l’examinera à la lumière du Tawdîh."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le passage",
-          "text": "Un étudiant lit la phrase de Khalîl sans ponctuation et place mentalement « comme l’eau chauffée au soleil » après les eaux réprouvées. Un autre la rattache aux exceptions qui viennent d’être évoquées. Les deux tirent alors des jugements différents des mêmes mots. Le rôle du commentaire est de leur montrer quelle lecture correspond aux explications des juristes. Cet échange est inventé uniquement pour rendre visible la difficulté grammaticale."
-        },
-        "takeaway": "La difficulté initiale est une question de lecture du Mukhtasar. Al-Hattâb indique qu’une majorité de commentateurs rattache « كمشمس » à ce qui n’est pas réprouvé, puis il examine les preuves d’une réserve plus étroite.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+  "id": "sun-heated-water-13",
+  "number": "13",
+  "status": "disponible",
+  "title": "L’eau chauffée par le soleil : les avis et leurs preuves",
+  "subtitle": "Lire le passage « كمشمس » d’al-Hattâb : le sens de Khalîl, les divergences malikites, les récits discutés et les conditions d’usage de l’eau.",
+  "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « كمشمس » · Mawâhib al-Jalîl, t. 1, p. 78–80",
+  "goals": [
+    "Comprendre la comparaison « كمشمس » et la difficulté grammaticale de son rattachement.",
+    "Restituer l’avis d’Ibn al-Hâjib sur l’eau chauffée au soleil.",
+    "Lire les transmissions de ‘Iyâd et de Sanad qui évoquent une réprobation.",
+    "Comprendre pourquoi ‘Abd al-Haqq ne reconnaît aucun hadith authentique sur le dommage supposé.",
+    "Expliquer la distinction critique d’al-Hattâb entre récit faible et récit fabriqué.",
+    "Lire la restriction d’Ibn al-Imâm et d’Ibn al-‘Arabî aux récipients et climats particuliers.",
+    "Comprendre la condition d’un dommage réellement établi, distinct d’une hypothèse médicale historique.",
+    "Comparer la critique d’al-Nawawî avec les propos qu’al-Hattâb rapporte dans ses autres ouvrages.",
+    "Identifier la préférence d’al-Hattâb pour une réprobation fortement transmise, mais contextualisée.",
+    "Comprendre l’hypothèse d’Ibn al-Furât et la réponse tirée du Tawdîh.",
+    "Distinguer la validité du wudû’ de la réprobation liée à une cause extérieure.",
+    "Étudier les mots d’Ibn Farhûn sur la réprobation médicale et la réponse d’al-Hattâb.",
+    "Lire la question du refroidissement de l’eau sans inventer une réponse certaine.",
+    "Comprendre les distinctions concernant l’eau employée sur le corps et les grandes étendues.",
+    "Différencier une eau chauffée au soleil de celle chauffée au feu, avec les réserves sur les températures extrêmes."
+  ],
+  "sections": [
+    {
+      "id": "reading-khalil",
+      "eyebrow": "ÉTAPE 01 · LECTURE DU COMMENTAIRE",
+      "title": "Comment lire les deux mots de Khalîl : « كمشمس » ?",
+      "passage": {
+        "arabic": "كمشمس",
+        "translation": "« Comme l’eau qui a été chauffée par le soleil. »",
+        "explanation": "Al-Hattâb indique que la plupart des commentateurs rattachent cette comparaison à la catégorie qui vient d’être exceptée de la réprobation. Il expose ensuite une lecture différente attribuée à Ibn al-Furât.",
+        "sourceLabel": "Khalîl, Mukhtasar ; lecture grammaticale d’al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 78.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "id": "ibn-hajib",
-        "eyebrow": "ÉTAPE 02 · LECTURE DU COMMENTAIRE",
-        "title": "Pourquoi Ibn al-Hâjib affirme-t-il qu’il n’y a pas de réprobation ?",
-        "passage": {
-          "arabic": "والمشمس كغيره فلا كراهة فيه",
-          "translation": "« L’eau chauffée au soleil est comme les autres ; elle n’est pas réprouvée. »",
-          "explanation": "Al-Hattâb transmet expressément la formulation d’Ibn al-Hâjib et rapproche cette lecture de celle d’Ibn ‘Abd al-Salâm ainsi que des propos de Khalîl dans al-Tawdîh.",
-          "sourceLabel": "Ibn al-Hâjib, cité par al-Hattâb, t. 1, p. 78 ; rapprochement avec Ibn ‘Abd al-Salâm et le Tawdîh.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+      "paragraphs": [
+        "Le texte de Khalîl est extrêmement condensé. Il vient de parler des eaux que l’on préfère éviter dans certaines circonstances, puis de celles qui ne sont pas concernées par cette réserve. Lorsqu’il écrit seulement « comme l’eau chauffée par le soleil », le lecteur peut hésiter : cette eau ressemble-t-elle à celles qui sont réprouvées, ou bien à celles dont l’utilisation reste permise sans réprobation ? C’est sur cette difficulté de lecture qu’al-Hattâb ouvre son commentaire.",
+        "Il explique que la plupart des commentateurs rattachent l’expression au passage qui écarte la réprobation : selon cette lecture, le seul fait que le soleil ait chauffé l’eau ne rend pas son usage réprouvé. Mais l’auteur ne gomme pas les autres transmissions. Certaines écoles et certains malikites ont discuté d’une réserve fondée sur des considérations médicales de leur époque. Il faut comprendre ces deux questions avant de conclure : d’abord le sens de la phrase, puis la valeur des arguments juridiques qui ont été rapportés."
+      ],
+      "steps": [
+        {
+          "label": "Le mot « ka » indique une comparaison",
+          "text": "Dans une phrase aussi brève, il faut déterminer ce à quoi cette comparaison se rattache pour connaître le jugement visé."
         },
-        "paragraphs": [
-          "Al-Hattâb commence par citer un maître reconnu de l’école, Ibn al-Hâjib. Sa formule est claire : l’eau que le soleil a réchauffée se traite comme l’eau ordinaire. Il n’y a pas de raison d’en faire une catégorie à part du seul fait de sa température. Le commentaire fait également intervenir Ibn ‘Abd al-Salâm et le Tawdîh, l’ouvrage où Khalîl lui-même explique les questions juridiques plus amplement que dans son Mukhtasar.",
-          "Nous devons respecter la portée exacte de cet avis. Ibn al-Hâjib ne propose pas de nier tous les dommages matériels qu’une eau pourrait avoir selon son contenant ou son état. Il affirme simplement que le chauffage solaire, à lui seul, ne suffit pas à justifier une réprobation dans la règle qu’il expose. D’autres juristes ont cependant envisagé une réserve médicale. Le désaccord ne sera compréhensible que si l’on sépare cette question du statut de pureté de l’eau et de sa capacité à lever le hadath."
-        ],
-        "steps": [
-          {
-            "label": "Une formulation juridique explicite",
-            "text": "Ibn al-Hâjib ne se contente pas de décrire l’eau : il dit qu’aucune karâha ne lui est attachée pour le motif discuté."
-          },
-          {
-            "label": "Le Tawdîh aide à lire Khalîl",
-            "text": "Un même auteur peut développer sa position dans un commentaire alors que son Mukhtasar la formule en quelques mots."
-          },
-          {
-            "label": "La pureté n’est pas la même chose que la réprobation",
-            "text": "Même lorsque les juristes discutent de karâha, il faut continuer à examiner séparément la qualité purifiante de l’eau."
-          },
-          {
-            "label": "L’avis n’est pas une unanimité",
-            "text": "Al-Hattâb mentionne immédiatement des autorités ayant choisi une approche différente et explique leurs raisons."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le passage",
-          "text": "Imagine de l’eau propre laissée dans un récipient au soleil jusqu’à devenir tiède. Une personne se demande si le seul chauffage solaire lui retire la capacité de servir aux ablutions. Dans la formulation d’Ibn al-Hâjib rapportée ici, ce simple fait ne crée pas de réprobation. Le scénario est fictif : il ne constitue pas une évaluation de la sécurité sanitaire d’un réservoir particulier."
+        {
+          "label": "« Mushammas » décrit la manière dont l’eau a été chauffée",
+          "text": "Il ne signifie pas que l’eau est devenue impure ; la question porte d’abord sur la réprobation de son usage."
         },
-        "takeaway": "Ibn al-Hâjib traite l’eau réchauffée par le soleil comme les autres eaux, sans réprobation liée à cette seule circonstance. Al-Hattâb conserve cet avis, même s’il rapportera ensuite des réserves attribuées à d’autres auteurs.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
+        {
+          "label": "La première lecture d’al-Hattâb",
+          "text": "Il rapporte que la plupart des commentateurs comprennent l’eau chauffée au soleil comme exceptée de la réprobation."
+        },
+        {
+          "label": "Ne pas effacer la lecture concurrente",
+          "text": "Ibn al-Furât proposera un autre rattachement grammatical. Al-Hattâb l’examinera à la lumière du Tawdîh."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le passage",
+        "text": "Un étudiant lit la phrase de Khalîl sans ponctuation et place mentalement « comme l’eau chauffée au soleil » après les eaux réprouvées. Un autre la rattache aux exceptions qui viennent d’être évoquées. Les deux tirent alors des jugements différents des mêmes mots. Le rôle du commentaire est de leur montrer quelle lecture correspond aux explications des juristes. Cet échange est inventé uniquement pour rendre visible la difficulté grammaticale."
       },
-      {
-        "id": "iyad-sanad",
-        "eyebrow": "ÉTAPE 03 · LECTURE DU COMMENTAIRE",
-        "title": "Pourquoi ‘Iyâd et Sanad évoquent-ils une réprobation ?",
-        "passage": {
-          "arabic": "وكره الوضوء بالماء المسخن بالشمس من جهة الطب",
-          "translation": "« Les ablutions avec l’eau chauffée par le soleil ont été réprouvées pour une raison médicale. »",
-          "explanation": "Al-Hattâb cite al-Tirâz de Sanad et relève que ‘Iyâd, dans certains de ses écrits, s’est lui aussi exprimé dans le sens d’une réprobation. Le motif donné est médical et historiquement situé.",
-          "sourceLabel": "Sanad, al-Tirâz, passage cité par al-Hattâb, t. 1, p. 78 ; mention parallèle du qâdî ‘Iyâd.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Après Ibn al-Hâjib, al-Hattâb rapporte une autre voie. Sanad écrit dans al-Tirâz que l’emploi de l’eau chauffée au soleil a été réprouvé « du point de vue de la médecine ». Il mentionne également que le qâdî ‘Iyâd a retenu une réserve de ce genre. Ces mots ont leur importance : les auteurs ne disent pas que les rayons du soleil auraient rendu l’eau rituellement impure. Ils examinent plutôt une inquiétude ancienne relative aux effets supposés du contact de cette eau avec le corps.",
-          "Nous ne devons pas reprendre sans vérification le contenu médical de cette inquiétude. Le fait que plusieurs juristes médiévaux aient mentionné le baras ne démontre pas aujourd’hui qu’une eau chauffée au soleil provoquerait une maladie cutanée. Pour bien enseigner le texte, il faut plutôt expliquer pourquoi la possibilité d’un dommage extérieur aux ablutions a pu les conduire à parler de réprobation. La question de la validité du wudû’, elle, sera traitée plus loin par d’autres savants."
-        ],
-        "steps": [
-          {
-            "label": "Sanad est cité pour son raisonnement",
-            "text": "La formule est rapportée d’al-Tirâz, et non attribuée directement à Khalîl ou à un hadith authentique."
-          },
-          {
-            "label": "‘Iyâd est une autre autorité mentionnée",
-            "text": "Al-Hattâb indique que certains de ses écrits retiennent également une réserve, ce qui montre la pluralité des transmissions."
-          },
-          {
-            "label": "« Min jihat al-tibb » définit le motif allégué",
-            "text": "La raison invoquée est une considération médicale historique, non une impureté qui aurait pénétré dans l’eau."
-          },
-          {
-            "label": "La valeur scientifique du motif doit être distinguée",
-            "text": "Rapporter exactement une croyance ancienne ne revient pas à prouver qu’elle est médicalement exacte aujourd’hui."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le passage",
-          "text": "Une personne lit que Sanad réprouve cette eau et croit qu’elle est devenue impure. Un autre lui montre les mots « du point de vue de la médecine » : le juriste discutait d’un effet supposé sur le corps, non d’une souillure matérielle qui se serait mêlée à la réserve. L’exemple est créé pour clarifier le vocabulaire ; il ne constitue pas une conclusion clinique sur l’eau chauffée au soleil."
-        },
-        "takeaway": "La divergence rapportée par al-Hattâb fait intervenir une inquiétude de santé propre aux explications de certains savants. La réprobation qu’ils mentionnent ne doit être confondue ni avec l’impureté de l’eau ni avec un fait médical démontré.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
-      },
-      {
-        "id": "hadith",
-        "eyebrow": "ÉTAPE 04 · LECTURE DU COMMENTAIRE",
-        "title": "Que disent les spécialistes de l’authenticité du hadith invoqué ?",
-        "passage": {
-          "arabic": "قال عبد الحق لم يصح فيه حديث",
-          "translation": "« ‘Abd al-Haqq a dit : aucun hadith authentique n’est établi à ce sujet. »",
-          "explanation": "Al-Hattâb rapporte la critique d’un récit attribué au Prophète ﷺ concernant une eau chauffée au soleil et une maladie de peau. Il transmet le jugement d’‘Abd al-Haqq sur son absence d’authenticité.",
-          "sourceLabel": "‘Abd al-Haqq cité par al-Qarâfî dans al-Dhakhîra, repris par al-Hattâb, t. 1, p. 78–79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Un récit a circulé dans certains livres selon lequel le Prophète ﷺ aurait mis en garde contre l’eau chauffée par le soleil en lui attribuant un dommage. Al-Hattâb ne le cite pas comme une parole certaine qu’il suffirait d’apprendre. Il rapporte au contraire l’appréciation d’‘Abd al-Haqq, reprise dans la Dhakhîra d’al-Qarâfî : aucun hadith authentique n’a été établi sur cette question. Cette critique doit accompagner toute mention du récit.",
-          "C’est un point important lorsqu’on apprend le fiqh à partir d’un commentaire. Les auteurs rapportent parfois des traditions pour exposer les arguments qui ont circulé, puis signalent qu’elles sont faibles. L’existence d’une citation dans un ouvrage prestigieux ne suffit donc pas à confirmer son attribution au Prophète ﷺ. Pour notre cours, la distinction est claire : nous pouvons expliquer la place de ce récit dans la discussion historique, mais nous n’avons pas à le présenter comme un dalîl prophétique authentifié."
-        ],
-        "steps": [
-          {
-            "label": "Une attribution prophétique exige une vérification",
-            "text": "Le texte conserve le récit et la critique de sa transmission. On ne peut pas citer la première sans la seconde."
-          },
-          {
-            "label": "« Lam yasihh » marque l’absence d’authenticité",
-            "text": "La formule d’‘Abd al-Haqq est une appréciation du hadith, pas une déclaration de certitude médicale."
-          },
-          {
-            "label": "La Dhakhîra d’al-Qarâfî est citée",
-            "text": "Al-Hattâb s’appuie sur un auteur malikite qui a conservé cette évaluation des preuves."
-          },
-          {
-            "label": "La règle et la preuve doivent être examinées séparément",
-            "text": "Même si un juriste retient une réprobation pour une autre raison, cela ne rend pas automatiquement authentique le récit cité."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le passage",
-          "text": "Un étudiant prépare un cours et trouve une phrase attribuée au Prophète ﷺ sur l’eau exposée au soleil. Avant de la reproduire, il lit la discussion d’al-Hattâb et découvre l’objection d’‘Abd al-Haqq. Il décide de présenter l’histoire de cette attribution, puis d’expliquer pourquoi elle ne doit pas être rapportée comme un hadith authentique. Cet exemple fictif montre une exigence élémentaire de vérification."
-        },
-        "takeaway": "‘Abd al-Haqq ne reconnaît pas de hadith authentique sur cette mise en garde. Al-Hattâb le rapporte explicitement : il serait donc inexact de présenter le récit comme une preuve prophétique solide de l’avis discuté.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
-      },
-      {
-        "id": "classification-hadith",
-        "eyebrow": "ÉTAPE 05 · LECTURE DU COMMENTAIRE",
-        "title": "Pourquoi al-Hattâb distingue-t-il le hadith faible du hadith fabriqué ?",
-        "passage": {
-          "arabic": "وما ذكره ابن فرحون من كون الحديث موضوعا قاله بعضهم والأكثر على أنه حديث ضعيف",
-          "translation": "« Certains ont qualifié le récit de fabriqué, comme le rapporte Ibn Farhûn ; la plupart l’ont jugé faible. »",
-          "explanation": "Ibn Farhûn transmet une qualification sévère du récit. Al-Hattâb reconnaît l’existence de cette critique mais signale que d’autres auteurs le décrivent plutôt comme faible, sans pour autant le tenir pour authentique.",
-          "sourceLabel": "Al-Hattâb, propos personnels introduits par « قلت », à propos d’Ibn Farhûn et des critiques du récit, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Le commentaire expose maintenant une nuance de science du hadith. Ibn Farhûn rapporte que le récit serait fabriqué, en renvoyant notamment à des critiques de transmission. Al-Hattâb intervient personnellement par « قلت », « je dis », puis précise que certains auteurs ont adopté cette qualification, tandis que la plupart, selon lui, ont retenu celle de hadith faible. Cette distinction mérite qu’on s’y arrête : un récit faible et un récit fabriqué ne sont pas deux expressions équivalentes.",
-          "Il faut également garder le point commun de ces jugements. Ni l’un ni l’autre ne transforme ce récit en parole prophétique authentifiée. Le commentaire rapporte encore la critique d’al-Nawawî dans son Sharh al-Muhadhdhab. Nous ne devons donc pas chercher une certitude que la source refuse elle-même. La question juridique pourra continuer à être discutée à partir d’autres arguments, mais ce texte particulier ne doit pas être utilisé comme s’il avait été validé par les spécialistes du hadith."
-        ],
-        "steps": [
-          {
-            "label": "Ibn Farhûn transmet une appréciation",
-            "text": "Le commentaire conserve cette qualification, puis apporte une précision sur l’existence d’autres appréciations."
-          },
-          {
-            "label": "« Mawdu‘ » et « da‘îf » diffèrent",
-            "text": "Le premier terme désigne une fabrication ; le second une transmission qui n’atteint pas les conditions de l’authenticité."
-          },
-          {
-            "label": "Le « قلت » appartient à al-Hattâb",
-            "text": "Il ne se contente pas de recopier les auteurs : il intervient pour distinguer les degrés de critique."
-          },
-          {
-            "label": "La faiblesse du récit demeure",
-            "text": "La nuance technique n’autorise pas à rapporter le texte comme un hadith authentique ni comme une preuve scientifique du dommage allégué."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le passage",
-          "text": "Deux lecteurs discutent d’un même récit. Le premier a lu qu’Ibn Farhûn le jugeait fabriqué ; le second connaît la remarque d’al-Hattâb, selon laquelle une majorité de critiques le tient pour faible. Leur enseignant leur demande de conserver les deux termes et les auteurs au lieu de choisir l’un au hasard. La scène est fictive, mais elle illustre pourquoi la précision d’attribution est indispensable."
-        },
-        "takeaway": "Al-Hattâb maintient la différence technique entre fabrication alléguée et faiblesse de la transmission. Il ne présente jamais le récit comme un hadith authentique : aucune conclusion médicale ne doit non plus être déduite de son seul contenu.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle."
-      },
-      {
-        "id": "copper-regions",
-        "eyebrow": "ÉTAPE 06 · LECTURE DU COMMENTAIRE",
-        "title": "Que précise Ibn al-‘Arabî sur les récipients et les pays chauds ?",
-        "passage": {
-          "arabic": "لو شمس في أواني الصفر في البلاد الحارة",
-          "translation": "« Si l’eau a été exposée au soleil dans des récipients de cuivre jaune, dans les pays chauds. »",
-          "explanation": "Al-Hattâb cite Ibn al-Imâm rapportant une restriction d’Ibn al-‘Arabî : la réprobation envisagée n’est pas nécessairement attachée à toute eau chauffée au soleil, mais à un contexte historique précis.",
-          "sourceLabel": "Ibn al-‘Arabî, al-Masâlik, transmis par Ibn al-Imâm et cité par al-Hattâb, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Le commentaire devient plus précis lorsqu’Ibn al-Imâm transmet des propos d’Ibn al-‘Arabî. L’inquiétude évoquée ne concerne plus toute eau qui a reçu la chaleur du soleil. Elle se rattache à certains récipients de cuivre jaune, utilisés dans des pays chauds. Les auteurs anciens pensaient que le chauffage d’un tel contenant pouvait entraîner un effet sur le corps. Ce sont les circonstances dans lesquelles ils plaçaient leur réserve, et il faut conserver cette restriction lorsqu’on rapporte leur avis.",
-          "Rien dans la seule existence de cette transmission ne prouve aujourd’hui la maladie à laquelle ils faisaient référence. Nous étudions la logique du fiqh et l’histoire de sa discussion, non une démonstration clinique. Il serait erroné de transformer le mot « mushammas » en une interdiction générale des bouteilles laissées au soleil, de l’eau des rivières et de toutes les installations réchauffées naturellement. Le matériau et le climat étaient des éléments de l’hypothèse rapportée, pas des seuils modernes de danger."
-        ],
-        "steps": [
-          {
-            "label": "« Awanî al-sufr » indique un matériau particulier",
-            "text": "Il s’agit ici des récipients de cuivre jaune auxquels la transmission rattache une inquiétude ancienne."
-          },
-          {
-            "label": "Les « pays chauds » font partie de la condition",
-            "text": "L’auteur ne formule pas une réserve sans contexte climatique ; il restreint ce qu’il rapporte."
-          },
-          {
-            "label": "Une hypothèse médicale demeure une hypothèse",
-            "text": "Même lorsqu’une inquiétude apparaît dans plusieurs ouvrages anciens, il faut la distinguer d’une relation causale médicalement établie."
-          },
-          {
-            "label": "Ne pas élargir le cas sans preuve",
-            "text": "L’eau d’un récipient particulier et une grande étendue d’eau naturellement chauffée ne peuvent pas être confondues."
-          }
-        ],
-        "example": {
-          "title": "Une situation pour comprendre l’avis",
-          "text": "Un étudiant compare une eau restée au soleil dans un récipient de cuivre jaune, celle d’une jarre en terre et celle d’un lac. Il applique la même réserve aux trois sans lire les conditions d’Ibn al-‘Arabî. Son professeur lui montre que le texte évoque expressément un matériau et un pays chaud. Cette comparaison est pédagogique ; elle n’établit aucun risque sanitaire propre à l’un des trois contenants."
-        },
-        "takeaway": "Ibn al-Imâm cite Ibn al-‘Arabî pour restreindre la discussion à certaines conditions matérielles. Al-Hattâb retient l’importance de cette restriction, sans fournir de preuve médicale contemporaine d’un effet pathologique.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
-      },
-      {
-        "id": "conditional-harm",
-        "eyebrow": "ÉTAPE 07 · LECTURE DU COMMENTAIRE",
-        "title": "Pourquoi la preuve d’un dommage change-t-elle le raisonnement juridique ?",
-        "passage": {
-          "arabic": "والحق أن التجربة إن قضت بضرر استعماله فالقول بالكراهة ظاهر",
-          "translation": "« Si l’expérience établit un préjudice lié à son usage, alors la réprobation devient compréhensible. »",
-          "explanation": "Le passage pose une condition : la réalité du dommage doit être établie. Il ne dit pas que les hypothèses médicales exposées précédemment ont été prouvées.",
-          "sourceLabel": "Argument cité dans la discussion d’Ibn al-Imâm et d’Ibn al-‘Arabî, rapportée par al-Hattâb, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Le raisonnement juridique devient alors conditionnel. Un auteur cité dans le passage explique que si l’expérience établissait un dommage lié à cet usage, il serait naturel de recommander de s’en abstenir. Il ne faut pas retirer le « si » de la phrase. Ce n’est pas une preuve que l’eau chauffée par le soleil provoque la maladie alléguée, mais une manière de raisonner sur les actes lorsqu’un préjudice est effectivement connu. L’étudiant doit distinguer le principe juridique et la réalité des faits auxquels il pourrait être appliqué.",
-          "Le commentaire poursuit en distinguant les dommages rares des conséquences qui seraient habituellement à craindre. Cette nuance explique pourquoi les juristes ne donnent pas toujours le même poids à une possibilité lointaine et à un risque réellement établi. Mais dans le sujet précis de notre fiche, nous n’avons pas le droit d’annoncer que les exemples médicaux anciens sont confirmés. Nous pouvons seulement expliquer qu’une vraie preuve de danger serait pertinente pour apprécier l’usage, même si l’eau demeurait rituellement purifiante."
-        ],
-        "steps": [
-          {
-            "label": "Le raisonnement est introduit par une condition",
-            "text": "L’auteur dit « si l’expérience établit ». Cette précision ne peut pas être remplacée par une certitude imaginée."
-          },
-          {
-            "label": "Le dommage concerne l’usage, pas une impureté",
-            "text": "Une eau peut rester pure au sens rituel tout en soulevant, dans certaines circonstances vérifiées, une question de sécurité."
-          },
-          {
-            "label": "La fréquence du dommage importe",
-            "text": "Le passage distingue les risques occasionnels de ceux qui auraient une probabilité importante, sans donner de chiffres."
-          },
-          {
-            "label": "Il faut vérifier le fait avant d’appliquer le principe",
-            "text": "La présence d’un argument dans un commentaire de fiqh ne remplace pas une recherche médicale destinée à établir le danger."
-          }
-        ],
-        "example": {
-          "title": "Une situation pour comprendre l’avis",
-          "text": "Une personne lit « si l’expérience prouve un dommage » et répète ensuite : « Les juristes ont démontré que l’eau chauffée au soleil est dangereuse. » En reprenant l’arabe, elle découvre que la proposition est conditionnelle. C’est une règle de prudence appliquée à un dommage éventuel, pas la preuve de ce dommage. L’exemple est fictif et ne constitue pas un avis médical sur un récipient particulier."
-        },
-        "takeaway": "Le commentaire reconnaît la pertinence d’un dommage effectivement établi pour le jugement de l’usage. Il ne prouve pas, par la seule formulation de ce principe, que les affirmations médicales historiques mentionnées dans la discussion soient exactes.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
-      },
-      {
-        "id": "nawawi-hadith",
-        "eyebrow": "ÉTAPE 08 · LECTURE DU COMMENTAIRE",
-        "title": "Comment al-Nawawî examine-t-il les arguments transmis ?",
-        "passage": {
-          "arabic": "فالصواب الجزم بأنه لا كراهة فيه",
-          "translation": "« Ce qui est correct est d’affirmer qu’il n’y a pas de réprobation. »",
-          "explanation": "Al-Hattâb cite al-Nawawî après sa critique des transmissions sur l’eau chauffée au soleil. Al-Nawawî y rejette les chaînes faibles et l’idée que l’argument médical aurait été établi dans ce qu’il expose.",
-          "sourceLabel": "Al-Nawawî, Sharh al-Muhadhdhab, propos rapportés par al-Hattâb, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Al-Hattâb nous fait ensuite lire un passage d’al-Nawawî dans le Sharh al-Muhadhdhab. Ce dernier discute les récits invoqués pour réprouver l’eau chauffée par le soleil et souligne leur faiblesse. Il mentionne que les voies transmises ont été examinées, notamment par al-Bayhaqî, sans qu’une preuve prophétique solide en ressorte. Il exprime alors la préférence de ne pas retenir de réprobation particulière. Sa conclusion appartient à son raisonnement dans cet ouvrage et ne doit pas être attribuée à Ibn al-Hâjib ou à al-Hattâb.",
-          "Al-Nawawî indique aussi que, dans les éléments qu’il examine, la justification médicale ne lui paraît pas établie. Ce jugement historique doit être présenté comme son appréciation, non comme une expertise moderne tranchant définitivement la question du contenu de tous les récipients. Pour notre étude, son argument central est la critique de la preuve avancée. Cette manière de juger nous oblige à ne pas construire une règle religieuse ferme sur un récit dont la faiblesse a été explicitement signalée."
-        ],
-        "steps": [
-          {
-            "label": "Al-Nawawî est cité depuis un ouvrage déterminé",
-            "text": "La formulation vient du Sharh al-Muhadhdhab ; elle ne décrit pas nécessairement toute sa production sans comparaison."
-          },
-          {
-            "label": "Les chaînes du récit sont discutées",
-            "text": "Le commentaire rapporte la faiblesse des voies de transmission et le travail d’al-Bayhaqî sur ces récits."
-          },
-          {
-            "label": "La conclusion est celle d’al-Nawawî dans ce passage",
-            "text": "Il affirme que la réprobation n’a pas de fondement établi dans les arguments qu’il présente."
-          },
-          {
-            "label": "Ce n’est pas une validation médicale contemporaine",
-            "text": "La discussion historique des preuves ne doit pas être transformée en un diagnostic de santé applicable à tout récipient."
-          }
-        ],
-        "example": {
-          "title": "Une situation pour comprendre l’avis",
-          "text": "Un élève lit une opinion ancienne attribuant une maladie à une eau chauffée par le soleil. Il cherche un dalîl prophétique sûr, puis découvre chez al-Nawawî une critique des voies du récit. Il comprend pourquoi un savant peut préférer ne pas retenir de réprobation particulière. La scène est inventée pour expliquer l’enchaînement de l’argument, sans établir le statut d’une eau rencontrée dans la vie quotidienne."
-        },
-        "takeaway": "Dans le passage cité du Sharh al-Muhadhdhab, al-Nawawî rejette les preuves avancées et préfère affirmer l’absence de réprobation. Son argument repose notamment sur l’examen des récits, pas sur la prétention qu’une hypothèse ancienne aurait été scientifiquement vérifiée.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
-      },
-      {
-        "id": "nawawi-disagreement",
-        "eyebrow": "ÉTAPE 09 · LECTURE DU COMMENTAIRE",
-        "title": "Pourquoi al-Hattâb relève-t-il deux formulations différentes chez al-Nawawî ?",
-        "passage": {
-          "arabic": "وقد جزم النووي في منهاجه بكراهة المشمس",
-          "translation": "« Pourtant, al-Nawawî a affirmé la réprobation de l’eau chauffée au soleil dans son Minhâj. »",
-          "explanation": "Après la citation d’al-Nawawî dans le Sharh al-Muhadhdhab, al-Hattâb remarque que ce même auteur a retenu une formulation différente dans le Minhâj. Il rapporte également les objections d’autres auteurs shaféites à son raisonnement médical.",
-          "sourceLabel": "Al-Hattâb, remarque personnelle, t. 1, p. 79 ; renvoi au Minhâj d’al-Nawawî et aux explications de certains shaféites, dont Ibn al-Nafîs.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Cette remarque fait apparaître le soin qu’al-Hattâb apporte à ses citations. Il vient de reproduire un passage dans lequel al-Nawawî conclut à l’absence de réprobation. Puis il ajoute que, dans le Minhâj, al-Nawawî a formulé la question dans le sens de la réprobation. Il ne faut donc pas choisir silencieusement l’une de ces deux phrases et affirmer qu’elle résume tout ce qu’al-Nawawî a écrit. Le commentaire nous apprend à comparer les ouvrages d’un même savant lorsqu’ils ne sont pas formulés de la même manière.",
-          "Al-Hattâb rapporte ensuite que des auteurs shaféites, notamment Ibn al-Nafîs dans un commentaire médicalement argumenté, ont soutenu la thèse du dommage supposé. Il s’agit de conceptions médicales historiquement situées. La mention d’Ibn al-Nafîs montre quelle autorité ces arguments possédaient alors, mais elle ne constitue pas une preuve contemporaine que l’eau solaire provoque le baras. Nous devons restituer la divergence sans la résoudre en inventant un consensus doctrinal ou médical."
-        ],
-        "steps": [
-          {
-            "label": "Une même autorité peut être citée dans plusieurs livres",
-            "text": "Al-Hattâb oppose ici le Sharh al-Muhadhdhab et le Minhâj, sans supposer qu’une citation suffit à effacer l’autre."
-          },
-          {
-            "label": "Le débat dépasse l’école malikite",
-            "text": "Les auteurs shaféites sont mentionnés pour leurs raisons et leurs divergences, non pour décider à la place des malikites."
-          },
-          {
-            "label": "Ibn al-Nafîs intervient comme autorité ancienne",
-            "text": "Son argument est rapporté comme un raisonnement médical de son époque, et non comme une donnée clinique confirmée ici."
-          },
-          {
-            "label": "L’attribution précise est essentielle",
-            "text": "L’étudiant doit identifier qui parle, dans quel livre et au sujet de quelle condition avant de retenir une conclusion."
-          }
-        ],
-        "example": {
-          "title": "Une situation pour comprendre l’avis",
-          "text": "Deux personnes citent al-Nawawî. La première lui attribue l’absence de réprobation en s’appuyant sur le Sharh al-Muhadhdhab ; la seconde mentionne le Minhâj. Elles croient nécessairement que l’une ment. En lisant al-Hattâb, elles constatent que les deux formulations ont été rapportées et demandent une explication. Ce dialogue fictif illustre le rôle d’un commentaire attentif aux références."
-        },
-        "takeaway": "Al-Hattâb souligne des formulations différentes chez al-Nawawî et cite les discussions d’autres auteurs shaféites. Le cours doit conserver cette complexité, sans présenter un avis isolé comme la seule position connue du savant.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
-      },
-      {
-        "id": "hattab-conclusion",
-        "eyebrow": "ÉTAPE 10 · LECTURE DU COMMENTAIRE",
-        "title": "Quelle position al-Hattâb estime-t-il forte, et à quelles conditions ?",
-        "passage": {
-          "arabic": "والحاصل أن القول بكراهة المشمس قوي",
-          "translation": "« En définitive, l’avis qui réprouve l’eau chauffée au soleil est fort. »",
-          "explanation": "Après avoir cité les arguments favorables et défavorables à la réprobation, al-Hattâb indique qu’elle est fortement représentée dans les transmissions. Il la restreint néanmoins, en rappelant les conditions de récipient et de climat évoquées par Ibn al-Imâm et Ibn al-‘Arabî.",
-          "sourceLabel": "Al-Hattâb, conclusion personnelle de l’examen des avis, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Nous arrivons à la préférence explicite d’al-Hattâb. Il explique qu’après comparaison des auteurs qu’il a consultés, l’avis selon lequel l’eau chauffée par le soleil fait l’objet d’une réprobation lui paraît fort. Il mentionne la transmission d’Ibn al-Faras d’après Mâlik et l’existence de plusieurs maîtres ayant retenu une réserve. Ce passage est important pour comprendre son rôle : il ne se contente pas de recopier la phrase de Khalîl et l’explication d’Ibn al-Hâjib. Il met les avis en regard et dit ce qui lui paraît le plus solide dans la documentation de l’école.",
-          "Mais il ajoute aussitôt que cette réprobation devrait être limitée aux conditions évoquées par Ibn al-Imâm et Ibn al-‘Arabî : des récipients particuliers et des régions chaudes. Il ne formule pas ici une affirmation générale selon laquelle toute eau réchauffée par la lumière serait mauvaise pour la santé. Sa conclusion doit également être lue avec la faiblesse du récit prophétique invoqué et avec l’absence de preuve médicale contemporaine dans cette étude. La portée de l’avis est donc bien plus précise qu’une formule isolée."
-        ],
-        "steps": [
-          {
-            "label": "« Wal-hâsil » annonce une synthèse",
-            "text": "C’est al-Hattâb lui-même qui résume l’examen des transmissions, après avoir exposé plusieurs positions."
-          },
-          {
-            "label": "« Qawî » n’est pas « ijmâ‘ »",
-            "text": "Dire qu’un avis est fort ne signifie pas qu’il existe une unanimité. L’auteur vient justement de rapporter un désaccord."
-          },
-          {
-            "label": "Une restriction matérielle suit",
-            "text": "Le commentateur revient au matériau du récipient et au climat. Omettre cette condition changerait le sens pratique de sa synthèse."
-          },
-          {
-            "label": "L’authenticité du hadith reste une question distincte",
-            "text": "La force d’une transmission doctrinale n’autorise pas à qualifier soudain un récit faible d’authentique."
-          }
-        ],
-        "example": {
-          "title": "Une situation pour comprendre l’avis",
-          "text": "Un lecteur découvre seulement la phrase « l’avis de réprobation est fort » et la transmet comme si elle visait toute eau en contact avec le soleil. Son enseignant lui fait lire la suite : al-Hattâb précise le cas des récipients de cuivre jaune dans les pays chauds. L’élève corrige alors son résumé. Cette scène fictive rappelle pourquoi la dernière phrase d’un commentaire doit être lue avec toutes ses conditions."
-        },
-        "takeaway": "Al-Hattâb estime que la réprobation est fortement transmise dans la littérature examinée, mais en propose une restriction précise. Il ne faut ni effacer cette préférence ni la transformer en une interdiction universelle de l’eau chauffée au soleil.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval."
-      },
-      {
-        "id": "ibn-al-furat",
-        "eyebrow": "ÉTAPE 11 · LECTURE DU COMMENTAIRE",
-        "title": "Pourquoi Ibn al-Furât propose-t-il une lecture différente de Khalîl ?",
-        "passage": {
-          "arabic": "وجوز ابن الفرات أن يكون التشبيه في قول المصنف كمشمس راجعا إلى ما قبله من المكروهات",
-          "translation": "« Ibn al-Furât a envisagé que la comparaison “comme l’eau chauffée au soleil” se rattache aux choses réprouvées mentionnées auparavant. »",
-          "explanation": "Al-Hattâb conserve la proposition grammaticale d’Ibn al-Furât, mais répond que ce que Khalîl écrit dans le Tawdîh va plutôt dans l’autre sens.",
-          "sourceLabel": "Ibn al-Furât, interprétation rapportée puis discutée par al-Hattâb, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Après la comparaison des avis, al-Hattâb revient à une difficulté que nous avions rencontrée en ouvrant la leçon : comment faut-il rattacher le mot « كمشمس » dans la phrase de Khalîl ? Ibn al-Furât propose qu’il renvoie aux eaux réprouvées mentionnées précédemment. La phrase pourrait alors donner l’impression que Khalîl range lui-même l’eau chauffée au soleil parmi les usages déconseillés. Al-Hattâb rapporte cette lecture sans la cacher à l’étudiant.",
-          "Il ajoute pourtant que les propos de Khalîl dans le Tawdîh lui semblent indiquer le contraire. Nous retrouvons ici une méthode de lecture des textes abrégés : lorsqu’une formule du Mukhtasar peut recevoir deux rattachements, les écrits explicatifs de son auteur peuvent aider à préciser sa pensée. Le fait qu’al-Hattâb considère la transmission de la réprobation comme forte ne signifie donc pas qu’il est d’accord avec toute analyse grammaticale faisant dire à Khalîl que cette réprobation ressort directement de ses deux mots."
-        ],
-        "steps": [
-          {
-            "label": "La proposition d’Ibn al-Furât",
-            "text": "Elle porte sur la construction de la phrase du Mukhtasar, et non sur une nouvelle expérience médicale."
-          },
-          {
-            "label": "Le rattachement aux eaux réprouvées",
-            "text": "Selon cette lecture, le « comme » de Khalîl rapprocherait l’eau ensoleillée des catégories précédemment réprouvées."
-          },
-          {
-            "label": "La réponse d’al-Hattâb",
-            "text": "Il invoque le Tawdîh de Khalîl pour expliquer pourquoi l’autre rattachement lui paraît plus fidèle à l’intention de l’auteur."
-          },
-          {
-            "label": "Une préférence doctrinale et une lecture grammaticale peuvent différer",
-            "text": "Il faut distinguer ce que le commentateur retient après comparaison des avis de ce qu’il pense être le sens exact de la phrase de Khalîl."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le raisonnement",
-          "text": "Deux élèves s’interrogent sur « كمشمس ». Le premier pense qu’il dépend des eaux réprouvées ; le second des exceptions à la réprobation. Al-Hattâb leur apprend qu’un autre ouvrage de Khalîl, le Tawdîh, peut éclairer la structure de cette phrase. La scène est inventée pour illustrer le travail des commentateurs, et non pour présenter une nouvelle autorité."
-        },
-        "takeaway": "L’hypothèse d’Ibn al-Furât est une possibilité grammaticale citée par al-Hattâb. Celui-ci répond que le Tawdîh permet plutôt de lire le passage comme une exception à la réprobation, sans nier le débat juridique qui suit.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
-      },
-      {
-        "id": "validity",
-        "eyebrow": "ÉTAPE 12 · LECTURE DU COMMENTAIRE",
-        "title": "Si quelqu’un utilise cette eau, son wudû’ est-il valable ?",
-        "passage": {
-          "arabic": "إن توضأ به أجزأه",
-          "translation": "« S’il accomplit les ablutions avec cette eau, elles lui suffisent. »",
-          "explanation": "Le commentaire distingue une éventuelle réserve médicale de la capacité de l’eau à lever le hadath. Il rapporte également la priorité de l’acte obligatoire lorsqu’aucune autre eau n’existe.",
-          "sourceLabel": "Ibn al-Imâm transmettant une explication d’Ibn al-‘Arabî ; premier tanbîh rapporté par al-Hattâb, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Le premier des tanbîhât aborde une question que l’étudiant attend depuis le début : si la personne se purifie réellement avec une eau exposée au soleil dans les conditions discutées, sa purification compte-t-elle ? Ibn al-Imâm rapporte d’Ibn al-‘Arabî qu’un wudû’ ainsi accompli peut suffire. La raison est très claire : la réserve alléguée ne porte pas sur la capacité de cette eau à lever le hadath, mais sur une considération extérieure à cet acte. Nous ne devons pas confondre l’avis sur la convenance de l’usage et celui sur sa validité.",
-          "Le passage ajoute que lorsqu’aucune autre eau n’est disponible, la nécessité de remplir un devoir rituel prend le dessus sur la volonté d’éviter une simple réprobation. Cette formulation doit rester attachée au cas envisagé : il n’est pas question d’ignorer un danger matériel réellement établi. Mais elle montre bien que, dans l’analyse du commentateur, la réprobation éventuelle de l’eau chauffée au soleil ne retire pas son pouvoir purifiant pour cette seule raison."
-        ],
-        "steps": [
-          {
-            "label": "« Ajza’ahu » signifie que l’acte suffit",
-            "text": "Le mot examine la validité du wudû’ accompli ; il ne fait pas seulement l’éloge d’une manière de se purifier."
-          },
-          {
-            "label": "Le motif est extérieur à la levée du hadath",
-            "text": "Le passage distingue la qualité purifiante de l’eau d’une réserve d’emploi fondée sur un risque supposé."
-          },
-          {
-            "label": "La disponibilité d’une autre eau est pertinente",
-            "text": "Lorsque l’alternative n’existe pas, le texte discute la priorité de l’obligation de purification sur l’évitement d’une simple réprobation."
-          },
-          {
-            "label": "La réserve n’est pas une impureté",
-            "text": "Aucune de ces discussions ne permet de dire que l’eau chauffée au soleil est devenue rituellement souillée."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le raisonnement",
-          "text": "Un étudiant a déjà fait ses ablutions avec une eau tiède laissée au soleil. Il se demande si une simple réprobation rapportée par certains juristes obligerait à tout recommencer. Les paroles d’Ibn al-‘Arabî citées dans le commentaire distinguent la validité de l’acte et le motif extérieur de la réserve. L’exemple est fictif et n’examine pas un dommage sanitaire particulier."
-        },
-        "takeaway": "Ibn al-‘Arabî, cité par Ibn al-Imâm, distingue la validité des ablutions d’une réprobation éventuelle de leur moyen. La seconde n’annule pas automatiquement la première : le ghusl et le wudû’ doivent être jugés selon leurs conditions.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
-      },
-      {
-        "id": "medical-karaha",
-        "eyebrow": "ÉTAPE 13 · LECTURE DU COMMENTAIRE",
-        "title": "Que signifie « réprobation médicale » selon Ibn Farhûn ?",
-        "passage": {
-          "arabic": "إذا قلنا بالكراهة فالظاهر أنها كراهة إرشاد من جهة الطب وليست كراهة شرعية",
-          "translation": "« Si nous retenons une réprobation, elle relève apparemment d’un conseil médical, et non d’une réprobation strictement religieuse. »",
-          "explanation": "Ibn Farhûn distingue deux significations possibles de la karâha. Al-Hattâb répond que le fait d’éviter un dommage par obéissance à une règle religieuse peut aussi relever d’un acte récompensé.",
-          "sourceLabel": "Ibn Farhûn, deuxième tanbîh ; objection personnelle d’al-Hattâb introduite par « قلت », t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Ibn Farhûn apporte une distinction subtile : selon lui, si l’usage de cette eau est réprouvé, il s’agirait plutôt d’une indication médicale que d’une réprobation religieuse proprement dite. Son argument est que la karâha légale se distingue du conseil donné pour éviter une gêne ou un préjudice. Il ne dit pas ici que l’eau est impure, et sa formulation montre qu’il cherche surtout à déterminer la nature de la réserve. Cette distinction est importante lorsqu’on étudie le vocabulaire du fiqh.",
-          "Al-Hattâb ne laisse pourtant pas cette analyse sans remarque. Il introduit sa propre objection par « je dis » et prend l’exemple d’une personne qui s’abstient d’un poison par respect pour l’interdiction de se causer du tort. Dans ce cas, l’intention religieuse peut donner un sens cultuel au renoncement. Nous n’avons donc pas une simple opposition entre la médecine et la religion : le commentateur explique pourquoi éviter un préjudice réellement reconnu peut aussi relever de l’obéissance à une règle générale."
-        ],
-        "steps": [
-          {
-            "label": "Ibn Farhûn distingue deux formes de karâha",
-            "text": "La première relève d’un conseil concernant la santé ; la seconde, d’une qualification religieuse dont l’abstention peut être récompensée."
-          },
-          {
-            "label": "L’avis est formulé sous condition",
-            "text": "Il commence par « si nous disons qu’il y a réprobation », ce qui situe son analyse dans le débat déjà exposé."
-          },
-          {
-            "label": "Al-Hattâb apporte une objection",
-            "text": "Le commentateur prend l’exemple d’une abstention motivée par l’interdiction de se nuire, montrant que le motif peut aussi être religieux."
-          },
-          {
-            "label": "Le fait médical n’est pas prouvé par cette discussion",
-            "text": "L’argument porte sur la manière de qualifier un dommage reconnu, et ne démontre pas l’existence du dommage historique allégué."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le raisonnement",
-          "text": "Un étudiant lit un conseil d’éviter un produit pour une raison de santé. Il demande si toute prudence médicale est un acte cultuel. Son enseignant lui montre les mots d’Ibn Farhûn puis la réponse d’al-Hattâb : la qualification peut dépendre de la preuve du danger, du commandement général de ne pas se nuire et de l’intention. Le dialogue fictif n’implique aucun fait médical concernant l’eau solaire."
-        },
-        "takeaway": "Ibn Farhûn distingue la réprobation médicale et la karâha religieuse ; al-Hattâb nuance cette séparation en rappelant qu’éviter un dommage reconnu par obéissance peut avoir un sens religieux. Le cours conserve leur désaccord.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
-      },
-      {
-        "id": "cooling",
-        "eyebrow": "ÉTAPE 14 · LECTURE DU COMMENTAIRE",
-        "title": "Une eau refroidie perd-elle nécessairement la réprobation évoquée ?",
-        "passage": {
-          "arabic": "وانظر هل تزول الكراهة بتبريده أو لا أو يرجع في ذلك للأطباء",
-          "translation": "« Il faut examiner si la réprobation disparaît lorsque l’eau refroidit, ou s’il faut s’en remettre aux médecins. »",
-          "explanation": "Ibn Farhûn soulève une question sur la cause alléguée de la réprobation : si elle venait d’une modification matérielle du récipient, le seul refroidissement ne suffirait pas nécessairement. Al-Hattâb mentionne également des divergences chez les shaféites.",
-          "sourceLabel": "Ibn Farhûn, troisième tanbîh ; remarques d’al-Hattâb, t. 1, p. 79.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Le troisième tanbîh nous apprend à raisonner à partir de la cause avancée. Ibn Farhûn demande si l’on pourrait écarter la réprobation simplement en laissant l’eau refroidir. La question paraît facile au premier abord : si le problème venait seulement de la chaleur, une eau redevenue froide semblerait ne plus présenter la même difficulté. Mais si les juristes supposaient que le métal du récipient avait libéré une matière, refroidir l’eau ne répondrait pas à cette hypothèse. Ibn Farhûn laisse donc la question ouverte.",
-          "Il ne faut pas transformer ce doute en une réponse certaine que l’ouvrage n’a pas donnée. Al-Hattâb mentionne encore un désaccord dans les discussions shaféites. Pour bien comprendre le raisonnement, nous devons connaître la cause à laquelle les auteurs rattachaient le jugement, puis vérifier si cette cause existe réellement. Le texte ne fournit pas de preuve médicale que l’eau considérée serait dangereuse, ni une règle universelle sur le temps de refroidissement. Notre cours garde donc l’interrogation telle qu’elle figure dans la source."
-        ],
-        "steps": [
-          {
-            "label": "Refroidir l’eau change sa température",
-            "text": "Cela n’entraîne pas automatiquement que toute autre modification matérielle, si elle existait, aurait disparu."
-          },
-          {
-            "label": "La question dépend de la cause alléguée",
-            "text": "Ibn Farhûn examine les conséquences de différentes hypothèses, au lieu de fixer une règle universelle."
-          },
-          {
-            "label": "Le commentaire ne donne aucun délai",
-            "text": "Il serait inexact d’ajouter un nombre de minutes de refroidissement ou un seuil de température absent du passage."
-          },
-          {
-            "label": "Le désaccord reste rapporté",
-            "text": "Al-Hattâb mentionne aussi les discussions chez les shaféites : il ne présente pas une réponse comme unanimement acquise."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le raisonnement",
-          "text": "Une eau restée dans un récipient au soleil a refroidi pendant la nuit. Une personne soutient que toute réprobation éventuelle a forcément disparu, une autre affirme le contraire. Ibn Farhûn montre que la réponse dépendrait de la cause retenue. Sans établir cette cause, on ne peut pas déduire une conclusion certaine de la seule température. L’exemple fictif sert à expliquer la logique et n’est pas un diagnostic sur l’eau."
-        },
-        "takeaway": "Le refroidissement n’est pas présenté par Ibn Farhûn comme une solution certaine : il pose la question en fonction de la cause alléguée et renvoie aux connaissances médicales de son époque. Il faut conserver l’incertitude du texte.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
-      },
-      {
-        "id": "body-ponds-fire",
-        "eyebrow": "ÉTAPE 15 · LECTURE DU COMMENTAIRE",
-        "title": "Quelles différences al-Hattâb fait-il entre le corps, les étendues d’eau et l’eau chauffée au feu ?",
-        "passage": {
-          "arabic": "المسخن بالنار لا كراهة فيه كما صرح بذلك ابن الحاجب وغيره",
-          "translation": "« L’eau chauffée au feu n’est pas réprouvée, comme Ibn al-Hâjib et d’autres l’ont déclaré. »",
-          "explanation": "Al-Hattâb précise le cas des usages sur le corps, distingue le nettoyage des vêtements, cite al-Nawawî sur les grandes étendues et mentionne enfin l’eau chauffée au feu, avec une réserve attribuée à Ibn al-Karawî pour une chaleur ou un froid extrêmes.",
-          "sourceLabel": "Al-Hattâb, sixième tanbîh, t. 1, p. 80 ; cinq remarques précédentes sur le corps, les eaux naturelles et la chaleur.",
-          "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-        },
-        "paragraphs": [
-          "Pour terminer, al-Hattâb passe de la discussion générale à des situations concrètes. Il distingue les usages qui touchent le corps — ablutions, ghusl ou nettoyage d’une souillure corporelle — de ceux qui concernent un objet ou un vêtement. Il rapporte également d’al-Nawawî que l’eau réchauffée dans les grands bassins et les rivières n’est pas concernée par la réprobation discutée. Le commentateur précise qu’il n’a pas trouvé de transmission contraire sur ce point. Nous ne devons donc pas traiter une rivière exposée au soleil comme un récipient métallique placé dans un pays chaud.",
-          "Dans le dernier tanbîh, il revient à l’eau chauffée au feu. Ibn al-Hâjib et d’autres la considèrent comme utilisable sans réprobation particulière. Ibn al-Karawî nuance cependant le cas où l’eau serait si chaude ou si froide qu’elle empêcherait de se purifier correctement ou nuirait au recueillement. Une fois encore, le texte ne nous apprend pas qu’il faudrait rechercher la difficulté pour obtenir une meilleure purification. Il nous demande de distinguer la manière dont l’eau a été chauffée de la possibilité réelle d’accomplir les gestes du wudû’ ou du ghusl convenablement."
-        ],
-        "steps": [
-          {
-            "label": "La réserve ancienne vise surtout l’usage sur le corps",
-            "text": "Al-Hattâb distingue cet emploi du nettoyage d’un vêtement ou d’un objet qui n’expose pas directement le corps."
-          },
-          {
-            "label": "Les rivières et grands bassins sont traités à part",
-            "text": "Al-Nawawî est cité pour l’absence de réprobation de l’eau ensoleillée dans ces grandes étendues, et al-Hattâb ne signale pas d’opposition."
-          },
-          {
-            "label": "Le chauffage au feu reste une autre catégorie",
-            "text": "Ibn al-Hâjib n’attache pas de réprobation à ce chauffage en lui-même, ce qui ne supprime pas les difficultés d’une eau excessivement chaude."
-          },
-          {
-            "label": "Les températures extrêmes peuvent empêcher une purification soignée",
-            "text": "Ibn al-Karawî mentionne la chaleur ou le froid gênants, et d’autres auteurs relient cela à l’impossibilité d’accomplir convenablement le lavage."
-          }
-        ],
-        "example": {
-          "title": "Mise en situation pour comprendre le raisonnement",
-          "text": "Une personne a une eau tiède chauffée au feu, une eau très chaude qu’elle supporte mal et une eau de rivière réchauffée par le soleil. Ce ne sont pas trois situations juridiquement identiques dans le commentaire. Pour les comprendre, il faut considérer la source de chaleur, l’usage direct sur le corps, la possibilité d’effectuer le lavage complet et l’éventuelle réalité d’un dommage. La comparaison est fictive et ne remplace pas une évaluation de sécurité."
-        },
-        "takeaway": "Les dernières précisions d’al-Hattâb distinguent la grande étendue d’eau, l’usage sur le corps et le chauffage au feu. La difficulté d’une température excessive concerne notamment la capacité à se laver correctement, et non une impureté causée par la chaleur seule.",
-        "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale."
-      }
-    ],
-    "quote": {
-      "arabic": "كَمُشَمَّسٍ",
-      "meaning": "Khalîl mentionne l’eau chauffée par le soleil. Al-Hattâb explique que les commentateurs discutent son rattachement à la catégorie réprouvée ou à celle exceptée de la réprobation, puis examine les preuves et les conditions.",
-      "label": "Khalîl, Mukhtasar, commenté par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–80."
+      "takeaway": "La difficulté initiale est une question de lecture du Mukhtasar. Al-Hattâb indique qu’une majorité de commentateurs rattache « كمشمس » à ce qui n’est pas réprouvé, puis il examine les preuves d’une réserve plus étroite.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle.",
+      "context": "Tu remplis un récipient d’eau propre et tu le laisses au soleil. Peut-on ensuite faire ses ablutions avec cette eau ? Khalîl ne donne que deux mots, « comme l’eau chauffée au soleil », dont les commentateurs discutent le rattachement à la phrase précédente."
     },
-    "lexicon": [
-      {
-        "arabic": "الْمُشَمَّس",
-        "term": "Mushammas",
-        "definition": "Eau exposée au soleil et réchauffée par celui-ci. La discussion porte sur l’éventuelle réprobation de son usage, non sur une impureté intrinsèque causée par la lumière."
+    {
+      "id": "ibn-hajib",
+      "eyebrow": "ÉTAPE 02 · LECTURE DU COMMENTAIRE",
+      "title": "Pourquoi Ibn al-Hâjib affirme-t-il qu’il n’y a pas de réprobation ?",
+      "passage": {
+        "arabic": "والمشمس كغيره فلا كراهة فيه",
+        "translation": "« L’eau chauffée au soleil est comme les autres ; elle n’est pas réprouvée. »",
+        "explanation": "Al-Hattâb transmet expressément la formulation d’Ibn al-Hâjib et rapproche cette lecture de celle d’Ibn ‘Abd al-Salâm ainsi que des propos de Khalîl dans al-Tawdîh.",
+        "sourceLabel": "Ibn al-Hâjib, cité par al-Hattâb, t. 1, p. 78 ; rapprochement avec Ibn ‘Abd al-Salâm et le Tawdîh.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "الْمُسَخَّنُ بِالشَّمْس",
-        "term": "Musakhkhan bi-sh-shams",
-        "definition": "Expression descriptive pour une eau chauffée par la chaleur solaire. Elle sert à distinguer cette situation du chauffage par le feu dont parle le sixième tanbîh."
+      "paragraphs": [
+        "Al-Hattâb commence par citer un maître reconnu de l’école, Ibn al-Hâjib. Sa formule est claire : l’eau que le soleil a réchauffée se traite comme l’eau ordinaire. Il n’y a pas de raison d’en faire une catégorie à part du seul fait de sa température. Le commentaire fait également intervenir Ibn ‘Abd al-Salâm et le Tawdîh, l’ouvrage où Khalîl lui-même explique les questions juridiques plus amplement que dans son Mukhtasar.",
+        "Nous devons respecter la portée exacte de cet avis. Ibn al-Hâjib ne propose pas de nier tous les dommages matériels qu’une eau pourrait avoir selon son contenant ou son état. Il affirme simplement que le chauffage solaire, à lui seul, ne suffit pas à justifier une réprobation dans la règle qu’il expose. D’autres juristes ont cependant envisagé une réserve médicale. Le désaccord ne sera compréhensible que si l’on sépare cette question du statut de pureté de l’eau et de sa capacité à lever le hadath."
+      ],
+      "steps": [
+        {
+          "label": "Une formulation juridique explicite",
+          "text": "Ibn al-Hâjib ne se contente pas de décrire l’eau : il dit qu’aucune karâha ne lui est attachée pour le motif discuté."
+        },
+        {
+          "label": "Le Tawdîh aide à lire Khalîl",
+          "text": "Un même auteur peut développer sa position dans un commentaire alors que son Mukhtasar la formule en quelques mots."
+        },
+        {
+          "label": "La pureté n’est pas la même chose que la réprobation",
+          "text": "Même lorsque les juristes discutent de karâha, il faut continuer à examiner séparément la qualité purifiante de l’eau."
+        },
+        {
+          "label": "L’avis n’est pas une unanimité",
+          "text": "Al-Hattâb mentionne immédiatement des autorités ayant choisi une approche différente et explique leurs raisons."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le passage",
+        "text": "Imagine de l’eau propre laissée dans un récipient au soleil jusqu’à devenir tiède. Une personne se demande si le seul chauffage solaire lui retire la capacité de servir aux ablutions. Dans la formulation d’Ibn al-Hâjib rapportée ici, ce simple fait ne crée pas de réprobation. Le scénario est fictif : il ne constitue pas une évaluation de la sécurité sanitaire d’un réservoir particulier."
       },
-      {
-        "arabic": "الْكَرَاهَةُ الشَّرْعِيَّة",
-        "term": "Karâha shar‘iyya",
-        "definition": "Réprobation considérée comme une qualification religieuse. Ibn Farhûn la distingue d’un conseil médical et al-Hattâb discute la portée de cette séparation."
+      "takeaway": "Ibn al-Hâjib traite l’eau réchauffée par le soleil comme les autres eaux, sans réprobation liée à cette seule circonstance. Al-Hattâb conserve cet avis, même s’il rapportera ensuite des réserves attribuées à d’autres auteurs.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle.",
+      "context": "Une eau propre est devenue tiède simplement parce qu’elle est restée au soleil. Doit-on éviter de l’utiliser pour les ablutions ? Ibn al-Hâjib répond que ce chauffage, en lui-même, ne rend pas son emploi réprouvé."
+    },
+    {
+      "id": "iyad-sanad",
+      "eyebrow": "ÉTAPE 03 · LECTURE DU COMMENTAIRE",
+      "title": "Pourquoi ‘Iyâd et Sanad évoquent-ils une réprobation ?",
+      "passage": {
+        "arabic": "وكره الوضوء بالماء المسخن بالشمس من جهة الطب",
+        "translation": "« Les ablutions avec l’eau chauffée par le soleil ont été réprouvées pour une raison médicale. »",
+        "explanation": "Al-Hattâb cite al-Tirâz de Sanad et relève que ‘Iyâd, dans certains de ses écrits, s’est lui aussi exprimé dans le sens d’une réprobation. Le motif donné est médical et historiquement situé.",
+        "sourceLabel": "Sanad, al-Tirâz, passage cité par al-Hattâb, t. 1, p. 78 ; mention parallèle du qâdî ‘Iyâd.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "كَرَاهَةُ الْإِرْشَاد",
-        "term": "Karâhat al-irshâd",
-        "definition": "Réserve exprimée à titre de conseil pour éviter un désagrément ou un dommage allégué. Ibn Farhûn emploie cette notion pour caractériser la réprobation médicale."
+      "paragraphs": [
+        "Après Ibn al-Hâjib, al-Hattâb rapporte une autre voie. Sanad écrit dans al-Tirâz que l’emploi de l’eau chauffée au soleil a été réprouvé « du point de vue de la médecine ». Il mentionne également que le qâdî ‘Iyâd a retenu une réserve de ce genre. Ces mots ont leur importance : les auteurs ne disent pas que les rayons du soleil auraient rendu l’eau rituellement impure. Ils examinent plutôt une inquiétude ancienne relative aux effets supposés du contact de cette eau avec le corps.",
+        "Nous ne devons pas reprendre sans vérification le contenu médical de cette inquiétude. Le fait que plusieurs juristes médiévaux aient mentionné le baras ne démontre pas aujourd’hui qu’une eau chauffée au soleil provoquerait une maladie cutanée. Pour bien enseigner le texte, il faut plutôt expliquer pourquoi la possibilité d’un dommage extérieur aux ablutions a pu les conduire à parler de réprobation. La question de la validité du wudû’, elle, sera traitée plus loin par d’autres savants."
+      ],
+      "steps": [
+        {
+          "label": "Sanad est cité pour son raisonnement",
+          "text": "La formule est rapportée d’al-Tirâz, et non attribuée directement à Khalîl ou à un hadith authentique."
+        },
+        {
+          "label": "‘Iyâd est une autre autorité mentionnée",
+          "text": "Al-Hattâb indique que certains de ses écrits retiennent également une réserve, ce qui montre la pluralité des transmissions."
+        },
+        {
+          "label": "« Min jihat al-tibb » définit le motif allégué",
+          "text": "La raison invoquée est une considération médicale historique, non une impureté qui aurait pénétré dans l’eau."
+        },
+        {
+          "label": "La valeur scientifique du motif doit être distinguée",
+          "text": "Rapporter exactement une croyance ancienne ne revient pas à prouver qu’elle est médicalement exacte aujourd’hui."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le passage",
+        "text": "Une personne lit que Sanad réprouve cette eau et croit qu’elle est devenue impure. Un autre lui montre les mots « du point de vue de la médecine » : le juriste discutait d’un effet supposé sur le corps, non d’une souillure matérielle qui se serait mêlée à la réserve. L’exemple est créé pour clarifier le vocabulaire ; il ne constitue pas une conclusion clinique sur l’eau chauffée au soleil."
       },
-      {
-        "arabic": "الطِّبّ",
-        "term": "Tibb",
-        "definition": "Médecine : c’est l’origine invoquée de certaines réserves anciennes concernant l’eau chauffée au soleil. Une hypothèse médicale historique n’équivaut pas à une preuve clinique actuelle."
+      "takeaway": "La divergence rapportée par al-Hattâb fait intervenir une inquiétude de santé propre aux explications de certains savants. La réprobation qu’ils mentionnent ne doit être confondue ni avec l’impureté de l’eau ni avec un fait médical démontré.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle.",
+      "context": "Une personne a laissé son eau au soleil, mais on lui a dit qu’elle pourrait tomber malade en se lavant avec. Cette inquiétude vient de certains avis médicaux anciens, rapportés notamment par Sanad et ‘Iyâd, et non de la constatation d’une impureté dans l’eau."
+    },
+    {
+      "id": "hadith",
+      "eyebrow": "ÉTAPE 04 · LECTURE DU COMMENTAIRE",
+      "title": "Que disent les spécialistes de l’authenticité du hadith invoqué ?",
+      "passage": {
+        "arabic": "قال عبد الحق لم يصح فيه حديث",
+        "translation": "« ‘Abd al-Haqq a dit : aucun hadith authentique n’est établi à ce sujet. »",
+        "explanation": "Al-Hattâb rapporte la critique d’un récit attribué au Prophète ﷺ concernant une eau chauffée au soleil et une maladie de peau. Il transmet le jugement d’‘Abd al-Haqq sur son absence d’authenticité.",
+        "sourceLabel": "‘Abd al-Haqq cité par al-Qarâfî dans al-Dhakhîra, repris par al-Hattâb, t. 1, p. 78–79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "الْبَرَص",
-        "term": "Baras",
-        "definition": "Nom d’une affection cutanée évoquée dans les arguments historiques des juristes. La fiche explique cette croyance ancienne sans affirmer une relation médicale démontrée avec l’eau solaire."
+      "paragraphs": [
+        "Un récit a circulé dans certains livres selon lequel le Prophète ﷺ aurait mis en garde contre l’eau chauffée par le soleil en lui attribuant un dommage. Al-Hattâb ne le cite pas comme une parole certaine qu’il suffirait d’apprendre. Il rapporte au contraire l’appréciation d’‘Abd al-Haqq, reprise dans la Dhakhîra d’al-Qarâfî : aucun hadith authentique n’a été établi sur cette question. Cette critique doit accompagner toute mention du récit.",
+        "C’est un point important lorsqu’on apprend le fiqh à partir d’un commentaire. Les auteurs rapportent parfois des traditions pour exposer les arguments qui ont circulé, puis signalent qu’elles sont faibles. L’existence d’une citation dans un ouvrage prestigieux ne suffit donc pas à confirmer son attribution au Prophète ﷺ. Pour notre cours, la distinction est claire : nous pouvons expliquer la place de ce récit dans la discussion historique, mais nous n’avons pas à le présenter comme un dalîl prophétique authentifié."
+      ],
+      "steps": [
+        {
+          "label": "Une attribution prophétique exige une vérification",
+          "text": "Le texte conserve le récit et la critique de sa transmission. On ne peut pas citer la première sans la seconde."
+        },
+        {
+          "label": "« Lam yasihh » marque l’absence d’authenticité",
+          "text": "La formule d’‘Abd al-Haqq est une appréciation du hadith, pas une déclaration de certitude médicale."
+        },
+        {
+          "label": "La Dhakhîra d’al-Qarâfî est citée",
+          "text": "Al-Hattâb s’appuie sur un auteur malikite qui a conservé cette évaluation des preuves."
+        },
+        {
+          "label": "La règle et la preuve doivent être examinées séparément",
+          "text": "Même si un juriste retient une réprobation pour une autre raison, cela ne rend pas automatiquement authentique le récit cité."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le passage",
+        "text": "Un étudiant prépare un cours et trouve une phrase attribuée au Prophète ﷺ sur l’eau exposée au soleil. Avant de la reproduire, il lit la discussion d’al-Hattâb et découvre l’objection d’‘Abd al-Haqq. Il décide de présenter l’histoire de cette attribution, puis d’expliquer pourquoi elle ne doit pas être rapportée comme un hadith authentique. Cet exemple fictif montre une exigence élémentaire de vérification."
       },
-      {
-        "arabic": "الْحَدِيثُ الضَّعِيف",
-        "term": "Hadîth da‘îf",
-        "definition": "Récit dont la transmission ne remplit pas les conditions d’authenticité. Al-Hattâb distingue cette qualification de celle d’un récit fabriqué."
+      "takeaway": "‘Abd al-Haqq ne reconnaît pas de hadith authentique sur cette mise en garde. Al-Hattâb le rapporte explicitement : il serait donc inexact de présenter le récit comme une preuve prophétique solide de l’avis discuté.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle.",
+      "context": "On te cite un hadith selon lequel l’eau chauffée au soleil provoquerait une maladie de peau. Avant de le présenter comme parole du Prophète ﷺ, il faut vérifier si ce récit est authentique. Al-Hattâb rapporte justement les critiques des spécialistes."
+    },
+    {
+      "id": "classification-hadith",
+      "eyebrow": "ÉTAPE 05 · LECTURE DU COMMENTAIRE",
+      "title": "Pourquoi al-Hattâb distingue-t-il le hadith faible du hadith fabriqué ?",
+      "passage": {
+        "arabic": "وما ذكره ابن فرحون من كون الحديث موضوعا قاله بعضهم والأكثر على أنه حديث ضعيف",
+        "translation": "« Certains ont qualifié le récit de fabriqué, comme le rapporte Ibn Farhûn ; la plupart l’ont jugé faible. »",
+        "explanation": "Ibn Farhûn transmet une qualification sévère du récit. Al-Hattâb reconnaît l’existence de cette critique mais signale que d’autres auteurs le décrivent plutôt comme faible, sans pour autant le tenir pour authentique.",
+        "sourceLabel": "Al-Hattâb, propos personnels introduits par « قلت », à propos d’Ibn Farhûn et des critiques du récit, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "الْحَدِيثُ الْمَوْضُوع",
-        "term": "Hadîth mawdû‘",
-        "definition": "Récit tenu pour fabriqué. Ibn Farhûn rapporte ce jugement dans le cas étudié, tandis qu’al-Hattâb distingue les avis des critiques."
+      "paragraphs": [
+        "Le commentaire expose maintenant une nuance de science du hadith. Ibn Farhûn rapporte que le récit serait fabriqué, en renvoyant notamment à des critiques de transmission. Al-Hattâb intervient personnellement par « قلت », « je dis », puis précise que certains auteurs ont adopté cette qualification, tandis que la plupart, selon lui, ont retenu celle de hadith faible. Cette distinction mérite qu’on s’y arrête : un récit faible et un récit fabriqué ne sont pas deux expressions équivalentes.",
+        "Il faut également garder le point commun de ces jugements. Ni l’un ni l’autre ne transforme ce récit en parole prophétique authentifiée. Le commentaire rapporte encore la critique d’al-Nawawî dans son Sharh al-Muhadhdhab. Nous ne devons donc pas chercher une certitude que la source refuse elle-même. La question juridique pourra continuer à être discutée à partir d’autres arguments, mais ce texte particulier ne doit pas être utilisé comme s’il avait été validé par les spécialistes du hadith."
+      ],
+      "steps": [
+        {
+          "label": "Ibn Farhûn transmet une appréciation",
+          "text": "Le commentaire conserve cette qualification, puis apporte une précision sur l’existence d’autres appréciations."
+        },
+        {
+          "label": "« Mawdu‘ » et « da‘îf » diffèrent",
+          "text": "Le premier terme désigne une fabrication ; le second une transmission qui n’atteint pas les conditions de l’authenticité."
+        },
+        {
+          "label": "Le « قلت » appartient à al-Hattâb",
+          "text": "Il ne se contente pas de recopier les auteurs : il intervient pour distinguer les degrés de critique."
+        },
+        {
+          "label": "La faiblesse du récit demeure",
+          "text": "La nuance technique n’autorise pas à rapporter le texte comme un hadith authentique ni comme une preuve scientifique du dommage allégué."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le passage",
+        "text": "Deux lecteurs discutent d’un même récit. Le premier a lu qu’Ibn Farhûn le jugeait fabriqué ; le second connaît la remarque d’al-Hattâb, selon laquelle une majorité de critiques le tient pour faible. Leur enseignant leur demande de conserver les deux termes et les auteurs au lieu de choisir l’un au hasard. La scène est fictive, mais elle illustre pourquoi la précision d’attribution est indispensable."
       },
-      {
-        "arabic": "الِاسْتِدْلَال",
-        "term": "Istidlâl",
-        "definition": "Démarche consistant à fonder un jugement sur une preuve. La discussion montre pourquoi un récit contesté ne peut être rapporté comme une preuve prophétique authentique."
+      "takeaway": "Al-Hattâb maintient la différence technique entre fabrication alléguée et faiblesse de la transmission. Il ne présente jamais le récit comme un hadith authentique : aucune conclusion médicale ne doit non plus être déduite de son seul contenu.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–79, commentaire de « كمشمس ». Exemple pédagogique fictif, sans conclusion médicale ni fatwa individuelle.",
+      "context": "Deux ouvrages parlent du même récit sur l’eau exposée au soleil : l’un le qualifie de « faible », l’autre de « fabriqué ». Est-ce la même chose ? Al-Hattâb transmet ces deux appréciations sans les confondre."
+    },
+    {
+      "id": "copper-regions",
+      "eyebrow": "ÉTAPE 06 · LECTURE DU COMMENTAIRE",
+      "title": "Que précise Ibn al-‘Arabî sur les récipients et les pays chauds ?",
+      "passage": {
+        "arabic": "لو شمس في أواني الصفر في البلاد الحارة",
+        "translation": "« Si l’eau a été exposée au soleil dans des récipients de cuivre jaune, dans les pays chauds. »",
+        "explanation": "Al-Hattâb cite Ibn al-Imâm rapportant une restriction d’Ibn al-‘Arabî : la réprobation envisagée n’est pas nécessairement attachée à toute eau chauffée au soleil, mais à un contexte historique précis.",
+        "sourceLabel": "Ibn al-‘Arabî, al-Masâlik, transmis par Ibn al-Imâm et cité par al-Hattâb, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "أَوَانِي الصُّفْر",
-        "term": "Awânî al-sufr",
-        "definition": "Récipients de cuivre jaune évoqués dans la restriction d’Ibn al-Imâm et d’Ibn al-‘Arabî. Leur présence dans le texte relève du contexte historique de l’avis."
+      "paragraphs": [
+        "Le commentaire devient plus précis lorsqu’Ibn al-Imâm transmet des propos d’Ibn al-‘Arabî. L’inquiétude évoquée ne concerne plus toute eau qui a reçu la chaleur du soleil. Elle se rattache à certains récipients de cuivre jaune, utilisés dans des pays chauds. Les auteurs anciens pensaient que le chauffage d’un tel contenant pouvait entraîner un effet sur le corps. Ce sont les circonstances dans lesquelles ils plaçaient leur réserve, et il faut conserver cette restriction lorsqu’on rapporte leur avis.",
+        "Rien dans la seule existence de cette transmission ne prouve aujourd’hui la maladie à laquelle ils faisaient référence. Nous étudions la logique du fiqh et l’histoire de sa discussion, non une démonstration clinique. Il serait erroné de transformer le mot « mushammas » en une interdiction générale des bouteilles laissées au soleil, de l’eau des rivières et de toutes les installations réchauffées naturellement. Le matériau et le climat étaient des éléments de l’hypothèse rapportée, pas des seuils modernes de danger."
+      ],
+      "steps": [
+        {
+          "label": "« Awanî al-sufr » indique un matériau particulier",
+          "text": "Il s’agit ici des récipients de cuivre jaune auxquels la transmission rattache une inquiétude ancienne."
+        },
+        {
+          "label": "Les « pays chauds » font partie de la condition",
+          "text": "L’auteur ne formule pas une réserve sans contexte climatique ; il restreint ce qu’il rapporte."
+        },
+        {
+          "label": "Une hypothèse médicale demeure une hypothèse",
+          "text": "Même lorsqu’une inquiétude apparaît dans plusieurs ouvrages anciens, il faut la distinguer d’une relation causale médicalement établie."
+        },
+        {
+          "label": "Ne pas élargir le cas sans preuve",
+          "text": "L’eau d’un récipient particulier et une grande étendue d’eau naturellement chauffée ne peuvent pas être confondues."
+        }
+      ],
+      "example": {
+        "title": "Une situation pour comprendre l’avis",
+        "text": "Un étudiant compare une eau restée au soleil dans un récipient de cuivre jaune, celle d’une jarre en terre et celle d’un lac. Il applique la même réserve aux trois sans lire les conditions d’Ibn al-‘Arabî. Son professeur lui montre que le texte évoque expressément un matériau et un pays chaud. Cette comparaison est pédagogique ; elle n’établit aucun risque sanitaire propre à l’un des trois contenants."
       },
-      {
-        "arabic": "الْبِلَادُ الْحَارَّة",
-        "term": "Al-bilâd al-hârra",
-        "definition": "Pays ou régions chaudes mentionnés parmi les conditions de la réserve rapportée. Le passage ne donne pas de seuil de température universel."
+      "takeaway": "Ibn al-Imâm cite Ibn al-‘Arabî pour restreindre la discussion à certaines conditions matérielles. Al-Hattâb retient l’importance de cette restriction, sans fournir de preuve médicale contemporaine d’un effet pathologique.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval.",
+      "context": "Une jarre en terre et un récipient de cuivre jaune sont exposés au soleil. Les anciens juristes parlaient-ils forcément des deux de la même manière ? Ibn al-‘Arabî évoque spécifiquement certains récipients métalliques utilisés dans des pays chauds."
+    },
+    {
+      "id": "conditional-harm",
+      "eyebrow": "ÉTAPE 07 · LECTURE DU COMMENTAIRE",
+      "title": "Pourquoi la preuve d’un dommage change-t-elle le raisonnement juridique ?",
+      "passage": {
+        "arabic": "والحق أن التجربة إن قضت بضرر استعماله فالقول بالكراهة ظاهر",
+        "translation": "« Si l’expérience établit un préjudice lié à son usage, alors la réprobation devient compréhensible. »",
+        "explanation": "Le passage pose une condition : la réalité du dommage doit être établie. Il ne dit pas que les hypothèses médicales exposées précédemment ont été prouvées.",
+        "sourceLabel": "Argument cité dans la discussion d’Ibn al-Imâm et d’Ibn al-‘Arabî, rapportée par al-Hattâb, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "التَّجْرِبَة",
-        "term": "Tajriba",
-        "definition": "Expérience ou constat dont le rôle est invoqué dans l’examen d’un préjudice réel. Une condition reposant sur l’expérience n’établit pas en soi que le dommage allégué existe."
+      "paragraphs": [
+        "Le raisonnement juridique devient alors conditionnel. Un auteur cité dans le passage explique que si l’expérience établissait un dommage lié à cet usage, il serait naturel de recommander de s’en abstenir. Il ne faut pas retirer le « si » de la phrase. Ce n’est pas une preuve que l’eau chauffée par le soleil provoque la maladie alléguée, mais une manière de raisonner sur les actes lorsqu’un préjudice est effectivement connu. L’étudiant doit distinguer le principe juridique et la réalité des faits auxquels il pourrait être appliqué.",
+        "Le commentaire poursuit en distinguant les dommages rares des conséquences qui seraient habituellement à craindre. Cette nuance explique pourquoi les juristes ne donnent pas toujours le même poids à une possibilité lointaine et à un risque réellement établi. Mais dans le sujet précis de notre fiche, nous n’avons pas le droit d’annoncer que les exemples médicaux anciens sont confirmés. Nous pouvons seulement expliquer qu’une vraie preuve de danger serait pertinente pour apprécier l’usage, même si l’eau demeurait rituellement purifiante."
+      ],
+      "steps": [
+        {
+          "label": "Le raisonnement est introduit par une condition",
+          "text": "L’auteur dit « si l’expérience établit ». Cette précision ne peut pas être remplacée par une certitude imaginée."
+        },
+        {
+          "label": "Le dommage concerne l’usage, pas une impureté",
+          "text": "Une eau peut rester pure au sens rituel tout en soulevant, dans certaines circonstances vérifiées, une question de sécurité."
+        },
+        {
+          "label": "La fréquence du dommage importe",
+          "text": "Le passage distingue les risques occasionnels de ceux qui auraient une probabilité importante, sans donner de chiffres."
+        },
+        {
+          "label": "Il faut vérifier le fait avant d’appliquer le principe",
+          "text": "La présence d’un argument dans un commentaire de fiqh ne remplace pas une recherche médicale destinée à établir le danger."
+        }
+      ],
+      "example": {
+        "title": "Une situation pour comprendre l’avis",
+        "text": "Une personne lit « si l’expérience prouve un dommage » et répète ensuite : « Les juristes ont démontré que l’eau chauffée au soleil est dangereuse. » En reprenant l’arabe, elle découvre que la proposition est conditionnelle. C’est une règle de prudence appliquée à un dommage éventuel, pas la preuve de ce dommage. L’exemple est fictif et ne constitue pas un avis médical sur un récipient particulier."
       },
-      {
-        "arabic": "الضَّرَر",
-        "term": "Darar",
-        "definition": "Préjudice ou dommage réel. Le commentaire examine son importance pour juger un usage, en distinguant la possibilité lointaine d’un danger prouvé."
+      "takeaway": "Le commentaire reconnaît la pertinence d’un dommage effectivement établi pour le jugement de l’usage. Il ne prouve pas, par la seule formulation de ce principe, que les affirmations médicales historiques mentionnées dans la discussion soient exactes.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval.",
+      "context": "Quelqu’un affirme : « L’eau laissée au soleil est dangereuse, les savants l’ont prouvé. » Mais la phrase étudiée dit seulement : « Si l’expérience établit un dommage… ». La condition est essentielle : l’hypothèse d’un risque ne prouve pas qu’il existe."
+    },
+    {
+      "id": "nawawi-hadith",
+      "eyebrow": "ÉTAPE 08 · LECTURE DU COMMENTAIRE",
+      "title": "Comment al-Nawawî examine-t-il les arguments transmis ?",
+      "passage": {
+        "arabic": "فالصواب الجزم بأنه لا كراهة فيه",
+        "translation": "« Ce qui est correct est d’affirmer qu’il n’y a pas de réprobation. »",
+        "explanation": "Al-Hattâb cite al-Nawawî après sa critique des transmissions sur l’eau chauffée au soleil. Al-Nawawî y rejette les chaînes faibles et l’idée que l’argument médical aurait été établi dans ce qu’il expose.",
+        "sourceLabel": "Al-Nawawî, Sharh al-Muhadhdhab, propos rapportés par al-Hattâb, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "رَفْعُ الْحَدَث",
-        "term": "Raf‘ al-hadath",
-        "definition": "Levée de l’état d’impureté rituelle par une purification valable. Les avis cités distinguent cette fonction de l’eau des inquiétudes extérieures relatives à son usage."
+      "paragraphs": [
+        "Al-Hattâb nous fait ensuite lire un passage d’al-Nawawî dans le Sharh al-Muhadhdhab. Ce dernier discute les récits invoqués pour réprouver l’eau chauffée par le soleil et souligne leur faiblesse. Il mentionne que les voies transmises ont été examinées, notamment par al-Bayhaqî, sans qu’une preuve prophétique solide en ressorte. Il exprime alors la préférence de ne pas retenir de réprobation particulière. Sa conclusion appartient à son raisonnement dans cet ouvrage et ne doit pas être attribuée à Ibn al-Hâjib ou à al-Hattâb.",
+        "Al-Nawawî indique aussi que, dans les éléments qu’il examine, la justification médicale ne lui paraît pas établie. Ce jugement historique doit être présenté comme son appréciation, non comme une expertise moderne tranchant définitivement la question du contenu de tous les récipients. Pour notre étude, son argument central est la critique de la preuve avancée. Cette manière de juger nous oblige à ne pas construire une règle religieuse ferme sur un récit dont la faiblesse a été explicitement signalée."
+      ],
+      "steps": [
+        {
+          "label": "Al-Nawawî est cité depuis un ouvrage déterminé",
+          "text": "La formulation vient du Sharh al-Muhadhdhab ; elle ne décrit pas nécessairement toute sa production sans comparaison."
+        },
+        {
+          "label": "Les chaînes du récit sont discutées",
+          "text": "Le commentaire rapporte la faiblesse des voies de transmission et le travail d’al-Bayhaqî sur ces récits."
+        },
+        {
+          "label": "La conclusion est celle d’al-Nawawî dans ce passage",
+          "text": "Il affirme que la réprobation n’a pas de fondement établi dans les arguments qu’il présente."
+        },
+        {
+          "label": "Ce n’est pas une validation médicale contemporaine",
+          "text": "La discussion historique des preuves ne doit pas être transformée en un diagnostic de santé applicable à tout récipient."
+        }
+      ],
+      "example": {
+        "title": "Une situation pour comprendre l’avis",
+        "text": "Un élève lit une opinion ancienne attribuant une maladie à une eau chauffée par le soleil. Il cherche un dalîl prophétique sûr, puis découvre chez al-Nawawî une critique des voies du récit. Il comprend pourquoi un savant peut préférer ne pas retenir de réprobation particulière. La scène est inventée pour expliquer l’enchaînement de l’argument, sans établir le statut d’une eau rencontrée dans la vie quotidienne."
       },
-      {
-        "arabic": "الْإِجْزَاء",
-        "term": "Ijzâ’ fi-l-mushammas",
-        "definition": "Suffisance juridique de l’acte accompli, même lorsqu’une manière de procéder fait l’objet d’une réprobation. L’exemple vient du premier tanbîh cité par al-Hattâb."
+      "takeaway": "Dans le passage cité du Sharh al-Muhadhdhab, al-Nawawî rejette les preuves avancées et préfère affirmer l’absence de réprobation. Son argument repose notamment sur l’examen des récits, pas sur la prétention qu’une hypothèse ancienne aurait été scientifiquement vérifiée.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval.",
+      "context": "Une personne refuse ses ablutions avec de l’eau solaire en invoquant un récit prophétique. Al-Nawawî examine les chaînes de transmission de ce récit et juge que les preuves avancées ne justifient pas une réprobation particulière dans son analyse."
+    },
+    {
+      "id": "nawawi-disagreement",
+      "eyebrow": "ÉTAPE 09 · LECTURE DU COMMENTAIRE",
+      "title": "Pourquoi al-Hattâb relève-t-il deux formulations différentes chez al-Nawawî ?",
+      "passage": {
+        "arabic": "وقد جزم النووي في منهاجه بكراهة المشمس",
+        "translation": "« Pourtant, al-Nawawî a affirmé la réprobation de l’eau chauffée au soleil dans son Minhâj. »",
+        "explanation": "Après la citation d’al-Nawawî dans le Sharh al-Muhadhdhab, al-Hattâb remarque que ce même auteur a retenu une formulation différente dans le Minhâj. Il rapporte également les objections d’autres auteurs shaféites à son raisonnement médical.",
+        "sourceLabel": "Al-Hattâb, remarque personnelle, t. 1, p. 79 ; renvoi au Minhâj d’al-Nawawî et aux explications de certains shaféites, dont Ibn al-Nafîs.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "التَّبْرِيد",
-        "term": "Tabrîd",
-        "definition": "Refroidissement de l’eau. Ibn Farhûn demande si cette opération fait disparaître la réprobation alléguée et lie la réponse à la cause supposée."
+      "paragraphs": [
+        "Cette remarque fait apparaître le soin qu’al-Hattâb apporte à ses citations. Il vient de reproduire un passage dans lequel al-Nawawî conclut à l’absence de réprobation. Puis il ajoute que, dans le Minhâj, al-Nawawî a formulé la question dans le sens de la réprobation. Il ne faut donc pas choisir silencieusement l’une de ces deux phrases et affirmer qu’elle résume tout ce qu’al-Nawawî a écrit. Le commentaire nous apprend à comparer les ouvrages d’un même savant lorsqu’ils ne sont pas formulés de la même manière.",
+        "Al-Hattâb rapporte ensuite que des auteurs shaféites, notamment Ibn al-Nafîs dans un commentaire médicalement argumenté, ont soutenu la thèse du dommage supposé. Il s’agit de conceptions médicales historiquement situées. La mention d’Ibn al-Nafîs montre quelle autorité ces arguments possédaient alors, mais elle ne constitue pas une preuve contemporaine que l’eau solaire provoque le baras. Nous devons restituer la divergence sans la résoudre en inventant un consensus doctrinal ou médical."
+      ],
+      "steps": [
+        {
+          "label": "Une même autorité peut être citée dans plusieurs livres",
+          "text": "Al-Hattâb oppose ici le Sharh al-Muhadhdhab et le Minhâj, sans supposer qu’une citation suffit à effacer l’autre."
+        },
+        {
+          "label": "Le débat dépasse l’école malikite",
+          "text": "Les auteurs shaféites sont mentionnés pour leurs raisons et leurs divergences, non pour décider à la place des malikites."
+        },
+        {
+          "label": "Ibn al-Nafîs intervient comme autorité ancienne",
+          "text": "Son argument est rapporté comme un raisonnement médical de son époque, et non comme une donnée clinique confirmée ici."
+        },
+        {
+          "label": "L’attribution précise est essentielle",
+          "text": "L’étudiant doit identifier qui parle, dans quel livre et au sujet de quelle condition avant de retenir une conclusion."
+        }
+      ],
+      "example": {
+        "title": "Une situation pour comprendre l’avis",
+        "text": "Deux personnes citent al-Nawawî. La première lui attribue l’absence de réprobation en s’appuyant sur le Sharh al-Muhadhdhab ; la seconde mentionne le Minhâj. Elles croient nécessairement que l’une ment. En lisant al-Hattâb, elles constatent que les deux formulations ont été rapportées et demandent une explication. Ce dialogue fictif illustre le rôle d’un commentaire attentif aux références."
       },
-      {
-        "arabic": "الْأَوْعِيَةُ الْمَطْرُوقَة",
-        "term": "Al-aw‘iya al-matrûqa",
-        "definition": "Récipients métalliques façonnés au marteau, discutés par certains auteurs shaféites lorsqu’ils précisent les conditions de la réprobation historique."
+      "takeaway": "Al-Hattâb souligne des formulations différentes chez al-Nawawî et cite les discussions d’autres auteurs shaféites. Le cours doit conserver cette complexité, sans présenter un avis isolé comme la seule position connue du savant.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval.",
+      "context": "Un lecteur cite al-Nawawî pour dire que l’eau chauffée au soleil n’est pas réprouvée ; un autre trouve une formulation différente dans un second ouvrage du même savant. Al-Hattâb les signale toutes les deux : il faut les attribuer à leurs livres respectifs."
+    },
+    {
+      "id": "hattab-conclusion",
+      "eyebrow": "ÉTAPE 10 · LECTURE DU COMMENTAIRE",
+      "title": "Quelle position al-Hattâb estime-t-il forte, et à quelles conditions ?",
+      "passage": {
+        "arabic": "والحاصل أن القول بكراهة المشمس قوي",
+        "translation": "« En définitive, l’avis qui réprouve l’eau chauffée au soleil est fort. »",
+        "explanation": "Après avoir cité les arguments favorables et défavorables à la réprobation, al-Hattâb indique qu’elle est fortement représentée dans les transmissions. Il la restreint néanmoins, en rappelant les conditions de récipient et de climat évoquées par Ibn al-Imâm et Ibn al-‘Arabî.",
+        "sourceLabel": "Al-Hattâb, conclusion personnelle de l’examen des avis, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "الْبِرَكُ وَالْأَنْهَار",
-        "term": "Al-birak wa-l-anhâr",
-        "definition": "Grands bassins et cours d’eau. Al-Hattâb rapporte, d’après al-Nawawî, qu’ils ne reçoivent pas la réprobation discutée pour de petits récipients."
+      "paragraphs": [
+        "Nous arrivons à la préférence explicite d’al-Hattâb. Il explique qu’après comparaison des auteurs qu’il a consultés, l’avis selon lequel l’eau chauffée par le soleil fait l’objet d’une réprobation lui paraît fort. Il mentionne la transmission d’Ibn al-Faras d’après Mâlik et l’existence de plusieurs maîtres ayant retenu une réserve. Ce passage est important pour comprendre son rôle : il ne se contente pas de recopier la phrase de Khalîl et l’explication d’Ibn al-Hâjib. Il met les avis en regard et dit ce qui lui paraît le plus solide dans la documentation de l’école.",
+        "Mais il ajoute aussitôt que cette réprobation devrait être limitée aux conditions évoquées par Ibn al-Imâm et Ibn al-‘Arabî : des récipients particuliers et des régions chaudes. Il ne formule pas ici une affirmation générale selon laquelle toute eau réchauffée par la lumière serait mauvaise pour la santé. Sa conclusion doit également être lue avec la faiblesse du récit prophétique invoqué et avec l’absence de preuve médicale contemporaine dans cette étude. La portée de l’avis est donc bien plus précise qu’une formule isolée."
+      ],
+      "steps": [
+        {
+          "label": "« Wal-hâsil » annonce une synthèse",
+          "text": "C’est al-Hattâb lui-même qui résume l’examen des transmissions, après avoir exposé plusieurs positions."
+        },
+        {
+          "label": "« Qawî » n’est pas « ijmâ‘ »",
+          "text": "Dire qu’un avis est fort ne signifie pas qu’il existe une unanimité. L’auteur vient justement de rapporter un désaccord."
+        },
+        {
+          "label": "Une restriction matérielle suit",
+          "text": "Le commentateur revient au matériau du récipient et au climat. Omettre cette condition changerait le sens pratique de sa synthèse."
+        },
+        {
+          "label": "L’authenticité du hadith reste une question distincte",
+          "text": "La force d’une transmission doctrinale n’autorise pas à qualifier soudain un récit faible d’authentique."
+        }
+      ],
+      "example": {
+        "title": "Une situation pour comprendre l’avis",
+        "text": "Un lecteur découvre seulement la phrase « l’avis de réprobation est fort » et la transmet comme si elle visait toute eau en contact avec le soleil. Son enseignant lui fait lire la suite : al-Hattâb précise le cas des récipients de cuivre jaune dans les pays chauds. L’élève corrige alors son résumé. Cette scène fictive rappelle pourquoi la dernière phrase d’un commentaire doit être lue avec toutes ses conditions."
       },
-      {
-        "arabic": "الْمُسَخَّنُ بِالنَّار",
-        "term": "Musakhkhan bi-n-nâr",
-        "definition": "Eau chauffée au feu. Le sixième tanbîh la traite à part : le chauffage par le feu n’entraîne pas à lui seul la réprobation envisagée pour certains cas solaires."
+      "takeaway": "Al-Hattâb estime que la réprobation est fortement transmise dans la littérature examinée, mais en propose une restriction précise. Il ne faut ni effacer cette préférence ni la transformer en une interdiction universelle de l’eau chauffée au soleil.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79, commentaire de « كمشمس ». Exemple fictif ; aucune affirmation clinique n’est déduite du texte médiéval.",
+      "context": "Après avoir cité plusieurs savants, al-Hattâb juge la réprobation de l’eau solaire défendable. Cela signifie-t-il que toute eau tiédie par le soleil est visée ? Non : il rappelle les restrictions anciennes relatives aux récipients et au climat."
+    },
+    {
+      "id": "ibn-al-furat",
+      "eyebrow": "ÉTAPE 11 · LECTURE DU COMMENTAIRE",
+      "title": "Pourquoi Ibn al-Furât propose-t-il une lecture différente de Khalîl ?",
+      "passage": {
+        "arabic": "وجوز ابن الفرات أن يكون التشبيه في قول المصنف كمشمس راجعا إلى ما قبله من المكروهات",
+        "translation": "« Ibn al-Furât a envisagé que la comparaison “comme l’eau chauffée au soleil” se rattache aux choses réprouvées mentionnées auparavant. »",
+        "explanation": "Al-Hattâb conserve la proposition grammaticale d’Ibn al-Furât, mais répond que ce que Khalîl écrit dans le Tawdîh va plutôt dans l’autre sens.",
+        "sourceLabel": "Ibn al-Furât, interprétation rapportée puis discutée par al-Hattâb, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "arabic": "الْإِسْبَاغ",
-        "term": "Isbâgh al-wudû’",
-        "definition": "Accomplissement complet et soigné des ablutions. Une eau excessivement chaude ou froide peut compliquer cette réalisation, selon les réserves rapportées."
-      }
-    ],
-    "quiz": [
-      {
-        "question": "Dans la phrase « كمشمس », que cherche d’abord à comprendre al-Hattâb ?",
-        "choices": [
-          "Le rattachement grammatical de la comparaison à ce qui précède.",
-          "La quantité de chaleur mesurée en degrés.",
-          "Le type de prière accomplie ensuite."
-        ],
-        "answer": 0,
-        "explanation": "Le commentaire commence par examiner si Khalîl rattache l’eau exposée au soleil aux eaux réprouvées ou aux exceptions. La plupart des commentateurs cités choisissent la seconde lecture."
+      "paragraphs": [
+        "Après la comparaison des avis, al-Hattâb revient à une difficulté que nous avions rencontrée en ouvrant la leçon : comment faut-il rattacher le mot « كمشمس » dans la phrase de Khalîl ? Ibn al-Furât propose qu’il renvoie aux eaux réprouvées mentionnées précédemment. La phrase pourrait alors donner l’impression que Khalîl range lui-même l’eau chauffée au soleil parmi les usages déconseillés. Al-Hattâb rapporte cette lecture sans la cacher à l’étudiant.",
+        "Il ajoute pourtant que les propos de Khalîl dans le Tawdîh lui semblent indiquer le contraire. Nous retrouvons ici une méthode de lecture des textes abrégés : lorsqu’une formule du Mukhtasar peut recevoir deux rattachements, les écrits explicatifs de son auteur peuvent aider à préciser sa pensée. Le fait qu’al-Hattâb considère la transmission de la réprobation comme forte ne signifie donc pas qu’il est d’accord avec toute analyse grammaticale faisant dire à Khalîl que cette réprobation ressort directement de ses deux mots."
+      ],
+      "steps": [
+        {
+          "label": "La proposition d’Ibn al-Furât",
+          "text": "Elle porte sur la construction de la phrase du Mukhtasar, et non sur une nouvelle expérience médicale."
+        },
+        {
+          "label": "Le rattachement aux eaux réprouvées",
+          "text": "Selon cette lecture, le « comme » de Khalîl rapprocherait l’eau ensoleillée des catégories précédemment réprouvées."
+        },
+        {
+          "label": "La réponse d’al-Hattâb",
+          "text": "Il invoque le Tawdîh de Khalîl pour expliquer pourquoi l’autre rattachement lui paraît plus fidèle à l’intention de l’auteur."
+        },
+        {
+          "label": "Une préférence doctrinale et une lecture grammaticale peuvent différer",
+          "text": "Il faut distinguer ce que le commentateur retient après comparaison des avis de ce qu’il pense être le sens exact de la phrase de Khalîl."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le raisonnement",
+        "text": "Deux élèves s’interrogent sur « كمشمس ». Le premier pense qu’il dépend des eaux réprouvées ; le second des exceptions à la réprobation. Al-Hattâb leur apprend qu’un autre ouvrage de Khalîl, le Tawdîh, peut éclairer la structure de cette phrase. La scène est inventée pour illustrer le travail des commentateurs, et non pour présenter une nouvelle autorité."
       },
-      {
-        "question": "Que dit Ibn al-Hâjib au sujet de l’eau chauffée au soleil ?",
-        "choices": [
-          "Elle devient automatiquement impure.",
-          "Elle est comme les autres eaux et n’est pas réprouvée pour ce motif.",
-          "Elle ne peut servir qu’au nettoyage des vêtements."
-        ],
-        "answer": 1,
-        "explanation": "Ibn al-Hâjib est cité explicitement : « والمشمس كغيره فلا كراهة فيه ». Al-Hattâb rapproche cette lecture d’Ibn ‘Abd al-Salâm et du Tawdîh."
+      "takeaway": "L’hypothèse d’Ibn al-Furât est une possibilité grammaticale citée par al-Hattâb. Celui-ci répond que le Tawdîh permet plutôt de lire le passage comme une exception à la réprobation, sans nier le débat juridique qui suit.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale.",
+      "context": "Khalîl écrit seulement « comme l’eau chauffée au soleil ». Faut-il rattacher cette expression à la liste des eaux réprouvées ou aux exceptions ? Ibn al-Furât propose la première lecture ; al-Hattâb regarde ce que Khalîl écrit ailleurs."
+    },
+    {
+      "id": "validity",
+      "eyebrow": "ÉTAPE 12 · LECTURE DU COMMENTAIRE",
+      "title": "Si quelqu’un utilise cette eau, son wudû’ est-il valable ?",
+      "passage": {
+        "arabic": "إن توضأ به أجزأه",
+        "translation": "« S’il accomplit les ablutions avec cette eau, elles lui suffisent. »",
+        "explanation": "Le commentaire distingue une éventuelle réserve médicale de la capacité de l’eau à lever le hadath. Il rapporte également la priorité de l’acte obligatoire lorsqu’aucune autre eau n’existe.",
+        "sourceLabel": "Ibn al-Imâm transmettant une explication d’Ibn al-‘Arabî ; premier tanbîh rapporté par al-Hattâb, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "question": "Sur quel motif Sanad rapporte-t-il une réprobation ?",
-        "choices": [
-          "Une impureté certaine entrée dans l’eau.",
-          "Une interdiction unanime de tous les malikites.",
-          "Une considération médicale qui était avancée à son époque."
-        ],
-        "answer": 2,
-        "explanation": "Dans al-Tirâz, Sanad parle de réprobation « من جهة الطب ». Il ne dit pas que la chaleur solaire rend l’eau impure par nature ni que le dommage allégué est une donnée clinique confirmée."
+      "paragraphs": [
+        "Le premier des tanbîhât aborde une question que l’étudiant attend depuis le début : si la personne se purifie réellement avec une eau exposée au soleil dans les conditions discutées, sa purification compte-t-elle ? Ibn al-Imâm rapporte d’Ibn al-‘Arabî qu’un wudû’ ainsi accompli peut suffire. La raison est très claire : la réserve alléguée ne porte pas sur la capacité de cette eau à lever le hadath, mais sur une considération extérieure à cet acte. Nous ne devons pas confondre l’avis sur la convenance de l’usage et celui sur sa validité.",
+        "Le passage ajoute que lorsqu’aucune autre eau n’est disponible, la nécessité de remplir un devoir rituel prend le dessus sur la volonté d’éviter une simple réprobation. Cette formulation doit rester attachée au cas envisagé : il n’est pas question d’ignorer un danger matériel réellement établi. Mais elle montre bien que, dans l’analyse du commentateur, la réprobation éventuelle de l’eau chauffée au soleil ne retire pas son pouvoir purifiant pour cette seule raison."
+      ],
+      "steps": [
+        {
+          "label": "« Ajza’ahu » signifie que l’acte suffit",
+          "text": "Le mot examine la validité du wudû’ accompli ; il ne fait pas seulement l’éloge d’une manière de se purifier."
+        },
+        {
+          "label": "Le motif est extérieur à la levée du hadath",
+          "text": "Le passage distingue la qualité purifiante de l’eau d’une réserve d’emploi fondée sur un risque supposé."
+        },
+        {
+          "label": "La disponibilité d’une autre eau est pertinente",
+          "text": "Lorsque l’alternative n’existe pas, le texte discute la priorité de l’obligation de purification sur l’évitement d’une simple réprobation."
+        },
+        {
+          "label": "La réserve n’est pas une impureté",
+          "text": "Aucune de ces discussions ne permet de dire que l’eau chauffée au soleil est devenue rituellement souillée."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le raisonnement",
+        "text": "Un étudiant a déjà fait ses ablutions avec une eau tiède laissée au soleil. Il se demande si une simple réprobation rapportée par certains juristes obligerait à tout recommencer. Les paroles d’Ibn al-‘Arabî citées dans le commentaire distinguent la validité de l’acte et le motif extérieur de la réserve. L’exemple est fictif et n’examine pas un dommage sanitaire particulier."
       },
-      {
-        "question": "Comment ‘Abd al-Haqq juge-t-il la transmission prophétique utilisée dans ce débat ?",
-        "choices": [
-          "Il ne reconnaît aucun hadith authentique établi sur ce point.",
-          "Il la déclare unanimement authentique.",
-          "Il affirme que toutes les eaux chauffées au soleil sont impures."
-        ],
-        "answer": 0,
-        "explanation": "Al-Hattâb rapporte, depuis la Dhakhîra d’al-Qarâfî, le propos d’‘Abd al-Haqq « لم يصح فيه حديث ». Cette réserve doit accompagner toute mention du récit."
+      "takeaway": "Ibn al-‘Arabî, cité par Ibn al-Imâm, distingue la validité des ablutions d’une réprobation éventuelle de leur moyen. La seconde n’annule pas automatiquement la première : le ghusl et le wudû’ doivent être jugés selon leurs conditions.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale.",
+      "context": "Tu as déjà fait tes ablutions avec une eau propre restée au soleil. En entendant qu’un savant en déconseillait l’usage, tu te demandes si tes ablutions sont invalides. Ibn al-‘Arabî distingue justement le caractère déconseillé d’un geste de sa validité."
+    },
+    {
+      "id": "medical-karaha",
+      "eyebrow": "ÉTAPE 13 · LECTURE DU COMMENTAIRE",
+      "title": "Que signifie « réprobation médicale » selon Ibn Farhûn ?",
+      "passage": {
+        "arabic": "إذا قلنا بالكراهة فالظاهر أنها كراهة إرشاد من جهة الطب وليست كراهة شرعية",
+        "translation": "« Si nous retenons une réprobation, elle relève apparemment d’un conseil médical, et non d’une réprobation strictement religieuse. »",
+        "explanation": "Ibn Farhûn distingue deux significations possibles de la karâha. Al-Hattâb répond que le fait d’éviter un dommage par obéissance à une règle religieuse peut aussi relever d’un acte récompensé.",
+        "sourceLabel": "Ibn Farhûn, deuxième tanbîh ; objection personnelle d’al-Hattâb introduite par « قلت », t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "question": "Quelle distinction al-Hattâb maintient-il à propos de ce récit ?",
-        "choices": [
-          "La chaleur de l’eau et sa profondeur.",
-          "La qualification de hadith fabriqué avancée par certains et celle de hadith faible retenue par d’autres.",
-          "La différence entre une rivière et une source souterraine."
-        ],
-        "answer": 1,
-        "explanation": "Al-Hattâb précise qu’Ibn Farhûn rapporte la fabrication alléguée du récit, mais qu’un plus grand nombre le considère faible. Dans aucun cas il n’est présenté comme une preuve prophétique authentifiée."
+      "paragraphs": [
+        "Ibn Farhûn apporte une distinction subtile : selon lui, si l’usage de cette eau est réprouvé, il s’agirait plutôt d’une indication médicale que d’une réprobation religieuse proprement dite. Son argument est que la karâha légale se distingue du conseil donné pour éviter une gêne ou un préjudice. Il ne dit pas ici que l’eau est impure, et sa formulation montre qu’il cherche surtout à déterminer la nature de la réserve. Cette distinction est importante lorsqu’on étudie le vocabulaire du fiqh.",
+        "Al-Hattâb ne laisse pourtant pas cette analyse sans remarque. Il introduit sa propre objection par « je dis » et prend l’exemple d’une personne qui s’abstient d’un poison par respect pour l’interdiction de se causer du tort. Dans ce cas, l’intention religieuse peut donner un sens cultuel au renoncement. Nous n’avons donc pas une simple opposition entre la médecine et la religion : le commentateur explique pourquoi éviter un préjudice réellement reconnu peut aussi relever de l’obéissance à une règle générale."
+      ],
+      "steps": [
+        {
+          "label": "Ibn Farhûn distingue deux formes de karâha",
+          "text": "La première relève d’un conseil concernant la santé ; la seconde, d’une qualification religieuse dont l’abstention peut être récompensée."
+        },
+        {
+          "label": "L’avis est formulé sous condition",
+          "text": "Il commence par « si nous disons qu’il y a réprobation », ce qui situe son analyse dans le débat déjà exposé."
+        },
+        {
+          "label": "Al-Hattâb apporte une objection",
+          "text": "Le commentateur prend l’exemple d’une abstention motivée par l’interdiction de se nuire, montrant que le motif peut aussi être religieux."
+        },
+        {
+          "label": "Le fait médical n’est pas prouvé par cette discussion",
+          "text": "L’argument porte sur la manière de qualifier un dommage reconnu, et ne démontre pas l’existence du dommage historique allégué."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le raisonnement",
+        "text": "Un étudiant lit un conseil d’éviter un produit pour une raison de santé. Il demande si toute prudence médicale est un acte cultuel. Son enseignant lui montre les mots d’Ibn Farhûn puis la réponse d’al-Hattâb : la qualification peut dépendre de la preuve du danger, du commandement général de ne pas se nuire et de l’intention. Le dialogue fictif n’implique aucun fait médical concernant l’eau solaire."
       },
-      {
-        "question": "Quelle restriction matérielle est rapportée d’Ibn al-‘Arabî ?",
-        "choices": [
-          "Toute eau exposée à la lumière du jour.",
-          "Seulement les pluies de printemps.",
-          "Des récipients de cuivre jaune situés dans des pays chauds."
-        ],
-        "answer": 2,
-        "explanation": "Ibn al-Imâm cite Ibn al-‘Arabî pour restreindre la réserve aux « أواني الصفر في البلاد الحارة ». Le passage ne décrit donc pas indistinctement toutes les eaux exposées au soleil."
+      "takeaway": "Ibn Farhûn distingue la réprobation médicale et la karâha religieuse ; al-Hattâb nuance cette séparation en rappelant qu’éviter un dommage reconnu par obéissance peut avoir un sens religieux. Le cours conserve leur désaccord.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale.",
+      "context": "Un médecin conseille d’éviter un produit par prudence, tandis qu’un juriste le qualifie de « makrûh ». Les deux recommandations ont-elles le même sens ? Ibn Farhûn distingue le conseil médical d’une réprobation religieuse ; al-Hattâb discute cette séparation."
+    },
+    {
+      "id": "cooling",
+      "eyebrow": "ÉTAPE 14 · LECTURE DU COMMENTAIRE",
+      "title": "Une eau refroidie perd-elle nécessairement la réprobation évoquée ?",
+      "passage": {
+        "arabic": "وانظر هل تزول الكراهة بتبريده أو لا أو يرجع في ذلك للأطباء",
+        "translation": "« Il faut examiner si la réprobation disparaît lorsque l’eau refroidit, ou s’il faut s’en remettre aux médecins. »",
+        "explanation": "Ibn Farhûn soulève une question sur la cause alléguée de la réprobation : si elle venait d’une modification matérielle du récipient, le seul refroidissement ne suffirait pas nécessairement. Al-Hattâb mentionne également des divergences chez les shaféites.",
+        "sourceLabel": "Ibn Farhûn, troisième tanbîh ; remarques d’al-Hattâb, t. 1, p. 79.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "question": "Que signifie la condition « إن قضت التجربة بضرر » dans l’argument rapporté ?",
-        "choices": [
-          "La prudence suppose qu’un dommage soit établi, et non seulement imaginé.",
-          "Le texte prouve médicalement que le soleil crée une maladie.",
-          "Le simple chauffage annule obligatoirement le wudû’."
-        ],
-        "answer": 0,
-        "explanation": "Le raisonnement cité est conditionnel : si un dommage est réellement établi, l’usage peut être jugé différemment. Le livre ne constitue pas une preuve médicale contemporaine de ce dommage."
+      "paragraphs": [
+        "Le troisième tanbîh nous apprend à raisonner à partir de la cause avancée. Ibn Farhûn demande si l’on pourrait écarter la réprobation simplement en laissant l’eau refroidir. La question paraît facile au premier abord : si le problème venait seulement de la chaleur, une eau redevenue froide semblerait ne plus présenter la même difficulté. Mais si les juristes supposaient que le métal du récipient avait libéré une matière, refroidir l’eau ne répondrait pas à cette hypothèse. Ibn Farhûn laisse donc la question ouverte.",
+        "Il ne faut pas transformer ce doute en une réponse certaine que l’ouvrage n’a pas donnée. Al-Hattâb mentionne encore un désaccord dans les discussions shaféites. Pour bien comprendre le raisonnement, nous devons connaître la cause à laquelle les auteurs rattachaient le jugement, puis vérifier si cette cause existe réellement. Le texte ne fournit pas de preuve médicale que l’eau considérée serait dangereuse, ni une règle universelle sur le temps de refroidissement. Notre cours garde donc l’interrogation telle qu’elle figure dans la source."
+      ],
+      "steps": [
+        {
+          "label": "Refroidir l’eau change sa température",
+          "text": "Cela n’entraîne pas automatiquement que toute autre modification matérielle, si elle existait, aurait disparu."
+        },
+        {
+          "label": "La question dépend de la cause alléguée",
+          "text": "Ibn Farhûn examine les conséquences de différentes hypothèses, au lieu de fixer une règle universelle."
+        },
+        {
+          "label": "Le commentaire ne donne aucun délai",
+          "text": "Il serait inexact d’ajouter un nombre de minutes de refroidissement ou un seuil de température absent du passage."
+        },
+        {
+          "label": "Le désaccord reste rapporté",
+          "text": "Al-Hattâb mentionne aussi les discussions chez les shaféites : il ne présente pas une réponse comme unanimement acquise."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le raisonnement",
+        "text": "Une eau restée dans un récipient au soleil a refroidi pendant la nuit. Une personne soutient que toute réprobation éventuelle a forcément disparu, une autre affirme le contraire. Ibn Farhûn montre que la réponse dépendrait de la cause retenue. Sans établir cette cause, on ne peut pas déduire une conclusion certaine de la seule température. L’exemple fictif sert à expliquer la logique et n’est pas un diagnostic sur l’eau."
       },
-      {
-        "question": "Quelle est la conclusion d’al-Nawawî dans le Sharh al-Muhadhdhab cité ici ?",
-        "choices": [
-          "L’eau devient impure au moindre rayon de soleil.",
-          "Il préfère affirmer qu’il n’y a pas de réprobation établie.",
-          "Il interdit de purifier un vêtement avec toute eau chaude."
-        ],
-        "answer": 1,
-        "explanation": "Al-Nawawî y examine la faiblesse des récits et conclut « فالصواب الجزم بأنه لا كراهة فيه ». C’est sa conclusion dans l’ouvrage cité, que le cours attribue explicitement."
+      "takeaway": "Le refroidissement n’est pas présenté par Ibn Farhûn comme une solution certaine : il pose la question en fonction de la cause alléguée et renvoie aux connaissances médicales de son époque. Il faut conserver l’incertitude du texte.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale.",
+      "context": "Une eau exposée au soleil dans un récipient métallique a refroidi pendant la nuit. Une éventuelle raison de l’éviter a-t-elle disparu ? Ibn Farhûn montre que tout dépendrait de la cause alléguée, et ne transforme pas cette hypothèse en constat scientifique."
+    },
+    {
+      "id": "body-ponds-fire",
+      "eyebrow": "ÉTAPE 15 · LECTURE DU COMMENTAIRE",
+      "title": "Quelles différences al-Hattâb fait-il entre le corps, les étendues d’eau et l’eau chauffée au feu ?",
+      "passage": {
+        "arabic": "المسخن بالنار لا كراهة فيه كما صرح بذلك ابن الحاجب وغيره",
+        "translation": "« L’eau chauffée au feu n’est pas réprouvée, comme Ibn al-Hâjib et d’autres l’ont déclaré. »",
+        "explanation": "Al-Hattâb précise le cas des usages sur le corps, distingue le nettoyage des vêtements, cite al-Nawawî sur les grandes étendues et mentionne enfin l’eau chauffée au feu, avec une réserve attribuée à Ibn al-Karawî pour une chaleur ou un froid extrêmes.",
+        "sourceLabel": "Al-Hattâb, sixième tanbîh, t. 1, p. 80 ; cinq remarques précédentes sur le corps, les eaux naturelles et la chaleur.",
+        "sourceUrl": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
       },
-      {
-        "question": "Quelle nuance al-Hattâb apporte-t-il ensuite concernant al-Nawawî ?",
-        "choices": [
-          "Il n’a jamais écrit sur ce sujet.",
-          "Il a toujours défendu exactement la même formule dans tous ses ouvrages.",
-          "Dans le Minhâj, al-Nawawî a aussi formulé une réprobation."
-        ],
-        "answer": 2,
-        "explanation": "Al-Hattâb rapporte les deux formulations : absence de réprobation dans le passage du Sharh al-Muhadhdhab et affirmation de réprobation dans le Minhâj. Il faut garder les références distinctes."
+      "paragraphs": [
+        "Pour terminer, al-Hattâb passe de la discussion générale à des situations concrètes. Il distingue les usages qui touchent le corps — ablutions, ghusl ou nettoyage d’une souillure corporelle — de ceux qui concernent un objet ou un vêtement. Il rapporte également d’al-Nawawî que l’eau réchauffée dans les grands bassins et les rivières n’est pas concernée par la réprobation discutée. Le commentateur précise qu’il n’a pas trouvé de transmission contraire sur ce point. Nous ne devons donc pas traiter une rivière exposée au soleil comme un récipient métallique placé dans un pays chaud.",
+        "Dans le dernier tanbîh, il revient à l’eau chauffée au feu. Ibn al-Hâjib et d’autres la considèrent comme utilisable sans réprobation particulière. Ibn al-Karawî nuance cependant le cas où l’eau serait si chaude ou si froide qu’elle empêcherait de se purifier correctement ou nuirait au recueillement. Une fois encore, le texte ne nous apprend pas qu’il faudrait rechercher la difficulté pour obtenir une meilleure purification. Il nous demande de distinguer la manière dont l’eau a été chauffée de la possibilité réelle d’accomplir les gestes du wudû’ ou du ghusl convenablement."
+      ],
+      "steps": [
+        {
+          "label": "La réserve ancienne vise surtout l’usage sur le corps",
+          "text": "Al-Hattâb distingue cet emploi du nettoyage d’un vêtement ou d’un objet qui n’expose pas directement le corps."
+        },
+        {
+          "label": "Les rivières et grands bassins sont traités à part",
+          "text": "Al-Nawawî est cité pour l’absence de réprobation de l’eau ensoleillée dans ces grandes étendues, et al-Hattâb ne signale pas d’opposition."
+        },
+        {
+          "label": "Le chauffage au feu reste une autre catégorie",
+          "text": "Ibn al-Hâjib n’attache pas de réprobation à ce chauffage en lui-même, ce qui ne supprime pas les difficultés d’une eau excessivement chaude."
+        },
+        {
+          "label": "Les températures extrêmes peuvent empêcher une purification soignée",
+          "text": "Ibn al-Karawî mentionne la chaleur ou le froid gênants, et d’autres auteurs relient cela à l’impossibilité d’accomplir convenablement le lavage."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation pour comprendre le raisonnement",
+        "text": "Une personne a une eau tiède chauffée au feu, une eau très chaude qu’elle supporte mal et une eau de rivière réchauffée par le soleil. Ce ne sont pas trois situations juridiquement identiques dans le commentaire. Pour les comprendre, il faut considérer la source de chaleur, l’usage direct sur le corps, la possibilité d’effectuer le lavage complet et l’éventuelle réalité d’un dommage. La comparaison est fictive et ne remplace pas une évaluation de sécurité."
       },
-      {
-        "question": "Que signifie « والقول بكراهة المشمس قوي » chez al-Hattâb ?",
-        "choices": [
-          "Il juge l’avis de réprobation fortement transmis, mais en précise les conditions.",
-          "Il annonce un consensus de tous les juristes de l’islam.",
-          "Il démontre que l’eau est médicalement dangereuse."
-        ],
-        "answer": 0,
-        "explanation": "Al-Hattâb présente la réprobation comme un avis fort parmi les transmissions examinées, puis propose de la restreindre aux circonstances indiquées par Ibn al-Imâm et Ibn al-‘Arabî."
-      },
-      {
-        "question": "Quelle proposition grammaticale Ibn al-Furât avance-t-il ?",
-        "choices": [
-          "Que « mushammas » désigne uniquement la neige fondue.",
-          "Que « كمشمس » puisse se rattacher aux eaux réprouvées citées auparavant.",
-          "Que Khalîl n’a jamais employé le mot « كمشمس »."
-        ],
-        "answer": 1,
-        "explanation": "Ibn al-Furât propose une autre lecture de la comparaison. Al-Hattâb répond que le Tawdîh de Khalîl suggère plutôt un rattachement à l’exception de réprobation."
-      },
-      {
-        "question": "Pourquoi Ibn al-‘Arabî considère-t-il qu’un wudû’ avec cette eau peut suffire ?",
-        "choices": [
-          "Parce que tout dommage médical allégué est nécessairement faux.",
-          "Parce que l’eau s’est transformée en une nouvelle substance.",
-          "Parce que la réserve envisagée porte sur un motif extérieur à sa capacité de lever le hadath."
-        ],
-        "answer": 2,
-        "explanation": "Dans le premier tanbîh, Ibn al-Imâm rapporte d’Ibn al-‘Arabî que l’acte suffit : la réserve ne concerne pas directement la fonction purifiante de l’eau. Validité et réprobation sont distinctes."
-      },
-      {
-        "question": "Quel désaccord oppose Ibn Farhûn et al-Hattâb sur la karâha ?",
-        "choices": [
-          "Ibn Farhûn la rattache au conseil médical ; al-Hattâb rappelle qu’éviter un dommage par obéissance peut avoir une dimension religieuse.",
-          "Ils s’opposent sur le nombre des prières quotidiennes.",
-          "Ils affirment tous les deux que tout chauffage rend l’eau impure."
-        ],
-        "answer": 0,
-        "explanation": "Ibn Farhûn distingue karâha médicale et karâha religieuse. Al-Hattâb nuance la séparation en évoquant l’abstention d’un poison par respect pour une interdiction religieuse générale."
-      },
-      {
-        "question": "Que demande Ibn Farhûn au sujet de l’eau refroidie ?",
-        "choices": [
-          "Qu’elle soit impérativement jetée.",
-          "Si la réprobation alléguée disparaît avec le refroidissement, selon la cause retenue.",
-          "Qu’elle soit mélangée à une eau de rivière."
-        ],
-        "answer": 1,
-        "explanation": "Dans le troisième tanbîh, la question reste ouverte et dépend de l’explication du dommage supposé. Al-Hattâb rapporte aussi des divergences chez les shaféites."
-      },
-      {
-        "question": "Que dit la discussion au sujet de l’eau chauffée au soleil dans les grands bassins et les rivières ?",
-        "choices": [
-          "Elle est toujours impure.",
-          "Sa réprobation dépend d’un volume fixe inventé par le cours.",
-          "Al-Nawawî est cité pour l’absence de réprobation dans ces grandes étendues."
-        ],
-        "answer": 2,
-        "explanation": "Al-Hattâb rapporte d’al-Nawawî que l’eau ensoleillée des rivières et grands bassins ne fait pas l’objet de cette réprobation. Il indique ne pas avoir trouvé de contradiction sur ce point."
-      },
-      {
-        "question": "Comment les auteurs abordent-ils l’eau chauffée au feu ?",
-        "choices": [
-          "Elle n’est pas réprouvée pour ce seul motif, sauf circonstances comme une chaleur excessive empêchant une purification soignée.",
-          "Elle est automatiquement souillée par le feu.",
-          "Elle est toujours interdite même si aucune autre eau n’existe."
-        ],
-        "answer": 0,
-        "explanation": "Ibn al-Hâjib et d’autres n’attachent pas de réprobation au chauffage par le feu en lui-même. Ibn al-Karawî évoque cependant les températures extrêmes pouvant empêcher le lavage complet ou gêner l’acte."
-      }
-    ],
-    "sources": [
-      {
-        "label": "Islamweb — Mawâhib al-Jalîl, tome 1, p. 78–80, passage « كمشمس »",
-        "url": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
-      },
-      {
-        "label": "Ahlulbayt Library — autre édition, tome 1, p. 109",
-        "url": "https://ablibrary.net/book_content/b/4471/109?lang=ar"
-      },
-      {
-        "label": "Ahlulbayt Library — autre édition, tome 1, p. 110",
-        "url": "https://ablibrary.net/book_content/b/4471/110?lang=ar"
-      },
-      {
-        "label": "Ahlulbayt Library — autre édition, tome 1, p. 111",
-        "url": "https://ablibrary.net/book_content/b/4471/111?lang=ar"
-      },
-      {
-        "label": "Usul — texte arabe de Mawâhib al-Jalîl",
-        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
-      }
-    ]
+      "takeaway": "Les dernières précisions d’al-Hattâb distinguent la grande étendue d’eau, l’usage sur le corps et le chauffage au feu. La difficulté d’une température excessive concerne notamment la capacité à se laver correctement, et non une impureté causée par la chaleur seule.",
+      "sourceNote": "Source primaire : al-Hattâb, Mawâhib al-Jalîl, t. 1, p. 79–80, commentaires de « كمشمس ». Exemple fictif, sans recommandation médicale.",
+      "context": "Une réserve d’eau est chauffée par le soleil, une autre par un feu, tandis qu’une rivière se réchauffe naturellement en plein été. Le commentaire distingue ces circonstances : une même température ne suffit pas à leur donner exactement la même qualification."
+    }
+  ],
+  "quote": {
+    "arabic": "كَمُشَمَّسٍ",
+    "meaning": "Khalîl mentionne l’eau chauffée par le soleil. Al-Hattâb explique que les commentateurs discutent son rattachement à la catégorie réprouvée ou à celle exceptée de la réprobation, puis examine les preuves et les conditions.",
+    "label": "Khalîl, Mukhtasar, commenté par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 78–80."
   },
+  "lexicon": [
+    {
+      "arabic": "الْمُشَمَّس",
+      "term": "Mushammas",
+      "definition": "Eau exposée au soleil et réchauffée par celui-ci. La discussion porte sur l’éventuelle réprobation de son usage, non sur une impureté intrinsèque causée par la lumière."
+    },
+    {
+      "arabic": "الْمُسَخَّنُ بِالشَّمْس",
+      "term": "Musakhkhan bi-sh-shams",
+      "definition": "Expression descriptive pour une eau chauffée par la chaleur solaire. Elle sert à distinguer cette situation du chauffage par le feu dont parle le sixième tanbîh."
+    },
+    {
+      "arabic": "الْكَرَاهَةُ الشَّرْعِيَّة",
+      "term": "Karâha shar‘iyya",
+      "definition": "Réprobation considérée comme une qualification religieuse. Ibn Farhûn la distingue d’un conseil médical et al-Hattâb discute la portée de cette séparation."
+    },
+    {
+      "arabic": "كَرَاهَةُ الْإِرْشَاد",
+      "term": "Karâhat al-irshâd",
+      "definition": "Réserve exprimée à titre de conseil pour éviter un désagrément ou un dommage allégué. Ibn Farhûn emploie cette notion pour caractériser la réprobation médicale."
+    },
+    {
+      "arabic": "الطِّبّ",
+      "term": "Tibb",
+      "definition": "Médecine : c’est l’origine invoquée de certaines réserves anciennes concernant l’eau chauffée au soleil. Une hypothèse médicale historique n’équivaut pas à une preuve clinique actuelle."
+    },
+    {
+      "arabic": "الْبَرَص",
+      "term": "Baras",
+      "definition": "Nom d’une affection cutanée évoquée dans les arguments historiques des juristes. La fiche explique cette croyance ancienne sans affirmer une relation médicale démontrée avec l’eau solaire."
+    },
+    {
+      "arabic": "الْحَدِيثُ الضَّعِيف",
+      "term": "Hadîth da‘îf",
+      "definition": "Récit dont la transmission ne remplit pas les conditions d’authenticité. Al-Hattâb distingue cette qualification de celle d’un récit fabriqué."
+    },
+    {
+      "arabic": "الْحَدِيثُ الْمَوْضُوع",
+      "term": "Hadîth mawdû‘",
+      "definition": "Récit tenu pour fabriqué. Ibn Farhûn rapporte ce jugement dans le cas étudié, tandis qu’al-Hattâb distingue les avis des critiques."
+    },
+    {
+      "arabic": "الِاسْتِدْلَال",
+      "term": "Istidlâl",
+      "definition": "Démarche consistant à fonder un jugement sur une preuve. La discussion montre pourquoi un récit contesté ne peut être rapporté comme une preuve prophétique authentique."
+    },
+    {
+      "arabic": "أَوَانِي الصُّفْر",
+      "term": "Awânî al-sufr",
+      "definition": "Récipients de cuivre jaune évoqués dans la restriction d’Ibn al-Imâm et d’Ibn al-‘Arabî. Leur présence dans le texte relève du contexte historique de l’avis."
+    },
+    {
+      "arabic": "الْبِلَادُ الْحَارَّة",
+      "term": "Al-bilâd al-hârra",
+      "definition": "Pays ou régions chaudes mentionnés parmi les conditions de la réserve rapportée. Le passage ne donne pas de seuil de température universel."
+    },
+    {
+      "arabic": "التَّجْرِبَة",
+      "term": "Tajriba",
+      "definition": "Expérience ou constat dont le rôle est invoqué dans l’examen d’un préjudice réel. Une condition reposant sur l’expérience n’établit pas en soi que le dommage allégué existe."
+    },
+    {
+      "arabic": "الضَّرَر",
+      "term": "Darar",
+      "definition": "Préjudice ou dommage réel. Le commentaire examine son importance pour juger un usage, en distinguant la possibilité lointaine d’un danger prouvé."
+    },
+    {
+      "arabic": "رَفْعُ الْحَدَث",
+      "term": "Raf‘ al-hadath",
+      "definition": "Levée de l’état d’impureté rituelle par une purification valable. Les avis cités distinguent cette fonction de l’eau des inquiétudes extérieures relatives à son usage."
+    },
+    {
+      "arabic": "الْإِجْزَاء",
+      "term": "Ijzâ’ fi-l-mushammas",
+      "definition": "Suffisance juridique de l’acte accompli, même lorsqu’une manière de procéder fait l’objet d’une réprobation. L’exemple vient du premier tanbîh cité par al-Hattâb."
+    },
+    {
+      "arabic": "التَّبْرِيد",
+      "term": "Tabrîd",
+      "definition": "Refroidissement de l’eau. Ibn Farhûn demande si cette opération fait disparaître la réprobation alléguée et lie la réponse à la cause supposée."
+    },
+    {
+      "arabic": "الْأَوْعِيَةُ الْمَطْرُوقَة",
+      "term": "Al-aw‘iya al-matrûqa",
+      "definition": "Récipients métalliques façonnés au marteau, discutés par certains auteurs shaféites lorsqu’ils précisent les conditions de la réprobation historique."
+    },
+    {
+      "arabic": "الْبِرَكُ وَالْأَنْهَار",
+      "term": "Al-birak wa-l-anhâr",
+      "definition": "Grands bassins et cours d’eau. Al-Hattâb rapporte, d’après al-Nawawî, qu’ils ne reçoivent pas la réprobation discutée pour de petits récipients."
+    },
+    {
+      "arabic": "الْمُسَخَّنُ بِالنَّار",
+      "term": "Musakhkhan bi-n-nâr",
+      "definition": "Eau chauffée au feu. Le sixième tanbîh la traite à part : le chauffage par le feu n’entraîne pas à lui seul la réprobation envisagée pour certains cas solaires."
+    },
+    {
+      "arabic": "الْإِسْبَاغ",
+      "term": "Isbâgh al-wudû’",
+      "definition": "Accomplissement complet et soigné des ablutions. Une eau excessivement chaude ou froide peut compliquer cette réalisation, selon les réserves rapportées."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Dans la phrase « كمشمس », que cherche d’abord à comprendre al-Hattâb ?",
+      "choices": [
+        "Le rattachement grammatical de la comparaison à ce qui précède.",
+        "La quantité de chaleur mesurée en degrés.",
+        "Le type de prière accomplie ensuite."
+      ],
+      "answer": 0,
+      "explanation": "Le commentaire commence par examiner si Khalîl rattache l’eau exposée au soleil aux eaux réprouvées ou aux exceptions. La plupart des commentateurs cités choisissent la seconde lecture."
+    },
+    {
+      "question": "Que dit Ibn al-Hâjib au sujet de l’eau chauffée au soleil ?",
+      "choices": [
+        "Elle devient automatiquement impure.",
+        "Elle est comme les autres eaux et n’est pas réprouvée pour ce motif.",
+        "Elle ne peut servir qu’au nettoyage des vêtements."
+      ],
+      "answer": 1,
+      "explanation": "Ibn al-Hâjib est cité explicitement : « والمشمس كغيره فلا كراهة فيه ». Al-Hattâb rapproche cette lecture d’Ibn ‘Abd al-Salâm et du Tawdîh."
+    },
+    {
+      "question": "Sur quel motif Sanad rapporte-t-il une réprobation ?",
+      "choices": [
+        "Une impureté certaine entrée dans l’eau.",
+        "Une interdiction unanime de tous les malikites.",
+        "Une considération médicale qui était avancée à son époque."
+      ],
+      "answer": 2,
+      "explanation": "Dans al-Tirâz, Sanad parle de réprobation « من جهة الطب ». Il ne dit pas que la chaleur solaire rend l’eau impure par nature ni que le dommage allégué est une donnée clinique confirmée."
+    },
+    {
+      "question": "Comment ‘Abd al-Haqq juge-t-il la transmission prophétique utilisée dans ce débat ?",
+      "choices": [
+        "Il ne reconnaît aucun hadith authentique établi sur ce point.",
+        "Il la déclare unanimement authentique.",
+        "Il affirme que toutes les eaux chauffées au soleil sont impures."
+      ],
+      "answer": 0,
+      "explanation": "Al-Hattâb rapporte, depuis la Dhakhîra d’al-Qarâfî, le propos d’‘Abd al-Haqq « لم يصح فيه حديث ». Cette réserve doit accompagner toute mention du récit."
+    },
+    {
+      "question": "Quelle distinction al-Hattâb maintient-il à propos de ce récit ?",
+      "choices": [
+        "La chaleur de l’eau et sa profondeur.",
+        "La qualification de hadith fabriqué avancée par certains et celle de hadith faible retenue par d’autres.",
+        "La différence entre une rivière et une source souterraine."
+      ],
+      "answer": 1,
+      "explanation": "Al-Hattâb précise qu’Ibn Farhûn rapporte la fabrication alléguée du récit, mais qu’un plus grand nombre le considère faible. Dans aucun cas il n’est présenté comme une preuve prophétique authentifiée."
+    },
+    {
+      "question": "Quelle restriction matérielle est rapportée d’Ibn al-‘Arabî ?",
+      "choices": [
+        "Toute eau exposée à la lumière du jour.",
+        "Seulement les pluies de printemps.",
+        "Des récipients de cuivre jaune situés dans des pays chauds."
+      ],
+      "answer": 2,
+      "explanation": "Ibn al-Imâm cite Ibn al-‘Arabî pour restreindre la réserve aux « أواني الصفر في البلاد الحارة ». Le passage ne décrit donc pas indistinctement toutes les eaux exposées au soleil."
+    },
+    {
+      "question": "Que signifie la condition « إن قضت التجربة بضرر » dans l’argument rapporté ?",
+      "choices": [
+        "La prudence suppose qu’un dommage soit établi, et non seulement imaginé.",
+        "Le texte prouve médicalement que le soleil crée une maladie.",
+        "Le simple chauffage annule obligatoirement le wudû’."
+      ],
+      "answer": 0,
+      "explanation": "Le raisonnement cité est conditionnel : si un dommage est réellement établi, l’usage peut être jugé différemment. Le livre ne constitue pas une preuve médicale contemporaine de ce dommage."
+    },
+    {
+      "question": "Quelle est la conclusion d’al-Nawawî dans le Sharh al-Muhadhdhab cité ici ?",
+      "choices": [
+        "L’eau devient impure au moindre rayon de soleil.",
+        "Il préfère affirmer qu’il n’y a pas de réprobation établie.",
+        "Il interdit de purifier un vêtement avec toute eau chaude."
+      ],
+      "answer": 1,
+      "explanation": "Al-Nawawî y examine la faiblesse des récits et conclut « فالصواب الجزم بأنه لا كراهة فيه ». C’est sa conclusion dans l’ouvrage cité, que le cours attribue explicitement."
+    },
+    {
+      "question": "Quelle nuance al-Hattâb apporte-t-il ensuite concernant al-Nawawî ?",
+      "choices": [
+        "Il n’a jamais écrit sur ce sujet.",
+        "Il a toujours défendu exactement la même formule dans tous ses ouvrages.",
+        "Dans le Minhâj, al-Nawawî a aussi formulé une réprobation."
+      ],
+      "answer": 2,
+      "explanation": "Al-Hattâb rapporte les deux formulations : absence de réprobation dans le passage du Sharh al-Muhadhdhab et affirmation de réprobation dans le Minhâj. Il faut garder les références distinctes."
+    },
+    {
+      "question": "Que signifie « والقول بكراهة المشمس قوي » chez al-Hattâb ?",
+      "choices": [
+        "Il juge l’avis de réprobation fortement transmis, mais en précise les conditions.",
+        "Il annonce un consensus de tous les juristes de l’islam.",
+        "Il démontre que l’eau est médicalement dangereuse."
+      ],
+      "answer": 0,
+      "explanation": "Al-Hattâb présente la réprobation comme un avis fort parmi les transmissions examinées, puis propose de la restreindre aux circonstances indiquées par Ibn al-Imâm et Ibn al-‘Arabî."
+    },
+    {
+      "question": "Quelle proposition grammaticale Ibn al-Furât avance-t-il ?",
+      "choices": [
+        "Que « mushammas » désigne uniquement la neige fondue.",
+        "Que « كمشمس » puisse se rattacher aux eaux réprouvées citées auparavant.",
+        "Que Khalîl n’a jamais employé le mot « كمشمس »."
+      ],
+      "answer": 1,
+      "explanation": "Ibn al-Furât propose une autre lecture de la comparaison. Al-Hattâb répond que le Tawdîh de Khalîl suggère plutôt un rattachement à l’exception de réprobation."
+    },
+    {
+      "question": "Pourquoi Ibn al-‘Arabî considère-t-il qu’un wudû’ avec cette eau peut suffire ?",
+      "choices": [
+        "Parce que tout dommage médical allégué est nécessairement faux.",
+        "Parce que l’eau s’est transformée en une nouvelle substance.",
+        "Parce que la réserve envisagée porte sur un motif extérieur à sa capacité de lever le hadath."
+      ],
+      "answer": 2,
+      "explanation": "Dans le premier tanbîh, Ibn al-Imâm rapporte d’Ibn al-‘Arabî que l’acte suffit : la réserve ne concerne pas directement la fonction purifiante de l’eau. Validité et réprobation sont distinctes."
+    },
+    {
+      "question": "Quel désaccord oppose Ibn Farhûn et al-Hattâb sur la karâha ?",
+      "choices": [
+        "Ibn Farhûn la rattache au conseil médical ; al-Hattâb rappelle qu’éviter un dommage par obéissance peut avoir une dimension religieuse.",
+        "Ils s’opposent sur le nombre des prières quotidiennes.",
+        "Ils affirment tous les deux que tout chauffage rend l’eau impure."
+      ],
+      "answer": 0,
+      "explanation": "Ibn Farhûn distingue karâha médicale et karâha religieuse. Al-Hattâb nuance la séparation en évoquant l’abstention d’un poison par respect pour une interdiction religieuse générale."
+    },
+    {
+      "question": "Que demande Ibn Farhûn au sujet de l’eau refroidie ?",
+      "choices": [
+        "Qu’elle soit impérativement jetée.",
+        "Si la réprobation alléguée disparaît avec le refroidissement, selon la cause retenue.",
+        "Qu’elle soit mélangée à une eau de rivière."
+      ],
+      "answer": 1,
+      "explanation": "Dans le troisième tanbîh, la question reste ouverte et dépend de l’explication du dommage supposé. Al-Hattâb rapporte aussi des divergences chez les shaféites."
+    },
+    {
+      "question": "Que dit la discussion au sujet de l’eau chauffée au soleil dans les grands bassins et les rivières ?",
+      "choices": [
+        "Elle est toujours impure.",
+        "Sa réprobation dépend d’un volume fixe inventé par le cours.",
+        "Al-Nawawî est cité pour l’absence de réprobation dans ces grandes étendues."
+      ],
+      "answer": 2,
+      "explanation": "Al-Hattâb rapporte d’al-Nawawî que l’eau ensoleillée des rivières et grands bassins ne fait pas l’objet de cette réprobation. Il indique ne pas avoir trouvé de contradiction sur ce point."
+    },
+    {
+      "question": "Comment les auteurs abordent-ils l’eau chauffée au feu ?",
+      "choices": [
+        "Elle n’est pas réprouvée pour ce seul motif, sauf circonstances comme une chaleur excessive empêchant une purification soignée.",
+        "Elle est automatiquement souillée par le feu.",
+        "Elle est toujours interdite même si aucune autre eau n’existe."
+      ],
+      "answer": 0,
+      "explanation": "Ibn al-Hâjib et d’autres n’attachent pas de réprobation au chauffage par le feu en lui-même. Ibn al-Karawî évoque cependant les températures extrêmes pouvant empêcher le lavage complet ou gêner l’acte."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Islamweb — Mawâhib al-Jalîl, tome 1, p. 78–80, passage « كمشمس »",
+      "url": "https://islamweb.net/ar/library/content/19/120/%D9%81%D8%B1%D8%B9-%D8%B3%D8%A4%D8%B1-%D8%A7%D9%84%D9%83%D8%A7%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A7%D9%86%D9%8A"
+    },
+    {
+      "label": "Ahlulbayt Library — autre édition, tome 1, p. 109",
+      "url": "https://ablibrary.net/book_content/b/4471/109?lang=ar"
+    },
+    {
+      "label": "Ahlulbayt Library — autre édition, tome 1, p. 110",
+      "url": "https://ablibrary.net/book_content/b/4471/110?lang=ar"
+    },
+    {
+      "label": "Ahlulbayt Library — autre édition, tome 1, p. 111",
+      "url": "https://ablibrary.net/book_content/b/4471/111?lang=ar"
+    },
+    {
+      "label": "Usul — texte arabe de Mawâhib al-Jalîl",
+      "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+    }
+  ]
+},
   "heatedWaterHammam": {
-    "id": "heated-water-hammam-14",
-    "number": "14",
-    "status": "disponible",
-    "title": "Eau chauffée, difficulté volontaire et entrée au hammam",
-    "subtitle": "Dix-huit lectures d’al-Hattâb et des anciens malikites : chaleur de l’eau, mérite de l’effort, protection de la pudeur et situations des bains collectifs.",
-    "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « فرع يكره الماء المسخن بالنجاسة » et « فرع دخول الحمام » · Mawâhib al-Jalîl, t. 1, p. 80–82 (édition Islamweb) / p. 112–114 (édition Dâr al-Kutub al-‘Ilmiyya)",
-    "goals": [
-      "Expliquer la réserve rapportée d’Ibn al-Karawî sur l’eau chauffée au moyen d’une matière impure, sans la confondre avec une eau contaminée.",
-      "Comprendre la différence entre eau chauffée au feu, eau chauffée au moyen de souillures et eau réellement altérée.",
-      "Lire la remarque d’Ibn ‘Abd al-Salâm sur la préférence ancienne pour l’eau froide dans le climat du Hedjaz.",
-      "Restituer la parole de Mâlik sur l’usage fréquent de l’eau chauffée dans la transmission d’Ashhab.",
-      "Identifier la réserve attribuée à Mujâhid et son raisonnement possible sur le confort et la récompense.",
-      "Expliquer pourquoi Ibn al-Imâm rejette l’idée que la difficulté volontaire serait une adoration en soi.",
-      "Distinguer une difficulté inévitable dans l’obéissance d’une difficulté inutilement recherchée.",
-      "Comprendre le propos d’al-Ubbî sur le chauffage de l’eau pour pouvoir mieux adorer.",
-      "Identifier les trois situations retenues par Ibn Rushd pour juger l’entrée au hammam.",
-      "Expliquer le jugement de l’entrée dans un hammam privé ou vide sans’exposition à une nudité interdite.",
-      "Comprendre les objections des juristes lorsque des personnes découvrent leurs parties intimes dans un bain collectif.",
-      "Situer l’avis d’Ibn al-Qâsim sur un hammam où les usagers préservent leur pudeur.",
-      "Distinguer la validité d’un ghusl de la réserve concernant la fréquentation d’un bain public ou la qualité de son eau.",
-      "Lire les recommandations concrètes d’Ibn Shâs sur la préservation de la pudeur, le regard et les autres usagers.",
-      "Étudier ses précisions sur la manière d’utiliser l’eau et la différence entre règles obligatoires et usages recommandés.",
-      "Comprendre le rôle des conditions sociales du lieu et les remarques de l’auteur du Madkhal.",
-      "Examiner le raisonnement d’al-Barzalî concernant les saisons et la possibilité de se purifier sans se nuire.",
-      "Restituer les divergences historiques sur l’accès des femmes au hammam, les exceptions et la faiblesse du récit sur l’entrée du Prophète ﷺ dans un bain.",
-      "Comprendre pourquoi al-Hattâb signale la faiblesse du récit prétendant que le Prophète ﷺ serait entré dans un hammam à al-Juhfa."
-    ],
-    "sections": [
-      {
-        "id": "heated-with-najasa",
-        "title": "Que signifie l’eau chauffée à l’aide d’une matière impure ?",
-        "eyebrow": "01 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "يكره الماء المسخن بالنجاسة وإن لم يتغير",
-          "translation": "« L’eau chauffée au moyen d’une matière impure est réprouvée, même si elle n’a pas changé. »",
-          "sourceLabel": "Al-Hattâb, rapportant expressément la qualification d’Ibn al-Karawî, tome 1, p. 112.",
-          "explanation": "Le commentaire ouvre une nouvelle branche après l’eau chauffée au soleil ou au feu. L’emploi d’une souillure comme combustible est distingué de l’introduction effective de cette souillure dans l’eau.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+  "id": "heated-water-hammam-14",
+  "number": "14",
+  "status": "disponible",
+  "title": "Eau chauffée, difficulté volontaire et entrée au hammam",
+  "subtitle": "Dix-huit lectures d’al-Hattâb et des anciens malikites : chaleur de l’eau, mérite de l’effort, protection de la pudeur et situations des bains collectifs.",
+  "sourceSection": "كتاب الطهارة — باب يرفع الحدث وحكم الخبث · « فرع يكره الماء المسخن بالنجاسة » et « فرع دخول الحمام » · Mawâhib al-Jalîl, t. 1, p. 80–82 (édition Islamweb) / p. 112–114 (édition Dâr al-Kutub al-‘Ilmiyya)",
+  "goals": [
+    "Expliquer la réserve rapportée d’Ibn al-Karawî sur l’eau chauffée au moyen d’une matière impure, sans la confondre avec une eau contaminée.",
+    "Comprendre la différence entre eau chauffée au feu, eau chauffée au moyen de souillures et eau réellement altérée.",
+    "Lire la remarque d’Ibn ‘Abd al-Salâm sur la préférence ancienne pour l’eau froide dans le climat du Hedjaz.",
+    "Restituer la parole de Mâlik sur l’usage fréquent de l’eau chauffée dans la transmission d’Ashhab.",
+    "Identifier la réserve attribuée à Mujâhid et son raisonnement possible sur le confort et la récompense.",
+    "Expliquer pourquoi Ibn al-Imâm rejette l’idée que la difficulté volontaire serait une adoration en soi.",
+    "Distinguer une difficulté inévitable dans l’obéissance d’une difficulté inutilement recherchée.",
+    "Comprendre le propos d’al-Ubbî sur le chauffage de l’eau pour pouvoir mieux adorer.",
+    "Identifier les trois situations retenues par Ibn Rushd pour juger l’entrée au hammam.",
+    "Expliquer le jugement de l’entrée dans un hammam privé ou vide sans’exposition à une nudité interdite.",
+    "Comprendre les objections des juristes lorsque des personnes découvrent leurs parties intimes dans un bain collectif.",
+    "Situer l’avis d’Ibn al-Qâsim sur un hammam où les usagers préservent leur pudeur.",
+    "Distinguer la validité d’un ghusl de la réserve concernant la fréquentation d’un bain public ou la qualité de son eau.",
+    "Lire les recommandations concrètes d’Ibn Shâs sur la préservation de la pudeur, le regard et les autres usagers.",
+    "Étudier ses précisions sur la manière d’utiliser l’eau et la différence entre règles obligatoires et usages recommandés.",
+    "Comprendre le rôle des conditions sociales du lieu et les remarques de l’auteur du Madkhal.",
+    "Examiner le raisonnement d’al-Barzalî concernant les saisons et la possibilité de se purifier sans se nuire.",
+    "Restituer les divergences historiques sur l’accès des femmes au hammam, les exceptions et la faiblesse du récit sur l’entrée du Prophète ﷺ dans un bain.",
+    "Comprendre pourquoi al-Hattâb signale la faiblesse du récit prétendant que le Prophète ﷺ serait entré dans un hammam à al-Juhfa."
+  ],
+  "sections": [
+    {
+      "id": "heated-with-najasa",
+      "title": "Que signifie l’eau chauffée à l’aide d’une matière impure ?",
+      "eyebrow": "01 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "يكره الماء المسخن بالنجاسة وإن لم يتغير",
+        "translation": "« L’eau chauffée au moyen d’une matière impure est réprouvée, même si elle n’a pas changé. »",
+        "sourceLabel": "Al-Hattâb, rapportant expressément la qualification d’Ibn al-Karawî, tome 1, p. 112.",
+        "explanation": "Le commentaire ouvre une nouvelle branche après l’eau chauffée au soleil ou au feu. L’emploi d’une souillure comme combustible est distingué de l’introduction effective de cette souillure dans l’eau.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb poursuit l’étude des eaux par un cas très particulier : une eau a été chauffée en utilisant une matière impure, alors que rien ne montre que cette matière a touché l’eau. Il rapporte d’Ibn al-Karawî une réprobation, même si les propriétés de l’eau n’ont pas changé. Il faut lire précisément « chauffée au moyen de » : la phrase ne signifie pas qu’une souillure a été volontairement mélangée à la réserve. Sinon, nous aurions changé de chapitre et nous serions revenus aux règles de contamination réelle.",
+        "Les juristes examinent ici le moyen employé pour chauffer l’eau. Il peut leur paraître réprouvé sans que la substance chauffée devienne automatiquement impure. Cette différence entre karâha et najâsa nous a déjà été utile dans les fiches précédentes, et elle le sera encore pour comprendre les bains publics. Al-Hattâb annonce qu’on retrouvera un propos d’Ibn Rushd sur le sujet. Il ne donne donc pas une définition générale qui permettrait de déclarer souillées toutes les eaux ayant été chauffées près d’un foyer sale."
+      ],
+      "steps": [
+        {
+          "label": "Ce qui chauffe n’est pas ce qui entre dans l’eau",
+          "text": "Le passage concerne une source de chaleur tirée d’une matière impure. Le contact effectif avec l’eau n’est pas établi par ces mots."
         },
-        "paragraphs": [
-          "Al-Hattâb poursuit l’étude des eaux par un cas très particulier : une eau a été chauffée en utilisant une matière impure, alors que rien ne montre que cette matière a touché l’eau. Il rapporte d’Ibn al-Karawî une réprobation, même si les propriétés de l’eau n’ont pas changé. Il faut lire précisément « chauffée au moyen de » : la phrase ne signifie pas qu’une souillure a été volontairement mélangée à la réserve. Sinon, nous aurions changé de chapitre et nous serions revenus aux règles de contamination réelle.",
-          "Les juristes examinent ici le moyen employé pour chauffer l’eau. Il peut leur paraître réprouvé sans que la substance chauffée devienne automatiquement impure. Cette différence entre karâha et najâsa nous a déjà été utile dans les fiches précédentes, et elle le sera encore pour comprendre les bains publics. Al-Hattâb annonce qu’on retrouvera un propos d’Ibn Rushd sur le sujet. Il ne donne donc pas une définition générale qui permettrait de déclarer souillées toutes les eaux ayant été chauffées près d’un foyer sale."
-        ],
-        "steps": [
-          {
-            "label": "Ce qui chauffe n’est pas ce qui entre dans l’eau",
-            "text": "Le passage concerne une source de chaleur tirée d’une matière impure. Le contact effectif avec l’eau n’est pas établi par ces mots."
-          },
-          {
-            "label": "La formule « même si elle n’a pas changé » est importante",
-            "text": "Elle montre pourquoi le jugement rapporté relève de la réprobation et ne se confond pas automatiquement avec une eau modifiée par une impureté."
-          },
-          {
-            "label": "L’avis est attribué à Ibn al-Karawî",
-            "text": "Al-Hattâb dit qui le formule. Il n’est pas juste d’en faire une citation de Khalîl ou de prétendre qu’aucun autre malikite n’a discuté la question."
-          },
-          {
-            "label": "Ne pas créer un nouveau jugement sanitaire",
-            "text": "L’étude est celle d’une pratique et de sa qualification rituelle. Elle ne garantit pas la sécurité de toute installation de chauffage."
-          }
-        ],
-        "example": {
-          "title": "Une eau dans un récipient séparé du foyer",
-          "text": "Imagine une marmite contenant une eau demeurée inchangée, posée sur un foyer dont le combustible serait considéré comme impur. Le commentaire examine le moyen de chauffage, et non une souillure déjà mélangée à l’eau. Si une matière du foyer tombait réellement dans le récipient, les règles à examiner seraient différentes. Cet exemple est fictif ; il montre la différence entre le combustible et le contenu chauffé."
+        {
+          "label": "La formule « même si elle n’a pas changé » est importante",
+          "text": "Elle montre pourquoi le jugement rapporté relève de la réprobation et ne se confond pas automatiquement avec une eau modifiée par une impureté."
         },
-        "takeaway": "Ibn al-Karawî réprouve dans ce cas le chauffage au moyen d’une matière impure, même sans altération visible. On doit conserver la différence entre ce mode de chauffage et une eau dont la contamination serait réellement constatée.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "malik-ashhab",
-        "title": "Pourquoi Mâlik dit-il qu’il utilise lui-même l’eau chauffée ?",
-        "eyebrow": "02 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا",
-          "translation": "« Il n’y a pas de mal à faire ses ablutions avec de l’eau chauffée ; je le fais moi-même souvent. »",
-          "sourceLabel": "Imam Mâlik, réponse transmise dans le Samâ‘ d’Ashhab et citée par al-Hattâb, p. 112.",
-          "explanation": "Al-Hattâb cite la transmission d’Ashhab sur l’eau chauffée de manière générale, à lire après la distinction sur le combustible impur.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        {
+          "label": "L’avis est attribué à Ibn al-Karawî",
+          "text": "Al-Hattâb dit qui le formule. Il n’est pas juste d’en faire une citation de Khalîl ou de prétendre qu’aucun autre malikite n’a discuté la question."
         },
-        "paragraphs": [
-          "Cette réponse de Mâlik mérite qu’on s’y arrête, car elle corrige une idée qui pourrait naître de la précédente discussion. Après avoir vu des réserves sur certaines eaux chauffées, un élève pourrait croire que l’eau chaude est, en elle-même, déconseillée pour les ablutions. Or Mâlik, dans la transmission d’Ashhab, dit qu’il n’y voit aucun mal et qu’il en fait souvent usage. L’exemple donné par l’imam est concret : on ne parle pas d’une possibilité théorique que personne n’aurait pratiquée.",
-          "Il faut néanmoins respecter les différents cas. Une eau chauffée normalement n’est pas identique au cas de chauffage par une matière impure étudié juste avant, ni à une eau devenue si brûlante qu’on ne parvient plus à accomplir correctement le lavage. L’avis de Mâlik montre que le confort d’une température adaptée n’est pas, à lui seul, contraire à la purification. Il prépare aussi la discussion suivante : vaut-il mieux, pour obtenir davantage de récompense, choisir volontairement une eau froide lorsque de l’eau chaude est disponible ?"
-        ],
-        "steps": [
-          {
-            "label": "La réponse est transmise par Ashhab",
-            "text": "La source mentionne le Samâ‘ d’Ashhab. Al-Hattâb ne présente donc pas ces mots comme sa propre invention."
-          },
-          {
-            "label": "« Lâ ba’s » signifie qu’il n’y voit pas de mal",
-            "text": "Le propos de Mâlik ne formule ni interdiction ni réprobation générale de l’eau chauffée."
-          },
-          {
-            "label": "« Je le fais souvent » précise la pratique de l’imam",
-            "text": "Cette remarque montre que l’usage fréquent de l’eau chaude ne lui paraissait pas blâmable en lui-même."
-          },
-          {
-            "label": "Comparer des situations comparables",
-            "text": "Le cas de l’eau ordinairement chauffée, celui d’une eau souillée et celui d’une eau de température insupportable ne doivent pas être réunis sans distinction."
-          }
-        ],
-        "example": {
-          "title": "L’eau chaude avant la prière du matin",
-          "text": "Un fidèle réchauffe de l’eau propre pour ses ablutions avant la prière de l’aube parce que la saison est froide. Il craint, en raison d’une formule entendue isolément, que ce confort diminue la valeur de son acte. La réponse de Mâlik rapportée ici montre qu’on ne peut pas condamner le chauffage en lui-même. Le cas est imaginé pour expliquer la transmission, et non pour donner un conseil de chauffage ou de santé."
-        },
-        "takeaway": "Mâlik déclare explicitement ne voir aucun mal à se purifier avec de l’eau chauffée et dit l’utiliser souvent. Cette parole doit être exposée avec les réserves particulières que le commentaire étudie ailleurs, sans transformer l’une en contradiction de l’autre.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+        {
+          "label": "Ne pas créer un nouveau jugement sanitaire",
+          "text": "L’étude est celle d’une pratique et de sa qualification rituelle. Elle ne garantit pas la sécurité de toute installation de chauffage."
+        }
+      ],
+      "example": {
+        "title": "Une eau dans un récipient séparé du foyer",
+        "text": "Imagine une marmite contenant une eau demeurée inchangée, posée sur un foyer dont le combustible serait considéré comme impur. Le commentaire examine le moyen de chauffage, et non une souillure déjà mélangée à l’eau. Si une matière du foyer tombait réellement dans le récipient, les règles à examiner seraient différentes. Cet exemple est fictif ; il montre la différence entre le combustible et le contenu chauffé."
       },
-      {
-        "id": "ibn-abd-salam-climate",
-        "title": "Pourquoi certains maîtres rapportent-ils une préférence pour l’eau froide ?",
-        "eyebrow": "03 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "وما وقع لمالك رحمه الله من تفضيل البارد على المسخن إنما ذلك لكونه يشد الأعضاء ولنشاط النفس بعده في إقليم الحجاز وحرارة البلاد",
-          "translation": "« La préférence de Mâlik pour l’eau froide s’explique par ses effets supposés sur les membres et la vivacité ressentie dans le climat chaud du Hedjaz. »",
-          "sourceLabel": "Ibn ‘Abd al-Salâm, propos cités par al-Hattâb, p. 112.",
-          "explanation": "Al-Hattâb rapporte l’explication d’Ibn ‘Abd al-Salâm de la préférence mentionnée dans des transmissions relatives à Mâlik, en la replaçant dans le climat du Hedjaz.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "Comment concilier l’usage fréquent de l’eau chauffée chez Mâlik avec le fait que certains auteurs lui attribuent une préférence pour l’eau froide ? Ibn ‘Abd al-Salâm propose une explication contextuelle. Il rattache cette préférence aux effets que l’on attribuait au froid sur le corps et à la sensation de vigueur dans le climat chaud du Hedjaz. Le raisonnement n’est donc pas que la fraîcheur possède toujours une vertu religieuse supérieure : le lieu et le climat entrent dans l’appréciation.",
-          "Cette explication montre pourquoi un avis ancien ne doit pas être séparé des conditions de vie où il fut formulé. Un habitant d’une région chaude peut percevoir une eau fraîche autrement qu’un voyageur confronté à un froid intense. D’autres auteurs évoquent le caractère agréable du bain. Le passage ne prouve aucune loi médicale universelle sur l’eau froide ; il rapporte une explication historique des préférences des juristes. La discussion suivante portera justement sur la différence entre confort, difficulté et récompense."
-        ],
-        "steps": [
-          {
-            "label": "La parole est celle d’Ibn ‘Abd al-Salâm",
-            "text": "Il explique les propos rapportés de Mâlik. Il ne faut pas attribuer tout le commentaire médical directement à Mâlik."
-          },
-          {
-            "label": "Le climat du Hedjaz est expressément mentionné",
-            "text": "Une préférence située dans un climat chaud ne peut pas être projetée sans nuance dans tous les pays ou toutes les saisons."
-          },
-          {
-            "label": "Une préférence n’est pas une obligation",
-            "text": "La réponse de Mâlik transmise par Ashhab autorise l’usage de l’eau chauffée ; les deux citations ne s’opposent pas nécessairement."
-          },
-          {
-            "label": "Le motif physiologique est historiquement rapporté",
-            "text": "La source permet de décrire ce que pensaient les savants, pas d’affirmer un avantage médical général de l’eau froide."
-          }
-        ],
-        "example": {
-          "title": "Comparer les saisons sans en faire une règle absolue",
-          "text": "Deux personnes se purifient avec une eau propre : l’une dans une période très chaude, l’autre pendant une vague de froid. Elles découvrent que le confort de la première peut venir de la fraîcheur et celui de la seconde d’un peu de chaleur. L’explication d’Ibn ‘Abd al-Salâm aide à comprendre pourquoi les propos anciens situent parfois une préférence dans un environnement précis. Cette comparaison n’établit aucun bénéfice médical."
-        },
-        "takeaway": "La préférence pour l’eau froide qu’Ibn ‘Abd al-Salâm explique se rapporte à un contexte climatique et à des effets corporels supposés. Elle ne transforme pas l’eau chauffée, utilisée par Mâlik lui-même, en eau illicite ou impropre à la purification.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "mujahid-comfort",
-        "title": "Que reprochait Mujâhid à l’eau chauffée selon le Bayân ?",
-        "eyebrow": "04 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "ونقل في البيان كراهته عن مجاهد",
-          "translation": "« Le Bayân rapporte de Mujâhid une réprobation de son usage. »",
-          "sourceLabel": "Mujâhid, avis rapporté dans le Bayân et cité par al-Hattâb, p. 112.",
-          "explanation": "Al-Hattâb juxtapose l’avis rapporté de Mujâhid à une hypothèse expliquant sa réserve : la crainte que la recherche de confort enlève une part de l’effort récompensé.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "Al-Hattâb ne se limite pas aux paroles de Mâlik. Il rapporte également, depuis le Bayân, que Mujâhid réprouvait l’usage de l’eau chauffée. Le texte ajoute une explication possible : peut-être regardait-il ce chauffage comme une forme de confort, alors que supporter le froid pendant les ablutions pouvait être associé à une récompense. Il faut présenter cette justification comme une hypothèse du commentateur, non comme un long raisonnement que Mujâhid aurait lui-même rédigé.",
-          "C’est ici que nous rencontrons une question importante d’éducation religieuse. La difficulté rencontrée en obéissant à Allah peut accompagner une récompense ; mais faut-il délibérément chercher une difficulté qui n’était pas nécessaire ? Le Bayân donne matière à une discussion, et al-Hattâb la fait suivre par une réponse particulièrement développée d’Ibn al-Imâm. Nous avons donc affaire à une divergence de méthode dans la compréhension de la peine, pas à un simple désaccord entre les partisans de l’eau chaude et les partisans de l’eau froide."
-        ],
-        "steps": [
-          {
-            "label": "La réprobation de Mujâhid est rapportée",
-            "text": "Al-Hattâb précise qu’elle se trouve dans le Bayân et ne la présente pas comme l’avis unique de toute l’école."
-          },
-          {
-            "label": "Le motif du confort est interprétatif",
-            "text": "La phrase qui suggère le raisonnement de Mujâhid est une explication possible ; il serait inexact de lui attribuer toute cette analyse mot pour mot."
-          },
-          {
-            "label": "La récompense d’une épreuve ne suffit pas à recommander l’épreuve",
-            "text": "Il faut distinguer une contrainte attachée à l’obéissance d’une contrainte volontairement ajoutée."
-          },
-          {
-            "label": "La réponse ne sera pas immédiate",
-            "text": "Al-Hattâb cite ensuite Ibn al-Imâm, qui explique longuement pourquoi rechercher la difficulté n’est pas une fin religieuse en soi."
-          }
-        ],
-        "example": {
-          "title": "Faut-il laisser l’eau chaude disponible ?",
-          "text": "Une personne dispose d’une eau propre et agréablement tiède. Pour gagner, croit-elle, davantage de récompense, elle décide d’utiliser une eau très froide, malgré l’inconfort qu’elle pourrait éviter. Le propos rapporté de Mujâhid peut expliquer l’origine d’une telle idée, mais il ne clôt pas la discussion. Ibn al-Imâm va précisément distinguer le mérite d’un effort inévitable de la peine inutilement provoquée. L’exemple est fictif."
-        },
-        "takeaway": "Le Bayân rapporte une réprobation attribuée à Mujâhid. Al-Hattâb mentionne une explication possible liée au confort et à l’effort, puis ouvre une discussion essentielle sur le sens de la difficulté dans les actes d’adoration.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "ibn-imam-no-hardship",
-        "title": "Pourquoi Ibn al-Imâm refuse-t-il qu’on recherche la peine pour elle-même ?",
-        "eyebrow": "05 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "لأن الله تعالى لم يطلب من عباده المشاق",
-          "translation": "« Car Allah, exalté soit-Il, n’a pas demandé à Ses serviteurs de rechercher les difficultés. »",
-          "sourceLabel": "Ibn al-Imâm, « تنبيه وفائدة », cité par al-Hattâb, p. 112.",
-          "explanation": "Al-Hattâb cite longuement Ibn al-Imâm, qui conteste la conclusion selon laquelle l’eau froide serait toujours préférable parce qu’elle serait plus pénible à utiliser.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "Ibn al-Imâm examine une idée qui peut séduire une personne sincère : puisque supporter une difficulté peut être récompensé, il serait préférable de rendre volontairement ses ablutions plus difficiles. Il répond que cette conclusion ne tient pas. Allah ne demande pas à Ses serviteurs la peine pour elle-même. Ce qu’Il demande, c’est l’accomplissement de l’acte d’adoration et la réalisation de ce qu’il comporte de bien. L’effort est parfois une circonstance de cet accomplissement ; il n’en constitue pas toujours l’objectif.",
-          "Le propos mérite une lecture patiente. Ibn al-Imâm ne nie pas que deux personnes accomplissant la même bonne action puissent rencontrer des difficultés différentes et recevoir une récompense liée à leur effort. Il refuse plutôt de transformer cette observation en une consigne d’ajouter de la peine lorsqu’elle ne sert à rien. Dans l’exemple de l’eau chaude disponible, choisir un froid douloureux uniquement pour rechercher une sensation plus pénible ne devient pas, de ce seul fait, un meilleur acte. Cette distinction fait partie du raisonnement même qu’al-Hattâb a choisi de transmettre."
-        ],
-        "steps": [
-          {
-            "label": "L’objectif reste l’adoration",
-            "text": "L’acte recherché est la purification accomplie correctement, et non la sensation pénible qui pourrait parfois l’accompagner."
-          },
-          {
-            "label": "Une peine n’est pas automatiquement une vertu",
-            "text": "Le raisonnement d’Ibn al-Imâm refuse d’assimiler tout supplément de difficulté à un supplément de piété."
-          },
-          {
-            "label": "Une récompense peut accompagner une contrainte réelle",
-            "text": "Cela n’autorise pas à inventer volontairement une difficulté étrangère à l’objectif de l’acte."
-          },
-          {
-            "label": "Le texte s’oppose à une conclusion précise",
-            "text": "Ibn al-Imâm discute la préférence systématique pour l’eau froide lorsque de l’eau chauffée est disponible, pas la récompense de toute persévérance authentique."
-          }
-        ],
-        "example": {
-          "title": "La différence entre courage et complication inutile",
-          "text": "Un fidèle doit accomplir ses ablutions un matin froid et n’a pas de moyen de réchauffer l’eau. Il accomplit son acte malgré la gêne. Un autre dispose facilement d’eau tiède, mais choisit une eau glacée uniquement pour se créer une difficulté supplémentaire. Ibn al-Imâm explique pourquoi les deux situations ne donnent pas lieu au même raisonnement sur la récompense. Ce sont des exemples fictifs, sans conseil médical individuel."
-        },
-        "takeaway": "Ibn al-Imâm rejette l’idée qu’une difficulté volontaire et sans utilité soit une œuvre méritoire par elle-même. La valeur de l’adoration dépend de l’acte et de son intention, tandis que la peine peut n’en être qu’une circonstance.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "hardship-reward",
-        "title": "Quand une difficulté inévitable peut-elle augmenter la récompense ?",
-        "eyebrow": "06 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "فإن لم تحصل إلا بمشقة عظم الأجر لقرب الإخلاص",
-          "translation": "« Lorsque le bien recherché ne s’obtient qu’au prix d’une difficulté, la récompense est plus grande en raison de la sincérité qui s’en approche. »",
-          "sourceLabel": "Ibn al-Imâm, suite du « تنبيه وفائدة » citée par al-Hattâb, p. 112.",
-          "explanation": "La même argumentation distingue les difficultés subies pour accomplir l’adoration des peines fabriquées uniquement pour augmenter l’effort.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "Après avoir rappelé qu’Allah ne demande pas la difficulté pour elle-même, Ibn al-Imâm précise pourquoi un effort pénible peut malgré tout être récompensé. Parfois, on n’arrive pas à réaliser le bien recherché sans supporter une peine : le froid, la longueur d’un trajet nécessaire ou la fatigue sont alors liés à l’accomplissement de l’œuvre. La personne persévère non parce qu’elle aime souffrir, mais parce qu’elle tient à ce qu’Allah lui a demandé. Le texte voit dans cette persévérance une proximité avec la sincérité.",
-          "Il donne aussi des exemples de deux actions comparables accomplies dans des conditions différentes, comme les ablutions pendant une période de froid et durant une saison plus douce. Le supplément de difficulté peut alors accompagner la récompense lorsqu’il n’a pas été ajouté par pure recherche de la peine. Cette distinction empêche deux erreurs opposées : croire qu’une adoration doit toujours être confortable pour avoir de la valeur, ou penser qu’il faut systématiquement compliquer ce qu’Allah a rendu praticable."
-        ],
-        "steps": [
-          {
-            "label": "La peine vient de la circonstance",
-            "text": "Elle est subie en chemin vers une œuvre réellement recherchée, au lieu de constituer l’objectif de l’action."
-          },
-          {
-            "label": "Le texte mentionne la sincérité",
-            "text": "La récompense accrue est expliquée par la persévérance dans l’obéissance, pas par une valeur religieuse autonome de la douleur."
-          },
-          {
-            "label": "La comparaison suppose des actes similaires",
-            "text": "Ibn al-Imâm raisonne à propos de situations comparables, dont les conditions peuvent être plus ou moins difficiles."
-          },
-          {
-            "label": "Éviter deux généralisations",
-            "text": "L’auteur ne déclare ni que le moindre inconfort est obligatoire, ni que tout acte plus difficile serait automatiquement plus méritoire."
-          }
-        ],
-        "example": {
-          "title": "Une ablution dans le froid, faute d’autre possibilité",
-          "text": "Une personne vit dans un lieu où l’eau est froide et où aucun moyen simple de chauffage n’est disponible. Elle accomplit sa purification sans l’abandonner, malgré la difficulté. L’effort est ici lié à une obligation qu’elle ne pouvait satisfaire autrement. Ce n’est pas la même chose que se compliquer les ablutions par choix alors qu’une eau confortable est disponible. L’exemple sert à comprendre le texte et n’encourage jamais à ignorer un risque de santé."
-        },
-        "takeaway": "La difficulté qui accompagne nécessairement une bonne action peut contribuer à sa récompense. Selon Ibn al-Imâm, cette idée n’implique nullement qu’il faille rechercher volontairement une peine inutile lorsque le même acte peut être accompli correctement autrement.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "ubbi-warming",
-        "title": "Pourquoi al-Ubbî défend-il le chauffage de l’eau pour mieux adorer ?",
-        "eyebrow": "07 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "وتسخين الماء لدفع برده ليقوى على العبادة لا يمنع لحصول الثواب المذكور",
-          "translation": "« Chauffer l’eau pour écarter son froid et se renforcer en vue de l’adoration n’empêche pas d’obtenir la récompense évoquée. »",
-          "sourceLabel": "Al-Ubbî, commentaire du Sahîh Muslim, cité par al-Hattâb, p. 112.",
-          "explanation": "Al-Hattâb ajoute le propos d’al-Ubbî, qui rejoint la critique d’Ibn al-Imâm de la peine volontaire et rapproche sa réponse d’une discussion d’al-‘Izz Ibn ‘Abd al-Salâm.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "Le commentaire transmet ensuite une remarque d’al-Ubbî, auteur d’une explication du Sahîh Muslim. Il explique que l’on peut chauffer l’eau pour supporter le froid et retrouver la force nécessaire à l’adoration, sans perdre pour autant le sens de la récompense qui avait été évoquée. Le propos répond à ceux qui craindraient que rendre les ablutions plus faciles retire automatiquement leur valeur. La personne qui prépare de l’eau tiède peut, au contraire, chercher à accomplir son acte soigneusement et avec présence d’esprit.",
-          "Al-Hattâb signale qu’al-Ubbî cite aussi al-‘Izz Ibn ‘Abd al-Salâm, un savant shaféite, au sujet d’autres pratiques auxquelles on pourrait ajouter artificiellement une difficulté, comme allonger un trajet. L’idée rejoint la réponse d’Ibn al-Imâm : rechercher un bon acte est louable ; rechercher une fatigue gratuite n’est pas le fondement de l’adoration. Ces auteurs ne sont pas interchangeables et la fiche leur laisse leurs attributions, mais leurs propos aident à comprendre pourquoi le réchauffement ordinaire de l’eau n’est pas une faute religieuse."
-        ],
-        "steps": [
-          {
-            "label": "Al-Ubbî commente une difficulté pratique",
-            "text": "Le propos concerne le froid de l’eau et la possibilité d’adorer dans de meilleures conditions."
-          },
-          {
-            "label": "La récompense ne dépend pas seulement de la souffrance",
-            "text": "Un fidèle qui se prépare correctement ne perd pas nécessairement son mérite parce qu’il évite une peine inutile."
-          },
-          {
-            "label": "L’argument d’al-‘Izz Ibn ‘Abd al-Salâm est cité à part",
-            "text": "Al-Hattâb conserve cette référence depuis le commentaire d’al-Ubbî, sans la fondre avec la parole de Mâlik."
-          },
-          {
-            "label": "Le passage n’impose pas une température précise",
-            "text": "Il explique une intention et une méthode, mais ne fixe aucun niveau de chaleur ni aucun diagnostic médical."
-          }
-        ],
-        "example": {
-          "title": "Se préparer pour une prière attentive",
-          "text": "Une personne réchauffe légèrement son eau parce qu’elle sait qu’une eau excessivement froide risque de rendre son lavage précipité. Elle veut accomplir l’acte correctement et rester disponible pour la prière. L’analyse d’al-Ubbî montre que faciliter l’accomplissement de l’adoration n’équivaut pas à lui retirer sa valeur. Le scénario est inventé et ne constitue pas une prescription de température ou de santé."
-        },
-        "takeaway": "Al-Ubbî rappelle que réchauffer l’eau pour pouvoir se purifier et adorer correctement n’annule pas le mérite de l’acte. La recherche d’une purification soignée peut justifier le choix du moyen le plus adapté sans rechercher la peine.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "hammam-three-cases",
-        "title": "Comment Ibn Rushd organise-t-il les trois situations du hammam ?",
-        "eyebrow": "08 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "وأما دخول الحمام فوقع فيه اختلاف في الروايات وفتاوى الشيوخ",
-          "translation": "« Quant à l’entrée au hammam, les transmissions et les avis des maîtres divergent à ce sujet. »",
-          "sourceLabel": "Al-Hattâb introduisant la classification d’Ibn Rushd dans les Muqaddimât, p. 112–113.",
-          "explanation": "Al-Hattâb cite la synthèse d’Ibn Rushd, suivie par Ibn Shâs, al-Qarâfî, Ibn Nâjî, al-Qalshânî et d’autres : le jugement dépend des conditions concrètes du lieu et de la pudeur des usagers.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "La discussion se déplace à présent vers le hammam, au sens du bain collectif fréquenté à l’époque des juristes. Al-Hattâb prévient d’emblée qu’il existe des transmissions et des fatwas divergentes. Plutôt que de les juxtaposer sans ordre, il rapporte la classification élaborée par Ibn Rushd dans les Muqaddimât. Celui-ci distingue les bains privés ou vides, les lieux où des personnes découvrent des parties intimes qu’il n’est pas permis d’exposer, et les lieux collectifs où chacun demeure couvert.",
-          "Cette manière de présenter les choses est essentielle. Le mot « hammam » ne suffit pas à déterminer un jugement, parce que les conditions réelles diffèrent : être seul, se trouver avec des personnes respectueuses de la pudeur ou être exposé à des dévoilements ne présente pas la même situation. Al-Hattâb explique que d’autres maîtres, dont Ibn Shâs, al-Qarâfî, Ibn Nâjî et al-Qalshânî, ont suivi ce classement. Nous allons examiner chacun de ces cas sans en faire un verdict automatique sur tous les établissements modernes."
-        ],
-        "steps": [
-          {
-            "label": "Une divergence est déclarée dès le début",
-            "text": "Al-Hattâb ne présente pas l’ensemble des récits sur les hammams comme s’ils exprimaient une formule unique."
-          },
-          {
-            "label": "Ibn Rushd propose un classement",
-            "text": "Sa démarche sépare l’usage privé, la présence de nudité interdite et la fréquentation collective avec les parties à couvrir protégées."
-          },
-          {
-            "label": "Plusieurs maîtres reprennent sa synthèse",
-            "text": "Ibn Shâs, al-Qarâfî, Ibn Nâjî et al-Qalshânî sont mentionnés comme auteurs ayant adopté ce découpage."
-          },
-          {
-            "label": "Le mot « hammam » ne décrit pas tout",
-            "text": "Un hammam privé et un établissement collectif avec exposition de la nudité ne correspondent pas aux mêmes faits et ne peuvent être confondus."
-          }
-        ],
-        "example": {
-          "title": "Trois établissements qui portent le même nom",
-          "text": "Dans une ville, un bain est réservé à une personne seule, un autre accueille des visiteurs qui se couvrent correctement, tandis qu’un troisième expose ses clients à la nudité d’autrui. Les trois portent le nom de hammam, mais la classification d’Ibn Rushd montre que ce nom commun ne suffit pas à réunir les jugements. Le scénario est fictif et ne préjuge pas des conditions réelles d’un établissement contemporain."
-        },
-        "takeaway": "Al-Hattâb rapporte d’Ibn Rushd une classification en trois situations, reprise par plusieurs malikites. L’entrée au hammam s’examine donc à partir des faits : présence d’autrui, possibilité de préserver la pudeur et nature de l’usage, et non à partir du nom du lieu seul.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "private-hammam",
-        "title": "Pourquoi le hammam vide est-il permis sans réprobation ?",
-        "eyebrow": "09 · LECTURE DU COMMENTAIRE",
-        "passage": {
-          "arabic": "الأول إذا كان خاليا",
-          "translation": "« Premier cas : lorsqu’il est vide. »",
-          "sourceLabel": "Ibn Rushd, première catégorie dans les Muqaddimât, citée par al-Hattâb, p. 112.",
-          "explanation": "Le premier cas est celui d’un hammam dont l’usager dispose seul. Ibn Nâjî complète cette situation par les personnes devant lesquelles l’exposition du corps peut être permise dans le cadre décrit par les auteurs.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
-        },
-        "paragraphs": [
-          "Dans la première situation, la personne entre dans un bain vide. Elle n’est donc pas exposée au regard d’inconnus et ne risque pas non plus de voir les parties intimes d’autres usagers. Al-Hattâb rapporte qu’Ibn Rushd considère cette entrée permise, sans réprobation dans les conditions envisagées. Ibn Nâjî précise encore certaines situations de vie privée et de relations conjugales admises dans les catégories juridiques de son époque. Nous pouvons comprendre le cas principal sans reproduire mécaniquement tous les cadres sociaux historiques.",
-          "Ce premier jugement aide à éviter une généralisation : le hammam, comme lieu où l’on se lave à l’eau chaude, n’est pas condamné du seul fait qu’il est un hammam. Le problème viendra surtout des circonstances qui entourent l’usage, de la protection des parties du corps et de la situation du bassin. Pour appliquer une règle dans une installation contemporaine, on doit examiner sa configuration réelle. Cette fiche n’a pas pour objectif de certifier la conformité d’un établissement précis."
-        ],
-        "steps": [
-          {
-            "label": "L’absence d’autres usagers modifie les faits",
-            "text": "Le motif de la crainte du regard sur la nudité d’autrui ne se pose pas de la même manière lorsque le lieu est vide."
-          },
-          {
-            "label": "Ibn Rushd considère ce premier cas permis",
-            "text": "Il ne décrit ni une interdiction ni une réprobation générale de l’entrée dans un bain privé."
-          },
-          {
-            "label": "Les autres circonstances doivent rester examinées",
-            "text": "L’eau elle-même pourrait soulever une question distincte si une souillure était constatée ; ce n’est pas la même analyse que celle du lieu."
-          },
-          {
-            "label": "La société ancienne n’est pas un modèle matériel unique",
-            "text": "Certains exemples historiques concernent des statuts sociaux propres à l’époque. On retient ici le principe de vie privée et de pudeur sans transporter ces statuts tels quels."
-          }
-        ],
-        "example": {
-          "title": "Un espace réservé sans autre baigneur",
-          "text": "Une personne réserve un espace de lavage où personne d’autre n’entre et où elle dispose d’eau appropriée. Les problèmes d’exposition de la nudité d’autres visiteurs ne s’y présentent pas. C’est le cas simple qui permet de comprendre la première catégorie d’Ibn Rushd. Cet exemple pédagogique reste distinct d’une évaluation des normes d’hygiène, de sécurité ou des obligations propres à un établissement moderne."
-        },
-        "takeaway": "Le bain privé ou vide relève, dans la synthèse d’Ibn Rushd, de l’usage permis sans réprobation lorsque rien d’autre ne pose problème. Le jugement ne se réduit pas au fait de se laver avec de l’eau chauffée : il suppose les conditions concrètes du lieu.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
-      },
-      {
-        "id": "uncovered-users",
-        "eyebrow": "10 · LECTURE COMMENTÉE",
-        "title": "Pourquoi la présence de personnes non couvertes change-t-elle le jugement ?",
-        "passage": {
-          "arabic": "الثاني إذا كان غير مستتر أو معه من لا يستتر",
-          "translation": "« Deuxième situation : lorsqu’il ne se couvre pas, ou qu’il se trouve avec quelqu’un qui ne se couvre pas. »",
-          "explanation": "La deuxième catégorie d’Ibn Rushd vise un bain où l’usager expose les parties à couvrir ou se trouve en présence de personnes qui les découvrent. Al-Hattâb rapporte aussi le jugement des Jawâhir.",
-          "sourceLabel": "Ibn Rushd, deuxième cas dans les Muqaddimât, cité par al-Hattâb, t. 1, p. 112–113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "Le deuxième cas n’a plus rien à voir avec l’entrée dans un bain vide. Ibn Rushd envisage une personne qui ne couvre pas les parties du corps qu’elle doit préserver devant autrui, ou qui fréquente un hammam où d’autres baigneurs exposent leur nudité. Dans les Muqaddimât, il transmet une interdiction explicite. Al-Hattâb ajoute une formulation des Jawâhir allant dans le même sens. Nous ne sommes plus dans une simple préférence de confort : il s’agit de la protection de la pudeur et du regard.",
-          "Pour comprendre ce jugement, il faut regarder les faits décrits, pas seulement le nom du lieu. Le bain collectif qui ne permet pas de préserver la nudité n’a pas les mêmes conditions qu’un établissement où les usagers se couvrent convenablement. Si l’on raconte seulement qu’Ibn Rushd interdit les hammams, on supprime la première et la troisième catégories de son raisonnement. Al-Hattâb conserve précisément ces différences pour que l’étudiant ne confonde pas un acte généralement licite avec des circonstances particulières qui le rendent problématique."
-        ],
-        "steps": [
-          {
-            "label": "Une personne ne se couvre pas",
-            "text": "Le problème n’est pas la température de l’eau : c’est l’exposition de parties du corps qu’il faut protéger devant autrui."
-          },
-          {
-            "label": "D’autres baigneurs peuvent être découverts",
-            "text": "La présence de personnes non couvertes soulève aussi la question du regard interdit, même si le visiteur couvre son propre corps."
-          },
-          {
-            "label": "L’attribution est donnée",
-            "text": "Al-Hattâb cite les Muqaddimât d’Ibn Rushd et les Jawâhir, au lieu d’annoncer une interdiction sans identifier ses auteurs."
-          },
-          {
-            "label": "Le hammam privé reste un cas distinct",
-            "text": "La première situation, sans d’autres usagers, avait été considérée permise : il ne faut pas faire disparaître ce contraste."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le cas par un exemple",
-          "text": "Un établissement collectif expose les personnes présentes à la nudité d’autres usagers. Un visiteur pense pouvoir s’y laver rapidement sans considérer ce qui l’entoure. La deuxième catégorie d’Ibn Rushd lui demande précisément d’examiner cette exposition. L’exemple est fictif et ne prononce aucune décision sur un établissement actuel dont on ne connaît pas la configuration."
-        },
-        "takeaway": "Ibn Rushd distingue la fréquentation d’un bain exposant à une nudité interdite de celle d’un bain privé. La règle porte sur les comportements et les conditions du lieu, non sur le seul fait d’employer de l’eau chaude.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
-      },
-      {
-        "id": "necessary-withdrawal",
-        "eyebrow": "11 · LECTURE COMMENTÉE",
-        "title": "Peut-on entrer uniquement pour retirer une eau indispensable ?",
-        "passage": {
-          "arabic": "إلا أن يدخله غاضا بصره لإخراجه لا لمقامه فيه",
-          "translation": "« Sauf s’il y entre en baissant son regard pour en faire sortir l’eau, et non pour y séjourner. »",
-          "explanation": "Le texte examine une personne qui n’a pas d’autre eau et dont l’accès exige de passer par un bain présentant le problème décrit. La permission éventuelle ne concerne que le prélèvement nécessaire.",
-          "sourceLabel": "Ibn al-Qâsim, exception citée dans les Jawâhir et reproduite par al-Hattâb, t. 1, p. 113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "Une remarque d’Ibn al-Qâsim précise la portée de la difficulté. Supposons qu’une personne n’ait pas d’autre eau à disposition, tandis que l’eau dont elle a besoin se trouve dans un hammam dont la fréquentation ordinaire est problématique. Le commentaire ne répond pas simplement qu’une nécessité autorise tout séjour. Il rapporte une distinction entre entrer pour retirer l’eau, avec le regard préservé, et entrer pour demeurer dans le lieu malgré ce qu’il comporte. Le premier geste ne possède pas nécessairement le statut du second.",
-          "La nuance se comprend lorsque nous revenons au but de la personne : elle doit se purifier, non passer du temps dans le hammam. Les juristes examinent les moyens qui permettent d’obtenir l’eau sans ajouter une exposition inutile à ce qu’il faut éviter. Le passage envisage également le cas où retirer l’eau serait réellement impossible. Nous devons conserver ces circonstances plutôt que fabriquer une permission générale valable pour n’importe quel établissement. Dans une situation réelle, les alternatives et les conditions concrètes doivent être examinées."
-        ],
-        "steps": [
-          {
-            "label": "Le manque d’eau constitue le cadre du cas",
-            "text": "L’exception ne vise pas une simple commodité ; elle part d’un besoin réel de disposer d’une eau nécessaire."
-          },
-          {
-            "label": "Le prélèvement et le séjour sont séparés",
-            "text": "Ibn al-Qâsim distingue l’entrée limitée à la sortie de l’eau de la présence prolongée dans le lieu."
-          },
-          {
-            "label": "La protection du regard reste requise",
-            "text": "Le texte mentionne explicitement le fait de détourner les yeux des parties qu’il n’est pas permis de regarder."
-          },
-          {
-            "label": "Une circonstance exceptionnelle ne devient pas une règle générale",
-            "text": "On ne peut pas déduire du cas que tous les séjours dans des bains présentant le même problème seraient autorisés."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le cas par un exemple",
-          "text": "Une personne, dans un cas ancien imaginaire, ne peut accéder à de l’eau qu’en passant par l’entrée d’un bain collectif. Elle pourrait y prélever de quoi se purifier sans s’y attarder et sans regarder ce qu’elle doit éviter. C’est la distinction dont parle Ibn al-Qâsim. Cet exemple ne constitue pas un mode d’emploi pour les lieux actuels et ne remplace pas l’examen d’une situation particulière."
-        },
-        "takeaway": "Ibn al-Qâsim distingue le prélèvement nécessaire de l’eau et le séjour dans un lieu dont les conditions posent problème. La protection du regard et la limitation de l’entrée font partie de sa réponse.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
-      },
-      {
-        "id": "covered-with-covered",
-        "eyebrow": "12 · LECTURE COMMENTÉE",
-        "title": "Pourquoi Ibn al-Qâsim dit-il : « C’est permis, mais s’en abstenir est meilleur » ?",
-        "passage": {
-          "arabic": "لا بأس به وتركه أحسن",
-          "translation": "« Il n’y a pas de mal à cela, mais il est préférable de s’en abstenir. »",
-          "explanation": "Le troisième cas d’Ibn Rushd est le bain collectif où la personne et les autres usagers se couvrent. Le commentaire rapporte une permission accompagnée d’une préférence prudente.",
-          "sourceLabel": "Ibn al-Qâsim, transmission d’Asbagh dans la ‘Utbiyya, citée par Ibn Rushd puis al-Hattâb, t. 1, p. 113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "Le troisième cas diffère nettement du précédent. Le visiteur se couvre convenablement, les autres baigneurs aussi, et la raison majeure de l’interdiction liée à la nudité n’est pas établie. Ibn al-Qâsim rapporte alors qu’il n’y a pas de mal à fréquenter ce bain, tout en disant que s’en abstenir est meilleur. Il faut conserver les deux parties de sa phrase. Si nous ne rapportons que la préférence pour l’abstention, nous risquons de faire croire à une interdiction qu’il n’a pas formulée.",
-          "Al-Hattâb explique pourquoi une telle prudence pouvait subsister dans les établissements de son temps : il était difficile d’être certain de ne jamais voir involontairement ce qu’il fallait éviter. Les réserves concernant la circulation des mains et l’eau des bassins pouvaient s’y ajouter. Ce sont plusieurs motifs distincts. Il faut donc apprendre à différencier la permission de l’entrée, la préférence de ne pas prendre ce risque et la validité d’un lavage effectué dans une eau dont la pureté est connue. Nous retrouverons cette dernière question dans la lecture suivante."
-        ],
-        "steps": [
-          {
-            "label": "La pudeur est préservée dans le cas décrit",
-            "text": "Le visiteur et les autres usagers se couvrent ; cette condition distingue le troisième cas de celui des baigneurs découverts."
-          },
-          {
-            "label": "« Lâ ba’s » signifie qu’il n’y a pas de mal",
-            "text": "Cette formule constitue une permission. L’étudiant ne doit pas la remplacer par une interdiction imaginée."
-          },
-          {
-            "label": "« Tarkuhu ahsan » exprime une préférence",
-            "text": "L’auteur indique qu’il est meilleur de ne pas y entrer dans le contexte examiné, sans annuler pour autant l’acte."
-          },
-          {
-            "label": "L’état de l’eau est une question distincte",
-            "text": "Un bassin impur ou réellement altéré ne reçoit pas son statut du seul fait que les usagers se couvrent, ou non."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le cas par un exemple",
-          "text": "Dans un bain collectif, chaque personne porte une tenue qui protège les parties du corps à couvrir. Un étudiant conclut que l’entrée est forcément interdite parce qu’Ibn al-Qâsim préfère l’éviter. Le professeur lui fait relire la formule entière : « Il n’y a pas de mal, mais s’en abstenir est meilleur. » La scène est fictive et ne vérifie pas les conditions d’un établissement particulier."
-        },
-        "takeaway": "La troisième catégorie d’Ibn Rushd montre que la permission peut coexister avec une recommandation de prudence. Il est essentiel de ne pas transformer une préférence d’abstention en interdiction absolue.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
-      },
-      {
-        "id": "malik-basin-purity",
-        "eyebrow": "13 · LECTURE COMMENTÉE",
-        "title": "Le ghusl effectué avec l’eau du bassin compte-t-il pour la purification ?",
-        "passage": {
-          "arabic": "نعم إذا كان طاهرا",
-          "translation": "« Oui, à condition qu’il soit pur. »",
-          "explanation": "Interrogé sur un homme qui utilise un bassin rempli au hammam, Mâlik répond en conditionnant la suffisance du lavage à la pureté ; Ibn Rushd précise que la condition concerne l’homme et l’eau.",
-          "sourceLabel": "Mâlik, Samâ‘ d’Ibn al-Qâsim, réponse citée par al-Hattâb avec l’explication d’Ibn Rushd, t. 1, p. 113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "Une question de la transmission d’Ibn al-Qâsim concerne un homme qui plonge ses mains dans un bassin de hammam pour se purifier. Mâlik répond positivement, mais avec une condition de pureté. Le commentaire précise que le sens vise la personne et l’eau. Il faut lire cette réponse avec les réserves précédentes. Un homme peut s’être lavé dans un lieu dont la fréquentation était peu souhaitable sans que son ghusl soit automatiquement invalide. La question de l’acte accompli demande un autre examen.",
-          "Ibn Rushd explique justement qu’une purification peut être suffisante dans les conditions étudiées sans que cette manière de se laver soit recommandée dès le départ. Il évoque deux raisons de prudence : les lavages dans une eau stagnante et l’usage d’eau chauffée dans certains établissements anciens. C’est l’une des distinctions les plus importantes de notre parcours : le jugement sur le lieu, le jugement sur les moyens employés et la validité des ablutions ou du ghusl ne sont pas nécessairement identiques."
-        ],
-        "steps": [
-          {
-            "label": "Le « oui » de Mâlik est conditionné",
-            "text": "Il faut conserver les mots sur la pureté, sans faire de la réponse une permission inconditionnelle."
-          },
-          {
-            "label": "Le commentaire explicite qui doit être pur",
-            "text": "L’explication rapportée vise à la fois le corps de la personne dans le cas étudié et l’eau employée pour se purifier."
-          },
-          {
-            "label": "Ibn Rushd sépare validité et préférence",
-            "text": "Un acte déjà accompli peut remplir ses conditions alors que sa manière d’exécution n’était pas celle qu’il valait mieux choisir."
-          },
-          {
-            "label": "Le bassin collectif reste un cas matériel",
-            "text": "La présence d’un grand nombre de mains peut susciter une réserve, mais ne constitue pas automatiquement la preuve d’une contamination particulière."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le cas par un exemple",
-          "text": "Un homme a accompli son ghusl en utilisant l’eau d’un bassin de hammam. En découvrant qu’un savant préférait éviter ce lieu, il se demande si sa purification serait nécessairement nulle. Mâlik et Ibn Rushd nous apprennent à distinguer l’examen de l’eau et des conditions du lavage de la prudence concernant le lieu. L’exemple est inventé et ne donne pas de réponse définitive pour une situation réelle."
-        },
-        "takeaway": "Mâlik reconnaît la suffisance du lavage dans le cas qu’il conditionne à la pureté. Ibn Rushd rappelle que la validité d’un acte ne signifie pas qu’il faille recommander en toutes circonstances la manière dont il a été accompli.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
-      },
-      {
-        "id": "bayyan-basin-risk",
-        "eyebrow": "14 · LECTURE COMMENTÉE",
-        "title": "Pourquoi le Bayân émet-il une réserve sur l’eau des bains collectifs ?",
-        "passage": {
-          "arabic": "لأنه يسخن بالأقذار والنجاسات ولاختلاف الأيدي",
-          "translation": "« Parce qu’elle est chauffée au moyen de saletés et d’impuretés, et parce que des mains différentes y passent. »",
-          "explanation": "La réserve est liée à des pratiques matérielles de certains hammams anciens : leur combustible et les contacts répétés avec l’eau. Ces conditions n’impliquent pas qu’une souillure ait été prouvée dans tout réservoir.",
-          "sourceLabel": "Al-Bayân, explication citée par al-Hattâb, t. 1, p. 113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "Al-Hattâb rapporte du Bayân une explication particulièrement concrète. L’eau d’un hammam pouvait être chauffée à l’aide de matières jugées impures et être touchée successivement par des personnes qui n’avaient pas toutes les mêmes précautions. Nous avons étudié ces deux sujets ailleurs : la question de la source de chaleur, puis celle d’une réserve partagée. Leur réunion dans un même lieu explique pourquoi des juristes conseillaient parfois de ne pas faire ses ablutions dans ces bassins.",
-          "Mais ces considérations ne démontrent pas que chaque eau d’un hammam est effectivement impure. Un établissement alimenté par une conduite d’eau distincte, dans lequel les utilisateurs ne touchent pas une même réserve, ne reproduit pas nécessairement les conditions anciennes. Pour comparer les cas, il faut connaître le fonctionnement du lieu. De plus, la présence d’un risque est distincte de la preuve d’une souillure réellement entrée dans l’eau et l’ayant altérée. C’est pourquoi le commentaire peut conserver la réserve du Bayân sans effacer la réponse de Mâlik sur la validité d’un lavage."
-        ],
-        "steps": [
-          {
-            "label": "Le combustible constitue une circonstance",
-            "text": "L’emploi d’une matière impure pour chauffer ne prouve pas, par lui-même, que celle-ci ait été mélangée à l’eau."
-          },
-          {
-            "label": "Les contacts répétés constituent un second facteur",
-            "text": "Le passage des mains rend compréhensible la prudence, sans certifier que toutes étaient effectivement souillées."
-          },
-          {
-            "label": "La qualité de l’eau ne dépend pas du nom du lieu",
-            "text": "Il faut examiner le mode de chauffage, l’accès à la réserve et l’état réel de l’eau avant de transporter cette discussion."
-          },
-          {
-            "label": "Un jugement de prudence n’efface pas la validité conditionnelle",
-            "text": "Le commentaire rapporte aussi la réponse de Mâlik : une purification peut compter lorsque l’eau remplissait ses conditions."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le cas par un exemple",
-          "text": "Deux bains portent le même nom. Le premier comporte un ancien bassin accessible aux mains de tous, et le second distribue une eau séparée à chaque point de lavage. Un lecteur applique aux deux la même réserve sans examiner les installations. L’exemple du Bayân nous apprend précisément à comparer les circonstances qui motivent le jugement, et non les simples appellations. Cette scène fictive ne certifie pas la qualité sanitaire d’un établissement."
-        },
-        "takeaway": "Le Bayân relie la réprobation de certains bassins à leur mode de chauffage et aux nombreux contacts. Cette explication doit rester distincte d’une contamination réellement constatée et ne peut être étendue à toutes les installations contemporaines sans examen.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
-      },
-      {
-        "id": "ibn-shas-conditions",
-        "eyebrow": "15 · LECTURE COMMENTÉE",
-        "title": "Quelles précautions Ibn Shâs donne-t-il pour fréquenter un hammam ?",
-        "passage": {
-          "arabic": "وعلى القول بالجواز يصح بعشرة شروط ذكرها ابن شاس",
-          "translation": "« Selon l’avis qui permet d’y entrer, Ibn Shâs a mentionné dix conditions. »",
-          "explanation": "Al-Hattâb rapporte dix indications d’Ibn Shâs qui portent sur les motivations de la visite, la préservation de la pudeur, le regard, le comportement et la quantité d’eau utilisée.",
-          "sourceLabel": "Ibn Shâs, dix recommandations transmises par al-Hattâb, t. 1, p. 113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "Après les trois catégories d’Ibn Rushd, al-Hattâb présente une liste d’Ibn Shâs. Celle-ci est très concrète : entrer pour une raison convenable telle que se purifier ou se soigner, préférer les moments où le bain est peu fréquenté, se couvrir d’un tissu opaque, diriger son regard vers le sol ou un mur afin de ne pas voir ce qui ne doit pas être regardé, et intervenir avec douceur lorsqu’une conduite répréhensible est constatée. Ce n’est pas une théorie détachée de la vie : Ibn Shâs décrit des moyens de fréquenter un lieu collectif en préservant ses obligations.",
-          "Il ajoute de ne pas laisser autrui toucher les parties de son corps qu’il doit couvrir, de connaître les conditions du paiement lorsqu’un prix est demandé, d’utiliser une quantité d’eau adaptée au besoin et de garder la prière à l’esprit si son heure survient. Quelques indications reflètent des pratiques matérielles propres à son époque. Il ne faut pas leur donner toutes le même rang juridique : la phrase suivante d’al-Hattâb dira expressément que certaines sont obligatoires et d’autres seulement recommandées. La pudeur, l’usage équitable de l’eau et la courtoisie envers autrui restent au centre de cette lecture."
-        ],
-        "steps": [
-          {
-            "label": "Ibn Shâs décrit une situation permise sous conditions",
-            "text": "Il ne formule pas une autorisation détachée de ce qui se passe réellement dans les lieux de bain."
-          },
-          {
-            "label": "La protection du corps et du regard est centrale",
-            "text": "Le tissu opaque et le regard détourné visent à éviter les dévoilements et les regards que la loi religieuse ne permet pas."
-          },
-          {
-            "label": "Le texte mentionne des usages pratiques",
-            "text": "Les heures calmes, les règles de paiement et le juste emploi de l’eau font partie de sa présentation de la fréquentation du lieu."
-          },
-          {
-            "label": "Toutes les conditions n’ont pas le même statut",
-            "text": "Al-Hattâb précisera que la liste comprend des obligations et des recommandations ; on ne doit pas en faire dix interdictions équivalentes."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le passage par une situation",
-          "text": "Un étudiant découvre les dix indications d’Ibn Shâs et les considère toutes comme des obligations dont la moindre omission rendrait le bain interdit. En lisant la remarque d’al-Hattâb juste après, il apprend que le commentateur distingue les prescriptions obligatoires des usages recommandés. L’exemple est inventé pour enseigner cette hiérarchie, sans proposer un règlement contemporain pour un établissement précis."
-        },
-        "takeaway": "Ibn Shâs cherche à organiser une fréquentation du bain qui préserve le regard, la pudeur et les droits d’autrui. Les dix indications doivent être étudiées avec leurs conditions et leur rang juridique, et non récitées comme une série uniforme d’interdictions.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
-      },
-      {
-        "id": "obligatory-recommended",
-        "eyebrow": "16 · LECTURE COMMENTÉE",
-        "title": "Pourquoi al-Hattâb distingue-t-il ce qui est obligatoire de ce qui est recommandé ?",
-        "passage": {
-          "arabic": "هذه آداب منها واجب ومنها مندوب",
-          "translation": "« Ce sont des règles de conduite : certaines sont obligatoires, d’autres recommandées. »",
-          "explanation": "En une phrase, al-Hattâb rappelle qu’un ensemble de conseils portant sur le même lieu peut comprendre plusieurs degrés normatifs. Il n’en fait pas un bloc de règles de portée identique.",
-          "sourceLabel": "Al-Hattâb, remarque personnelle après les dix indications d’Ibn Shâs, t. 1, p. 113.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
-        },
-        "paragraphs": [
-          "La phrase d’al-Hattâb qui suit la liste d’Ibn Shâs est brève, mais elle évite de nombreuses erreurs. Il nous dit que ces règles de conduite comportent des obligations et des recommandations. La personne qui protège sa nudité ou s’interdit un regard illicite ne se trouve pas dans la même situation que celle qui choisit, par prudence, une heure où le bain est moins fréquenté. Tout cela peut participer à une conduite digne, mais les juristes ne déclarent pas chaque préférence obligatoire au seul motif qu’elle figure dans une même liste.",
-          "Ce détail est très important lorsqu’on enseigne le fiqh à des débutants. Sans lui, on risque d’alourdir la religion en transformant des conseils utiles en interdictions que la source n’a pas formulées. Ibn Shâs mentionne également la sobriété dans l’emploi de l’eau et la douceur lorsqu’on rappelle une règle à autrui. Ces éléments contribuent à l’éthique des lieux partagés. Al-Hattâb nous demande d’apprendre à hiérarchiser les prescriptions, pas seulement à en mémoriser les mots. La même méthode servira dans les autres chapitres du livre."
-        ],
-        "steps": [
-          {
-            "label": "Le mot « wâjib » désigne l’obligatoire",
-            "text": "Il ne peut être attribué indistinctement à tout conseil pratique présent dans un commentaire."
-          },
-          {
-            "label": "Le mot « mandûb » désigne le recommandé",
-            "text": "Un usage conseillé peut être utile et méritoire sans que son omission constitue une interdiction religieuse."
-          },
-          {
-            "label": "La liste d’Ibn Shâs couvre différents domaines",
-            "text": "La protection des parties intimes, le regard, le paiement, l’eau et la conduite spirituelle n’ont pas forcément la même qualification."
-          },
-          {
-            "label": "L’attribution de la nuance est précise",
-            "text": "C’est al-Hattâb qui ajoute cette remarque à la suite des paroles rapportées d’Ibn Shâs, afin de guider la lecture."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le passage par une situation",
-          "text": "Un lecteur prépare une fiche de synthèse et marque chacune des dix indications d’Ibn Shâs comme « obligatoire ». Son enseignant lui fait relever le dernier commentaire d’al-Hattâb : certaines sont obligatoires, d’autres recommandées. Le lecteur reprend alors son tableau et refuse d’attribuer un rang juridique sans l’avoir établi. Ce dialogue fictif illustre une discipline nécessaire pour comprendre la jurisprudence."
-        },
-        "takeaway": "Al-Hattâb refuse de mettre au même niveau toutes les recommandations d’Ibn Shâs. Cette distinction protège l’étude du fiqh contre l’invention de devoirs supplémentaires et encourage une pratique respectueuse des obligations comme des conseils.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
-      },
-      {
-        "id": "custom-seasons",
-        "eyebrow": "17 · LECTURE COMMENTÉE",
-        "title": "Pourquoi les habitudes du lieu et la saison comptent-elles dans les avis ?",
-        "passage": {
-          "arabic": "يختص كل زمان بعادته وعرفه",
-          "translation": "« Chaque époque a ses habitudes et ses usages propres. »",
-          "explanation": "Al-Hattâb rapproche une remarque sur le changement des usages sociaux dans les bains et la distinction d’al-Barzalî entre saison douce et saison froide.",
-          "sourceLabel": "Le Madkhal, propos cités dans la discussion d’al-Hattâb, p. 113–114 ; propos d’al-Barzalî sur la saison froide également rapportés.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
-        },
-        "paragraphs": [
-          "Une remarque du Madkhal attire l’attention sur le changement des pratiques. Un bain fréquenté à une époque donnée n’est pas nécessairement organisé comme un bain de plusieurs générations plus tard. Les règles relatives à la pudeur demeurent importantes, mais ce qui doit être observé est la réalité des comportements et de l’aménagement du lieu. Al-Hattâb conserve cette remarque pour éviter que les paroles d’un maître, prononcées dans une société particulière, soient automatiquement appliquées à un environnement qui ne présente pas les mêmes circonstances.",
-          "Il rapporte également d’al-Barzalî une distinction selon les saisons. Pendant une période tempérée, certains peuvent préférer se laver sans fréquenter un bain collectif ; en hiver, l’usage d’une installation chauffée peut devenir préférable si une eau froide risque de causer du tort. Al-Hattâb ajoute toutefois que cette appréciation concerne un bain qui ne présente pas d’autre motif d’interdiction. Le besoin de chaleur ne fait pas disparaître les exigences de pudeur. Le texte relie donc les conditions du lieu, la saison et la possibilité réelle d’accomplir la purification."
-        ],
-        "steps": [
-          {
-            "label": "Les usages des lieux varient selon l’époque",
-            "text": "Il ne faut pas inférer les pratiques réelles d’un hammam actuel de la simple description d’un hammam médiéval."
-          },
-          {
-            "label": "La pudeur reste l’objet des précautions",
-            "text": "Le comportement des personnes et la protection des parties intimes déterminent la comparaison entre les situations."
-          },
-          {
-            "label": "Al-Barzalî tient compte du froid",
-            "text": "Le texte envisage le cas où une eau froide risque de nuire, ce qui modifie la préférence pratique pour un moyen de se laver."
-          },
-          {
-            "label": "Une préférence saisonnière ne suspend pas les autres règles",
-            "text": "Al-Hattâb précise que les conditions interdisant une fréquentation demeurent pertinentes, même lorsque l’eau chaude est souhaitable."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le passage par une situation",
-          "text": "Une personne envisage de se laver dans un bain chauffé au cours d’un hiver rigoureux. Elle compare cette option avec une eau très froide, mais elle doit aussi examiner si le lieu permet de préserver la pudeur. Les remarques d’al-Barzalî et du Madkhal montrent pourquoi la saison et les usages concrets comptent. Ce scénario est fictif et ne constitue pas une évaluation médicale d’un risque de froid ou un jugement sur un établissement réel."
-        },
-        "takeaway": "Le commentaire tient compte des circonstances concrètes : les pratiques d’un lieu peuvent changer et l’accès à une eau convenable peut varier selon la saison. Aucune de ces distinctions ne dispense de préserver les règles de pudeur ni d’examiner le bain considéré.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
-      },
-      {
-        "id": "women-bath-opinions",
-        "eyebrow": "18 · LECTURE COMMENTÉE",
-        "title": "Comment lire les divergences anciennes sur l’entrée des femmes au hammam ?",
-        "passage": {
-          "arabic": "ولا تدخله امرأة إلا من علة",
-          "translation": "« Une femme n’y entre que pour un motif particulier. »",
-          "explanation": "Al-Hattâb rassemble plusieurs transmissions historiques sur la fréquentation des bains par les femmes, avec des divergences relatives à la réprobation, au besoin et aux conditions de pudeur.",
-          "sourceLabel": "Ibn Abî Zayd al-Qayrawânî, Risâla, cité par al-Hattâb avec les avis d’Ibn Rushd, de ‘Abd al-Wahhâb et d’al-Barzalî, t. 1, p. 114.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
-        },
-        "paragraphs": [
-          "Al-Hattâb examine ensuite la question des femmes qui fréquentent un bain collectif. Il cite la formule de la Risâla d’Ibn Abî Zayd al-Qayrawânî, puis rapporte les avis d’Ibn Rushd, de ‘Abd al-Wahhâb et d’autres auteurs. Certains faisaient une différence entre un bain fréquenté pour une raison de santé ou de purification et une visite sans besoin particulier. D’autres discutaient le degré de la réprobation et contestaient d’en tirer une interdiction absolue lorsque les exigences de pudeur étaient respectées.",
-          "Nous devons lire ces paroles dans les conditions de vie qu’elles décrivent. Les juristes parlent d’établissements où certaines personnes pouvaient ne pas couvrir les parties du corps qu’il fallait préserver et où les pratiques variaient selon les lieux. Al-Barzalî rapporte des inquiétudes propres à ce qu’il constatait à son époque. Il serait donc incorrect de transformer une citation isolée en règle universelle sur tous les bains exclusivement féminins actuels, comme il serait incorrect d’ignorer les obligations de pudeur. Ce cours présente les avis et leur contexte sans produire une fatwa individualisée."
-        ],
-        "steps": [
-          {
-            "label": "La formule de la Risâla est attribuée",
-            "text": "Il s’agit d’Ibn Abî Zayd al-Qayrawânî, et non d’une phrase prononcée directement par Mâlik dans ce passage."
-          },
-          {
-            "label": "Les auteurs cités ne donnent pas tous la même qualification",
-            "text": "Al-Hattâb rapporte des distinctions entre réprobation, débat sur l’interdiction et exceptions liées à un besoin."
-          },
-          {
-            "label": "Les conditions de pudeur sont centrales",
-            "text": "Les avis historiques visent notamment des lieux où la nudité était exposée et où les usages n’étaient pas identiques à tous les établissements possibles."
-          },
-          {
-            "label": "Il faut examiner la réalité contemporaine",
-            "text": "La séparation des espaces, la protection des parties intimes et le motif de la visite sont des faits à vérifier avant de comparer les cas."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le passage par une situation",
-          "text": "Une personne cite la Risâla pour condamner indistinctement toute installation moderne fréquentée par des femmes. Une autre lui demande de lire les développements d’al-Hattâb sur les conditions de pudeur et les avis différents des juristes. La première comprend qu’une phrase ancienne ne peut être détachée de son environnement et de ses exceptions. Le dialogue est fictif et ne délivre pas de verdict sur un établissement réel."
-        },
-        "takeaway": "La Risâla et les autres malikites cités par al-Hattâb discutent des cas historiques distincts avec des conditions de besoin et de pudeur. La fiche conserve leurs avis et leurs différences sans inventer une interdiction générale de tout bain moderne.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
-      },
-      {
-        "id": "weak-hammam-report",
-        "eyebrow": "19 · LECTURE COMMENTÉE",
-        "title": "Pourquoi ne pas présenter le récit d’un bain fréquenté par le Prophète ﷺ comme authentique ?",
-        "passage": {
-          "arabic": "لكن ذكر النووي في شرح المهذب في كتاب الحج أنه حديث ضعيف",
-          "translation": "« Toutefois, al-Nawawî a indiqué dans le Sharh al-Muhadhdhab qu’il s’agit d’un hadith faible. »",
-          "explanation": "Une note rapporte qu’al-Damîrî mentionne un récit selon lequel le Prophète ﷺ serait entré dans un hammam à al-Juhfa. Al-Hattâb signale immédiatement le jugement d’al-Nawawî sur sa faiblesse.",
-          "sourceLabel": "Al-Hattâb, citation d’al-Damîrî suivie du jugement d’al-Nawawî, t. 1, p. 114.",
-          "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
-        },
-        "paragraphs": [
-          "Le commentaire ajoute enfin une information relative à un récit ancien. Al-Damîrî aurait mentionné que le Prophète ﷺ était entré dans un hammam à al-Juhfa. Mais al-Hattâb n’en fait pas un argument authentifié : il cite ensuite al-Nawawî, qui qualifie le hadith de faible dans son Sharh al-Muhadhdhab, au chapitre du pèlerinage. Cette précaution compte autant que la mention du récit lui-même. On ne peut pas attribuer comme certain au Messager d’Allah ﷺ un acte dont la transmission est contestée.",
-          "Le lecteur doit donc apprendre une discipline simple : lorsqu’un savant rapporte une tradition, il faut examiner ce qu’il dit de son authenticité. C’est la même méthode que nous avons suivie dans la fiche précédente concernant une eau chauffée au soleil. Ici, les jugements sur la fréquentation des bains doivent être compris à partir des règles exposées sur la pudeur, la pureté de l’eau et les circonstances du lieu. Le récit d’al-Juhfa peut être évoqué comme une tradition historiquement citée, mais pas présenté comme une preuve prophétique certaine."
-        ],
-        "steps": [
-          {
-            "label": "Al-Damîrî est mentionné comme rapporteur",
-            "text": "Le commentaire cite le livre où la tradition apparaît au lieu de la présenter spontanément comme authentique."
-          },
-          {
-            "label": "Al-Nawawî fournit une critique explicite",
-            "text": "Sa qualification de hadith faible doit être signalée à chaque fois que l’on mentionne cette histoire."
-          },
-          {
-            "label": "L’attribution au Prophète ﷺ demande une rigueur particulière",
-            "text": "La célébrité d’un récit ne suffit pas à démontrer l’authenticité de sa chaîne de transmission."
-          },
-          {
-            "label": "Le jugement du hammam ne dépend pas de ce récit faible",
-            "text": "Les distinctions d’Ibn Rushd et les autres avis rapportés restent les éléments étudiés pour comprendre les situations réelles."
-          }
-        ],
-        "example": {
-          "title": "Comprendre le passage par une situation",
-          "text": "Un enseignant affirme que le Prophète ﷺ est certainement entré dans un hammam à al-Juhfa. Un élève lui demande la source. En lisant al-Hattâb, ils voient la remarque d’al-Damîrî puis la critique d’al-Nawawî. Le professeur corrige sa formulation et indique que le récit est faible. L’exemple est imaginaire, mais il montre pourquoi la transmission doit être vérifiée avant d’être utilisée comme preuve religieuse."
-        },
-        "takeaway": "Al-Hattâb mentionne le récit rapporté par al-Damîrî, puis précise qu’al-Nawawî le qualifie de faible. Il ne faut donc pas le présenter comme une preuve prophétique authentique pour trancher la question de l’entrée au hammam.",
-        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
-      }
-    ],
-    "lexicon": [
-      {
-        "arabic": "الْمَاءُ الْمُسَخَّنُ بِالنَّجَاسَة",
-        "term": "Musakhkhan bi-n-najâsa",
-        "definition": "Eau chauffée au moyen d’une matière considérée comme impure. Il faut la distinguer d’une eau dans laquelle une impureté est réellement entrée."
-      },
-      {
-        "arabic": "السَّمَاع",
-        "term": "Samâ‘ Ashhab",
-        "definition": "Transmission juridique recueillie par un disciple. Le Samâ‘ d’Ashhab rapporte ici la parole de Mâlik sur l’usage fréquent de l’eau chauffée."
-      },
-      {
-        "arabic": "الْمَاءُ الْبَارِد",
-        "term": "Mâ’ bārid",
-        "definition": "Eau froide dont certains auteurs expliquent la préférence dans le climat chaud du Hedjaz ; cette préférence n’équivaut pas à une obligation générale."
-      },
-      {
-        "arabic": "الْمَاءُ الْمُسَخَّن",
-        "term": "Mâ’ musakhkhan",
-        "definition": "Eau chauffée. Mâlik est cité pour sa permission ; les questions de chauffage par une souillure et de température excessive sont traitées séparément."
-      },
-      {
-        "arabic": "الْمَشَقَّة",
-        "term": "Mashaqqa",
-        "definition": "Difficulté rencontrée dans un acte. Ibn al-Imâm distingue la peine inséparable de l’obéissance de celle qu’on recherche sans nécessité pour elle-même."
-      },
-      {
-        "arabic": "التَّنَعُّم",
-        "term": "Tana‘‘um",
-        "definition": "Recherche de confort. Une interprétation de la réserve attribuée à Mujâhid la relie à la crainte d’un confort qui écarterait l’effort méritoire."
-      },
-      {
-        "arabic": "الثَّوَاب",
-        "term": "Thawâb al-‘ibâda",
-        "definition": "Récompense de l’adoration. Le commentaire explique que l’effort inévitable peut l’accompagner, sans que toute peine volontaire soit une adoration."
-      },
-      {
-        "arabic": "الْقُرْبَة",
-        "term": "Qurba",
-        "definition": "Acte par lequel on se rapproche d’Allah. Ibn al-Imâm rappelle qu’une difficulté sans utilité n’est pas une qurba simplement parce qu’elle est pénible."
-      },
-      {
-        "arabic": "الْحَمَّام",
-        "term": "Hammâm",
-        "definition": "Bain collectif historique, souvent muni de bassins communs. Les juristes distinguent les bains privés, les usages pudiques et les lieux exposant à la nudité."
-      },
-      {
-        "arabic": "الْعَوْرَة",
-        "term": "‘Awra",
-        "definition": "Parties du corps qu’il faut couvrir dans des situations déterminées. La protection de l’‘awra est centrale dans la classification des hammams."
-      },
-      {
-        "arabic": "سَتْرُ الْعَوْرَة",
-        "term": "Satr al-‘awra",
-        "definition": "Action de couvrir convenablement les parties intimes devant autrui. L’usage d’un vêtement opaque fait partie des indications citées d’Ibn Shâs."
-      },
-      {
-        "arabic": "غَضُّ الْبَصَر",
-        "term": "Ghadd al-basar",
-        "definition": "Fait de détourner les yeux de ce qu’il n’est pas permis de regarder. Le principe apparaît notamment dans le cas d’un passage nécessaire pour prélever de l’eau."
-      },
-      {
-        "arabic": "الْخَلْوَة",
-        "term": "Khalwa al-hammâm",
-        "definition": "Situation d’un hammam vide ou utilisé en privé. Ibn Rushd la distingue de la fréquentation d’un bain où d’autres personnes sont présentes."
-      },
-      {
-        "arabic": "الْمُقَدِّمَات",
-        "term": "Al-Muqaddimât",
-        "definition": "Ouvrage d’Ibn Rushd cité par al-Hattâb pour la division de l’entrée au hammam en trois situations juridiquement différentes."
-      },
-      {
-        "arabic": "الْعُتْبِيَّة",
-        "term": "Al-‘Utbiyya",
-        "definition": "Recueil de transmissions malikites dont al-Hattâb rapporte, par Asbagh, une formulation d’Ibn al-Qâsim sur le hammam où tous se couvrent."
-      },
-      {
-        "arabic": "الْجَوَاهِر",
-        "term": "Al-Jawâhir",
-        "definition": "Ouvrage malikite cité concernant les bains où la nudité n’est pas préservée et la situation d’une personne qui ne peut trouver l’eau ailleurs."
-      },
-      {
-        "arabic": "آدَابُ الْحَمَّام",
-        "term": "Âdâb al-hammâm",
-        "definition": "Règles de conduite pour la fréquentation des bains, dont certaines sont obligatoires et d’autres recommandées selon la remarque expresse d’al-Hattâb."
-      },
-      {
-        "arabic": "الْمَنْدُوب",
-        "term": "Mandûb fi-l-hammâm",
-        "definition": "Acte recommandé mais non obligatoire. Al-Hattâb l’oppose au wâjib dans sa lecture des dix indications attribuées à Ibn Shâs."
-      },
-      {
-        "arabic": "الْوَاجِب",
-        "term": "Wâjib fi-l-hammâm",
-        "definition": "Obligation juridique, distincte des conseils recommandés. Préserver la pudeur ne se place pas au même rang qu’un simple choix d’horaire."
-      },
-      {
-        "arabic": "الْعُرْف",
-        "term": "‘Urf al-balad",
-        "definition": "Usage social d’une époque ou d’un lieu. Le Madkhal est cité pour rappeler que les comportements dans les bains peuvent changer avec les générations."
-      },
-      {
-        "arabic": "الْعِلَّة",
-        "term": "‘Illa wa-hâja",
-        "definition": "Motif ou besoin particulier. Les discussions historiques sur l’accès des femmes au hammam distinguent notamment les visites motivées de la simple habitude."
-      },
-      {
-        "arabic": "الرِّوَايَةُ الضَّعِيفَة",
-        "term": "Riwâya da‘îfa",
-        "definition": "Transmission faible. Al-Hattâb rapporte qu’al-Nawawî juge faible le récit affirmant une entrée du Prophète ﷺ dans un hammam à al-Juhfa."
-      }
-    ],
-    "quiz": [
-      {
-        "question": "Quelle différence fondamentale existe entre chauffage par une souillure et contamination de l’eau ?",
-        "choices": [
-          "Le premier concerne le moyen de chauffage, la seconde une matière entrée dans l’eau.",
-          "Ce sont toujours deux expressions synonymes.",
-          "L’eau n’est jamais chauffée avec un combustible."
-        ],
-        "answer": 0,
-        "explanation": "La réprobation d’Ibn al-Karawî est mentionnée pour un moyen de chauffage particulier, même sans changement de l’eau. Elle ne prouve pas qu’une impureté ait été mélangée à la réserve."
-      },
-      {
-        "question": "Que répond Mâlik dans le Samâ‘ d’Ashhab au sujet de l’eau chauffée ?",
-        "choices": [
-          "Il en interdit l’usage en toutes circonstances.",
-          "Il n’y voit pas de mal et dit en faire lui-même souvent usage.",
-          "Il affirme que l’eau tiède ne peut lever aucun hadath."
-        ],
-        "answer": 1,
-        "explanation": "Le propos « لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا » est explicitement attribué à Mâlik dans la transmission d’Ashhab. Il ne supprime pas les réserves relatives à d’autres circonstances."
-      },
-      {
-        "question": "Comment Ibn ‘Abd al-Salâm comprend-il la préférence rapportée pour l’eau froide ?",
-        "choices": [
-          "Comme une obligation universelle en toutes saisons.",
-          "Comme un moyen de rendre la purification invalide.",
-          "Comme une préférence liée notamment à la chaleur du Hedjaz et à des effets corporels supposés."
-        ],
-        "answer": 2,
-        "explanation": "Ibn ‘Abd al-Salâm replace cette préférence dans le contexte du climat chaud du Hedjaz. Elle ne doit pas devenir une règle médicale générale ni une réprobation de toute eau chauffée."
-      },
-      {
-        "question": "À qui le Bayân attribue-t-il une réprobation de l’eau chauffée ?",
-        "choices": [
-          "À Mujâhid.",
-          "À Ibn Shâs uniquement.",
-          "À al-Nawawî à propos du hammam d’al-Juhfa."
-        ],
-        "answer": 0,
-        "explanation": "Al-Hattâb cite le Bayân transmettant une réprobation de Mujâhid, puis discute une explication possible liée au confort et au mérite de supporter une difficulté."
-      },
-      {
-        "question": "Quelle est l’objection principale d’Ibn al-Imâm contre la recherche de difficulté ?",
-        "choices": [
-          "Toute adoration doit être sans aucun effort.",
-          "Allah ne demande pas la peine pour elle-même : elle n’est pas automatiquement une adoration.",
-          "Le froid est toujours interdit dans les ablutions."
-        ],
-        "answer": 1,
-        "explanation": "Ibn al-Imâm distingue les difficultés inévitables rencontrées dans une bonne œuvre de celles qu’on s’inflige sans nécessité. Le commentaire ne confond pas effort sincère et complication gratuite."
-      },
-      {
-        "question": "Quand une difficulté peut-elle contribuer à une récompense accrue selon Ibn al-Imâm ?",
-        "choices": [
-          "Lorsqu’elle est volontairement ajoutée sans utilité.",
-          "Uniquement dans un bain collectif.",
-          "Lorsqu’elle accompagne nécessairement l’accomplissement du bien recherché."
-        ],
-        "answer": 2,
-        "explanation": "Le texte rattache la peine à la réalisation d’un acte d’adoration qui ne peut être effectué sans cet effort. Il n’encourage pas à fabriquer des difficultés lorsque l’acte est accessible autrement."
-      },
-      {
-        "question": "Pourquoi al-Ubbî considère-t-il que chauffer l’eau peut être approprié ?",
-        "choices": [
-          "Pour se renforcer et accomplir correctement l’adoration.",
-          "Parce que toute eau froide est impure.",
-          "Parce que la récompense dépend uniquement de la chaleur de l’eau."
-        ],
-        "answer": 0,
-        "explanation": "Al-Ubbî explique que réchauffer l’eau pour écarter le froid et mieux adorer ne retire pas la récompense évoquée. Il rejoint la distinction entre le bien recherché et la difficulté inutile."
-      },
-      {
-        "question": "Combien de situations Ibn Rushd distingue-t-il pour l’entrée au hammam ?",
-        "choices": [
-          "Une seule interdiction identique dans tous les cas.",
-          "Trois : bain privé, nudité exposée, et fréquentation où chacun se couvre.",
-          "Deux uniquement selon le prix d’entrée."
-        ],
-        "answer": 1,
-        "explanation": "Al-Hattâb rapporte la classification d’Ibn Rushd, reprise par plusieurs malikites. Elle exige d’examiner les conditions du bain et la protection de la pudeur."
-      },
-      {
-        "question": "Quel est le jugement du bain privé ou vide selon la première catégorie ?",
-        "choices": [
-          "Il est toujours interdit.",
-          "Il annule automatiquement la purification.",
-          "Il est permis sans réprobation dans les conditions décrites."
-        ],
-        "answer": 2,
-        "explanation": "Le premier cas rapporté par Ibn Rushd est celui du hammam vide ou utilisé dans un cadre privé approprié, distinct des lieux exposant au regard d’autres baigneurs."
-      },
-      {
-        "question": "Pourquoi le second cas d’Ibn Rushd reçoit-il un jugement sévère ?",
-        "choices": [
-          "Parce que la nudité qu’il faut couvrir est exposée, par soi-même ou par d’autres.",
-          "Parce que la chaleur annule toute ablution.",
-          "Parce que le nombre d’usagers est toujours supérieur à dix."
-        ],
-        "answer": 0,
-        "explanation": "Ibn Rushd vise un lieu où les parties du corps qu’il faut protéger sont exposées. Le problème principal concerne la pudeur et le regard, et non l’existence d’eau chaude."
-      },
-      {
-        "question": "Que distingue Ibn al-Qâsim dans le cas d’une personne sans autre eau ?",
-        "choices": [
-          "La couleur des murs du hammam.",
-          "Le prélèvement nécessaire de l’eau et le fait de demeurer dans le bain.",
-          "Les récits de science médicale sur le soleil."
-        ],
-        "answer": 1,
-        "explanation": "Le passage envisage un accès limité à l’eau, en préservant le regard, sans transformer cette nécessité en permission générale de séjourner dans un lieu problématique."
-      },
-      {
-        "question": "Que signifie la formule d’Ibn al-Qâsim « لا بأس به وتركه أحسن » ?",
-        "choices": [
-          "Le bain est obligatoirement interdit.",
-          "Le bain est une obligation de purification.",
-          "Il n’y a pas de mal à y entrer dans le cas décrit, mais l’abstention est préférable."
-        ],
-        "answer": 2,
-        "explanation": "Dans le troisième cas d’Ibn Rushd, les personnes se couvrent. Ibn al-Qâsim distingue l’entrée permise de la préférence prudente pour l’éviter dans les circonstances étudiées."
-      },
-      {
-        "question": "Que faut-il conserver de la réponse de Mâlik sur le bassin du hammam ?",
-        "choices": [
-          "La suffisance du ghusl dépend des conditions de pureté.",
-          "Tout bain public est toujours pur.",
-          "Il est interdit de se purifier à partir de toute eau stagnante."
-        ],
-        "answer": 0,
-        "explanation": "Mâlik répond « نعم إذا كان طاهرا ». Ibn Rushd précise que le jugement de validité dépend des conditions de l’eau et de la personne et ne transforme pas toute pratique en recommandation."
-      },
-      {
-        "question": "Pourquoi le Bayân déconseille-t-il l’usage de certaines eaux de hammam ?",
-        "choices": [
-          "À cause de leur nom arabe.",
-          "À cause du chauffage par des matières impures et des nombreux contacts avec la même réserve.",
-          "Parce que l’eau réchauffée par le feu est toujours invalide."
-        ],
-        "answer": 1,
-        "explanation": "Le Bayân cite le moyen de chauffage et le passage successif des mains. Ces circonstances expliquent une réserve, mais ne prouvent pas une souillure réelle dans toutes les installations."
-      },
-      {
-        "question": "Quel sujet couvre principalement la liste d’Ibn Shâs ?",
-        "choices": [
-          "Une méthode pour construire les bassins.",
-          "Une mesure exacte de la température et du volume.",
-          "La protection de la pudeur, le regard, le comportement et l’usage raisonnable de l’eau."
-        ],
-        "answer": 2,
-        "explanation": "Ibn Shâs rapporte dix indications pour un bain fréquenté dans des conditions permises. Al-Hattâb ajoute qu’elles ne sont pas toutes de même rang juridique."
-      },
-      {
-        "question": "Quelle précision al-Hattâb donne-t-il sur ces dix indications ?",
-        "choices": [
-          "Certaines sont obligatoires, d’autres recommandées.",
-          "Toutes sont des interdictions absolues.",
-          "Elles ne concernent que les médecins."
-        ],
-        "answer": 0,
-        "explanation": "La formule « هذه آداب منها واجب ومنها مندوب » interdit de traiter chaque conseil d’Ibn Shâs comme une obligation identique."
-      },
-      {
-        "question": "Que rappellent le Madkhal et al-Barzalî sur les hammams ?",
-        "choices": [
-          "Les pratiques et les saisons n’ont aucune importance.",
-          "Les usages des lieux changent et le besoin d’eau chaude peut varier selon les saisons.",
-          "Il faut toujours choisir une eau froide, même lorsqu’elle nuit."
-        ],
-        "answer": 1,
-        "explanation": "Le Madkhal attire l’attention sur l’évolution des pratiques, tandis qu’al-Barzalî distingue les périodes où un bain chauffé peut être préférable, tout en conservant les autres conditions."
-      },
-      {
-        "question": "Comment la fiche présente-t-elle les avis historiques concernant l’entrée des femmes au hammam ?",
-        "choices": [
-          "Comme une interdiction universelle de tout bain féminin contemporain.",
-          "Comme une permission sans condition.",
-          "Comme plusieurs avis tenant compte du besoin, des pratiques du lieu et de la préservation de la pudeur."
-        ],
-        "answer": 2,
-        "explanation": "Al-Hattâb cite la Risâla et différents malikites. La présentation conserve les divergences et le contexte des bains historiques, sans créer de fatwa universelle sur les établissements modernes."
-      },
-      {
-        "question": "Quelle critique al-Hattâb rapporte-t-il à propos du récit d’al-Juhfa ?",
-        "choices": [
-          "Al-Nawawî le juge faible.",
-          "Il est unanimement authentique.",
-          "Il prouve que les hammams sont toujours obligatoires."
-        ],
-        "answer": 0,
-        "explanation": "Après avoir mentionné le récit rapporté d’al-Damîrî, al-Hattâb indique qu’al-Nawawî l’a qualifié de faible dans le Sharh al-Muhadhdhab. Il ne doit pas être cité comme une preuve prophétique authentifiée."
-      }
-    ],
-    "quote": {
-      "arabic": "لِأَنَّ اللَّهَ تَعَالَى لَمْ يَطْلُبْ مِنْ عِبَادِهِ الْمَشَاقَّ",
-      "meaning": "Ibn al-Imâm rappelle, dans la discussion sur l’eau froide et l’eau chauffée, qu’Allah ne demande pas à Ses serviteurs de rechercher la difficulté pour elle-même. L’effort lié à l’accomplissement nécessaire d’un acte et l’effort ajouté sans raison ne se confondent pas.",
-      "label": "Ibn al-Imâm cité par al-Hattâb, Mawâhib al-Jalîl, tome 1, passage « تنبيه وفائدة », édition Dâr al-Kutub al-‘Ilmiyya, p. 112."
+      "takeaway": "Ibn al-Karawî réprouve dans ce cas le chauffage au moyen d’une matière impure, même sans altération visible. On doit conserver la différence entre ce mode de chauffage et une eau dont la contamination serait réellement constatée.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Tu prépares de l’eau pour les ablutions dans une marmite posée sur un feu. Le combustible employé est considéré comme impur, mais il ne touche jamais l’eau. Celle-ci devient-elle impure ou son usage est-il seulement déconseillé ?"
     },
-    "sources": [
-      {
-        "label": "Mawâhib al-Jalîl — édition Dâr al-Kutub al-‘Ilmiyya, tome 1, page 112 : eau chauffée, Mâlik, effort et début du hammam",
-        "url": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+    {
+      "id": "malik-ashhab",
+      "title": "Pourquoi Mâlik dit-il qu’il utilise lui-même l’eau chauffée ?",
+      "eyebrow": "02 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا",
+        "translation": "« Il n’y a pas de mal à faire ses ablutions avec de l’eau chauffée ; je le fais moi-même souvent. »",
+        "sourceLabel": "Imam Mâlik, réponse transmise dans le Samâ‘ d’Ashhab et citée par al-Hattâb, p. 112.",
+        "explanation": "Al-Hattâb cite la transmission d’Ashhab sur l’eau chauffée de manière générale, à lire après la distinction sur le combustible impur.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
       },
-      {
-        "label": "Mawâhib al-Jalîl — même édition, page 113 : trois situations, avis et dix conditions d’Ibn Shâs",
-        "url": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      "paragraphs": [
+        "Cette réponse de Mâlik mérite qu’on s’y arrête, car elle corrige une idée qui pourrait naître de la précédente discussion. Après avoir vu des réserves sur certaines eaux chauffées, un élève pourrait croire que l’eau chaude est, en elle-même, déconseillée pour les ablutions. Or Mâlik, dans la transmission d’Ashhab, dit qu’il n’y voit aucun mal et qu’il en fait souvent usage. L’exemple donné par l’imam est concret : on ne parle pas d’une possibilité théorique que personne n’aurait pratiquée.",
+        "Il faut néanmoins respecter les différents cas. Une eau chauffée normalement n’est pas identique au cas de chauffage par une matière impure étudié juste avant, ni à une eau devenue si brûlante qu’on ne parvient plus à accomplir correctement le lavage. L’avis de Mâlik montre que le confort d’une température adaptée n’est pas, à lui seul, contraire à la purification. Il prépare aussi la discussion suivante : vaut-il mieux, pour obtenir davantage de récompense, choisir volontairement une eau froide lorsque de l’eau chaude est disponible ?"
+      ],
+      "steps": [
+        {
+          "label": "La réponse est transmise par Ashhab",
+          "text": "La source mentionne le Samâ‘ d’Ashhab. Al-Hattâb ne présente donc pas ces mots comme sa propre invention."
+        },
+        {
+          "label": "« Lâ ba’s » signifie qu’il n’y voit pas de mal",
+          "text": "Le propos de Mâlik ne formule ni interdiction ni réprobation générale de l’eau chauffée."
+        },
+        {
+          "label": "« Je le fais souvent » précise la pratique de l’imam",
+          "text": "Cette remarque montre que l’usage fréquent de l’eau chaude ne lui paraissait pas blâmable en lui-même."
+        },
+        {
+          "label": "Comparer des situations comparables",
+          "text": "Le cas de l’eau ordinairement chauffée, celui d’une eau souillée et celui d’une eau de température insupportable ne doivent pas être réunis sans distinction."
+        }
+      ],
+      "example": {
+        "title": "L’eau chaude avant la prière du matin",
+        "text": "Un fidèle réchauffe de l’eau propre pour ses ablutions avant la prière de l’aube parce que la saison est froide. Il craint, en raison d’une formule entendue isolément, que ce confort diminue la valeur de son acte. La réponse de Mâlik rapportée ici montre qu’on ne peut pas condamner le chauffage en lui-même. Le cas est imaginé pour expliquer la transmission, et non pour donner un conseil de chauffage ou de santé."
       },
-      {
-        "label": "Mawâhib al-Jalîl — même édition, page 114 : époque, saison, femmes et traditions discutées",
-        "url": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      "takeaway": "Mâlik déclare explicitement ne voir aucun mal à se purifier avec de l’eau chauffée et dit l’utiliser souvent. Cette parole doit être exposée avec les réserves particulières que le commentaire étudie ailleurs, sans transformer l’une en contradiction de l’autre.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Il fait froid et tu chauffes de l’eau propre pour tes ablutions. Quelqu’un t’affirme que l’eau chaude est réprouvée en toutes circonstances. La réponse attribuée à Mâlik par Ashhab permet de vérifier cette affirmation."
+    },
+    {
+      "id": "ibn-abd-salam-climate",
+      "title": "Pourquoi certains maîtres rapportent-ils une préférence pour l’eau froide ?",
+      "eyebrow": "03 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وما وقع لمالك رحمه الله من تفضيل البارد على المسخن إنما ذلك لكونه يشد الأعضاء ولنشاط النفس بعده في إقليم الحجاز وحرارة البلاد",
+        "translation": "« La préférence de Mâlik pour l’eau froide s’explique par ses effets supposés sur les membres et la vivacité ressentie dans le climat chaud du Hedjaz. »",
+        "sourceLabel": "Ibn ‘Abd al-Salâm, propos cités par al-Hattâb, p. 112.",
+        "explanation": "Al-Hattâb rapporte l’explication d’Ibn ‘Abd al-Salâm de la préférence mentionnée dans des transmissions relatives à Mâlik, en la replaçant dans le climat du Hedjaz.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
       },
-      {
-        "label": "Islamweb — Mawâhib al-Jalîl, rubrique « l’eau chauffée par une souillure »",
-        "url": "https://islamweb.net/ar/library/content/19/121/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%B3%D8%AE%D9%86-%D8%A8%D8%A7%D9%84%D9%86%D8%AC%D8%A7%D8%B3%D8%A9"
+      "paragraphs": [
+        "Comment concilier l’usage fréquent de l’eau chauffée chez Mâlik avec le fait que certains auteurs lui attribuent une préférence pour l’eau froide ? Ibn ‘Abd al-Salâm propose une explication contextuelle. Il rattache cette préférence aux effets que l’on attribuait au froid sur le corps et à la sensation de vigueur dans le climat chaud du Hedjaz. Le raisonnement n’est donc pas que la fraîcheur possède toujours une vertu religieuse supérieure : le lieu et le climat entrent dans l’appréciation.",
+        "Cette explication montre pourquoi un avis ancien ne doit pas être séparé des conditions de vie où il fut formulé. Un habitant d’une région chaude peut percevoir une eau fraîche autrement qu’un voyageur confronté à un froid intense. D’autres auteurs évoquent le caractère agréable du bain. Le passage ne prouve aucune loi médicale universelle sur l’eau froide ; il rapporte une explication historique des préférences des juristes. La discussion suivante portera justement sur la différence entre confort, difficulté et récompense."
+      ],
+      "steps": [
+        {
+          "label": "La parole est celle d’Ibn ‘Abd al-Salâm",
+          "text": "Il explique les propos rapportés de Mâlik. Il ne faut pas attribuer tout le commentaire médical directement à Mâlik."
+        },
+        {
+          "label": "Le climat du Hedjaz est expressément mentionné",
+          "text": "Une préférence située dans un climat chaud ne peut pas être projetée sans nuance dans tous les pays ou toutes les saisons."
+        },
+        {
+          "label": "Une préférence n’est pas une obligation",
+          "text": "La réponse de Mâlik transmise par Ashhab autorise l’usage de l’eau chauffée ; les deux citations ne s’opposent pas nécessairement."
+        },
+        {
+          "label": "Le motif physiologique est historiquement rapporté",
+          "text": "La source permet de décrire ce que pensaient les savants, pas d’affirmer un avantage médical général de l’eau froide."
+        }
+      ],
+      "example": {
+        "title": "Comparer les saisons sans en faire une règle absolue",
+        "text": "Deux personnes se purifient avec une eau propre : l’une dans une période très chaude, l’autre pendant une vague de froid. Elles découvrent que le confort de la première peut venir de la fraîcheur et celui de la seconde d’un peu de chaleur. L’explication d’Ibn ‘Abd al-Salâm aide à comprendre pourquoi les propos anciens situent parfois une préférence dans un environnement précis. Cette comparaison n’établit aucun bénéfice médical."
       },
-      {
-        "label": "Islamweb — Mawâhib al-Jalîl, rubrique « entrer au hammam »",
-        "url": "https://islamweb.net/ar/library/content/19/122/%D9%81%D8%B1%D8%B9-%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85"
+      "takeaway": "La préférence pour l’eau froide qu’Ibn ‘Abd al-Salâm explique se rapporte à un contexte climatique et à des effets corporels supposés. Elle ne transforme pas l’eau chauffée, utilisée par Mâlik lui-même, en eau illicite ou impropre à la purification.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Pourquoi certains juristes anciens préféraient-ils parfois l’eau froide, alors que le chauffage pouvait faciliter les ablutions ? Ibn ‘Abd al-Salâm rapporte une explication liée au climat chaud du Hedjaz et au confort ressenti."
+    },
+    {
+      "id": "mujahid-comfort",
+      "title": "Que reprochait Mujâhid à l’eau chauffée selon le Bayân ?",
+      "eyebrow": "04 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "ونقل في البيان كراهته عن مجاهد",
+        "translation": "« Le Bayân rapporte de Mujâhid une réprobation de son usage. »",
+        "sourceLabel": "Mujâhid, avis rapporté dans le Bayân et cité par al-Hattâb, p. 112.",
+        "explanation": "Al-Hattâb juxtapose l’avis rapporté de Mujâhid à une hypothèse expliquant sa réserve : la crainte que la recherche de confort enlève une part de l’effort récompensé.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
       },
-      {
-        "label": "Usul — texte arabe et notice de Mawâhib al-Jalîl",
-        "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
-      }
-    ]
+      "paragraphs": [
+        "Al-Hattâb ne se limite pas aux paroles de Mâlik. Il rapporte également, depuis le Bayân, que Mujâhid réprouvait l’usage de l’eau chauffée. Le texte ajoute une explication possible : peut-être regardait-il ce chauffage comme une forme de confort, alors que supporter le froid pendant les ablutions pouvait être associé à une récompense. Il faut présenter cette justification comme une hypothèse du commentateur, non comme un long raisonnement que Mujâhid aurait lui-même rédigé.",
+        "C’est ici que nous rencontrons une question importante d’éducation religieuse. La difficulté rencontrée en obéissant à Allah peut accompagner une récompense ; mais faut-il délibérément chercher une difficulté qui n’était pas nécessaire ? Le Bayân donne matière à une discussion, et al-Hattâb la fait suivre par une réponse particulièrement développée d’Ibn al-Imâm. Nous avons donc affaire à une divergence de méthode dans la compréhension de la peine, pas à un simple désaccord entre les partisans de l’eau chaude et les partisans de l’eau froide."
+      ],
+      "steps": [
+        {
+          "label": "La réprobation de Mujâhid est rapportée",
+          "text": "Al-Hattâb précise qu’elle se trouve dans le Bayân et ne la présente pas comme l’avis unique de toute l’école."
+        },
+        {
+          "label": "Le motif du confort est interprétatif",
+          "text": "La phrase qui suggère le raisonnement de Mujâhid est une explication possible ; il serait inexact de lui attribuer toute cette analyse mot pour mot."
+        },
+        {
+          "label": "La récompense d’une épreuve ne suffit pas à recommander l’épreuve",
+          "text": "Il faut distinguer une contrainte attachée à l’obéissance d’une contrainte volontairement ajoutée."
+        },
+        {
+          "label": "La réponse ne sera pas immédiate",
+          "text": "Al-Hattâb cite ensuite Ibn al-Imâm, qui explique longuement pourquoi rechercher la difficulté n’est pas une fin religieuse en soi."
+        }
+      ],
+      "example": {
+        "title": "Faut-il laisser l’eau chaude disponible ?",
+        "text": "Une personne dispose d’une eau propre et agréablement tiède. Pour gagner, croit-elle, davantage de récompense, elle décide d’utiliser une eau très froide, malgré l’inconfort qu’elle pourrait éviter. Le propos rapporté de Mujâhid peut expliquer l’origine d’une telle idée, mais il ne clôt pas la discussion. Ibn al-Imâm va précisément distinguer le mérite d’un effort inévitable de la peine inutilement provoquée. L’exemple est fictif."
+      },
+      "takeaway": "Le Bayân rapporte une réprobation attribuée à Mujâhid. Al-Hattâb mentionne une explication possible liée au confort et à l’effort, puis ouvre une discussion essentielle sur le sens de la difficulté dans les actes d’adoration.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Une personne dispose d’eau tiède mais choisit une eau très froide parce qu’elle pense gagner automatiquement plus de récompense. Cette idée explique une ancienne discussion rapportée de Mujâhid : faut-il éviter le confort pour se rapprocher d’Allah ?"
+    },
+    {
+      "id": "ibn-imam-no-hardship",
+      "title": "Pourquoi Ibn al-Imâm refuse-t-il qu’on recherche la peine pour elle-même ?",
+      "eyebrow": "05 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "لأن الله تعالى لم يطلب من عباده المشاق",
+        "translation": "« Car Allah, exalté soit-Il, n’a pas demandé à Ses serviteurs de rechercher les difficultés. »",
+        "sourceLabel": "Ibn al-Imâm, « تنبيه وفائدة », cité par al-Hattâb, p. 112.",
+        "explanation": "Al-Hattâb cite longuement Ibn al-Imâm, qui conteste la conclusion selon laquelle l’eau froide serait toujours préférable parce qu’elle serait plus pénible à utiliser.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn al-Imâm examine une idée qui peut séduire une personne sincère : puisque supporter une difficulté peut être récompensé, il serait préférable de rendre volontairement ses ablutions plus difficiles. Il répond que cette conclusion ne tient pas. Allah ne demande pas à Ses serviteurs la peine pour elle-même. Ce qu’Il demande, c’est l’accomplissement de l’acte d’adoration et la réalisation de ce qu’il comporte de bien. L’effort est parfois une circonstance de cet accomplissement ; il n’en constitue pas toujours l’objectif.",
+        "Le propos mérite une lecture patiente. Ibn al-Imâm ne nie pas que deux personnes accomplissant la même bonne action puissent rencontrer des difficultés différentes et recevoir une récompense liée à leur effort. Il refuse plutôt de transformer cette observation en une consigne d’ajouter de la peine lorsqu’elle ne sert à rien. Dans l’exemple de l’eau chaude disponible, choisir un froid douloureux uniquement pour rechercher une sensation plus pénible ne devient pas, de ce seul fait, un meilleur acte. Cette distinction fait partie du raisonnement même qu’al-Hattâb a choisi de transmettre."
+      ],
+      "steps": [
+        {
+          "label": "L’objectif reste l’adoration",
+          "text": "L’acte recherché est la purification accomplie correctement, et non la sensation pénible qui pourrait parfois l’accompagner."
+        },
+        {
+          "label": "Une peine n’est pas automatiquement une vertu",
+          "text": "Le raisonnement d’Ibn al-Imâm refuse d’assimiler tout supplément de difficulté à un supplément de piété."
+        },
+        {
+          "label": "Une récompense peut accompagner une contrainte réelle",
+          "text": "Cela n’autorise pas à inventer volontairement une difficulté étrangère à l’objectif de l’acte."
+        },
+        {
+          "label": "Le texte s’oppose à une conclusion précise",
+          "text": "Ibn al-Imâm discute la préférence systématique pour l’eau froide lorsque de l’eau chauffée est disponible, pas la récompense de toute persévérance authentique."
+        }
+      ],
+      "example": {
+        "title": "La différence entre courage et complication inutile",
+        "text": "Un fidèle doit accomplir ses ablutions un matin froid et n’a pas de moyen de réchauffer l’eau. Il accomplit son acte malgré la gêne. Un autre dispose facilement d’eau tiède, mais choisit une eau glacée uniquement pour se créer une difficulté supplémentaire. Ibn al-Imâm explique pourquoi les deux situations ne donnent pas lieu au même raisonnement sur la récompense. Ce sont des exemples fictifs, sans conseil médical individuel."
+      },
+      "takeaway": "Ibn al-Imâm rejette l’idée qu’une difficulté volontaire et sans utilité soit une œuvre méritoire par elle-même. La valeur de l’adoration dépend de l’acte et de son intention, tandis que la peine peut n’en être qu’une circonstance.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Tu peux te laver avec une eau confortablement tiède, mais tu choisis volontairement une eau glacée uniquement pour souffrir davantage. Ibn al-Imâm pose une question décisive : est-ce réellement une bonne action de rechercher la difficulté pour elle-même ?"
+    },
+    {
+      "id": "hardship-reward",
+      "title": "Quand une difficulté inévitable peut-elle augmenter la récompense ?",
+      "eyebrow": "06 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فإن لم تحصل إلا بمشقة عظم الأجر لقرب الإخلاص",
+        "translation": "« Lorsque le bien recherché ne s’obtient qu’au prix d’une difficulté, la récompense est plus grande en raison de la sincérité qui s’en approche. »",
+        "sourceLabel": "Ibn al-Imâm, suite du « تنبيه وفائدة » citée par al-Hattâb, p. 112.",
+        "explanation": "La même argumentation distingue les difficultés subies pour accomplir l’adoration des peines fabriquées uniquement pour augmenter l’effort.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      "paragraphs": [
+        "Après avoir rappelé qu’Allah ne demande pas la difficulté pour elle-même, Ibn al-Imâm précise pourquoi un effort pénible peut malgré tout être récompensé. Parfois, on n’arrive pas à réaliser le bien recherché sans supporter une peine : le froid, la longueur d’un trajet nécessaire ou la fatigue sont alors liés à l’accomplissement de l’œuvre. La personne persévère non parce qu’elle aime souffrir, mais parce qu’elle tient à ce qu’Allah lui a demandé. Le texte voit dans cette persévérance une proximité avec la sincérité.",
+        "Il donne aussi des exemples de deux actions comparables accomplies dans des conditions différentes, comme les ablutions pendant une période de froid et durant une saison plus douce. Le supplément de difficulté peut alors accompagner la récompense lorsqu’il n’a pas été ajouté par pure recherche de la peine. Cette distinction empêche deux erreurs opposées : croire qu’une adoration doit toujours être confortable pour avoir de la valeur, ou penser qu’il faut systématiquement compliquer ce qu’Allah a rendu praticable."
+      ],
+      "steps": [
+        {
+          "label": "La peine vient de la circonstance",
+          "text": "Elle est subie en chemin vers une œuvre réellement recherchée, au lieu de constituer l’objectif de l’action."
+        },
+        {
+          "label": "Le texte mentionne la sincérité",
+          "text": "La récompense accrue est expliquée par la persévérance dans l’obéissance, pas par une valeur religieuse autonome de la douleur."
+        },
+        {
+          "label": "La comparaison suppose des actes similaires",
+          "text": "Ibn al-Imâm raisonne à propos de situations comparables, dont les conditions peuvent être plus ou moins difficiles."
+        },
+        {
+          "label": "Éviter deux généralisations",
+          "text": "L’auteur ne déclare ni que le moindre inconfort est obligatoire, ni que tout acte plus difficile serait automatiquement plus méritoire."
+        }
+      ],
+      "example": {
+        "title": "Une ablution dans le froid, faute d’autre possibilité",
+        "text": "Une personne vit dans un lieu où l’eau est froide et où aucun moyen simple de chauffage n’est disponible. Elle accomplit sa purification sans l’abandonner, malgré la difficulté. L’effort est ici lié à une obligation qu’elle ne pouvait satisfaire autrement. Ce n’est pas la même chose que se compliquer les ablutions par choix alors qu’une eau confortable est disponible. L’exemple sert à comprendre le texte et n’encourage jamais à ignorer un risque de santé."
+      },
+      "takeaway": "La difficulté qui accompagne nécessairement une bonne action peut contribuer à sa récompense. Selon Ibn al-Imâm, cette idée n’implique nullement qu’il faille rechercher volontairement une peine inutile lorsque le même acte peut être accompli correctement autrement.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Tu dois accomplir tes ablutions et tu n’as accès qu’à une eau froide, sans possibilité raisonnable de la chauffer. La difficulté existe déjà : elle n’a pas été provoquée volontairement. C’est ce cas qu’Ibn al-Imâm distingue de la peine recherchée sans nécessité."
+    },
+    {
+      "id": "ubbi-warming",
+      "title": "Pourquoi al-Ubbî défend-il le chauffage de l’eau pour mieux adorer ?",
+      "eyebrow": "07 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وتسخين الماء لدفع برده ليقوى على العبادة لا يمنع لحصول الثواب المذكور",
+        "translation": "« Chauffer l’eau pour écarter son froid et se renforcer en vue de l’adoration n’empêche pas d’obtenir la récompense évoquée. »",
+        "sourceLabel": "Al-Ubbî, commentaire du Sahîh Muslim, cité par al-Hattâb, p. 112.",
+        "explanation": "Al-Hattâb ajoute le propos d’al-Ubbî, qui rejoint la critique d’Ibn al-Imâm de la peine volontaire et rapproche sa réponse d’une discussion d’al-‘Izz Ibn ‘Abd al-Salâm.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      "paragraphs": [
+        "Le commentaire transmet ensuite une remarque d’al-Ubbî, auteur d’une explication du Sahîh Muslim. Il explique que l’on peut chauffer l’eau pour supporter le froid et retrouver la force nécessaire à l’adoration, sans perdre pour autant le sens de la récompense qui avait été évoquée. Le propos répond à ceux qui craindraient que rendre les ablutions plus faciles retire automatiquement leur valeur. La personne qui prépare de l’eau tiède peut, au contraire, chercher à accomplir son acte soigneusement et avec présence d’esprit.",
+        "Al-Hattâb signale qu’al-Ubbî cite aussi al-‘Izz Ibn ‘Abd al-Salâm, un savant shaféite, au sujet d’autres pratiques auxquelles on pourrait ajouter artificiellement une difficulté, comme allonger un trajet. L’idée rejoint la réponse d’Ibn al-Imâm : rechercher un bon acte est louable ; rechercher une fatigue gratuite n’est pas le fondement de l’adoration. Ces auteurs ne sont pas interchangeables et la fiche leur laisse leurs attributions, mais leurs propos aident à comprendre pourquoi le réchauffement ordinaire de l’eau n’est pas une faute religieuse."
+      ],
+      "steps": [
+        {
+          "label": "Al-Ubbî commente une difficulté pratique",
+          "text": "Le propos concerne le froid de l’eau et la possibilité d’adorer dans de meilleures conditions."
+        },
+        {
+          "label": "La récompense ne dépend pas seulement de la souffrance",
+          "text": "Un fidèle qui se prépare correctement ne perd pas nécessairement son mérite parce qu’il évite une peine inutile."
+        },
+        {
+          "label": "L’argument d’al-‘Izz Ibn ‘Abd al-Salâm est cité à part",
+          "text": "Al-Hattâb conserve cette référence depuis le commentaire d’al-Ubbî, sans la fondre avec la parole de Mâlik."
+        },
+        {
+          "label": "Le passage n’impose pas une température précise",
+          "text": "Il explique une intention et une méthode, mais ne fixe aucun niveau de chaleur ni aucun diagnostic médical."
+        }
+      ],
+      "example": {
+        "title": "Se préparer pour une prière attentive",
+        "text": "Une personne réchauffe légèrement son eau parce qu’elle sait qu’une eau excessivement froide risque de rendre son lavage précipité. Elle veut accomplir l’acte correctement et rester disponible pour la prière. L’analyse d’al-Ubbî montre que faciliter l’accomplissement de l’adoration n’équivaut pas à lui retirer sa valeur. Le scénario est inventé et ne constitue pas une prescription de température ou de santé."
+      },
+      "takeaway": "Al-Ubbî rappelle que réchauffer l’eau pour pouvoir se purifier et adorer correctement n’annule pas le mérite de l’acte. La recherche d’une purification soignée peut justifier le choix du moyen le plus adapté sans rechercher la peine.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Tu chauffes de l’eau parce que le froid te gêne et que tu veux accomplir correctement tes ablutions avant la prière. Est-ce que ce geste te prive d’une récompense ? Al-Ubbî explique pourquoi la facilité n’annule pas le mérite de l’adoration."
+    },
+    {
+      "id": "hammam-three-cases",
+      "title": "Comment Ibn Rushd organise-t-il les trois situations du hammam ?",
+      "eyebrow": "08 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وأما دخول الحمام فوقع فيه اختلاف في الروايات وفتاوى الشيوخ",
+        "translation": "« Quant à l’entrée au hammam, les transmissions et les avis des maîtres divergent à ce sujet. »",
+        "sourceLabel": "Al-Hattâb introduisant la classification d’Ibn Rushd dans les Muqaddimât, p. 112–113.",
+        "explanation": "Al-Hattâb cite la synthèse d’Ibn Rushd, suivie par Ibn Shâs, al-Qarâfî, Ibn Nâjî, al-Qalshânî et d’autres : le jugement dépend des conditions concrètes du lieu et de la pudeur des usagers.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      "paragraphs": [
+        "La discussion se déplace à présent vers le hammam, au sens du bain collectif fréquenté à l’époque des juristes. Al-Hattâb prévient d’emblée qu’il existe des transmissions et des fatwas divergentes. Plutôt que de les juxtaposer sans ordre, il rapporte la classification élaborée par Ibn Rushd dans les Muqaddimât. Celui-ci distingue les bains privés ou vides, les lieux où des personnes découvrent des parties intimes qu’il n’est pas permis d’exposer, et les lieux collectifs où chacun demeure couvert.",
+        "Cette manière de présenter les choses est essentielle. Le mot « hammam » ne suffit pas à déterminer un jugement, parce que les conditions réelles diffèrent : être seul, se trouver avec des personnes respectueuses de la pudeur ou être exposé à des dévoilements ne présente pas la même situation. Al-Hattâb explique que d’autres maîtres, dont Ibn Shâs, al-Qarâfî, Ibn Nâjî et al-Qalshânî, ont suivi ce classement. Nous allons examiner chacun de ces cas sans en faire un verdict automatique sur tous les établissements modernes."
+      ],
+      "steps": [
+        {
+          "label": "Une divergence est déclarée dès le début",
+          "text": "Al-Hattâb ne présente pas l’ensemble des récits sur les hammams comme s’ils exprimaient une formule unique."
+        },
+        {
+          "label": "Ibn Rushd propose un classement",
+          "text": "Sa démarche sépare l’usage privé, la présence de nudité interdite et la fréquentation collective avec les parties à couvrir protégées."
+        },
+        {
+          "label": "Plusieurs maîtres reprennent sa synthèse",
+          "text": "Ibn Shâs, al-Qarâfî, Ibn Nâjî et al-Qalshânî sont mentionnés comme auteurs ayant adopté ce découpage."
+        },
+        {
+          "label": "Le mot « hammam » ne décrit pas tout",
+          "text": "Un hammam privé et un établissement collectif avec exposition de la nudité ne correspondent pas aux mêmes faits et ne peuvent être confondus."
+        }
+      ],
+      "example": {
+        "title": "Trois établissements qui portent le même nom",
+        "text": "Dans une ville, un bain est réservé à une personne seule, un autre accueille des visiteurs qui se couvrent correctement, tandis qu’un troisième expose ses clients à la nudité d’autrui. Les trois portent le nom de hammam, mais la classification d’Ibn Rushd montre que ce nom commun ne suffit pas à réunir les jugements. Le scénario est fictif et ne préjuge pas des conditions réelles d’un établissement contemporain."
+      },
+      "takeaway": "Al-Hattâb rapporte d’Ibn Rushd une classification en trois situations, reprise par plusieurs malikites. L’entrée au hammam s’examine donc à partir des faits : présence d’autrui, possibilité de préserver la pudeur et nature de l’usage, et non à partir du nom du lieu seul.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Imagine trois hammams : un bain privatisé, un bain collectif où chacun couvre son corps correctement, et un troisième où des usagers exposent leur nudité. Ibn Rushd refuse de traiter les trois de la même manière."
+    },
+    {
+      "id": "private-hammam",
+      "title": "Pourquoi le hammam vide est-il permis sans réprobation ?",
+      "eyebrow": "09 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "الأول إذا كان خاليا",
+        "translation": "« Premier cas : lorsqu’il est vide. »",
+        "sourceLabel": "Ibn Rushd, première catégorie dans les Muqaddimât, citée par al-Hattâb, p. 112.",
+        "explanation": "Le premier cas est celui d’un hammam dont l’usager dispose seul. Ibn Nâjî complète cette situation par les personnes devant lesquelles l’exposition du corps peut être permise dans le cadre décrit par les auteurs.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+      },
+      "paragraphs": [
+        "Dans la première situation, la personne entre dans un bain vide. Elle n’est donc pas exposée au regard d’inconnus et ne risque pas non plus de voir les parties intimes d’autres usagers. Al-Hattâb rapporte qu’Ibn Rushd considère cette entrée permise, sans réprobation dans les conditions envisagées. Ibn Nâjî précise encore certaines situations de vie privée et de relations conjugales admises dans les catégories juridiques de son époque. Nous pouvons comprendre le cas principal sans reproduire mécaniquement tous les cadres sociaux historiques.",
+        "Ce premier jugement aide à éviter une généralisation : le hammam, comme lieu où l’on se lave à l’eau chaude, n’est pas condamné du seul fait qu’il est un hammam. Le problème viendra surtout des circonstances qui entourent l’usage, de la protection des parties du corps et de la situation du bassin. Pour appliquer une règle dans une installation contemporaine, on doit examiner sa configuration réelle. Cette fiche n’a pas pour objectif de certifier la conformité d’un établissement précis."
+      ],
+      "steps": [
+        {
+          "label": "L’absence d’autres usagers modifie les faits",
+          "text": "Le motif de la crainte du regard sur la nudité d’autrui ne se pose pas de la même manière lorsque le lieu est vide."
+        },
+        {
+          "label": "Ibn Rushd considère ce premier cas permis",
+          "text": "Il ne décrit ni une interdiction ni une réprobation générale de l’entrée dans un bain privé."
+        },
+        {
+          "label": "Les autres circonstances doivent rester examinées",
+          "text": "L’eau elle-même pourrait soulever une question distincte si une souillure était constatée ; ce n’est pas la même analyse que celle du lieu."
+        },
+        {
+          "label": "La société ancienne n’est pas un modèle matériel unique",
+          "text": "Certains exemples historiques concernent des statuts sociaux propres à l’époque. On retient ici le principe de vie privée et de pudeur sans transporter ces statuts tels quels."
+        }
+      ],
+      "example": {
+        "title": "Un espace réservé sans autre baigneur",
+        "text": "Une personne réserve un espace de lavage où personne d’autre n’entre et où elle dispose d’eau appropriée. Les problèmes d’exposition de la nudité d’autres visiteurs ne s’y présentent pas. C’est le cas simple qui permet de comprendre la première catégorie d’Ibn Rushd. Cet exemple pédagogique reste distinct d’une évaluation des normes d’hygiène, de sécurité ou des obligations propres à un établissement moderne."
+      },
+      "takeaway": "Le bain privé ou vide relève, dans la synthèse d’Ibn Rushd, de l’usage permis sans réprobation lorsque rien d’autre ne pose problème. Le jugement ne se réduit pas au fait de se laver avec de l’eau chauffée : il suppose les conditions concrètes du lieu.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués.",
+      "context": "Tu peux te laver seul dans un espace privé, sans regard extérieur ni nudité d’autres visiteurs. Pourquoi l’entrée dans ce bain est-elle traitée plus favorablement que celle dans un hammam collectif problématique ?"
+    },
+    {
+      "id": "uncovered-users",
+      "eyebrow": "10 · LECTURE COMMENTÉE",
+      "title": "Pourquoi la présence de personnes non couvertes change-t-elle le jugement ?",
+      "passage": {
+        "arabic": "الثاني إذا كان غير مستتر أو معه من لا يستتر",
+        "translation": "« Deuxième situation : lorsqu’il ne se couvre pas, ou qu’il se trouve avec quelqu’un qui ne se couvre pas. »",
+        "explanation": "La deuxième catégorie d’Ibn Rushd vise un bain où l’usager expose les parties à couvrir ou se trouve en présence de personnes qui les découvrent. Al-Hattâb rapporte aussi le jugement des Jawâhir.",
+        "sourceLabel": "Ibn Rushd, deuxième cas dans les Muqaddimât, cité par al-Hattâb, t. 1, p. 112–113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "Le deuxième cas n’a plus rien à voir avec l’entrée dans un bain vide. Ibn Rushd envisage une personne qui ne couvre pas les parties du corps qu’elle doit préserver devant autrui, ou qui fréquente un hammam où d’autres baigneurs exposent leur nudité. Dans les Muqaddimât, il transmet une interdiction explicite. Al-Hattâb ajoute une formulation des Jawâhir allant dans le même sens. Nous ne sommes plus dans une simple préférence de confort : il s’agit de la protection de la pudeur et du regard.",
+        "Pour comprendre ce jugement, il faut regarder les faits décrits, pas seulement le nom du lieu. Le bain collectif qui ne permet pas de préserver la nudité n’a pas les mêmes conditions qu’un établissement où les usagers se couvrent convenablement. Si l’on raconte seulement qu’Ibn Rushd interdit les hammams, on supprime la première et la troisième catégories de son raisonnement. Al-Hattâb conserve précisément ces différences pour que l’étudiant ne confonde pas un acte généralement licite avec des circonstances particulières qui le rendent problématique."
+      ],
+      "steps": [
+        {
+          "label": "Une personne ne se couvre pas",
+          "text": "Le problème n’est pas la température de l’eau : c’est l’exposition de parties du corps qu’il faut protéger devant autrui."
+        },
+        {
+          "label": "D’autres baigneurs peuvent être découverts",
+          "text": "La présence de personnes non couvertes soulève aussi la question du regard interdit, même si le visiteur couvre son propre corps."
+        },
+        {
+          "label": "L’attribution est donnée",
+          "text": "Al-Hattâb cite les Muqaddimât d’Ibn Rushd et les Jawâhir, au lieu d’annoncer une interdiction sans identifier ses auteurs."
+        },
+        {
+          "label": "Le hammam privé reste un cas distinct",
+          "text": "La première situation, sans d’autres usagers, avait été considérée permise : il ne faut pas faire disparaître ce contraste."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le cas par un exemple",
+        "text": "Un établissement collectif expose les personnes présentes à la nudité d’autres usagers. Un visiteur pense pouvoir s’y laver rapidement sans considérer ce qui l’entoure. La deuxième catégorie d’Ibn Rushd lui demande précisément d’examiner cette exposition. L’exemple est fictif et ne prononce aucune décision sur un établissement actuel dont on ne connaît pas la configuration."
+      },
+      "takeaway": "Ibn Rushd distingue la fréquentation d’un bain exposant à une nudité interdite de celle d’un bain privé. La règle porte sur les comportements et les conditions du lieu, non sur le seul fait d’employer de l’eau chaude.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif.",
+      "context": "Tu entres dans un hammam collectif et vois des personnes dont les parties intimes ne sont pas couvertes. Ce n’est pas simplement une question de propreté ou de confort : Ibn Rushd examine les obligations liées à la pudeur et au regard."
+    },
+    {
+      "id": "necessary-withdrawal",
+      "eyebrow": "11 · LECTURE COMMENTÉE",
+      "title": "Peut-on entrer uniquement pour retirer une eau indispensable ?",
+      "passage": {
+        "arabic": "إلا أن يدخله غاضا بصره لإخراجه لا لمقامه فيه",
+        "translation": "« Sauf s’il y entre en baissant son regard pour en faire sortir l’eau, et non pour y séjourner. »",
+        "explanation": "Le texte examine une personne qui n’a pas d’autre eau et dont l’accès exige de passer par un bain présentant le problème décrit. La permission éventuelle ne concerne que le prélèvement nécessaire.",
+        "sourceLabel": "Ibn al-Qâsim, exception citée dans les Jawâhir et reproduite par al-Hattâb, t. 1, p. 113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "Une remarque d’Ibn al-Qâsim précise la portée de la difficulté. Supposons qu’une personne n’ait pas d’autre eau à disposition, tandis que l’eau dont elle a besoin se trouve dans un hammam dont la fréquentation ordinaire est problématique. Le commentaire ne répond pas simplement qu’une nécessité autorise tout séjour. Il rapporte une distinction entre entrer pour retirer l’eau, avec le regard préservé, et entrer pour demeurer dans le lieu malgré ce qu’il comporte. Le premier geste ne possède pas nécessairement le statut du second.",
+        "La nuance se comprend lorsque nous revenons au but de la personne : elle doit se purifier, non passer du temps dans le hammam. Les juristes examinent les moyens qui permettent d’obtenir l’eau sans ajouter une exposition inutile à ce qu’il faut éviter. Le passage envisage également le cas où retirer l’eau serait réellement impossible. Nous devons conserver ces circonstances plutôt que fabriquer une permission générale valable pour n’importe quel établissement. Dans une situation réelle, les alternatives et les conditions concrètes doivent être examinées."
+      ],
+      "steps": [
+        {
+          "label": "Le manque d’eau constitue le cadre du cas",
+          "text": "L’exception ne vise pas une simple commodité ; elle part d’un besoin réel de disposer d’une eau nécessaire."
+        },
+        {
+          "label": "Le prélèvement et le séjour sont séparés",
+          "text": "Ibn al-Qâsim distingue l’entrée limitée à la sortie de l’eau de la présence prolongée dans le lieu."
+        },
+        {
+          "label": "La protection du regard reste requise",
+          "text": "Le texte mentionne explicitement le fait de détourner les yeux des parties qu’il n’est pas permis de regarder."
+        },
+        {
+          "label": "Une circonstance exceptionnelle ne devient pas une règle générale",
+          "text": "On ne peut pas déduire du cas que tous les séjours dans des bains présentant le même problème seraient autorisés."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le cas par un exemple",
+        "text": "Une personne, dans un cas ancien imaginaire, ne peut accéder à de l’eau qu’en passant par l’entrée d’un bain collectif. Elle pourrait y prélever de quoi se purifier sans s’y attarder et sans regarder ce qu’elle doit éviter. C’est la distinction dont parle Ibn al-Qâsim. Cet exemple ne constitue pas un mode d’emploi pour les lieux actuels et ne remplace pas l’examen d’une situation particulière."
+      },
+      "takeaway": "Ibn al-Qâsim distingue le prélèvement nécessaire de l’eau et le séjour dans un lieu dont les conditions posent problème. La protection du regard et la limitation de l’entrée font partie de sa réponse.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif.",
+      "context": "Une personne doit se purifier, mais l’unique réserve d’eau accessible se trouve à l’intérieur d’un bain collectif où la nudité pose problème. Peut-elle entrer brièvement pour prélever l’eau sans y rester ? Ibn al-Qâsim distingue ces deux gestes."
+    },
+    {
+      "id": "covered-with-covered",
+      "eyebrow": "12 · LECTURE COMMENTÉE",
+      "title": "Pourquoi Ibn al-Qâsim dit-il : « C’est permis, mais s’en abstenir est meilleur » ?",
+      "passage": {
+        "arabic": "لا بأس به وتركه أحسن",
+        "translation": "« Il n’y a pas de mal à cela, mais il est préférable de s’en abstenir. »",
+        "explanation": "Le troisième cas d’Ibn Rushd est le bain collectif où la personne et les autres usagers se couvrent. Le commentaire rapporte une permission accompagnée d’une préférence prudente.",
+        "sourceLabel": "Ibn al-Qâsim, transmission d’Asbagh dans la ‘Utbiyya, citée par Ibn Rushd puis al-Hattâb, t. 1, p. 113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "Le troisième cas diffère nettement du précédent. Le visiteur se couvre convenablement, les autres baigneurs aussi, et la raison majeure de l’interdiction liée à la nudité n’est pas établie. Ibn al-Qâsim rapporte alors qu’il n’y a pas de mal à fréquenter ce bain, tout en disant que s’en abstenir est meilleur. Il faut conserver les deux parties de sa phrase. Si nous ne rapportons que la préférence pour l’abstention, nous risquons de faire croire à une interdiction qu’il n’a pas formulée.",
+        "Al-Hattâb explique pourquoi une telle prudence pouvait subsister dans les établissements de son temps : il était difficile d’être certain de ne jamais voir involontairement ce qu’il fallait éviter. Les réserves concernant la circulation des mains et l’eau des bassins pouvaient s’y ajouter. Ce sont plusieurs motifs distincts. Il faut donc apprendre à différencier la permission de l’entrée, la préférence de ne pas prendre ce risque et la validité d’un lavage effectué dans une eau dont la pureté est connue. Nous retrouverons cette dernière question dans la lecture suivante."
+      ],
+      "steps": [
+        {
+          "label": "La pudeur est préservée dans le cas décrit",
+          "text": "Le visiteur et les autres usagers se couvrent ; cette condition distingue le troisième cas de celui des baigneurs découverts."
+        },
+        {
+          "label": "« Lâ ba’s » signifie qu’il n’y a pas de mal",
+          "text": "Cette formule constitue une permission. L’étudiant ne doit pas la remplacer par une interdiction imaginée."
+        },
+        {
+          "label": "« Tarkuhu ahsan » exprime une préférence",
+          "text": "L’auteur indique qu’il est meilleur de ne pas y entrer dans le contexte examiné, sans annuler pour autant l’acte."
+        },
+        {
+          "label": "L’état de l’eau est une question distincte",
+          "text": "Un bassin impur ou réellement altéré ne reçoit pas son statut du seul fait que les usagers se couvrent, ou non."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le cas par un exemple",
+        "text": "Dans un bain collectif, chaque personne porte une tenue qui protège les parties du corps à couvrir. Un étudiant conclut que l’entrée est forcément interdite parce qu’Ibn al-Qâsim préfère l’éviter. Le professeur lui fait relire la formule entière : « Il n’y a pas de mal, mais s’en abstenir est meilleur. » La scène est fictive et ne vérifie pas les conditions d’un établissement particulier."
+      },
+      "takeaway": "La troisième catégorie d’Ibn Rushd montre que la permission peut coexister avec une recommandation de prudence. Il est essentiel de ne pas transformer une préférence d’abstention en interdiction absolue.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif.",
+      "context": "Tu visites un hammam où tous les baigneurs sont correctement couverts. Ibn al-Qâsim dit qu’il n’y a pas de mal à y entrer, tout en préférant qu’on s’en abstienne. Il ne faut pas transformer cette préférence en interdiction."
+    },
+    {
+      "id": "malik-basin-purity",
+      "eyebrow": "13 · LECTURE COMMENTÉE",
+      "title": "Le ghusl effectué avec l’eau du bassin compte-t-il pour la purification ?",
+      "passage": {
+        "arabic": "نعم إذا كان طاهرا",
+        "translation": "« Oui, à condition qu’il soit pur. »",
+        "explanation": "Interrogé sur un homme qui utilise un bassin rempli au hammam, Mâlik répond en conditionnant la suffisance du lavage à la pureté ; Ibn Rushd précise que la condition concerne l’homme et l’eau.",
+        "sourceLabel": "Mâlik, Samâ‘ d’Ibn al-Qâsim, réponse citée par al-Hattâb avec l’explication d’Ibn Rushd, t. 1, p. 113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "Une question de la transmission d’Ibn al-Qâsim concerne un homme qui plonge ses mains dans un bassin de hammam pour se purifier. Mâlik répond positivement, mais avec une condition de pureté. Le commentaire précise que le sens vise la personne et l’eau. Il faut lire cette réponse avec les réserves précédentes. Un homme peut s’être lavé dans un lieu dont la fréquentation était peu souhaitable sans que son ghusl soit automatiquement invalide. La question de l’acte accompli demande un autre examen.",
+        "Ibn Rushd explique justement qu’une purification peut être suffisante dans les conditions étudiées sans que cette manière de se laver soit recommandée dès le départ. Il évoque deux raisons de prudence : les lavages dans une eau stagnante et l’usage d’eau chauffée dans certains établissements anciens. C’est l’une des distinctions les plus importantes de notre parcours : le jugement sur le lieu, le jugement sur les moyens employés et la validité des ablutions ou du ghusl ne sont pas nécessairement identiques."
+      ],
+      "steps": [
+        {
+          "label": "Le « oui » de Mâlik est conditionné",
+          "text": "Il faut conserver les mots sur la pureté, sans faire de la réponse une permission inconditionnelle."
+        },
+        {
+          "label": "Le commentaire explicite qui doit être pur",
+          "text": "L’explication rapportée vise à la fois le corps de la personne dans le cas étudié et l’eau employée pour se purifier."
+        },
+        {
+          "label": "Ibn Rushd sépare validité et préférence",
+          "text": "Un acte déjà accompli peut remplir ses conditions alors que sa manière d’exécution n’était pas celle qu’il valait mieux choisir."
+        },
+        {
+          "label": "Le bassin collectif reste un cas matériel",
+          "text": "La présence d’un grand nombre de mains peut susciter une réserve, mais ne constitue pas automatiquement la preuve d’une contamination particulière."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le cas par un exemple",
+        "text": "Un homme a accompli son ghusl en utilisant l’eau d’un bassin de hammam. En découvrant qu’un savant préférait éviter ce lieu, il se demande si sa purification serait nécessairement nulle. Mâlik et Ibn Rushd nous apprennent à distinguer l’examen de l’eau et des conditions du lavage de la prudence concernant le lieu. L’exemple est inventé et ne donne pas de réponse définitive pour une situation réelle."
+      },
+      "takeaway": "Mâlik reconnaît la suffisance du lavage dans le cas qu’il conditionne à la pureté. Ibn Rushd rappelle que la validité d’un acte ne signifie pas qu’il faille recommander en toutes circonstances la manière dont il a été accompli.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif.",
+      "context": "Tu as accompli le grand lavage rituel en utilisant l’eau d’un bassin de hammam. Tu apprends ensuite que certains savants déconseillaient ces lieux. Cela signifie-t-il que ton ghusl est nécessairement invalide ? Mâlik traite séparément sa validité."
+    },
+    {
+      "id": "bayyan-basin-risk",
+      "eyebrow": "14 · LECTURE COMMENTÉE",
+      "title": "Pourquoi le Bayân émet-il une réserve sur l’eau des bains collectifs ?",
+      "passage": {
+        "arabic": "لأنه يسخن بالأقذار والنجاسات ولاختلاف الأيدي",
+        "translation": "« Parce qu’elle est chauffée au moyen de saletés et d’impuretés, et parce que des mains différentes y passent. »",
+        "explanation": "La réserve est liée à des pratiques matérielles de certains hammams anciens : leur combustible et les contacts répétés avec l’eau. Ces conditions n’impliquent pas qu’une souillure ait été prouvée dans tout réservoir.",
+        "sourceLabel": "Al-Bayân, explication citée par al-Hattâb, t. 1, p. 113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb rapporte du Bayân une explication particulièrement concrète. L’eau d’un hammam pouvait être chauffée à l’aide de matières jugées impures et être touchée successivement par des personnes qui n’avaient pas toutes les mêmes précautions. Nous avons étudié ces deux sujets ailleurs : la question de la source de chaleur, puis celle d’une réserve partagée. Leur réunion dans un même lieu explique pourquoi des juristes conseillaient parfois de ne pas faire ses ablutions dans ces bassins.",
+        "Mais ces considérations ne démontrent pas que chaque eau d’un hammam est effectivement impure. Un établissement alimenté par une conduite d’eau distincte, dans lequel les utilisateurs ne touchent pas une même réserve, ne reproduit pas nécessairement les conditions anciennes. Pour comparer les cas, il faut connaître le fonctionnement du lieu. De plus, la présence d’un risque est distincte de la preuve d’une souillure réellement entrée dans l’eau et l’ayant altérée. C’est pourquoi le commentaire peut conserver la réserve du Bayân sans effacer la réponse de Mâlik sur la validité d’un lavage."
+      ],
+      "steps": [
+        {
+          "label": "Le combustible constitue une circonstance",
+          "text": "L’emploi d’une matière impure pour chauffer ne prouve pas, par lui-même, que celle-ci ait été mélangée à l’eau."
+        },
+        {
+          "label": "Les contacts répétés constituent un second facteur",
+          "text": "Le passage des mains rend compréhensible la prudence, sans certifier que toutes étaient effectivement souillées."
+        },
+        {
+          "label": "La qualité de l’eau ne dépend pas du nom du lieu",
+          "text": "Il faut examiner le mode de chauffage, l’accès à la réserve et l’état réel de l’eau avant de transporter cette discussion."
+        },
+        {
+          "label": "Un jugement de prudence n’efface pas la validité conditionnelle",
+          "text": "Le commentaire rapporte aussi la réponse de Mâlik : une purification peut compter lorsque l’eau remplissait ses conditions."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le cas par un exemple",
+        "text": "Deux bains portent le même nom. Le premier comporte un ancien bassin accessible aux mains de tous, et le second distribue une eau séparée à chaque point de lavage. Un lecteur applique aux deux la même réserve sans examiner les installations. L’exemple du Bayân nous apprend précisément à comparer les circonstances qui motivent le jugement, et non les simples appellations. Cette scène fictive ne certifie pas la qualité sanitaire d’un établissement."
+      },
+      "takeaway": "Le Bayân relie la réprobation de certains bassins à leur mode de chauffage et aux nombreux contacts. Cette explication doit rester distincte d’une contamination réellement constatée et ne peut être étendue à toutes les installations contemporaines sans examen.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif.",
+      "context": "Dans un hammam ancien, tout le monde plonge les mains dans le même bassin. Les auteurs rapportent aussi que l’eau pouvait être chauffée avec des combustibles impurs. Le Bayân explique pourquoi certains juristes se montraient prudents sur cette réserve partagée."
+    },
+    {
+      "id": "ibn-shas-conditions",
+      "eyebrow": "15 · LECTURE COMMENTÉE",
+      "title": "Quelles précautions Ibn Shâs donne-t-il pour fréquenter un hammam ?",
+      "passage": {
+        "arabic": "وعلى القول بالجواز يصح بعشرة شروط ذكرها ابن شاس",
+        "translation": "« Selon l’avis qui permet d’y entrer, Ibn Shâs a mentionné dix conditions. »",
+        "explanation": "Al-Hattâb rapporte dix indications d’Ibn Shâs qui portent sur les motivations de la visite, la préservation de la pudeur, le regard, le comportement et la quantité d’eau utilisée.",
+        "sourceLabel": "Ibn Shâs, dix recommandations transmises par al-Hattâb, t. 1, p. 113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "Après les trois catégories d’Ibn Rushd, al-Hattâb présente une liste d’Ibn Shâs. Celle-ci est très concrète : entrer pour une raison convenable telle que se purifier ou se soigner, préférer les moments où le bain est peu fréquenté, se couvrir d’un tissu opaque, diriger son regard vers le sol ou un mur afin de ne pas voir ce qui ne doit pas être regardé, et intervenir avec douceur lorsqu’une conduite répréhensible est constatée. Ce n’est pas une théorie détachée de la vie : Ibn Shâs décrit des moyens de fréquenter un lieu collectif en préservant ses obligations.",
+        "Il ajoute de ne pas laisser autrui toucher les parties de son corps qu’il doit couvrir, de connaître les conditions du paiement lorsqu’un prix est demandé, d’utiliser une quantité d’eau adaptée au besoin et de garder la prière à l’esprit si son heure survient. Quelques indications reflètent des pratiques matérielles propres à son époque. Il ne faut pas leur donner toutes le même rang juridique : la phrase suivante d’al-Hattâb dira expressément que certaines sont obligatoires et d’autres seulement recommandées. La pudeur, l’usage équitable de l’eau et la courtoisie envers autrui restent au centre de cette lecture."
+      ],
+      "steps": [
+        {
+          "label": "Ibn Shâs décrit une situation permise sous conditions",
+          "text": "Il ne formule pas une autorisation détachée de ce qui se passe réellement dans les lieux de bain."
+        },
+        {
+          "label": "La protection du corps et du regard est centrale",
+          "text": "Le tissu opaque et le regard détourné visent à éviter les dévoilements et les regards que la loi religieuse ne permet pas."
+        },
+        {
+          "label": "Le texte mentionne des usages pratiques",
+          "text": "Les heures calmes, les règles de paiement et le juste emploi de l’eau font partie de sa présentation de la fréquentation du lieu."
+        },
+        {
+          "label": "Toutes les conditions n’ont pas le même statut",
+          "text": "Al-Hattâb précisera que la liste comprend des obligations et des recommandations ; on ne doit pas en faire dix interdictions équivalentes."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le passage par une situation",
+        "text": "Un étudiant découvre les dix indications d’Ibn Shâs et les considère toutes comme des obligations dont la moindre omission rendrait le bain interdit. En lisant la remarque d’al-Hattâb juste après, il apprend que le commentateur distingue les prescriptions obligatoires des usages recommandés. L’exemple est inventé pour enseigner cette hiérarchie, sans proposer un règlement contemporain pour un établissement précis."
+      },
+      "takeaway": "Ibn Shâs cherche à organiser une fréquentation du bain qui préserve le regard, la pudeur et les droits d’autrui. Les dix indications doivent être étudiées avec leurs conditions et leur rang juridique, et non récitées comme une série uniforme d’interdictions.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation.",
+      "context": "Tu veux comprendre quelles précautions Ibn Shâs recommande lorsqu’on fréquente un hammam : se couvrir, préserver son regard, choisir un moment approprié, ne pas gaspiller l’eau. Ces recommandations ont-elles toutes le même degré d’obligation ?"
+    },
+    {
+      "id": "obligatory-recommended",
+      "eyebrow": "16 · LECTURE COMMENTÉE",
+      "title": "Pourquoi al-Hattâb distingue-t-il ce qui est obligatoire de ce qui est recommandé ?",
+      "passage": {
+        "arabic": "هذه آداب منها واجب ومنها مندوب",
+        "translation": "« Ce sont des règles de conduite : certaines sont obligatoires, d’autres recommandées. »",
+        "explanation": "En une phrase, al-Hattâb rappelle qu’un ensemble de conseils portant sur le même lieu peut comprendre plusieurs degrés normatifs. Il n’en fait pas un bloc de règles de portée identique.",
+        "sourceLabel": "Al-Hattâb, remarque personnelle après les dix indications d’Ibn Shâs, t. 1, p. 113.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+      },
+      "paragraphs": [
+        "La phrase d’al-Hattâb qui suit la liste d’Ibn Shâs est brève, mais elle évite de nombreuses erreurs. Il nous dit que ces règles de conduite comportent des obligations et des recommandations. La personne qui protège sa nudité ou s’interdit un regard illicite ne se trouve pas dans la même situation que celle qui choisit, par prudence, une heure où le bain est moins fréquenté. Tout cela peut participer à une conduite digne, mais les juristes ne déclarent pas chaque préférence obligatoire au seul motif qu’elle figure dans une même liste.",
+        "Ce détail est très important lorsqu’on enseigne le fiqh à des débutants. Sans lui, on risque d’alourdir la religion en transformant des conseils utiles en interdictions que la source n’a pas formulées. Ibn Shâs mentionne également la sobriété dans l’emploi de l’eau et la douceur lorsqu’on rappelle une règle à autrui. Ces éléments contribuent à l’éthique des lieux partagés. Al-Hattâb nous demande d’apprendre à hiérarchiser les prescriptions, pas seulement à en mémoriser les mots. La même méthode servira dans les autres chapitres du livre."
+      ],
+      "steps": [
+        {
+          "label": "Le mot « wâjib » désigne l’obligatoire",
+          "text": "Il ne peut être attribué indistinctement à tout conseil pratique présent dans un commentaire."
+        },
+        {
+          "label": "Le mot « mandûb » désigne le recommandé",
+          "text": "Un usage conseillé peut être utile et méritoire sans que son omission constitue une interdiction religieuse."
+        },
+        {
+          "label": "La liste d’Ibn Shâs couvre différents domaines",
+          "text": "La protection des parties intimes, le regard, le paiement, l’eau et la conduite spirituelle n’ont pas forcément la même qualification."
+        },
+        {
+          "label": "L’attribution de la nuance est précise",
+          "text": "C’est al-Hattâb qui ajoute cette remarque à la suite des paroles rapportées d’Ibn Shâs, afin de guider la lecture."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le passage par une situation",
+        "text": "Un lecteur prépare une fiche de synthèse et marque chacune des dix indications d’Ibn Shâs comme « obligatoire ». Son enseignant lui fait relever le dernier commentaire d’al-Hattâb : certaines sont obligatoires, d’autres recommandées. Le lecteur reprend alors son tableau et refuse d’attribuer un rang juridique sans l’avoir établi. Ce dialogue fictif illustre une discipline nécessaire pour comprendre la jurisprudence."
+      },
+      "takeaway": "Al-Hattâb refuse de mettre au même niveau toutes les recommandations d’Ibn Shâs. Cette distinction protège l’étude du fiqh contre l’invention de devoirs supplémentaires et encourage une pratique respectueuse des obligations comme des conseils.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation.",
+      "context": "Dans une liste de conseils concernant le hammam, on trouve aussi bien le fait de couvrir sa nudité que celui de choisir une heure peu fréquentée. Al-Hattâb précise que toutes ces mesures n’ont pas le même statut juridique."
+    },
+    {
+      "id": "custom-seasons",
+      "eyebrow": "17 · LECTURE COMMENTÉE",
+      "title": "Pourquoi les habitudes du lieu et la saison comptent-elles dans les avis ?",
+      "passage": {
+        "arabic": "يختص كل زمان بعادته وعرفه",
+        "translation": "« Chaque époque a ses habitudes et ses usages propres. »",
+        "explanation": "Al-Hattâb rapproche une remarque sur le changement des usages sociaux dans les bains et la distinction d’al-Barzalî entre saison douce et saison froide.",
+        "sourceLabel": "Le Madkhal, propos cités dans la discussion d’al-Hattâb, p. 113–114 ; propos d’al-Barzalî sur la saison froide également rapportés.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      },
+      "paragraphs": [
+        "Une remarque du Madkhal attire l’attention sur le changement des pratiques. Un bain fréquenté à une époque donnée n’est pas nécessairement organisé comme un bain de plusieurs générations plus tard. Les règles relatives à la pudeur demeurent importantes, mais ce qui doit être observé est la réalité des comportements et de l’aménagement du lieu. Al-Hattâb conserve cette remarque pour éviter que les paroles d’un maître, prononcées dans une société particulière, soient automatiquement appliquées à un environnement qui ne présente pas les mêmes circonstances.",
+        "Il rapporte également d’al-Barzalî une distinction selon les saisons. Pendant une période tempérée, certains peuvent préférer se laver sans fréquenter un bain collectif ; en hiver, l’usage d’une installation chauffée peut devenir préférable si une eau froide risque de causer du tort. Al-Hattâb ajoute toutefois que cette appréciation concerne un bain qui ne présente pas d’autre motif d’interdiction. Le besoin de chaleur ne fait pas disparaître les exigences de pudeur. Le texte relie donc les conditions du lieu, la saison et la possibilité réelle d’accomplir la purification."
+      ],
+      "steps": [
+        {
+          "label": "Les usages des lieux varient selon l’époque",
+          "text": "Il ne faut pas inférer les pratiques réelles d’un hammam actuel de la simple description d’un hammam médiéval."
+        },
+        {
+          "label": "La pudeur reste l’objet des précautions",
+          "text": "Le comportement des personnes et la protection des parties intimes déterminent la comparaison entre les situations."
+        },
+        {
+          "label": "Al-Barzalî tient compte du froid",
+          "text": "Le texte envisage le cas où une eau froide risque de nuire, ce qui modifie la préférence pratique pour un moyen de se laver."
+        },
+        {
+          "label": "Une préférence saisonnière ne suspend pas les autres règles",
+          "text": "Al-Hattâb précise que les conditions interdisant une fréquentation demeurent pertinentes, même lorsque l’eau chaude est souhaitable."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le passage par une situation",
+        "text": "Une personne envisage de se laver dans un bain chauffé au cours d’un hiver rigoureux. Elle compare cette option avec une eau très froide, mais elle doit aussi examiner si le lieu permet de préserver la pudeur. Les remarques d’al-Barzalî et du Madkhal montrent pourquoi la saison et les usages concrets comptent. Ce scénario est fictif et ne constitue pas une évaluation médicale d’un risque de froid ou un jugement sur un établissement réel."
+      },
+      "takeaway": "Le commentaire tient compte des circonstances concrètes : les pratiques d’un lieu peuvent changer et l’accès à une eau convenable peut varier selon la saison. Aucune de ces distinctions ne dispense de préserver les règles de pudeur ni d’examiner le bain considéré.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation.",
+      "context": "Un bain chauffé peut être utile pendant un hiver rude, tandis que la fraîcheur de l’eau peut être appréciée en saison chaude. Les auteurs rappellent également que les usages des hammams changent selon l’époque et les lieux."
+    },
+    {
+      "id": "women-bath-opinions",
+      "eyebrow": "18 · LECTURE COMMENTÉE",
+      "title": "Comment lire les divergences anciennes sur l’entrée des femmes au hammam ?",
+      "passage": {
+        "arabic": "ولا تدخله امرأة إلا من علة",
+        "translation": "« Une femme n’y entre que pour un motif particulier. »",
+        "explanation": "Al-Hattâb rassemble plusieurs transmissions historiques sur la fréquentation des bains par les femmes, avec des divergences relatives à la réprobation, au besoin et aux conditions de pudeur.",
+        "sourceLabel": "Ibn Abî Zayd al-Qayrawânî, Risâla, cité par al-Hattâb avec les avis d’Ibn Rushd, de ‘Abd al-Wahhâb et d’al-Barzalî, t. 1, p. 114.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb examine ensuite la question des femmes qui fréquentent un bain collectif. Il cite la formule de la Risâla d’Ibn Abî Zayd al-Qayrawânî, puis rapporte les avis d’Ibn Rushd, de ‘Abd al-Wahhâb et d’autres auteurs. Certains faisaient une différence entre un bain fréquenté pour une raison de santé ou de purification et une visite sans besoin particulier. D’autres discutaient le degré de la réprobation et contestaient d’en tirer une interdiction absolue lorsque les exigences de pudeur étaient respectées.",
+        "Nous devons lire ces paroles dans les conditions de vie qu’elles décrivent. Les juristes parlent d’établissements où certaines personnes pouvaient ne pas couvrir les parties du corps qu’il fallait préserver et où les pratiques variaient selon les lieux. Al-Barzalî rapporte des inquiétudes propres à ce qu’il constatait à son époque. Il serait donc incorrect de transformer une citation isolée en règle universelle sur tous les bains exclusivement féminins actuels, comme il serait incorrect d’ignorer les obligations de pudeur. Ce cours présente les avis et leur contexte sans produire une fatwa individualisée."
+      ],
+      "steps": [
+        {
+          "label": "La formule de la Risâla est attribuée",
+          "text": "Il s’agit d’Ibn Abî Zayd al-Qayrawânî, et non d’une phrase prononcée directement par Mâlik dans ce passage."
+        },
+        {
+          "label": "Les auteurs cités ne donnent pas tous la même qualification",
+          "text": "Al-Hattâb rapporte des distinctions entre réprobation, débat sur l’interdiction et exceptions liées à un besoin."
+        },
+        {
+          "label": "Les conditions de pudeur sont centrales",
+          "text": "Les avis historiques visent notamment des lieux où la nudité était exposée et où les usages n’étaient pas identiques à tous les établissements possibles."
+        },
+        {
+          "label": "Il faut examiner la réalité contemporaine",
+          "text": "La séparation des espaces, la protection des parties intimes et le motif de la visite sont des faits à vérifier avant de comparer les cas."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le passage par une situation",
+        "text": "Une personne cite la Risâla pour condamner indistinctement toute installation moderne fréquentée par des femmes. Une autre lui demande de lire les développements d’al-Hattâb sur les conditions de pudeur et les avis différents des juristes. La première comprend qu’une phrase ancienne ne peut être détachée de son environnement et de ses exceptions. Le dialogue est fictif et ne délivre pas de verdict sur un établissement réel."
+      },
+      "takeaway": "La Risâla et les autres malikites cités par al-Hattâb discutent des cas historiques distincts avec des conditions de besoin et de pudeur. La fiche conserve leurs avis et leurs différences sans inventer une interdiction générale de tout bain moderne.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation.",
+      "context": "Une femme envisage un bain collectif pour des raisons de santé ou de purification, dans un lieu où elle peut préserver sa pudeur. Les anciens malikites ont transmis des avis différents sur ces situations : il faut distinguer besoin, tenue et conditions réelles du lieu."
+    },
+    {
+      "id": "weak-hammam-report",
+      "eyebrow": "19 · LECTURE COMMENTÉE",
+      "title": "Pourquoi ne pas présenter le récit d’un bain fréquenté par le Prophète ﷺ comme authentique ?",
+      "passage": {
+        "arabic": "لكن ذكر النووي في شرح المهذب في كتاب الحج أنه حديث ضعيف",
+        "translation": "« Toutefois, al-Nawawî a indiqué dans le Sharh al-Muhadhdhab qu’il s’agit d’un hadith faible. »",
+        "explanation": "Une note rapporte qu’al-Damîrî mentionne un récit selon lequel le Prophète ﷺ serait entré dans un hammam à al-Juhfa. Al-Hattâb signale immédiatement le jugement d’al-Nawawî sur sa faiblesse.",
+        "sourceLabel": "Al-Hattâb, citation d’al-Damîrî suivie du jugement d’al-Nawawî, t. 1, p. 114.",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+      },
+      "paragraphs": [
+        "Le commentaire ajoute enfin une information relative à un récit ancien. Al-Damîrî aurait mentionné que le Prophète ﷺ était entré dans un hammam à al-Juhfa. Mais al-Hattâb n’en fait pas un argument authentifié : il cite ensuite al-Nawawî, qui qualifie le hadith de faible dans son Sharh al-Muhadhdhab, au chapitre du pèlerinage. Cette précaution compte autant que la mention du récit lui-même. On ne peut pas attribuer comme certain au Messager d’Allah ﷺ un acte dont la transmission est contestée.",
+        "Le lecteur doit donc apprendre une discipline simple : lorsqu’un savant rapporte une tradition, il faut examiner ce qu’il dit de son authenticité. C’est la même méthode que nous avons suivie dans la fiche précédente concernant une eau chauffée au soleil. Ici, les jugements sur la fréquentation des bains doivent être compris à partir des règles exposées sur la pudeur, la pureté de l’eau et les circonstances du lieu. Le récit d’al-Juhfa peut être évoqué comme une tradition historiquement citée, mais pas présenté comme une preuve prophétique certaine."
+      ],
+      "steps": [
+        {
+          "label": "Al-Damîrî est mentionné comme rapporteur",
+          "text": "Le commentaire cite le livre où la tradition apparaît au lieu de la présenter spontanément comme authentique."
+        },
+        {
+          "label": "Al-Nawawî fournit une critique explicite",
+          "text": "Sa qualification de hadith faible doit être signalée à chaque fois que l’on mentionne cette histoire."
+        },
+        {
+          "label": "L’attribution au Prophète ﷺ demande une rigueur particulière",
+          "text": "La célébrité d’un récit ne suffit pas à démontrer l’authenticité de sa chaîne de transmission."
+        },
+        {
+          "label": "Le jugement du hammam ne dépend pas de ce récit faible",
+          "text": "Les distinctions d’Ibn Rushd et les autres avis rapportés restent les éléments étudiés pour comprendre les situations réelles."
+        }
+      ],
+      "example": {
+        "title": "Comprendre le passage par une situation",
+        "text": "Un enseignant affirme que le Prophète ﷺ est certainement entré dans un hammam à al-Juhfa. Un élève lui demande la source. En lisant al-Hattâb, ils voient la remarque d’al-Damîrî puis la critique d’al-Nawawî. Le professeur corrige sa formulation et indique que le récit est faible. L’exemple est imaginaire, mais il montre pourquoi la transmission doit être vérifiée avant d’être utilisée comme preuve religieuse."
+      },
+      "takeaway": "Al-Hattâb mentionne le récit rapporté par al-Damîrî, puis précise qu’al-Nawawî le qualifie de faible. Il ne faut donc pas le présenter comme une preuve prophétique authentique pour trancher la question de l’entrée au hammam.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation.",
+      "context": "Quelqu’un affirme que le Prophète ﷺ serait entré dans un hammam à al-Juhfa et présente cela comme un fait certain. Al-Hattâb cite le récit, mais rapporte aussitôt qu’al-Nawawî le juge faible. Peut-on en faire une preuve authentique ?"
+    }
+  ],
+  "lexicon": [
+    {
+      "arabic": "الْمَاءُ الْمُسَخَّنُ بِالنَّجَاسَة",
+      "term": "Musakhkhan bi-n-najâsa",
+      "definition": "Eau chauffée au moyen d’une matière considérée comme impure. Il faut la distinguer d’une eau dans laquelle une impureté est réellement entrée."
+    },
+    {
+      "arabic": "السَّمَاع",
+      "term": "Samâ‘ Ashhab",
+      "definition": "Transmission juridique recueillie par un disciple. Le Samâ‘ d’Ashhab rapporte ici la parole de Mâlik sur l’usage fréquent de l’eau chauffée."
+    },
+    {
+      "arabic": "الْمَاءُ الْبَارِد",
+      "term": "Mâ’ bārid",
+      "definition": "Eau froide dont certains auteurs expliquent la préférence dans le climat chaud du Hedjaz ; cette préférence n’équivaut pas à une obligation générale."
+    },
+    {
+      "arabic": "الْمَاءُ الْمُسَخَّن",
+      "term": "Mâ’ musakhkhan",
+      "definition": "Eau chauffée. Mâlik est cité pour sa permission ; les questions de chauffage par une souillure et de température excessive sont traitées séparément."
+    },
+    {
+      "arabic": "الْمَشَقَّة",
+      "term": "Mashaqqa",
+      "definition": "Difficulté rencontrée dans un acte. Ibn al-Imâm distingue la peine inséparable de l’obéissance de celle qu’on recherche sans nécessité pour elle-même."
+    },
+    {
+      "arabic": "التَّنَعُّم",
+      "term": "Tana‘‘um",
+      "definition": "Recherche de confort. Une interprétation de la réserve attribuée à Mujâhid la relie à la crainte d’un confort qui écarterait l’effort méritoire."
+    },
+    {
+      "arabic": "الثَّوَاب",
+      "term": "Thawâb al-‘ibâda",
+      "definition": "Récompense de l’adoration. Le commentaire explique que l’effort inévitable peut l’accompagner, sans que toute peine volontaire soit une adoration."
+    },
+    {
+      "arabic": "الْقُرْبَة",
+      "term": "Qurba",
+      "definition": "Acte par lequel on se rapproche d’Allah. Ibn al-Imâm rappelle qu’une difficulté sans utilité n’est pas une qurba simplement parce qu’elle est pénible."
+    },
+    {
+      "arabic": "الْحَمَّام",
+      "term": "Hammâm",
+      "definition": "Bain collectif historique, souvent muni de bassins communs. Les juristes distinguent les bains privés, les usages pudiques et les lieux exposant à la nudité."
+    },
+    {
+      "arabic": "الْعَوْرَة",
+      "term": "‘Awra",
+      "definition": "Parties du corps qu’il faut couvrir dans des situations déterminées. La protection de l’‘awra est centrale dans la classification des hammams."
+    },
+    {
+      "arabic": "سَتْرُ الْعَوْرَة",
+      "term": "Satr al-‘awra",
+      "definition": "Action de couvrir convenablement les parties intimes devant autrui. L’usage d’un vêtement opaque fait partie des indications citées d’Ibn Shâs."
+    },
+    {
+      "arabic": "غَضُّ الْبَصَر",
+      "term": "Ghadd al-basar",
+      "definition": "Fait de détourner les yeux de ce qu’il n’est pas permis de regarder. Le principe apparaît notamment dans le cas d’un passage nécessaire pour prélever de l’eau."
+    },
+    {
+      "arabic": "الْخَلْوَة",
+      "term": "Khalwa al-hammâm",
+      "definition": "Situation d’un hammam vide ou utilisé en privé. Ibn Rushd la distingue de la fréquentation d’un bain où d’autres personnes sont présentes."
+    },
+    {
+      "arabic": "الْمُقَدِّمَات",
+      "term": "Al-Muqaddimât",
+      "definition": "Ouvrage d’Ibn Rushd cité par al-Hattâb pour la division de l’entrée au hammam en trois situations juridiquement différentes."
+    },
+    {
+      "arabic": "الْعُتْبِيَّة",
+      "term": "Al-‘Utbiyya",
+      "definition": "Recueil de transmissions malikites dont al-Hattâb rapporte, par Asbagh, une formulation d’Ibn al-Qâsim sur le hammam où tous se couvrent."
+    },
+    {
+      "arabic": "الْجَوَاهِر",
+      "term": "Al-Jawâhir",
+      "definition": "Ouvrage malikite cité concernant les bains où la nudité n’est pas préservée et la situation d’une personne qui ne peut trouver l’eau ailleurs."
+    },
+    {
+      "arabic": "آدَابُ الْحَمَّام",
+      "term": "Âdâb al-hammâm",
+      "definition": "Règles de conduite pour la fréquentation des bains, dont certaines sont obligatoires et d’autres recommandées selon la remarque expresse d’al-Hattâb."
+    },
+    {
+      "arabic": "الْمَنْدُوب",
+      "term": "Mandûb fi-l-hammâm",
+      "definition": "Acte recommandé mais non obligatoire. Al-Hattâb l’oppose au wâjib dans sa lecture des dix indications attribuées à Ibn Shâs."
+    },
+    {
+      "arabic": "الْوَاجِب",
+      "term": "Wâjib fi-l-hammâm",
+      "definition": "Obligation juridique, distincte des conseils recommandés. Préserver la pudeur ne se place pas au même rang qu’un simple choix d’horaire."
+    },
+    {
+      "arabic": "الْعُرْف",
+      "term": "‘Urf al-balad",
+      "definition": "Usage social d’une époque ou d’un lieu. Le Madkhal est cité pour rappeler que les comportements dans les bains peuvent changer avec les générations."
+    },
+    {
+      "arabic": "الْعِلَّة",
+      "term": "‘Illa wa-hâja",
+      "definition": "Motif ou besoin particulier. Les discussions historiques sur l’accès des femmes au hammam distinguent notamment les visites motivées de la simple habitude."
+    },
+    {
+      "arabic": "الرِّوَايَةُ الضَّعِيفَة",
+      "term": "Riwâya da‘îfa",
+      "definition": "Transmission faible. Al-Hattâb rapporte qu’al-Nawawî juge faible le récit affirmant une entrée du Prophète ﷺ dans un hammam à al-Juhfa."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Quelle différence fondamentale existe entre chauffage par une souillure et contamination de l’eau ?",
+      "choices": [
+        "Le premier concerne le moyen de chauffage, la seconde une matière entrée dans l’eau.",
+        "Ce sont toujours deux expressions synonymes.",
+        "L’eau n’est jamais chauffée avec un combustible."
+      ],
+      "answer": 0,
+      "explanation": "La réprobation d’Ibn al-Karawî est mentionnée pour un moyen de chauffage particulier, même sans changement de l’eau. Elle ne prouve pas qu’une impureté ait été mélangée à la réserve."
+    },
+    {
+      "question": "Que répond Mâlik dans le Samâ‘ d’Ashhab au sujet de l’eau chauffée ?",
+      "choices": [
+        "Il en interdit l’usage en toutes circonstances.",
+        "Il n’y voit pas de mal et dit en faire lui-même souvent usage.",
+        "Il affirme que l’eau tiède ne peut lever aucun hadath."
+      ],
+      "answer": 1,
+      "explanation": "Le propos « لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا » est explicitement attribué à Mâlik dans la transmission d’Ashhab. Il ne supprime pas les réserves relatives à d’autres circonstances."
+    },
+    {
+      "question": "Comment Ibn ‘Abd al-Salâm comprend-il la préférence rapportée pour l’eau froide ?",
+      "choices": [
+        "Comme une obligation universelle en toutes saisons.",
+        "Comme un moyen de rendre la purification invalide.",
+        "Comme une préférence liée notamment à la chaleur du Hedjaz et à des effets corporels supposés."
+      ],
+      "answer": 2,
+      "explanation": "Ibn ‘Abd al-Salâm replace cette préférence dans le contexte du climat chaud du Hedjaz. Elle ne doit pas devenir une règle médicale générale ni une réprobation de toute eau chauffée."
+    },
+    {
+      "question": "À qui le Bayân attribue-t-il une réprobation de l’eau chauffée ?",
+      "choices": [
+        "À Mujâhid.",
+        "À Ibn Shâs uniquement.",
+        "À al-Nawawî à propos du hammam d’al-Juhfa."
+      ],
+      "answer": 0,
+      "explanation": "Al-Hattâb cite le Bayân transmettant une réprobation de Mujâhid, puis discute une explication possible liée au confort et au mérite de supporter une difficulté."
+    },
+    {
+      "question": "Quelle est l’objection principale d’Ibn al-Imâm contre la recherche de difficulté ?",
+      "choices": [
+        "Toute adoration doit être sans aucun effort.",
+        "Allah ne demande pas la peine pour elle-même : elle n’est pas automatiquement une adoration.",
+        "Le froid est toujours interdit dans les ablutions."
+      ],
+      "answer": 1,
+      "explanation": "Ibn al-Imâm distingue les difficultés inévitables rencontrées dans une bonne œuvre de celles qu’on s’inflige sans nécessité. Le commentaire ne confond pas effort sincère et complication gratuite."
+    },
+    {
+      "question": "Quand une difficulté peut-elle contribuer à une récompense accrue selon Ibn al-Imâm ?",
+      "choices": [
+        "Lorsqu’elle est volontairement ajoutée sans utilité.",
+        "Uniquement dans un bain collectif.",
+        "Lorsqu’elle accompagne nécessairement l’accomplissement du bien recherché."
+      ],
+      "answer": 2,
+      "explanation": "Le texte rattache la peine à la réalisation d’un acte d’adoration qui ne peut être effectué sans cet effort. Il n’encourage pas à fabriquer des difficultés lorsque l’acte est accessible autrement."
+    },
+    {
+      "question": "Pourquoi al-Ubbî considère-t-il que chauffer l’eau peut être approprié ?",
+      "choices": [
+        "Pour se renforcer et accomplir correctement l’adoration.",
+        "Parce que toute eau froide est impure.",
+        "Parce que la récompense dépend uniquement de la chaleur de l’eau."
+      ],
+      "answer": 0,
+      "explanation": "Al-Ubbî explique que réchauffer l’eau pour écarter le froid et mieux adorer ne retire pas la récompense évoquée. Il rejoint la distinction entre le bien recherché et la difficulté inutile."
+    },
+    {
+      "question": "Combien de situations Ibn Rushd distingue-t-il pour l’entrée au hammam ?",
+      "choices": [
+        "Une seule interdiction identique dans tous les cas.",
+        "Trois : bain privé, nudité exposée, et fréquentation où chacun se couvre.",
+        "Deux uniquement selon le prix d’entrée."
+      ],
+      "answer": 1,
+      "explanation": "Al-Hattâb rapporte la classification d’Ibn Rushd, reprise par plusieurs malikites. Elle exige d’examiner les conditions du bain et la protection de la pudeur."
+    },
+    {
+      "question": "Quel est le jugement du bain privé ou vide selon la première catégorie ?",
+      "choices": [
+        "Il est toujours interdit.",
+        "Il annule automatiquement la purification.",
+        "Il est permis sans réprobation dans les conditions décrites."
+      ],
+      "answer": 2,
+      "explanation": "Le premier cas rapporté par Ibn Rushd est celui du hammam vide ou utilisé dans un cadre privé approprié, distinct des lieux exposant au regard d’autres baigneurs."
+    },
+    {
+      "question": "Pourquoi le second cas d’Ibn Rushd reçoit-il un jugement sévère ?",
+      "choices": [
+        "Parce que la nudité qu’il faut couvrir est exposée, par soi-même ou par d’autres.",
+        "Parce que la chaleur annule toute ablution.",
+        "Parce que le nombre d’usagers est toujours supérieur à dix."
+      ],
+      "answer": 0,
+      "explanation": "Ibn Rushd vise un lieu où les parties du corps qu’il faut protéger sont exposées. Le problème principal concerne la pudeur et le regard, et non l’existence d’eau chaude."
+    },
+    {
+      "question": "Que distingue Ibn al-Qâsim dans le cas d’une personne sans autre eau ?",
+      "choices": [
+        "La couleur des murs du hammam.",
+        "Le prélèvement nécessaire de l’eau et le fait de demeurer dans le bain.",
+        "Les récits de science médicale sur le soleil."
+      ],
+      "answer": 1,
+      "explanation": "Le passage envisage un accès limité à l’eau, en préservant le regard, sans transformer cette nécessité en permission générale de séjourner dans un lieu problématique."
+    },
+    {
+      "question": "Que signifie la formule d’Ibn al-Qâsim « لا بأس به وتركه أحسن » ?",
+      "choices": [
+        "Le bain est obligatoirement interdit.",
+        "Le bain est une obligation de purification.",
+        "Il n’y a pas de mal à y entrer dans le cas décrit, mais l’abstention est préférable."
+      ],
+      "answer": 2,
+      "explanation": "Dans le troisième cas d’Ibn Rushd, les personnes se couvrent. Ibn al-Qâsim distingue l’entrée permise de la préférence prudente pour l’éviter dans les circonstances étudiées."
+    },
+    {
+      "question": "Que faut-il conserver de la réponse de Mâlik sur le bassin du hammam ?",
+      "choices": [
+        "La suffisance du ghusl dépend des conditions de pureté.",
+        "Tout bain public est toujours pur.",
+        "Il est interdit de se purifier à partir de toute eau stagnante."
+      ],
+      "answer": 0,
+      "explanation": "Mâlik répond « نعم إذا كان طاهرا ». Ibn Rushd précise que le jugement de validité dépend des conditions de l’eau et de la personne et ne transforme pas toute pratique en recommandation."
+    },
+    {
+      "question": "Pourquoi le Bayân déconseille-t-il l’usage de certaines eaux de hammam ?",
+      "choices": [
+        "À cause de leur nom arabe.",
+        "À cause du chauffage par des matières impures et des nombreux contacts avec la même réserve.",
+        "Parce que l’eau réchauffée par le feu est toujours invalide."
+      ],
+      "answer": 1,
+      "explanation": "Le Bayân cite le moyen de chauffage et le passage successif des mains. Ces circonstances expliquent une réserve, mais ne prouvent pas une souillure réelle dans toutes les installations."
+    },
+    {
+      "question": "Quel sujet couvre principalement la liste d’Ibn Shâs ?",
+      "choices": [
+        "Une méthode pour construire les bassins.",
+        "Une mesure exacte de la température et du volume.",
+        "La protection de la pudeur, le regard, le comportement et l’usage raisonnable de l’eau."
+      ],
+      "answer": 2,
+      "explanation": "Ibn Shâs rapporte dix indications pour un bain fréquenté dans des conditions permises. Al-Hattâb ajoute qu’elles ne sont pas toutes de même rang juridique."
+    },
+    {
+      "question": "Quelle précision al-Hattâb donne-t-il sur ces dix indications ?",
+      "choices": [
+        "Certaines sont obligatoires, d’autres recommandées.",
+        "Toutes sont des interdictions absolues.",
+        "Elles ne concernent que les médecins."
+      ],
+      "answer": 0,
+      "explanation": "La formule « هذه آداب منها واجب ومنها مندوب » interdit de traiter chaque conseil d’Ibn Shâs comme une obligation identique."
+    },
+    {
+      "question": "Que rappellent le Madkhal et al-Barzalî sur les hammams ?",
+      "choices": [
+        "Les pratiques et les saisons n’ont aucune importance.",
+        "Les usages des lieux changent et le besoin d’eau chaude peut varier selon les saisons.",
+        "Il faut toujours choisir une eau froide, même lorsqu’elle nuit."
+      ],
+      "answer": 1,
+      "explanation": "Le Madkhal attire l’attention sur l’évolution des pratiques, tandis qu’al-Barzalî distingue les périodes où un bain chauffé peut être préférable, tout en conservant les autres conditions."
+    },
+    {
+      "question": "Comment la fiche présente-t-elle les avis historiques concernant l’entrée des femmes au hammam ?",
+      "choices": [
+        "Comme une interdiction universelle de tout bain féminin contemporain.",
+        "Comme une permission sans condition.",
+        "Comme plusieurs avis tenant compte du besoin, des pratiques du lieu et de la préservation de la pudeur."
+      ],
+      "answer": 2,
+      "explanation": "Al-Hattâb cite la Risâla et différents malikites. La présentation conserve les divergences et le contexte des bains historiques, sans créer de fatwa universelle sur les établissements modernes."
+    },
+    {
+      "question": "Quelle critique al-Hattâb rapporte-t-il à propos du récit d’al-Juhfa ?",
+      "choices": [
+        "Al-Nawawî le juge faible.",
+        "Il est unanimement authentique.",
+        "Il prouve que les hammams sont toujours obligatoires."
+      ],
+      "answer": 0,
+      "explanation": "Après avoir mentionné le récit rapporté d’al-Damîrî, al-Hattâb indique qu’al-Nawawî l’a qualifié de faible dans le Sharh al-Muhadhdhab. Il ne doit pas être cité comme une preuve prophétique authentifiée."
+    }
+  ],
+  "quote": {
+    "arabic": "لِأَنَّ اللَّهَ تَعَالَى لَمْ يَطْلُبْ مِنْ عِبَادِهِ الْمَشَاقَّ",
+    "meaning": "Ibn al-Imâm rappelle, dans la discussion sur l’eau froide et l’eau chauffée, qu’Allah ne demande pas à Ses serviteurs de rechercher la difficulté pour elle-même. L’effort lié à l’accomplissement nécessaire d’un acte et l’effort ajouté sans raison ne se confondent pas.",
+    "label": "Ibn al-Imâm cité par al-Hattâb, Mawâhib al-Jalîl, tome 1, passage « تنبيه وفائدة », édition Dâr al-Kutub al-‘Ilmiyya, p. 112."
   },
+  "sources": [
+    {
+      "label": "Mawâhib al-Jalîl — édition Dâr al-Kutub al-‘Ilmiyya, tome 1, page 112 : eau chauffée, Mâlik, effort et début du hammam",
+      "url": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl — même édition, page 113 : trois situations, avis et dix conditions d’Ibn Shâs",
+      "url": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl — même édition, page 114 : époque, saison, femmes et traditions discutées",
+      "url": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+    },
+    {
+      "label": "Islamweb — Mawâhib al-Jalîl, rubrique « l’eau chauffée par une souillure »",
+      "url": "https://islamweb.net/ar/library/content/19/121/%D9%81%D8%B1%D8%B9-%D8%A7%D9%84%D9%85%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%B3%D8%AE%D9%86-%D8%A8%D8%A7%D9%84%D9%86%D8%AC%D8%A7%D8%B3%D8%A9"
+    },
+    {
+      "label": "Islamweb — Mawâhib al-Jalîl, rubrique « entrer au hammam »",
+      "url": "https://islamweb.net/ar/library/content/19/122/%D9%81%D8%B1%D8%B9-%D8%AF%D8%AE%D9%88%D9%84-%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85"
+    },
+    {
+      "label": "Usul — texte arabe et notice de Mawâhib al-Jalîl",
+      "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+    }
+  ]
+},
   "visibleImpurityAndWells": {
   "id": "visible-impurity-wells-15",
   "number": "15",
