@@ -613,6 +613,17 @@ for(const pg of [118,119,120])assert.ok(book.restoredWater.sources.some(x=>x.url
 
 assert.ok(book.nextChapter.status.includes('fiche 17 non publiée'));
 assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells','restoredWater'].filter(key=>book[key]?.status==='disponible').length,16,'Seize fiches réellement accessibles');
+// Relecture pédagogique globale : 129 lectures des fiches 01 à 14 commencent par un cas compréhensible.
+const firstFourteen=['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam'];
+const allPreviousSections=firstFourteen.flatMap(key=>book[key].sections);
+assert.equal(allPreviousSections.length,129,'Le nombre de lectures des quatorze fiches historiques a changé');
+assert.ok(allPreviousSections.every(s=>s.passage?.arabic&&s.passage?.translation&&s.passage?.sourceUrl),'Citation primaire manquante parmi les quatorze fiches');
+assert.ok(allPreviousSections.every(s=>s.context?.length>=175||s.example?.text?.length>=120),'Une lecture ancienne n’offre pas de cas pour commencer');
+assert.ok(book.sunHeatedWater.sections.every(s=>s.context?.length>=175),'Quinze introductions de la fiche 13 manquantes');
+assert.ok(book.heatedWaterHammam.sections.every(s=>s.context?.length>=175),'Dix-neuf introductions de la fiche 14 manquantes');
+assert.ok(view.includes('v-else-if="section.example" class="fiqh-m-case fiqh-m-case-intro"'),'Les exemples des fiches 1 à 12 ne précèdent pas les citations');
+assert.ok(view.includes('v-if="section.example && section.context" class="fiqh-m-case"'),'L’ancien exemple est dupliqué au lieu d’être déplacé');
+assert.ok(view.indexOf('fiqh-m-case-intro')<view.indexOf('v-if="section.passage"'),'La situation doit précéder l’extrait arabe');
 assert.ok(!book.visibleImpurityAndWells.sections[0].paragraphs[0].startsWith('Après la discussion sur le hammam'),'Ancienne introduction opaque encore présente');
 assert.ok(book.visibleImpurityAndWells.sections[0].paragraphs[0].includes('vient de boire du vin'),'Exemple initial de la bouche souillée absent');
 assert.ok(view.includes('fiqh-m-situation'),'Contexte d’abord requis');
