@@ -11042,7 +11042,16 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "Comprendre : Quand peut-on croire un témoin sans qu’il explique toute la cause ?",
     "Comprendre : Pourquoi faut-il connaître les règles pour annoncer qu’une eau est impure ?",
     "Comprendre : Et si la personne affirme au contraire que l’eau est pure ?",
-    "Comprendre : Si le témoin ne donne aucune raison et suit d’autres règles, faut-il éviter l’eau ?"
+    "Comprendre : Si le témoin ne donne aucune raison et suit d’autres règles, faut-il éviter l’eau ?",
+    "Comprendre : Verser l’eau sur une souillure change-t-il le jugement ?",
+    "Comprendre : Si l’eau change à cause de la souillure, que devient-elle ?",
+    "Comprendre : Une petite quantité restée inchangée peut-elle encore purifier ?",
+    "Comprendre : Pourquoi la quantité d’eau change-t-elle la qualification ?",
+    "Comprendre : Sur quoi al-Mâzarî fonde-t-il la comparaison des deux contacts ?",
+    "Comprendre : Pourquoi al-Bisâtî conteste-t-il la comparaison ?",
+    "Comprendre : Comment al-Hattâb répond-il à l’objection d’al-Bisâtî ?",
+    "Comprendre : Se laver au hammam puis mettre ses mains dans l’eau propre : quel est le problème ?",
+    "Comprendre : Pourquoi Ibn Rushd refuse-t-il d’enchaîner les soupçons de souillure ?"
   ],
   "sections": [
     {
@@ -11053,7 +11062,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "وقبل خبر الواحد إن بين وجها",
         "translation": "« On accepte l’information d’une seule personne si elle explique la raison de l’impureté. »",
-        "explanation": "Khalîl, formule du Mukhtasar expliquée par al-Hattâb. Le fiqh n’exige donc pas nécessairement que plusieurs personnes confirment chacune ce que dit le premier témoin. En revanche, le passage ne commande pas.",
+        "explanation": "Khalîl autorise la prise en compte de l’information d’une seule personne lorsqu’elle expose la raison de la souillure. Al-Hattâb précise ensuite les conditions de fiabilité.",
         "sourceLabel": "Khalîl, formule du Mukhtasar expliquée par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11094,7 +11103,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "أن النجاسة تثبت بخبر الواحد إذا بين وجهها",
         "translation": "« L’impureté est établie par l’information d’une seule personne lorsqu’elle en explique la cause. »",
-        "explanation": "Al-Hattâb, explicitant la condition de Khalîl. Cette exigence est particulièrement utile lorsque le mot « impur » peut être employé trop largement dans le langage courant. Une eau peut avoir un dépôt.",
+        "explanation": "Al-Hattâb distingue l’annonce d’un verdict et l’explication du fait matériel qui le motive. Une observation précise permet de comprendre la règle en cause.",
         "sourceLabel": "Al-Hattâb, explicitant la condition de Khalîl — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11135,7 +11144,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "سواء اختلف مذهب السائل والمخبر أو اتفق",
         "translation": "« Que l’école juridique de celui qui demande et de celui qui informe soit différente ou identique. »",
-        "explanation": "Al-Hattâb, sur l’information qui décrit sa cause. Il faut éviter la conclusion inverse : la divergence entre écoles n’est pas un motif général pour traiter une personne comme si elle était incapable de.",
+        "explanation": "Al-Hattâb indique qu’un témoignage décrivant la cause n’est pas rejeté du seul fait que les deux personnes suivent des écoles juridiques différentes.",
         "sourceLabel": "Al-Hattâb, sur l’information qui décrit sa cause — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11176,7 +11185,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "لكن قيده بالعدل وهو ظاهر",
         "translation": "« Mais il a posé la condition d’être une personne fiable ; cela est évident. »",
-        "explanation": "Al-Hattâb, citant la restriction d’al-Mâzarî. Le livre situe cette exigence dans la conception classique du témoignage et mentionne certaines exclusions propres à son cadre juridique. Il ne faut ni.",
+        "explanation": "Al-Mâzarî ajoute la condition de fiabilité du témoin. Il ne suffit pas de formuler une accusation : la valeur de l’information dépend aussi de celui qui la rapporte.",
         "sourceLabel": "Al-Hattâb, citant la restriction d’al-Mâzarî — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11217,7 +11226,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "ولو كان المخبر عبدا أو امرأة قاله المازري",
         "translation": "« Même si la personne qui informe est un esclave ou une femme, selon al-Mâzarî. »",
-        "explanation": "Al-Mâzarî, propos transmis par al-Hattâb, dans le contexte social historique. Il faut cependant lire la suite immédiate. Al-Mâzarî, selon ce commentaire, ajoute la condition de fiabilité, qui vaut pour le récit étudié. On ne peut.",
+        "explanation": "Al-Mâzarî précise que, dans ce cas particulier, l’information d’une femme n’est pas écartée pour cette seule raison. La condition de fiabilité demeure ; l’autre catégorie citée appartient au droit historique.",
         "sourceLabel": "Al-Mâzarî, propos transmis par al-Hattâb, dans le contexte social historique — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11258,7 +11267,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "أو اتفقا مذهبا",
         "translation": "« Ou si tous deux suivent le même madhhab. »",
-        "explanation": "Khalîl, seconde condition du Mukhtasar explicitée par al-Hattâb. Cette formule ne dit cependant pas que deux personnes portant la même étiquette religieuse sont automatiquement d’accord sur tous les détails. Al-Hattâb.",
+        "explanation": "Khalîl mentionne l’accord de madhhab comme seconde condition permettant de recevoir un jugement sans explication détaillée. Al-Hattâb en précise la portée.",
         "sourceLabel": "Khalîl, seconde condition du Mukhtasar explicitée par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11299,7 +11308,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "إذا كان المخبر عالما بما ينجس الماء وما لا ينجسه",
         "translation": "« Si la personne qui informe sait ce qui rend l’eau impure et ce qui ne la rend pas impure. »",
-        "explanation": "Al-Hattâb, précision introduite par « Allah sait mieux ». Cette condition évite deux excès. Le premier consisterait à exiger une longue démonstration à chaque fois qu’une personne fiable et instruite avertit.",
+        "explanation": "Al-Hattâb suppose que l’informateur sait réellement reconnaître ce qui rend l’eau impure. Partager le nom d’une école juridique ne dispense pas de connaître ses règles.",
         "sourceLabel": "Al-Hattâb, précision introduite par « Allah sait mieux » — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11340,7 +11349,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "إذا أخبره بأنه طاهر فلا يحتاج إلى هذا التفصيل",
         "translation": "« Si quelqu’un lui annonce que l’eau est pure, cette distinction n’est pas nécessaire. »",
-        "explanation": "Al-Bisâtî, dans al-Mughnî, avis transmis par al-Hattâb. Mais il ne faut pas couper la suite. Al-Hattâb accepte cette explication seulement lorsqu’aucun signe ne suggère l’impureté ou ne retire à l’eau son.",
+        "explanation": "Al-Bisâtî distingue la parole qui confirme la pureté initiale de celle qui annonce une souillure. Al-Hattâb ajoute que cette facilité cesse si des indices contraires apparaissent.",
         "sourceLabel": "Al-Bisâtî, dans al-Mughnî, avis transmis par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11381,7 +11390,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "فقال المازري في شرح التلقين الأحسن تركه",
         "translation": "« Al-Mâzarî dit dans son commentaire d’al-Talqîn : le mieux est de s’en abstenir. »",
-        "explanation": "Al-Mâzarî, Sharh al-Talqîn, propos cité par al-Hattâb. Ce cas est important parce qu’il évite de confondre une précaution avec une preuve. La personne a entendu une alerte, mais elle n’a pas assez.",
+        "explanation": "Al-Mâzarî préfère qu’on évite l’eau lorsque le témoin n’indique pas la cause et que les critères juridiques diffèrent. Il exprime une précaution, pas une preuve matérielle d’impureté.",
         "sourceLabel": "Al-Mâzarî, Sharh al-Talqîn, propos cité par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
       },
@@ -11413,14 +11422,700 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       },
       "takeaway": "Lorsque la cause de la souillure n’est pas donnée et que les critères juridiques diffèrent, al-Mâzarî conseille de s’abstenir d’utiliser l’eau. Il s’agit d’une préférence prudentielle et non d’une certitude d’impureté.",
       "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Mâzarî, Sharh al-Talqîn, propos cité par al-Hattâb. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "water-on-impurity",
+      "title": "Verser l’eau sur une souillure change-t-il le jugement ?",
+      "eyebrow": "10 · LECTURE COMMENTÉE",
+      "context": "Tu rinces une tache impure en faisant couler de l’eau dessus. Un autre jour, une goutte de cette même impureté tombe dans un récipient. Le sens du contact suffit-il à donner deux jugements opposés ?",
+      "passage": {
+        "arabic": "وورود الماء على النجاسة كعكسه",
+        "translation": "« L’arrivée de l’eau sur l’impureté se juge comme l’inverse. »",
+        "explanation": "Khalîl pose ici une comparaison entre deux gestes. Dans le premier, on verse de l’eau sur une souillure, par exemple pour laver un endroit.",
+        "sourceLabel": "Khalîl, formule du Mukhtasar commentée par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Khalîl pose ici une comparaison entre deux gestes. Dans le premier, on verse de l’eau sur une souillure, par exemple pour laver un endroit. Dans le second, c’est la souillure qui arrive dans l’eau. Il serait tentant d’affirmer que le premier geste protège toujours l’eau parce qu’il sert à nettoyer. Pourtant, la phrase de Khalîl invite à comparer les deux situations selon la manière dont la substance impure affecte réellement l’eau, plutôt qu’en regardant uniquement ce qui a été versé en premier.",
+        "Al-Hattâb précise aussitôt les conditions de cette comparaison, en rapportant les avis d’Ibn al-‘Arabî et d’al-Mâzarî. Si l’eau se trouve modifiée par la souillure, la conséquence est claire dans le cas étudié. Si elle ne change pas, la quantité d’eau compte et une réprobation peut être évoquée pour un petit volume. Mais al-Bisâtî conteste ensuite l’assimilation de certains cas, notamment de l’eau qui s’écoule après avoir lavé une souillure sans changer. Il faut donc lire la règle générale avec l’objection et la réponse qui suivent."
+      ],
+      "steps": [
+        {
+          "label": "Deux sens du contact sont comparés",
+          "text": "L’eau peut arriver sur la souillure, ou la souillure peut entrer dans l’eau déjà présente."
+        },
+        {
+          "label": "Le geste de laver ne règle pas tout",
+          "text": "L’objectif de nettoyage ne suffit pas à effacer la question du statut de l’eau devenue mélangée."
+        },
+        {
+          "label": "La modification effective compte",
+          "text": "Le commentaire regarde notamment si la couleur, l’odeur ou le goût ont changé à cause de la souillure."
+        },
+        {
+          "label": "Une objection sera présentée ensuite",
+          "text": "Al-Bisâtî distingue certains écoulements restés inchangés et remet en discussion une assimilation trop générale."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Une personne lave une surface où se trouvait une tache impure. Elle récupère dans un petit bol l’eau qui vient de passer sur cette surface et se demande si elle pourrait servir aux ablutions. C’est différent d’un bol d’eau dans lequel la matière impure aurait été versée, mais les juristes étudient précisément jusqu’où l’on peut rapprocher les deux. L’exemple est fictif : il ne permet pas de classer une eau réelle sans examiner son état et les conditions du passage."
+      },
+      "takeaway": "Khalîl compare l’eau versée sur une impureté et l’impureté versée dans l’eau. Al-Hattâb explique le rôle du changement et de la quantité, puis conserve une objection : il ne s’agit pas d’une formule sans nuances.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Khalîl, formule du Mukhtasar commentée par al-Hattâb. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "changed-after-contact",
+      "title": "Si l’eau change à cause de la souillure, que devient-elle ?",
+      "eyebrow": "11 · LECTURE COMMENTÉE",
+      "context": "Tu verses de l’eau sur une tache impure. L’eau recueillie a ensuite nettement changé de couleur ou d’odeur à cause de cette substance. Peut-on encore la traiter comme de l’eau purifiante ?",
+      "passage": {
+        "arabic": "فإن تغير الماء بالنجاسة التي ورد عليها صار نجسا",
+        "translation": "« Si l’eau change à cause de l’impureté sur laquelle elle est versée, elle devient impure. »",
+        "explanation": "Al-Hattâb donne ici une réponse qui repose sur un fait précis : l’eau est réellement modifiée par l’impureté qu’elle a rencontrée. Le changement ne vient pas du récipient, de la température ou d’un dépôt naturel ; il vient de la souillure.",
+        "sourceLabel": "Al-Hattâb, explication de la conséquence d’une altération réelle — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb donne ici une réponse qui repose sur un fait précis : l’eau est réellement modifiée par l’impureté qu’elle a rencontrée. Le changement ne vient pas du récipient, de la température ou d’un dépôt naturel ; il vient de la souillure. Dans cette situation, le commentaire attribue à l’eau le jugement d’impureté. On comprend mieux la formule de Khalîl : même lorsqu’on avait versé l’eau pour nettoyer, ce geste ne suffit pas à empêcher que l’eau recueillie soit souillée après avoir touché la matière impure.",
+        "Cette lecture rejoint les distinctions apprises dans les fiches précédentes : il faut connaître la cause du changement, et pas seulement voir une couleur différente. Elle évite également de confondre l’eau destinée à laver avec le liquide qui s’est écoulé après contact. Les conséquences pour ce liquide ne se déduisent pas de la bonne intention de la personne qui nettoie. Cette discussion est rituelle ; le fait qu’une eau soit ou non classée purifiante par les juristes ne remplace aucune vérification de sécurité sanitaire."
+      ],
+      "steps": [
+        {
+          "label": "Une altération réelle est décrite",
+          "text": "L’eau a effectivement changé et le commentaire donne à ce changement une cause impure déterminée."
+        },
+        {
+          "label": "Le sens de versement ne la préserve pas",
+          "text": "Le nettoyage peut être l’objectif de l’opération sans garantir le statut de l’eau recueillie."
+        },
+        {
+          "label": "La cause du changement doit être établie",
+          "text": "Un dépôt naturel ou une variation due à une substance pure relèverait d’un examen différent."
+        },
+        {
+          "label": "La qualification porte sur l’eau après contact",
+          "text": "Elle ne signifie pas que l’eau qui se trouvait dans le récipient de départ était déjà impure."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Un fidèle nettoie une tache connue sur une surface avec de l’eau. Celle qui coule dans un récipient en dessous prend une coloration provenant de cette tache. La question ne concerne plus simplement l’eau propre qu’il avait versée, mais celle qui a rencontré la souillure et en porte désormais l’effet. Cette scène imaginaire sert à expliquer la condition de changement posée par al-Hattâb ; elle ne fournit aucun conseil sanitaire sur la réutilisation d’eau de lavage."
+      },
+      "takeaway": "Lorsque l’eau se trouve réellement modifiée par l’impureté avec laquelle elle entre en contact, al-Hattâb indique qu’elle est impure. Il faut établir cette cause plutôt que conclure à partir de la seule apparence.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, explication de la conséquence d’une altération réelle. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "unchanged-small-water",
+      "title": "Une petite quantité restée inchangée peut-elle encore purifier ?",
+      "eyebrow": "12 · LECTURE COMMENTÉE",
+      "context": "Tu recueilles une petite quantité d’eau après un contact connu avec une souillure, mais elle ne change ni de couleur, ni d’odeur, ni de goût. Est-elle impure automatiquement, ou son usage est-il simplement déconseillé dans l’avis cité ?",
+      "passage": {
+        "arabic": "وإن لم يتغير فهو طهور لكنه إن كان يسيرا كره استعماله",
+        "translation": "« Si elle ne change pas, elle reste purifiante ; si elle est peu abondante, son utilisation est réprouvée. »",
+        "explanation": "Ici, al-Hattâb rapporte que l’eau peut conserver sa qualité purifiante si l’impureté n’a modifié aucune de ses propriétés. Mais il ajoute une autre qualification pour la petite quantité : il est réprouvé de l’utiliser.",
+        "sourceLabel": "Al-Hattâb, exposant ici la formulation attribuée à Ibn al-‘Arabî — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Ici, al-Hattâb rapporte que l’eau peut conserver sa qualité purifiante si l’impureté n’a modifié aucune de ses propriétés. Mais il ajoute une autre qualification pour la petite quantité : il est réprouvé de l’utiliser. C’est une distinction essentielle pour quelqu’un qui commence à lire le fiqh. « Réprouvé » et « impur » ne sont pas synonymes. Un acte réprouvé peut rester valable, tandis qu’une eau vraiment impure ne remplit pas la même fonction pour la purification.",
+        "Il serait toutefois faux de dire que cette formulation règle toute l’école sans aucune discussion. Dans les chapitres précédents, nous avons déjà rencontré des divergences sur les petites quantités d’eau touchées par des impuretés. Al-Bisâtî va précisément discuter l’application de la formule aux eaux de lavage qui s’écoulent sans changement. Pour comprendre ce qui est rapporté ici, on doit donc conserver trois données : l’absence d’altération, le faible volume et l’avis qui est cité. Ne supprimons aucune de ces conditions."
+      ],
+      "steps": [
+        {
+          "label": "L’absence de changement compte",
+          "text": "La souillure n’a modifié aucune des propriétés sensibles évoquées par le commentaire."
+        },
+        {
+          "label": "La qualité purifiante est distinguée de la réprobation",
+          "text": "Une eau peut être reconnue purifiante tout en faisant l’objet d’une recommandation d’évitement."
+        },
+        {
+          "label": "Le faible volume est une condition explicite",
+          "text": "Le même passage parle autrement de l’eau abondante, qui ne reçoit pas cette réprobation dans la formulation citée."
+        },
+        {
+          "label": "Le désaccord sur l’eau de lavage subsiste",
+          "text": "L’objection d’al-Bisâtî impose de ne pas traiter toutes les eaux restées inchangées de façon identique."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Une personne lave une petite surface souillée, recueille quelques gouttes d’eau restées apparemment inchangées et souhaite les utiliser pour le wudû’. Le passage explique pourquoi une qualification de réprobation peut apparaître dans le cas du faible volume, sans que le juriste déclare cette eau impure dans la formulation rapportée. La situation est fictive : il faudrait examiner le contact réel et les divergences de l’école avant de prétendre donner une réponse définitive à un cas personnel."
+      },
+      "takeaway": "Selon la formulation citée par al-Hattâb, une petite eau restée inchangée est purifiante mais d’usage réprouvé. Ce jugement doit être replacé dans les débats sur le faible volume et l’eau de lavage.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, exposant ici la formulation attribuée à Ibn al-‘Arabî. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "unchanged-abundant-water",
+      "title": "Pourquoi la quantité d’eau change-t-elle la qualification ?",
+      "eyebrow": "13 · LECTURE COMMENTÉE",
+      "context": "Deux réserves d’eau ont rencontré une souillure sans qu’aucun changement sensible n’apparaisse. L’une contient très peu d’eau ; l’autre une grande quantité. Pourquoi Ibn al-‘Arabî ne donne-t-il pas exactement la même qualification aux deux ?",
+      "passage": {
+        "arabic": "وإلا فلا يكره قاله ابن العربي",
+        "translation": "« Sinon, son utilisation n’est pas réprouvée ; cela a été dit par Ibn al-‘Arabî. »",
+        "explanation": "Après avoir mentionné la réprobation pour la petite quantité, al-Hattâb cite la suite de l’avis d’Ibn al-‘Arabî : si l’eau n’est pas peu abondante, l’utilisation n’est pas réprouvée dans le cas où le changement est absent. Le contraste est simple : la qualité purifiante est reconnue dans les deux branches décrites, mais la réprobation ne porte que sur le faible volume.",
+        "sourceLabel": "Ibn al-‘Arabî, conclusion de la distinction quantitative transmise par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Après avoir mentionné la réprobation pour la petite quantité, al-Hattâb cite la suite de l’avis d’Ibn al-‘Arabî : si l’eau n’est pas peu abondante, l’utilisation n’est pas réprouvée dans le cas où le changement est absent. Le contraste est simple : la qualité purifiante est reconnue dans les deux branches décrites, mais la réprobation ne porte que sur le faible volume. Il faut donc distinguer le jugement de validité de la question de ce qu’il est préférable d’utiliser.",
+        "La formulation ne nous donne pas un nombre universel de litres pour toutes les situations ; elle nous apprend plutôt à observer que les juristes utilisent la distinction entre peu et beaucoup d’eau. Les circonstances et les avis transmis ailleurs dans le madhhab peuvent apporter des précisions. Le cours ne doit pas inventer un seuil numérique absent de cette ligne, ni conclure qu’une réserve abondante serait toujours potable. Le sujet est le statut rituel d’une eau restée inchangée malgré le contact envisagé."
+      ],
+      "steps": [
+        {
+          "label": "La grande quantité constitue une seconde branche",
+          "text": "Ibn al-‘Arabî oppose expressément l’eau peu abondante à celle qui ne l’est pas."
+        },
+        {
+          "label": "Le changement n’est pas présent",
+          "text": "Le cas examiné ne vise pas l’eau dont la couleur, l’odeur ou le goût a réellement été altéré."
+        },
+        {
+          "label": "La réprobation disparaît dans l’avis cité",
+          "text": "Le liquide reste purifiant et l’auteur ne retient pas de réprobation pour ce volume."
+        },
+        {
+          "label": "Aucun seuil moderne n’est fourni",
+          "text": "Le passage n’énonce ni nombre universel de litres ni garantie d’absence de contaminants."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Imagine deux bassins dont l’eau n’a pas changé après un contact de souillure dans les circonstances décrites. Le premier est un petit bol ; le second est une réserve beaucoup plus importante. Ibn al-‘Arabî, dans la formulation transmise, distingue le conseil d’éviter le premier du jugement portant sur le second. Ce cas imaginaire ne permet pas de transposer mécaniquement un seuil sanitaire ou de calculer un volume légal absent du texte."
+      },
+      "takeaway": "Ibn al-‘Arabî distingue la petite quantité, dont l’usage est réprouvé dans le cas cité, d’une eau plus abondante restée inchangée, pour laquelle il ne retient pas cette réprobation.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Ibn al-‘Arabî, conclusion de la distinction quantitative transmise par al-Hattâb. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "maziri-comparison",
+      "title": "Sur quoi al-Mâzarî fonde-t-il la comparaison des deux contacts ?",
+      "eyebrow": "14 · LECTURE COMMENTÉE",
+      "context": "Tu vois de l’eau tomber sur une tache impure, puis une tache tomber dans l’eau d’un autre récipient. Quelle raison juridique peut conduire à les rapprocher, même si le mouvement s’effectue en sens inverse ?",
+      "passage": {
+        "arabic": "وقد نص على هذه القاعدة المازري وغيره",
+        "translation": "« Al-Mâzarî et d’autres ont expressément formulé cette règle. »",
+        "explanation": "Al-Hattâb indique qu’al-Mâzarî et d’autres auteurs ont formulé la comparaison de Khalîl. La raison, expliquée dans ces transmissions, tient au contact entre l’eau et la souillure : les deux matières se rencontrent quelle que soit celle qui était en mouvement.",
+        "sourceLabel": "Al-Hattâb, mentionnant al-Mâzarî parmi les auteurs de la règle de comparaison — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb indique qu’al-Mâzarî et d’autres auteurs ont formulé la comparaison de Khalîl. La raison, expliquée dans ces transmissions, tient au contact entre l’eau et la souillure : les deux matières se rencontrent quelle que soit celle qui était en mouvement. Se concentrer uniquement sur l’ordre chronologique manquerait donc une partie de l’enjeu. Si la souillure change le liquide, ce changement reste juridiquement important, même lorsqu’on a versé de l’eau dessus pour nettoyer.",
+        "Il faut pourtant éviter d’en faire une égalité absolue de toutes les conséquences. Les juristes discutent le sort de l’eau qui s’écoule après le lavage sans avoir changé : al-Bisâtî objecte que cette situation ne se confond pas nécessairement avec un récipient où une souillure est entrée. Al-Hattâb conserve la règle, puis cite cette objection, et propose une manière de comprendre le rapprochement selon l’avis connu du madhhab. Nous apprenons ainsi à lire une règle avec ses applications, sans oublier ses limites."
+      ],
+      "steps": [
+        {
+          "label": "Le point commun est le contact",
+          "text": "Les deux situations mettent en présence une matière impure et de l’eau."
+        },
+        {
+          "label": "Le sens du mouvement n’annule pas le mélange",
+          "text": "Verser l’eau en premier ne suffit pas à rendre sans effet toute impureté rencontrée."
+        },
+        {
+          "label": "Al-Mâzarî est nommé parmi les auteurs",
+          "text": "La règle n’est pas présentée comme une explication anonyme improvisée."
+        },
+        {
+          "label": "L’eau séparée sans changement demande un examen propre",
+          "text": "La comparaison doit être confrontée à l’objection rapportée par al-Bisâtî."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Une personne nettoie un récipient où se trouvait une souillure, en versant de l’eau qui s’écoule immédiatement. Dans une autre situation, une goutte de matière impure tombe dans un petit bol. Dire que « ce n’est pas le même geste » ne suffit pas à résoudre le problème : dans les deux cas, la souillure et l’eau entrent en contact. Mais l’état de l’eau après son écoulement peut justifier une nouvelle distinction. Cette scène fictive sert à comprendre l’argument d’al-Mâzarî."
+      },
+      "takeaway": "Al-Mâzarî est cité parmi les auteurs qui rapprochent le fait de verser l’eau sur l’impureté et l’inverse, en raison de leur contact. Cette comparaison doit néanmoins être lue avec l’objection sur l’eau écoulée.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, mentionnant al-Mâzarî parmi les auteurs de la règle de comparaison. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "bisati-objection",
+      "title": "Pourquoi al-Bisâtî conteste-t-il la comparaison ?",
+      "eyebrow": "15 · LECTURE COMMENTÉE",
+      "context": "Tu laves une petite tache avec de l’eau propre. L’eau s’écoule sans avoir changé. Un autre récipient reçoit une impureté et reste lui aussi sans changement. Peut-on affirmer que ces deux eaux ont nécessairement le même jugement ?",
+      "passage": {
+        "arabic": "واعترض البساطي على ذلك بوقوع الخلاف في الماء القليل تحله النجاسة",
+        "translation": "« Al-Bisâtî objecta que l’eau peu abondante touchée par une impureté fait elle-même l’objet de divergences. »",
+        "explanation": "Al-Bisâtî remet en discussion une lecture trop générale de la phrase de Khalîl. Il rappelle que les juristes ne sont pas tous d’accord sur le statut de la petite quantité d’eau dans laquelle une souillure est entrée sans la modifier.",
+        "sourceLabel": "Al-Bisâtî, objection transmise par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Bisâtî remet en discussion une lecture trop générale de la phrase de Khalîl. Il rappelle que les juristes ne sont pas tous d’accord sur le statut de la petite quantité d’eau dans laquelle une souillure est entrée sans la modifier. En même temps, il relève qu’une eau qui a coulé sur un endroit à laver, puis s’en est séparée sans avoir changé, a reçu une autre appréciation dans les transmissions qu’il invoque. Il ne veut donc pas que l’on fasse disparaître ces différences sous une formule courte.",
+        "L’intérêt pédagogique est majeur. Deux scènes peuvent aboutir à une eau qui paraît identique, alors que les circonstances de contact et les avis transmis ne sont pas les mêmes. Al-Bisâtî insiste sur cette différence pour contester l’assimilation proposée. Al-Hattâb ne cache pas l’objection ; au contraire, il y répond. L’élève doit être capable de restituer les deux positions : la règle générale de comparaison et la raison pour laquelle un maître trouve qu’elle ne s’applique pas sans autre précision."
+      ],
+      "steps": [
+        {
+          "label": "La petite eau touchée par une souillure fait débat",
+          "text": "Al-Bisâtî rappelle qu’il existe des avis différents lorsque l’eau reste inchangée malgré ce contact."
+        },
+        {
+          "label": "L’eau qui s’écoule est une configuration distincte",
+          "text": "Le liquide de lavage s’est séparé après être passé sur la matière, sans altération observable."
+        },
+        {
+          "label": "La formule courte risque de masquer des différences",
+          "text": "L’objection vise une assimilation qui ferait oublier les avis propres à chaque cas."
+        },
+        {
+          "label": "Le commentateur rapporte la critique sans l’effacer",
+          "text": "Al-Hattâb laisse au lecteur les éléments nécessaires pour comprendre la divergence."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Dans une cour, un bol recueille l’eau qui s’écoule d’une surface nettoyée ; un autre reçoit directement une souillure. Dans les deux bols, on ne constate aucune modification perceptible. Un élève imagine qu’ils doivent automatiquement recevoir la même réponse. Al-Bisâtî rappelle pourtant que les juristes ont distingué les conditions de contact et discuté le statut des petites quantités. L’exemple fictif permet de suivre sa critique sans inventer un verdict universel."
+      },
+      "takeaway": "Al-Bisâtî conteste l’application trop large de la comparaison. Il souligne la divergence sur les petites eaux souillées et la situation particulière de l’eau de lavage qui s’écoule sans changement.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Al-Bisâtî, objection transmise par al-Hattâb. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "hattab-response",
+      "title": "Comment al-Hattâb répond-il à l’objection d’al-Bisâtî ?",
+      "eyebrow": "16 · LECTURE COMMENTÉE",
+      "context": "Un auteur présente une règle générale ; un second lui rappelle qu’il existe plusieurs avis sur certains cas particuliers. Peut-on sauver la règle en précisant qu’elle découle d’un avis déterminé de l’école ?",
+      "passage": {
+        "arabic": "تفريع على المشهور لا على غيره فتأمله",
+        "translation": "« Cela peut être une conséquence de l’avis connu du madhhab, et non des autres avis : réfléchis-y. »",
+        "explanation": "Al-Hattâb propose précisément cette lecture. Il ne dit pas que l’objection d’al-Bisâtî serait sans intérêt.",
+        "sourceLabel": "Al-Hattâb, proposition personnelle après la critique d’al-Bisâtî — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb propose précisément cette lecture. Il ne dit pas que l’objection d’al-Bisâtî serait sans intérêt. Il rappelle même qu’Ibn ‘Abd al-Salâm et d’autres avaient déjà formulé une remarque voisine. Puis il suggère que la comparaison de Khalîl et d’al-Mâzarî peut être comprise comme une conséquence de l’avis mashhûr, c’est-à-dire de l’avis connu et retenu dans le cadre visé, sans prétendre qu’elle reproduit toutes les autres positions possibles de l’école.",
+        "C’est une leçon de méthode autant qu’une réponse juridique. Une règle peut être vraie à l’intérieur d’un cadre doctrinal bien défini et demander des réserves si l’on rassemble plusieurs opinions. Quand al-Hattâb écrit « on peut dire », il formule une manière de concilier les textes, non une citation directe d’Ibn al-Qâsim ou d’Ibn Rushd. Il conclut d’ailleurs par une invitation à réfléchir. Il faut conserver cette modestie dans le cours, au lieu de transformer une suggestion en verdict indiscutable."
+      ],
+      "steps": [
+        {
+          "label": "Al-Hattâb reconnaît l’existence de l’objection",
+          "text": "Il mentionne même que d’autres auteurs, dont Ibn ‘Abd al-Salâm, l’avaient formulée."
+        },
+        {
+          "label": "Il propose une conciliation",
+          "text": "La règle de comparaison peut découler du mashhûr plutôt que de représenter tous les avis."
+        },
+        {
+          "label": "Le mot « peut » limite l’attribution",
+          "text": "Il s’agit de l’explication proposée par le commentateur, pas de la parole exacte d’un autre savant."
+        },
+        {
+          "label": "Les divergences restent visibles",
+          "text": "On doit garder la distinction entre la lecture connue de l’école et les autres positions signalées."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Dans un cours, le professeur écrit : « L’eau qui reçoit la souillure et celle qui est versée dessus se jugent pareil. » Un étudiant cite alors une différence rapportée par al-Bisâtî pour l’eau qui s’écoule. Au lieu d’effacer l’un des textes, le professeur précise : la règle de départ peut être fondée sur l’avis connu, tandis que l’objection expose une autre façon de traiter le cas particulier. Ce scénario est fictif et illustre la méthode de conciliation d’al-Hattâb."
+      },
+      "takeaway": "Al-Hattâb suggère de comprendre la comparaison comme découlant du mashhûr. Sa réponse n’annule pas l’objection d’al-Bisâtî et doit être attribuée comme proposition du commentateur.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, proposition personnelle après la critique d’al-Bisâtî. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "bath-hands",
+      "title": "Se laver au hammam puis mettre ses mains dans l’eau propre : quel est le problème ?",
+      "eyebrow": "17 · LECTURE COMMENTÉE",
+      "context": "Une personne sort du bassin d’un hammam et commence à se laver avec une eau destinée à la purification. Elle plonge ensuite ses mains dans le récipient, alors qu’elles ont déjà touché son corps mouillé. Faut-il considérer que cela souille forcément l’eau ?",
+      "passage": {
+        "arabic": "أنه لا بأس به",
+        "translation": "« Il n’y a pas de mal à cela. »",
+        "explanation": "Al-Hattâb cite une réponse d’Ibn al-Qâsim concernant une personne sortie d’un bain collectif et qui se purifie ensuite avec une eau propre. Ses mains ont touché son corps avant de retourner dans le récipient.",
+        "sourceLabel": "Ibn al-Qâsim, réponse dans le Samâ‘ Zayd rapportée par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb cite une réponse d’Ibn al-Qâsim concernant une personne sortie d’un bain collectif et qui se purifie ensuite avec une eau propre. Ses mains ont touché son corps avant de retourner dans le récipient. On pourrait craindre qu’un peu de l’eau du hammam, supposée souillée en raison des nombreux usagers, ait suivi le mouvement. Pourtant, Ibn al-Qâsim répond qu’il n’y a pas de mal dans le cas décrit. Il faut lire pourquoi, au lieu d’imaginer une permission générale de mélanger n’importe quelle impureté à l’eau.",
+        "Ibn Rushd explique cette réponse en distinguant une impureté réellement constatée d’une souillure seulement présumée pour l’eau du bassin collectif. On ne traite pas quelques traces possibles sur les mains comme une goutte de sang ou d’urine connue avec certitude. Le cas reprend donc les discussions antérieures sur les hammams, mais il introduit une nuance pratique : le passage de mains mouillées sur le corps ne suffit pas ici à déclencher une chaîne sans fin de contaminations supposées."
+      ],
+      "steps": [
+        {
+          "label": "L’exemple concerne un bain collectif",
+          "text": "La personne s’est d’abord trouvée au contact de l’eau d’un hammam utilisé par de nombreux baigneurs."
+        },
+        {
+          "label": "Le récipient suivant contient de l’eau pour se purifier",
+          "text": "On discute de mains qui touchent d’abord le corps puis retournent dans ce récipient."
+        },
+        {
+          "label": "Ibn al-Qâsim répond qu’il n’y a pas de mal",
+          "text": "Son jugement vaut pour ce cas précis, sans supprimer les règles concernant les impuretés certaines."
+        },
+        {
+          "label": "Ibn Rushd donne la raison",
+          "text": "La souillure du bassin n’était pas matériellement constatée mais seulement présumée dans les conditions décrites."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Après un bain collectif ancien, une personne veut effectuer correctement son ghusl avec une autre eau. Elle commence à se laver, puis remet dans le récipient une main qui a touché son bras encore mouillé. Doit-elle jeter toute l’eau au motif qu’une trace de l’ancien bassin pourrait s’être transférée ? Ibn al-Qâsim ne retient pas cette conséquence dans le cas cité. L’exemple souligne les circonstances historiques et ne dit rien de la sécurité sanitaire d’un hammam actuel."
+      },
+      "takeaway": "Dans le cas décrit du hammam, Ibn al-Qâsim ne considère pas que le retour des mains mouillées dans l’eau propre suffise à la souiller. Ibn Rushd rattache cette réponse à la différence entre souillure certaine et présumée.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Ibn al-Qâsim, réponse dans le Samâ‘ Zayd rapportée par al-Hattâb. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "rushd-certainty-splashes",
+      "title": "Pourquoi Ibn Rushd refuse-t-il d’enchaîner les soupçons de souillure ?",
+      "eyebrow": "18 · LECTURE COMMENTÉE",
+      "context": "De l’eau d’un bassin collectif, seulement suspectée d’être souillée, mouille une main. Cette main touche une autre eau, puis un bras. Faut-il annoncer que tout est désormais impur, sans jamais avoir constaté de matière impure précise ?",
+      "passage": {
+        "arabic": "لأن ماء الحوض ليست نجاسته محققة كالبول والخمر والدم",
+        "translation": "« Car l’impureté de l’eau du bassin n’est pas certaine, comme le seraient l’urine, le vin ou le sang. »",
+        "explanation": "Ibn Rushd fait ici une distinction qu’il faut comprendre dès le départ. Une souillure certaine, comme une substance impure identifiée et réellement entrée dans une eau, n’a pas le même statut qu’un soupçon fondé sur le grand nombre de personnes ayant utilisé un bassin.",
+        "sourceLabel": "Ibn Rushd, explication de la réponse d’Ibn al-Qâsim transmise par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn Rushd fait ici une distinction qu’il faut comprendre dès le départ. Une souillure certaine, comme une substance impure identifiée et réellement entrée dans une eau, n’a pas le même statut qu’un soupçon fondé sur le grand nombre de personnes ayant utilisé un bassin. Dans le cas du hammam, le mauvais état rituel de l’eau du bassin était supposé à partir des usages du lieu ; il ne venait pas de l’observation d’une matière impure identifiable. Cette différence explique pourquoi il n’en tire pas les mêmes conséquences sur chaque goutte d’eau qui pourrait se transmettre.",
+        "Il pousse ensuite le raisonnement plus loin : si le simple retour d’une main mouillée dans le récipient devait rendre celui-ci impur, le liquide qui vient d’être versé sur le corps rencontrerait lui aussi une eau prétendument souillée. On ne pourrait plus accomplir correctement le lavage sans multiplier les suppositions. Ibn Rushd refuse cette conséquence dans le cas étudié. Al-Hattâb précise également que l’eau qui rejaillit dans le récipient lors du ghusl ne doit pas toujours être traitée comme une impureté nouvelle, et il rapporte une nuance d’al-Barzalî sur la règle de l’eau versée sur une souillure."
+      ],
+      "steps": [
+        {
+          "label": "Une supposition n’est pas une souillure identifiée",
+          "text": "Ibn Rushd distingue la présomption née de l’usage collectif et la présence connue de matières comme le sang."
+        },
+        {
+          "label": "Le contact supposé ne produit pas automatiquement une certitude",
+          "text": "Des mains mouillées ne deviennent pas une preuve de contamination de chaque réserve qu’elles touchent."
+        },
+        {
+          "label": "L’argument évite une conséquence excessive",
+          "text": "Le raisonnement contraire rendrait presque impossible tout lavage sans créer de nouveaux soupçons."
+        },
+        {
+          "label": "La nuance d’al-Barzalî est conservée",
+          "text": "Al-Hattâb signale que certains rapprochent autrement l’eau versée sur une souillure, ce qui confirme la nécessité de lire les conditions."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Un fidèle utilise une eau propre après être sorti d’un bassin où beaucoup de personnes se sont lavées. Un ami lui dit que le bassin devait probablement être souillé, que sa main l’est donc aussi, et que tout ce qu’elle touche devient impur. Ibn Rushd demande de revenir au fait connu : aucune matière impure précise n’a été constatée dans cette chaîne. Cette scène est inventée pour illustrer son raisonnement et ne remplace pas la qualification d’une souillure certaine dans une autre situation."
+      },
+      "takeaway": "Ibn Rushd distingue une impureté réellement établie d’une simple présomption liée à l’usage collectif d’un bassin. Il refuse d’étendre indéfiniment ce soupçon à l’eau propre et au corps sans fait certain.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Ibn Rushd, explication de la réponse d’Ibn al-Qâsim transmise par al-Hattâb. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
     }
   ],
-  "lexicon": [],
-  "quiz": [],
+  "lexicon": [
+    {
+      "arabic": "خَبَرُ الْوَاحِدِ",
+      "term": "Khabar al-wâhid",
+      "definition": "Information apportée par une seule personne. Ici, elle peut établir une souillure dans les conditions de fiabilité et d’explication détaillées par Khalîl et al-Hattâb."
+    },
+    {
+      "arabic": "نَجَاسَةٌ",
+      "term": "Najâsa",
+      "definition": "Souillure juridiquement reconnue. L’annoncer ne suffit pas toujours : le texte demande, selon le cas, que l’informateur explique la cause de sa déclaration."
+    },
+    {
+      "arabic": "بَيَانُ الْوَجْهِ",
+      "term": "Bayân al-wajh",
+      "definition": "Explication de la raison d’un jugement. Dans cette discussion, elle consiste à indiquer pourquoi une eau a été déclarée impure plutôt qu’à répéter une conclusion."
+    },
+    {
+      "arabic": "عَدْلٌ",
+      "term": "‘Adl",
+      "definition": "Personne considérée comme fiable et droite dans le système de preuve juridique classique. Al-Mâzarî pose ici la fiabilité comme condition du témoignage."
+    },
+    {
+      "arabic": "عَدَالَةٌ",
+      "term": "‘Adâla",
+      "definition": "Condition de rectitude ou de fiabilité dans la tradition juridique. Elle porte sur la crédibilité de l’informateur et ne remplace pas l’examen de la cause rapportée."
+    },
+    {
+      "arabic": "مُخْبِرٌ",
+      "term": "Mukhbir",
+      "definition": "Celui qui apporte une information. Dans ce passage, il informe d’une souillure ou confirme la pureté de l’eau, suivant des conditions qui ne sont pas exactement identiques."
+    },
+    {
+      "arabic": "سَائِلٌ",
+      "term": "Sâ’il",
+      "definition": "Celui qui interroge ou reçoit l’information au sujet du statut de l’eau. Sa compréhension des règles compte lorsque le témoin ne donne pas toute la raison de son jugement."
+    },
+    {
+      "arabic": "مَذْهَبٌ",
+      "term": "Madhhab",
+      "definition": "École d’interprétation juridique. Khalîl compare les critères du témoin et de celui qui l’écoute, notamment lorsque la cause de la souillure n’est pas détaillée."
+    },
+    {
+      "arabic": "اِتِّفَاقُ الْمَذْهَبِ",
+      "term": "Ittifâq al-madhhab",
+      "definition": "Accord sur l’école juridique pertinente. Il peut permettre de comprendre une qualification sans répétition de tous les détails si l’informateur connaît réellement les règles."
+    },
+    {
+      "arabic": "اِخْتِلَافُ الْمَذْهَبِ",
+      "term": "Ikhtilâf al-madhhab",
+      "definition": "Différence de critères entre écoles juridiques. Elle ne rend pas inutile l’observation d’un fait précis lorsque le témoin explique ce qu’il a vu."
+    },
+    {
+      "arabic": "طَاهِرٌ",
+      "term": "Tâhir",
+      "definition": "Qualité de ce qui est pur. Al-Bisâtî distingue le fait de confirmer la pureté initiale d’un récit qui entend établir une impureté nouvelle."
+    },
+    {
+      "arabic": "طَهُورٌ",
+      "term": "Tahûr",
+      "definition": "Eau capable de servir à la purification rituelle. Une eau peut être pure dans certaines circonstances sans que toutes les autres questions sur son usage soient résolues."
+    },
+    {
+      "arabic": "طَهُورِيَّةٌ",
+      "term": "Tahûriyya",
+      "definition": "Qualité purifiante de l’eau. Al-Hattâb précise qu’un élément visible peut parfois la faire perdre, même lorsqu’une personne affirme simplement que l’eau est pure."
+    },
+    {
+      "arabic": "اِسْتِحْسَانٌ",
+      "term": "Istihsân",
+      "definition": "Appréciation favorable ou préférence. Al-Mâzarî emploie dans ce passage une formule recommandant de laisser une eau au statut discuté."
+    },
+    {
+      "arabic": "الْأَحْسَنُ تَرْكُهُ",
+      "term": "Al-ahsan tarkuh",
+      "definition": "Expression qui signifie « le mieux est de s’en abstenir ». Elle ne doit pas être confondue sans argument avec une affirmation de l’impureté certaine."
+    },
+    {
+      "arabic": "وُرُودُ الْمَاءِ",
+      "term": "Wurûd al-mâ’",
+      "definition": "Arrivée ou versement de l’eau sur une matière. Khalîl rapproche ce contact de la situation inverse, où la souillure arrive dans une réserve."
+    },
+    {
+      "arabic": "اَلنَّجَاسَةُ عَلَى الْمَاءِ",
+      "term": "Al-najâsa ‘alâ al-mâ’",
+      "definition": "Contact d’une matière impure avec une réserve d’eau. Le commentaire compare ce cas à l’eau versée sur une souillure, tout en conservant plusieurs objections."
+    },
+    {
+      "arabic": "تَغَيُّرُ الْمَاءِ",
+      "term": "Taghayyur al-mâ’",
+      "definition": "Modification de l’eau, notamment de sa couleur, de son odeur ou de son goût. Le fait que la cause soit une impureté détermine le jugement rapporté."
+    },
+    {
+      "arabic": "مَاءٌ يَسِيرٌ",
+      "term": "Mâ’ yasîr",
+      "definition": "Petite quantité d’eau. Le texte évoque une réprobation de son usage lorsqu’elle a rencontré une souillure sans avoir été modifiée, dans l’avis cité."
+    },
+    {
+      "arabic": "مَاءٌ كَثِيرٌ",
+      "term": "Mâ’ kathîr",
+      "definition": "Eau abondante. Ibn al-‘Arabî distingue son cas de celui d’une petite quantité quand l’eau n’a pas changé après un contact impur."
+    },
+    {
+      "arabic": "كَرَاهَةٌ",
+      "term": "Karâha",
+      "definition": "Qualification d’un acte déconseillé ou réprouvé. Dans ce contexte, il ne faut pas la confondre avec le jugement selon lequel l’eau est matériellement impure."
+    },
+    {
+      "arabic": "مَشْهُورٌ",
+      "term": "Mashhûr",
+      "definition": "Avis connu ou retenu dans une école juridique. Al-Hattâb propose de lire la comparaison de Khalîl comme une conséquence de cet avis plutôt que de tous les autres."
+    },
+    {
+      "arabic": "مَاءُ الْغُسَالَةِ",
+      "term": "Mâ’ al-ghusâla",
+      "definition": "Eau issue d’un lavage. Sa modification et son écoulement sont discutés séparément de l’eau dans laquelle une souillure est directement tombée."
+    },
+    {
+      "arabic": "غُسْلٌ",
+      "term": "Ghusl",
+      "definition": "Grand lavage rituel. Le récit du hammam concerne une personne qui se purifie après un bain collectif et dont les mains retournent dans un récipient d’eau."
+    },
+    {
+      "arabic": "مُحَقَّقٌ",
+      "term": "Muhaqqaq",
+      "definition": "Ce qui est établi avec certitude. Ibn Rushd distingue l’impureté réellement constatée d’une supposition fondée sur l’usage d’un bassin."
+    },
+    {
+      "arabic": "غَلَبَةُ الظَّنِّ",
+      "term": "Ghalabat al-zann",
+      "definition": "Forte présomption fondée sur les circonstances. Elle n’équivaut pas toujours à la certitude d’une matière impure réellement entrée dans l’eau."
+    },
+    {
+      "arabic": "رَشَاشٌ",
+      "term": "Rashâsh",
+      "definition": "Éclaboussure ou goutte d’eau qui rejaillit. Le commentaire évoque les petites traces de lavage qui ne doivent pas être transformées sans preuve en impuretés certaines."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Une seule personne peut-elle signaler que l’eau est souillée ?",
+      "choices": [
+        "Il faut nécessairement au moins quatre témoins",
+        "Toute alerte anonyme suffit à établir l’impureté",
+        "La parole d’une personne fiable peut compter si les conditions du texte sont réunies"
+      ],
+      "answer": 2,
+      "explanation": "La parole d’une seule personne peut être prise en compte pour établir la souillure d’une eau. Khalîl et al-Hattâb précisent cependant des conditions : ce n’est ni une simple suspicion ni une confiance sans examen."
+    },
+    {
+      "question": "Que veut dire « expliquer pourquoi l’eau est impure » ?",
+      "choices": [
+        "Décrire le fait à l’origine du jugement",
+        "Répéter trois fois que l’eau est impure",
+        "Faire uniquement confiance à l’apparence du témoin"
+      ],
+      "answer": 0,
+      "explanation": "Expliquer la cause de l’impureté signifie décrire le fait qui fonde le jugement, et pas simplement prononcer le mot « impur ». C’est ce détail qui permet de vérifier ce qui est réellement en cause."
+    },
+    {
+      "question": "Que faire si l’informateur ne suit pas le même madhhab ?",
+      "choices": [
+        "Il faut adopter tout son madhhab pour accepter ce qu’elle a observé",
+        "Son information peut compter s’il décrit la cause et remplit les autres conditions",
+        "Une personne d’une autre école ne peut jamais être entendue"
+      ],
+      "answer": 1,
+      "explanation": "Lorsque le témoin explique le fait qui établit l’impureté, une différence de madhhab n’écarte pas automatiquement son information. En revanche, une simple qualification sans raison demande un autre examen."
+    },
+    {
+      "question": "Pourquoi al-Mâzarî exige-t-il un informateur fiable ?",
+      "choices": [
+        "La parole d’une personne est vraie dès qu’elle est affirmée fermement",
+        "La fiabilité n’a aucun rôle dans cette discussion",
+        "La fiabilité du témoin est une condition distincte de la cause rapportée"
+      ],
+      "answer": 2,
+      "explanation": "Al-Mâzarî conditionne l’acceptation de ce témoignage à la fiabilité de l’informateur. Donner une raison précise et être reconnu comme fiable sont deux éléments différents, que le commentaire réunit."
+    },
+    {
+      "question": "La parole d’une femme est-elle exclue du seul fait qu’elle est une femme ?",
+      "choices": [
+        "Son témoignage n’est pas exclu pour cette seule raison ; la fiabilité reste requise",
+        "Le texte interdit systématiquement la parole des femmes",
+        "La phrase vaut pour toutes les affaires juridiques sans distinction"
+      ],
+      "answer": 0,
+      "explanation": "Le passage d’al-Mâzarî transmis par al-Hattâb n’exclut pas l’information d’une femme sur la souillure d’une eau du seul fait de son sexe. Les conditions de fiabilité et la portée limitée du cas demeurent."
+    },
+    {
+      "question": "Quand peut-on croire un témoin sans qu’il explique toute la cause ?",
+      "choices": [
+        "Même si le témoin ignore complètement la purification",
+        "Si le témoin partage les règles pertinentes et sait les appliquer, avec les autres conditions",
+        "Dès que deux personnes habitent la même ville"
+      ],
+      "answer": 1,
+      "explanation": "Le même madhhab peut rendre acceptable une information qui ne détaille pas sa cause, mais le commentaire présuppose un témoin fiable et compétent dans les règles relatives à l’eau."
+    },
+    {
+      "question": "Pourquoi faut-il connaître les règles pour annoncer qu’une eau est impure ?",
+      "choices": [
+        "Parce que toute eau colorée est impure",
+        "Parce que le nombre de témoins suffit à déterminer la règle",
+        "Parce qu’une conclusion juridique suppose de distinguer les causes de changement"
+      ],
+      "answer": 2,
+      "explanation": "Pour accepter sans explication détaillée la déclaration d’une personne de même madhhab, al-Hattâb suppose qu’elle connaît réellement les règles qui distinguent ce qui rend l’eau impure de ce qui ne la rend pas impure."
+    },
+    {
+      "question": "Et si la personne affirme au contraire que l’eau est pure ?",
+      "choices": [
+        "Elle confirme en principe la pureté initiale, sauf présence d’un élément contraire",
+        "Toute déclaration de pureté annule les preuves d’une souillure",
+        "Une eau est toujours impure tant que trois personnes ne jurent pas"
+      ],
+      "answer": 0,
+      "explanation": "Al-Bisâtî estime qu’une affirmation de pureté ne demande pas toujours les mêmes justifications qu’une accusation de souillure. Al-Hattâb limite cela au cas où aucun signe contraire ne se manifeste."
+    },
+    {
+      "question": "Si le témoin ne donne aucune raison et suit d’autres règles, faut-il éviter l’eau ?",
+      "choices": [
+        "Il impose de jeter toute eau sur laquelle une personne émet une réserve",
+        "Il estime préférable de ne pas l’utiliser, sans établir une impureté certaine",
+        "Il affirme que tout désaccord religieux rend l’eau impure"
+      ],
+      "answer": 1,
+      "explanation": "Lorsque la cause de la souillure n’est pas donnée et que les critères juridiques diffèrent, al-Mâzarî conseille de s’abstenir d’utiliser l’eau. Il s’agit d’une préférence prudentielle et non d’une certitude d’impureté."
+    },
+    {
+      "question": "Verser l’eau sur une souillure change-t-il le jugement ?",
+      "choices": [
+        "Le simple ordre du versement rend toute eau pure",
+        "Verser l’eau signifie toujours qu’elle devient impure",
+        "Il faut examiner le changement de l’eau et la quantité, sans ignorer les divergences"
+      ],
+      "answer": 2,
+      "explanation": "Khalîl compare l’eau versée sur une impureté et l’impureté versée dans l’eau. Al-Hattâb explique le rôle du changement et de la quantité, puis conserve une objection : il ne s’agit pas d’une formule sans nuances."
+    },
+    {
+      "question": "Si l’eau change à cause de la souillure, que devient-elle ?",
+      "choices": [
+        "Elle reçoit le jugement d’impureté si la modification provient réellement de la souillure",
+        "Elle reste toujours purifiante parce qu’on l’a versée pour laver",
+        "Son statut dépend uniquement de la température"
+      ],
+      "answer": 0,
+      "explanation": "Lorsque l’eau se trouve réellement modifiée par l’impureté avec laquelle elle entre en contact, al-Hattâb indique qu’elle est impure. Il faut établir cette cause plutôt que conclure à partir de la seule apparence."
+    },
+    {
+      "question": "Une petite quantité restée inchangée peut-elle encore purifier ?",
+      "choices": [
+        "Son utilisation est obligatoirement interdite selon toutes les écoles",
+        "Elle peut être purifiante tout en étant réprouvée à utiliser dans l’avis rapporté",
+        "Elle est nécessairement impure dès que l’on prononce le mot souillure"
+      ],
+      "answer": 1,
+      "explanation": "Selon la formulation citée par al-Hattâb, une petite eau restée inchangée est purifiante mais d’usage réprouvé. Ce jugement doit être replacé dans les débats sur le faible volume et l’eau de lavage."
+    },
+    {
+      "question": "Pourquoi la quantité d’eau change-t-elle la qualification ?",
+      "choices": [
+        "L’eau abondante devient toujours impure",
+        "Ibn al-‘Arabî donne un chiffre fixe de litres dans cette phrase",
+        "La réprobation citée vise la petite quantité, non l’eau abondante inchangée"
+      ],
+      "answer": 2,
+      "explanation": "Ibn al-‘Arabî distingue la petite quantité, dont l’usage est réprouvé dans le cas cité, d’une eau plus abondante restée inchangée, pour laquelle il ne retient pas cette réprobation."
+    },
+    {
+      "question": "Sur quoi al-Mâzarî fonde-t-il la comparaison des deux contacts ?",
+      "choices": [
+        "Le contact existe dans les deux sens, même si le détail du lavage peut compter",
+        "Seul le sens du versement définit une souillure",
+        "Al-Mâzarî nie toute importance à l’altération de l’eau"
+      ],
+      "answer": 0,
+      "explanation": "Al-Mâzarî est cité parmi les auteurs qui rapprochent le fait de verser l’eau sur l’impureté et l’inverse, en raison de leur contact. Cette comparaison doit néanmoins être lue avec l’objection sur l’eau écoulée."
+    },
+    {
+      "question": "Pourquoi al-Bisâtî conteste-t-il la comparaison ?",
+      "choices": [
+        "Parce que toute eau versée sur une tache devient de l’eau de mer",
+        "Parce que le faible volume et l’eau séparée après lavage ne sont pas forcément traités pareil",
+        "Parce qu’il refuse que l’eau puisse jamais nettoyer"
+      ],
+      "answer": 1,
+      "explanation": "Al-Bisâtî conteste l’application trop large de la comparaison. Il souligne la divergence sur les petites eaux souillées et la situation particulière de l’eau de lavage qui s’écoule sans changement."
+    },
+    {
+      "question": "Comment al-Hattâb répond-il à l’objection d’al-Bisâtî ?",
+      "choices": [
+        "Il déclare al-Bisâtî inapte à comprendre le fiqh",
+        "Il supprime toutes les nuances sur les petites eaux",
+        "Il propose de rattacher la comparaison à l’avis connu sans nier les autres positions"
+      ],
+      "answer": 2,
+      "explanation": "Al-Hattâb suggère de comprendre la comparaison comme découlant du mashhûr. Sa réponse n’annule pas l’objection d’al-Bisâtî et doit être attribuée comme proposition du commentateur."
+    },
+    {
+      "question": "Se laver au hammam puis mettre ses mains dans l’eau propre : quel est le problème ?",
+      "choices": [
+        "Non, dans le cas rapporté, car l’impureté supposée du bassin n’est pas une souillure certaine",
+        "Oui, chaque contact oblige automatiquement à jeter l’eau",
+        "L’eau de tous les hammams est nécessairement pure"
+      ],
+      "answer": 0,
+      "explanation": "Dans le cas décrit du hammam, Ibn al-Qâsim ne considère pas que le retour des mains mouillées dans l’eau propre suffise à la souiller. Ibn Rushd rattache cette réponse à la différence entre souillure certaine et présumée."
+    },
+    {
+      "question": "Pourquoi Ibn Rushd refuse-t-il d’enchaîner les soupçons de souillure ?",
+      "choices": [
+        "Parce que toute eau de bassin est garantie sans souillure",
+        "Parce qu’une impureté probable ne prouve pas chaque transfert successif",
+        "Parce que le sang et l’urine ne sont jamais impurs"
+      ],
+      "answer": 1,
+      "explanation": "Ibn Rushd distingue une impureté réellement établie d’une simple présomption liée à l’usage collectif d’un bassin. Il refuse d’étendre indéfiniment ce soupçon à l’eau propre et au corps sans fait certain."
+    }
+  ],
   "quote": {
-    "arabic": "وإن لم يبين المخبر وجه النجاسة ولا وافق مذهبه مذهب السائل ... الأحسن تركه",
-    "meaning": "Al-Mâzarî recommande de s’abstenir d’utiliser une eau lorsque la cause de l’impureté alléguée n’est pas expliquée et que l’informateur et l’usager ne suivent pas les mêmes critères juridiques. Cette recommandation ne prouve pas à elle seule que l’eau est réellement souillée.",
-    "label": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, citant al-Mâzarî, Sharh al-Talqîn."
+    "arabic": "لأن ماء الحوض ليست نجاسته محققة كالبول والخمر والدم",
+    "meaning": "Ibn Rushd distingue ici une eau de hammam soupçonnée d’être souillée en raison de son usage collectif d’une impureté réellement constatée, comme une goutte d’urine, de vin ou de sang. Cette distinction empêche d’enchaîner indéfiniment des soupçons à chaque nouveau contact.",
+    "label": "Ibn Rushd, cité par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121."
   },
   "sources": [
     {
