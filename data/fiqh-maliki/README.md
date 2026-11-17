@@ -397,7 +397,7 @@ La clé de lecture indépendante est `athar_fiqh_maliki_eaux_16_done`. Les marqu
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`, puis `athar_fiqh_maliki_eaux_13_done`, puis `athar_fiqh_maliki_eaux_14_done`, `athar_fiqh_maliki_eaux_15_done` et `athar_fiqh_maliki_eaux_16_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v105) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v106) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
@@ -407,3 +407,12 @@ La clé de lecture indépendante est `athar_fiqh_maliki_eaux_16_done`. Les marqu
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées les 16 et 17 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
+
+
+## Révision de lisibilité après retour lecteur — 17 novembre 2026
+
+Les fiches 15 et 16 ont reçu une correction éditoriale centrée sur la compréhension avant les citations : **44 scènes concrètes** sont présentées immédiatement après le titre de chaque lecture, et **44 explications sous les extraits arabes** ont été remplacées par des phrases courtes, complètes et précisément contextualisées. Onze lectures introductives parmi les plus abstraites ont également été réécrites en profondeur, avec des situations et conséquences pratiques compréhensibles sans formation juridique préalable.
+
+La première lecture de la fiche 15 expose maintenant le cas d’une personne ayant encore des traces de vin sur les lèvres avant de boire dans un petit récipient d’eau. Elle explique immédiatement les distinctions d’al-Hattâb : eau altérée, petite eau demeurée inchangée, aliments liquides et solides. Les discussions de grammaire ou de preuve interviennent après cette situation, et non avant. La fiche 16 commence de la même façon par le cas d’une citerne dont le changement a disparu.
+
+L’interface affiche **le cas concret avant le texte arabe**, puis la traduction, une explication de la citation, les développements et l’analyse détaillée. Il ne s’agit pas d’une refonte complète de toutes les formulations des seize fiches ; cette correction cible les deux dernières leçons et la structure commune de lecture. Cache PWA mis à jour en **v106**.
