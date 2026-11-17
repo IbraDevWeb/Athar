@@ -397,7 +397,7 @@ La clé de lecture indépendante est `athar_fiqh_maliki_eaux_16_done`. Les marqu
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`, puis `athar_fiqh_maliki_eaux_13_done`, puis `athar_fiqh_maliki_eaux_14_done`, `athar_fiqh_maliki_eaux_15_done` et `athar_fiqh_maliki_eaux_16_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v106) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v107) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
@@ -416,3 +416,17 @@ Les fiches 15 et 16 ont reçu une correction éditoriale centrée sur la compré
 La première lecture de la fiche 15 expose maintenant le cas d’une personne ayant encore des traces de vin sur les lèvres avant de boire dans un petit récipient d’eau. Elle explique immédiatement les distinctions d’al-Hattâb : eau altérée, petite eau demeurée inchangée, aliments liquides et solides. Les discussions de grammaire ou de preuve interviennent après cette situation, et non avant. La fiche 16 commence de la même façon par le cas d’une citerne dont le changement a disparu.
 
 L’interface affiche **le cas concret avant le texte arabe**, puis la traduction, une explication de la citation, les développements et l’analyse détaillée. Il ne s’agit pas d’une refonte complète de toutes les formulations des seize fiches ; cette correction cible les deux dernières leçons et la structure commune de lecture. Cache PWA mis à jour en **v106**.
+
+## Audit de lisibilité et révision des fiches 01 à 14 — 17 novembre 2026
+
+Après le retour sur les fiches 15 et 16, la structure des **129 lectures des fiches 01 à 14** a été inspectée. Le principal écart vérifié : les illustrations utiles étaient placées **après** les citations et les développements, ce qui obligeait le novice à découvrir trop tard la situation traitée. Les contenus ne sont pas tous également abstraits : certaines premières phrases donnent déjà un exemple clair, tandis que d’autres débutent par une discussion technique.
+
+- **Fiches 01 à 12 (95 lectures)** : chaque situation pédagogique déjà rédigée est désormais présentée **avant la citation arabe**, sous l’intitulé « La situation à comprendre ». Le même texte n’est plus répété à la fin. Les contenus et les attributions des sources sont conservés, pour ne pas fabriquer un avis juridique lors de la réorganisation.
+- **Fiches 13 et 14 (34 lectures)** : de nouvelles introductions concrètes ont été rédigées individuellement, avec exemples de wudû’, récipients, chauffage de l’eau, précautions au hammam, authenticité des hadiths et degrés juridiques. Les exemples plus développés restent en fin de lecture pour approfondir sans reproduire mot pour mot l’introduction.
+- **Fiches 15 et 16 (44 lectures)** : elles conservent les situations et les corrections déjà mises en place lors du précédent travail.
+- L’interface respecte désormais le même ordre pédagogique pour les **173 lectures du parcours** : cas compréhensible, citation et traduction attribuées, explication, développement détaillé et conclusion. Les fiches 1–12 conservent l’exemple de départ unique ; les fiches 13–16 disposent aussi d’une illustration finale distincte.
+- La validation statique contrôle la présence de 129 cas pour les fiches 1–14, les 34 introductions rédigées des fiches 13–14 et l’ordre d’affichage. Le test navigateur vérifie les cas avant citation, sans duplication et sans régression de la progression.
+
+**Limite de cette passe :** l’audit a vérifié la présence et l’ordre des textes et amélioré les introductions des fiches 13 et 14 ; il ne constitue pas une réécriture ligne par ligne de toutes les explications et de tous les QCM des fiches 1 à 12, ni une revalidation de chaque citation arabe depuis une nouvelle édition imprimée.
+
+Cache PWA **v107** pour actualiser les ressources de lecture. Sources inchangées dans chaque fiche, dont les pages [110](https://ablibrary.net/book_content/b/4471/110?lang=ar), [111](https://ablibrary.net/book_content/b/4471/111?lang=ar), [112](https://ablibrary.net/book_content/b/4471/112?lang=ar), [113](https://ablibrary.net/book_content/b/4471/113?lang=ar) et [114](https://ablibrary.net/book_content/b/4471/114?lang=ar) du tome 1 de *Mawâhib al-Jalîl*.
