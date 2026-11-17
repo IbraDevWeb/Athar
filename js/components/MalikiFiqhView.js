@@ -23,7 +23,8 @@ const MalikiFiqhView = {
             { key:'flowingWater', name:'Eau courante et stagnante' },
             { key:'publicBasins', name:'Bassins collectifs' },
             { key:'limitedWell', name:'Puits et eau limitée' },
-            { key:'leftoverWater', name:'Le su’r et les animaux' }
+            { key:'leftoverWater', name:'Le su’r et les animaux' },
+            { key:'sunHeatedWater', name:'L’eau chauffée au soleil' }
         ];
         const storageKeys = {
             intro:'athar_fiqh_maliki_intro_01_done',
@@ -37,7 +38,8 @@ const MalikiFiqhView = {
             flowingWater:'athar_fiqh_maliki_eaux_09_done',
             publicBasins:'athar_fiqh_maliki_eaux_10_done',
             limitedWell:'athar_fiqh_maliki_eaux_11_done',
-            leftoverWater:'athar_fiqh_maliki_eaux_12_done'
+            leftoverWater:'athar_fiqh_maliki_eaux_12_done',
+            sunHeatedWater:'athar_fiqh_maliki_eaux_13_done'
         };
         const availableLessons = Vue.computed(() => lessonCatalog.filter(entry => props.course?.[entry.key]));
         const completed = Vue.ref(Object.fromEntries(lessonCatalog.map(entry => [entry.key,false])));
@@ -190,7 +192,8 @@ const MalikiFiqhView = {
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'flowingWater'">Comprendre <em>l’eau courante et stagnante.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'publicBasins'">Étudier <em>les bassins collectifs.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'limitedWell'">Se purifier <em>avec une eau limitée.</em></h1>
-                    <h1 id="fiqh-m-heading" v-else>Comprendre <em>le su’r.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'leftoverWater'">Comprendre <em>le su’r.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else>Étudier <em>l’eau chauffée au soleil.</em></h1>
                     <p class="fiqh-m-lead">{{ lesson.subtitle }}</p>
                     <div class="fiqh-m-hero-meta">
                         <span><i data-lucide="book-open" aria-hidden="true"></i> {{ course.book.authorArabic }}</span>
@@ -217,7 +220,7 @@ const MalikiFiqhView = {
                         </button>
                         <p class="fiqh-m-aside-label fiqh-m-aside-gap">ENSUITE, PROGRESSIVEMENT</p>
                         <div class="fiqh-m-coming">
-                            <span class="fiqh-m-coming-num">13</span>
+                            <span class="fiqh-m-coming-num">14</span>
                             <div>
                                 <span>{{ course.nextChapter.title }}</span>
                                 <small>{{ course.nextChapter.status }}</small>

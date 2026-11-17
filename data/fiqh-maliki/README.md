@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–12
+# Fiqh malikite · Parcours 01–13
 
-**État au 16 novembre 2026 : douze fiches, avec les fiches 01 à 07 remaniées progressivement en cours guidés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 17 novembre 2026 : treize fiches publiées, les fiches 01 à 13 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -318,20 +318,48 @@ La fiche comprend **14 objectifs, 14 lectures commentées, 20 notions de lexique
 
 Le chapitre distingue systématiquement le risque, la souillure observée et la pureté connue. Il n'attribue aucune impureté à une personne en raison de son identité. Les cas de nourriture sont des discussions de fiqh et ne remplacent pas les règles modernes de sécurité alimentaire. La clé de progression `athar_fiqh_maliki_eaux_12_done` reste inchangée.
 
+### Fiche 13 — L’eau chauffée par le soleil : divergence et preuves
+
+**Nouvelle fiche publiée le 17 novembre 2026.** Le commentaire poursuit exactement la discussion de l’eau : après le *su’r*, Khalîl écrit « كمشمس ». La fiche suit **al-Hattâb, Mawâhib al-Jalîl, tome 1, pages 78–80**, et les quinze lectures s'appuient sur des citations arabes courtes et attribuées :
+
+1. Comment lire les mots de Khalîl « كمشمس » ?
+2. Ibn al-Hâjib, Ibn ‘Abd al-Salâm et le *Tawdîh* : « والمشمس كغيره فلا كراهة فيه ».
+3. Le qâdî ‘Iyâd et Sanad dans *al-Tirâz* : « وكره الوضوء بالماء المسخن بالشمس من جهة الطب ».
+4. ‘Abd al-Haqq, cité par al-Qarâfî : « لم يصح فيه حديث » — aucune tradition authentique établie sur la mise en garde.
+5. L’intervention personnelle d’al-Hattâb sur les qualifications **faible** et **fabriqué** du récit.
+6. Ibn al-Imâm rapportant Ibn al-‘Arabî : les récipients de **cuivre jaune** et les **pays chauds** dans l’hypothèse ancienne.
+7. Le raisonnement conditionnel sur le dommage réellement établi : « إن قضت بضرر استعماله ».
+8. Al-Nawawî dans *Sharh al-Muhadhdhab* et sa critique de la preuve du récit.
+9. Les formulations différentes d’al-Nawawî dans le *Minhâj* et les arguments historiquement attribués à Ibn al-Nafîs.
+10. L’appréciation d’al-Hattâb : « والقول بكراهة المشمس قوي », accompagnée d’une **restriction** de la réprobation.
+11. La lecture grammaticale proposée par Ibn al-Furât et la réponse d’al-Hattâb à partir du *Tawdîh*.
+12. Ibn al-Imâm et Ibn al-‘Arabî : la validité des ablutions même dans le cas où l’usage est discuté.
+13. La **karâha médicale** et la **karâha religieuse**, selon Ibn Farhûn et la réponse d’al-Hattâb.
+14. La question du **refroidissement** et la persistance éventuelle de la cause alléguée.
+15. Les usages sur le corps, les grands bassins et les rivières, puis l’eau chauffée **au feu** et les températures extrêmes.
+
+**Format :** 15 objectifs, **15 lectures**, 20 termes définis, **16 QCM** corrigés. Chaque lecture possède une traduction de sens, deux longs développements en français, quatre précisions de lecture, un exemple explicitement fictif et une source primaire cliquable.
+
+**Précautions :** Les hypothèses des médecins médiévaux et le récit prophétique critiqué ne sont pas présentés comme des faits médicaux prouvés ni comme un hadith authentique. L’évaluation médicale contemporaine dépend de preuves propres, extérieures à ce texte. Les situations fictives ne constituent ni une fatwa individualisée ni un diagnostic de santé. Les citations sont attribuées avec le nom du savant ou du livre qui les transmet.
+
+**Sources :** [Islamweb — Mawâhib al-Jalîl, tome 1, p. 78–80](https://islamweb.net/ar/library/content/19/120/) ; [Ahlulbayt Library — édition alternative, t. 1, p. 109](https://ablibrary.net/book_content/b/4471/109?lang=ar), [p. 110](https://ablibrary.net/book_content/b/4471/110?lang=ar) et [p. 111](https://ablibrary.net/book_content/b/4471/111?lang=ar) ; [Usul — texte arabe complet](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil). Les différences de pagination entre éditions sont clairement signalées.
+
+La nouvelle clé de suivi `athar_fiqh_maliki_eaux_13_done` est indépendante de celles des douze premières fiches. La fiche suivante reste non publiée.
+
 ## Intégration technique
 
-- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater`, `flowingWater`, `publicBasins`, `limitedWell` et `leftoverWater`).
-- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de douze fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 12, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
+- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater`, `flowingWater`, `publicBasins`, `limitedWell`, `leftoverWater` et `sunHeatedWater`).
+- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de treize fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 13, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
-- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v95) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`, puis `athar_fiqh_maliki_eaux_13_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
+- Versions de ressources PWA mises à jour (v102) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, douze fiches, fiches 01 et 02 guidées et présence du catalogue.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, douze quiz (5 questions pour la fiche 01, 7 pour la fiche 02), suivi indépendant et sources.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, treize fiches, fiches 01 à 13 guidées et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, treize quiz (5 questions pour la fiche 01, 7 pour la fiche 02, 16 pour la fiche 13), suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
-**Sources consultées le 16 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
+**Sources consultées les 16 et 17 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
