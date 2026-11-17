@@ -11026,9 +11026,428 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     }
   ]
 },
+  "witnessAndContact": {
+  "id": "single-witness-water-17",
+  "number": "17",
+  "status": "disponible",
+  "title": "Comment établir qu’une eau est souillée ?",
+  "subtitle": "La parole d’un témoin, les conditions de fiabilité et les différences entre écoles, puis l’effet de verser l’eau sur une impureté : une étude concrète des règles et de leurs nuances chez les malikites.",
+  "sourceSection": "كتاب الطهارة — « وقبل خبر الواحد إن بين وجها أو اتفقا مذهبا » et « وورود الماء على النجاسة كعكسه » · Mawâhib al-Jalîl, tome 1, p. 120–121 (Dâr al-Kutub al-‘Ilmiyya)",
+  "goals": [
+    "Comprendre : Une seule personne peut-elle signaler que l’eau est souillée ?",
+    "Comprendre : Que veut dire « expliquer pourquoi l’eau est impure » ?",
+    "Comprendre : Que faire si l’informateur ne suit pas le même madhhab ?",
+    "Comprendre : Pourquoi al-Mâzarî exige-t-il un informateur fiable ?",
+    "Comprendre : La parole d’une femme est-elle exclue du seul fait qu’elle est une femme ?",
+    "Comprendre : Quand peut-on croire un témoin sans qu’il explique toute la cause ?",
+    "Comprendre : Pourquoi faut-il connaître les règles pour annoncer qu’une eau est impure ?",
+    "Comprendre : Et si la personne affirme au contraire que l’eau est pure ?",
+    "Comprendre : Si le témoin ne donne aucune raison et suit d’autres règles, faut-il éviter l’eau ?"
+  ],
+  "sections": [
+    {
+      "id": "single-report",
+      "title": "Une seule personne peut-elle signaler que l’eau est souillée ?",
+      "eyebrow": "01 · LECTURE COMMENTÉE",
+      "context": "Tu t’apprêtes à prendre de l’eau pour tes ablutions. Une personne qui connaît ce récipient t’arrête et dit : « Attention, cette eau est souillée. » Dois-tu l’écouter, même si elle est seule à te prévenir ?",
+      "passage": {
+        "arabic": "وقبل خبر الواحد إن بين وجها",
+        "translation": "« On accepte l’information d’une seule personne si elle explique la raison de l’impureté. »",
+        "explanation": "Khalîl, formule du Mukhtasar expliquée par al-Hattâb. Le fiqh n’exige donc pas nécessairement que plusieurs personnes confirment chacune ce que dit le premier témoin. En revanche, le passage ne commande pas.",
+        "sourceLabel": "Khalîl, formule du Mukhtasar expliquée par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "La réponse de Khalîl est plus précise qu’un simple « oui ». Il parle du témoignage d’une seule personne qui explique pourquoi l’eau serait souillée. Al-Hattâb décrit la situation comme une information sur un fait concret, non comme la rumeur qu’un récipient serait parfois mal entretenu. La personne qui veut faire ses ablutions ignore ce qui s’est passé ; quelqu’un d’autre affirme en avoir connaissance. Toute la question est de savoir dans quelles conditions cette information établit la souillure.",
+        "Le fiqh n’exige donc pas nécessairement que plusieurs personnes confirment chacune ce que dit le premier témoin. En revanche, le passage ne commande pas de suivre aveuglément n’importe qui. Al-Hattâb examine aussitôt la manière dont le témoin s’explique, sa fiabilité et, dans un second cas, le fait que le témoin et l’usager comprennent les règles de la même façon. Avant de choisir d’utiliser ou non l’eau, il faut lire ces conditions ensemble : le seul nombre de témoins ne suffit pas à résumer l’avis."
+      ],
+      "steps": [
+        {
+          "label": "La question porte sur une information précise",
+          "text": "Une personne annonce quelque chose qui serait arrivé à l’eau ; elle ne décrit pas simplement la réputation d’un lieu."
+        },
+        {
+          "label": "Un seul témoin peut compter",
+          "text": "Khalîl admet que l’information d’un seul individu puisse avoir une portée juridique, sous les conditions précisées ensuite."
+        },
+        {
+          "label": "Expliquer la cause est déterminant",
+          "text": "Le texte demande de connaître la raison pour laquelle le témoin déclare l’eau souillée, sauf dans une autre situation décrite après."
+        },
+        {
+          "label": "Les autres conditions restent à lire",
+          "text": "L’acceptation de la parole dépend notamment de la fiabilité et de la façon dont le témoin connaît la règle."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Imaginons un récipient laissé dans une salle avant la prière. Tu n’as rien observé d’anormal. Une personne qui était présente te dit avoir vu une substance impure entrer dans l’eau et précise ce qu’elle était. Cela donne une information bien différente de « je n’aime pas cette eau ». L’exemple ne statue pas sur un récipient réel : il aide à comprendre pourquoi Khalîl s’intéresse à la précision du témoignage et à la personne qui le fournit."
+      },
+      "takeaway": "La parole d’une seule personne peut être prise en compte pour établir la souillure d’une eau. Khalîl et al-Hattâb précisent cependant des conditions : ce n’est ni une simple suspicion ni une confiance sans examen.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Khalîl, formule du Mukhtasar expliquée par al-Hattâb. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "explain-cause",
+      "title": "Que veut dire « expliquer pourquoi l’eau est impure » ?",
+      "eyebrow": "02 · LECTURE COMMENTÉE",
+      "context": "Un voisin te dit seulement : « Cette eau est impure. » Un autre dit : « J’ai vu du sang y tomber. » Ces deux phrases apportent-elles la même information ?",
+      "passage": {
+        "arabic": "أن النجاسة تثبت بخبر الواحد إذا بين وجهها",
+        "translation": "« L’impureté est établie par l’information d’une seule personne lorsqu’elle en explique la cause. »",
+        "explanation": "Al-Hattâb, explicitant la condition de Khalîl. Cette exigence est particulièrement utile lorsque le mot « impur » peut être employé trop largement dans le langage courant. Une eau peut avoir un dépôt.",
+        "sourceLabel": "Al-Hattâb, explicitant la condition de Khalîl — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "La première personne donne une conclusion. La seconde te décrit un événement : du sang est entré dans le récipient. Cette différence permet de comprendre « bayyana wajhahâ », expliquer en quoi consiste la souillure. On ne demande pas seulement au témoin d’annoncer son jugement ; on veut savoir à quoi il l’attache. L’usager peut ainsi déterminer si le fait rapporté correspond réellement à ce que les juristes de l’école considèrent comme une impureté dans les circonstances concernées.",
+        "Cette exigence est particulièrement utile lorsque le mot « impur » peut être employé trop largement dans le langage courant. Une eau peut avoir un dépôt de terre, une odeur naturelle ou une substance qui change son goût sans que ces phénomènes aient tous le même statut rituel. Al-Hattâb veut empêcher qu’un simple mot masque l’origine du jugement. Il existe néanmoins une exception au besoin de détailler le motif : lorsque le témoin et l’usager partagent le même madhhab dans cette question et que le premier maîtrise ses règles. La fiche abordera cette condition séparément."
+      ],
+      "steps": [
+        {
+          "label": "Une conclusion n’est pas une description",
+          "text": "Dire seulement « impur » ne révèle pas la cause concrète du jugement."
+        },
+        {
+          "label": "Le fait rapporté permet un examen",
+          "text": "Savoir ce qui est entré dans l’eau aide à reconnaître le domaine de la règle invoquée."
+        },
+        {
+          "label": "Les substances ne sont pas toutes équivalentes",
+          "text": "Un élément naturel ou une substance pure n’a pas automatiquement le statut du sang ou d’une autre souillure."
+        },
+        {
+          "label": "Une autre voie d’acceptation sera examinée",
+          "text": "L’accord de madhhab, avec connaissance des règles, peut expliquer pourquoi le motif n’est pas toujours détaillé."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Dans une cuisine, un petit récipient d’eau est posé à côté d’une planche. Une personne annonce qu’il est « sale » parce qu’elle a vu de la poussière ; une autre parle d’une tache de sang tombée dedans. Le mot « sale » employé dans la conversation ne suffit pas à juger du statut rituel : la nature du contact doit être décrite. Cette scène imaginaire montre que la précision d’un témoin sert à éviter de traiter des faits différents comme s’ils étaient identiques."
+      },
+      "takeaway": "Expliquer la cause de l’impureté signifie décrire le fait qui fonde le jugement, et pas simplement prononcer le mot « impur ». C’est ce détail qui permet de vérifier ce qui est réellement en cause.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, explicitant la condition de Khalîl. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "different-madhhab",
+      "title": "Que faire si l’informateur ne suit pas le même madhhab ?",
+      "eyebrow": "03 · LECTURE COMMENTÉE",
+      "context": "Tu suis l’école malikite. Un fidèle qui étudie une autre école te dit avoir vu une matière bien identifiée tomber dans ton eau. Faut-il rejeter son information parce qu’il n’applique pas toujours les mêmes règles ?",
+      "passage": {
+        "arabic": "سواء اختلف مذهب السائل والمخبر أو اتفق",
+        "translation": "« Que l’école juridique de celui qui demande et de celui qui informe soit différente ou identique. »",
+        "explanation": "Al-Hattâb, sur l’information qui décrit sa cause. Il faut éviter la conclusion inverse : la divergence entre écoles n’est pas un motif général pour traiter une personne comme si elle était incapable de.",
+        "sourceLabel": "Al-Hattâb, sur l’information qui décrit sa cause — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb répond ici à un cas précis : si le témoin explique l’événement qui a rendu l’eau souillée, son information peut être acceptée même si lui et la personne qui s’apprête à faire ses ablutions ne suivent pas le même madhhab. Il ne s’agit pas de demander à l’un de renoncer à son école. La déclaration porte d’abord sur un fait : une substance déterminée est entrée dans l’eau. Celui qui reçoit l’information peut alors comprendre ce fait à la lumière des règles qu’il étudie.",
+        "Il faut éviter la conclusion inverse : la divergence entre écoles n’est pas un motif général pour traiter une personne comme si elle était incapable de rapporter ce qu’elle a vu. Mais il faut aussi conserver la condition « s’il en indique la cause ». Une personne peut appeler impur ce qu’une autre école ne qualifie pas de la même manière ; si elle donne seulement ce jugement sans le fait qui le motive, le problème change. C’est justement pourquoi Khalîl traite séparément le cas de deux personnes partageant les mêmes règles."
+      ],
+      "steps": [
+        {
+          "label": "La différence d’école ne supprime pas un fait rapporté",
+          "text": "Un témoin peut avoir vu quelque chose de précis, indépendamment du madhhab qu’il suit."
+        },
+        {
+          "label": "La cause doit être expliquée",
+          "text": "Le cas étudié conserve la condition annoncée dans la première formule de Khalîl."
+        },
+        {
+          "label": "Le récepteur garde ses critères juridiques",
+          "text": "Apprendre le fait ne signifie pas adopter automatiquement toutes les qualifications du témoin."
+        },
+        {
+          "label": "Une simple conclusion sans détail est un autre cas",
+          "text": "Le commentaire distingue les situations pour éviter de transformer un avis d’école en événement matériel."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Tu remplis une bouteille pour le wudû’ ; un ami qui suit une autre école t’avertit qu’un liquide provenant d’une souillure connue y est entré et raconte ce qu’il a vu. Son information peut être examinée comme le récit d’un fait. S’il se contentait de dire « mon école interdit cette eau » sans expliquer le problème, tu n’aurais pas la même information. Ce scénario fictif illustre la différence entre l’observation d’un événement et son appréciation juridique."
+      },
+      "takeaway": "Lorsque le témoin explique le fait qui établit l’impureté, une différence de madhhab n’écarte pas automatiquement son information. En revanche, une simple qualification sans raison demande un autre examen.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, sur l’information qui décrit sa cause. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "reliable-reporter",
+      "title": "Pourquoi al-Mâzarî exige-t-il un informateur fiable ?",
+      "eyebrow": "04 · LECTURE COMMENTÉE",
+      "context": "Deux personnes te disent qu’une bouteille d’eau a été souillée. La première est connue pour rapporter les faits correctement. La seconde multiplie les accusations inventées. Leurs déclarations doivent-elles être reçues de la même manière ?",
+      "passage": {
+        "arabic": "لكن قيده بالعدل وهو ظاهر",
+        "translation": "« Mais il a posé la condition d’être une personne fiable ; cela est évident. »",
+        "explanation": "Al-Hattâb, citant la restriction d’al-Mâzarî. Le livre situe cette exigence dans la conception classique du témoignage et mentionne certaines exclusions propres à son cadre juridique. Il ne faut ni.",
+        "sourceLabel": "Al-Hattâb, citant la restriction d’al-Mâzarî — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Après avoir parlé du contenu de l’information, al-Hattâb examine celui qui la transmet. Il rapporte qu’al-Mâzarî pose la condition de la ‘adâla : une fiabilité ou rectitude reconnue dans le cadre juridique ancien. Cette condition n’est pas un détail ajouté pour décorer la règle. Quand on veut décider du statut d’une eau à partir de la parole d’autrui, la qualité de cette parole importe. Une personne qui invente régulièrement des faits ne joue pas le même rôle qu’un témoin fiable.",
+        "Le livre situe cette exigence dans la conception classique du témoignage et mentionne certaines exclusions propres à son cadre juridique. Il ne faut ni masquer ces paroles ni les appliquer sans explication aux relations sociales actuelles : elles appartiennent à une règle particulière de preuve religieuse. L’important pour la leçon est d’identifier les deux critères réunis jusqu’ici : le témoin rapporte une raison compréhensible et il présente la fiabilité demandée. Al-Hattâb n’enseigne pas que le seul ton assuré d’une personne suffise à établir la souillure."
+      ],
+      "steps": [
+        {
+          "label": "La condition s’appelle ‘adâla",
+          "text": "Al-Mâzarî demande une forme de rectitude fiable chez la personne qui transmet l’information."
+        },
+        {
+          "label": "La précision du récit ne remplace pas la fiabilité",
+          "text": "Décrire une cause et être crédible sont deux conditions qu’il ne faut pas confondre."
+        },
+        {
+          "label": "Le contexte est un droit de preuve ancien",
+          "text": "Les qualifications et exclusions sont rapportées comme des dispositions de cette discussion malikite."
+        },
+        {
+          "label": "Il faut résister à l’assurance sans vérification",
+          "text": "Le volume de la voix ou la certitude affichée ne démontrent pas à eux seuls la réalité d’un contact impur."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Dans une cour, deux personnes préviennent qu’un récipient destiné aux ablutions a reçu une substance impure. L’une connaît précisément l’événement et a l’habitude de rapporter fidèlement ce qu’elle a vu ; l’autre était absente et raconte parfois des histoires inexactes. Le fiqh étudie ici la valeur de l’information, pas simplement le nombre de personnes qui répètent le même mot. Ce cas est imaginé pour distinguer la fiabilité de l’apparence de certitude."
+      },
+      "takeaway": "Al-Mâzarî conditionne l’acceptation de ce témoignage à la fiabilité de l’informateur. Donner une raison précise et être reconnu comme fiable sont deux éléments différents, que le commentaire réunit.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, citant la restriction d’al-Mâzarî. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "woman-status",
+      "title": "La parole d’une femme est-elle exclue du seul fait qu’elle est une femme ?",
+      "eyebrow": "05 · LECTURE COMMENTÉE",
+      "context": "Une femme présente au moment de l’incident prévient qu’une impureté est entrée dans une eau. Quelqu’un veut écarter son récit uniquement parce qu’elle est une femme. Que rapporte réellement al-Hattâb ?",
+      "passage": {
+        "arabic": "ولو كان المخبر عبدا أو امرأة قاله المازري",
+        "translation": "« Même si la personne qui informe est un esclave ou une femme, selon al-Mâzarî. »",
+        "explanation": "Al-Mâzarî, propos transmis par al-Hattâb, dans le contexte social historique. Il faut cependant lire la suite immédiate. Al-Mâzarî, selon ce commentaire, ajoute la condition de fiabilité, qui vaut pour le récit étudié. On ne peut.",
+        "sourceLabel": "Al-Mâzarî, propos transmis par al-Hattâb, dans le contexte social historique — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Le texte rapporte une précision d’al-Mâzarî : le fait que la personne qui informe soit une femme n’annule pas à lui seul la valeur de son information sur l’eau. Al-Hattâb mentionne aussi la catégorie historique des personnes réduites en esclavage, présente dans le droit de la société où ces juristes vivaient. Les deux mentions montrent ici que la discussion porte sur les conditions du témoignage et non sur l’idée que seules certaines catégories de personnes pourraient avoir observé une souillure.",
+        "Il faut cependant lire la suite immédiate. Al-Mâzarî, selon ce commentaire, ajoute la condition de fiabilité, qui vaut pour le récit étudié. On ne peut donc pas retirer un petit fragment de la phrase et en faire une règle autonome sur tous les types de témoignages. Il s’agit d’une information relative à la pureté de l’eau dans ce chapitre. La référence à l’esclavage est descriptive d’une catégorie juridique de l’époque : elle ne signifie ni approbation ni transposition de cette institution dans le présent."
+      ],
+      "steps": [
+        {
+          "label": "La mention de la femme est explicite",
+          "text": "L’information qu’une femme fournit sur cette souillure n’est pas écartée uniquement du fait de son sexe."
+        },
+        {
+          "label": "L’esclavage est une catégorie historique citée",
+          "text": "Al-Hattâb rapporte le vocabulaire du cadre juridique ancien et il faut le présenter comme tel."
+        },
+        {
+          "label": "La condition de fiabilité demeure",
+          "text": "La remarque n’annule pas l’exigence de ‘adâla formulée immédiatement après."
+        },
+        {
+          "label": "Ne pas élargir au-delà du texte",
+          "text": "Cette section parle de l’information sur l’impureté dans un cas précis, pas de toutes les règles du témoignage."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Un récipient est posé dans une pièce où se trouve une femme qui assiste au renversement d’une substance impure. Elle avertit celui qui allait l’utiliser pour ses ablutions. Le livre ne permet pas de rejeter mécaniquement son observation pour la seule raison qu’elle est une femme ; il faut examiner la fiabilité et le fait rapporté. L’exemple sert à expliquer le passage classique, dont les autres catégories sociales doivent être comprises historiquement."
+      },
+      "takeaway": "Le passage d’al-Mâzarî transmis par al-Hattâb n’exclut pas l’information d’une femme sur la souillure d’une eau du seul fait de son sexe. Les conditions de fiabilité et la portée limitée du cas demeurent.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Mâzarî, propos transmis par al-Hattâb, dans le contexte social historique. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "same-school",
+      "title": "Quand peut-on croire un témoin sans qu’il explique toute la cause ?",
+      "eyebrow": "06 · LECTURE COMMENTÉE",
+      "context": "Une personne fiable qui connaît les règles malikites te dit : « Cette eau est impure. » Elle ne détaille pas ce qui s’est passé. Khalîl envisage-t-il une situation où cette information peut néanmoins être retenue ?",
+      "passage": {
+        "arabic": "أو اتفقا مذهبا",
+        "translation": "« Ou si tous deux suivent le même madhhab. »",
+        "explanation": "Khalîl, seconde condition du Mukhtasar explicitée par al-Hattâb. Cette formule ne dit cependant pas que deux personnes portant la même étiquette religieuse sont automatiquement d’accord sur tous les détails. Al-Hattâb.",
+        "sourceLabel": "Khalîl, seconde condition du Mukhtasar explicitée par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Khalîl prévoit une seconde voie d’acceptation. Même si le témoin n’explique pas immédiatement la raison précise, sa parole peut être reçue lorsque lui et celui qui utilise l’eau suivent les mêmes critères juridiques pour cette question. L’idée est simple : ils ne risquent pas d’employer le mot « impur » selon deux définitions différentes. L’accord de madhhab remplace ici, dans les conditions retenues, une partie de l’explication que l’on demandait lorsque les méthodes de qualification pouvaient diverger.",
+        "Cette formule ne dit cependant pas que deux personnes portant la même étiquette religieuse sont automatiquement d’accord sur tous les détails. Al-Hattâb ajoute une précision essentielle : il semble viser le témoin qui connaît ce qui souille l’eau et ce qui ne la souille pas. Si quelqu’un ignore entièrement les règles de la purification, affirmer appartenir au même madhhab ne rend pas magiquement son jugement exact. Il faut donc comprendre pourquoi cette exception existe avant de la mémoriser."
+      ],
+      "steps": [
+        {
+          "label": "Le texte pose une seconde condition",
+          "text": "L’accord de madhhab peut suffire même en l’absence de description détaillée de la cause."
+        },
+        {
+          "label": "La concordance porte sur la qualification juridique",
+          "text": "Elle explique pourquoi le mot « impur » aurait le même sens pour celui qui parle et celui qui écoute."
+        },
+        {
+          "label": "L’accord n’est pas une simple appartenance déclarée",
+          "text": "Al-Hattâb suppose que la personne qui donne le jugement connaît les règles en cause."
+        },
+        {
+          "label": "Les autres exigences ne disparaissent pas",
+          "text": "La fiabilité évoquée dans le commentaire demeure à prendre en compte."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Dans une mosquée, une personne réputée fiable et connaissant le fiqh malikite prévient que l’eau d’un récipient ne doit pas être utilisée pour la purification. Elle ne raconte pas tout l’incident, mais celui qui l’écoute sait qu’elle distingue les matières impures des matières simplement colorantes. Cela illustre le second cas de Khalîl. Si la personne ne connaissait pas ces différences, l’accord affiché sur le nom du madhhab ne donnerait pas la même garantie."
+      },
+      "takeaway": "Le même madhhab peut rendre acceptable une information qui ne détaille pas sa cause, mais le commentaire présuppose un témoin fiable et compétent dans les règles relatives à l’eau.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Khalîl, seconde condition du Mukhtasar explicitée par al-Hattâb. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "qualified-school",
+      "title": "Pourquoi faut-il connaître les règles pour annoncer qu’une eau est impure ?",
+      "eyebrow": "07 · LECTURE COMMENTÉE",
+      "context": "Deux personnes affirment suivre l’école malikite. L’une sait distinguer une substance impure d’un changement naturel de l’eau. L’autre appelle « impure » toute eau qui sent la terre. Leurs jugements sans explication ont-ils la même valeur ?",
+      "passage": {
+        "arabic": "إذا كان المخبر عالما بما ينجس الماء وما لا ينجسه",
+        "translation": "« Si la personne qui informe sait ce qui rend l’eau impure et ce qui ne la rend pas impure. »",
+        "explanation": "Al-Hattâb, précision introduite par « Allah sait mieux ». Cette condition évite deux excès. Le premier consisterait à exiger une longue démonstration à chaque fois qu’une personne fiable et instruite avertit.",
+        "sourceLabel": "Al-Hattâb, précision introduite par « Allah sait mieux » — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "La précision d’al-Hattâb est très utile pour un débutant. Le même mot peut sortir de deux bouches et ne pas avoir la même valeur. La première personne connaît les conditions juridiques : elle sait quand une matière rend l’eau impropre à la purification. La seconde confond une odeur naturelle avec une impureté, et risque de prononcer un jugement faux. Dans le passage, al-Hattâb explique que la permission d’accepter l’information sans détail repose sur la compétence du témoin dans la question traitée.",
+        "Cette condition évite deux excès. Le premier consisterait à exiger une longue démonstration à chaque fois qu’une personne fiable et instruite avertit d’une souillure. Le second consisterait à accepter n’importe quelle qualification venant de quelqu’un qui partage seulement une étiquette de madhhab. Al-Hattâb ne donne pas une nouvelle méthode de mesure de la qualité de l’eau ; il précise dans quelles circonstances le mot utilisé par un témoin possède un sens juridique suffisamment connu des deux personnes."
+      ],
+      "steps": [
+        {
+          "label": "Savoir les règles fait partie du cas",
+          "text": "Le commentaire ne se contente pas de l’appartenance déclarée à une école juridique."
+        },
+        {
+          "label": "Une odeur ordinaire n’est pas nécessairement une impureté",
+          "text": "Il faut distinguer les causes naturelles de changement et les matières juridiquement impures."
+        },
+        {
+          "label": "La compétence explique l’absence de détail",
+          "text": "Si les critères sont connus et partagés, le témoin peut employer une qualification dont le sens est compris."
+        },
+        {
+          "label": "La fiabilité reste une question distincte",
+          "text": "Une personne peut connaître une règle et pourtant ne pas rapporter correctement ce qu’elle a vu."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Une réserve d’eau a pris un goût de terre après une pluie. Un voisin peu formé la déclare « impure » parce qu’il ne connaît pas la différence entre une altération naturelle et une souillure. Une autre personne instruite ne donnerait pas nécessairement ce jugement. Le cas est inventé : il ne prouve pas le statut de toutes les eaux de pluie, mais montre pourquoi al-Hattâb exige que l’informateur sache appliquer les critères du fiqh."
+      },
+      "takeaway": "Pour accepter sans explication détaillée la déclaration d’une personne de même madhhab, al-Hattâb suppose qu’elle connaît réellement les règles qui distinguent ce qui rend l’eau impure de ce qui ne la rend pas impure.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Hattâb, précision introduite par « Allah sait mieux ». Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "report-pure",
+      "title": "Et si la personne affirme au contraire que l’eau est pure ?",
+      "eyebrow": "08 · LECTURE COMMENTÉE",
+      "context": "Tu trouves une eau qui a une apparence normale. Une personne te confirme qu’elle est pure. Faut-il lui demander les mêmes explications qu’à celui qui affirme qu’elle a été souillée ?",
+      "passage": {
+        "arabic": "إذا أخبره بأنه طاهر فلا يحتاج إلى هذا التفصيل",
+        "translation": "« Si quelqu’un lui annonce que l’eau est pure, cette distinction n’est pas nécessaire. »",
+        "explanation": "Al-Bisâtî, dans al-Mughnî, avis transmis par al-Hattâb. Mais il ne faut pas couper la suite. Al-Hattâb accepte cette explication seulement lorsqu’aucun signe ne suggère l’impureté ou ne retire à l’eau son.",
+        "sourceLabel": "Al-Bisâtî, dans al-Mughnî, avis transmis par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Bisâtî fait ici une remarque qui change le point de départ. En principe, dans cette discussion, on considère l’eau comme pure tant qu’aucun élément ne vient modifier cette situation. Si une personne confirme simplement que l’eau est pure et qu’aucune trace contraire n’apparaît, le même examen détaillé de la cause ne semble pas nécessaire. Elle ne demande pas de bouleverser le jugement habituel de l’eau ; elle confirme ce qui est déjà présumé.",
+        "Mais il ne faut pas couper la suite. Al-Hattâb accepte cette explication seulement lorsqu’aucun signe ne suggère l’impureté ou ne retire à l’eau son caractère purifiant. Si l’eau présente un changement suspect clairement identifié, la déclaration « elle est pure » n’efface pas la difficulté comme par magie. Le juriste revient alors aux distinctions précédentes. Cette nuance évite de transformer l’idée de pureté initiale en aveuglement devant des faits réellement établis."
+      ],
+      "steps": [
+        {
+          "label": "La pureté initiale est le point de départ",
+          "text": "Une affirmation qui la confirme ne ressemble pas à une déclaration qui entend renverser ce jugement."
+        },
+        {
+          "label": "Al-Bisâtî allège l’exigence de détails",
+          "text": "Il évoque le cas où la personne atteste simplement de la pureté de l’eau."
+        },
+        {
+          "label": "Al-Hattâb ajoute une condition",
+          "text": "Cette facilité vaut lorsqu’aucune caractéristique de l’eau ne conduit à suspecter son impureté ou son absence de qualité purifiante."
+        },
+        {
+          "label": "L’observation réelle garde sa valeur",
+          "text": "Le témoignage ne rend pas automatiquement négligeable une impureté ou une altération déjà identifiée."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Une famille conserve une réserve d’eau claire, sans événement connu pouvant la souiller. Un proche demande si elle est pure, et on lui répond oui. Il ne paraît pas nécessaire de détailler toute l’histoire de chaque goutte. En revanche, si l’on observe dans une autre citerne une altération liée à une matière suspecte, répondre simplement « elle est pure » ne règle pas le problème : le raisonnement de l’auteur redevient conditionnel. Le scénario est fictif."
+      },
+      "takeaway": "Al-Bisâtî estime qu’une affirmation de pureté ne demande pas toujours les mêmes justifications qu’une accusation de souillure. Al-Hattâb limite cela au cas où aucun signe contraire ne se manifeste.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Bisâtî, dans al-Mughnî, avis transmis par al-Hattâb. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "precaution-maziri",
+      "title": "Si le témoin ne donne aucune raison et suit d’autres règles, faut-il éviter l’eau ?",
+      "eyebrow": "09 · LECTURE COMMENTÉE",
+      "context": "Une personne fiable te dit : « Je considère cette eau comme impure », mais ne précise pas pourquoi. En discutant, vous découvrez que vous n’appliquez pas les mêmes règles sur ce qui souille l’eau. Que recommande al-Mâzarî ?",
+      "passage": {
+        "arabic": "فقال المازري في شرح التلقين الأحسن تركه",
+        "translation": "« Al-Mâzarî dit dans son commentaire d’al-Talqîn : le mieux est de s’en abstenir. »",
+        "explanation": "Al-Mâzarî, Sharh al-Talqîn, propos cité par al-Hattâb. Ce cas est important parce qu’il évite de confondre une précaution avec une preuve. La personne a entendu une alerte, mais elle n’a pas assez.",
+        "sourceLabel": "Al-Mâzarî, Sharh al-Talqîn, propos cité par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 120 (édition Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+      },
+      "paragraphs": [
+        "Nous sommes maintenant dans le cas qui ne satisfait aucune des deux conditions précédentes : le témoin ne décrit pas le fait précis, et ses critères juridiques ne sont pas les mêmes que ceux de la personne qui utilisera l’eau. Al-Mâzarî, tel que le cite al-Hattâb, ne dit pas ici que l’eau est certainement impure. Il recommande plutôt de ne pas l’utiliser. Sa formulation « al-ahsan tarkuh » doit être traduite sans ajouter une certitude ou une obligation que le passage n’exprime pas.",
+        "Ce cas est important parce qu’il évite de confondre une précaution avec une preuve. La personne a entendu une alerte, mais elle n’a pas assez d’informations pour établir exactement ce qui s’est produit. Renoncer à cette eau peut alors constituer la meilleure conduite selon l’auteur, sans que cela permette de proclamer que toutes les eaux semblables sont impures. Al-Hattâb cite la préférence d’al-Mâzarî, et ne la transforme pas en une démonstration nouvelle de l’existence matérielle de la souillure."
+      ],
+      "steps": [
+        {
+          "label": "Les deux conditions précédentes manquent",
+          "text": "Le témoin ne donne pas la cause et les critères juridiques de deux personnes ne coïncident pas."
+        },
+        {
+          "label": "La recommandation vient d’al-Mâzarî",
+          "text": "Al-Hattâb cite son Sharh al-Talqîn plutôt que d’attribuer cette préférence à un consensus."
+        },
+        {
+          "label": "Éviter n’est pas déclarer impur",
+          "text": "Le choix prudent concerne une eau dont l’impureté n’a pas été établie par les voies précédemment mentionnées."
+        },
+        {
+          "label": "Le degré des mots compte",
+          "text": "« Le mieux » ne doit pas être traduit comme une interdiction absolue sans preuve supplémentaire."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Dans un lieu de voyage, une personne t’avertit qu’une bouteille ne convient pas aux ablutions mais refuse ou ne peut pas indiquer la substance en cause. Elle suit une autre école juridique, et tu disposes d’une autre réserve d’eau. Al-Mâzarî indique dans le cas étudié qu’il est préférable de laisser cette eau. Ce scénario n’autorise pas à dire que la bouteille est certainement souillée : il illustre une précaution face à une information insuffisamment expliquée."
+      },
+      "takeaway": "Lorsque la cause de la souillure n’est pas donnée et que les critères juridiques diffèrent, al-Mâzarî conseille de s’abstenir d’utiliser l’eau. Il s’agit d’une préférence prudentielle et non d’une certitude d’impureté.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya. Al-Mâzarî, Sharh al-Talqîn, propos cité par al-Hattâb. Le scénario et les questions sont pédagogiques, non des citations ni une fatwa."
+    }
+  ],
+  "lexicon": [],
+  "quiz": [],
+  "quote": {
+    "arabic": "وإن لم يبين المخبر وجه النجاسة ولا وافق مذهبه مذهب السائل ... الأحسن تركه",
+    "meaning": "Al-Mâzarî recommande de s’abstenir d’utiliser une eau lorsque la cause de l’impureté alléguée n’est pas expliquée et que l’informateur et l’usager ne suivent pas les mêmes critères juridiques. Cette recommandation ne prouve pas à elle seule que l’eau est réellement souillée.",
+    "label": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 120, citant al-Mâzarî, Sharh al-Talqîn."
+  },
+  "sources": [
+    {
+      "label": "Al-Hattâb — Mawâhib al-Jalîl, t. 1, p. 120, Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+    },
+    {
+      "label": "Al-Hattâb — Mawâhib al-Jalîl, t. 1, p. 121, Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+    },
+    {
+      "label": "Islamweb — Mawâhib al-Jalîl, réception d’une information sur l’impureté",
+      "url": "https://www.islamweb.net/ar/library/content/19/129/"
+    },
+    {
+      "label": "Islamweb — Mawâhib al-Jalîl, versement d’eau sur une impureté",
+      "url": "https://www.islamweb.net/ar/library/content/19/130/"
+    },
+    {
+      "label": "Usul — notice bibliographique de Mawâhib al-Jalîl",
+      "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+    }
+  ]
+},
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Comment établit-on une impureté par le témoignage ?",
-    "status": "À préparer — fiche 17 non publiée"
+    "title": "Quels petits animaux morts restent purs ?",
+    "status": "À préparer — fiche 18 non publiée"
   }
 };
