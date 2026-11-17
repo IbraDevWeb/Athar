@@ -242,6 +242,7 @@
 .fiqh-m-prose.is-guided .fiqh-m-section{padding:32px 0 38px}
 .fiqh-m-prose.is-guided .fiqh-m-section>h3{font-size:clamp(18px,2vw,22px);line-height:1.5;max-width:670px;margin:10px 0 20px}
 .fiqh-m-prose.is-guided .fiqh-m-section>p:not(.fiqh-m-reference):not(.fiqh-m-takeaway){font-size:14px;line-height:2.02;margin-top:17px;max-width:74ch}
+.fiqh-m-prose.is-guided .fiqh-m-section>.fiqh-m-situation{font-size:15px;line-height:1.85;font-weight:560;color:var(--fm-ink);max-width:72ch;margin:8px 0 20px}
 .fiqh-m-passage{margin:18px 0 24px;padding:22px 24px;background:var(--fm-paper);border:1px solid var(--fm-line);border-left:3px solid var(--fm-accent);border-radius:8px}
 .fiqh-m-passage figcaption{font-size:10px;font-weight:760;letter-spacing:.11em;color:var(--fm-accent)}
 .fiqh-m-passage blockquote{font:400 clamp(25px,3.5vw,35px)/1.9 Amiri,serif;color:var(--fm-ink);margin:13px 0;text-align:right}
