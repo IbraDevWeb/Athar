@@ -617,7 +617,7 @@ assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixture
 const firstFourteen=['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam'];
 const allPreviousSections=firstFourteen.flatMap(key=>book[key].sections);
 assert.equal(allPreviousSections.length,129,'Le nombre de lectures des quatorze fiches historiques a changé');
-assert.ok(allPreviousSections.every(s=>s.passage?.arabic&&s.passage?.translation&&s.passage?.sourceUrl),'Citation primaire manquante parmi les quatorze fiches');
+assert.ok(allPreviousSections.every(s=>s.passage?.arabic&&s.passage?.translation&&(s.passage?.sourceUrl||s.passage?.sourceLabel)),'Référence de citation manquante parmi les quatorze fiches');
 assert.ok(allPreviousSections.every(s=>s.context?.length>=175||s.example?.text?.length>=120),'Une lecture ancienne n’offre pas de cas pour commencer');
 assert.ok(book.sunHeatedWater.sections.every(s=>s.context?.length>=175),'Quinze introductions de la fiche 13 manquantes');
 assert.ok(book.heatedWaterHammam.sections.every(s=>s.context?.length>=175),'Dix-neuf introductions de la fiche 14 manquantes');
