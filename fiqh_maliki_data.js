@@ -8032,8 +8032,310 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
       }
     ],
-    "lexicon": [],
-    "quiz": [],
+    "lexicon": [
+      {
+        "arabic": "الْمَاءُ الْمُسَخَّنُ بِالنَّجَاسَة",
+        "term": "Musakhkhan bi-n-najâsa",
+        "definition": "Eau chauffée au moyen d’une matière considérée comme impure. Il faut la distinguer d’une eau dans laquelle une impureté est réellement entrée."
+      },
+      {
+        "arabic": "السَّمَاع",
+        "term": "Samâ‘ Ashhab",
+        "definition": "Transmission juridique recueillie par un disciple. Le Samâ‘ d’Ashhab rapporte ici la parole de Mâlik sur l’usage fréquent de l’eau chauffée."
+      },
+      {
+        "arabic": "الْمَاءُ الْبَارِد",
+        "term": "Mâ’ bārid",
+        "definition": "Eau froide dont certains auteurs expliquent la préférence dans le climat chaud du Hedjaz ; cette préférence n’équivaut pas à une obligation générale."
+      },
+      {
+        "arabic": "الْمَاءُ الْمُسَخَّن",
+        "term": "Mâ’ musakhkhan",
+        "definition": "Eau chauffée. Mâlik est cité pour sa permission ; les questions de chauffage par une souillure et de température excessive sont traitées séparément."
+      },
+      {
+        "arabic": "الْمَشَقَّة",
+        "term": "Mashaqqa",
+        "definition": "Difficulté rencontrée dans un acte. Ibn al-Imâm distingue la peine inséparable de l’obéissance de celle qu’on recherche sans nécessité pour elle-même."
+      },
+      {
+        "arabic": "التَّنَعُّم",
+        "term": "Tana‘‘um",
+        "definition": "Recherche de confort. Une interprétation de la réserve attribuée à Mujâhid la relie à la crainte d’un confort qui écarterait l’effort méritoire."
+      },
+      {
+        "arabic": "الثَّوَاب",
+        "term": "Thawâb al-‘ibâda",
+        "definition": "Récompense de l’adoration. Le commentaire explique que l’effort inévitable peut l’accompagner, sans que toute peine volontaire soit une adoration."
+      },
+      {
+        "arabic": "الْقُرْبَة",
+        "term": "Qurba",
+        "definition": "Acte par lequel on se rapproche d’Allah. Ibn al-Imâm rappelle qu’une difficulté sans utilité n’est pas une qurba simplement parce qu’elle est pénible."
+      },
+      {
+        "arabic": "الْحَمَّام",
+        "term": "Hammâm",
+        "definition": "Bain collectif historique, souvent muni de bassins communs. Les juristes distinguent les bains privés, les usages pudiques et les lieux exposant à la nudité."
+      },
+      {
+        "arabic": "الْعَوْرَة",
+        "term": "‘Awra",
+        "definition": "Parties du corps qu’il faut couvrir dans des situations déterminées. La protection de l’‘awra est centrale dans la classification des hammams."
+      },
+      {
+        "arabic": "سَتْرُ الْعَوْرَة",
+        "term": "Satr al-‘awra",
+        "definition": "Action de couvrir convenablement les parties intimes devant autrui. L’usage d’un vêtement opaque fait partie des indications citées d’Ibn Shâs."
+      },
+      {
+        "arabic": "غَضُّ الْبَصَر",
+        "term": "Ghadd al-basar",
+        "definition": "Fait de détourner les yeux de ce qu’il n’est pas permis de regarder. Le principe apparaît notamment dans le cas d’un passage nécessaire pour prélever de l’eau."
+      },
+      {
+        "arabic": "الْخَلْوَة",
+        "term": "Khalwa al-hammâm",
+        "definition": "Situation d’un hammam vide ou utilisé en privé. Ibn Rushd la distingue de la fréquentation d’un bain où d’autres personnes sont présentes."
+      },
+      {
+        "arabic": "الْمُقَدِّمَات",
+        "term": "Al-Muqaddimât",
+        "definition": "Ouvrage d’Ibn Rushd cité par al-Hattâb pour la division de l’entrée au hammam en trois situations juridiquement différentes."
+      },
+      {
+        "arabic": "الْعُتْبِيَّة",
+        "term": "Al-‘Utbiyya",
+        "definition": "Recueil de transmissions malikites dont al-Hattâb rapporte, par Asbagh, une formulation d’Ibn al-Qâsim sur le hammam où tous se couvrent."
+      },
+      {
+        "arabic": "الْجَوَاهِر",
+        "term": "Al-Jawâhir",
+        "definition": "Ouvrage malikite cité concernant les bains où la nudité n’est pas préservée et la situation d’une personne qui ne peut trouver l’eau ailleurs."
+      },
+      {
+        "arabic": "آدَابُ الْحَمَّام",
+        "term": "Âdâb al-hammâm",
+        "definition": "Règles de conduite pour la fréquentation des bains, dont certaines sont obligatoires et d’autres recommandées selon la remarque expresse d’al-Hattâb."
+      },
+      {
+        "arabic": "الْمَنْدُوب",
+        "term": "Mandûb fi-l-hammâm",
+        "definition": "Acte recommandé mais non obligatoire. Al-Hattâb l’oppose au wâjib dans sa lecture des dix indications attribuées à Ibn Shâs."
+      },
+      {
+        "arabic": "الْوَاجِب",
+        "term": "Wâjib fi-l-hammâm",
+        "definition": "Obligation juridique, distincte des conseils recommandés. Préserver la pudeur ne se place pas au même rang qu’un simple choix d’horaire."
+      },
+      {
+        "arabic": "الْعُرْف",
+        "term": "‘Urf al-balad",
+        "definition": "Usage social d’une époque ou d’un lieu. Le Madkhal est cité pour rappeler que les comportements dans les bains peuvent changer avec les générations."
+      },
+      {
+        "arabic": "الْعِلَّة",
+        "term": "‘Illa wa-hâja",
+        "definition": "Motif ou besoin particulier. Les discussions historiques sur l’accès des femmes au hammam distinguent notamment les visites motivées de la simple habitude."
+      },
+      {
+        "arabic": "الرِّوَايَةُ الضَّعِيفَة",
+        "term": "Riwâya da‘îfa",
+        "definition": "Transmission faible. Al-Hattâb rapporte qu’al-Nawawî juge faible le récit affirmant une entrée du Prophète ﷺ dans un hammam à al-Juhfa."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Quelle différence fondamentale existe entre chauffage par une souillure et contamination de l’eau ?",
+        "choices": [
+          "Le premier concerne le moyen de chauffage, la seconde une matière entrée dans l’eau.",
+          "Ce sont toujours deux expressions synonymes.",
+          "L’eau n’est jamais chauffée avec un combustible."
+        ],
+        "answer": 0,
+        "explanation": "La réprobation d’Ibn al-Karawî est mentionnée pour un moyen de chauffage particulier, même sans changement de l’eau. Elle ne prouve pas qu’une impureté ait été mélangée à la réserve."
+      },
+      {
+        "question": "Que répond Mâlik dans le Samâ‘ d’Ashhab au sujet de l’eau chauffée ?",
+        "choices": [
+          "Il en interdit l’usage en toutes circonstances.",
+          "Il n’y voit pas de mal et dit en faire lui-même souvent usage.",
+          "Il affirme que l’eau tiède ne peut lever aucun hadath."
+        ],
+        "answer": 1,
+        "explanation": "Le propos « لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا » est explicitement attribué à Mâlik dans la transmission d’Ashhab. Il ne supprime pas les réserves relatives à d’autres circonstances."
+      },
+      {
+        "question": "Comment Ibn ‘Abd al-Salâm comprend-il la préférence rapportée pour l’eau froide ?",
+        "choices": [
+          "Comme une obligation universelle en toutes saisons.",
+          "Comme un moyen de rendre la purification invalide.",
+          "Comme une préférence liée notamment à la chaleur du Hedjaz et à des effets corporels supposés."
+        ],
+        "answer": 2,
+        "explanation": "Ibn ‘Abd al-Salâm replace cette préférence dans le contexte du climat chaud du Hedjaz. Elle ne doit pas devenir une règle médicale générale ni une réprobation de toute eau chauffée."
+      },
+      {
+        "question": "À qui le Bayân attribue-t-il une réprobation de l’eau chauffée ?",
+        "choices": [
+          "À Mujâhid.",
+          "À Ibn Shâs uniquement.",
+          "À al-Nawawî à propos du hammam d’al-Juhfa."
+        ],
+        "answer": 0,
+        "explanation": "Al-Hattâb cite le Bayân transmettant une réprobation de Mujâhid, puis discute une explication possible liée au confort et au mérite de supporter une difficulté."
+      },
+      {
+        "question": "Quelle est l’objection principale d’Ibn al-Imâm contre la recherche de difficulté ?",
+        "choices": [
+          "Toute adoration doit être sans aucun effort.",
+          "Allah ne demande pas la peine pour elle-même : elle n’est pas automatiquement une adoration.",
+          "Le froid est toujours interdit dans les ablutions."
+        ],
+        "answer": 1,
+        "explanation": "Ibn al-Imâm distingue les difficultés inévitables rencontrées dans une bonne œuvre de celles qu’on s’inflige sans nécessité. Le commentaire ne confond pas effort sincère et complication gratuite."
+      },
+      {
+        "question": "Quand une difficulté peut-elle contribuer à une récompense accrue selon Ibn al-Imâm ?",
+        "choices": [
+          "Lorsqu’elle est volontairement ajoutée sans utilité.",
+          "Uniquement dans un bain collectif.",
+          "Lorsqu’elle accompagne nécessairement l’accomplissement du bien recherché."
+        ],
+        "answer": 2,
+        "explanation": "Le texte rattache la peine à la réalisation d’un acte d’adoration qui ne peut être effectué sans cet effort. Il n’encourage pas à fabriquer des difficultés lorsque l’acte est accessible autrement."
+      },
+      {
+        "question": "Pourquoi al-Ubbî considère-t-il que chauffer l’eau peut être approprié ?",
+        "choices": [
+          "Pour se renforcer et accomplir correctement l’adoration.",
+          "Parce que toute eau froide est impure.",
+          "Parce que la récompense dépend uniquement de la chaleur de l’eau."
+        ],
+        "answer": 0,
+        "explanation": "Al-Ubbî explique que réchauffer l’eau pour écarter le froid et mieux adorer ne retire pas la récompense évoquée. Il rejoint la distinction entre le bien recherché et la difficulté inutile."
+      },
+      {
+        "question": "Combien de situations Ibn Rushd distingue-t-il pour l’entrée au hammam ?",
+        "choices": [
+          "Une seule interdiction identique dans tous les cas.",
+          "Trois : bain privé, nudité exposée, et fréquentation où chacun se couvre.",
+          "Deux uniquement selon le prix d’entrée."
+        ],
+        "answer": 1,
+        "explanation": "Al-Hattâb rapporte la classification d’Ibn Rushd, reprise par plusieurs malikites. Elle exige d’examiner les conditions du bain et la protection de la pudeur."
+      },
+      {
+        "question": "Quel est le jugement du bain privé ou vide selon la première catégorie ?",
+        "choices": [
+          "Il est toujours interdit.",
+          "Il annule automatiquement la purification.",
+          "Il est permis sans réprobation dans les conditions décrites."
+        ],
+        "answer": 2,
+        "explanation": "Le premier cas rapporté par Ibn Rushd est celui du hammam vide ou utilisé dans un cadre privé approprié, distinct des lieux exposant au regard d’autres baigneurs."
+      },
+      {
+        "question": "Pourquoi le second cas d’Ibn Rushd reçoit-il un jugement sévère ?",
+        "choices": [
+          "Parce que la nudité qu’il faut couvrir est exposée, par soi-même ou par d’autres.",
+          "Parce que la chaleur annule toute ablution.",
+          "Parce que le nombre d’usagers est toujours supérieur à dix."
+        ],
+        "answer": 0,
+        "explanation": "Ibn Rushd vise un lieu où les parties du corps qu’il faut protéger sont exposées. Le problème principal concerne la pudeur et le regard, et non l’existence d’eau chaude."
+      },
+      {
+        "question": "Que distingue Ibn al-Qâsim dans le cas d’une personne sans autre eau ?",
+        "choices": [
+          "La couleur des murs du hammam.",
+          "Le prélèvement nécessaire de l’eau et le fait de demeurer dans le bain.",
+          "Les récits de science médicale sur le soleil."
+        ],
+        "answer": 1,
+        "explanation": "Le passage envisage un accès limité à l’eau, en préservant le regard, sans transformer cette nécessité en permission générale de séjourner dans un lieu problématique."
+      },
+      {
+        "question": "Que signifie la formule d’Ibn al-Qâsim « لا بأس به وتركه أحسن » ?",
+        "choices": [
+          "Le bain est obligatoirement interdit.",
+          "Le bain est une obligation de purification.",
+          "Il n’y a pas de mal à y entrer dans le cas décrit, mais l’abstention est préférable."
+        ],
+        "answer": 2,
+        "explanation": "Dans le troisième cas d’Ibn Rushd, les personnes se couvrent. Ibn al-Qâsim distingue l’entrée permise de la préférence prudente pour l’éviter dans les circonstances étudiées."
+      },
+      {
+        "question": "Que faut-il conserver de la réponse de Mâlik sur le bassin du hammam ?",
+        "choices": [
+          "La suffisance du ghusl dépend des conditions de pureté.",
+          "Tout bain public est toujours pur.",
+          "Il est interdit de se purifier à partir de toute eau stagnante."
+        ],
+        "answer": 0,
+        "explanation": "Mâlik répond « نعم إذا كان طاهرا ». Ibn Rushd précise que le jugement de validité dépend des conditions de l’eau et de la personne et ne transforme pas toute pratique en recommandation."
+      },
+      {
+        "question": "Pourquoi le Bayân déconseille-t-il l’usage de certaines eaux de hammam ?",
+        "choices": [
+          "À cause de leur nom arabe.",
+          "À cause du chauffage par des matières impures et des nombreux contacts avec la même réserve.",
+          "Parce que l’eau réchauffée par le feu est toujours invalide."
+        ],
+        "answer": 1,
+        "explanation": "Le Bayân cite le moyen de chauffage et le passage successif des mains. Ces circonstances expliquent une réserve, mais ne prouvent pas une souillure réelle dans toutes les installations."
+      },
+      {
+        "question": "Quel sujet couvre principalement la liste d’Ibn Shâs ?",
+        "choices": [
+          "Une méthode pour construire les bassins.",
+          "Une mesure exacte de la température et du volume.",
+          "La protection de la pudeur, le regard, le comportement et l’usage raisonnable de l’eau."
+        ],
+        "answer": 2,
+        "explanation": "Ibn Shâs rapporte dix indications pour un bain fréquenté dans des conditions permises. Al-Hattâb ajoute qu’elles ne sont pas toutes de même rang juridique."
+      },
+      {
+        "question": "Quelle précision al-Hattâb donne-t-il sur ces dix indications ?",
+        "choices": [
+          "Certaines sont obligatoires, d’autres recommandées.",
+          "Toutes sont des interdictions absolues.",
+          "Elles ne concernent que les médecins."
+        ],
+        "answer": 0,
+        "explanation": "La formule « هذه آداب منها واجب ومنها مندوب » interdit de traiter chaque conseil d’Ibn Shâs comme une obligation identique."
+      },
+      {
+        "question": "Que rappellent le Madkhal et al-Barzalî sur les hammams ?",
+        "choices": [
+          "Les pratiques et les saisons n’ont aucune importance.",
+          "Les usages des lieux changent et le besoin d’eau chaude peut varier selon les saisons.",
+          "Il faut toujours choisir une eau froide, même lorsqu’elle nuit."
+        ],
+        "answer": 1,
+        "explanation": "Le Madkhal attire l’attention sur l’évolution des pratiques, tandis qu’al-Barzalî distingue les périodes où un bain chauffé peut être préférable, tout en conservant les autres conditions."
+      },
+      {
+        "question": "Comment la fiche présente-t-elle les avis historiques concernant l’entrée des femmes au hammam ?",
+        "choices": [
+          "Comme une interdiction universelle de tout bain féminin contemporain.",
+          "Comme une permission sans condition.",
+          "Comme plusieurs avis tenant compte du besoin, des pratiques du lieu et de la préservation de la pudeur."
+        ],
+        "answer": 2,
+        "explanation": "Al-Hattâb cite la Risâla et différents malikites. La présentation conserve les divergences et le contexte des bains historiques, sans créer de fatwa universelle sur les établissements modernes."
+      },
+      {
+        "question": "Quelle critique al-Hattâb rapporte-t-il à propos du récit d’al-Juhfa ?",
+        "choices": [
+          "Al-Nawawî le juge faible.",
+          "Il est unanimement authentique.",
+          "Il prouve que les hammams sont toujours obligatoires."
+        ],
+        "answer": 0,
+        "explanation": "Après avoir mentionné le récit rapporté d’al-Damîrî, al-Hattâb indique qu’al-Nawawî l’a qualifié de faible dans le Sharh al-Muhadhdhab. Il ne doit pas être cité comme une preuve prophétique authentifiée."
+      }
+    ],
     "quote": {
       "arabic": "لِأَنَّ اللَّهَ تَعَالَى لَمْ يَطْلُبْ مِنْ عِبَادِهِ الْمَشَاقَّ",
       "meaning": "Ibn al-Imâm rappelle, dans la discussion sur l’eau froide et l’eau chauffée, qu’Allah ne demande pas à Ses serviteurs de rechercher la difficulté pour elle-même. L’effort lié à l’accomplissement nécessaire d’un acte et l’effort ajouté sans raison ne se confondent pas.",
