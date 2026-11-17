@@ -156,7 +156,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
       "id": "list",
       "title": "Quels animaux sont cités comme exemples ?",
       "eyebrow": "04 · LECTURE COMMENTÉE",
-      "context": "Tu trouves une araignée morte : le commentateur évoque-t-il de tels animaux ?",
+      "context": "Tu trouves une araignée morte : le commentateur évoque-t-il de tels animaux ? Al-Hattâb donne aussi des exemples d'autres petites bêtes ; la liste sert-elle de règle universelle ?",
       "passage": {
         "arabic": "كالعنكبوت والجداجد والعقرب والزنبور",
         "translation": "Traduction de sens : Comme l'araignée, les grillons, le scorpion et la guêpe.",
@@ -179,7 +179,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "En cours, on relève les espèces expressément nommées, puis on distingue celles qui ne sont pas traitées dans cette page."
+          "text": "En cours, on relève les espèces expressément nommées, puis on distingue celles qui ne sont pas traitées dans cette page.  Le récit cite plusieurs exemples précis ; il faut vérifier lesquels avant de construire une règle générale."
         },
         {
           "label": "Éviter une fausse généralisation",
@@ -343,7 +343,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "Dans un cours, on met en évidence l'avis connu puis on cite séparément les transmissions opposées."
+          "text": "Dans un cours, on met en évidence l'avis connu puis on cite séparément les transmissions opposées.  Un exemple fictif de manuel scolaire permet de voir pourquoi l'avis connu doit être indiqué à côté des transmissions divergentes."
         },
         {
           "label": "Éviter une fausse généralisation",
@@ -466,7 +466,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "On oppose un animal retiré entier et un autre qui s'est désagrégé dans un récipient imaginaire."
+          "text": "On oppose un animal retiré entier et un autre qui s'est désagrégé dans un récipient imaginaire.  Dans cette comparaison, la durée du contact et l'intégrité de la dépouille sont relevées séparément, sans inférer de garantie sanitaire."
         },
         {
           "label": "Éviter une fausse généralisation",
@@ -507,7 +507,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "Un élève compare une eau inchangée et une autre dont l'aspect s'est modifié par la matière animale."
+          "text": "Un élève compare une eau inchangée et une autre dont l'aspect s'est modifié par la matière animale.  L'élève doit aussi noter si le changement provient réellement de l'animal et non d'une autre substance pure."
         },
         {
           "label": "Éviter une fausse généralisation",
@@ -589,7 +589,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "Deux scénarios fictifs distinguent un animal resté entier et un animal incorporé par cuisson."
+          "text": "Deux scénarios fictifs distinguent un animal resté entier et un animal incorporé par cuisson.  Cette comparaison explique ce qu'implique un mélange intime par cuisson, plutôt qu'un simple voisinage dans un récipient."
         },
         {
           "label": "Éviter une fausse généralisation",
@@ -712,7 +712,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "En exercice, on distingue un petit animal visible dans un plat d'un animal complètement désagrégé."
+          "text": "En exercice, on distingue un petit animal visible dans un plat d'un animal complètement désagrégé.  On précise que la discussion porte sur l'aliment distinguable et non sur la consommation du petit animal lui-même."
         },
         {
           "label": "Éviter une fausse généralisation",
@@ -753,7 +753,7 @@ const ATHAR_MALIKI_FIQH_FICHE_18 = {
         },
         {
           "label": "Comparer avec une situation",
-          "text": "En cours, l'élève sépare trois colonnes : pureté, effet sur l'eau et règles de consommation."
+          "text": "En cours, l'élève sépare trois colonnes : pureté, effet sur l'eau et règles de consommation.  On distingue ainsi trois questions juridiques qui ne reçoivent pas automatiquement la même réponse."
         },
         {
           "label": "Éviter une fausse généralisation",
