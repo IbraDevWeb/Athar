@@ -8410,8 +8410,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
       },
       "paragraphs": [
-        "Après la discussion sur le hammam, Khalîl revient à ce qui peut atteindre une eau réellement utilisée. Son expression concerne une souillure sur la bouche au moment où un être boit. Remarque qu’il ne se contente pas de désigner une personne ou un animal : la présence de la matière impure et le temps du contact sont des informations indispensables. Une possibilité de souillure n’a pas encore le même statut qu’un contact connu.",
-        "Al-Hattâb ne va pas se satisfaire de cette première phrase. Il examinera la nuance entre voir de ses propres yeux et savoir avec certitude, puis distinguera ce qui se passe pour une petite quantité d’eau de ce qui concerne la nourriture. Ce cours doit donc commencer par une question simple : quelle matière est présente, où se trouve-t-elle et que sait-on exactement de son contact ? Sans cela, les verdicts deviennent des suppositions."
+        "Prenons l’exemple d’une personne qui vient de boire du vin. Il en reste des traces sur ses lèvres, puis elle boit dans un petit récipient rempli d’eau. La question est très concrète : cette eau peut-elle encore servir aux ablutions ? Khalîl évoque la présence d’une souillure sur la bouche au moment où quelqu’un boit. Al-Hattâb précise que la règle concerne aussi certains animaux. Ce qui compte n’est pas la personne ou l’animal en lui-même, mais la souillure présente au moment du contact.",
+        "Al-Hattâb distingue ensuite plusieurs réponses. Si la souillure change la couleur, l’odeur ou le goût de l’eau, son effet est établi. Si elle touche une petite quantité d’eau sans la modifier, il rapporte qu’il est réprouvé de l’utiliser lorsqu’une autre eau est disponible. Et pour la nourriture, la solution peut encore être différente selon qu’elle est liquide ou solide. Avant de conclure, il faut donc savoir si une souillure était réellement présente et ce qu’elle a fait à l’eau."
       ],
       "steps": [
         {
@@ -8451,8 +8451,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
       },
       "paragraphs": [
-        "Al-Hattâb rapporte d’Ibn Marzûq une remarque sur la forme particulière du verbe employé par Khalîl. Il explique qu’il s’agit d’une construction connue dans la langue, avec un échange de places entre certaines lettres. Un élève pourrait trouver cela très technique et voudrait passer à la règle suivante. Pourtant, dès qu’un mot sert à exprimer une condition, il faut comprendre exactement ce que l’auteur entend par ce mot.",
-        "Le lecteur se demandera bientôt si l’impureté doit avoir été vue personnellement ou si une certitude obtenue autrement suffit. C’est la raison pour laquelle cette observation linguistique mérite d’être conservée. Le fiqh malikite ne se réduit pas à mémoriser des verdicts : il enseigne à lire les termes qui donnent leur sens aux cas examinés. Ici, l’attention à la langue prépare une discussion de preuve, et non un simple exercice de grammaire."
+        "Dans sa phrase, Khalîl emploie un mot arabe qui peut surprendre : « ريئت », que l’on transcrit ici « ri’it ». Ibn Marzûq explique qu’il ne s’agit pas d’une faute, mais d’une forme attestée du verbe « voir ». Pour comprendre sa remarque, il suffit d’abord de retenir le sens général : Khalîl parle du moment où l’on constate une souillure sur la bouche. L’explication sur l’ordre des lettres intéresse surtout ceux qui étudient la langue du texte original.",
+        "Cette petite précision ouvre une question beaucoup plus utile au quotidien. Lorsque Khalîl dit que l’on « voit » une souillure, faut-il nécessairement l’avoir observée soi-même ? Ou suffit-il de savoir avec certitude qu’elle était présente ? Al-Hattâb traitera cette difficulté quelques lignes plus loin. Le lecteur n’a donc pas besoin de maîtriser la grammaire arabe pour suivre le raisonnement : il doit simplement retenir que le mot peut conduire à discuter la façon dont une souillure est connue."
       ],
       "steps": [
         {
@@ -8492,8 +8492,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
       },
       "paragraphs": [
-        "Al-Hattâb évoque le buveur de vin et les animaux qui ne se préservent pas des souillures. Mais lis bien la phrase dans laquelle il les mentionne : la question est de savoir si une matière impure se trouve sur la bouche au moment où l’eau ou l’aliment est utilisé. Il ne dit pas que toute personne ayant bu du vin serait elle-même impure, ni que chaque animal porterait nécessairement une souillure à chaque instant.",
-        "La distinction protège contre deux erreurs opposées. La première serait d’imaginer une contamination sur la base d’une réputation ou d’une habitude, sans preuve pour ce contact précis. La seconde consisterait à ignorer la matière impure lorsqu’elle est effectivement connue. Les juristes examinent le cas concret ; ils ne transforment pas une catégorie générale en certitude permanente. C’est une discipline de raisonnement, pas seulement une précaution de langage."
+        "Un animal fouille parfois dans les déchets, puis vient boire dans une petite réserve d’eau. Faut-il automatiquement considérer cette eau comme souillée ? Al-Hattâb ne dit pas cela. Il parle d’animaux qui peuvent être en contact avec des impuretés, mais il précise le cas où une souillure est connue sur leur bouche au moment où ils boivent. Le fait qu’un animal fréquente un endroit sale ne suffit donc pas, à lui seul, à établir qu’une matière impure est entrée dans l’eau à cet instant.",
+        "Il faut comparer deux situations. Dans la première, on n’a rien remarqué sur la bouche de l’animal ; on connaît seulement ses habitudes. Dans la seconde, on sait qu’une souillure se trouvait sur sa bouche lorsqu’il a bu. Le second cas contient une information que le premier ne contient pas. C’est sur cette différence que porte le passage. Il ne s’agit pas d’ignorer une impureté prouvée, mais de ne pas créer une certitude à partir d’une simple possibilité."
       ],
       "steps": [
         {
@@ -8533,8 +8533,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
       },
       "paragraphs": [
-        "Quand une matière impure a réellement modifié l’eau, al-Hattâb rapporte l’accord sur l’effet de cette altération. Il décrit ensuite une situation différente : l’eau est peu abondante et la matière ne l’a pas changée. Dans ce cas, il parle de réprobation de l’usage lorsqu’une autre eau est disponible. Le passage ne permet donc pas d’appliquer le même mot à tous les contacts. La modification des propriétés de l’eau est un critère déterminant.",
-        "L’expression « selon l’accord » ne doit pas davantage être étendue à ce qu’elle ne vise pas. Elle porte sur le cas de l’eau devenue altérée par l’impureté. Elle ne supprime pas les débats qui concernent l’eau restée inchangée. Si tu veux comprendre les auteurs malikites, apprends à distinguer l’eau impure, l’eau toujours purifiante mais dont l’usage peut être réprouvé, et les différences introduites par le volume disponible."
+        "Supposons qu’une souillure connue entre dans deux petits récipients d’eau. Dans le premier, elle change clairement l’odeur, la couleur ou le goût. Dans le second, l’eau conserve ses propriétés habituelles. Al-Hattâb ne donne pas une réponse identique à ces deux cas. Il rapporte un accord sur les conséquences de l’altération réelle de l’eau par une impureté. Pour une petite quantité d’eau restée inchangée, il parle d’un usage réprouvé si une autre eau est disponible.",
+        "La règle doit être lue avec ses conditions. L’eau qui a réellement changé à cause de l’impureté ne reçoit pas le même jugement qu’une petite eau dont on n’observe aucun changement malgré le contact. Lorsque al-Hattâb écrit « selon l’accord », il vise le premier cas. Il ne faut pas reprendre ce mot pour prétendre qu’aucun désaccord n’existe sur le second. Cette distinction sera également utile dans les cours sur les puits, les bassins et l’eau qui retrouve ses propriétés."
       ],
       "steps": [
         {
@@ -8574,8 +8574,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
       },
       "paragraphs": [
-        "Al-Hattâb relève qu’un commentaire antérieur pouvait donner l’impression que les aliments recevaient exactement le même jugement que l’eau. Il proteste contre cette assimilation. Dans la discussion qu’il rapporte, un aliment liquide atteint par une souillure est rejeté ; pour un aliment solide, on s’intéresse à la partie que la matière impure a pu atteindre. La consistance du contenu compte dans ce raisonnement et ne peut pas être omise.",
-        "Il faut enseigner cette page sans y ajouter ce qu’elle n’établit pas. Les juristes discutent ici d’une catégorisation rituelle ancienne, non d’une méthode moderne pour rendre salubre un produit potentiellement contaminé. Les bactéries et les risques invisibles ne se laissent pas déduire de cette seule distinction. Nous pouvons expliquer le fiqh tout en rappelant que la sécurité alimentaire contemporaine doit être appréciée selon ses propres exigences."
+        "Une matière impure tombe dans une casserole de soupe. Elle atteint ensuite, dans un autre exemple, un morceau de pain. Les juristes cités par al-Hattâb ne traitent pas ces deux aliments de la même manière. Pour un aliment liquide, le passage évoque le fait de le jeter entièrement. Pour un aliment solide, il parle de retirer ce que la souillure a pu atteindre. La différence repose ici sur la manière dont la matière impure peut se répandre dans l’aliment.",
+        "Al-Hattâb critique justement une formulation qui pouvait faire croire que les règles de l’eau s’appliquaient telles quelles à toute nourriture. Ce serait trompeur : il distingue le liquide, le solide et la petite quantité d’eau. Ces règles appartiennent au raisonnement juridique exposé dans son ouvrage. Elles ne prouvent pas qu’un aliment touché par une souillure est sans danger aujourd’hui, car des risques sanitaires invisibles peuvent subsister après le retrait d’une partie de l’aliment."
       ],
       "steps": [
         {
@@ -8615,8 +8615,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
       },
       "paragraphs": [
-        "Al-Hattâb prend ici la liberté d’évaluer la formulation de Khalîl. Il estime que parler de certitude serait plus clair que de parler seulement de vision, car on peut connaître certainement une impureté sans l’avoir vue soi-même. Il cite Ibn Shâs, qui décrit justement la connaissance assurée d’une souillure sur les bouches. C’est un exemple remarquable du commentaire : on ne répète pas seulement une phrase, on en examine la précision.",
-        "Mais al-Hattâb ne transforme jamais la certitude en intuition. Une crainte n’est pas un fait prouvé. Il reconnaît également que, si le verbe « voir » de Khalîl est entendu au sens de « savoir », l’objection perd de sa force. Les maîtres de l’école discutent donc de la meilleure façon d’exprimer une condition, tout en cherchant à rester fidèles au sens du texte. Comprendre leur méthode évite de citer une conclusion en oubliant les nuances qui l’accompagnent."
+        "Khalîl parle d’une souillure que l’on « voit » sur la bouche. Al-Hattâb remarque que cette formulation peut prêter à confusion. Il propose une idée plus précise : ce qui importe, c’est que la présence de l’impureté soit certaine. Par exemple, il est possible qu’on sache avec certitude ce qui se trouvait sur la bouche au moment de boire, même si on ne l’a pas observé de ses propres yeux. C’est dans ce sens qu’il cite les propos d’Ibn Shâs.",
+        "Il faut bien distinguer la certitude de la supposition. Se dire qu’un animal a peut-être une bouche souillée ne revient pas à en connaître la présence. En revanche, si la souillure est véritablement établie, le seul fait de ne pas l’avoir vue personnellement ne suffit pas à l’écarter. Al-Hattâb ajoute une nuance de langue : si le verbe employé par Khalîl signifie aussi « savoir », alors sa formulation peut déjà contenir cette idée. Le désaccord porte donc en partie sur la façon d’exprimer la condition."
       ],
       "steps": [
         {
@@ -8656,8 +8656,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
       },
       "paragraphs": [
-        "Ibn ‘Abd al-Salâm observe qu’Ibn al-Hâjib n’avait pas précisé le moment de la vision de la souillure. Il rappelle alors que les juristes ajoutent habituellement qu’elle est constatée au moment où l’animal boit. La précision est essentielle : ce qui était présent auparavant peut avoir disparu. Il n’est donc pas juste de traiter chaque contact futur comme si une vieille observation établissait à elle seule un état permanent.",
-        "La difficulté apparaît quand la souillure a été vue tout juste avant le contact, sans que l’animal ait pu s’éloigner ou se nettoyer. C’est la question qu’Ibn al-Imâm va soulever. Le temps ne s’applique donc pas comme un interrupteur magique : il faut connaître ce qui a été observé, la durée, les mouvements possibles et ce que l’on peut encore tenir pour certain. La rigueur du fiqh se voit dans cette attention aux faits."
+        "Imaginons qu’un animal ait eu une matière impure sur le museau la veille, puis qu’il boive aujourd’hui dans un petit récipient. Peut-on affirmer qu’il a souillé l’eau ? Ibn ‘Abd al-Salâm rappelle une condition souvent précisée par les juristes : la souillure doit être connue au moment où l’animal boit. Il ne suffit pas de rapporter qu’elle a été présente à un moment quelconque de la journée ou plusieurs heures auparavant.",
+        "Cette précision a une conséquence simple. Si beaucoup de temps s’est écoulé, l’état de la bouche a pu changer : une ancienne souillure ne prouve pas forcément sa présence lors du contact avec l’eau. Mais le raisonnement ne consiste pas à exiger de voir l’impureté à la seconde exacte où l’animal boit. Ibn al-Imâm abordera justement le cas où la souillure avait été constatée juste avant et n’a eu aucune occasion de disparaître. Les deux observations doivent être lues ensemble."
       ],
       "steps": [
         {
@@ -8697,8 +8697,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/115?lang=ar"
       },
       "paragraphs": [
-        "Ibn al-Imâm explique qu’on peut avoir vu une souillure juste avant que l’animal ne boive, puis ne plus la distinguer au moment précis du contact. Si rien n’a permis à la matière de disparaître, l’absence de vision nouvelle n’invalide pas la première observation. La question n’est donc pas d’avoir les yeux constamment fixés sur la bouche : elle est de savoir si une preuve récente demeure pertinente.",
-        "Al-Hattâb rapporte aussi une formule d’Ibn al-‘Arabî : il faut un éloignement suffisamment significatif pour que la trace ne soit plus présumée présente. Aucun nombre de minutes n’est fixé. Et le commentateur remarque que ces analyses peuvent se concilier avec celles d’Ibn ‘Abd al-Salâm si « voir » signifie connaître. On ne doit donc ni effacer une certitude réelle, ni prolonger indéfiniment une suspicion sans fondement."
+        "Un animal a une souillure visible sur la bouche. Quelques instants plus tard, sans s’être éloigné ni nettoyé, il boit dans une petite quantité d’eau. Au moment où il boit, on ne distingue plus clairement la souillure. Peut-on dire qu’elle a certainement disparu ? Ibn al-Imâm répond que l’absence d’une nouvelle observation ne suffit pas dans cette situation. La présence de l’impureté avait été établie juste avant, et rien ne permet de penser qu’elle s’est retirée entre-temps.",
+        "Ibn al-‘Arabî apporte une précision complémentaire : il faut qu’un éloignement suffisamment long permette de ne plus présumer la présence de la trace sur la bouche. Cela ne signifie pas que l’impureté dure indéfiniment. Cela signifie qu’une souillure connue ne s’efface pas de notre jugement par une simple perte momentanée de visibilité. On comprend ainsi pourquoi les juristes comparent le moment de l’observation, le temps écoulé et la possibilité réelle que la bouche ait été nettoyée."
       ],
       "steps": [
         {
@@ -9607,8 +9607,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
       },
       "paragraphs": [
-        "Supposons qu’une impureté ait réellement changé la couleur, l’odeur ou le goût d’une eau. Plus tard, ces modifications ne se remarquent plus. La question que Khalîl pose ici est précise : cette eau retrouve-t-elle la capacité de purifier pour les ablutions et le ghusl ? Tu remarqueras qu’il ne parle pas d’une simple suspicion de saleté, mais d’une altération qui avait existé et que l’on sait ensuite disparue. Il faut donc suivre l’histoire de cette eau, et non regarder seulement son aspect présent.",
-        "La phrase de Khalîl distingue le cas où de l’eau pure a été ajoutée en quantité suffisante de celui où le changement disparaît autrement. Il rapporte ensuite deux qualifications : certains maîtres ont jugé bon de reconnaître la qualité purifiante, tandis qu’une position contraire est présentée comme plus forte dans sa rédaction. Al-Hattâb va examiner les sources de ces jugements et même leur attribution. Nous ne devons pas prendre l’affirmation du manuel comme la fin du débat."
+        "Une bête est morte dans une citerne et l’eau a pris une mauvaise odeur. Quelques jours plus tard, cette odeur a disparu. Peut-on alors utiliser l’eau pour ses ablutions ? Cette question est au centre du passage de Khalîl. Le juriste ne cherche pas à savoir si l’eau a simplement l’air propre aujourd’hui. Il examine comment une eau dont l’impureté avait réellement modifié les propriétés peut, ou non, retrouver sa capacité à purifier.",
+        "Khalîl distingue deux situations : parfois, beaucoup d’eau pure a été ajoutée et l’altération disparaît ; parfois, la citerne retrouve son aspect normal sans cet apport. Al-Hattâb cite un accord pour le premier cas, puis rapporte une divergence pour le second. Il faut éviter une réponse unique à toutes les situations. Une eau renouvelée par une grande quantité de pluie n’est pas examinée exactement comme une réserve laissée au repos sans apport."
       ],
       "steps": [
         {
@@ -9648,8 +9648,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
       },
       "paragraphs": [
-        "Al-Hattâb n’annonce pas immédiatement un verdict. Il partage d’abord les situations : parfois, on ajoute à l’eau altérée une quantité d’eau pure suffisante ; parfois, le changement cesse sans cet apport. Cette méthode paraît simple, mais elle empêche beaucoup de confusions. Si le contenu d’une citerne se renouvelle par une pluie abondante, on n’examine pas exactement les mêmes circonstances qu’une cuve laissée au repos jusqu’à ce que son odeur s’atténue.",
-        "Dans la seconde famille de situations, le commentaire distinguera encore l’ajout d’une matière autre que l’eau, la disparition spontanée et même le retrait d’une partie d’une réserve sans alimentation. Ces cas ont une apparence commune — l’eau semble revenue à son état ordinaire — mais ils ne possèdent pas nécessairement le même jugement dans les avis rapportés. Il est donc prématuré de répéter un principe général sans préciser la transformation réellement survenue."
+        "Deux citernes ont été souillées et leurs eaux ont changé d’odeur. La première reçoit ensuite une grande quantité d’eau de pluie ; la seconde reste fermée pendant des jours, puis ne sent plus mauvais. Les deux citernes semblent revenues à la normale. Al-Hattâb commence pourtant par les séparer, parce que dans la première, l’eau a été renouvelée, tandis que dans la seconde, aucune eau nouvelle n’est venue diluer le contenu.",
+        "C’est pour cette raison que le commentaire pose d’abord une question toute simple : beaucoup d’eau pure a-t-elle été ajoutée ? Si oui, l’auteur présente un premier jugement. Si non, il étudiera d’autres possibilités : disparition spontanée, ajout de terre ou retrait partiel dans une réserve fermée. L’objectif n’est pas de compliquer une question ordinaire, mais d’éviter de donner la même réponse à des situations qui ne se sont pas déroulées de la même manière."
       ],
       "steps": [
         {
@@ -9689,8 +9689,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
       },
       "paragraphs": [
-        "Le premier cas reçoit ici une réponse assez nette : lorsque l’eau altérée a été mélangée à beaucoup d’eau pure, de sorte que la modification a disparu dans les conditions envisagées, al-Hattâb rapporte de l’ouvrage al-Tawdîh qu’elle redevient purifiante selon l’accord évoqué. Il est important de ne pas détacher le mot « accord » du cas qu’il qualifie. Il ne concerne pas toutes les façons imaginables de faire disparaître une altération.",
-        "Cela nous permet aussi de distinguer une disparition accompagnée d’un apport abondant d’eau de celle qui suit l’ajout de quelques gouttes. Al-Hattâb consacrera plus loin une discussion particulière au petit apport, car certains maîtres ne l’assimilent pas automatiquement au premier cas. Le professeur doit apprendre à ses élèves qu’une formule d’accord peut être tout à fait correcte dans son domaine, mais devenir fausse dès qu’on la transporte sans ses conditions."
+        "Un réservoir était altéré par une impureté. Une grande quantité d’eau pure y entre, puis l’odeur et les autres signes du changement disparaissent. Pour cette situation précise, al-Hattâb rapporte d’al-Tawdîh que l’eau retrouve son caractère purifiant, selon un accord qu’il attribue aux juristes concernés. Le point important est que l’eau nouvelle a été ajoutée en quantité abondante et que l’altération n’est plus présente.",
+        "Il ne faut pas oublier ces deux conditions lorsqu’on cite le mot « accord ». Si la réserve n’a reçu aucune eau nouvelle, ou seulement une petite quantité, on ne se trouve plus nécessairement dans le cas décrit. Al-Hattâb reviendra d’ailleurs sur le faible ajout d’eau plus loin. La phrase de ce passage donne donc une réponse nette à un problème bien délimité ; elle ne règle pas à elle seule tous les cas où un liquide retrouve son apparence habituelle."
       ],
       "steps": [
         {
