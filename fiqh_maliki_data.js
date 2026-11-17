@@ -7269,7 +7269,368 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "Examiner le raisonnement d’al-Barzalî concernant les saisons et la possibilité de se purifier sans se nuire.",
       "Restituer les divergences historiques sur l’accès des femmes au hammam, les exceptions et la faiblesse du récit sur l’entrée du Prophète ﷺ dans un bain."
     ],
-    "sections": [],
+    "sections": [
+      {
+        "id": "heated-with-najasa",
+        "title": "Que signifie l’eau chauffée à l’aide d’une matière impure ?",
+        "eyebrow": "01 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "يكره الماء المسخن بالنجاسة وإن لم يتغير",
+          "translation": "« L’eau chauffée au moyen d’une matière impure est réprouvée, même si elle n’a pas changé. »",
+          "sourceLabel": "Al-Hattâb, rapportant expressément la qualification d’Ibn al-Karawî, tome 1, p. 112.",
+          "explanation": "Le commentaire ouvre une nouvelle branche après l’eau chauffée au soleil ou au feu. L’emploi d’une souillure comme combustible est distingué de l’introduction effective de cette souillure dans l’eau.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Al-Hattâb poursuit l’étude des eaux par un cas très particulier : une eau a été chauffée en utilisant une matière impure, alors que rien ne montre que cette matière a touché l’eau. Il rapporte d’Ibn al-Karawî une réprobation, même si les propriétés de l’eau n’ont pas changé. Il faut lire précisément « chauffée au moyen de » : la phrase ne signifie pas qu’une souillure a été volontairement mélangée à la réserve. Sinon, nous aurions changé de chapitre et nous serions revenus aux règles de contamination réelle.",
+          "Les juristes examinent ici le moyen employé pour chauffer l’eau. Il peut leur paraître réprouvé sans que la substance chauffée devienne automatiquement impure. Cette différence entre karâha et najâsa nous a déjà été utile dans les fiches précédentes, et elle le sera encore pour comprendre les bains publics. Al-Hattâb annonce qu’on retrouvera un propos d’Ibn Rushd sur le sujet. Il ne donne donc pas une définition générale qui permettrait de déclarer souillées toutes les eaux ayant été chauffées près d’un foyer sale."
+        ],
+        "steps": [
+          {
+            "label": "Ce qui chauffe n’est pas ce qui entre dans l’eau",
+            "text": "Le passage concerne une source de chaleur tirée d’une matière impure. Le contact effectif avec l’eau n’est pas établi par ces mots."
+          },
+          {
+            "label": "La formule « même si elle n’a pas changé » est importante",
+            "text": "Elle montre pourquoi le jugement rapporté relève de la réprobation et ne se confond pas automatiquement avec une eau modifiée par une impureté."
+          },
+          {
+            "label": "L’avis est attribué à Ibn al-Karawî",
+            "text": "Al-Hattâb dit qui le formule. Il n’est pas juste d’en faire une citation de Khalîl ou de prétendre qu’aucun autre malikite n’a discuté la question."
+          },
+          {
+            "label": "Ne pas créer un nouveau jugement sanitaire",
+            "text": "L’étude est celle d’une pratique et de sa qualification rituelle. Elle ne garantit pas la sécurité de toute installation de chauffage."
+          }
+        ],
+        "example": {
+          "title": "Une eau dans un récipient séparé du foyer",
+          "text": "Imagine une marmite contenant une eau demeurée inchangée, posée sur un foyer dont le combustible serait considéré comme impur. Le commentaire examine le moyen de chauffage, et non une souillure déjà mélangée à l’eau. Si une matière du foyer tombait réellement dans le récipient, les règles à examiner seraient différentes. Cet exemple est fictif ; il montre la différence entre le combustible et le contenu chauffé."
+        },
+        "takeaway": "Ibn al-Karawî réprouve dans ce cas le chauffage au moyen d’une matière impure, même sans altération visible. On doit conserver la différence entre ce mode de chauffage et une eau dont la contamination serait réellement constatée.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "malik-ashhab",
+        "title": "Pourquoi Mâlik dit-il qu’il utilise lui-même l’eau chauffée ?",
+        "eyebrow": "02 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا",
+          "translation": "« Il n’y a pas de mal à faire ses ablutions avec de l’eau chauffée ; je le fais moi-même souvent. »",
+          "sourceLabel": "Imam Mâlik, réponse transmise dans le Samâ‘ d’Ashhab et citée par al-Hattâb, p. 112.",
+          "explanation": "Al-Hattâb cite la transmission d’Ashhab sur l’eau chauffée de manière générale, à lire après la distinction sur le combustible impur.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Cette réponse de Mâlik mérite qu’on s’y arrête, car elle corrige une idée qui pourrait naître de la précédente discussion. Après avoir vu des réserves sur certaines eaux chauffées, un élève pourrait croire que l’eau chaude est, en elle-même, déconseillée pour les ablutions. Or Mâlik, dans la transmission d’Ashhab, dit qu’il n’y voit aucun mal et qu’il en fait souvent usage. L’exemple donné par l’imam est concret : on ne parle pas d’une possibilité théorique que personne n’aurait pratiquée.",
+          "Il faut néanmoins respecter les différents cas. Une eau chauffée normalement n’est pas identique au cas de chauffage par une matière impure étudié juste avant, ni à une eau devenue si brûlante qu’on ne parvient plus à accomplir correctement le lavage. L’avis de Mâlik montre que le confort d’une température adaptée n’est pas, à lui seul, contraire à la purification. Il prépare aussi la discussion suivante : vaut-il mieux, pour obtenir davantage de récompense, choisir volontairement une eau froide lorsque de l’eau chaude est disponible ?"
+        ],
+        "steps": [
+          {
+            "label": "La réponse est transmise par Ashhab",
+            "text": "La source mentionne le Samâ‘ d’Ashhab. Al-Hattâb ne présente donc pas ces mots comme sa propre invention."
+          },
+          {
+            "label": "« Lâ ba’s » signifie qu’il n’y voit pas de mal",
+            "text": "Le propos de Mâlik ne formule ni interdiction ni réprobation générale de l’eau chauffée."
+          },
+          {
+            "label": "« Je le fais souvent » précise la pratique de l’imam",
+            "text": "Cette remarque montre que l’usage fréquent de l’eau chaude ne lui paraissait pas blâmable en lui-même."
+          },
+          {
+            "label": "Comparer des situations comparables",
+            "text": "Le cas de l’eau ordinairement chauffée, celui d’une eau souillée et celui d’une eau de température insupportable ne doivent pas être réunis sans distinction."
+          }
+        ],
+        "example": {
+          "title": "L’eau chaude avant la prière du matin",
+          "text": "Un fidèle réchauffe de l’eau propre pour ses ablutions avant la prière de l’aube parce que la saison est froide. Il craint, en raison d’une formule entendue isolément, que ce confort diminue la valeur de son acte. La réponse de Mâlik rapportée ici montre qu’on ne peut pas condamner le chauffage en lui-même. Le cas est imaginé pour expliquer la transmission, et non pour donner un conseil de chauffage ou de santé."
+        },
+        "takeaway": "Mâlik déclare explicitement ne voir aucun mal à se purifier avec de l’eau chauffée et dit l’utiliser souvent. Cette parole doit être exposée avec les réserves particulières que le commentaire étudie ailleurs, sans transformer l’une en contradiction de l’autre.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "ibn-abd-salam-climate",
+        "title": "Pourquoi certains maîtres rapportent-ils une préférence pour l’eau froide ?",
+        "eyebrow": "03 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "وما وقع لمالك رحمه الله من تفضيل البارد على المسخن إنما ذلك لكونه يشد الأعضاء ولنشاط النفس بعده في إقليم الحجاز وحرارة البلاد",
+          "translation": "« La préférence de Mâlik pour l’eau froide s’explique par ses effets supposés sur les membres et la vivacité ressentie dans le climat chaud du Hedjaz. »",
+          "sourceLabel": "Ibn ‘Abd al-Salâm, propos cités par al-Hattâb, p. 112.",
+          "explanation": "Al-Hattâb rapporte l’explication d’Ibn ‘Abd al-Salâm de la préférence mentionnée dans des transmissions relatives à Mâlik, en la replaçant dans le climat du Hedjaz.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Comment concilier l’usage fréquent de l’eau chauffée chez Mâlik avec le fait que certains auteurs lui attribuent une préférence pour l’eau froide ? Ibn ‘Abd al-Salâm propose une explication contextuelle. Il rattache cette préférence aux effets que l’on attribuait au froid sur le corps et à la sensation de vigueur dans le climat chaud du Hedjaz. Le raisonnement n’est donc pas que la fraîcheur possède toujours une vertu religieuse supérieure : le lieu et le climat entrent dans l’appréciation.",
+          "Cette explication montre pourquoi un avis ancien ne doit pas être séparé des conditions de vie où il fut formulé. Un habitant d’une région chaude peut percevoir une eau fraîche autrement qu’un voyageur confronté à un froid intense. D’autres auteurs évoquent le caractère agréable du bain. Le passage ne prouve aucune loi médicale universelle sur l’eau froide ; il rapporte une explication historique des préférences des juristes. La discussion suivante portera justement sur la différence entre confort, difficulté et récompense."
+        ],
+        "steps": [
+          {
+            "label": "La parole est celle d’Ibn ‘Abd al-Salâm",
+            "text": "Il explique les propos rapportés de Mâlik. Il ne faut pas attribuer tout le commentaire médical directement à Mâlik."
+          },
+          {
+            "label": "Le climat du Hedjaz est expressément mentionné",
+            "text": "Une préférence située dans un climat chaud ne peut pas être projetée sans nuance dans tous les pays ou toutes les saisons."
+          },
+          {
+            "label": "Une préférence n’est pas une obligation",
+            "text": "La réponse de Mâlik transmise par Ashhab autorise l’usage de l’eau chauffée ; les deux citations ne s’opposent pas nécessairement."
+          },
+          {
+            "label": "Le motif physiologique est historiquement rapporté",
+            "text": "La source permet de décrire ce que pensaient les savants, pas d’affirmer un avantage médical général de l’eau froide."
+          }
+        ],
+        "example": {
+          "title": "Comparer les saisons sans en faire une règle absolue",
+          "text": "Deux personnes se purifient avec une eau propre : l’une dans une période très chaude, l’autre pendant une vague de froid. Elles découvrent que le confort de la première peut venir de la fraîcheur et celui de la seconde d’un peu de chaleur. L’explication d’Ibn ‘Abd al-Salâm aide à comprendre pourquoi les propos anciens situent parfois une préférence dans un environnement précis. Cette comparaison n’établit aucun bénéfice médical."
+        },
+        "takeaway": "La préférence pour l’eau froide qu’Ibn ‘Abd al-Salâm explique se rapporte à un contexte climatique et à des effets corporels supposés. Elle ne transforme pas l’eau chauffée, utilisée par Mâlik lui-même, en eau illicite ou impropre à la purification.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "mujahid-comfort",
+        "title": "Que reprochait Mujâhid à l’eau chauffée selon le Bayân ?",
+        "eyebrow": "04 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "ونقل في البيان كراهته عن مجاهد",
+          "translation": "« Le Bayân rapporte de Mujâhid une réprobation de son usage. »",
+          "sourceLabel": "Mujâhid, avis rapporté dans le Bayân et cité par al-Hattâb, p. 112.",
+          "explanation": "Al-Hattâb juxtapose l’avis rapporté de Mujâhid à une hypothèse expliquant sa réserve : la crainte que la recherche de confort enlève une part de l’effort récompensé.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Al-Hattâb ne se limite pas aux paroles de Mâlik. Il rapporte également, depuis le Bayân, que Mujâhid réprouvait l’usage de l’eau chauffée. Le texte ajoute une explication possible : peut-être regardait-il ce chauffage comme une forme de confort, alors que supporter le froid pendant les ablutions pouvait être associé à une récompense. Il faut présenter cette justification comme une hypothèse du commentateur, non comme un long raisonnement que Mujâhid aurait lui-même rédigé.",
+          "C’est ici que nous rencontrons une question importante d’éducation religieuse. La difficulté rencontrée en obéissant à Allah peut accompagner une récompense ; mais faut-il délibérément chercher une difficulté qui n’était pas nécessaire ? Le Bayân donne matière à une discussion, et al-Hattâb la fait suivre par une réponse particulièrement développée d’Ibn al-Imâm. Nous avons donc affaire à une divergence de méthode dans la compréhension de la peine, pas à un simple désaccord entre les partisans de l’eau chaude et les partisans de l’eau froide."
+        ],
+        "steps": [
+          {
+            "label": "La réprobation de Mujâhid est rapportée",
+            "text": "Al-Hattâb précise qu’elle se trouve dans le Bayân et ne la présente pas comme l’avis unique de toute l’école."
+          },
+          {
+            "label": "Le motif du confort est interprétatif",
+            "text": "La phrase qui suggère le raisonnement de Mujâhid est une explication possible ; il serait inexact de lui attribuer toute cette analyse mot pour mot."
+          },
+          {
+            "label": "La récompense d’une épreuve ne suffit pas à recommander l’épreuve",
+            "text": "Il faut distinguer une contrainte attachée à l’obéissance d’une contrainte volontairement ajoutée."
+          },
+          {
+            "label": "La réponse ne sera pas immédiate",
+            "text": "Al-Hattâb cite ensuite Ibn al-Imâm, qui explique longuement pourquoi rechercher la difficulté n’est pas une fin religieuse en soi."
+          }
+        ],
+        "example": {
+          "title": "Faut-il laisser l’eau chaude disponible ?",
+          "text": "Une personne dispose d’une eau propre et agréablement tiède. Pour gagner, croit-elle, davantage de récompense, elle décide d’utiliser une eau très froide, malgré l’inconfort qu’elle pourrait éviter. Le propos rapporté de Mujâhid peut expliquer l’origine d’une telle idée, mais il ne clôt pas la discussion. Ibn al-Imâm va précisément distinguer le mérite d’un effort inévitable de la peine inutilement provoquée. L’exemple est fictif."
+        },
+        "takeaway": "Le Bayân rapporte une réprobation attribuée à Mujâhid. Al-Hattâb mentionne une explication possible liée au confort et à l’effort, puis ouvre une discussion essentielle sur le sens de la difficulté dans les actes d’adoration.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "ibn-imam-no-hardship",
+        "title": "Pourquoi Ibn al-Imâm refuse-t-il qu’on recherche la peine pour elle-même ?",
+        "eyebrow": "05 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "لأن الله تعالى لم يطلب من عباده المشاق",
+          "translation": "« Car Allah, exalté soit-Il, n’a pas demandé à Ses serviteurs de rechercher les difficultés. »",
+          "sourceLabel": "Ibn al-Imâm, « تنبيه وفائدة », cité par al-Hattâb, p. 112.",
+          "explanation": "Al-Hattâb cite longuement Ibn al-Imâm, qui conteste la conclusion selon laquelle l’eau froide serait toujours préférable parce qu’elle serait plus pénible à utiliser.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Ibn al-Imâm examine une idée qui peut séduire une personne sincère : puisque supporter une difficulté peut être récompensé, il serait préférable de rendre volontairement ses ablutions plus difficiles. Il répond que cette conclusion ne tient pas. Allah ne demande pas à Ses serviteurs la peine pour elle-même. Ce qu’Il demande, c’est l’accomplissement de l’acte d’adoration et la réalisation de ce qu’il comporte de bien. L’effort est parfois une circonstance de cet accomplissement ; il n’en constitue pas toujours l’objectif.",
+          "Le propos mérite une lecture patiente. Ibn al-Imâm ne nie pas que deux personnes accomplissant la même bonne action puissent rencontrer des difficultés différentes et recevoir une récompense liée à leur effort. Il refuse plutôt de transformer cette observation en une consigne d’ajouter de la peine lorsqu’elle ne sert à rien. Dans l’exemple de l’eau chaude disponible, choisir un froid douloureux uniquement pour rechercher une sensation plus pénible ne devient pas, de ce seul fait, un meilleur acte. Cette distinction fait partie du raisonnement même qu’al-Hattâb a choisi de transmettre."
+        ],
+        "steps": [
+          {
+            "label": "L’objectif reste l’adoration",
+            "text": "L’acte recherché est la purification accomplie correctement, et non la sensation pénible qui pourrait parfois l’accompagner."
+          },
+          {
+            "label": "Une peine n’est pas automatiquement une vertu",
+            "text": "Le raisonnement d’Ibn al-Imâm refuse d’assimiler tout supplément de difficulté à un supplément de piété."
+          },
+          {
+            "label": "Une récompense peut accompagner une contrainte réelle",
+            "text": "Cela n’autorise pas à inventer volontairement une difficulté étrangère à l’objectif de l’acte."
+          },
+          {
+            "label": "Le texte s’oppose à une conclusion précise",
+            "text": "Ibn al-Imâm discute la préférence systématique pour l’eau froide lorsque de l’eau chauffée est disponible, pas la récompense de toute persévérance authentique."
+          }
+        ],
+        "example": {
+          "title": "La différence entre courage et complication inutile",
+          "text": "Un fidèle doit accomplir ses ablutions un matin froid et n’a pas de moyen de réchauffer l’eau. Il accomplit son acte malgré la gêne. Un autre dispose facilement d’eau tiède, mais choisit une eau glacée uniquement pour se créer une difficulté supplémentaire. Ibn al-Imâm explique pourquoi les deux situations ne donnent pas lieu au même raisonnement sur la récompense. Ce sont des exemples fictifs, sans conseil médical individuel."
+        },
+        "takeaway": "Ibn al-Imâm rejette l’idée qu’une difficulté volontaire et sans utilité soit une œuvre méritoire par elle-même. La valeur de l’adoration dépend de l’acte et de son intention, tandis que la peine peut n’en être qu’une circonstance.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "hardship-reward",
+        "title": "Quand une difficulté inévitable peut-elle augmenter la récompense ?",
+        "eyebrow": "06 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "فإن لم تحصل إلا بمشقة عظم الأجر لقرب الإخلاص",
+          "translation": "« Lorsque le bien recherché ne s’obtient qu’au prix d’une difficulté, la récompense est plus grande en raison de la sincérité qui s’en approche. »",
+          "sourceLabel": "Ibn al-Imâm, suite du « تنبيه وفائدة » citée par al-Hattâb, p. 112.",
+          "explanation": "La même argumentation distingue les difficultés subies pour accomplir l’adoration des peines fabriquées uniquement pour augmenter l’effort.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Après avoir rappelé qu’Allah ne demande pas la difficulté pour elle-même, Ibn al-Imâm précise pourquoi un effort pénible peut malgré tout être récompensé. Parfois, on n’arrive pas à réaliser le bien recherché sans supporter une peine : le froid, la longueur d’un trajet nécessaire ou la fatigue sont alors liés à l’accomplissement de l’œuvre. La personne persévère non parce qu’elle aime souffrir, mais parce qu’elle tient à ce qu’Allah lui a demandé. Le texte voit dans cette persévérance une proximité avec la sincérité.",
+          "Il donne aussi des exemples de deux actions comparables accomplies dans des conditions différentes, comme les ablutions pendant une période de froid et durant une saison plus douce. Le supplément de difficulté peut alors accompagner la récompense lorsqu’il n’a pas été ajouté par pure recherche de la peine. Cette distinction empêche deux erreurs opposées : croire qu’une adoration doit toujours être confortable pour avoir de la valeur, ou penser qu’il faut systématiquement compliquer ce qu’Allah a rendu praticable."
+        ],
+        "steps": [
+          {
+            "label": "La peine vient de la circonstance",
+            "text": "Elle est subie en chemin vers une œuvre réellement recherchée, au lieu de constituer l’objectif de l’action."
+          },
+          {
+            "label": "Le texte mentionne la sincérité",
+            "text": "La récompense accrue est expliquée par la persévérance dans l’obéissance, pas par une valeur religieuse autonome de la douleur."
+          },
+          {
+            "label": "La comparaison suppose des actes similaires",
+            "text": "Ibn al-Imâm raisonne à propos de situations comparables, dont les conditions peuvent être plus ou moins difficiles."
+          },
+          {
+            "label": "Éviter deux généralisations",
+            "text": "L’auteur ne déclare ni que le moindre inconfort est obligatoire, ni que tout acte plus difficile serait automatiquement plus méritoire."
+          }
+        ],
+        "example": {
+          "title": "Une ablution dans le froid, faute d’autre possibilité",
+          "text": "Une personne vit dans un lieu où l’eau est froide et où aucun moyen simple de chauffage n’est disponible. Elle accomplit sa purification sans l’abandonner, malgré la difficulté. L’effort est ici lié à une obligation qu’elle ne pouvait satisfaire autrement. Ce n’est pas la même chose que se compliquer les ablutions par choix alors qu’une eau confortable est disponible. L’exemple sert à comprendre le texte et n’encourage jamais à ignorer un risque de santé."
+        },
+        "takeaway": "La difficulté qui accompagne nécessairement une bonne action peut contribuer à sa récompense. Selon Ibn al-Imâm, cette idée n’implique nullement qu’il faille rechercher volontairement une peine inutile lorsque le même acte peut être accompli correctement autrement.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "ubbi-warming",
+        "title": "Pourquoi al-Ubbî défend-il le chauffage de l’eau pour mieux adorer ?",
+        "eyebrow": "07 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "وتسخين الماء لدفع برده ليقوى على العبادة لا يمنع لحصول الثواب المذكور",
+          "translation": "« Chauffer l’eau pour écarter son froid et se renforcer en vue de l’adoration n’empêche pas d’obtenir la récompense évoquée. »",
+          "sourceLabel": "Al-Ubbî, commentaire du Sahîh Muslim, cité par al-Hattâb, p. 112.",
+          "explanation": "Al-Hattâb ajoute le propos d’al-Ubbî, qui rejoint la critique d’Ibn al-Imâm de la peine volontaire et rapproche sa réponse d’une discussion d’al-‘Izz Ibn ‘Abd al-Salâm.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Le commentaire transmet ensuite une remarque d’al-Ubbî, auteur d’une explication du Sahîh Muslim. Il explique que l’on peut chauffer l’eau pour supporter le froid et retrouver la force nécessaire à l’adoration, sans perdre pour autant le sens de la récompense qui avait été évoquée. Le propos répond à ceux qui craindraient que rendre les ablutions plus faciles retire automatiquement leur valeur. La personne qui prépare de l’eau tiède peut, au contraire, chercher à accomplir son acte soigneusement et avec présence d’esprit.",
+          "Al-Hattâb signale qu’al-Ubbî cite aussi al-‘Izz Ibn ‘Abd al-Salâm, un savant shaféite, au sujet d’autres pratiques auxquelles on pourrait ajouter artificiellement une difficulté, comme allonger un trajet. L’idée rejoint la réponse d’Ibn al-Imâm : rechercher un bon acte est louable ; rechercher une fatigue gratuite n’est pas le fondement de l’adoration. Ces auteurs ne sont pas interchangeables et la fiche leur laisse leurs attributions, mais leurs propos aident à comprendre pourquoi le réchauffement ordinaire de l’eau n’est pas une faute religieuse."
+        ],
+        "steps": [
+          {
+            "label": "Al-Ubbî commente une difficulté pratique",
+            "text": "Le propos concerne le froid de l’eau et la possibilité d’adorer dans de meilleures conditions."
+          },
+          {
+            "label": "La récompense ne dépend pas seulement de la souffrance",
+            "text": "Un fidèle qui se prépare correctement ne perd pas nécessairement son mérite parce qu’il évite une peine inutile."
+          },
+          {
+            "label": "L’argument d’al-‘Izz Ibn ‘Abd al-Salâm est cité à part",
+            "text": "Al-Hattâb conserve cette référence depuis le commentaire d’al-Ubbî, sans la fondre avec la parole de Mâlik."
+          },
+          {
+            "label": "Le passage n’impose pas une température précise",
+            "text": "Il explique une intention et une méthode, mais ne fixe aucun niveau de chaleur ni aucun diagnostic médical."
+          }
+        ],
+        "example": {
+          "title": "Se préparer pour une prière attentive",
+          "text": "Une personne réchauffe légèrement son eau parce qu’elle sait qu’une eau excessivement froide risque de rendre son lavage précipité. Elle veut accomplir l’acte correctement et rester disponible pour la prière. L’analyse d’al-Ubbî montre que faciliter l’accomplissement de l’adoration n’équivaut pas à lui retirer sa valeur. Le scénario est inventé et ne constitue pas une prescription de température ou de santé."
+        },
+        "takeaway": "Al-Ubbî rappelle que réchauffer l’eau pour pouvoir se purifier et adorer correctement n’annule pas le mérite de l’acte. La recherche d’une purification soignée peut justifier le choix du moyen le plus adapté sans rechercher la peine.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "hammam-three-cases",
+        "title": "Comment Ibn Rushd organise-t-il les trois situations du hammam ?",
+        "eyebrow": "08 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "وأما دخول الحمام فوقع فيه اختلاف في الروايات وفتاوى الشيوخ",
+          "translation": "« Quant à l’entrée au hammam, les transmissions et les avis des maîtres divergent à ce sujet. »",
+          "sourceLabel": "Al-Hattâb introduisant la classification d’Ibn Rushd dans les Muqaddimât, p. 112–113.",
+          "explanation": "Al-Hattâb cite la synthèse d’Ibn Rushd, suivie par Ibn Shâs, al-Qarâfî, Ibn Nâjî, al-Qalshânî et d’autres : le jugement dépend des conditions concrètes du lieu et de la pudeur des usagers.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "La discussion se déplace à présent vers le hammam, au sens du bain collectif fréquenté à l’époque des juristes. Al-Hattâb prévient d’emblée qu’il existe des transmissions et des fatwas divergentes. Plutôt que de les juxtaposer sans ordre, il rapporte la classification élaborée par Ibn Rushd dans les Muqaddimât. Celui-ci distingue les bains privés ou vides, les lieux où des personnes découvrent des parties intimes qu’il n’est pas permis d’exposer, et les lieux collectifs où chacun demeure couvert.",
+          "Cette manière de présenter les choses est essentielle. Le mot « hammam » ne suffit pas à déterminer un jugement, parce que les conditions réelles diffèrent : être seul, se trouver avec des personnes respectueuses de la pudeur ou être exposé à des dévoilements ne présente pas la même situation. Al-Hattâb explique que d’autres maîtres, dont Ibn Shâs, al-Qarâfî, Ibn Nâjî et al-Qalshânî, ont suivi ce classement. Nous allons examiner chacun de ces cas sans en faire un verdict automatique sur tous les établissements modernes."
+        ],
+        "steps": [
+          {
+            "label": "Une divergence est déclarée dès le début",
+            "text": "Al-Hattâb ne présente pas l’ensemble des récits sur les hammams comme s’ils exprimaient une formule unique."
+          },
+          {
+            "label": "Ibn Rushd propose un classement",
+            "text": "Sa démarche sépare l’usage privé, la présence de nudité interdite et la fréquentation collective avec les parties à couvrir protégées."
+          },
+          {
+            "label": "Plusieurs maîtres reprennent sa synthèse",
+            "text": "Ibn Shâs, al-Qarâfî, Ibn Nâjî et al-Qalshânî sont mentionnés comme auteurs ayant adopté ce découpage."
+          },
+          {
+            "label": "Le mot « hammam » ne décrit pas tout",
+            "text": "Un hammam privé et un établissement collectif avec exposition de la nudité ne correspondent pas aux mêmes faits et ne peuvent être confondus."
+          }
+        ],
+        "example": {
+          "title": "Trois établissements qui portent le même nom",
+          "text": "Dans une ville, un bain est réservé à une personne seule, un autre accueille des visiteurs qui se couvrent correctement, tandis qu’un troisième expose ses clients à la nudité d’autrui. Les trois portent le nom de hammam, mais la classification d’Ibn Rushd montre que ce nom commun ne suffit pas à réunir les jugements. Le scénario est fictif et ne préjuge pas des conditions réelles d’un établissement contemporain."
+        },
+        "takeaway": "Al-Hattâb rapporte d’Ibn Rushd une classification en trois situations, reprise par plusieurs malikites. L’entrée au hammam s’examine donc à partir des faits : présence d’autrui, possibilité de préserver la pudeur et nature de l’usage, et non à partir du nom du lieu seul.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      },
+      {
+        "id": "private-hammam",
+        "title": "Pourquoi le hammam vide est-il permis sans réprobation ?",
+        "eyebrow": "09 · LECTURE DU COMMENTAIRE",
+        "passage": {
+          "arabic": "الأول إذا كان خاليا",
+          "translation": "« Premier cas : lorsqu’il est vide. »",
+          "sourceLabel": "Ibn Rushd, première catégorie dans les Muqaddimât, citée par al-Hattâb, p. 112.",
+          "explanation": "Le premier cas est celui d’un hammam dont l’usager dispose seul. Ibn Nâjî complète cette situation par les personnes devant lesquelles l’exposition du corps peut être permise dans le cadre décrit par les auteurs.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/112?lang=ar"
+        },
+        "paragraphs": [
+          "Dans la première situation, la personne entre dans un bain vide. Elle n’est donc pas exposée au regard d’inconnus et ne risque pas non plus de voir les parties intimes d’autres usagers. Al-Hattâb rapporte qu’Ibn Rushd considère cette entrée permise, sans réprobation dans les conditions envisagées. Ibn Nâjî précise encore certaines situations de vie privée et de relations conjugales admises dans les catégories juridiques de son époque. Nous pouvons comprendre le cas principal sans reproduire mécaniquement tous les cadres sociaux historiques.",
+          "Ce premier jugement aide à éviter une généralisation : le hammam, comme lieu où l’on se lave à l’eau chaude, n’est pas condamné du seul fait qu’il est un hammam. Le problème viendra surtout des circonstances qui entourent l’usage, de la protection des parties du corps et de la situation du bassin. Pour appliquer une règle dans une installation contemporaine, on doit examiner sa configuration réelle. Cette fiche n’a pas pour objectif de certifier la conformité d’un établissement précis."
+        ],
+        "steps": [
+          {
+            "label": "L’absence d’autres usagers modifie les faits",
+            "text": "Le motif de la crainte du regard sur la nudité d’autrui ne se pose pas de la même manière lorsque le lieu est vide."
+          },
+          {
+            "label": "Ibn Rushd considère ce premier cas permis",
+            "text": "Il ne décrit ni une interdiction ni une réprobation générale de l’entrée dans un bain privé."
+          },
+          {
+            "label": "Les autres circonstances doivent rester examinées",
+            "text": "L’eau elle-même pourrait soulever une question distincte si une souillure était constatée ; ce n’est pas la même analyse que celle du lieu."
+          },
+          {
+            "label": "La société ancienne n’est pas un modèle matériel unique",
+            "text": "Certains exemples historiques concernent des statuts sociaux propres à l’époque. On retient ici le principe de vie privée et de pudeur sans transporter ces statuts tels quels."
+          }
+        ],
+        "example": {
+          "title": "Un espace réservé sans autre baigneur",
+          "text": "Une personne réserve un espace de lavage où personne d’autre n’entre et où elle dispose d’eau appropriée. Les problèmes d’exposition de la nudité d’autres visiteurs ne s’y présentent pas. C’est le cas simple qui permet de comprendre la première catégorie d’Ibn Rushd. Cet exemple pédagogique reste distinct d’une évaluation des normes d’hygiène, de sécurité ou des obligations propres à un établissement moderne."
+        },
+        "takeaway": "Le bain privé ou vide relève, dans la synthèse d’Ibn Rushd, de l’usage permis sans réprobation lorsque rien d’autre ne pose problème. Le jugement ne se réduit pas au fait de se laver avec de l’eau chauffée : il suppose les conditions concrètes du lieu.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 112, édition Dâr al-Kutub al-‘Ilmiyya. Citation attribuée et exemple fictif distingués."
+      }
+    ],
     "lexicon": [],
     "quiz": [],
     "quote": {
