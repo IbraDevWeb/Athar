@@ -7267,7 +7267,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "Étudier ses précisions sur la manière d’utiliser l’eau et la différence entre règles obligatoires et usages recommandés.",
       "Comprendre le rôle des conditions sociales du lieu et les remarques de l’auteur du Madkhal.",
       "Examiner le raisonnement d’al-Barzalî concernant les saisons et la possibilité de se purifier sans se nuire.",
-      "Restituer les divergences historiques sur l’accès des femmes au hammam, les exceptions et la faiblesse du récit sur l’entrée du Prophète ﷺ dans un bain."
+      "Restituer les divergences historiques sur l’accès des femmes au hammam, les exceptions et la faiblesse du récit sur l’entrée du Prophète ﷺ dans un bain.",
+      "Comprendre pourquoi al-Hattâb signale la faiblesse du récit prétendant que le Prophète ﷺ serait entré dans un hammam à al-Juhfa."
     ],
     "sections": [
       {
@@ -7829,6 +7830,206 @@ const ATHAR_MALIKI_FIQH_COURSE = {
         },
         "takeaway": "Le Bayân relie la réprobation de certains bassins à leur mode de chauffage et aux nombreux contacts. Cette explication doit rester distincte d’une contamination réellement constatée et ne peut être étendue à toutes les installations contemporaines sans examen.",
         "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple pédagogique fictif."
+      },
+      {
+        "id": "ibn-shas-conditions",
+        "eyebrow": "15 · LECTURE COMMENTÉE",
+        "title": "Quelles précautions Ibn Shâs donne-t-il pour fréquenter un hammam ?",
+        "passage": {
+          "arabic": "وعلى القول بالجواز يصح بعشرة شروط ذكرها ابن شاس",
+          "translation": "« Selon l’avis qui permet d’y entrer, Ibn Shâs a mentionné dix conditions. »",
+          "explanation": "Al-Hattâb rapporte dix indications d’Ibn Shâs qui portent sur les motivations de la visite, la préservation de la pudeur, le regard, le comportement et la quantité d’eau utilisée.",
+          "sourceLabel": "Ibn Shâs, dix recommandations transmises par al-Hattâb, t. 1, p. 113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "Après les trois catégories d’Ibn Rushd, al-Hattâb présente une liste d’Ibn Shâs. Celle-ci est très concrète : entrer pour une raison convenable telle que se purifier ou se soigner, préférer les moments où le bain est peu fréquenté, se couvrir d’un tissu opaque, diriger son regard vers le sol ou un mur afin de ne pas voir ce qui ne doit pas être regardé, et intervenir avec douceur lorsqu’une conduite répréhensible est constatée. Ce n’est pas une théorie détachée de la vie : Ibn Shâs décrit des moyens de fréquenter un lieu collectif en préservant ses obligations.",
+          "Il ajoute de ne pas laisser autrui toucher les parties de son corps qu’il doit couvrir, de connaître les conditions du paiement lorsqu’un prix est demandé, d’utiliser une quantité d’eau adaptée au besoin et de garder la prière à l’esprit si son heure survient. Quelques indications reflètent des pratiques matérielles propres à son époque. Il ne faut pas leur donner toutes le même rang juridique : la phrase suivante d’al-Hattâb dira expressément que certaines sont obligatoires et d’autres seulement recommandées. La pudeur, l’usage équitable de l’eau et la courtoisie envers autrui restent au centre de cette lecture."
+        ],
+        "steps": [
+          {
+            "label": "Ibn Shâs décrit une situation permise sous conditions",
+            "text": "Il ne formule pas une autorisation détachée de ce qui se passe réellement dans les lieux de bain."
+          },
+          {
+            "label": "La protection du corps et du regard est centrale",
+            "text": "Le tissu opaque et le regard détourné visent à éviter les dévoilements et les regards que la loi religieuse ne permet pas."
+          },
+          {
+            "label": "Le texte mentionne des usages pratiques",
+            "text": "Les heures calmes, les règles de paiement et le juste emploi de l’eau font partie de sa présentation de la fréquentation du lieu."
+          },
+          {
+            "label": "Toutes les conditions n’ont pas le même statut",
+            "text": "Al-Hattâb précisera que la liste comprend des obligations et des recommandations ; on ne doit pas en faire dix interdictions équivalentes."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le passage par une situation",
+          "text": "Un étudiant découvre les dix indications d’Ibn Shâs et les considère toutes comme des obligations dont la moindre omission rendrait le bain interdit. En lisant la remarque d’al-Hattâb juste après, il apprend que le commentateur distingue les prescriptions obligatoires des usages recommandés. L’exemple est inventé pour enseigner cette hiérarchie, sans proposer un règlement contemporain pour un établissement précis."
+        },
+        "takeaway": "Ibn Shâs cherche à organiser une fréquentation du bain qui préserve le regard, la pudeur et les droits d’autrui. Les dix indications doivent être étudiées avec leurs conditions et leur rang juridique, et non récitées comme une série uniforme d’interdictions.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
+      },
+      {
+        "id": "obligatory-recommended",
+        "eyebrow": "16 · LECTURE COMMENTÉE",
+        "title": "Pourquoi al-Hattâb distingue-t-il ce qui est obligatoire de ce qui est recommandé ?",
+        "passage": {
+          "arabic": "هذه آداب منها واجب ومنها مندوب",
+          "translation": "« Ce sont des règles de conduite : certaines sont obligatoires, d’autres recommandées. »",
+          "explanation": "En une phrase, al-Hattâb rappelle qu’un ensemble de conseils portant sur le même lieu peut comprendre plusieurs degrés normatifs. Il n’en fait pas un bloc de règles de portée identique.",
+          "sourceLabel": "Al-Hattâb, remarque personnelle après les dix indications d’Ibn Shâs, t. 1, p. 113.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/113?lang=ar"
+        },
+        "paragraphs": [
+          "La phrase d’al-Hattâb qui suit la liste d’Ibn Shâs est brève, mais elle évite de nombreuses erreurs. Il nous dit que ces règles de conduite comportent des obligations et des recommandations. La personne qui protège sa nudité ou s’interdit un regard illicite ne se trouve pas dans la même situation que celle qui choisit, par prudence, une heure où le bain est moins fréquenté. Tout cela peut participer à une conduite digne, mais les juristes ne déclarent pas chaque préférence obligatoire au seul motif qu’elle figure dans une même liste.",
+          "Ce détail est très important lorsqu’on enseigne le fiqh à des débutants. Sans lui, on risque d’alourdir la religion en transformant des conseils utiles en interdictions que la source n’a pas formulées. Ibn Shâs mentionne également la sobriété dans l’emploi de l’eau et la douceur lorsqu’on rappelle une règle à autrui. Ces éléments contribuent à l’éthique des lieux partagés. Al-Hattâb nous demande d’apprendre à hiérarchiser les prescriptions, pas seulement à en mémoriser les mots. La même méthode servira dans les autres chapitres du livre."
+        ],
+        "steps": [
+          {
+            "label": "Le mot « wâjib » désigne l’obligatoire",
+            "text": "Il ne peut être attribué indistinctement à tout conseil pratique présent dans un commentaire."
+          },
+          {
+            "label": "Le mot « mandûb » désigne le recommandé",
+            "text": "Un usage conseillé peut être utile et méritoire sans que son omission constitue une interdiction religieuse."
+          },
+          {
+            "label": "La liste d’Ibn Shâs couvre différents domaines",
+            "text": "La protection des parties intimes, le regard, le paiement, l’eau et la conduite spirituelle n’ont pas forcément la même qualification."
+          },
+          {
+            "label": "L’attribution de la nuance est précise",
+            "text": "C’est al-Hattâb qui ajoute cette remarque à la suite des paroles rapportées d’Ibn Shâs, afin de guider la lecture."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le passage par une situation",
+          "text": "Un lecteur prépare une fiche de synthèse et marque chacune des dix indications d’Ibn Shâs comme « obligatoire ». Son enseignant lui fait relever le dernier commentaire d’al-Hattâb : certaines sont obligatoires, d’autres recommandées. Le lecteur reprend alors son tableau et refuse d’attribuer un rang juridique sans l’avoir établi. Ce dialogue fictif illustre une discipline nécessaire pour comprendre la jurisprudence."
+        },
+        "takeaway": "Al-Hattâb refuse de mettre au même niveau toutes les recommandations d’Ibn Shâs. Cette distinction protège l’étude du fiqh contre l’invention de devoirs supplémentaires et encourage une pratique respectueuse des obligations comme des conseils.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 113, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
+      },
+      {
+        "id": "custom-seasons",
+        "eyebrow": "17 · LECTURE COMMENTÉE",
+        "title": "Pourquoi les habitudes du lieu et la saison comptent-elles dans les avis ?",
+        "passage": {
+          "arabic": "يختص كل زمان بعادته وعرفه",
+          "translation": "« Chaque époque a ses habitudes et ses usages propres. »",
+          "explanation": "Al-Hattâb rapproche une remarque sur le changement des usages sociaux dans les bains et la distinction d’al-Barzalî entre saison douce et saison froide.",
+          "sourceLabel": "Le Madkhal, propos cités dans la discussion d’al-Hattâb, p. 113–114 ; propos d’al-Barzalî sur la saison froide également rapportés.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+        },
+        "paragraphs": [
+          "Une remarque du Madkhal attire l’attention sur le changement des pratiques. Un bain fréquenté à une époque donnée n’est pas nécessairement organisé comme un bain de plusieurs générations plus tard. Les règles relatives à la pudeur demeurent importantes, mais ce qui doit être observé est la réalité des comportements et de l’aménagement du lieu. Al-Hattâb conserve cette remarque pour éviter que les paroles d’un maître, prononcées dans une société particulière, soient automatiquement appliquées à un environnement qui ne présente pas les mêmes circonstances.",
+          "Il rapporte également d’al-Barzalî une distinction selon les saisons. Pendant une période tempérée, certains peuvent préférer se laver sans fréquenter un bain collectif ; en hiver, l’usage d’une installation chauffée peut devenir préférable si une eau froide risque de causer du tort. Al-Hattâb ajoute toutefois que cette appréciation concerne un bain qui ne présente pas d’autre motif d’interdiction. Le besoin de chaleur ne fait pas disparaître les exigences de pudeur. Le texte relie donc les conditions du lieu, la saison et la possibilité réelle d’accomplir la purification."
+        ],
+        "steps": [
+          {
+            "label": "Les usages des lieux varient selon l’époque",
+            "text": "Il ne faut pas inférer les pratiques réelles d’un hammam actuel de la simple description d’un hammam médiéval."
+          },
+          {
+            "label": "La pudeur reste l’objet des précautions",
+            "text": "Le comportement des personnes et la protection des parties intimes déterminent la comparaison entre les situations."
+          },
+          {
+            "label": "Al-Barzalî tient compte du froid",
+            "text": "Le texte envisage le cas où une eau froide risque de nuire, ce qui modifie la préférence pratique pour un moyen de se laver."
+          },
+          {
+            "label": "Une préférence saisonnière ne suspend pas les autres règles",
+            "text": "Al-Hattâb précise que les conditions interdisant une fréquentation demeurent pertinentes, même lorsque l’eau chaude est souhaitable."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le passage par une situation",
+          "text": "Une personne envisage de se laver dans un bain chauffé au cours d’un hiver rigoureux. Elle compare cette option avec une eau très froide, mais elle doit aussi examiner si le lieu permet de préserver la pudeur. Les remarques d’al-Barzalî et du Madkhal montrent pourquoi la saison et les usages concrets comptent. Ce scénario est fictif et ne constitue pas une évaluation médicale d’un risque de froid ou un jugement sur un établissement réel."
+        },
+        "takeaway": "Le commentaire tient compte des circonstances concrètes : les pratiques d’un lieu peuvent changer et l’accès à une eau convenable peut varier selon la saison. Aucune de ces distinctions ne dispense de préserver les règles de pudeur ni d’examiner le bain considéré.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
+      },
+      {
+        "id": "women-bath-opinions",
+        "eyebrow": "18 · LECTURE COMMENTÉE",
+        "title": "Comment lire les divergences anciennes sur l’entrée des femmes au hammam ?",
+        "passage": {
+          "arabic": "ولا تدخله امرأة إلا من علة",
+          "translation": "« Une femme n’y entre que pour un motif particulier. »",
+          "explanation": "Al-Hattâb rassemble plusieurs transmissions historiques sur la fréquentation des bains par les femmes, avec des divergences relatives à la réprobation, au besoin et aux conditions de pudeur.",
+          "sourceLabel": "Ibn Abî Zayd al-Qayrawânî, Risâla, cité par al-Hattâb avec les avis d’Ibn Rushd, de ‘Abd al-Wahhâb et d’al-Barzalî, t. 1, p. 114.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+        },
+        "paragraphs": [
+          "Al-Hattâb examine ensuite la question des femmes qui fréquentent un bain collectif. Il cite la formule de la Risâla d’Ibn Abî Zayd al-Qayrawânî, puis rapporte les avis d’Ibn Rushd, de ‘Abd al-Wahhâb et d’autres auteurs. Certains faisaient une différence entre un bain fréquenté pour une raison de santé ou de purification et une visite sans besoin particulier. D’autres discutaient le degré de la réprobation et contestaient d’en tirer une interdiction absolue lorsque les exigences de pudeur étaient respectées.",
+          "Nous devons lire ces paroles dans les conditions de vie qu’elles décrivent. Les juristes parlent d’établissements où certaines personnes pouvaient ne pas couvrir les parties du corps qu’il fallait préserver et où les pratiques variaient selon les lieux. Al-Barzalî rapporte des inquiétudes propres à ce qu’il constatait à son époque. Il serait donc incorrect de transformer une citation isolée en règle universelle sur tous les bains exclusivement féminins actuels, comme il serait incorrect d’ignorer les obligations de pudeur. Ce cours présente les avis et leur contexte sans produire une fatwa individualisée."
+        ],
+        "steps": [
+          {
+            "label": "La formule de la Risâla est attribuée",
+            "text": "Il s’agit d’Ibn Abî Zayd al-Qayrawânî, et non d’une phrase prononcée directement par Mâlik dans ce passage."
+          },
+          {
+            "label": "Les auteurs cités ne donnent pas tous la même qualification",
+            "text": "Al-Hattâb rapporte des distinctions entre réprobation, débat sur l’interdiction et exceptions liées à un besoin."
+          },
+          {
+            "label": "Les conditions de pudeur sont centrales",
+            "text": "Les avis historiques visent notamment des lieux où la nudité était exposée et où les usages n’étaient pas identiques à tous les établissements possibles."
+          },
+          {
+            "label": "Il faut examiner la réalité contemporaine",
+            "text": "La séparation des espaces, la protection des parties intimes et le motif de la visite sont des faits à vérifier avant de comparer les cas."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le passage par une situation",
+          "text": "Une personne cite la Risâla pour condamner indistinctement toute installation moderne fréquentée par des femmes. Une autre lui demande de lire les développements d’al-Hattâb sur les conditions de pudeur et les avis différents des juristes. La première comprend qu’une phrase ancienne ne peut être détachée de son environnement et de ses exceptions. Le dialogue est fictif et ne délivre pas de verdict sur un établissement réel."
+        },
+        "takeaway": "La Risâla et les autres malikites cités par al-Hattâb discutent des cas historiques distincts avec des conditions de besoin et de pudeur. La fiche conserve leurs avis et leurs différences sans inventer une interdiction générale de tout bain moderne.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
+      },
+      {
+        "id": "weak-hammam-report",
+        "eyebrow": "19 · LECTURE COMMENTÉE",
+        "title": "Pourquoi ne pas présenter le récit d’un bain fréquenté par le Prophète ﷺ comme authentique ?",
+        "passage": {
+          "arabic": "لكن ذكر النووي في شرح المهذب في كتاب الحج أنه حديث ضعيف",
+          "translation": "« Toutefois, al-Nawawî a indiqué dans le Sharh al-Muhadhdhab qu’il s’agit d’un hadith faible. »",
+          "explanation": "Une note rapporte qu’al-Damîrî mentionne un récit selon lequel le Prophète ﷺ serait entré dans un hammam à al-Juhfa. Al-Hattâb signale immédiatement le jugement d’al-Nawawî sur sa faiblesse.",
+          "sourceLabel": "Al-Hattâb, citation d’al-Damîrî suivie du jugement d’al-Nawawî, t. 1, p. 114.",
+          "sourceUrl": "https://ablibrary.net/book_content/b/4471/114?lang=ar"
+        },
+        "paragraphs": [
+          "Le commentaire ajoute enfin une information relative à un récit ancien. Al-Damîrî aurait mentionné que le Prophète ﷺ était entré dans un hammam à al-Juhfa. Mais al-Hattâb n’en fait pas un argument authentifié : il cite ensuite al-Nawawî, qui qualifie le hadith de faible dans son Sharh al-Muhadhdhab, au chapitre du pèlerinage. Cette précaution compte autant que la mention du récit lui-même. On ne peut pas attribuer comme certain au Messager d’Allah ﷺ un acte dont la transmission est contestée.",
+          "Le lecteur doit donc apprendre une discipline simple : lorsqu’un savant rapporte une tradition, il faut examiner ce qu’il dit de son authenticité. C’est la même méthode que nous avons suivie dans la fiche précédente concernant une eau chauffée au soleil. Ici, les jugements sur la fréquentation des bains doivent être compris à partir des règles exposées sur la pudeur, la pureté de l’eau et les circonstances du lieu. Le récit d’al-Juhfa peut être évoqué comme une tradition historiquement citée, mais pas présenté comme une preuve prophétique certaine."
+        ],
+        "steps": [
+          {
+            "label": "Al-Damîrî est mentionné comme rapporteur",
+            "text": "Le commentaire cite le livre où la tradition apparaît au lieu de la présenter spontanément comme authentique."
+          },
+          {
+            "label": "Al-Nawawî fournit une critique explicite",
+            "text": "Sa qualification de hadith faible doit être signalée à chaque fois que l’on mentionne cette histoire."
+          },
+          {
+            "label": "L’attribution au Prophète ﷺ demande une rigueur particulière",
+            "text": "La célébrité d’un récit ne suffit pas à démontrer l’authenticité de sa chaîne de transmission."
+          },
+          {
+            "label": "Le jugement du hammam ne dépend pas de ce récit faible",
+            "text": "Les distinctions d’Ibn Rushd et les autres avis rapportés restent les éléments étudiés pour comprendre les situations réelles."
+          }
+        ],
+        "example": {
+          "title": "Comprendre le passage par une situation",
+          "text": "Un enseignant affirme que le Prophète ﷺ est certainement entré dans un hammam à al-Juhfa. Un élève lui demande la source. En lisant al-Hattâb, ils voient la remarque d’al-Damîrî puis la critique d’al-Nawawî. Le professeur corrige sa formulation et indique que le récit est faible. L’exemple est imaginaire, mais il montre pourquoi la transmission doit être vérifiée avant d’être utilisée comme preuve religieuse."
+        },
+        "takeaway": "Al-Hattâb mentionne le récit rapporté par al-Damîrî, puis précise qu’al-Nawawî le qualifie de faible. Il ne faut donc pas le présenter comme une preuve prophétique authentique pour trancher la question de l’entrée au hammam.",
+        "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 114, édition Dâr al-Kutub al-‘Ilmiyya. Exemple fictif clairement distinct de la citation."
       }
     ],
     "lexicon": [],
