@@ -528,6 +528,7 @@ async function desktop() {
     assert.equal(await page.locator('.fiqh-m-passage-translation').count(),4,'Traductions pédagogiques manquantes');
     assert.equal(await page.locator('.fiqh-m-breakdown').count(),4,'Décomposition pas à pas absente');
     assert.equal(await page.locator('.fiqh-m-case').count(),4,'Exemples concrets absents');
+    assert.equal(await page.locator('.fiqh-m-case-intro').count(),4,'Fiche 1 : cas concrets attendus avant les citations');
     assert.equal(await page.locator('.fiqh-m-takeaway').count(),4,'Repères « à retenir » absents');
     assert.equal(await page.locator('.fiqh-m-goals li').count(),4,'Objectifs de lecture absents');
     assert.match(await page.locator('.fiqh-m-passage blockquote').first().innerText(),/فساد العبادة وصحتها/);
@@ -553,6 +554,7 @@ async function desktop() {
     assert.equal(await page.locator('.fiqh-m-passage-translation').count(),5,'Traductions de passage manquantes');
     assert.equal(await page.locator('.fiqh-m-breakdown').count(),5,'Décompositions pédagogiques manquantes');
     assert.equal(await page.locator('.fiqh-m-case').count(),5,'Exemples concrets manquants');
+    assert.equal(await page.locator('.fiqh-m-case-intro').count(),5,'Fiche 2 : cas concrets attendus avant les citations');
     assert.equal(await page.locator('.fiqh-m-takeaway').count(),5,'À retenir manquants');
     assert.equal(await page.locator('.fiqh-m-passage-link').count(),5,'Les liens directs vers les passages originaux doivent être présents');
     assert.match(await page.locator('.fiqh-m-passage').nth(2).innerText(),/المشهور أنه لا يرفع الحدث/,'Mashhûr sur le tayammum non visible');
@@ -796,6 +798,16 @@ async function desktop() {
         await page.locator('.fiqh-m-lesson-link').nth(check.index).click();
         assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre absent '+check.number);
         assert.equal(await page.locator('.fiqh-m-section').count(),check.parts||4,'Nombre de lectures incorrect pour '+check.number);
+        if(Number(check.number)>=1&&Number(check.number)<=12){
+            assert.equal(await page.locator('.fiqh-m-case-intro').count(),check.parts||4,'Le cas de départ doit être affiché avant la citation de chaque lecture');
+            assert.equal(await page.locator('.fiqh-m-case:not(.fiqh-m-case-intro)').count(),0,'Le cas déjà placé en tête ne doit pas être dupliqué');
+            assert.ok(await page.locator('.fiqh-m-case-intro').first().evaluate(el=>!!el.nextElementSibling?.classList.contains('fiqh-m-passage')),'La citation doit venir après le cas concret');
+        }
+        if(check.number==='13'||check.number==='14'){
+            assert.equal(await page.locator('.fiqh-m-situation').count(),check.parts,'Chaque lecture des fiches 13 et 14 exige un cas pratique introductif');
+            assert.equal(await page.locator('.fiqh-m-case-intro').count(),0,'Les fiches 13 et 14 ont une introduction rédigée distincte');
+            assert.ok(await page.locator('.fiqh-m-situation').first().evaluate(el=>!!el.nextElementSibling?.classList.contains('fiqh-m-passage')),'La citation doit venir après le cas concret');
+        }
         if(check.number==='16'){
             assert.equal(await page.locator('.fiqh-m-situation').count(),24,'Les vingt-quatre situations de la fiche 16 doivent précéder les citations');
             assert.match(await page.locator('.fiqh-m-situation').first().innerText(),/citerne/,'Le cas concret initial de la fiche 16 est absent');
