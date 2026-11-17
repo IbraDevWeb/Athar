@@ -61,7 +61,7 @@ const MalikiFiqhView = {
                 if(!fiche) return false;
                 return normalize([
                     entry.name,fiche.title,fiche.subtitle,fiche.sourceSection,
-                    ...(fiche.sections || []).flatMap(section => [section.title,...(section.paragraphs || [])]),
+                    ...(fiche.sections || []).flatMap(section => [section.title,section.context || '',...(section.paragraphs || [])]),
                     ...(fiche.lexicon || []).flatMap(term => [term.term,term.arabic,term.definition])
                 ].join(' ')).includes(search);
             });
@@ -277,8 +277,9 @@ const MalikiFiqhView = {
                                 <section v-for="section in lesson.sections" :key="section.id" class="fiqh-m-section">
                                     <span class="fiqh-m-section-index">{{ section.eyebrow }}</span>
                                     <h3>{{ section.title }}</h3>
+                                    <p v-if="section.context" class="fiqh-m-situation">{{ section.context }}</p>
                                     <figure v-if="section.passage" class="fiqh-m-passage">
-                                        <figcaption>ON LIT D'ABORD LA SOURCE</figcaption>
+                                        <figcaption>LE PASSAGE DU LIVRE</figcaption>
                                         <blockquote lang="ar" dir="rtl">{{ section.passage.arabic }}</blockquote>
                                         <p class="fiqh-m-passage-translation"><strong>Traduction :</strong> {{ section.passage.translation }}</p>
                                         <p class="fiqh-m-passage-context">{{ section.passage.explanation }}</p>
@@ -289,7 +290,7 @@ const MalikiFiqhView = {
                                     </figure>
                                     <p v-for="(paragraph,i) in section.paragraphs" :key="i">{{ paragraph }}</p>
                                     <div v-if="section.steps?.length" class="fiqh-m-breakdown">
-                                        <h4><i data-lucide="book-open-check" aria-hidden="true"></i> On décortique ensemble</h4>
+                                        <h4><i data-lucide="book-open-check" aria-hidden="true"></i> Ce que le passage nous apprend</h4>
                                         <ol>
                                             <li v-for="(step,i) in section.steps" :key="i">
                                                 <strong>{{ step.label }}</strong>
