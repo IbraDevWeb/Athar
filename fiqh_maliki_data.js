@@ -10682,19 +10682,19 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     {
       "question": "Une eau redevenue claire est-elle automatiquement purifiante ?",
       "choices": [
-        "Toute eau claire est forcément purifiante",
         "Le mode de disparition détermine les questions à examiner",
+        "Toute eau claire est forcément purifiante",
         "Le texte ne connaît aucune divergence"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "La disparition des signes d’une altération ne suffit pas, dans ce passage, à écarter toutes les questions. Khalîl distingue plusieurs causes possibles et al-Hattâb vérifie les avis qui s’y rapportent. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Pourquoi al-Hattâb commence-t-il par séparer plusieurs situations ?",
       "choices": [
-        "Toutes les causes sont nécessairement équivalentes",
+        "La quantité ajoutée ne compte jamais",
         "L’apport d’eau pure et la disparition sans apport doivent être séparés",
-        "La quantité ajoutée ne compte jamais"
+        "Toutes les causes sont nécessairement équivalentes"
       ],
       "answer": 1,
       "explanation": "Al-Hattâb classe les cas avant de juger. L’ajout abondant d’eau pure constitue une catégorie distincte de la disparition spontanée ou de celle obtenue par un autre moyen. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
@@ -10703,28 +10703,28 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "question": "Que signifie l’accord rapporté lorsque l’on ajoute beaucoup d’eau pure ?",
       "choices": [
         "Toute disparition spontanée fait l’unanimité",
-        "L’accord concerne le cas précis d’un apport abondant",
-        "L’accord interdit les ablutions avec toute eau de puits"
+        "L’accord interdit les ablutions avec toute eau de puits",
+        "L’accord concerne le cas précis d’un apport abondant"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "L’accord transmis par al-Hattâb est limité au cas de l’apport abondant d’eau pure qui fait disparaître l’altération. Les autres modes de disparition restent discutés. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Pourquoi le puits dont on retire de l’eau sert-il d’exemple ?",
       "choices": [
-        "Un seul seau résout nécessairement tous les cas",
         "Le puits est alimenté et le changement doit avoir disparu",
+        "Un seul seau résout nécessairement tous les cas",
         "Le puits est toujours dépourvu d’alimentation"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Le puits sert à illustrer l’eau renouvelée jusqu’à disparition de l’altération. Le mécanisme d’alimentation compte, et le texte ne donne pas un seuil de seaux garantissant la potabilité. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Que change une pluie abondante dans une citerne ?",
       "choices": [
-        "La pluie et l’absence totale d’apport sont toujours identiques",
+        "La couleur de l’eau n’a jamais changé",
         "La pluie apporte de l’eau pure en quantité",
-        "La couleur de l’eau n’a jamais changé"
+        "La pluie et l’absence totale d’apport sont toujours identiques"
       ],
       "answer": 1,
       "explanation": "La pluie abondante est un cas d’apport d’eau, non une disparition sans cause extérieure. Al-Hattâb la range auprès du renouvellement du puits et la distingue de la simple attente. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
@@ -10733,28 +10733,28 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "question": "Pourquoi Abû Muhammad critique-t-il celui qui attend avant d’enlever la carcasse ?",
       "choices": [
         "Le livre ordonne de toujours laisser l’animal dans l’eau",
-        "La critique porte sur le retard à retirer la carcasse",
-        "Abû Muhammad interdit toute pluie"
+        "Abû Muhammad interdit toute pluie",
+        "La critique porte sur le retard à retirer la carcasse"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Le reproche rapporté concerne le fait de retarder le retrait de l’animal mort. La question du renouvellement de l’eau ne doit pas être utilisée pour justifier cette négligence. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Et si l’on fait disparaître l’altération avec autre chose que de l’eau ?",
       "choices": [
-        "Toute poudre est identique à de l’eau pure",
         "La matière ajoutée doit être étudiée séparément",
+        "Toute poudre est identique à de l’eau pure",
         "L’ajout d’un produit règle automatiquement le problème"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "L’ajout d’une matière autre que l’eau ouvre une branche distincte. L’accord sur l’apport abondant d’eau pure ne peut pas être transféré sans examen à ce nouveau mécanisme. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Que signifie une disparition du changement « d’elle-même » ?",
       "choices": [
-        "Elle fait l’unanimité sans condition",
+        "Elle signifie toujours un apport de pluie",
         "Elle suscite une divergence sur le retour de la qualité purifiante",
-        "Elle signifie toujours un apport de pluie"
+        "Elle fait l’unanimité sans condition"
       ],
       "answer": 1,
       "explanation": "La disparition spontanée de l’altération constitue le cœur du désaccord. La présentation des savants exige de distinguer l’état présent de l’eau et la certitude de son histoire passée. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
@@ -10763,28 +10763,28 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "question": "Et si l’on retire une partie de l’eau sans renouveler le bassin ?",
       "choices": [
         "Tout retrait est un ajout abondant d’eau pure",
-        "Le retrait partiel d’une réserve fermée reste discuté",
-        "Le puisage ne peut jamais modifier l’aspect"
+        "Le puisage ne peut jamais modifier l’aspect",
+        "Le retrait partiel d’une réserve fermée reste discuté"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Retirer une partie d’une réserve sans alimentation n’est pas identique à renouveler un puits par de l’eau pure. Al-Hattâb le rattache aux cas où deux avis existent. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Quels sont les deux avis que Khalîl met face à face ?",
       "choices": [
-        "Une unanimité incontestable est établie",
         "Deux avis sont rapportés et l’attribution à Ibn Yûnus est discutée",
+        "Une unanimité incontestable est établie",
         "Al-Hattâb interdit de consulter les textes anciens"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Les deux avis sur la qualité purifiante sont réellement exposés, mais la transmission à Ibn Yûnus fait l’objet d’une contestation explicite. Il faut enseigner la divergence et la critique de source ensemble. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
       "question": "Pourquoi Ibn Ghâzî conteste-t-il la citation d’Ibn Yûnus ?",
       "choices": [
-        "Il nie l’existence de toute divergence dans le fiqh",
+        "Il exige de toujours ajouter une poudre",
         "Il conteste que le texte cité traite directement le même cas",
-        "Il exige de toujours ajouter une poudre"
+        "Il nie l’existence de toute divergence dans le fiqh"
       ],
       "answer": 1,
       "explanation": "Ibn Ghâzî attire l’attention sur un possible déplacement du propos d’Ibn Yûnus vers un cas différent. Une attribution doctrinale ne suffit pas sans contrôle du contexte où elle a été formulée. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
@@ -10793,10 +10793,10 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "question": "Ibn Marzûq : quelle différence entre une citation et une analogie ?",
       "choices": [
         "Une déduction peut toujours être présentée comme une citation exacte",
-        "La citation directe et l’analogie sont deux démarches distinctes",
-        "Les textes d’Ibn Yûnus ne doivent jamais être lus"
+        "Les textes d’Ibn Yûnus ne doivent jamais être lus",
+        "La citation directe et l’analogie sont deux démarches distinctes"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ibn Marzûq refuse de confondre propos direct et analogie supposée. Al-Hattâb transmet cette critique et montre qu’une autorité ancienne doit être citée dans son domaine exact. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
     },
     {
@@ -10812,21 +10812,21 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     {
       "question": "Pourquoi ne pas trouver un avis ne signifie-t-il pas qu’il n’existe pas ?",
       "choices": [
+        "La recherche est inutile puisque tout peut exister",
         "Ne pas trouver un avis ne prouve pas son inexistence, sans pour autant autoriser l’invention",
-        "Toute opinion sans source doit être acceptée",
-        "La recherche est inutile puisque tout peut exister"
+        "Toute opinion sans source doit être acceptée"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Al-Hattâb enseigne une règle de recherche : l’absence de découverte n’est pas une démonstration d’inexistence, mais elle ne dispense jamais de produire une preuve pour affirmer un avis. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
       "question": "Quel cas concret Ibn Wahb examine-t-il à propos d’une réserve altérée ?",
       "choices": [
-        "Il examine une réserve particulière et la disparition de traces précises",
         "Il permet toute eau souillée sans aucune condition",
-        "Il interdit le retrait des carcasses"
+        "Il interdit le retrait des carcasses",
+        "Il examine une réserve particulière et la disparition de traces précises"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "La réponse d’Ibn Wahb est conditionnée par les faits du réservoir et la disparition des traces décrites. Elle constitue une position à comparer avec celle d’Ibn al-Qâsim et l’analyse d’Ibn Rushd. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
@@ -10842,21 +10842,21 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     {
       "question": "Pourquoi Ibn Rushd considère-t-il l’avis d’Ibn Wahb comme correct ?",
       "choices": [
+        "Il se borne à citer un chiffre de seaux",
         "Il invoque le principe lié au changement réel des propriétés",
-        "Il refuse toute distinction entre altération et absence d’altération",
-        "Il se borne à citer un chiffre de seaux"
+        "Il refuse toute distinction entre altération et absence d’altération"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ibn Rushd soutient Ibn Wahb en s’appuyant sur le principe de l’altération effective rapporté de Mâlik. Sa préférence n’efface pas la réserve d’Ibn al-Qâsim. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
       "question": "Que rapportent Ibn Wahb et Ibn Abî Uways de Mâlik lui-même ?",
       "choices": [
-        "Ils rapportent une permission de Mâlik dans un cas décrit",
         "Ils confirment que Mâlik n’a jamais été interrogé",
-        "Ils parlent d’un puits qui n’a jamais changé"
+        "Ils parlent d’un puits qui n’a jamais changé",
+        "Ils rapportent une permission de Mâlik dans un cas décrit"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Ibn Wahb et Ibn Abî Uways transmettent de Mâlik une permission dans un cas de citernes redevenues normales. Cette transmission coexiste avec la réserve exprimée par Ibn al-Qâsim. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
@@ -10872,21 +10872,21 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     {
       "question": "Pourquoi Ibn al-Fâkihânî juge-t-il plus connu l’avis strict ?",
       "choices": [
+        "Il cite uniquement une recommandation de seaux",
         "Il distingue deux avis et qualifie l’avis strict de mashhûr",
-        "Il nie l’existence de la moindre divergence",
-        "Il cite uniquement une recommandation de seaux"
+        "Il nie l’existence de la moindre divergence"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ibn al-Fâkihânî rapporte deux avis et présente le maintien du jugement initial comme le mashhûr. Ce classement ne doit pas être confondu avec la préférence exprimée par Ibn Rushd. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
       "question": "Et si l’on ajoute de la terre ou de l’argile à l’eau altérée ?",
       "choices": [
-        "Les propriétés de l’argile et l’avis d’Ibn al-Imâm doivent être distingués",
         "Ajouter de l’argile règle toujours et unanimement le problème",
-        "Aucun auteur ne discute la terre dans ce passage"
+        "Aucun auteur ne discute la terre dans ce passage",
+        "Les propriétés de l’argile et l’avis d’Ibn al-Imâm doivent être distingués"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Le cas de l’argile n’est pas uniforme : al-Tirâz distingue les propriétés visibles du produit ajouté, tandis qu’Ibn al-Imâm exprime une préférence stricte fondée sur la continuité du jugement. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
@@ -10902,21 +10902,21 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     {
       "question": "Pourquoi l’ajout d’une petite quantité d’eau pure reste-t-il discuté ?",
       "choices": [
+        "Le volume n’est jamais mentionné par les juristes",
         "Le faible ajout est discuté distinctement de l’apport abondant",
-        "Une goutte d’eau donne nécessairement un résultat identique à une grande dilution",
-        "Le volume n’est jamais mentionné par les juristes"
+        "Une goutte d’eau donne nécessairement un résultat identique à une grande dilution"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Le faible apport d’eau pure reste discuté dans les transmissions citées. Al-Bisâtî conteste la présentation de la divergence, et Ibn al-Imâm met l’accent sur la quantité finale. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     },
     {
       "question": "Pourquoi la fin du passage distingue-t-elle petits volumes et urine elle-même ?",
       "choices": [
-        "Il refuse de traiter l’urine comme une eau redevenue normale",
         "Toute substance impure devient pure sans condition dès qu’elle perd son odeur",
-        "La quantité d’eau est sans intérêt"
+        "La quantité d’eau est sans intérêt",
+        "Il refuse de traiter l’urine comme une eau redevenue normale"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "La quantité d’eau peut modifier le champ des divergences, et une eau anciennement altérée ne se confond pas avec la matière impure elle-même. Al-Hattâb rejette expressément une généralisation à l’urine. L’explication suit le cas décrit et les avis attribués ; elle ne généralise pas une préférence d’auteur à toute l’école."
     }
   ],
