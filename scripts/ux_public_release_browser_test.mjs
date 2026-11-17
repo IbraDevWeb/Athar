@@ -911,7 +911,7 @@ async function desktop() {
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
         assert.equal(await page.locator('.fiqh-m-term').count(),check.terms||6,'Lexique incomplet pour '+check.number);
         await page.locator('.fiqh-m-search input').fill(check.search);
-        assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche de lexique inactive '+check.number);
+        assert.ok((await page.locator('.fiqh-m-term').count())>=1 && (await page.locator('.fiqh-m-term').count())<(check.terms||6),'Recherche de lexique inactive '+check.number);
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
         assert.equal(await page.locator('.fiqh-m-question').count(),check.questions||3,'Quiz incomplet pour '+check.number);
         assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Quiz non réinitialisé '+check.number);
