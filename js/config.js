@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v106-fiqh-fiches-15-16-lisibles-v2';
+    const APP_VERSION = 'athar-pro-v107-fiqh-01-16-pedagogie-v3';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
