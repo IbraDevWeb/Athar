@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v109-fiqh-fiche-18-small-animals-v1';
+    const APP_VERSION = 'athar-pro-v110-fiqh-fiche-19-marine-animals-v1';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);

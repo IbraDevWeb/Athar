@@ -29,7 +29,8 @@ const MalikiFiqhView = {
             { key:'visibleImpurityAndWells', name:'Souillures et animal mort' },
             { key:'restoredWater', name:'Eau altérée redevenue claire' },
             { key:'witnessAndContact', name:'Témoignage et souillure de l’eau' },
-            { key:'smallAnimals', name:'Petits animaux sans sang coulant' }
+            { key:'smallAnimals', name:'Petits animaux sans sang coulant' },
+            { key:'marineAnimals', name:'Dépouilles des animaux marins' }
         ];
         const storageKeys = {
             intro:'athar_fiqh_maliki_intro_01_done',
@@ -49,7 +50,8 @@ const MalikiFiqhView = {
             visibleImpurityAndWells:'athar_fiqh_maliki_eaux_15_done',
             restoredWater:'athar_fiqh_maliki_eaux_16_done',
             witnessAndContact:'athar_fiqh_maliki_eaux_17_done',
-            smallAnimals:'athar_fiqh_maliki_animaux_18_done'
+            smallAnimals:'athar_fiqh_maliki_animaux_18_done',
+            marineAnimals:'athar_fiqh_maliki_animaux_19_done'
         };
         const availableLessons = Vue.computed(() => lessonCatalog.filter(entry => props.course?.[entry.key]));
         const completed = Vue.ref(Object.fromEntries(lessonCatalog.map(entry => [entry.key,false])));
