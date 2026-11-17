@@ -11051,7 +11051,8 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     "Comprendre : Pourquoi al-Bisâtî conteste-t-il la comparaison ?",
     "Comprendre : Comment al-Hattâb répond-il à l’objection d’al-Bisâtî ?",
     "Comprendre : Se laver au hammam puis mettre ses mains dans l’eau propre : quel est le problème ?",
-    "Comprendre : Pourquoi Ibn Rushd refuse-t-il d’enchaîner les soupçons de souillure ?"
+    "Comprendre : Pourquoi Ibn Rushd refuse-t-il d’enchaîner les soupçons de souillure ?",
+    "Comprendre pourquoi al-Barzalî distingue un argument de lavage du mashhûr de l’école."
   ],
   "sections": [
     {
@@ -11677,7 +11678,7 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       "passage": {
         "arabic": "تفريع على المشهور لا على غيره فتأمله",
         "translation": "« Cela peut être une conséquence de l’avis connu du madhhab, et non des autres avis : réfléchis-y. »",
-        "explanation": "Al-Hattâb propose précisément cette lecture. Il ne dit pas que l’objection d’al-Bisâtî serait sans intérêt.",
+        "explanation": "Al-Hattâb reconnaît l’objection d’al-Bisâtî, puis propose de comprendre la comparaison comme une conséquence de l’avis connu du madhhab. Il présente cette conciliation comme une possibilité, non comme une unanimité.",
         "sourceLabel": "Al-Hattâb, proposition personnelle après la critique d’al-Bisâtî — Mawâhib al-Jalîl, tome 1, p. 121 (édition Dâr al-Kutub al-‘Ilmiyya).",
         "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
       },
@@ -11791,6 +11792,47 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       },
       "takeaway": "Ibn Rushd distingue une impureté réellement établie d’une simple présomption liée à l’usage collectif d’un bassin. Il refuse d’étendre indéfiniment ce soupçon à l’eau propre et au corps sans fait certain.",
       "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, Dâr al-Kutub al-‘Ilmiyya. Ibn Rushd, explication de la réponse d’Ibn al-Qâsim transmise par al-Hattâb. Le scénario et les questions sont des illustrations pédagogiques, non des citations ni une fatwa."
+    },
+    {
+      "id": "barzali-qualification",
+      "title": "Pourquoi al-Barzalî demande-t-il de ne pas généraliser le lavage ?",
+      "eyebrow": "19 · LECTURE COMMENTÉE",
+      "context": "Une personne verse de l’eau propre sur une souillure présente sur sa peau et se frotte avec les mains. De l’eau lui revient sur les doigts. Cela rend-il automatiquement impure toute l’eau restante ?",
+      "passage": {
+        "arabic": "وهو غير المعروف من المذهب وإن كان وقع في ظاهر الرواية ما يؤيده",
+        "translation": "« Ce n’est pas l’avis connu du madhhab, même si le sens apparent d’une transmission peut l’appuyer. »",
+        "explanation": "Al-Barzalî discute une justification favorable au lavage lorsque l’eau est versée sur la souillure. Il signale qu’il ne s’agit pas de la position connue de l’école, même si certaines transmissions paraissent aller dans ce sens.",
+        "sourceLabel": "Al-Barzalî, réserve transmise par al-Hattâb — Mawâhib al-Jalîl, tome 1, p. 121 (Dâr al-Kutub al-‘Ilmiyya).",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/121?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb rapporte une remarque d’al-Barzalî sur une scène ordinaire : une personne a une souillure sur son corps ; elle verse de l’eau provenant d’un récipient propre et utilise ses mains pour frotter. Certaines transmissions laissent entendre qu’il n’y a pas de difficulté dans ce geste, en s’appuyant sur la différence entre l’eau que l’on verse sur une souillure et la souillure qui tombe dans l’eau. Mais al-Barzalî précise que cette justification n’est pas celle qui est généralement reconnue comme l’avis connu du madhhab. Son avertissement empêche de transformer une formulation incidente en règle unanime.",
+        "La distinction porte sur la justification juridique, pas sur la condamnation de toute personne qui se lave. Al-Barzalî signale qu’une lecture de certains récits peut soutenir cette solution, tout en demandant de ne pas la présenter comme la doctrine connue sans réserve. Al-Hattâb ajoute que l’observation d’Ibn Rushd lui paraît claire dans le cas du hammam précédemment évoqué. Nous concluons donc sur deux enseignements : la pratique doit être décrite précisément, et l’argument cité pour la défendre doit être attribué correctement. Cela vaut davantage qu’une formule trop simple sur l’eau qui touche la souillure."
+      ],
+      "steps": [
+        {
+          "label": "La personne verse de l’eau et se frotte",
+          "text": "Le cas concerne un lavage du corps où les mains touchent l’eau et la zone souillée, non un simple récipient laissé fermé."
+        },
+        {
+          "label": "Une permission est rapportée dans des circonstances précises",
+          "text": "Al-Barzalî rapproche ce geste de la réponse d’Ibn al-Qâsim sur une personne qui se lave après le hammam."
+        },
+        {
+          "label": "La justification n’est pas présentée comme le mashhûr",
+          "text": "Il reconnaît que des transmissions pourraient l’appuyer, tout en refusant de la présenter sans réserve comme l’avis connu."
+        },
+        {
+          "label": "Al-Hattâb distingue les arguments",
+          "text": "Il souligne que l’explication d’Ibn Rushd sur la souillure seulement présumée demeure plus claire pour le cas du hammam."
+        }
+      ],
+      "example": {
+        "title": "Application concrète",
+        "text": "Une personne nettoie une partie de son bras sur laquelle se trouvait une tache impure. Elle verse de l’eau propre, frotte avec les doigts et s’inquiète que toute l’eau présente ait été automatiquement rendue impure par le simple mouvement des mains. Les juristes cités comparent plusieurs cas : une souillure certaine, des éclaboussures et l’eau supposée impure d’un hammam. Le récit est fictif et montre pourquoi leur solution ne se résume pas à une phrase universelle sur le sens du versement."
+      },
+      "takeaway": "Al-Barzalî signale qu’une justification du lavage par le sens du versement n’est pas nécessairement le mashhûr, même si une transmission semble l’appuyer. Al-Hattâb préfère la clarté de l’explication d’Ibn Rushd pour le cas du hammam.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 121, passage rapportant al-Barzalî après Ibn Rushd. Les scènes sont pédagogiques et ne délivrent pas une fatwa personnelle."
     }
   ],
   "lexicon": [
@@ -12110,6 +12152,16 @@ const ATHAR_MALIKI_FIQH_COURSE = {
       ],
       "answer": 1,
       "explanation": "Ibn Rushd distingue une impureté réellement établie d’une simple présomption liée à l’usage collectif d’un bassin. Il refuse d’étendre indéfiniment ce soupçon à l’eau propre et au corps sans fait certain."
+    },
+    {
+      "question": "Pourquoi al-Barzalî demande-t-il de ne pas généraliser le lavage ?",
+      "choices": [
+        "Il précise que cette justification n’est pas nécessairement l’avis connu du madhhab, même si des transmissions peuvent l’appuyer",
+        "Il affirme que tout lavage de corps est interdit",
+        "Il prétend qu’aucune divergence n’a jamais existé"
+      ],
+      "answer": 0,
+      "explanation": "Al-Barzalî signale qu’une justification du lavage par le sens du versement n’est pas nécessairement le mashhûr, même si une transmission semble l’appuyer. Al-Hattâb préfère la clarté de l’explication d’Ibn Rushd pour le cas du hammam."
     }
   ],
   "quote": {
