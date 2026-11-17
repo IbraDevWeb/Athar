@@ -27,7 +27,8 @@ const MalikiFiqhView = {
             { key:'sunHeatedWater', name:'L’eau chauffée au soleil' },
             { key:'heatedWaterHammam', name:'Eau chauffée et hammam' },
             { key:'visibleImpurityAndWells', name:'Souillures et animal mort' },
-            { key:'restoredWater', name:'Eau altérée redevenue claire' }
+            { key:'restoredWater', name:'Eau altérée redevenue claire' },
+            { key:'witnessAndContact', name:'Témoignage et souillure de l’eau' }
         ];
         const storageKeys = {
             intro:'athar_fiqh_maliki_intro_01_done',
@@ -45,7 +46,8 @@ const MalikiFiqhView = {
             sunHeatedWater:'athar_fiqh_maliki_eaux_13_done',
             heatedWaterHammam:'athar_fiqh_maliki_eaux_14_done',
             visibleImpurityAndWells:'athar_fiqh_maliki_eaux_15_done',
-            restoredWater:'athar_fiqh_maliki_eaux_16_done'
+            restoredWater:'athar_fiqh_maliki_eaux_16_done',
+            witnessAndContact:'athar_fiqh_maliki_eaux_17_done'
         };
         const availableLessons = Vue.computed(() => lessonCatalog.filter(entry => props.course?.[entry.key]));
         const completed = Vue.ref(Object.fromEntries(lessonCatalog.map(entry => [entry.key,false])));
