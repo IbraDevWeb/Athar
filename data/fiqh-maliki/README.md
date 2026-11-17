@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–18
+# Fiqh malikite · Parcours 01–19
 
-**État au 17 novembre 2026 : dix-huit fiches publiées, les fiches 01 à 18 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 17 novembre 2026 : dix-neuf fiches publiées, les fiches 01 à 19 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -472,3 +472,34 @@ La leçon est une explication de textes classiques ; ses scénarios fictifs ne s
 **Intégration technique :** contenu dans `fiqh_maliki_fiche18_data.js`, chargé après les fiches 01–17 dans `index.html`. Le catalogue contient désormais 18 cartes ; la progression locale spécifique est `athar_fiqh_maliki_animaux_18_done`, sans changer les clés antérieures. Les contrôles statiques et navigateur vérifient les 19 citations, leur ordre après les cas concrets, le lexique, les quiz, les sources et la navigation. Cache PWA **v109**.
 
 **Limites :** les cas pratiques sont imaginés, les extraits arabes sont sélectionnés plutôt qu'une reproduction du chapitre intégral, la notion de pureté ne signifie ni permission universelle de manger ni garantie sanitaire. Les avis minoritaires sont attribués à leurs auteurs ; cette fiche ne délivre pas de fatwa. La fiche 19 est annoncée sur les animaux marins morts, à partir de la suite de la p. 123 et de la p. 124.
+
+
+## Fiche 19 — Les animaux marins morts : pureté et divergences (17 novembre 2026)
+
+**Source primaire :** al-Hattâb al-Ru‘aynî, *Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl*, tome 1, pages 123–124, édition Dâr al-Kutub al-‘Ilmiyya ; recoupement avec Islamweb, entrée /19/133. La fiche commence avec la formule du *Mukhtasar* **« والبحري »**, à la fin de la p. 123 ; elle s'achève après la remarque d'al-Hattâb concernant les grenouilles terrestres, avant le nouveau développement **« وما ذكي »** consacré à la mise à mort rituelle.
+
+### Parcours d'étude
+
+**18 lectures contextualisées**, chacune introduite par une situation concrète et la question que se poserait un débutant, puis le passage arabe, la traduction de sens, l'attribution de la citation, deux paragraphes d'explication, quatre observations, un exemple fictif et une synthèse.
+
+1. **La catégorie marine :** « والبحري » de Khalîl et l'explication « ميتة الحيوان البحري طاهرة » d'al-Hattâb.
+2. **Les circonstances de la mort :** décès spontané, dépouille flottante, capture et sortie vivante de l'eau, feu et argile.
+3. **Deux situations particulières :** découverte dans le ventre d'un autre poisson ou d'un oiseau mort ; dans ce dernier cas, **al-Hattâb mentionne expressément le lavage**.
+4. **L'identité du pêcheur :** musulman, membre des Gens du Livre ou mazdéen : la discussion porte ici sur la pureté rituelle de la dépouille.
+5. **L'animal marin vivant aussi sur terre :** « ولو طالت حياته ببر ». Distinction entre l'animal qui vit exclusivement en mer et celui qui peut séjourner longtemps sur terre.
+6. **Les avis divergents :** le **mashhûr attribué à Mâlik** juge la dépouille pure ; **Ibn Nâfi‘ et Ibn Dînâr** rapportent un avis d'impureté ; **Ibn ‘Arafa** transmet une troisième distinction selon le lieu du décès, attribuée à **‘Îsâ d'après Ibn al-Qâsim**.
+7. **Les espèces citées :** grenouille, tortue et crabe. **‘Abd al-Haqq** précise le cas des grenouilles terrestres et **al-Hattâb** apporte une réserve sur le sens apparent du propos.
+
+**Objectifs et évaluation :** 18 objectifs, 26 définitions de termes arabes et 18 QCM corrigés avec réponses réparties entre les trois choix possibles.
+
+**Attributions :** la phrase de Khalîl est distinguée du commentaire d'al-Hattâb, des paroles d'autres juristes et des transmissions rapportées par Ibn ‘Arafa. Les exemples de vie courante sont explicitement fictifs et distincts du texte historique.
+
+**Sources contrôlables :**
+- [Ahlulbayt Library — tome 1, p. 123](https://ablibrary.net/book_content/b/4471/123?lang=ar)
+- [Ahlulbayt Library — tome 1, p. 124](https://ablibrary.net/book_content/b/4471/124?lang=ar)
+- [Islamweb — Mawâhib al-Jalîl, passage correspondant, fiche numérique 133](https://www.islamweb.net/amp/ar/library/content/19/133/)
+- [Usul — notice de Mawâhib al-Jalîl](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil)
+
+**Intégration :** `fiqh_maliki_fiche19_data.js` est chargé après les données de la fiche 18 ; 19 cartes sont proposées dans le catalogue. La clé locale `athar_fiqh_maliki_animaux_19_done` conserve indépendamment la progression des fiches 01–18. Les tests statiques et navigateur ont été mis à jour pour contrôler la structure, l'ordre de lecture, les sources et les quiz. Cache PWA **v110**.
+
+**Limite essentielle :** la pureté rituelle de la dépouille ne dispense pas de vérifier séparément la licéité alimentaire d'une espèce, la sécurité sanitaire d'une prise ni l'interprétation des cas contemporains. Cette fiche d'étude n'est pas une fatwa. La **fiche 20** est annoncée sur « وما ذكي وجزؤه إلا محرم الأكل ».
