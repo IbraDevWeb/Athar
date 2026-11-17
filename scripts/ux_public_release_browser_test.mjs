@@ -711,7 +711,7 @@ async function desktop() {
     assert.equal(await page.evaluate(()=>localStorage.getItem('athar_fiqh_maliki_eaux_06_done')),'1','Progression propre à la fiche 06 non sauvegardée');
     await page.locator('.fiqh-m-lesson-link').nth(4).click();
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','La progression de la fiche 05 a été perdue');
-    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/6\s*\/\s*14/,'Progression des six premières fiches erronée');
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/6\s*\/\s*16/,'Progression des six premières fiches erronée');
 
     // Fiches 07 à 09 : eau déjà utilisée, usages recommandés, eau courante et stagnante.
     const fiqhAdvancedLessons = [
@@ -781,7 +781,7 @@ async function desktop() {
         assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true');
         assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1','Progression de '+check.number+' non persistée');
     }
-    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/9\s*\/\s*15/,'Progression des fiches précédentes erronée');
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/9\s*\/\s*16/,'Progression des fiches précédentes erronée');
     // Fiches 10-12 : bassin public, eau du puits peu abondante, et reste d'eau (su’r).
     const fiqhLatestLessons=[
         {index:9,number:'10',title:/bassins collectifs/i,quote:/يُفْرَغُ بِسُرْعَةٍ/,source:'/19/114/',search:'Birak',parts:9,terms:15,questions:12,key:'athar_fiqh_maliki_eaux_10_done'},
@@ -916,7 +916,7 @@ async function desktop() {
         assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true');
         assert.equal(await page.evaluate(key=>localStorage.getItem(key),check.key),'1','Suivi non enregistré '+check.number);
     }
-    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/15\s*\/\s*15/,'Progression des seize fiches incorrecte');
+    assert.match(await page.locator('.fiqh-m-aside-progress').innerText(),/16\s*\/\s*16/,'Progression des seize fiches incorrecte');
     await page.locator('.fiqh-m-lesson-link').first().click();
     assert.equal(await page.locator('.fiqh-m-complete').getAttribute('aria-pressed'),'true','Lecture historique de la fiche 01 perdue');
     await page.locator('.fiqh-m-lesson-link').nth(2).click();
