@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–17
+# Fiqh malikite · Parcours 01–18
 
-**État au 17 novembre 2026 : dix-sept fiches publiées, les fiches 01 à 17 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 17 novembre 2026 : dix-huit fiches publiées, les fiches 01 à 18 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -448,3 +448,27 @@ Les dix lectures suivantes discutent l’eau versée sur une souillure et l’in
 Suivi de lecture distinct : `athar_fiqh_maliki_eaux_17_done`. Les marques des fiches 01–16 sont conservées. La fiche 18 sera consacrée au début du chapitre suivant : la pureté des petits animaux morts dépourvus de sang coulant. Cache PWA **v108**.
 
 La leçon est une explication de textes classiques ; ses scénarios fictifs ne sont ni une fatwa personnelle ni une garantie de potabilité.
+
+
+## Fiche 18 — Quels petits animaux morts restent purs ? (17 novembre 2026)
+
+**Source première :** *Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl* d'al-Hattâb, **tome 1, pages 122–123**, édition Dâr al-Kutub al-‘Ilmiyya (texte présenté sur Ahlulbayt Library). Le chapitre commence par le texte de Khalîl « فصل الطاهر ميت ما لا دم له » ; la fiche 18 s'arrête avant la discussion suivante consacrée aux animaux marins.
+
+**Contenu ajouté :** 19 lectures contextualisées, 19 objectifs, 26 notions expliquées et 19 QCM corrigés. Le même modèle que la fiche 17 est conservé : chaque lecture commence par une question et une situation fictive, puis présente l'extrait arabe attribué, sa traduction française, une explication suivie, deux développements, quatre points de lecture, un exemple et une synthèse. Les bonnes réponses des QCM sont réparties entre trois positions.
+
+**Progression des lectures :**
+
+1. La catégorie des dépouilles sans sang coulant et l'ordre du chapitre.
+2. Le sens de « nafs sâ’ila », les exemples cités et la distinction avec l'humidité.
+3. Deux manières de rapporter les avis : l'accord chez Ibn Bashîr, puis deux opinions dont la pureté est le mashhûr.
+4. Les transmissions attribuées à Sahnûn, Ibn Nâfi‘ et Ashhab, sans effacer leurs différences d'objet et de conséquence.
+5. L'animal demeuré entier dans l'eau ou la nourriture, puis la matière dispersée et l'eau réellement modifiée.
+6. La divergence sur l'impureté de cette eau, le cas du mélange par cuisson et l'objection attribuée à Sahnûn.
+7. La distinction entre pureté rituelle et consommation d'une nourriture contenant la matière de l'animal, avec la discussion de la dhakâ.
+8. La mise à l'écart explicite du gecko et des lézards (p. 123).
+
+**Sources vérifiables :** [texte arabe p. 122](https://ablibrary.net/book_content/b/4471/122?lang=ar) ; [p. 123](https://ablibrary.net/book_content/b/4471/123?lang=ar) ; [recoupement Islamweb, chapitre « فصل الطاهر أنواع »](https://islamweb.net/ar/library/content/19/132/) (autre pagination) ; [notice Usul](https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil).
+
+**Intégration technique :** contenu dans `fiqh_maliki_fiche18_data.js`, chargé après les fiches 01–17 dans `index.html`. Le catalogue contient désormais 18 cartes ; la progression locale spécifique est `athar_fiqh_maliki_animaux_18_done`, sans changer les clés antérieures. Les contrôles statiques et navigateur vérifient les 19 citations, leur ordre après les cas concrets, le lexique, les quiz, les sources et la navigation. Cache PWA **v109**.
+
+**Limites :** les cas pratiques sont imaginés, les extraits arabes sont sélectionnés plutôt qu'une reproduction du chapitre intégral, la notion de pureté ne signifie ni permission universelle de manger ni garantie sanitaire. Les avis minoritaires sont attribués à leurs auteurs ; cette fiche ne délivre pas de fatwa. La fiche 19 est annoncée sur les animaux marins morts, à partir de la suite de la p. 123 et de la p. 124.
