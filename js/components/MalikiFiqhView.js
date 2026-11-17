@@ -200,7 +200,8 @@ const MalikiFiqhView = {
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'limitedWell'">Se purifier <em>avec une eau limitée.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'leftoverWater'">Comprendre <em>le su’r.</em></h1>
                     <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'sunHeatedWater'">Étudier <em>l’eau chauffée au soleil.</em></h1>
-                    <h1 id="fiqh-m-heading" v-else>Comprendre <em>l’eau chaude et le hammam.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else-if="selectedLessonKey === 'heatedWaterHammam'">Comprendre <em>l’eau chaude et le hammam.</em></h1>
+                    <h1 id="fiqh-m-heading" v-else>{{ lesson.title }}</h1>
                     <p class="fiqh-m-lead">{{ lesson.subtitle }}</p>
                     <div class="fiqh-m-hero-meta">
                         <span><i data-lucide="book-open" aria-hidden="true"></i> {{ course.book.authorArabic }}</span>
