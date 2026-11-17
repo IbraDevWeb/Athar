@@ -9541,9 +9541,663 @@ const ATHAR_MALIKI_FIQH_COURSE = {
     }
   ]
 },
+  "restoredWater": {
+  "id": "water-purity-return-16",
+  "number": "16",
+  "status": "disponible",
+  "title": "Quand une eau altérée redevient-elle purifiante ?",
+  "subtitle": "Khalîl, Ibn Yûnus, Ibn Rushd et les anciens malikites : disparition de l’altération, renouvellement de l’eau, divergences et critique des attributions.",
+  "sourceSection": "كتاب الطهارة — « وإن زال تغير النجس لا بكثرة مطلق فاستحسن الطهورية وعدمها أرجح » · Mawâhib al-Jalîl, tome 1, p. 118–120 (Dâr al-Kutub al-‘Ilmiyya)",
+  "goals": [
+    "Lire les conditions de la phrase de Khalîl avant de discuter le retour de l’eau à la qualité purifiante.",
+    "Identifier les mécanismes différents de disparition d’une altération et leur portée juridique.",
+    "Restituer exactement la portée de l’accord dans le cas de la quantité d’eau ajoutée.",
+    "Comprendre le rôle de l’alimentation d’un puits et la disparition effective du changement.",
+    "Distinguer l’apport abondant de pluie d’une simple attente sans intervention.",
+    "Comprendre une critique de conduite sans confondre le débat juridique sur la purification de l’eau.",
+    "Séparer l’ajout d’une matière non aqueuse de l’arrivée d’eau pure.",
+    "Comprendre le cœur de la divergence sur le changement qui cesse sans ajout d’eau.",
+    "Ne pas confondre le retrait partiel d’une réserve fermée avec le renouvellement d’un puits.",
+    "Restituer les deux positions sans dissimuler le problème de la source attribuée à Ibn Yûnus.",
+    "Apprendre à vérifier si une parole ancienne porte réellement sur le cas qui lui est attribué.",
+    "Distinguer ce qu’un savant a dit et ce qu’un commentateur pourrait déduire par analogie."
+  ],
+  "sections": [
+    {
+      "id": "khalil-condition",
+      "title": "Une eau redevenue claire est-elle automatiquement purifiante ?",
+      "eyebrow": "01 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وإن زال تغير النجس لا بكثرة مطلق",
+        "translation": "« Si l’altération causée par l’impur disparaît autrement que par l’ajout abondant d’eau pure… »",
+        "sourceLabel": "Khalîl, formule du Mukhtasar développée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. La phrase de Khalîl distingue le cas où de l’eau pure a été ajoutée en quantité suffisante de celui où le changement disparaît autrement. Il rapporte ensuite deux qualifications : certains maîtres ont jugé bon de reconnaître la qu",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Supposons qu’une impureté ait réellement changé la couleur, l’odeur ou le goût d’une eau. Plus tard, ces modifications ne se remarquent plus. La question que Khalîl pose ici est précise : cette eau retrouve-t-elle la capacité de purifier pour les ablutions et le ghusl ? Tu remarqueras qu’il ne parle pas d’une simple suspicion de saleté, mais d’une altération qui avait existé et que l’on sait ensuite disparue. Il faut donc suivre l’histoire de cette eau, et non regarder seulement son aspect présent.",
+        "La phrase de Khalîl distingue le cas où de l’eau pure a été ajoutée en quantité suffisante de celui où le changement disparaît autrement. Il rapporte ensuite deux qualifications : certains maîtres ont jugé bon de reconnaître la qualité purifiante, tandis qu’une position contraire est présentée comme plus forte dans sa rédaction. Al-Hattâb va examiner les sources de ces jugements et même leur attribution. Nous ne devons pas prendre l’affirmation du manuel comme la fin du débat."
+      ],
+      "steps": [
+        {
+          "label": "Une impureté avait réellement changé l’eau",
+          "text": "Le point de départ n’est pas un doute hypothétique : l’eau avait perdu l’une de ses qualités en raison d’une substance impure."
+        },
+        {
+          "label": "Un changement a ensuite disparu",
+          "text": "La disparition observable du changement est le fait nouveau à comprendre, pas encore la conclusion juridique."
+        },
+        {
+          "label": "Le moyen de disparition compte",
+          "text": "Ajouter beaucoup d’eau pure n’est pas automatiquement équivalent à attendre ou à retirer une partie du liquide."
+        },
+        {
+          "label": "La phrase annonce une divergence",
+          "text": "La qualité purifiante et son absence sont discutées, avec une enquête d’al-Hattâb sur les avis réellement transmis."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — une eau redevenue claire est-elle automatiquement purifiante ",
+        "text": "Une famille découvre qu’un ancien bassin a été altéré par une souillure certaine. Plusieurs jours plus tard, la couleur et l’odeur normales semblent revenues. Une personne déclare que l’eau est forcément purifiante ; une autre qu’elle ne peut jamais le redevenir. Avant de répondre, il faut déterminer comment la modification a disparu. Ce scénario est fictif : il ne certifie ni la pureté rituelle ni la qualité sanitaire de ce bassin."
+      },
+      "takeaway": "La disparition des signes d’une altération ne suffit pas, dans ce passage, à écarter toutes les questions. Khalîl distingue plusieurs causes possibles et al-Hattâb vérifie les avis qui s’y rapportent.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Khalîl, formule du Mukhtasar développée par al-Hattâb. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "paths",
+      "title": "Pourquoi al-Hattâb commence-t-il par séparer plusieurs situations ?",
+      "eyebrow": "02 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فلا يخلو إما أن يكون بمكاثرة ماء مطلق خالطه أم لا",
+        "translation": "« Soit le changement a cessé par un apport abondant d’eau pure non qualifiée, soit ce n’est pas le cas. »",
+        "sourceLabel": "Al-Hattâb, distinction introductive des causes de disparition, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Dans la seconde famille de situations, le commentaire distinguera encore l’ajout d’une matière autre que l’eau, la disparition spontanée et même le retrait d’une partie d’une réserve sans alimentation. Ces cas ont une apparence co",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb n’annonce pas immédiatement un verdict. Il partage d’abord les situations : parfois, on ajoute à l’eau altérée une quantité d’eau pure suffisante ; parfois, le changement cesse sans cet apport. Cette méthode paraît simple, mais elle empêche beaucoup de confusions. Si le contenu d’une citerne se renouvelle par une pluie abondante, on n’examine pas exactement les mêmes circonstances qu’une cuve laissée au repos jusqu’à ce que son odeur s’atténue.",
+        "Dans la seconde famille de situations, le commentaire distinguera encore l’ajout d’une matière autre que l’eau, la disparition spontanée et même le retrait d’une partie d’une réserve sans alimentation. Ces cas ont une apparence commune — l’eau semble revenue à son état ordinaire — mais ils ne possèdent pas nécessairement le même jugement dans les avis rapportés. Il est donc prématuré de répéter un principe général sans préciser la transformation réellement survenue."
+      ],
+      "steps": [
+        {
+          "label": "La « mukâthara » vise un apport d’eau",
+          "text": "On parle de l’ajout d’une quantité d’eau pure non qualifiée, et non d’un produit quelconque."
+        },
+        {
+          "label": "Les autres causes sont laissées ouvertes",
+          "text": "La formule « ou non » annonce que plusieurs mécanismes resteront à analyser séparément."
+        },
+        {
+          "label": "L’apparence finale ne raconte pas toute l’histoire",
+          "text": "Deux réserves qui semblent aujourd’hui identiques peuvent avoir suivi des transformations juridiquement différentes."
+        },
+        {
+          "label": "Le juriste cherche d’abord le fait",
+          "text": "Avant d’appliquer une qualification, il identifie la cause précise du retour à un aspect normal."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — pourquoi al-hattâb commence-t-il par séparer plusieurs situations ",
+        "text": "Deux citernes avaient perdu leurs qualités à cause d’une souillure. Dans l’une, une grande quantité de pluie a renouvelé l’eau ; dans l’autre, le changement a simplement cessé après un long repos. Si tu ne décris que le résultat — « elles ne sentent plus mauvais » — tu fais disparaître l’élément que l’auteur vient précisément de distinguer. La scène est inventée pour montrer la nécessité d’une description complète."
+      },
+      "takeaway": "Al-Hattâb classe les cas avant de juger. L’ajout abondant d’eau pure constitue une catégorie distincte de la disparition spontanée ou de celle obtenue par un autre moyen.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, distinction introductive des causes de disparition. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "abundant-consensus",
+      "title": "Que signifie l’accord rapporté lorsque l’on ajoute beaucoup d’eau pure ?",
+      "eyebrow": "03 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فالأول طهور باتفاق قاله في التوضيح",
+        "translation": "« Dans le premier cas, elle est purifiante selon l’accord rapporté dans al-Tawdîh. »",
+        "sourceLabel": "Al-Hattâb, citant al-Tawdîh sur l’apport abondant d’eau pure, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Cela nous permet aussi de distinguer une disparition accompagnée d’un apport abondant d’eau de celle qui suit l’ajout de quelques gouttes. Al-Hattâb consacrera plus loin une discussion particulière au petit apport, car certains ma",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Le premier cas reçoit ici une réponse assez nette : lorsque l’eau altérée a été mélangée à beaucoup d’eau pure, de sorte que la modification a disparu dans les conditions envisagées, al-Hattâb rapporte de l’ouvrage al-Tawdîh qu’elle redevient purifiante selon l’accord évoqué. Il est important de ne pas détacher le mot « accord » du cas qu’il qualifie. Il ne concerne pas toutes les façons imaginables de faire disparaître une altération.",
+        "Cela nous permet aussi de distinguer une disparition accompagnée d’un apport abondant d’eau de celle qui suit l’ajout de quelques gouttes. Al-Hattâb consacrera plus loin une discussion particulière au petit apport, car certains maîtres ne l’assimilent pas automatiquement au premier cas. Le professeur doit apprendre à ses élèves qu’une formule d’accord peut être tout à fait correcte dans son domaine, mais devenir fausse dès qu’on la transporte sans ses conditions."
+      ],
+      "steps": [
+        {
+          "label": "La formule est rapportée d’al-Tawdîh",
+          "text": "Al-Hattâb donne sa source pour cette qualification ; elle ne doit pas être présentée comme une opinion improvisée."
+        },
+        {
+          "label": "L’accord concerne l’apport abondant d’eau pure",
+          "text": "Le mot « premier » renvoie expressément à la première catégorie dans le partage des situations."
+        },
+        {
+          "label": "Le changement doit effectivement avoir disparu",
+          "text": "Il ne suffit pas d’ajouter de l’eau si l’altération causée par l’impureté demeure."
+        },
+        {
+          "label": "Le faible apport sera étudié séparément",
+          "text": "Le commentaire reviendra sur la distinction entre abondance et petite quantité d’eau ajoutée."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — que signifie l’accord rapporté lorsque l’on ajoute beaucoup d’eau pure ",
+        "text": "Un élève entend « l’eau redevient purifiante par accord » et l’écrit dans ses notes comme une règle sans condition. L’enseignant le renvoie à la phrase précédente : quel est ce « premier cas » ? L’élève retrouve alors l’ajout abondant d’eau pure. On comprend ainsi comment deux phrases qui se suivent doivent être lues ensemble. L’exemple est fictif, et il ne donne aucune méthode de traitement sanitaire d’une eau réelle."
+      },
+      "takeaway": "L’accord transmis par al-Hattâb est limité au cas de l’apport abondant d’eau pure qui fait disparaître l’altération. Les autres modes de disparition restent discutés.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, citant al-Tawdîh sur l’apport abondant d’eau pure. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "well",
+      "title": "Pourquoi le puits dont on retire de l’eau sert-il d’exemple ?",
+      "eyebrow": "04 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وذلك كالبئر ينزح منها حتى يزول التغير",
+        "translation": "« C’est le cas du puits dont on retire de l’eau jusqu’à disparition de l’altération. »",
+        "sourceLabel": "Al-Hattâb, exemple du puits après la distinction d’al-Tawdîh, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Cette explication prolonge directement la fiche 15, où nous avions déjà distingué les réserves stagnantes alimentées et les citernes sans apport. Les mêmes mots retrouvent ici leur utilité. Mais la description rituelle d’un puits ",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Lorsque l’on puise dans un puits alimenté, l’eau retirée peut être remplacée par un apport nouveau. Al-Hattâb cite ce cas dans la branche de l’eau qui se trouve renouvelée jusqu’à disparition de son altération. Ne saute pas immédiatement à l’idée qu’il suffirait de retirer un seau : le passage dit bien que l’on puise jusqu’à disparition du changement. Le texte lie le mécanisme concret de renouvellement à l’évolution des propriétés de l’eau.",
+        "Cette explication prolonge directement la fiche 15, où nous avions déjà distingué les réserves stagnantes alimentées et les citernes sans apport. Les mêmes mots retrouvent ici leur utilité. Mais la description rituelle d’un puits ne dit pas qu’il est potable au sens moderne : des contaminants peuvent subsister sans odeur ni couleur perceptible. Ce que nous expliquons est la classification des juristes, sans y ajouter une promesse sanitaire que leur texte ne formule pas."
+      ],
+      "steps": [
+        {
+          "label": "Le puits possède un apport d’eau",
+          "text": "Ce qui est retiré peut être remplacé, à la différence d’un récipient fermé sans renouvellement."
+        },
+        {
+          "label": "Le puisage se poursuit jusqu’à disparition du changement",
+          "text": "La formulation ne fixe pas un nombre universel de seaux et ne permet pas de conclure avant cette disparition."
+        },
+        {
+          "label": "L’exemple complète la fiche précédente",
+          "text": "La différence entre une réserve alimentée et une réserve close devient décisive pour comprendre l’évolution du liquide."
+        },
+        {
+          "label": "La pureté rituelle n’est pas la potabilité",
+          "text": "La source n’a pas pour objet de garantir la sécurité microbiologique de l’eau d’un puits actuel."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — pourquoi le puits dont on retire de l’eau sert-il d’exemple ",
+        "text": "Dans un ancien village, des habitants disposent d’un puits alimenté par une source. Ils retirent de l’eau après une altération qui avait été constatée. Le professeur explique que le commentaire vise un retrait accompagné de renouvellement, et non un chiffre pris au hasard. Si l’altération restait présente, l’exemple ne remplirait pas la condition. Le récit est fictif ; aucune instruction sanitaire n’en est déduite."
+      },
+      "takeaway": "Le puits sert à illustrer l’eau renouvelée jusqu’à disparition de l’altération. Le mécanisme d’alimentation compte, et le texte ne donne pas un seuil de seaux garantissant la potabilité.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, exemple du puits après la distinction d’al-Tawdîh. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "rain",
+      "title": "Que change une pluie abondante dans une citerne ?",
+      "eyebrow": "05 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وكالصهريج يتغير بميتة فيترك حتى يكثر ماؤه بمطر ونحوه",
+        "translation": "« Comme une citerne altérée par une bête morte, laissée jusqu’à ce que la pluie ou un autre apport augmente fortement son eau. »",
+        "sourceLabel": "Al-Hattâb, second exemple concret du renouvellement de l’eau, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Il faut rester attentif au caractère historique du scénario. Un étudiant pourrait le résumer ainsi : « Il suffit d’attendre que la pluie tombe sur une citerne souillée. » Or le commentaire exige d’identifier l’apport et la dispari",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb donne après le puits une image facile à comprendre : une citerne a été altérée par une bête morte ; on la laisse jusqu’à ce que la pluie, ou un apport semblable, augmente sensiblement la quantité d’eau. Ce n’est pas seulement le passage du temps qui est décrit. La pluie apporte de l’eau nouvelle et contribue au mécanisme de renouvellement évoqué juste avant. C’est pourquoi cet exemple appartient à la première famille de cas.",
+        "Il faut rester attentif au caractère historique du scénario. Un étudiant pourrait le résumer ainsi : « Il suffit d’attendre que la pluie tombe sur une citerne souillée. » Or le commentaire exige d’identifier l’apport et la disparition de l’altération. Il n’explique pas comment neutraliser les risques invisibles d’une eau de boisson. L’intérêt de cette lecture est de comprendre pourquoi le juriste ne met pas sur le même plan renouvellement abondant et disparition spontanée."
+      ],
+      "steps": [
+        {
+          "label": "La pluie constitue de l’eau nouvelle",
+          "text": "L’exemple relève de l’apport d’eau pure, non du simple repos d’un récipient fermé."
+        },
+        {
+          "label": "La quantité devient importante",
+          "text": "Le texte parle de l’augmentation notable de l’eau de la citerne, pas d’une averse symbolique."
+        },
+        {
+          "label": "L’altération initiale était réelle",
+          "text": "La discussion commence par un changement causé par une carcasse et ne concerne pas un bassin simplement suspecté."
+        },
+        {
+          "label": "L’exemple n’est pas un conseil sanitaire",
+          "text": "Les critères de potabilité ou de nettoyage actuel ne découlent pas de cette anecdote juridique."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — que change une pluie abondante dans une citerne ",
+        "text": "Après une période sèche, une citerne qui avait été altérée reçoit une grande quantité de pluie. Dans une autre citerne, aucun apport n’arrive et les signes du changement diminuent simplement avec le temps. Les deux eaux peuvent finir par avoir un aspect proche, mais le commentaire les classe différemment. Cette comparaison fictive permet de comprendre la place de la pluie dans le raisonnement, pas d’en déduire qu’une citerne peut être bue sans contrôle."
+      },
+      "takeaway": "La pluie abondante est un cas d’apport d’eau, non une disparition sans cause extérieure. Al-Hattâb la range auprès du renouvellement du puits et la distingue de la simple attente.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, second exemple concret du renouvellement de l’eau. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "abu-muhammad",
+      "title": "Pourquoi Abû Muhammad critique-t-il celui qui attend avant d’enlever la carcasse ?",
+      "eyebrow": "06 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "وتجهيله في تأخير طرحه",
+        "translation": "« Sa critique porte sur le retard pris à l’enlever. »",
+        "sourceLabel": "Al-Hattâb, précisant le sens du reproche d’Abû Muhammad, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Une mauvaise lecture ferait de cette scène une approbation générale de l’attente, comme si la quantité future d’eau dispensait d’agir dès à présent. Mais la citation d’al-Hattâb vise précisément le comportement de celui qui tarde ",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Dans la même page, al-Hattâb rapporte le cas d’une petite réserve dans laquelle une souris est tombée. Un homme aurait envisagé de fermer l’ouverture et d’attendre que l’eau augmente avant de l’utiliser. Abû Muhammad critique cette manière de procéder. Al-Hattâb précise que le reproche concerne le fait de retarder le retrait de la bête. Voilà une nuance importante : le jugement sur le renouvellement de l’eau ne justifie pas de laisser volontairement la carcasse à l’intérieur.",
+        "Une mauvaise lecture ferait de cette scène une approbation générale de l’attente, comme si la quantité future d’eau dispensait d’agir dès à présent. Mais la citation d’al-Hattâb vise précisément le comportement de celui qui tarde à retirer ce qui souille. Elle montre aussi pourquoi il faut lire la fin d’une anecdote : un détail peut changer le sens du jugement que l’on croyait avoir compris. Nous n’en déduisons aucune procédure sanitaire contemporaine."
+      ],
+      "steps": [
+        {
+          "label": "Le récit commence par une petite réserve altérée",
+          "text": "La scène ne présente pas une eau initialement claire sans élément matériel de souillure."
+        },
+        {
+          "label": "Abû Muhammad réprimande un comportement précis",
+          "text": "Il critique le fait de laisser la carcasse alors qu’elle pourrait être retirée."
+        },
+        {
+          "label": "Al-Hattâb précise le motif de la critique",
+          "text": "Sa formule empêche de confondre le reproche avec une condamnation de tous les apports d’eau."
+        },
+        {
+          "label": "Le texte ne remplace pas un protocole moderne",
+          "text": "L’élimination de la carcasse et la sécurité de l’eau doivent être examinées au-delà de cette seule discussion."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — pourquoi abû muhammad critique-t-il celui qui attend avant d’enlever la carcasse ",
+        "text": "Un élève cite l’histoire d’un homme qui attendrait de fortes pluies pour utiliser une citerne contenant encore une bête morte. Il pense que le livre approuve cette attente. Son professeur lit la remarque finale d’al-Hattâb : ce qui est blâmé est justement le retard pris à retirer la carcasse. L’exemple pédagogique est imaginé pour montrer comment une précision de commentaire peut renverser une première impression."
+      },
+      "takeaway": "Le reproche rapporté concerne le fait de retarder le retrait de l’animal mort. La question du renouvellement de l’eau ne doit pas être utilisée pour justifier cette négligence.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, précisant le sens du reproche d’Abû Muhammad. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "other-substance",
+      "title": "Et si l’on fait disparaître l’altération avec autre chose que de l’eau ?",
+      "eyebrow": "07 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "والثاني إما أن يكون بإلقاء شئ فيه غير الماء",
+        "translation": "« Dans le second cas, cela peut venir du fait qu’on y a jeté une substance autre que l’eau. »",
+        "sourceLabel": "Al-Hattâb, classement des cas non liés à un apport abondant d’eau pure, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Al-Hattâb explique que Khalîl n’a pas traité directement cette branche dans les mots ici commentés, et annonce qu’il y reviendra. Plus loin, il discutera effectivement du cas de la terre et de l’argile, en rapportant des qualifica",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Après l’apport abondant d’eau pure, al-Hattâb envisage les autres façons de voir disparaître l’altération. La première consiste à ajouter quelque chose qui n’est pas de l’eau. Une poudre, une terre ou de l’argile peuvent modifier les propriétés sensibles d’un liquide. Mais si la mauvaise odeur initiale devient indétectable parce qu’une autre substance a été ajoutée, la question n’est pas forcément la même que lorsque de l’eau pure renouvelle la réserve.",
+        "Al-Hattâb explique que Khalîl n’a pas traité directement cette branche dans les mots ici commentés, et annonce qu’il y reviendra. Plus loin, il discutera effectivement du cas de la terre et de l’argile, en rapportant des qualifications différentes selon que la matière ajoutée laisse ou non une trace de ses propres propriétés. Il faut donc résister à la tentation d’appliquer au second mécanisme l’accord cité à propos du premier."
+      ],
+      "steps": [
+        {
+          "label": "Ce n’est plus le cas de la mukâthara",
+          "text": "Une matière différente de l’eau ne doit pas être rangée dans la catégorie de l’apport abondant d’eau pure."
+        },
+        {
+          "label": "L’aspect nouveau peut provenir du produit ajouté",
+          "text": "Un changement de couleur ou d’odeur peut masquer les propriétés précédentes sans répondre à toutes les questions juridiques."
+        },
+        {
+          "label": "Khalîl n’explicite pas ce cas dans sa formule",
+          "text": "Al-Hattâb indique que ce sujet sera traité par la suite et lui consacre des précisions."
+        },
+        {
+          "label": "La question exige une nouvelle discussion",
+          "text": "Il faut tenir compte de ce que l’ajout a réellement fait et des avis rapportés à propos de cette transformation."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — et si l’on fait disparaître l’altération avec autre chose que de l’eau ",
+        "text": "On compare deux bassins initialement altérés. Dans le premier, on ajoute de l’eau propre en abondance. Dans le second, on verse une matière qui change l’apparence du contenu, sans ajouter d’eau. Un lecteur dit qu’un même résultat visuel doit prouver un verdict identique. Le commentaire lui demande plutôt de décrire le moyen employé. Cet exemple est fictif et ne constitue aucun conseil de traitement de l’eau."
+      },
+      "takeaway": "L’ajout d’une matière autre que l’eau ouvre une branche distincte. L’accord sur l’apport abondant d’eau pure ne peut pas être transféré sans examen à ce nouveau mécanisme.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, classement des cas non liés à un apport abondant d’eau pure. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "spontaneous",
+      "title": "Que signifie une disparition du changement « d’elle-même » ?",
+      "eyebrow": "08 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "أو من نفسه فلا شئ",
+        "translation": "« Ou bien le changement disparaît de lui-même, sans qu’on y ajoute quelque chose. »",
+        "sourceLabel": "Al-Hattâb, présentation du cas de disparition spontanée, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. La réponse demande de lire attentivement les avis, car elle ne se résume pas à un slogan sur la propreté de l’eau. Certains s’appuient sur la disparition de la cause sensible du jugement ; d’autres accordent davantage de poids à l",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Voici le cas qui intéresse particulièrement les juristes cités par al-Hattâb. Une eau avait été altérée par une souillure certaine ; puis, sans apport nouveau et sans produit ajouté, elle ne présente plus les propriétés modifiées. Doit-on regarder uniquement son état présent, ou conserver le jugement fondé sur le contact impur passé ? Les auteurs qui donnent des réponses différentes ne se disputent pas sur l’existence initiale de la souillure, mais sur la portée de sa disparition.",
+        "La réponse demande de lire attentivement les avis, car elle ne se résume pas à un slogan sur la propreté de l’eau. Certains s’appuient sur la disparition de la cause sensible du jugement ; d’autres accordent davantage de poids à la certitude initiale d’une contamination. Al-Hattâb va examiner la façon dont les auteurs antérieurs ont transmis ces positions. Nous devons conserver la différence entre une eau devenue claire et la question juridique de sa capacité à purifier."
+      ],
+      "steps": [
+        {
+          "label": "La disparition est spontanée",
+          "text": "Le scénario exclut ici l’ajout abondant d’eau pure et l’intervention d’une autre matière."
+        },
+        {
+          "label": "Le fait initial reste établi",
+          "text": "On savait que l’eau avait été modifiée par une impureté, ce qui distingue le cas du simple doute."
+        },
+        {
+          "label": "Deux façons de raisonner seront confrontées",
+          "text": "Certains examinent l’état sensible actuel, d’autres maintiennent le poids du jugement antérieur."
+        },
+        {
+          "label": "Aucune réponse automatique n’est donnée",
+          "text": "Al-Hattâb rapporte des divergences et vérifie les transmissions avant de privilégier un raisonnement."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — que signifie une disparition du changement « d’elle-même » ",
+        "text": "Une cuve a été altérée à la suite d’une souillure. Personne n’y touche et, plusieurs jours après, l’odeur n’est plus perceptible. Faut-il appliquer la même règle qu’à une cuve remplie d’eau nouvelle ? La question n’est pas celle de savoir si les deux cuves se ressemblent aujourd’hui, mais si le moyen de disparition a une portée juridique. L’histoire est inventée pour éclairer le débat et ne certifie pas la potabilité."
+      },
+      "takeaway": "La disparition spontanée de l’altération constitue le cœur du désaccord. La présentation des savants exige de distinguer l’état présent de l’eau et la certitude de son histoire passée.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, présentation du cas de disparition spontanée. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "partial-withdrawal",
+      "title": "Et si l’on retire une partie de l’eau sans renouveler le bassin ?",
+      "eyebrow": "09 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "ومنه ما إذا نزع من الماء الذي لا مادة له بعضه فزال تغيره",
+        "translation": "« Cela comprend aussi le cas où l’on retire une partie d’une eau sans alimentation et où son changement disparaît. »",
+        "sourceLabel": "Al-Hattâb, exemple du retrait partiel d’une réserve sans apport, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Le raisonnement mérite d’être exposé lentement : retirer une partie du contenu peut diminuer ou faire disparaître certaines propriétés observées sans apporter d’eau extérieure. Dans l’école, les auteurs ont discuté la qualité puri",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Al-Hattâb précise un cas qui pourrait facilement être mal classé. Une réserve n’a aucune source d’alimentation. On en retire une partie de l’eau, puis le changement cesse d’être perceptible dans ce qui reste. Il ne s’agit pas du puits dont l’eau retirée a été remplacée par un apport nouveau. C’est précisément pour cela que le commentateur range cette situation auprès des cas où l’on ne peut pas invoquer simplement l’apport abondant d’eau pure.",
+        "Le raisonnement mérite d’être exposé lentement : retirer une partie du contenu peut diminuer ou faire disparaître certaines propriétés observées sans apporter d’eau extérieure. Dans l’école, les auteurs ont discuté la qualité purifiante du reste. La réponse dépend de l’importance accordée à la disparition effective du changement ou à la certitude qu’une matière impure avait auparavant modifié l’ensemble. Dire « on a puisé » ne suffit donc pas à identifier le jugement."
+      ],
+      "steps": [
+        {
+          "label": "La réserve ne possède pas de source",
+          "text": "Cette condition permet de la distinguer du puits alimenté de la lecture précédente."
+        },
+        {
+          "label": "Le retrait est seulement partiel",
+          "text": "Une partie du contenu demeure dans la réserve après l’opération."
+        },
+        {
+          "label": "Aucun apport abondant n’a renouvelé l’eau",
+          "text": "Le mécanisme de disparition n’appartient pas automatiquement au premier cas jugé purifiant selon l’accord cité."
+        },
+        {
+          "label": "Le sort de ce qui reste est disputé",
+          "text": "Al-Hattâb rattache le cas à la divergence sur une eau initialement altérée puis redevenue normale."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — et si l’on retire une partie de l’eau sans renouveler le bassin ",
+        "text": "Deux personnes puisent dans des bassins auparavant altérés. Le premier est un puits alimenté, où de l’eau nouvelle entre en même temps que le retrait. Le second est une citerne fermée, dont on retire seulement quelques seaux. Les deux gestes s’appellent « puiser », mais ils ne provoquent pas la même transformation. Le scénario fictif montre pourquoi al-Hattâb prend soin de décrire la présence ou l’absence de source."
+      },
+      "takeaway": "Retirer une partie d’une réserve sans alimentation n’est pas identique à renouveler un puits par de l’eau pure. Al-Hattâb le rattache aux cas où deux avis existent.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, exemple du retrait partiel d’une réserve sans apport. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "two-positions",
+      "title": "Quels sont les deux avis que Khalîl met face à face ?",
+      "eyebrow": "10 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "استحسن بعض الشيوخ القول بالطهورية ورجح ابن يونس عدم الطهورية",
+        "translation": "« Certains maîtres ont jugé favorablement l’avis de la qualité purifiante ; le non-retour à cette qualité est attribué ici à Ibn Yûnus. »",
+        "sourceLabel": "Al-Hattâb, présentant les avis puis discutant leur attribution à Ibn Yûnus, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Mais al-Hattâb nous apprend aussitôt à ne pas faire cela. Il rapporte qu’Ibn Ghâzî et Ibn Marzûq contestent le fondement de l’attribution à Ibn Yûnus. Ils ne prétendent pas que la discussion n’a jamais existé ; ils demandent si l’",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Ce passage concentre une grande partie du débat. D’un côté, certains maîtres estiment que l’eau doit retrouver son caractère purifiant lorsque l’altération qu’ils jugeaient déterminante a disparu. De l’autre, une position conservant le jugement antérieur est présentée comme préférable dans la formulation de Khalîl et associée ici à Ibn Yûnus. À ce stade, le lecteur pourrait croire que les deux camps sont parfaitement identifiés et qu’il suffit de mémoriser leurs noms.",
+        "Mais al-Hattâb nous apprend aussitôt à ne pas faire cela. Il rapporte qu’Ibn Ghâzî et Ibn Marzûq contestent le fondement de l’attribution à Ibn Yûnus. Ils ne prétendent pas que la discussion n’a jamais existé ; ils demandent si l’on a vraiment retrouvé chez cet auteur un propos portant sur ce cas précis. Ce souci de la source est une leçon majeure : la célébrité d’une attribution ne remplace pas la vérification de l’objet et du contexte."
+      ],
+      "steps": [
+        {
+          "label": "Le premier avis reconnaît la qualité purifiante retrouvée",
+          "text": "Certains maîtres l’ont estimé préférable lorsque la cause observable de l’altération a disparu."
+        },
+        {
+          "label": "Le second maintient l’absence de cette qualité",
+          "text": "La rédaction de Khalîl présente cette solution comme plus forte dans la branche considérée."
+        },
+        {
+          "label": "L’attribution à Ibn Yûnus est contestée",
+          "text": "Al-Hattâb rapporte des critiques sur la possibilité de tirer cet avis de son texte conservé."
+        },
+        {
+          "label": "La divergence et la transmission sont deux questions distinctes",
+          "text": "On peut reconnaître que deux avis ont circulé tout en discutant le nom de l’auteur auquel l’un est attribué."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — quels sont les deux avis que khalîl met face à face ",
+        "text": "Un étudiant prépare un exposé et écrit : « Ibn Yûnus a tranché cette question, fin de la discussion. » Son enseignant lui demande de lire les lignes suivantes chez al-Hattâb : Ibn Ghâzî et Ibn Marzûq s’interrogent précisément sur cette attribution. L’étudiant découvre qu’une citation et son classement dans l’école exigent deux vérifications. Ce dialogue est inventé ; la controverse des auteurs, elle, est documentée."
+      },
+      "takeaway": "Les deux avis sur la qualité purifiante sont réellement exposés, mais la transmission à Ibn Yûnus fait l’objet d’une contestation explicite. Il faut enseigner la divergence et la critique de source ensemble.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, présentant les avis puis discutant leur attribution à Ibn Yûnus. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "ibn-ghazi",
+      "title": "Pourquoi Ibn Ghâzî conteste-t-il la citation d’Ibn Yûnus ?",
+      "eyebrow": "11 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "فاعترض عليه ابن غازي فيما ذكره عن ابن يونس",
+        "translation": "« Ibn Ghâzî lui objecta ce qu’il avait rapporté d’Ibn Yûnus. »",
+        "sourceLabel": "Al-Hattâb, rapportant la critique de source d’Ibn Ghâzî, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Si l’on cite une opinion formulée pour un cas de mélange et qu’on l’applique sans explication au cas d’un changement spontané, on risque de donner à un auteur des paroles qu’il n’a pas prononcées. Al-Hattâb conserve l’objection au",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn Ghâzî ne se contente pas d’affirmer qu’il préfère une autre réponse. Il examine le passage que l’on dit emprunté à Ibn Yûnus et objecte qu’on n’y trouve pas directement la question de l’eau dont l’altération disparaît spontanément. Le propos retrouvé concerne une autre difficulté, celle de la disparition d’une souillure par l’intervention d’une eau ajoutée. La différence est capitale, puisque le chapitre repose précisément sur la distinction entre les moyens de disparition.",
+        "Si l’on cite une opinion formulée pour un cas de mélange et qu’on l’applique sans explication au cas d’un changement spontané, on risque de donner à un auteur des paroles qu’il n’a pas prononcées. Al-Hattâb conserve l’objection au lieu de la dissimuler derrière la formulation de Khalîl. Voilà un enseignement rare pour un lecteur débutant : même à l’intérieur d’un madhhab, les grands commentateurs examinent les chaînes de transmission des avis et ne s’interdisent pas d’en discuter la pertinence."
+      ],
+      "steps": [
+        {
+          "label": "La critique porte d’abord sur une attribution",
+          "text": "Ibn Ghâzî demande si l’énoncé d’Ibn Yûnus correspond réellement à la question traitée."
+        },
+        {
+          "label": "Les deux cas ne sont pas équivalents",
+          "text": "La disparition par l’eau ajoutée diffère de la disparition spontanée d’une altération."
+        },
+        {
+          "label": "Un transfert de jugement doit être annoncé",
+          "text": "Passer d’une question à une autre par analogie n’est pas la même chose que citer une parole directe."
+        },
+        {
+          "label": "Al-Hattâb donne de la place à cette objection",
+          "text": "Il ne transforme pas la rédaction du Mukhtasar en preuve indiscutable de toutes ses références."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — pourquoi ibn ghâzî conteste-t-il la citation d’ibn yûnus ",
+        "text": "Un élève trouve dans un livre une réponse sur un liquide nettoyé à l’aide d’eau ajoutée. Il veut la citer comme preuve qu’un liquide redevenu normal sans aucun ajout reste impur. Son professeur lui demande de relire le cas d’origine : parle-t-il vraiment de la même chose ? L’exemple fictif reproduit le problème de méthode soulevé par Ibn Ghâzî, sans décider lui-même du verdict final."
+      },
+      "takeaway": "Ibn Ghâzî attire l’attention sur un possible déplacement du propos d’Ibn Yûnus vers un cas différent. Une attribution doctrinale ne suffit pas sans contrôle du contexte où elle a été formulée.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Al-Hattâb, rapportant la critique de source d’Ibn Ghâzî. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    },
+    {
+      "id": "ibn-marzouq",
+      "title": "Ibn Marzûq : quelle différence entre une citation et une analogie ?",
+      "eyebrow": "12 · LECTURE DU COMMENTAIRE",
+      "passage": {
+        "arabic": "إن المصنف إن حمل كلام ابن يونس على نفس ما نحن فيه فهو وهم",
+        "translation": "« Si l’auteur applique les paroles d’Ibn Yûnus directement à notre question, c’est une erreur. »",
+        "sourceLabel": "Ibn Marzûq, critique transmise et examinée par al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118.",
+        "explanation": "Le passage est replacé dans la discussion d’al-Hattâb et l’on distingue l’affirmation de son auteur, la transmission et les objections rapportées. Al-Hattâb indique avoir lu le commentaire d’Ibn Marzûq et y avoir retrouvé ce sens. Il ne présente donc pas la critique comme un simple bruit transmis sans examen. L’élève doit ici distinguer trois choses : la parole conservée d’u",
+        "sourceUrl": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+      },
+      "paragraphs": [
+        "Ibn Marzûq formule la difficulté avec netteté. Si Khalîl a cru que les mots d’Ibn Yûnus concernaient directement le cas étudié, il y a selon lui une erreur de référence. S’il voulait seulement faire un raisonnement par rapprochement, ce raisonnement lui semble éloigné. La remarque peut étonner celui qui pense que les textes classiques doivent toujours être répétés sans discussion. En réalité, c’est précisément leur étude sérieuse qui exige de regarder ce qu’un auteur a réellement écrit.",
+        "Al-Hattâb indique avoir lu le commentaire d’Ibn Marzûq et y avoir retrouvé ce sens. Il ne présente donc pas la critique comme un simple bruit transmis sans examen. L’élève doit ici distinguer trois choses : la parole conservée d’un ancien juriste, l’interprétation qu’en propose un autre et l’analogie qu’il pourrait établir avec un cas voisin. Mélanger ces niveaux revient à fabriquer une autorité plus forte que celle du texte lui-même."
+      ],
+      "steps": [
+        {
+          "label": "Une citation directe engage l’auteur cité",
+          "text": "Il faut pouvoir montrer que ses mots portent bien sur la question étudiée."
+        },
+        {
+          "label": "L’analogie exige un raisonnement supplémentaire",
+          "text": "Transposer un avis vers un cas voisin ne permet pas de le présenter comme la parole littérale de l’ancien maître."
+        },
+        {
+          "label": "Ibn Marzûq critique les deux lectures possibles",
+          "text": "La première lui paraît erronée, la seconde trop éloignée pour être employée sans réserve."
+        },
+        {
+          "label": "Al-Hattâb signale sa propre vérification",
+          "text": "Il dit avoir consulté une partie du commentaire d’Ibn Marzûq et en confirmer l’orientation."
+        }
+      ],
+      "example": {
+        "title": "Mise en situation — ibn marzûq : quelle différence entre une citation et une analogie ",
+        "text": "Une personne lit dans les notes d’un étudiant : « Ibn Yûnus a dit exactement ceci pour l’eau laissée au repos. » Elle lui demande de montrer la citation d’origine. Il trouve seulement un passage sur un autre mécanisme et explique qu’il a fait un rapprochement. La formule doit alors changer : il s’agit d’une déduction qu’il faut défendre, pas d’une citation directe. Cette situation est inventée pour exercer la rigueur de lecture."
+      },
+      "takeaway": "Ibn Marzûq refuse de confondre propos direct et analogie supposée. Al-Hattâb transmet cette critique et montre qu’une autorité ancienne doit être citée dans son domaine exact.",
+      "sourceNote": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya, texte arabe en ligne. Le passage cite ou discute Ibn Marzûq, critique transmise et examinée par al-Hattâb. L’exemple est fictif et ne constitue ni une fatwa ni une garantie sanitaire."
+    }
+  ],
+  "lexicon": [],
+  "quiz": [
+    {
+      "question": "Une eau redevenue claire est-elle automatiquement purifiante ?",
+      "choices": [
+        "Toute eau claire est forcément purifiante",
+        "Le mode de disparition détermine les questions à examiner",
+        "Le texte ne connaît aucune divergence"
+      ],
+      "answer": 1,
+      "explanation": "La disparition des signes d’une altération ne suffit pas, dans ce passage, à écarter toutes les questions. Khalîl distingue plusieurs causes possibles et al-Hattâb vérifie les avis qui s’y rapportent. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Pourquoi al-Hattâb commence-t-il par séparer plusieurs situations ?",
+      "choices": [
+        "Toutes les causes sont nécessairement équivalentes",
+        "L’apport d’eau pure et la disparition sans apport doivent être séparés",
+        "La quantité ajoutée ne compte jamais"
+      ],
+      "answer": 1,
+      "explanation": "Al-Hattâb classe les cas avant de juger. L’ajout abondant d’eau pure constitue une catégorie distincte de la disparition spontanée ou de celle obtenue par un autre moyen. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Que signifie l’accord rapporté lorsque l’on ajoute beaucoup d’eau pure ?",
+      "choices": [
+        "Toute disparition spontanée fait l’unanimité",
+        "L’accord concerne le cas précis d’un apport abondant",
+        "L’accord interdit les ablutions avec toute eau de puits"
+      ],
+      "answer": 1,
+      "explanation": "L’accord transmis par al-Hattâb est limité au cas de l’apport abondant d’eau pure qui fait disparaître l’altération. Les autres modes de disparition restent discutés. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Pourquoi le puits dont on retire de l’eau sert-il d’exemple ?",
+      "choices": [
+        "Un seul seau résout nécessairement tous les cas",
+        "Le puits est alimenté et le changement doit avoir disparu",
+        "Le puits est toujours dépourvu d’alimentation"
+      ],
+      "answer": 1,
+      "explanation": "Le puits sert à illustrer l’eau renouvelée jusqu’à disparition de l’altération. Le mécanisme d’alimentation compte, et le texte ne donne pas un seuil de seaux garantissant la potabilité. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Que change une pluie abondante dans une citerne ?",
+      "choices": [
+        "La pluie et l’absence totale d’apport sont toujours identiques",
+        "La pluie apporte de l’eau pure en quantité",
+        "La couleur de l’eau n’a jamais changé"
+      ],
+      "answer": 1,
+      "explanation": "La pluie abondante est un cas d’apport d’eau, non une disparition sans cause extérieure. Al-Hattâb la range auprès du renouvellement du puits et la distingue de la simple attente. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Pourquoi Abû Muhammad critique-t-il celui qui attend avant d’enlever la carcasse ?",
+      "choices": [
+        "Le livre ordonne de toujours laisser l’animal dans l’eau",
+        "La critique porte sur le retard à retirer la carcasse",
+        "Abû Muhammad interdit toute pluie"
+      ],
+      "answer": 1,
+      "explanation": "Le reproche rapporté concerne le fait de retarder le retrait de l’animal mort. La question du renouvellement de l’eau ne doit pas être utilisée pour justifier cette négligence. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Et si l’on fait disparaître l’altération avec autre chose que de l’eau ?",
+      "choices": [
+        "Toute poudre est identique à de l’eau pure",
+        "La matière ajoutée doit être étudiée séparément",
+        "L’ajout d’un produit règle automatiquement le problème"
+      ],
+      "answer": 1,
+      "explanation": "L’ajout d’une matière autre que l’eau ouvre une branche distincte. L’accord sur l’apport abondant d’eau pure ne peut pas être transféré sans examen à ce nouveau mécanisme. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Que signifie une disparition du changement « d’elle-même » ?",
+      "choices": [
+        "Elle fait l’unanimité sans condition",
+        "Elle suscite une divergence sur le retour de la qualité purifiante",
+        "Elle signifie toujours un apport de pluie"
+      ],
+      "answer": 1,
+      "explanation": "La disparition spontanée de l’altération constitue le cœur du désaccord. La présentation des savants exige de distinguer l’état présent de l’eau et la certitude de son histoire passée. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Et si l’on retire une partie de l’eau sans renouveler le bassin ?",
+      "choices": [
+        "Tout retrait est un ajout abondant d’eau pure",
+        "Le retrait partiel d’une réserve fermée reste discuté",
+        "Le puisage ne peut jamais modifier l’aspect"
+      ],
+      "answer": 1,
+      "explanation": "Retirer une partie d’une réserve sans alimentation n’est pas identique à renouveler un puits par de l’eau pure. Al-Hattâb le rattache aux cas où deux avis existent. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Quels sont les deux avis que Khalîl met face à face ?",
+      "choices": [
+        "Une unanimité incontestable est établie",
+        "Deux avis sont rapportés et l’attribution à Ibn Yûnus est discutée",
+        "Al-Hattâb interdit de consulter les textes anciens"
+      ],
+      "answer": 1,
+      "explanation": "Les deux avis sur la qualité purifiante sont réellement exposés, mais la transmission à Ibn Yûnus fait l’objet d’une contestation explicite. Il faut enseigner la divergence et la critique de source ensemble. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Pourquoi Ibn Ghâzî conteste-t-il la citation d’Ibn Yûnus ?",
+      "choices": [
+        "Il nie l’existence de toute divergence dans le fiqh",
+        "Il conteste que le texte cité traite directement le même cas",
+        "Il exige de toujours ajouter une poudre"
+      ],
+      "answer": 1,
+      "explanation": "Ibn Ghâzî attire l’attention sur un possible déplacement du propos d’Ibn Yûnus vers un cas différent. Une attribution doctrinale ne suffit pas sans contrôle du contexte où elle a été formulée. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    },
+    {
+      "question": "Ibn Marzûq : quelle différence entre une citation et une analogie ?",
+      "choices": [
+        "Une déduction peut toujours être présentée comme une citation exacte",
+        "La citation directe et l’analogie sont deux démarches distinctes",
+        "Les textes d’Ibn Yûnus ne doivent jamais être lus"
+      ],
+      "answer": 1,
+      "explanation": "Ibn Marzûq refuse de confondre propos direct et analogie supposée. Al-Hattâb transmet cette critique et montre qu’une autorité ancienne doit être citée dans son domaine exact. La correction vaut pour la situation précisément examinée ; les voies de disparition et les avis des maîtres ne doivent pas être confondus."
+    }
+  ],
+  "quote": {
+    "arabic": "وإن كان لا يلزم من عدم الوجدان عدم الوجود",
+    "meaning": "Dans la discussion critique des transmissions, al-Hattâb rappelle que ne pas avoir retrouvé une opinion dans les sources consultées ne démontre pas automatiquement qu’elle n’a jamais existé. Cette prudence évite de transformer un défaut de documentation en certitude historique.",
+    "label": "Al-Hattâb, Mawâhib al-Jalîl, tome 1, p. 118, après les observations d’Ibn Ghâzî sur les transmissions antérieures."
+  },
+  "sources": [
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, p. 118, Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/118?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, p. 119, Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/119?lang=ar"
+    },
+    {
+      "label": "Mawâhib al-Jalîl, tome 1, p. 120, Dâr al-Kutub al-‘Ilmiyya",
+      "url": "https://ablibrary.net/book_content/b/4471/120?lang=ar"
+    },
+    {
+      "label": "Islamweb — Mawâhib al-Jalîl, discussion du puisage et de la disparition de l’altération",
+      "url": "https://islamweb.net/ar/library/content/19/127/"
+    },
+    {
+      "label": "Usul — texte et notice de Mawâhib al-Jalîl",
+      "url": "https://usul.ai/ar/t/mawahib-al-jalil-fi-sharh-mukhtasar-khalil"
+    }
+  ]
+},
   "nextChapter": {
     "arabic": "كتاب الطهارة",
-    "title": "Quand une eau altérée redevient-elle purifiante ?",
-    "status": "À préparer — fiche 16 non publiée"
+    "title": "Comment établit-on une impureté par le témoignage ?",
+    "status": "À préparer — fiche 17 non publiée"
   }
 };
