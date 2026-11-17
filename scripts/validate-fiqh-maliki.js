@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Fiqh malikite : contrôle des treize fiches, fondées sur les passages vérifiés d'al-Hattâb.
+// Fiqh malikite : contrôle des quatorze fiches, fondées sur les passages vérifiés d'al-Hattâb.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const read=p=>fs.readFileSync(p,'utf8');
 const data=read('fiqh_maliki_data.js'),view=read('js/components/MalikiFiqhView.js'),css=read('css/fiqh-maliki.css');
@@ -500,9 +500,41 @@ assert.ok(book.sunHeatedWater.quote.label.includes('Khalîl'),'Citation de Khal�
 assert.ok(book.sunHeatedWater.sources.some(x=>x.url===book.book.sourceUrl),'Lien Usul fiche 13 absent');
 assert.ok(book.sunHeatedWater.sources.some(x=>x.url.includes('/19/120/')),'Passage Islamweb fiche 13 absent');
 assert.ok(book.sunHeatedWater.sources.some(x=>x.url.includes('/4471/110')),'Source imprimée distincte fiche 13 absente');
-assert.ok(book.nextChapter.status.includes('fiche 14 non publiée'));
-assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater'].filter(key=>book[key]?.status==='disponible').length,13,'Treize fiches réellement accessibles');
-for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
+// Fiche 14 : la chaleur de l’eau, le sens de la difficulté et les avis sur l’entrée au hammam.
+assert.equal(book.heatedWaterHammam.id,'heated-water-hammam-14');
+assert.equal(book.heatedWaterHammam.number,'14');
+assert.equal(book.heatedWaterHammam.status,'disponible');
+assert.equal(book.heatedWaterHammam.goals.length,19,'Dix-neuf objectifs attendus dans la fiche 14');
+assert.equal(book.heatedWaterHammam.sections.length,19,'Dix-neuf lectures commentées attendues dans la fiche 14');
+assert.deepEqual(Array.from(book.heatedWaterHammam.sections,x=>x.id),["heated-with-najasa","malik-ashhab","ibn-abd-salam-climate","mujahid-comfort","ibn-imam-no-hardship","hardship-reward","ubbi-warming","hammam-three-cases","private-hammam","uncovered-users","necessary-withdrawal","covered-with-covered","malik-basin-purity","bayyan-basin-risk","ibn-shas-conditions","obligatory-recommended","custom-seasons","women-bath-opinions","weak-hammam-report"],'Ordre des sections de la fiche 14 modifié');
+assert.deepEqual(Array.from(book.heatedWaterHammam.sections,x=>x.passage.arabic),["يكره الماء المسخن بالنجاسة وإن لم يتغير","لا بأس بالوضوء بالماء المسخن وأنا أفعله كثيرا","وما وقع لمالك رحمه الله من تفضيل البارد على المسخن إنما ذلك لكونه يشد الأعضاء ولنشاط النفس بعده في إقليم الحجاز وحرارة البلاد","ونقل في البيان كراهته عن مجاهد","لأن الله تعالى لم يطلب من عباده المشاق","فإن لم تحصل إلا بمشقة عظم الأجر لقرب الإخلاص","وتسخين الماء لدفع برده ليقوى على العبادة لا يمنع لحصول الثواب المذكور","وأما دخول الحمام فوقع فيه اختلاف في الروايات وفتاوى الشيوخ","الأول إذا كان خاليا","الثاني إذا كان غير مستتر أو معه من لا يستتر","إلا أن يدخله غاضا بصره لإخراجه لا لمقامه فيه","لا بأس به وتركه أحسن","نعم إذا كان طاهرا","لأنه يسخن بالأقذار والنجاسات ولاختلاف الأيدي","وعلى القول بالجواز يصح بعشرة شروط ذكرها ابن شاس","هذه آداب منها واجب ومنها مندوب","يختص كل زمان بعادته وعرفه","ولا تدخله امرأة إلا من علة","لكن ذكر النووي في شرح المهذب في كتاب الحج أنه حديث ضعيف"],'Citations arabes de la fiche 14 modifiées');
+for(const part of book.heatedWaterHammam.sections){
+ assert.ok(part.paragraphs.length===2&&part.paragraphs.every(p=>p.length>=450),'Développement insuffisant : '+part.id);
+ assert.ok(part.passage.arabic&&part.passage.translation&&part.passage.sourceLabel.length>=50&&part.passage.explanation.length>=130,'Citation, attribution ou contexte absents : '+part.id);
+ assert.ok(part.passage.sourceUrl.includes('/4471/11'),'Référence primaire page 112-114 absente : '+part.id);
+ assert.ok(part.steps.length===4&&part.steps.every(x=>x.label&&x.text.length>=80),'Étapes guidées insuffisantes : '+part.id);
+ assert.ok(part.example?.title&&part.example.text.length>=360,'Exemple pédagogique insuffisant : '+part.id);
+ assert.ok(part.takeaway.length>=155&&part.sourceNote.includes('tome 1'),'Conclusion ou source manquante : '+part.id);
+}
+assert.ok(book.heatedWaterHammam.sections[1].passage.sourceLabel.includes('Mâlik'),'Parole de Mâlik mal attribuée');
+assert.ok(book.heatedWaterHammam.sections[4].passage.sourceLabel.includes('Ibn al-Imâm'),'Discussion de la difficulté non attribuée');
+assert.ok(book.heatedWaterHammam.sections[7].passage.sourceLabel.includes('Ibn Rushd'),'Trois cas du hammam non attribués');
+assert.ok(book.heatedWaterHammam.sections[10].passage.sourceLabel.includes('Ibn al-Qâsim'),'Prélèvement nécessaire non attribué');
+assert.ok(book.heatedWaterHammam.sections[14].passage.sourceLabel.includes('Ibn Shâs'),'Dix recommandations non attribuées');
+assert.ok(book.heatedWaterHammam.sections[15].passage.sourceLabel.includes('Al-Hattâb'),'Obligatoire et recommandé mal attribués');
+assert.ok(book.heatedWaterHammam.sections[17].passage.sourceLabel.includes('Risâla'),'Discussion des femmes sans source');
+assert.ok(book.heatedWaterHammam.sections[18].passage.sourceLabel.includes('Nawawî'),'Critique du récit non attribuée');
+assert.equal(book.heatedWaterHammam.lexicon.length,22,'Vingt-deux entrées attendues dans le lexique');
+assert.equal(new Set(book.heatedWaterHammam.lexicon.map(x=>x.term)).size,22,'Doublons lexique fiche 14');
+assert.ok(book.heatedWaterHammam.lexicon.every(x=>x.arabic&&x.term&&x.definition.length>=120),'Définition du lexique trop courte');
+assert.equal(book.heatedWaterHammam.quiz.length,19,'Dix-neuf questions attendues');
+for(const q of book.heatedWaterHammam.quiz)assert.ok(q.choices.length===3&&q.answer>=0&&q.answer<3&&q.explanation.length>=120,'Question ou correction insuffisante');
+assert.ok(book.heatedWaterHammam.quote.arabic.includes('لَمْ يَطْلُبْ'),'Citation principale de la difficulté absente');
+assert.ok(book.heatedWaterHammam.sources.some(x=>x.url===book.book.sourceUrl),'Référence Usul absente');
+for(const x of ['/4471/112','/4471/113','/4471/114','/19/121/','/19/122/'])assert.ok(book.heatedWaterHammam.sources.some(s=>s.url.includes(x)),'Référence primaire manquante : '+x);
+assert.ok(book.nextChapter.status.includes('fiche 15 non publiée'));
+assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam'].filter(key=>book[key]?.status==='disponible').length,14,'Quatorze fiches réellement accessibles');
+for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
 for(const token of ['fiqh-m-goals','fiqh-m-passage','fiqh-m-passage-translation','fiqh-m-breakdown','fiqh-m-case','fiqh-m-takeaway','section.passage','section.steps','section.example'])assert.ok(view.includes(token),'Pédagogie guidée absente : '+token);
@@ -521,4 +553,4 @@ for(const p of ['fiqh_maliki_data.js','MalikiFiqhView.js','fiqh-maliki.css'])ass
 const m=sw.match(/const APP_SHELL\s*=\s*(\[[\s\S]*?\]);/);assert.ok(m);
 const shell=vm.runInNewContext(m[1]);assert.ok(shell.length>=65&&shell.length<70&&new Set(shell).size===shell.length);
 assert.ok(!html.includes('BeliefLearningView.js')&&!sw.includes('belief_course_data.js'));
-console.log('Fiqh malikite : 13 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; fiche 13 = 15 lectures commentées, 20 termes, 16 questions ; '+shell.length+' ressources PWA.');
+console.log('Fiqh malikite : 14 fiches vérifiées ; fiche 01 = 4 étapes ; fiche 02 = 5 lectures ; fiche 03 = 6 lectures guidées, 10 termes, 8 questions ; fiche 04 = 6 lectures guidées, 10 termes, 8 QCM ; fiche 05 = 7 lectures guidées, 12 termes, 9 questions ; fiche 06 = 7 lectures guidées, 12 termes, 9 questions ; fiche 07 = 7 lectures guidées, 12 termes, 9 questions ; fiche 08 = 9 lectures commentées, 14 termes, 12 questions ; fiche 09 = 10 lectures commentées, 15 termes, 12 questions ; fiche 10 = 9 lectures commentées, 15 termes, 12 questions ; fiche 11 = 11 lectures commentées, 18 termes, 12 questions ; fiche 12 = 14 lectures commentées, 20 termes, 17 questions ; fiche 13 = 15 lectures commentées, 20 termes, 16 questions ; fiche 14 = 19 lectures commentées, 22 termes, 19 questions ; '+shell.length+' ressources PWA.');
