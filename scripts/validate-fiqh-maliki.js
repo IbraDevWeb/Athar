@@ -480,7 +480,7 @@ for(const part of book.sunHeatedWater.sections){
  assert.ok(part.passage.sourceUrl.includes('/19/120/'),'Lien vers le passage original absent : '+part.id);
  assert.ok(part.steps.length===4 && part.steps.every(st=>st.label && st.text.length>=80),'Décorticage incomplet : '+part.id);
  assert.ok(part.example?.title && part.example.text.length>=345,'Exemple pédagogique insuffisant : '+part.id);
- assert.ok(part.takeaway.length>=155 && part.sourceNote.includes('t. 1'),'Synthèse ou source incomplète : '+part.id);
+ assert.ok(part.takeaway.length>=155 && /tome 1|t\\. 1/.test(part.sourceNote),'Synthèse ou source incomplète : '+part.id);
 }
 assert.ok(book.sunHeatedWater.sections[0].passage.sourceLabel.includes('Khalîl'),'Texte de Khalîl mal attribué');
 assert.ok(book.sunHeatedWater.sections[1].passage.sourceLabel.includes('Ibn al-Hâjib'),'Avis d’Ibn al-Hâjib non attribué');
