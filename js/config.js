@@ -48,7 +48,7 @@ tailwind.config = {
 };
 
 (() => {
-    const APP_VERSION = 'athar-pro-v105-fiqh-fiche-16-guidee-v1';
+    const APP_VERSION = 'athar-pro-v106-fiqh-fiches-15-16-lisibles-v2';
 
     const setMeta = (selector, content) => {
         const element = document.querySelector(selector);
