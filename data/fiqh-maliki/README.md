@@ -1,6 +1,6 @@
-# Fiqh malikite · Parcours 01–16
+# Fiqh malikite · Parcours 01–17
 
-**État au 17 novembre 2026 : seize fiches publiées, les fiches 01 à 16 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
+**État au 17 novembre 2026 : dix-sept fiches publiées, les fiches 01 à 17 développées en cours guidés à partir de passages identifiés.** Cette rubrique demeure un support d'étude progressive du fiqh malikite à partir de passages repérés dans **Mawâhib al-Jalîl fî Sharh Mukhtasar Khalîl**. Elle ne prétend pas être un traité complet et ne délivre pas de fatwas.
 
 ## Livre de référence et méthode
 
@@ -388,22 +388,22 @@ La fin explique les deux avis chez **Ibn al-Fâkihânî**, la terre et l’argil
 
 **Sources primaires :** [t. 1, p. 118](https://ablibrary.net/book_content/b/4471/118?lang=ar), [p. 119](https://ablibrary.net/book_content/b/4471/119?lang=ar), [p. 120](https://ablibrary.net/book_content/b/4471/120?lang=ar). Recoupement : [Islamweb, Mawâhib al-Jalîl](https://islamweb.net/ar/library/content/19/127/).
 
-La clé de lecture indépendante est `athar_fiqh_maliki_eaux_16_done`. Les marques des quinze premières fiches demeurent inchangées ; la fiche 17 est réservée au témoignage établissant une impureté.
+La clé de lecture indépendante est `athar_fiqh_maliki_eaux_16_done` et `athar_fiqh_maliki_eaux_17_done`. Les marques des quinze premières fiches demeurent inchangées ; la fiche 17 est réservée au témoignage établissant une impureté.
 
 ## Intégration technique
 
-- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater`, `flowingWater`, `publicBasins`, `limitedWell`, `leftoverWater`, `sunHeatedWater`, `heatedWaterHammam`, `visibleImpurityAndWells` et `restoredWater`).
-- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de seize fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 16, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
+- Données : `fiqh_maliki_data.js` (objets `intro`, `purification`, `naturalWaters`, `waterChanges`, `pureMixtures`, `impureContact`, `usedWater`, `recommendedWater`, `flowingWater`, `publicBasins`, `limitedWell`, `leftoverWater`, `sunHeatedWater`, `heatedWaterHammam`, `visibleImpurityAndWells` `restoredWater` et `witnessAndContact`).
+- Affichage : `js/components/MalikiFiqhView.js`. L’ouverture de la rubrique présente désormais d’abord un **catalogue de dix-sept fiches**, inspiré de l’interface Usûl al-Fiqh : cartes numérotées de 01 à 17, recherche par titre ou contenu et lexique, statistiques (fiches, parties, notions), progression locale en pourcentage, accès « Reprendre » la dernière fiche et ouverture directe d’un cours. Le bouton « Toutes les fiches » renvoie au catalogue sans quitter la rubrique ; la barre latérale du lecteur conserve également le passage direct d'une fiche à l'autre.
 - Interface et mode sombre : `css/fiqh-maliki.css`.
 - Chaque fiche a un **lexique**, un **quiz** et un bouton **« marquer comme lue »** distincts ; les réponses au quiz sont réinitialisées à chaque changement de fiche.
 - Le suivi de lecture reste facultatif et strictement local, sans connexion : clés `athar_fiqh_maliki_intro_01_done`, `athar_fiqh_maliki_tahara_02_done`, `athar_fiqh_maliki_eaux_03_done`, `athar_fiqh_maliki_eaux_04_done`, `athar_fiqh_maliki_eaux_05_done` et `athar_fiqh_maliki_eaux_06_done`, puis `athar_fiqh_maliki_eaux_07_done`, `athar_fiqh_maliki_eaux_08_done` et `athar_fiqh_maliki_eaux_09_done`, puis les nouvelles clés `athar_fiqh_maliki_eaux_10_done`, `athar_fiqh_maliki_eaux_11_done` et `athar_fiqh_maliki_eaux_12_done`, puis `athar_fiqh_maliki_eaux_13_done`, puis `athar_fiqh_maliki_eaux_14_done`, `athar_fiqh_maliki_eaux_15_done` et `athar_fiqh_maliki_eaux_16_done`. La clé `athar_fiqh_maliki_last_lesson` enregistre le dernier cours ouvert pour le bouton « Reprendre ». Les anciennes marques de lecture restent compatibles.
-- Versions de ressources PWA mises à jour (v107) afin de distribuer les nouveaux JS/CSS via le service worker.
+- Versions de ressources PWA mises à jour (v108) afin de distribuer les nouveaux JS/CSS via le service worker.
 - Aucune modification des autres rubriques publiques, du contenu d'Usûl al-Fiqh ou des fiches Tabib.
 
 ## Contrôles prévus
 
-- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, seize fiches, fiches 01 à 16 guidées et présence du catalogue.
-- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, seize quiz (5 questions en fiche 01, 19 en fiche 14, 20 en fiche 15 et 24 en fiche 16), suivi indépendant et sources.
+- `node scripts/validate-fiqh-maliki.js` : structures, sources, attribution des citations, dix-sept fiches, fiches 01 à 17 guidées et présence du catalogue.
+- `node scripts/ux_public_release_browser_test.mjs` : navigation catalogue → fiche → catalogue, recherche et recherche sans résultat, bouton Reprendre, dix-sept quiz (5 questions en fiche 01, 20 en fiche 15, 24 en fiche 16 et 19 en fiche 17), suivi indépendant et sources.
 - Vérifier manuellement le rendu mobile et le fonctionnement hors ligne après un rechargement de la PWA.
 
 **Sources consultées les 16 et 17 novembre 2026.** L'information éditoriale française est une synthèse pédagogique explicitement distinguée des citations arabes.
@@ -432,3 +432,19 @@ Après le retour sur les fiches 15 et 16, la structure des **129 lectures des fi
 **Limite de cette passe :** l’audit a vérifié la présence et l’ordre des textes et amélioré les introductions des fiches 13 et 14 ; il ne constitue pas une réécriture ligne par ligne de toutes les explications et de tous les QCM des fiches 1 à 12, ni une revalidation de chaque citation arabe depuis une nouvelle édition imprimée.
 
 Cache PWA **v107** pour actualiser les ressources de lecture. Sources inchangées dans chaque fiche, dont les pages [110](https://ablibrary.net/book_content/b/4471/110?lang=ar), [111](https://ablibrary.net/book_content/b/4471/111?lang=ar), [112](https://ablibrary.net/book_content/b/4471/112?lang=ar), [113](https://ablibrary.net/book_content/b/4471/113?lang=ar) et [114](https://ablibrary.net/book_content/b/4471/114?lang=ar) du tome 1 de *Mawâhib al-Jalîl*.
+
+## Fiche 17 — Comment établir qu’une eau est souillée ? (17 novembre 2026)
+
+L’étude de *Mawâhib al-Jalîl*, tome 1, se poursuit aux **pages 120–121** dans l’édition Dâr al-Kutub al-‘Ilmiyya. Le nouveau chapitre suit les deux formules de Khalîl « وقبل خبر الواحد إن بين وجها أو اتفقا مذهبا » et « وورود الماء على النجاسة كعكسه ».
+
+**Dix-neuf lectures contextualisées, dix-neuf objectifs, vingt-sept définitions de lexique et dix-neuf QCM corrigés.** Chaque lecture commence par un cas compréhensible avant la citation arabe, puis fournit une traduction, une explication de la citation, deux développements, quatre observations et un exemple final distinct.
+
+Les neuf premières lectures traitent de l’annonce d’une souillure par une seule personne : différence entre une simple accusation et l’explication de sa cause, fiabilité demandée par **al-Mâzarî**, transmission concernant une femme et les catégories historiques du texte, accord ou différence de madhhab, compétence de la personne qui rapporte l’information, constat de pureté chez **al-Bisâtî** et préférence de précaution exprimée par **al-Mâzarî** en l’absence d’informations suffisantes.
+
+Les dix lectures suivantes discutent l’eau versée sur une souillure et l’inverse : changement effectif de l’eau, eau restée inchangée en petite ou grande quantité chez **Ibn al-‘Arabî**, comparaison attribuée à **al-Mâzarî**, objection **d’al-Bisâtî**, conciliation proposée par **al-Hattâb** à partir du mashhûr, cas du hammam chez **Ibn al-Qâsim**, distinction **d’Ibn Rushd** entre souillure certaine et présumée et réserve **d’al-Barzalî**.
+
+**Bibliographie :** [p. 120, texte arabe](https://ablibrary.net/book_content/b/4471/120?lang=ar) ; [p. 121, texte arabe](https://ablibrary.net/book_content/b/4471/121?lang=ar) ; recoupement textuel [Islamweb, témoignage](https://www.islamweb.net/ar/library/content/19/129/) et [Islamweb, eau sur l’impureté](https://www.islamweb.net/ar/library/content/19/130/).
+
+Suivi de lecture distinct : `athar_fiqh_maliki_eaux_17_done`. Les marques des fiches 01–16 sont conservées. La fiche 18 sera consacrée au début du chapitre suivant : la pureté des petits animaux morts dépourvus de sang coulant. Cache PWA **v108**.
+
+La leçon est une explication de textes classiques ; ses scénarios fictifs ne sont ni une fatwa personnelle ni une garantie de potabilité.
