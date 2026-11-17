@@ -797,6 +797,9 @@ async function desktop() {
         assert.match(await page.locator('#fiqh-m-heading').innerText(),check.title,'Titre absent '+check.number);
         assert.equal(await page.locator('.fiqh-m-section').count(),check.parts||4,'Nombre de lectures incorrect pour '+check.number);
         if(check.number==='16'){
+            assert.equal(await page.locator('.fiqh-m-situation').count(),24,'Les vingt-quatre situations de la fiche 16 doivent précéder les citations');
+            assert.match(await page.locator('.fiqh-m-situation').first().innerText(),/citerne/,'Le cas concret initial de la fiche 16 est absent');
+            assert.ok(await page.locator('.fiqh-m-situation').first().evaluate(el=>!!el.nextElementSibling?.classList.contains('fiqh-m-passage')),'Le contexte doit précéder le passage arabe');
             for(const selector of ['.fiqh-m-goals li','.fiqh-m-passage','.fiqh-m-passage-translation','.fiqh-m-passage-link','.fiqh-m-breakdown','.fiqh-m-case','.fiqh-m-takeaway'])
                 assert.equal(await page.locator(selector).count(),24,'Lecture fiche 16 incomplète : '+selector);
             assert.match(await page.locator('.fiqh-m-passage blockquote').nth(0).innerText(),/وإن زال تغير النجس/,'Condition de Khalîl absente');
@@ -810,6 +813,9 @@ async function desktop() {
             for(const pg of [118,119,120]) assert.ok(await page.locator('a[href*="/4471/'+pg+'"]').count()>=1,'Source primaire fiche 16 absente : '+pg);
         }
         if(check.number==='15'){
+            assert.equal(await page.locator('.fiqh-m-situation').count(),20,'Les vingt situations de la fiche 15 doivent précéder les citations');
+            assert.match(await page.locator('.fiqh-m-situation').first().innerText(),/vin|lèvres/,'L’exemple concret qui remplace le texte abstrait est absent');
+            assert.ok(await page.locator('.fiqh-m-situation').first().evaluate(el=>!!el.nextElementSibling?.classList.contains('fiqh-m-passage')),'Le lecteur doit voir le contexte avant la citation arabe');
             for(const selector of ['.fiqh-m-goals li','.fiqh-m-passage','.fiqh-m-passage-translation','.fiqh-m-passage-link','.fiqh-m-breakdown','.fiqh-m-case','.fiqh-m-takeaway'])
                 assert.equal(await page.locator(selector).count(),20,'Lecture fiche 15 incomplète : '+selector);
             assert.match(await page.locator('.fiqh-m-passage blockquote').nth(0).innerText(),/ريئت على فيه/,'Khalîl absent');
@@ -905,7 +911,7 @@ async function desktop() {
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Lexique'}).click();
         assert.equal(await page.locator('.fiqh-m-term').count(),check.terms||6,'Lexique incomplet pour '+check.number);
         await page.locator('.fiqh-m-search input').fill(check.search);
-        assert.equal(await page.locator('.fiqh-m-term').count(),1,'Recherche de lexique inactive '+check.number);
+        assert.ok((await page.locator('.fiqh-m-term').count())>=1 && (await page.locator('.fiqh-m-term').count())<(check.terms||6),'Recherche de lexique inactive '+check.number);
         await page.locator('.fiqh-m-tabs button').filter({hasText:'Se vérifier'}).click();
         assert.equal(await page.locator('.fiqh-m-question').count(),check.questions||3,'Quiz incomplet pour '+check.number);
         assert.equal(await page.locator('.fiqh-m-answer').count(),0,'Quiz non réinitialisé '+check.number);

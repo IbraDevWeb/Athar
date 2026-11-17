@@ -545,7 +545,9 @@ assert.deepEqual(Array.from(book.visibleImpurityAndWells.sections,s=>s.id),[
 ],'Ordre des lectures de la fiche 15 altéré');
 for(const part of book.visibleImpurityAndWells.sections){
  assert.ok(part.paragraphs.length===2&&part.paragraphs.every(x=>x.length>=390),'Lecture trop courte : '+part.id);
- assert.ok(part.passage.arabic&&part.passage.translation&&part.passage.sourceLabel.length>=60&&part.passage.explanation.length>=200,'Attribution ou explication manquante : '+part.id);
+ assert.ok(part.passage.arabic&&part.passage.translation&&part.passage.sourceLabel.length>=60&&part.passage.explanation.length>=120,'Attribution ou explication manquante : '+part.id);
+ assert.ok(part.context.length>=110&&/[?!]/.test(part.context),'Cas de départ peu concret : '+part.id);
+ assert.ok(/[.!?…]$/.test(part.passage.explanation),'Explication sous citation tronquée : '+part.id);
  assert.ok(/\/4471\/11[4567]/.test(part.passage.sourceUrl),'Lien vers la page arabe d’origine manquant : '+part.id);
  assert.ok(part.steps.length===4&&part.steps.every(x=>x.label&&x.text.length>=65),'Décomposition insuffisante : '+part.id);
  assert.ok(part.example.title&&part.example.text.length>=345,'Exemple pédagogique insuffisant : '+part.id);
@@ -578,7 +580,9 @@ assert.deepEqual(Array.from(book.restoredWater.sections,s=>s.id),[
 assert.equal(new Set(book.restoredWater.sections.map(s=>s.id)).size,24,'Identifiants des lectures en doublon');
 for(const part of book.restoredWater.sections){
  assert.ok(part.paragraphs.length===2&&part.paragraphs.every(x=>x.length>=410),'Deux développements longs manquants : '+part.id);
- assert.ok(part.passage.arabic&&part.passage.translation&&part.passage.explanation.length>=200&&part.passage.sourceLabel.length>=50,'Citation, explication ou attribution absente : '+part.id);
+ assert.ok(part.passage.arabic&&part.passage.translation&&part.passage.explanation.length>=120&&part.passage.sourceLabel.length>=50,'Citation, explication ou attribution absente : '+part.id);
+ assert.ok(part.context.length>=110&&/[?!]/.test(part.context),'Situation initiale non expliquée : '+part.id);
+ assert.ok(/[.!?…]$/.test(part.passage.explanation),'Explication sous citation tronquée : '+part.id);
  assert.ok(/\/4471\/1(?:18|19|20)/.test(part.passage.sourceUrl),'Référence primaire page 118-120 absente : '+part.id);
  assert.ok(part.steps.length===4&&part.steps.every(x=>x.label&&x.text.length>=60),'Analyse en quatre étapes incomplète : '+part.id);
  assert.ok(part.example?.title&&part.example.text.length>=350,'Situation concrète insuffisante : '+part.id);
@@ -609,6 +613,9 @@ for(const pg of [118,119,120])assert.ok(book.restoredWater.sources.some(x=>x.url
 
 assert.ok(book.nextChapter.status.includes('fiche 17 non publiée'));
 assert.equal(['intro','purification','naturalWaters','waterChanges','pureMixtures','impureContact','usedWater','recommendedWater','flowingWater','publicBasins','limitedWell','leftoverWater','sunHeatedWater','heatedWaterHammam','visibleImpurityAndWells','restoredWater'].filter(key=>book[key]?.status==='disponible').length,16,'Seize fiches réellement accessibles');
+assert.ok(!book.visibleImpurityAndWells.sections[0].paragraphs[0].startsWith('Après la discussion sur le hammam'),'Ancienne introduction opaque encore présente');
+assert.ok(book.visibleImpurityAndWells.sections[0].paragraphs[0].includes('vient de boire du vin'),'Exemple initial de la bouche souillée absent');
+assert.ok(view.includes('fiqh-m-situation'),'Contexte d’abord requis');
 for(const t of ['role="tablist"','role="tabpanel"','lesson.sections','lesson.value?.lexicon','lesson.quiz','lesson.quote.arabic','lesson.sources','fiqh-m-source-button','fiqh-m-terms','fiqh-m-quiz','localStorage','selectedLessonKey','selectLesson(entry.key)','athar_fiqh_maliki_tahara_02_done','athar_fiqh_maliki_eaux_03_done','athar_fiqh_maliki_eaux_04_done','athar_fiqh_maliki_eaux_05_done','athar_fiqh_maliki_eaux_06_done','athar_fiqh_maliki_eaux_07_done','athar_fiqh_maliki_eaux_08_done','athar_fiqh_maliki_eaux_09_done','athar_fiqh_maliki_eaux_10_done','athar_fiqh_maliki_eaux_11_done','athar_fiqh_maliki_eaux_12_done','athar_fiqh_maliki_eaux_13_done','athar_fiqh_maliki_eaux_14_done','athar_fiqh_maliki_eaux_15_done','athar_fiqh_maliki_eaux_16_done','availableLessons','completedCount','course[entry.key].number','fiqh-m-index','fiqh-m-catalog-card','fiqh-m-index-search','fiqh-m-index-progress','fiqh-m-index-resume','fiqh-m-index-back','fiqh-m-index-grid','filteredLessons','handleBack','athar_fiqh_maliki_last_lesson'])assert.ok(view.includes(t),'Composant incomplet : '+t);
 assert.ok(css.includes('.dark .fiqh-m-root')&&css.includes('@media(max-width:540px)')&&css.includes('prefers-reduced-motion'));
 for(const token of ['.fiqh-m-index-grid','.fiqh-m-catalog-card','.fiqh-m-index-progress','.fiqh-m-index-ring','@media(max-width:610px)']) assert.ok(css.includes(token),'Style catalogue absent : '+token);
