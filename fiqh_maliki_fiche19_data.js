@@ -114,7 +114,7 @@ const ATHAR_MALIKI_FIQH_FICHE_19 = {
       "id": "natural-death",
       "title": "La mort spontanée de l’animal change-t-elle ce jugement ?",
       "eyebrow": "03 · LECTURE COMMENTÉE",
-      "context": "Lors d’une sortie en mer, tu vois flotter un poisson qui semble mort sans intervention humaine. Une personne affirme qu’il est forcément rituellement impur parce que personne ne l’a pêché.",
+      "context": "Lors d’une sortie en mer, tu vois flotter un poisson qui semble mort sans intervention humaine. Une personne affirme qu’il est forcément rituellement impur parce que personne ne l’a pêché. Quelle importance al-Hattâb donne-t-il à la manière dont l’animal marin est mort ?",
       "passage": {
         "arabic": "وسواء مات بنفسه",
         "translation": "« Qu’il soit mort de lui-même. »",
@@ -360,7 +360,7 @@ const ATHAR_MALIKI_FIQH_FICHE_19 = {
       "id": "different-fishers",
       "title": "Le statut du pêcheur est-il décisif pour cette pureté ?",
       "eyebrow": "09 · LECTURE COMMENTÉE",
-      "context": "Un poisson a été capturé par une personne appartenant à une autre religion. Quelqu’un dit que la dépouille doit être considérée comme rituellement impure pour cette seule raison.",
+      "context": "Un poisson a été capturé par une personne appartenant à une autre religion. Quelqu’un dit que la dépouille doit être considérée comme rituellement impure pour cette seule raison. La religion du pêcheur change-t-elle ici la pureté rituelle de la dépouille ?",
       "passage": {
         "arabic": "وسواء صاده مسلم أو كتابي أو مجوسي",
         "translation": "« Qu’il ait été pêché par un musulman, un membre des Gens du Livre ou un mazdéen. »",
